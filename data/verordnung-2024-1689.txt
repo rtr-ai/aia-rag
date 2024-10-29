@@ -372,10 +372,8 @@ Diese Verordnung sollte ab dem 2. August 2026 gelten. Angesichts des unannehmbar
 (180)
 Der Europäische Datenschutzbeauftragte und der Europäische Datenschutzausschuss wurden gemäß Artikel 42 Absätze 1 und 2 der Verordnung (EU) 2018/1725 angehört und haben am 18. Juni 2021 ihre gemeinsame Stellungnahme abgegeben —
 HABEN FOLGENDE VERORDNUNG ERLASSEN:
-KAPITEL I
-ALLGEMEINE BESTIMMUNGEN
-Artikel 1
-Gegenstand
+KAPITEL I: ALLGEMEINE BESTIMMUNGEN
+Artikel 1: Gegenstand
 (1)   Zweck dieser Verordnung ist es, das Funktionieren des Binnenmarkts zu verbessern und die Einführung einer auf den Menschen ausgerichteten und vertrauenswürdigen künstlichen Intelligenz (KI) zu fördern und gleichzeitig ein hohes Schutzniveau in Bezug auf Gesundheit, Sicherheit und die in der Charta verankerten Grundrechte, einschließlich Demokratie, Rechtsstaatlichkeit und Umweltschutz, vor schädlichen Auswirkungen von KI-Systemen in der Union zu gewährleisten und die Innovation zu unterstützen.
 (2)   In dieser Verordnung wird Folgendes festgelegt:
 a)
@@ -392,8 +390,7 @@ f)
 Vorschriften für die Marktbeobachtung sowie die Governance und Durchsetzung der Marktüberwachung;
 g)
 Maßnahmen zur Innovationsförderung mit besonderem Augenmerk auf KMU, einschließlich Start-up-Unternehmen.
-Artikel 2
-Anwendungsbereich
+Artikel 2: Anwendungsbereich
 (1)   Diese Verordnung gilt für
 a)
 Anbieter, die in der Union KI-Systeme in Verkehr bringen oder in Betrieb nehmen oder KI-Modelle mit allgemeinem Verwendungszweck in Verkehr bringen, unabhängig davon, ob diese Anbieter in der Union oder in einem Drittland niedergelassen sind;
@@ -422,8 +419,7 @@ Diese Verordnung gilt nicht für KI-Systeme, die nicht in der Union in Verkehr g
 (10)   Diese Verordnung gilt nicht für die Pflichten von Betreibern, die natürliche Personen sind und KI-Systeme im Rahmen einer ausschließlich persönlichen und nicht beruflichen Tätigkeit verwenden.
 (11)   Diese Verordnung hindert die Union oder die Mitgliedstaaten nicht daran, Rechts- oder Verwaltungsvorschriften beizubehalten oder einzuführen, die für die Arbeitnehmer im Hinblick auf den Schutz ihrer Rechte bei der Verwendung von KI-Systemen durch die Arbeitgeber vorteilhafter sind, oder die Anwendung von Kollektivvereinbarungen zu fördern oder zuzulassen, die für die Arbeitnehmer vorteilhafter sind.
 (12)   Diese Verordnung gilt nicht für KI-Systeme, die unter freien und quelloffenen Lizenzen bereitgestellt werden, es sei denn, sie werden als Hochrisiko-KI-Systeme oder als ein KI-System, das unter Artikel 5 oder 50 fällt, in Verkehr gebracht oder in Betrieb genommen.
-Artikel 3
-Begriffsbestimmungen
+Artikel 3: Begriffsbestimmungen
 Für die Zwecke dieser Verordnung bezeichnet der Ausdruck
 1.
 „KI-System“ ein maschinengestütztes System, das für einen in unterschiedlichem Grade autonomen Betrieb ausgelegt ist und das nach seiner Betriebsaufnahme anpassungsfähig sein kann und das aus den erhaltenen Eingaben für explizite oder implizite Ziele ableitet, wie Ausgaben wie etwa Vorhersagen, Inhalte, Empfehlungen oder Entscheidungen erstellt werden, die physische oder virtuelle Umgebungen beeinflussen können;
@@ -583,13 +579,10 @@ die kollektiven Interessen von Einzelpersonen geschädigt hat, schädigt oder sc
 „Gleitkommaoperation“ jede Rechenoperation oder jede Zuweisung mit Gleitkommazahlen, bei denen es sich um eine Teilmenge der reellen Zahlen handelt, die auf Computern typischerweise durch das Produkt aus einer ganzen Zahl mit fester Genauigkeit und einer festen Basis mit ganzzahligem Exponenten dargestellt wird;
 68.
 „nachgelagerter Anbieter“ einen Anbieter eines KI-Systems, einschließlich eines KI-Systems mit allgemeinem Verwendungszweck, das ein KI-Modell integriert, unabhängig davon, ob das KI-Modell von ihm selbst bereitgestellt und vertikal integriert wird oder von einer anderen Einrichtung auf der Grundlage vertraglicher Beziehungen bereitgestellt wird.
-Artikel 4
-KI-Kompetenz
+Artikel 4: KI-Kompetenz
 Die Anbieter und Betreiber von KI-Systemen ergreifen Maßnahmen, um nach besten Kräften sicherzustellen, dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen, wobei ihre technischen Kenntnisse, ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt werden sollen, sowie die Personen oder Personengruppen, bei denen die KI-Systeme eingesetzt werden sollen, zu berücksichtigen sind.
-KAPITEL II
-VERBOTENE PRAKTIKEN IM KI-BEREICH
-Artikel 5
-Verbotene Praktiken im KI-Bereich
+KAPITEL II: VERBOTENE PRAKTIKEN IM KI-BEREICH
+Artikel 5: Verbotene Praktiken im KI-Bereich
 (1)   Folgende Praktiken im KI-Bereich sind verboten:
 a)
 das Inverkehrbringen, die Inbetriebnahme oder die Verwendung eines KI-Systems, das Techniken der unterschwelligen Beeinflussung außerhalb des Bewusstseins einer Person oder absichtlich manipulative oder täuschende Techniken mit dem Ziel oder der Wirkung einsetzt, das Verhalten einer Person oder einer Gruppe von Personen wesentlich zu verändern, indem ihre Fähigkeit, eine fundierte Entscheidung zu treffen, deutlich beeinträchtigt wird, wodurch sie veranlasst wird, eine Entscheidung zu treffen, die sie andernfalls nicht getroffen hätte, und zwar in einer Weise, die dieser Person, einer anderen Person oder einer Gruppe von Personen erheblichen Schaden zufügt oder mit hinreichender Wahrscheinlichkeit zufügen wird.
@@ -631,12 +624,9 @@ Die zuständige Justizbehörde oder eine unabhängige Verwaltungsbehörde, deren
 (6)   Die nationalen Marktüberwachungsbehörden und die nationalen Datenschutzbehörden der Mitgliedstaaten, denen gemäß Absatz 4 die Verwendung biometrischer Echtzeit-Fernidentifizierungssysteme in öffentlich zugänglichen Räumen zu Strafverfolgungszwecken mitgeteilt wurden, legen der Kommission Jahresberichte über diese Verwendung vor. Zu diesem Zweck stellt die Kommission den Mitgliedstaaten und den nationalen Marktüberwachungs- und Datenschutzbehörden ein Muster zur Verfügung, das Angaben über die Anzahl der Entscheidungen der zuständigen Justizbehörden oder einer unabhängigen Verwaltungsbehörde, deren Entscheidung über Genehmigungsanträge gemäß Absatz 3 bindend ist, und deren Ergebnis enthält.
 (7)   Die Kommission veröffentlicht Jahresberichte über die Verwendung biometrischer Echtzeit-Fernidentifizierungssysteme in öffentlich zugänglichen Räumen zu Strafverfolgungszwecken, die auf aggregierten Daten aus den Mitgliedstaaten auf der Grundlage der in Absatz 6 genannten Jahresberichte beruhen. Diese Jahresberichte dürfen keine sensiblen operativen Daten im Zusammenhang mit den damit verbundenen Strafverfolgungsmaßnahmen enthalten.
 (8)   Dieser Artikel berührt nicht die Verbote, die gelten, wenn KI-Praktiken gegen andere Rechtsvorschriften der Union verstoßen.
-KAPITEL III
-HOCHRISIKO-KI-SYSTEME
-ABSCHNITT 1
-Einstufung von KI-Systemen als Hochrisiko-KI-Systeme
-Artikel 6
-Einstufungsvorschriften für Hochrisiko-KI-Systeme
+KAPITEL III: HOCHRISIKO-KI-SYSTEME
+ABSCHNITT 1: Einstufung von KI-Systemen als Hochrisiko-KI-Systeme
+Artikel 6: Einstufungsvorschriften für Hochrisiko-KI-Systeme
 (1)   Ungeachtet dessen, ob ein KI-System unabhängig von den unter den Buchstaben a und b genannten Produkten in Verkehr gebracht oder in Betrieb genommen wird, gilt es als Hochrisiko-KI-System, wenn die beiden folgenden Bedingungen erfüllt sind:
 a)
 das KI-System soll als Sicherheitsbauteil eines unter die in Anhang I aufgeführten Harmonisierungsrechtsvorschriften der Union fallenden Produkts verwendet werden oder das KI-System ist selbst ein solches Produkt;
@@ -659,8 +649,7 @@ Ungeachtet des Unterabsatzes 1 gilt ein in Anhang III aufgeführtes KI-System im
 (6)   Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zu erlassen, um Absatz 3 Unterabsatz 2 des vorliegenden Artikels zu ändern, indem neue Bedingungen zu den darin genannten Bedingungen hinzugefügt oder diese geändert werden, wenn konkrete und zuverlässige Beweise für das Vorhandensein von KI-Systemen vorliegen, die in den Anwendungsbereich von Anhang III fallen, jedoch kein erhebliches Risiko der Beeinträchtigung in Bezug auf die Gesundheit, Sicherheit oder Grundrechte natürlicher Personen bergen.
 (7)   Die Kommission erlässt gemäß Artikel 97 delegierte Rechtsakte, um Absatz 3 Unterabsatz 2 des vorliegenden Artikels zu ändern, indem eine der darin festgelegten Bedingungen gestrichen wird, wenn konkrete und zuverlässige Beweise dafür vorliegen, dass dies für die Aufrechterhaltung des Schutzniveaus in Bezug auf Gesundheit, Sicherheit und die in dieser Verordnung vorgesehenen Grundrechte erforderlich ist.
 (8)   Eine Änderung der in Absatz 3 Unterabsatz 2 festgelegten Bedingungen, die gemäß den Absätzen 6 und 7 des vorliegenden Artikels erlassen wurde, darf das allgemeine Schutzniveau in Bezug auf Gesundheit, Sicherheit und die in dieser Verordnung vorgesehenen Grundrechte nicht senken; dabei ist die Kohärenz mit den gemäß Artikel 7 Absatz 1 erlassenen delegierten Rechtsakten sicherzustellen und die Marktentwicklungen und die technologischen Entwicklungen sind zu berücksichtigen.
-Artikel 7
-Änderungen des Anhangs III
+Artikel 7: Änderungen des Anhangs III
 (1)   Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zur Änderung von Anhang III durch Hinzufügung oder Änderung von Anwendungsfällen für Hochrisiko-KI-Systeme zu erlassen, die beide der folgenden Bedingungen erfüllen:
 a)
 Die KI-Systeme sollen in einem der in Anhang III aufgeführten Bereiche eingesetzt werden;
@@ -698,14 +687,11 @@ a)
 Das betreffende Hochrisiko-KI-System weist unter Berücksichtigung der in Absatz 2 aufgeführten Kriterien keine erheblichen Risiken mehr für die Grundrechte, Gesundheit oder Sicherheit auf;
 b)
 durch die Streichung wird das allgemeine Schutzniveau in Bezug auf Gesundheit, Sicherheit und Grundrechte im Rahmen des Unionsrechts nicht gesenkt.
-ABSCHNITT 2
-Anforderungen an Hochrisiko-KI-Systeme
-Artikel 8
-Einhaltung der Anforderungen
+ABSCHNITT 2: Anforderungen an Hochrisiko-KI-Systeme
+Artikel 8: Einhaltung der Anforderungen
 (1)   Hochrisiko-KI-Systeme müssen die in diesem Abschnitt festgelegten Anforderungen erfüllen, wobei ihrer Zweckbestimmung sowie dem allgemein anerkannten Stand der Technik in Bezug auf KI und KI-bezogene Technologien Rechnung zu tragen ist. Bei der Gewährleistung der Einhaltung dieser Anforderungen wird dem in Artikel 9 genannten Risikomanagementsystem Rechnung getragen.
 (2)   Enthält ein Produkt ein KI-System, für das die Anforderungen dieser Verordnung und die Anforderungen der in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union gelten, so sind die Anbieter dafür verantwortlich, sicherzustellen, dass ihr Produkt alle geltenden Anforderungen der geltenden Harmonisierungsrechtsvorschriften der Union vollständig erfüllt. Bei der Gewährleistung der Erfüllung der in diesem Abschnitt festgelegten Anforderungen durch die in Absatz 1 genannten Hochrisiko-KI-Systeme und im Hinblick auf die Gewährleistung der Kohärenz, der Vermeidung von Doppelarbeit und der Minimierung zusätzlicher Belastungen haben die Anbieter die Wahl, die erforderlichen Test- und Berichterstattungsverfahren, Informationen und Dokumentationen, die sie im Zusammenhang mit ihrem Produkt bereitstellen, gegebenenfalls in Dokumentationen und Verfahren zu integrieren, die bereits bestehen und gemäß den in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union vorgeschrieben sind.
-Artikel 9
-Risikomanagementsystem
+Artikel 9: Risikomanagementsystem
 (1)   Für Hochrisiko-KI-Systeme wird ein Risikomanagementsystem eingerichtet, angewandt, dokumentiert und aufrechterhalten.
 (2)   Das Risikomanagementsystem versteht sich als ein kontinuierlicher iterativer Prozess, der während des gesamten Lebenszyklus eines Hochrisiko-KI-Systems geplant und durchgeführt wird und eine regelmäßige systematische Überprüfung und Aktualisierung erfordert. Es umfasst folgende Schritte:
 a)
@@ -732,8 +718,7 @@ Zur Beseitigung oder Verringerung der Risiken im Zusammenhang mit der Verwendung
 (8)   Das Testen von Hochrisiko-KI-Systemen erfolgt zu jedem geeigneten Zeitpunkt während des gesamten Entwicklungsprozesses und in jedem Fall vor ihrem Inverkehrbringen oder ihrer Inbetriebnahme. Das Testen erfolgt anhand vorab festgelegter Metriken und Wahrscheinlichkeitsschwellenwerte, die für die Zweckbestimmung des Hochrisiko-KI-Systems geeignet sind.
 (9)   Bei der Umsetzung des in den Absätzen 1 bis 7 vorgesehenen Risikomanagementsystems berücksichtigen die Anbieter, ob angesichts seiner Zweckbestimmung das Hochrisiko-KI-System wahrscheinlich nachteilige Auswirkungen auf Personen unter 18 Jahren oder gegebenenfalls andere schutzbedürftige Gruppen haben wird.
 (10)   Bei Anbietern von Hochrisiko-KI-Systemen, die den Anforderungen an interne Risikomanagementprozesse gemäß anderen einschlägigen Bestimmungen des Unionsrechts unterliegen, können die in den Absätzen 1 bis 9 enthaltenen Aspekte Bestandteil der nach diesem Recht festgelegten Risikomanagementverfahren sein oder mit diesen Verfahren kombiniert werden.
-Artikel 10
-Daten und Daten-Governance
+Artikel 10: Daten und Daten-Governance
 (1)   Hochrisiko-KI-Systeme, in denen Techniken eingesetzt werden, bei denen KI-Modelle mit Daten trainiert werden, müssen mit Trainings-, Validierungs- und Testdatensätzen entwickelt werden, die den in den Absätzen 2 bis 5 genannten Qualitätskriterien entsprechen, wenn solche Datensätze verwendet werden.
 (2)   Für Trainings-, Validierungs- und Testdatensätze gelten Daten-Governance- und Datenverwaltungsverfahren, die für die Zweckbestimmung des Hochrisiko-KI-Systems geeignet sind. Diese Verfahren betreffen insbesondere
 a)
@@ -768,14 +753,12 @@ die besonderen Kategorien personenbezogener Daten werden gelöscht, sobald die V
 f)
 die Aufzeichnungen über Verarbeitungstätigkeiten gemäß den Verordnungen (EU) 2016/679 und (EU) 2018/1725 und der Richtlinie (EU) 2016/680 enthalten die Gründe, warum die Verarbeitung besonderer Kategorien personenbezogener Daten für die Erkennung und Korrektur von Verzerrungen unbedingt erforderlich war und warum dieses Ziel mit der Verarbeitung anderer Daten nicht erreicht werden konnte.
 (6)   Bei der Entwicklung von Hochrisiko-KI-Systemen, in denen keine Techniken eingesetzt werden, bei denen KI-Modelle trainiert werden, gelten die Absätze 2 bis 5 nur für Testdatensätze.
-Artikel 11
-Technische Dokumentation
+Artikel 11: Technische Dokumentation
 (1)   Die technische Dokumentation eines Hochrisiko-KI-Systems wird erstellt, bevor dieses System in Verkehr gebracht oder in Betrieb genommen wird, und ist auf dem neuesten Stand zu halten.
 Die technische Dokumentation wird so erstellt, dass aus ihr der Nachweis hervorgeht, wie das Hochrisiko-KI-System die Anforderungen dieses Abschnitts erfüllt, und dass den zuständigen nationalen Behörden und den notifizierten Stellen die Informationen in klarer und verständlicher Form zur Verfügung stehen, die erforderlich sind, um zu beurteilen, ob das KI-System diese Anforderungen erfüllt. Sie enthält zumindest die in Anhang IV genannten Angaben. KMU, einschließlich Start-up-Unternehmen, können die in Anhang IV aufgeführten Elemente der technischen Dokumentation in vereinfachter Weise bereitstellen. Zu diesem Zweck erstellt die Kommission ein vereinfachtes Formular für die technische Dokumentation, das auf die Bedürfnisse von kleinen Unternehmen und Kleinstunternehmen zugeschnitten ist. Entscheidet sich ein KMU, einschließlich Start-up-Unternehmen, für eine vereinfachte Bereitstellung der in Anhang IV vorgeschriebenen Angaben, so verwendet es das in diesem Absatz genannte Formular. Die notifizierten Stellen akzeptieren das Formular für die Zwecke der Konformitätsbewertung.
 (2)   Wird ein Hochrisiko-KI-System, das mit einem Produkt verbunden ist, das unter die in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union fällt, in Verkehr gebracht oder in Betrieb genommen, so wird eine einzige technische Dokumentation erstellt, die alle in Absatz 1 genannten Informationen sowie die nach diesen Rechtsakten erforderlichen Informationen enthält.
 (3)   Die Kommission ist befugt, wenn dies nötig ist, gemäß Artikel 97 delegierte Rechtsakte zur Änderung des Anhangs IV zu erlassen, damit die technische Dokumentation in Anbetracht des technischen Fortschritts stets alle Informationen enthält, die erforderlich sind, um zu beurteilen, ob das System die Anforderungen dieses Abschnitts erfüllt.
-Artikel 12
-Aufzeichnungspflichten
+Artikel 12: Aufzeichnungspflichten
 (1)   Die Technik der Hochrisiko-KI-Systeme muss die automatische Aufzeichnung von Ereignissen (im Folgenden „Protokollierung“) während des Lebenszyklus des Systems ermöglichen.
 (2)   Zur Gewährleistung, dass das Funktionieren des Hochrisiko-KI-Systems in einem der Zweckbestimmung des Systems angemessenen Maße rückverfolgbar ist, ermöglichen die Protokollierungsfunktionen die Aufzeichnung von Ereignissen, die für Folgendes relevant sind:
 a)
@@ -793,8 +776,7 @@ c)
 die Eingabedaten, mit denen die Abfrage zu einer Übereinstimmung geführt hat;
 d)
 die Identität der gemäß Artikel 14 Absatz 5 an der Überprüfung der Ergebnisse beteiligten natürlichen Personen.
-Artikel 13
-Transparenz und Bereitstellung von Informationen für die Betreiber
+Artikel 13: Transparenz und Bereitstellung von Informationen für die Betreiber
 (1)   Hochrisiko-KI-Systeme werden so konzipiert und entwickelt, dass ihr Betrieb hinreichend transparent ist, damit die Betreiber die Ausgaben eines Systems angemessen interpretieren und verwenden können. Die Transparenz wird auf eine geeignete Art und in einem angemessenen Maß gewährleistet, damit die Anbieter und Betreiber ihre in Abschnitt 3 festgelegten einschlägigen Pflichten erfüllen können.
 (2)   Hochrisiko-KI-Systeme werden mit Betriebsanleitungen in einem geeigneten digitalen Format bereitgestellt oder auf andere Weise mit Betriebsanleitungen versehen, die präzise, vollständige, korrekte und eindeutige Informationen in einer für die Betreiber relevanten, barrierefrei zugänglichen und verständlichen Form enthalten.
 (3)   Die Betriebsanleitungen enthalten mindestens folgende Informationen:
@@ -824,8 +806,7 @@ e)
 die erforderlichen Rechen- und Hardware-Ressourcen, die erwartete Lebensdauer des Hochrisiko-KI-Systems und alle erforderlichen Wartungs- und Pflegemaßnahmen einschließlich deren Häufigkeit zur Gewährleistung des ordnungsgemäßen Funktionierens dieses KI-Systems, auch in Bezug auf Software-Updates;
 f)
 gegebenenfalls eine Beschreibung der in das Hochrisiko-KI-System integrierten Mechanismen, die es den Betreibern ermöglicht, die Protokolle im Einklang mit Artikel 12 ordnungsgemäß zu erfassen, zu speichern und auszuwerten.
-Artikel 14
-Menschliche Aufsicht
+Artikel 14: Menschliche Aufsicht
 (1)   Hochrisiko-KI-Systeme werden so konzipiert und entwickelt, dass sie während der Dauer ihrer Verwendung — auch mit geeigneten Instrumenten einer Mensch-Maschine-Schnittstelle — von natürlichen Personen wirksam beaufsichtigt werden können.
 (2)   Die menschliche Aufsicht dient der Verhinderung oder Minimierung der Risiken für Gesundheit, Sicherheit oder Grundrechte, die entstehen können, wenn ein Hochrisiko-KI-System im Einklang mit seiner Zweckbestimmung oder im Rahmen einer vernünftigerweise vorhersehbaren Fehlanwendung verwendet wird, insbesondere wenn solche Risiken trotz der Einhaltung anderer Anforderungen dieses Abschnitts fortbestehen.
 (3)   Die Aufsichtsmaßnahmen müssen den Risiken, dem Grad der Autonomie und dem Kontext der Nutzung des Hochrisiko-KI-Systems angemessen sein und werden durch eine oder beide der folgenden Arten von Vorkehrungen gewährleistet:
@@ -846,8 +827,7 @@ e)
 in den Betrieb des Hochrisiko-KI-Systems einzugreifen oder den Systembetrieb mit einer „Stopptaste“ oder einem ähnlichen Verfahren zu unterbrechen, was dem System ermöglicht, in einem sicheren Zustand zum Stillstand zu kommen.
 (5)   Bei den in Anhang III Nummer 1 Buchstabe a genannten Hochrisiko-KI-Systemen müssen die in Absatz 3 des vorliegenden Artikels genannten Vorkehrungen so gestaltet sein, dass außerdem der Betreiber keine Maßnahmen oder Entscheidungen allein aufgrund des vom System hervorgebrachten Identifizierungsergebnisses trifft, solange diese Identifizierung nicht von mindestens zwei natürlichen Personen, die die notwendige Kompetenz, Ausbildung und Befugnis besitzen, getrennt überprüft und bestätigt wurde.
 Die Anforderung einer getrennten Überprüfung durch mindestens zwei natürliche Personen gilt nicht für Hochrisiko-KI-Systeme, die für Zwecke in den Bereichen Strafverfolgung, Migration, Grenzkontrolle oder Asyl verwendet werden, wenn die Anwendung dieser Anforderung nach Unionsrecht oder nationalem Recht unverhältnismäßig wäre.
-Artikel 15
-Genauigkeit, Robustheit und Cybersicherheit
+Artikel 15: Genauigkeit, Robustheit und Cybersicherheit
 (1)   Hochrisiko-KI-Systeme werden so konzipiert und entwickelt, dass sie ein angemessenes Maß an Genauigkeit, Robustheit und Cybersicherheit erreichen und in dieser Hinsicht während ihres gesamten Lebenszyklus beständig funktionieren.
 (2)   Um die technischen Aspekte der Art und Weise der Messung des angemessenen Maßes an Genauigkeit und Robustheit gemäß Absatz 1 und anderer einschlägiger Leistungsmetriken anzugehen, fördert die Kommission in Zusammenarbeit mit einschlägigen Interessenträgern und Organisationen wie Metrologie- und Benchmarking-Behörden gegebenenfalls die Entwicklung von Benchmarks und Messmethoden.
 (3)   Die Maße an Genauigkeit und die relevanten Genauigkeitsmetriken von Hochrisiko-KI-Systemen werden in den ihnen beigefügten Betriebsanleitungen angegeben.
@@ -857,10 +837,8 @@ Hochrisiko-KI-Systeme, die nach dem Inverkehrbringen oder der Inbetriebnahme wei
 (5)   Hochrisiko-KI-Systeme müssen widerstandsfähig gegen Versuche unbefugter Dritter sein, ihre Verwendung, Ausgaben oder Leistung durch Ausnutzung von Systemschwachstellen zu verändern.
 Die technischen Lösungen zur Gewährleistung der Cybersicherheit von Hochrisiko-KI-Systemen müssen den jeweiligen Umständen und Risiken angemessen sein.
 Die technischen Lösungen für den Umgang mit KI-spezifischen Schwachstellen umfassen gegebenenfalls Maßnahmen, um Angriffe, mit denen versucht wird, eine Manipulation des Trainingsdatensatzes („data poisoning“) oder vortrainierter Komponenten, die beim Training verwendet werden („model poisoning“), vorzunehmen, Eingabedaten, die das KI-Modell zu Fehlern verleiten sollen („adversarial examples“ oder „model evasions“), Angriffe auf vertrauliche Daten oder Modellmängel zu verhüten, zu erkennen, darauf zu reagieren, sie zu beseitigen und zu kontrollieren.
-ABSCHNITT 3
-Pflichten der Anbieter und Betreiber von Hochrisiko-KI-Systemen und anderer Beteiligter
-Artikel 16
-Pflichten der Anbieter von Hochrisiko-KI-Systemen
+ABSCHNITT 3: Pflichten der Anbieter und Betreiber von Hochrisiko-KI-Systemen und anderer Beteiligter
+Artikel 16: Pflichten der Anbieter von Hochrisiko-KI-Systemen
 Anbieter von Hochrisiko-KI-Systemen müssen
 a)
 sicherstellen, dass ihre Hochrisiko-KI-Systeme die in Abschnitt 2 festgelegten Anforderungen erfüllen;
@@ -886,8 +864,7 @@ k)
 auf begründete Anfrage einer zuständigen nationalen Behörde nachweisen, dass das Hochrisiko-KI-System die Anforderungen in Abschnitt 2 erfüllt;
 l)
 sicherstellen, dass das Hochrisiko-KI-System die Barrierefreiheitsanforderungen gemäß den Richtlinien (EU) 2016/2102 und (EU) 2019/882 erfüllt.
-Artikel 17
-Qualitätsmanagementsystem
+Artikel 17: Qualitätsmanagementsystem
 (1)   Anbieter von Hochrisiko-KI-Systemen richten ein Qualitätsmanagementsystem ein, das die Einhaltung dieser Verordnung gewährleistet. Dieses System wird systematisch und ordnungsgemäß in Form schriftlicher Regeln, Verfahren und Anweisungen dokumentiert und umfasst mindestens folgende Aspekte:
 a)
 ein Konzept zur Einhaltung der Regulierungsvorschriften, was die Einhaltung der Konformitätsbewertungsverfahren und der Verfahren für das Management von Änderungen an dem Hochrisiko-KI-System miteinschließt;
@@ -918,8 +895,7 @@ einen Rechenschaftsrahmen, der die Verantwortlichkeiten der Leitung und des sons
 (2)   Die Umsetzung der in Absatz 1 genannten Aspekte erfolgt in einem angemessenen Verhältnis zur Größe der Organisation des Anbieters. Die Anbieter müssen in jedem Fall den Grad der Strenge und das Schutzniveau einhalten, die erforderlich sind, um die Übereinstimmung ihrer Hochrisiko-KI-Systeme mit dieser Verordnung sicherzustellen.
 (3)   Anbieter von Hochrisiko-KI-Systemen, die Pflichten in Bezug auf Qualitätsmanagementsysteme oder eine gleichwertige Funktion gemäß den sektorspezifischen Rechtsvorschriften der Union unterliegen, können die in Absatz 1 aufgeführten Aspekte als Bestandteil der nach den genannten Rechtsvorschriften festgelegten Qualitätsmanagementsysteme einbeziehen.
 (4)   Bei Anbietern, die Finanzinstitute sind und gemäß den Rechtsvorschriften der Union über Finanzdienstleistungen Anforderungen in Bezug auf ihre Regelungen oder Verfahren der internen Unternehmensführung unterliegen, gilt die Pflicht zur Einrichtung eines Qualitätsmanagementsystems — mit Ausnahme des Absatzes 1 Buchstaben g, h und i des vorliegenden Artikels — als erfüllt, wenn die Vorschriften über Regelungen oder Verfahren der internen Unternehmensführung gemäß dem einschlägigen Unionsrecht über Finanzdienstleistungen eingehalten werden. Zu diesem Zweck werden die in Artikel 40 genannten harmonisierten Normen berücksichtigt.
-Artikel 18
-Aufbewahrung der Dokumentation
+Artikel 18: Aufbewahrung der Dokumentation
 (1)   Der Anbieter hält für einen Zeitraum von zehn Jahren ab dem Inverkehrbringen oder der Inbetriebnahme des Hochrisiko-KI-Systems folgende Unterlagen für die zuständigen nationalen Behörden bereit:
 a)
 die in Artikel 11 genannte technische Dokumentation;
@@ -933,21 +909,17 @@ e)
 die in Artikel 47 genannte EU-Konformitätserklärung.
 (2)   Jeder Mitgliedstaat legt die Bedingungen fest, unter denen die in Absatz 1 genannte Dokumentation für die zuständigen nationalen Behörden für den in dem genannten Absatz angegebenen Zeitraum bereitgehalten wird, für den Fall, dass ein Anbieter oder sein in demselben Hoheitsgebiet niedergelassener Bevollmächtigter vor Ende dieses Zeitraums in Konkurs geht oder seine Tätigkeit aufgibt.
 (3)   Anbieter, die Finanzinstitute sind und gemäß dem Unionsrecht über Finanzdienstleistungen Anforderungen in Bezug auf ihre Regelungen oder Verfahren der internen Unternehmensführung unterliegen, pflegen die technische Dokumentation als Teil der gemäß dem Unionsrecht über Finanzdienstleistungen aufzubewahrenden Dokumentation.
-Artikel 19
-Automatisch erzeugte Protokolle
+Artikel 19: Automatisch erzeugte Protokolle
 (1)   Anbieter von Hochrisiko-KI-Systemen bewahren die von ihren Hochrisiko-KI-Systemen automatisch erzeugten Protokolle gemäß Artikel 12 Absatz 1 auf, soweit diese Protokolle ihrer Kontrolle unterliegen. Unbeschadet des geltenden Unionsrechts oder nationalen Rechts werden die Protokolle für einen der Zweckbestimmung des Hochrisiko-KI-Systems angemessenen Zeitraum von mindestens sechs Monaten aufbewahrt, sofern in den geltenden Rechtsvorschriften der Union, insbesondere im Unionsrecht zum Schutz personenbezogener Daten, oder im geltenden nationalen Recht nichts anderes vorgesehen ist.
 (2)   Anbieter, die Finanzinstitute sind und gemäß den Rechtsvorschriften der Union über Finanzdienstleistungen Anforderungen in Bezug auf ihre Regelungen oder Verfahren der internen Unternehmensführung, unterliegen, bewahren die von ihren Hochrisiko-KI-Systemen automatisch erzeugten Protokolle als Teil der gemäß dem einschlägigen Unionsrecht über Finanzdienstleistungen aufzubewahrenden Dokumentation auf.
-Artikel 20
-Korrekturmaßnahmen und Informationspflicht
+Artikel 20: Korrekturmaßnahmen und Informationspflicht
 (1)   Anbieter von Hochrisiko-KI-Systemen, die der Auffassung sind oder Grund zu der Annahme haben, dass ein von ihnen in Verkehr gebrachtes oder in Betrieb genommenes Hochrisiko-KI-System nicht dieser Verordnung entspricht, ergreifen unverzüglich die erforderlichen Korrekturmaßnahmen, um die Konformität dieses Systems herzustellen oder es gegebenenfalls zurückzunehmen, zu deaktivieren oder zurückzurufen. Sie informieren die Händler des betreffenden Hochrisiko-KI-Systems und gegebenenfalls die Betreiber, den Bevollmächtigten und die Einführer darüber.
 (2)   Birgt das Hochrisiko-KI-System ein Risiko im Sinne des Artikels 79 Absatz 1 und wird sich der Anbieter des Systems dieses Risikos bewusst, so führt er unverzüglich gegebenenfalls gemeinsam mit dem meldenden Betreiber eine Untersuchung der Ursachen durch und informiert er die Marktüberwachungsbehörden, in deren Zuständigkeit das betroffene Hochrisiko-KI-System fällt, und gegebenenfalls die notifizierte Stelle, die eine Bescheinigung für dieses Hochrisiko-KI-System gemäß Artikel 44 ausgestellt hat, insbesondere über die Art der Nichtkonformität und über bereits ergriffene relevante Korrekturmaßnahmen.
-Artikel 21
-Zusammenarbeit mit den zuständigen Behörden
+Artikel 21: Zusammenarbeit mit den zuständigen Behörden
 (1)   Anbieter von Hochrisiko-KI-Systemen übermitteln einer zuständigen Behörde auf deren begründete Anfrage sämtliche Informationen und Dokumentation, die erforderlich sind, um die Konformität des Hochrisiko-KI-Systems mit den in Abschnitt 2 festgelegten Anforderungen nachzuweisen, und zwar in einer Sprache, die für die Behörde leicht verständlich ist und bei der es sich um eine der von dem betreffenden Mitgliedstaat angegebenen Amtssprachen der Institutionen der Union handelt.
 (2)   Auf begründete Anfrage einer zuständigen Behörde gewähren die Anbieter der anfragenden zuständigen Behörde gegebenenfalls auch Zugang zu den automatisch erzeugten Protokollen des Hochrisiko-KI-Systems gemäß Artikel 12 Absatz 1, soweit diese Protokolle ihrer Kontrolle unterliegen.
 (3)   Alle Informationen, die eine zuständige Behörde aufgrund dieses Artikels erhält, werden im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten behandelt.
-Artikel 22
-Bevollmächtigte der Anbieter von Hochrisiko-KI-Systemen
+Artikel 22: Bevollmächtigte der Anbieter von Hochrisiko-KI-Systemen
 (1)   Anbieter, die in Drittländern niedergelassen sind, benennen vor der Bereitstellung ihrer Hochrisiko-KI-Systeme auf dem Unionsmarkt schriftlich einen in der Union niedergelassenen Bevollmächtigten.
 (2)   Der Anbieter muss seinem Bevollmächtigten ermöglichen, die Aufgaben wahrzunehmen, die im vom Anbieter erhaltenen Auftrag festgelegt sind.
 (3)   Der Bevollmächtigte nimmt die Aufgaben wahr, die in seinem vom Anbieter erhaltenen Auftrag festgelegt sind. Er stellt den Marktüberwachungsbehörden auf Anfrage eine Kopie des Auftrags in einer von der zuständigen Behörde angegebenen Amtssprache der Institutionen der Union bereit. Für die Zwecke dieser Verordnung ermächtigt der Auftrag den Bevollmächtigten zumindest zur Wahrnehmung folgender Aufgaben:
@@ -963,8 +935,7 @@ e)
 gegebenenfalls die Einhaltung der Registrierungspflichten gemäß Artikel 49 Absatz 1 oder, falls die Registrierung vom Anbieter selbst vorgenommen wird, Sicherstellung der Richtigkeit der in Anhang VIII Abschnitt A Nummer 3 aufgeführten Informationen.
 Mit dem Auftrag wird der Bevollmächtigte ermächtigt, neben oder anstelle des Anbieters als Ansprechpartner für die zuständigen Behörden in allen Fragen zu dienen, die die Gewährleistung der Einhaltung dieser Verordnung betreffen.
 (4)   Der Bevollmächtigte beendet den Auftrag, wenn er der Auffassung ist oder Grund zu der Annahme hat, dass der Anbieter gegen seine Pflichten gemäß dieser Verordnung verstößt. In diesem Fall informiert er unverzüglich die betreffende Marktüberwachungsbehörde und gegebenenfalls die betreffende notifizierte Stelle über die Beendigung des Auftrags und deren Gründe.
-Artikel 23
-Pflichten der Einführer
+Artikel 23: Pflichten der Einführer
 (1)   Bevor sie ein Hochrisiko-KI-System in Verkehr bringen, stellen die Einführer sicher, dass das System dieser Verordnung entspricht, indem sie überprüfen, ob
 a)
 der Anbieter des Hochrisiko-KI-Systems das entsprechende Konformitätsbewertungsverfahren gemäß Artikel 43 durchgeführt hat;
@@ -980,16 +951,14 @@ der Anbieter einen Bevollmächtigten gemäß Artikel 22 Absatz 1 benannt hat.
 (5)   Die Einführer halten für einen Zeitraum von zehn Jahren ab dem Inverkehrbringen oder der Inbetriebnahme des Hochrisiko-KI-Systems ein Exemplar der von der notifizierten Stelle ausgestellten Bescheinigung sowie gegebenenfalls die Betriebsanleitungen und die in Artikel 47 genannte EU-Konformitätserklärung bereit.
 (6)   Die Einführer übermitteln den betreffenden nationalen Behörden auf deren begründete Anfrage sämtliche — auch die in Absatz 5 genannten — Informationen und Dokumentation, die erforderlich sind, um die Konformität des Hochrisiko-KI-Systems mit den in Abschnitt 2 festgelegten Anforderungen nachzuweisen, und zwar in einer Sprache, die für jene leicht verständlich ist. Zu diesem Zweck stellen sie auch sicher, dass diesen Behörden die technische Dokumentation zur Verfügung gestellt werden kann.
 (7)   Die Einführer arbeiten mit den betreffenden nationalen Behörden bei allen Maßnahmen zusammen, die diese Behörden im Zusammenhang mit einem von den Einführern in Verkehr gebrachten Hochrisiko-KI-System ergreifen, um insbesondere die von diesem System ausgehenden Risiken zu verringern und abzumildern.
-Artikel 24
-Pflichten der Händler
+Artikel 24: Pflichten der Händler
 (1)   Bevor Händler ein Hochrisiko-KI-System auf dem Markt bereitstellen, überprüfen sie, ob es mit der erforderlichen CE-Kennzeichnung versehen ist, ob ihm eine Kopie der in Artikel 47 genannten EU-Konformitätserklärung und Betriebsanleitungen beigefügt sind und ob der Anbieter und gegebenenfalls der Einführer dieses Systems ihre in Artikel 16 Buchstaben b und c sowie Artikel 23 Absatz 3 festgelegten jeweiligen Pflichten erfüllt haben.
 (2)   Ist ein Händler der Auffassung oder hat er aufgrund von Informationen, die ihm zur Verfügung stehen, Grund zu der Annahme, dass ein Hochrisiko-KI-System nicht den Anforderungen in Abschnitt 2 entspricht, so stellt er das Hochrisiko-KI-System erst auf dem Markt bereit, nachdem die Konformität des Systems mit den Anforderungen hergestellt wurde. Birgt das Hochrisiko-IT-System zudem ein Risiko im Sinne des Artikels 79 Absatz 1, so informiert der Händler den Anbieter bzw. den Einführer des Systems darüber.
 (3)   Solange sich ein Hochrisiko-KI-System in ihrer Verantwortung befindet, gewährleisten Händler, dass — soweit zutreffend — die Lagerungs- oder Transportbedingungen die Konformität des Systems mit den in Abschnitt 2 festgelegten Anforderungen nicht beeinträchtigen.
 (4)   Ein Händler, der aufgrund von Informationen, die ihm zur Verfügung stehen, der Auffassung ist oder Grund zu der Annahme hat, dass ein von ihm auf dem Markt bereitgestelltes Hochrisiko-KI-System nicht den Anforderungen in Abschnitt 2 entspricht, ergreift die erforderlichen Korrekturmaßnahmen, um die Konformität dieses Systems mit diesen Anforderungen herzustellen, es zurückzunehmen oder zurückzurufen, oder er stellt sicher, dass der Anbieter, der Einführer oder gegebenenfalls jeder relevante Akteur diese Korrekturmaßnahmen ergreift. Birgt das Hochrisiko-KI-System ein Risiko im Sinne des Artikels 79 Absatz 1, so informiert der Händler unverzüglich den Anbieter bzw. den Einführer des Systems sowie die für das betroffene Hochrisiko-KI-System zuständigen Behörden und macht dabei ausführliche Angaben, insbesondere zur Nichtkonformität und zu bereits ergriffenen Korrekturmaßnahmen.
 (5)   Auf begründete Anfrage einer betreffenden zuständigen Behörde übermitteln die Händler eines Hochrisiko-KI-Systems dieser Behörde sämtliche Informationen und Dokumentation in Bezug auf ihre Maßnahmen gemäß den Absätzen 1 bis 4, die erforderlich sind, um die Konformität dieses Systems mit den in Abschnitt 2 festgelegten Anforderungen nachzuweisen.
 (6)   Die Händler arbeiten mit den betreffenden zuständigen Behörden bei allen Maßnahmen zusammen, die diese Behörden im Zusammenhang mit einem von den Händlern auf dem Markt bereitgestellten Hochrisiko-KI-System ergreifen, um insbesondere das von diesem System ausgehende Risiko zu verringern oder abzumildern.
-Artikel 25
-Verantwortlichkeiten entlang der KI-Wertschöpfungskette
+Artikel 25: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
 (1)   In den folgenden Fällen gelten Händler, Einführer, Betreiber oder sonstige Dritte als Anbieter eines Hochrisiko-KI-Systems für die Zwecke dieser Verordnung und unterliegen den Anbieterpflichten gemäß Artikel 16:
 a)
 wenn sie ein bereits in Verkehr gebrachtes oder in Betrieb genommenes Hochrisiko-KI-System mit ihrem Namen oder ihrer Handelsmarke versehen, unbeschadet vertraglicher Vereinbarungen, die eine andere Aufteilung der Pflichten vorsehen;
@@ -1006,8 +975,7 @@ das Hochrisiko-KI-System wird unter dem Namen oder der Handelsmarke des Produkth
 (4)   Der Anbieter eines Hochrisiko-KI-Systems und der Dritte, der ein KI-System, Instrumente, Dienste, Komponenten oder Verfahren bereitstellt, die in einem Hochrisiko-KI-System verwendet oder integriert werden, legen in einer schriftlichen Vereinbarung die Informationen, die Fähigkeiten, den technischen Zugang und die sonstige Unterstützung nach dem allgemein anerkannten Stand der Technik fest, die erforderlich sind, damit der Anbieter des Hochrisiko-KI-Systems die in dieser Verordnung festgelegten Pflichten vollständig erfüllen kann. Dieser Absatz gilt nicht für Dritte, die Instrumente, Dienste, Verfahren oder Komponenten, bei denen es sich nicht um KI-Modelle mit allgemeinem Verwendungszweck handelt, im Rahmen einer freien und quelloffenen Lizenz öffentlich zugänglich machen.
 Das Büro für Künstliche Intelligenz kann freiwillige Musterbedingungen für Verträge zwischen Anbietern von Hochrisiko-KI-Systemen und Dritten, die Instrumente, Dienste, Komponenten oder Verfahren bereitstellen, die für Hochrisiko-KI-Systeme verwendet oder in diese integriert werden, ausarbeiten und empfehlen. Bei der Ausarbeitung dieser freiwilligen Musterbedingungen berücksichtigt das Büro für Künstliche Intelligenz mögliche vertragliche Anforderungen, die in bestimmten Sektoren oder Geschäftsfällen gelten. Die freiwilligen Musterbedingungen werden veröffentlicht und sind kostenlos in einem leicht nutzbaren elektronischen Format verfügbar.
 (5)   Die Absätze 2 und 3 berühren nicht die Notwendigkeit, Rechte des geistigen Eigentums, vertrauliche Geschäftsinformationen und Geschäftsgeheimnisse im Einklang mit dem Unionsrecht und dem nationalen Recht zu achten und zu schützen.
-Artikel 26
-Pflichten der Betreiber von Hochrisiko-KI-Systemen
+Artikel 26: Pflichten der Betreiber von Hochrisiko-KI-Systemen
 (1)   Die Betreiber von Hochrisiko-KI-Systemen treffen geeignete technische und organisatorische Maßnahmen, um sicherzustellen, dass sie solche Systeme entsprechend der den Systemen beigefügten Betriebsanleitungen und gemäß den Absätzen 3 und 6 verwenden.
 (2)   Die Betreiber übertragen natürlichen Personen, die über die erforderliche Kompetenz, Ausbildung und Befugnis verfügen, die menschliche Aufsicht und lassen ihnen die erforderliche Unterstützung zukommen.
 (3)   Die Pflichten nach den Absätzen 1 und 2 lassen sonstige Pflichten der Betreiber nach Unionsrecht oder nationalem Recht sowie die Freiheit der Betreiber bei der Organisation ihrer eigenen Ressourcen und Tätigkeiten zur Wahrnehmung der vom Anbieter angegebenen Maßnahmen der menschlichen Aufsicht unberührt.
@@ -1028,8 +996,7 @@ Die Betreiber legen den zuständigen Marktüberwachungsbehörden und den nationa
 Die Mitgliedstaaten können im Einklang mit dem Unionsrecht strengere Rechtsvorschriften für die Verwendung von Systemen zur nachträglichen biometrischen Fernidentifizierung erlassen.
 (11)   Unbeschadet des Artikels 50 der vorliegenden Verordnung informieren die Betreiber der in Anhang III aufgeführten Hochrisiko-KI-Systeme, die natürliche Personen betreffende Entscheidungen treffen oder bei solchen Entscheidungen Unterstützung leisten, die natürlichen Personen darüber, dass sie der Verwendung des Hochrisiko-KI-Systems unterliegen. Für Hochrisiko-KI-Systeme, die zu Strafverfolgungszwecken verwendet werden, gilt Artikel 13 der Richtlinie (EU) 2016/680.
 (12)   Die Betreiber arbeiten mit den zuständigen Behörden bei allen Maßnahmen zusammen, die diese Behörden im Zusammenhang mit dem Hochrisiko-KI-System zur Umsetzung dieser Verordnung ergreifen.
-Artikel 27
-Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
+Artikel 27: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
 (1)   Vor der Inbetriebnahme eines Hochrisiko-KI-Systems gemäß Artikel 6 Absatz 2 — mit Ausnahme von Hochrisiko-KI-Systemen, die in dem in Anhang III Nummer 2 aufgeführten Bereich verwendet werden sollen — führen Betreiber, bei denen es sich um Einrichtungen des öffentlichen Rechts oder private Einrichtungen, die öffentliche Dienste erbringen, handelt, und Betreiber von Hochrisiko-KI-Systemen gemäß Anhang III Nummer 5 Buchstaben b und c eine Abschätzung der Auswirkungen, die die Verwendung eines solchen Systems auf die Grundrechte haben kann, durch. Zu diesem Zweck führen die Betreiber eine Abschätzung durch, die Folgendes umfasst:
 a)
 eine Beschreibung der Verfahren des Betreibers, bei denen das Hochrisiko-KI-System im Einklang mit seiner Zweckbestimmung verwendet wird;
@@ -1047,10 +1014,8 @@ die Maßnahmen, die im Falle des Eintretens dieser Risiken zu ergreifen sind, ei
 (3)   Sobald die Abschätzung gemäß Absatz 1 des vorliegenden Artikels durchgeführt wurde, teilt der Betreiber der Marktüberwachungsbehörde ihre Ergebnisse mit, indem er das ausgefüllte, in Absatz 5 des vorliegenden Artikels genannte Muster als Teil der Mitteilung übermittelt. In dem in Artikel 46 Absatz 1 genannten Fall können die Betreiber von der Mitteilungspflicht befreit werden.
 (4)   Wird eine der in diesem Artikel festgelegten Pflichten bereits infolge einer gemäß Artikel 35 der Verordnung (EU) 2016/679 oder Artikel 27 der Richtlinie (EU) 2016/680 durchgeführten Datenschutz-Folgenabschätzung erfüllt, so ergänzt die Grundrechte-Folgenabschätzung gemäß Absatz 1 des vorliegenden Artikels diese Datenschutz-Folgenabschätzung.
 (5)   Das Büro für Künstliche Intelligenz arbeitet ein Muster für einen Fragebogen — auch mithilfe eines automatisierten Instruments — aus, um die Betreiber in die Lage zu versetzen, ihren Pflichten gemäß diesem Artikel in vereinfachter Weise nachzukommen.
-ABSCHNITT 4
-Notifizierende Behörden und notifizierte Stellen
-Artikel 28
-Notifizierende Behörden
+ABSCHNITT 4: Notifizierende Behörden und notifizierte Stellen
+Artikel 28: Notifizierende Behörden
 (1)   Jeder Mitgliedstaat sorgt für die Benennung oder Schaffung mindestens einer notifizierenden Behörde, die für die Einrichtung und Durchführung der erforderlichen Verfahren zur Bewertung, Benennung und Notifizierung von Konformitätsbewertungsstellen und für deren Überwachung zuständig ist. Diese Verfahren werden in Zusammenarbeit zwischen den notifizierenden Behörden aller Mitgliedstaaten entwickelt.
 (2)   Die Mitgliedstaaten können entscheiden, dass die Bewertung und Überwachung nach Absatz 1 von einer nationalen Akkreditierungsstelle im Sinne und gemäß der Verordnung (EG) Nr. 765/2008 durchzuführen ist.
 (3)   Notifizierende Behörden werden so eingerichtet, organisiert und geführt, dass jegliche Interessenkonflikte mit Konformitätsbewertungsstellen vermieden werden und die Objektivität und die Unparteilichkeit ihrer Tätigkeiten gewährleistet sind.
@@ -1058,22 +1023,19 @@ Notifizierende Behörden
 (5)   Notifizierende Behörden dürfen weder Tätigkeiten, die Konformitätsbewertungsstellen durchführen, noch Beratungsleistungen auf einer gewerblichen oder wettbewerblichen Basis anbieten oder erbringen.
 (6)   Notifizierende Behörden gewährleisten gemäß Artikel 78 die Vertraulichkeit der von ihnen erlangten Informationen.
 (7)   Notifizierende Behörden verfügen über eine angemessene Anzahl kompetenter Mitarbeiter, sodass sie ihre Aufgaben ordnungsgemäß wahrnehmen können. Die kompetenten Mitarbeiter verfügen — wo erforderlich — über das für ihre Funktion erforderliche Fachwissen in Bereichen wie Informationstechnologie sowie KI und Recht, einschließlich der Überwachung der Grundrechte.
-Artikel 29
-Antrag einer Konformitätsbewertungsstelle auf Notifizierung
+Artikel 29: Antrag einer Konformitätsbewertungsstelle auf Notifizierung
 (1)   Konformitätsbewertungsstellen beantragen ihre Notifizierung bei der notifizierenden Behörde des Mitgliedstaats, in dem sie niedergelassen sind.
 (2)   Dem Antrag auf Notifizierung legen sie eine Beschreibung der Konformitätsbewertungstätigkeiten, des bzw. der Konformitätsbewertungsmodule und der Art der KI-Systeme, für die diese Konformitätsbewertungsstelle Kompetenz beansprucht, sowie, falls vorhanden, eine Akkreditierungsurkunde bei, die von einer nationalen Akkreditierungsstelle ausgestellt wurde und in der bescheinigt wird, dass die Konformitätsbewertungsstelle die Anforderungen des Artikels 31 erfüllt.
 Sonstige gültige Dokumente in Bezug auf bestehende Benennungen der antragstellenden notifizierten Stelle im Rahmen anderer Harmonisierungsrechtsvorschriften der Union sind ebenfalls beizufügen.
 (3)   Kann die betreffende Konformitätsbewertungsstelle keine Akkreditierungsurkunde vorweisen, so legt sie der notifizierenden Behörde als Nachweis alle Unterlagen vor, die erforderlich sind, um zu überprüfen, festzustellen und regelmäßig zu überwachen, ob sie die Anforderungen des Artikels 31 erfüllt.
 (4)   Bei notifizierten Stellen, die im Rahmen anderer Harmonisierungsrechtsvorschriften der Union benannt wurden, können alle Unterlagen und Bescheinigungen im Zusammenhang mit solchen Benennungen zur Unterstützung ihres Benennungsverfahrens nach dieser Verordnung verwendet werden. Die notifizierte Stelle aktualisiert die in den Absätzen 2 und 3 des vorliegenden Artikels genannte Dokumentation immer dann, wenn sich relevante Änderungen ergeben, damit die für notifizierte Stellen zuständige Behörde überwachen und überprüfen kann, ob die Anforderungen des Artikels 31 kontinuierlich erfüllt sind.
-Artikel 30
-Notifizierungsverfahren
+Artikel 30: Notifizierungsverfahren
 (1)   Die notifizierenden Behörden dürfen nur Konformitätsbewertungsstellen notifizieren, die die Anforderungen des Artikels 31 erfüllen.
 (2)   Die notifizierenden Behörden unterrichten die Kommission und die übrigen Mitgliedstaaten mithilfe des elektronischen Notifizierungsinstruments, das von der Kommission entwickelt und verwaltet wird, über jede Konformitätsbewertungsstelle gemäß Absatz 1.
 (3)   Die Notifizierung gemäß Absatz 2 des vorliegenden Artikels enthält vollständige Angaben zu den Konformitätsbewertungstätigkeiten, dem betreffenden Konformitätsbewertungsmodul oder den betreffenden Konformitätsbewertungsmodulen, den betreffenden Arten der KI-Systeme und der einschlägigen Bestätigung der Kompetenz. Beruht eine Notifizierung nicht auf einer Akkreditierungsurkunde gemäß Artikel 29 Absatz 2, so legt die notifizierende Behörde der Kommission und den anderen Mitgliedstaaten die Unterlagen vor, die die Kompetenz der Konformitätsbewertungsstelle und die Vereinbarungen nachweisen, die getroffen wurden, um sicherzustellen, dass die Stelle regelmäßig überwacht wird und weiterhin die Anforderungen des Artikels 31 erfüllt.
 (4)   Die betreffende Konformitätsbewertungsstelle darf die Tätigkeiten einer notifizierten Stelle nur dann wahrnehmen, wenn weder die Kommission noch die anderen Mitgliedstaaten innerhalb von zwei Wochen nach einer Notifizierung durch eine notifizierende Behörde, falls eine Akkreditierungsurkunde gemäß Artikel 29 Absatz 2 vorgelegt wird, oder innerhalb von zwei Monaten nach einer Notifizierung durch eine notifizierende Behörde, falls als Nachweis Unterlagen gemäß Artikel 29 Absatz 3 vorgelegt werden, Einwände erhoben haben.
 (5)   Werden Einwände erhoben, konsultiert die Kommission unverzüglich die betreffenden Mitgliedstaaten und die Konformitätsbewertungsstelle. Im Hinblick darauf entscheidet die Kommission, ob die Genehmigung gerechtfertigt ist. Die Kommission richtet ihren Beschluss an die betroffenen Mitgliedstaaten und an die zuständige Konformitätsbewertungsstelle.
-Artikel 31
-Anforderungen an notifizierte Stellen
+Artikel 31: Anforderungen an notifizierte Stellen
 (1)   Eine notifizierte Stelle wird nach dem nationalen Recht eines Mitgliedstaats gegründet und muss mit Rechtspersönlichkeit ausgestattet sein.
 (2)   Die notifizierten Stellen müssen die zur Wahrnehmung ihrer Aufgaben erforderlichen Anforderungen an die Organisation, das Qualitätsmanagement, die Ressourcenausstattung und die Verfahren sowie angemessene Cybersicherheitsanforderungen erfüllen.
 (3)   Die Organisationsstruktur, die Zuweisung der Zuständigkeiten, die Berichtslinien und die Funktionsweise der notifizierten Stellen müssen das Vertrauen in ihre Leistung und in die Ergebnisse der von ihnen durchgeführten Konformitätsbewertungstätigkeiten gewährleisten.
@@ -1086,26 +1048,21 @@ Anforderungen an notifizierte Stellen
 (10)   Die notifizierten Stellen müssen in der Lage sein, ihre Aufgaben gemäß dieser Verordnung mit höchster beruflicher Integrität und der erforderlichen Fachkompetenz in dem betreffenden Bereich auszuführen, gleichgültig, ob diese Aufgaben von den notifizierten Stellen selbst oder in ihrem Auftrag und in ihrer Verantwortung durchgeführt werden.
 (11)   Die notifizierten Stellen müssen über ausreichende interne Kompetenzen verfügen, um die von externen Stellen in ihrem Namen wahrgenommen Aufgaben wirksam beurteilen zu können. Die notifizierten Stellen müssen ständig über ausreichendes administratives, technisches, juristisches und wissenschaftliches Personal verfügen, das Erfahrungen und Kenntnisse in Bezug auf einschlägige Arten der KI-Systeme, Daten und Datenverarbeitung sowie die in Abschnitt 2 festgelegten Anforderungen besitzt.
 (12)   Die notifizierten Stellen wirken an den in Artikel 38 genannten Koordinierungstätigkeiten mit. Sie wirken außerdem unmittelbar oder mittelbar an der Arbeit der europäischen Normungsorganisationen mit oder stellen sicher, dass sie stets über den Stand der einschlägigen Normen unterrichtet sind.
-Artikel 32
-Vermutung der Konformität mit den Anforderungen an notifizierte Stellen
+Artikel 32: Vermutung der Konformität mit den Anforderungen an notifizierte Stellen
 Weist eine Konformitätsbewertungsstelle nach, dass sie die Kriterien der einschlägigen harmonisierten Normen, deren Fundstellen im Amtsblatt der Europäischen Union veröffentlicht wurden, oder Teile dieser Normen erfüllt, so wird davon ausgegangen, dass sie die Anforderungen des Artikels 31, soweit diese von den geltenden harmonisierten Normen erfasst werden, erfüllt.
-Artikel 33
-Zweigstellen notifizierter Stellen und Vergabe von Unteraufträgen
+Artikel 33: Zweigstellen notifizierter Stellen und Vergabe von Unteraufträgen
 (1)   Vergibt eine notifizierte Stelle bestimmte mit der Konformitätsbewertung verbundene Aufgaben an Unterauftragnehmer oder überträgt sie diese einer Zweigstelle, so stellt sie sicher, dass der Unterauftragnehmer oder die Zweigstelle die Anforderungen des Artikels 31 erfüllt, und informiert die notifizierende Behörde darüber.
 (2)   Die notifizierten Stellen tragen die volle Verantwortung für Arbeiten, die von jedweden Unterauftragnehmern oder Zweigstellen ausgeführt werden.
 (3)   Tätigkeiten dürfen nur mit Zustimmung des Anbieters an einen Unterauftragnehmer vergeben oder einer Zweigstelle übertragen werden. Die notifizierten Stellen veröffentlichen ein Verzeichnis ihrer Zweigstellen.
 (4)   Die einschlägigen Unterlagen über die Bewertung der Qualifikation des Unterauftragnehmers oder der Zweigstelle und die von ihnen gemäß dieser Verordnung ausgeführten Arbeiten werden für einen Zeitraum von fünf Jahren ab dem Datum der Beendigung der Unterauftragsvergabe für die notifizierende Behörde bereitgehalten.
-Artikel 34
-Operative Pflichten der notifizierten Stellen
+Artikel 34: Operative Pflichten der notifizierten Stellen
 (1)   Die notifizierten Stellen überprüfen die Konformität von Hochrisiko-KI-Systemen nach den in Artikel 43 festgelegten Konformitätsbewertungsverfahren.
 (2)   Die notifizierten Stellen vermeiden bei der Durchführung ihrer Tätigkeiten unnötige Belastungen für die Anbieter und berücksichtigen gebührend die Größe des Anbieters, den Sektor, in dem er tätig ist, seine Struktur sowie die Komplexität des betreffenden Hochrisiko-KI-Systems, um insbesondere den Verwaltungsaufwand und die Befolgungskosten für Kleinstunternehmen und kleine Unternehmen im Sinne der Empfehlung 2003/361/EG zu minimieren. Die notifizierte Stelle muss jedoch den Grad der Strenge und das Schutzniveau einhalten, die für die Konformität des Hochrisiko-KI-Systems mit den Anforderungen dieser Verordnung erforderlich sind.
 (3)   Die notifizierten Stellen machen der in Artikel 28 genannten notifizierenden Behörde sämtliche einschlägige Dokumentation, einschließlich der Dokumentation des Anbieters, zugänglich bzw. übermitteln diese auf Anfrage, damit diese Behörde ihre Bewertungs-, Benennungs-, Notifizierungs- und Überwachungstätigkeiten durchführen kann und die Bewertung gemäß diesem Abschnitt erleichtert wird.
-Artikel 35
-Identifizierungsnummern und Verzeichnisse notifizierter Stellen
+Artikel 35: Identifizierungsnummern und Verzeichnisse notifizierter Stellen
 (1)   Die Kommission weist jeder notifizierten Stelle eine einzige Identifizierungsnummer zu, selbst wenn eine Stelle nach mehr als einem Rechtsakt der Union notifiziert wurde.
 (2)   Die Kommission veröffentlicht das Verzeichnis der nach dieser Verordnung notifizierten Stellen samt ihren Identifizierungsnummern und den Tätigkeiten, für die sie notifiziert wurden. Die Kommission stellt sicher, dass das Verzeichnis auf dem neuesten Stand gehalten wird.
-Artikel 36
-Änderungen der Notifizierungen
+Artikel 36: Änderungen der Notifizierungen
 (1)   Die notifizierende Behörde unterrichtet die Kommission und die anderen Mitgliedstaaten mithilfe des in Artikel 30 Absatz 2 genannten elektronischen Notifizierungsinstruments über alle relevanten Änderungen der Notifizierung einer notifizierten Stelle.
 (2)   Für Erweiterungen des Anwendungsbereichs der Notifizierung gelten die in den Artikeln 29 und 30 festgelegten Verfahren.
 Für andere Änderungen der Notifizierung als Erweiterungen ihres Anwendungsbereichs gelten die in den Absätzen 3 bis 9 dargelegten Verfahren.
@@ -1136,31 +1093,25 @@ b)
 eine andere notifizierte Stelle hat schriftlich bestätigt, dass sie die unmittelbare Verantwortung für diese KI-Systeme übernehmen und deren Bewertung innerhalb von 12 Monaten ab dem Widerruf der Benennung abgeschlossen haben wird.
 Unter den in Unterabsatz 1 genannten Umständen kann die zuständige nationale Behörde des Mitgliedstaats, in dem der Anbieter des von der Bescheinigung abgedeckten Systems seine Niederlassung hat, die vorläufige Gültigkeit der Bescheinigungen um zusätzliche Zeiträume von je drei Monaten, jedoch nicht um insgesamt mehr als 12 Monate, verlängern.
 Die zuständige nationale Behörde oder die notifizierte Stelle, die die Aufgaben der von der Benennungsänderung betroffenen notifizierten Stelle übernimmt, informiert unverzüglich die Kommission, die anderen Mitgliedstaaten und die anderen notifizierten Stellen darüber.
-Artikel 37
-Anfechtungen der Kompetenz notifizierter Stellen
+Artikel 37: Anfechtungen der Kompetenz notifizierter Stellen
 (1)   Die Kommission untersucht erforderlichenfalls alle Fälle, in denen begründete Zweifel an der Kompetenz einer notifizierten Stelle oder daran bestehen, dass eine notifizierte Stelle die in Artikel 31 festgelegten Anforderungen und ihre geltenden Pflichten weiterhin erfüllt.
 (2)   Die notifizierende Behörde stellt der Kommission auf Anfrage alle Informationen über die Notifizierung oder die Aufrechterhaltung der Kompetenz der betreffenden notifizierten Stelle zur Verfügung.
 (3)   Die Kommission stellt sicher, dass alle im Verlauf ihrer Untersuchungen gemäß diesem Artikel erlangten sensiblen Informationen gemäß Artikel 78 vertraulich behandelt werden.
 (4)   Stellt die Kommission fest, dass eine notifizierte Stelle die Anforderungen für ihre Notifizierung nicht oder nicht mehr erfüllt, so informiert sie den notifizierenden Mitgliedstaat entsprechend und fordert ihn auf, die erforderlichen Abhilfemaßnahmen zu treffen, einschließlich einer Aussetzung oder eines Widerrufs der Notifizierung, sofern dies nötig ist. Versäumt es ein Mitgliedstaat, die erforderlichen Abhilfemaßnahmen zu ergreifen, kann die Kommission die Benennung im Wege eines Durchführungsrechtsakts aussetzen, einschränken oder widerrufen. Dieser Durchführungsrechtsakt wird gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
-Artikel 38
-Koordinierung der notifizierten Stellen
+Artikel 38: Koordinierung der notifizierten Stellen
 (1)   Die Kommission sorgt dafür, dass in Bezug auf Hochrisiko-KI-Systeme eine zweckmäßige Koordinierung und Zusammenarbeit zwischen den an den Konformitätsbewertungsverfahren im Rahmen dieser Verordnung beteiligten notifizierten Stellen in Form einer sektoralen Gruppe notifizierter Stellen eingerichtet und ordnungsgemäß weitergeführt wird.
 (2)   Jede notifizierende Behörde sorgt dafür, dass sich die von ihr notifizierten Stellen direkt oder über benannte Vertreter an der Arbeit der in Absatz 1 genannten Gruppe beteiligen.
 (3)   Die Kommission sorgt für den Austausch von Wissen und bewährten Verfahren zwischen den notifizierenden Behörden.
-Artikel 39
-Konformitätsbewertungsstellen in Drittländern
+Artikel 39: Konformitätsbewertungsstellen in Drittländern
 Konformitätsbewertungsstellen, die nach dem Recht eines Drittlands errichtet wurden, mit dem die Union ein Abkommen geschlossen hat, können ermächtigt werden, die Tätigkeiten notifizierter Stellen gemäß dieser Verordnung durchzuführen, sofern sie die Anforderungen gemäß Artikel 31 erfüllen oder das gleiche Maß an Konformität gewährleisten.
-ABSCHNITT 5
-Normen, Konformitätsbewertung, Bescheinigungen, Registrierung
-Artikel 40
-Harmonisierte Normen und Normungsdokumente
+ABSCHNITT 5: Normen, Konformitätsbewertung, Bescheinigungen, Registrierung
+Artikel 40: Harmonisierte Normen und Normungsdokumente
 (1)   Bei Hochrisiko-KI-Systemen oder KI-Modellen mit allgemeinem Verwendungszweck, die mit harmonisierten Normen oder Teilen davon, deren Fundstellen gemäß der Verordnung (EU) Nr. 1025/2012 im Amtsblatt der Europäischen Union veröffentlicht wurden, übereinstimmen, wird eine Konformität mit den Anforderungen gemäß Abschnitt 2 des vorliegenden Kapitels oder gegebenenfalls mit den Pflichten gemäß Kapitel V Abschnitte 2 und 3 der vorliegenden Verordnung vermutet, soweit diese Anforderungen oder Verpflichtungen von den Normen abgedeckt sind.
 (2)   Gemäß Artikel 10 der Verordnung (EU) Nr. 1025/2012 erteilt die Kommission unverzüglich Normungsaufträge, die alle Anforderungen gemäß Abschnitt 2 des vorliegenden Kapitels abdecken und gegebenenfalls Normungsaufträge, die Pflichten gemäß Kapitel V Abschnitte 2 und 3 der vorliegenden Verordnung abdecken. In dem Normungsauftrag werden auch Dokumente zu den Berichterstattungs- und Dokumentationsverfahren im Hinblick auf die Verbesserung der Ressourcenleistung von KI-Systemen z. B. durch die Verringerung des Energie- und sonstigen Ressourcenverbrauchs des Hochrisiko-KI-Systems während seines gesamten Lebenszyklus und zu der energieeffizienten Entwicklung von KI-Modellen mit allgemeinem Verwendungszweck verlangt. Bei der Ausarbeitung des Normungsauftrags konsultiert die Kommission das KI-Gremium und die einschlägigen Interessenträger, darunter das Beratungsforum.
 Bei der Erteilung eines Normungsauftrags an die europäischen Normungsorganisationen gibt die Kommission an, dass die Normen klar und — u. a. mit den Normen, die in den verschiedenen Sektoren für Produkte entwickelt wurden, die unter die in Anhang I aufgeführten geltenden Harmonisierungsrechtsvorschriften der Union fallen — konsistent sein müssen und sicherstellen sollen, dass die in der Union in Verkehr gebrachten oder in Betrieb genommenen Hochrisiko-KI-Systeme oder KI-Modelle mit allgemeinem Verwendungszweck die in dieser Verordnung festgelegten einschlägigen Anforderungen oder Pflichten erfüllen.
 Die Kommission fordert die europäischen Normungsorganisationen auf, Nachweise dafür vorzulegen, dass sie sich nach besten Kräften bemühen, die in den Unterabsätzen 1 und 2 dieses Absatzes genannten Ziele im Einklang mit Artikel 24 der Verordnung (EU) Nr. 1025/2012 zu erreichen.
 (3)   Die am Normungsprozess Beteiligten bemühen sich, Investitionen und Innovationen im Bereich der KI, u. a. durch Erhöhung der Rechtssicherheit, sowie der Wettbewerbsfähigkeit und des Wachstums des Unionsmarktes zu fördern und zur Stärkung der weltweiten Zusammenarbeit bei der Normung und zur Berücksichtigung bestehender internationaler Normen im Bereich der KI, die mit den Werten, Grundrechten und Interessen der Union im Einklang stehen, beizutragen und die Multi-Stakeholder-Governance zu verbessern, indem eine ausgewogene Vertretung der Interessen und eine wirksame Beteiligung aller relevanten Interessenträger gemäß den Artikeln 5, 6 und 7 der Verordnung (EU) Nr. 1025/2012 sichergestellt werden.
-Artikel 41
-Gemeinsame Spezifikationen
+Artikel 41: Gemeinsame Spezifikationen
 (1)   Die Kommission kann Durchführungsrechtsakte zur Festlegung gemeinsamer Spezifikationen für die Anforderungen gemäß Abschnitt 2 dieses Kapitels oder gegebenenfalls die Pflichten gemäß Kapitel V Abschnitte 2 und 3 erlassen, wenn die folgenden Bedingungen erfüllt sind:
 a)
 Die Kommission hat gemäß Artikel 10 Absatz 1 der Verordnung (EU) Nr. 1025/2012 eine oder mehrere europäische Normungsorganisationen damit beauftragt, eine harmonisierte Norm für die in Abschnitt 2 dieses Kapitels festgelegten Anforderungen oder gegebenenfalls für die in Kapitel V Abschnitte 2 und 3 festgelegten Pflichten zu erarbeiten, und
@@ -1181,12 +1132,10 @@ Die in Unterabsatz 1 des vorliegenden Absatzes genannten Durchführungsrechtsakt
 (4)   Wird eine harmonisierte Norm von einer europäischen Normungsorganisation angenommen und der Kommission zur Veröffentlichung ihrer Fundstelle im Amtsblatt der Europäischen Union vorgeschlagen, so bewertet die Kommission die harmonisierte Norm gemäß der Verordnung (EU) Nr. 1025/2012. Wird die Fundstelle zu einer harmonisierten Norm im Amtsblatt der Europäischen Union veröffentlicht, so werden die in Absatz 1 genannten Durchführungsrechtsakte, die dieselben Anforderungen gemäß Abschnitt 2 dieses Kapitels oder gegebenenfalls dieselben Pflichten gemäß Kapitel V Abschnitte 2 und 3 erfassen, von der Kommission ganz oder teilweise aufgehoben.
 (5)   Wenn Anbieter von Hochrisiko-KI-Systemen oder KI-Modellen mit allgemeinem Verwendungszweck die in Absatz 1 genannten gemeinsamen Spezifikationen nicht befolgen, müssen sie hinreichend nachweisen, dass sie technische Lösungen verwenden, die die in Abschnitt 2 dieses Kapitels aufgeführten Anforderungen oder gegebenenfalls die Pflichten gemäß Kapitel V Abschnitte 2 und 3 zumindest in gleichem Maße erfüllen;
 (6)   Ist ein Mitgliedstaat der Auffassung, dass eine gemeinsame Spezifikation den Anforderungen gemäß Abschnitt 2 nicht vollständig entspricht oder gegebenenfalls die Pflichten gemäß Kapitel V Abschnitte 2 und 3 nicht vollständig erfüllt, so setzt er die Kommission im Rahmen einer ausführlichen Erläuterung davon in Kenntnis. Die Kommission bewertet die betreffende Information und ändert gegebenenfalls den Durchführungsrechtsakt, durch den die betreffende gemeinsame Spezifikation festgelegt wurde.
-Artikel 42
-Vermutung der Konformität mit bestimmten Anforderungen
+Artikel 42: Vermutung der Konformität mit bestimmten Anforderungen
 (1)   Für Hochrisiko-KI-Systeme, die mit Daten, in denen sich die besonderen geografischen, verhaltensbezogenen, kontextuellen oder funktionalen Rahmenbedingungen niederschlagen, unter denen sie verwendet werden sollen, trainiert und getestet wurden, gilt die Vermutung, dass sie die in Artikel 10 Absatz 4 festgelegten einschlägigen Anforderungen erfüllen.
 (2)   Für Hochrisiko-KI-Systeme, die im Rahmen eines der Cybersicherheitszertifizierungssysteme gemäß der Verordnung (EU) 2019/881, deren Fundstellen im Amtsblatt der Europäischen Union veröffentlicht wurden, zertifiziert wurden oder für die eine solche Konformitätserklärung erstellt wurde, gilt die Vermutung, dass sie die in Artikel 15 der vorliegenden Verordnung festgelegten Cybersicherheitsanforderungen erfüllen, sofern diese Anforderungen von der Cybersicherheitszertifizierung oder der Konformitätserklärung oder Teilen davon abdeckt sind.
-Artikel 43
-Konformitätsbewertung
+Artikel 43: Konformitätsbewertung
 (1)   Hat ein Anbieter zum Nachweis, dass ein in Anhang III Nummer 1 aufgeführtes Hochrisiko-KI-System die in Abschnitt 2 festgelegten Anforderungen erfüllt, harmonisierte Normen gemäß Artikel 40 oder gegebenenfalls gemeinsame Spezifikationen gemäß Artikel 41 angewandt, so entscheidet er sich für eines der folgenden Konformitätsbewertungsverfahren auf der Grundlage
 a)
 der internen Kontrolle gemäß Anhang VI oder
@@ -1210,14 +1159,12 @@ Wenn ein in Anhang I Abschnitt A aufgeführter Rechtsakte es dem Hersteller des 
 Bei Hochrisiko-KI-Systemen, die nach dem Inverkehrbringen oder der Inbetriebnahme weiterhin dazulernen, gelten Änderungen des Hochrisiko-KI-Systems und seiner Leistung, die vom Anbieter zum Zeitpunkt der ursprünglichen Konformitätsbewertung vorab festgelegt wurden und in den Informationen der technischen Dokumentation gemäß Anhang IV Nummer 2 Buchstabe f enthalten sind, nicht als wesentliche Veränderung;
 (5)   Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zu erlassen, um die Anhänge VI und VII zu ändern, indem sie sie angesichts des technischen Fortschritts aktualisiert.
 (6)   Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zur Änderung der Absätze 1 und 2 des vorliegenden Artikels zu erlassen, um die in Anhang III Nummern 2 bis 8 genannten Hochrisiko-KI-Systeme dem Konformitätsbewertungsverfahren gemäß Anhang VII oder Teilen davon zu unterwerfen. Die Kommission erlässt solche delegierten Rechtsakte unter Berücksichtigung der Wirksamkeit des Konformitätsbewertungsverfahrens auf der Grundlage einer internen Kontrolle gemäß Anhang VI hinsichtlich der Vermeidung oder Minimierung der von solchen Systemen ausgehenden Risiken für die Gesundheit und Sicherheit und den Schutz der Grundrechte sowie hinsichtlich der Verfügbarkeit angemessener Kapazitäten und Ressourcen in den notifizierten Stellen.
-Artikel 44
-Bescheinigungen
+Artikel 44: Bescheinigungen
 (1)   Die von notifizierten Stellen gemäß Anhang VII ausgestellten Bescheinigungen werden in einer Sprache ausgefertigt, die für die einschlägigen Behörden des Mitgliedstaats, in dem die notifizierte Stelle niedergelassen ist, leicht verständlich ist.
 (2)   Die Bescheinigungen sind für die darin genannte Dauer gültig, die maximal fünf Jahre für unter Anhang I fallende KI-Systeme und maximal vier Jahre für unter Anhang III fallende KI-Systeme beträgt. Auf Antrag des Anbieters kann die Gültigkeit einer Bescheinigung auf der Grundlage einer Neubewertung gemäß den geltenden Konformitätsbewertungsverfahren um weitere Zeiträume von jeweils höchstens fünf Jahren für unter Anhang I fallende KI-Systeme und höchstens vier Jahre für unter Anhang III fallende KI-Systeme verlängert werden. Eine Ergänzung zu einer Bescheinigung bleibt gültig, sofern die Bescheinigung, zu der sie gehört, gültig ist.
 (3)   Stellt eine notifizierte Stelle fest, dass ein KI-System die in Abschnitt 2 festgelegten Anforderungen nicht mehr erfüllt, so setzt sie die ausgestellte Bescheinigung aus, widerruft sie oder schränkt sie ein, jeweils unter Berücksichtigung des Grundsatzes der Verhältnismäßigkeit, sofern die Einhaltung der Anforderungen nicht durch geeignete Korrekturmaßnahmen des Anbieters des Systems innerhalb einer von der notifizierten Stelle gesetzten angemessenen Frist wiederhergestellt wird. Die notifizierte Stelle begründet ihre Entscheidung.
 Es muss ein Einspruchsverfahren gegen die Entscheidungen der notifizierten Stellen, auch solche über ausgestellte Konformitätsbescheinigungen, vorgesehen sein.
-Artikel 45
-Informationspflichten der notifizierten Stellen
+Artikel 45: Informationspflichten der notifizierten Stellen
 (1)   Die notifizierten Stellen informieren die notifizierende Behörde über
 a)
 alle Unionsbescheinigungen über die Bewertung der technischen Dokumentation, etwaige Ergänzungen dieser Bescheinigungen und alle Genehmigungen von Qualitätsmanagementsystemen, die gemäß den Anforderungen des Anhangs VII erteilt wurden;
@@ -1236,8 +1183,7 @@ b)
 die Bescheinigungen der Union über die Bewertung der technischen Dokumentation und deren etwaige Ergänzungen, die sie verweigert, ausgesetzt oder zurückgenommen oder anderweitig eingeschränkt hat, und auf Anfrage die Bescheinigungen und/oder deren Ergänzungen, die sie ausgestellt hat.
 (3)   Jede notifizierte Stelle übermittelt den anderen notifizierten Stellen, die ähnlichen Konformitätsbewertungstätigkeiten für die gleichen Arten der KI-Systeme nachgehen, einschlägige Informationen über negative und auf Anfrage über positive Konformitätsbewertungsergebnisse.
 (4)   Notifizierende Behörden gewährleisten gemäß Artikel 78 die Vertraulichkeit der von ihnen erlangten Informationen.
-Artikel 46
-Ausnahme vom Konformitätsbewertungsverfahren
+Artikel 46: Ausnahme vom Konformitätsbewertungsverfahren
 (1)   Abweichend von Artikel 43 und auf ein hinreichend begründetes Ersuchen kann eine Marktüberwachungsbehörde das Inverkehrbringen oder die Inbetriebnahme bestimmter Hochrisiko-KI-Systeme im Hoheitsgebiet des betreffenden Mitgliedstaats aus außergewöhnlichen Gründen der öffentlichen Sicherheit, des Schutzes des Lebens und der Gesundheit von Personen, des Umweltschutzes oder des Schutzes wichtiger Industrie- und Infrastrukturanlagen genehmigen. Diese Genehmigung wird auf die Dauer der erforderlichen Konformitätsbewertungsverfahren befristet, wobei den außergewöhnlichen Gründen für die Ausnahme Rechnung getragen wird. Der Abschluss dieser Verfahren erfolgt unverzüglich.
 (2)   In hinreichend begründeten dringenden Fällen aus außergewöhnlichen Gründen der öffentlichen Sicherheit oder in Fällen einer konkreten, erheblichen und unmittelbaren Gefahr für das Leben oder die körperliche Unversehrtheit natürlicher Personen können Strafverfolgungsbehörden oder Katastrophenschutzbehörden ein bestimmtes Hochrisiko-KI-System ohne die in Absatz 1 genannte Genehmigung in Betrieb nehmen, sofern diese Genehmigung während der Verwendung oder im Anschluss daran unverzüglich beantragt wird. Falls die Genehmigung gemäß Absatz 1 abgelehnt wird, wird Verwendung des Hochrisiko-KI-Systems mit sofortiger Wirkung eingestellt und sämtliche Ergebnisse und Ausgaben dieser Verwendung werden unverzüglich verworfen.
 (3)   Die in Absatz 1 genannte Genehmigung wird nur erteilt, wenn die Marktüberwachungsbehörde zu dem Schluss gelangt, dass das Hochrisiko-KI-System die Anforderungen des Abschnitts 2 erfüllt. Die Marktüberwachungsbehörde informiert die Kommission und die anderen Mitgliedstaaten über alle von ihr gemäß den Absätzen 1 und 2 erteilten Genehmigungen. Diese Pflicht erstreckt sich nicht auf sensible operative Daten zu den Tätigkeiten von Strafverfolgungsbehörden.
@@ -1245,22 +1191,19 @@ Ausnahme vom Konformitätsbewertungsverfahren
 (5)   Erhebt innerhalb von 15 Kalendertagen nach Erhalt der in Absatz 3 genannten Mitteilung ein Mitgliedstaat Einwände gegen eine von einer Marktüberwachungsbehörde eines anderen Mitgliedstaats erteilte Genehmigung oder ist die Kommission der Auffassung, dass die Genehmigung mit dem Unionsrecht unvereinbar ist oder dass die Schlussfolgerung der Mitgliedstaaten in Bezug auf die Konformität des in Absatz 3 genannten Systems unbegründet ist, so nimmt die Kommission unverzüglich Konsultationen mit dem betreffenden Mitgliedstaat auf. Die betroffenen Akteure werden konsultiert und erhalten Gelegenheit, dazu Stellung zu nehmen. In Anbetracht dessen entscheidet die Kommission, ob die Genehmigung gerechtfertigt ist. Die Kommission richtet ihren Beschluss an den betroffenen Mitgliedstaat und an die betroffenen Akteure.
 (6)   Wird die Genehmigung von der Kommission als ungerechtfertigt erachtet, so muss sie von der Marktüberwachungsbehörde des betreffenden Mitgliedstaats zurückgenommen werden.
 (7)   Für Hochrisiko-KI-Systeme im Zusammenhang mit Produkten, die unter die in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, gelten nur die in diesen Harmonisierungsrechtsvorschriften der Union festgelegten Ausnahmen von den Konformitätsbewertungsverfahren.
-Artikel 47
-EU-Konformitätserklärung
+Artikel 47: EU-Konformitätserklärung
 (1)   Der Anbieter stellt für jedes Hochrisiko-KI-System eine schriftliche maschinenlesbare, physische oder elektronisch unterzeichnete EU-Konformitätserklärung aus und hält sie für einen Zeitraum von 10 Jahren ab dem Inverkehrbringen oder der Inbetriebnahme des Hochrisiko-KI-Systems für die zuständigen nationalen Behörden bereit. Aus der EU-Konformitätserklärung geht hervor, für welches Hochrisiko-KI-System sie ausgestellt wurde. Eine Kopie der EU-Konformitätserklärung wird den zuständigen nationalen Behörden auf Anfrage übermittelt.
 (2)   Die EU-Konformitätserklärung muss feststellen, dass das betreffende Hochrisiko-KI-System die in Abschnitt 2 festgelegten Anforderungen erfüllt. Die EU-Konformitätserklärung enthält die in Anhang V festgelegten Informationen und wird in eine Sprache übersetzt, die für die zuständigen nationalen Behörden der Mitgliedstaaten, in denen das Hochrisiko-KI-System in Verkehr gebracht oder bereitgestellt wird, leicht verständlich ist.
 (3)   Unterliegen Hochrisiko-KI-Systeme anderen Harmonisierungsrechtsvorschriften der Union, die ebenfalls eine EU-Konformitätserklärung vorschreiben, so wird eine einzige EU-Konformitätserklärung ausgestellt, die sich auf alle für das Hochrisiko-KI-System geltenden Rechtsvorschriften der Union bezieht. Die Erklärung enthält alle erforderlichen Informationen zur Feststellung der Harmonisierungsrechtsvorschriften der Union, auf die sich die Erklärung bezieht.
 (4)   Mit der Ausstellung der EU-Konformitätserklärung übernimmt der Anbieter die Verantwortung für die Erfüllung der in Abschnitt 2 festgelegten Anforderungen. Der Anbieter hält die EU-Konformitätserklärung gegebenenfalls auf dem neuesten Stand.
 (5)   Der Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zur Aktualisierung des in Anhang V festgelegten Inhalts der EU-Konformitätserklärung zu erlassen, um den genannten Anhang durch die Einführung von Elementen zu ändern, die angesichts des technischen Fortschritts erforderlich werden.
-Artikel 48
-CE-Kennzeichnung
+Artikel 48: CE-Kennzeichnung
 (1)   Für die CE-Kennzeichnung gelten die in Artikel 30 der Verordnung (EG) Nr. 765/2008 festgelegten allgemeinen Grundsätze.
 (2)   Bei digital bereitgestellten Hochrisiko-KI-Systemen wird eine digitale CE-Kennzeichnung nur dann verwendet, wenn sie über die Schnittstelle, von der aus auf dieses System zugegriffen wird, oder über einen leicht zugänglichen maschinenlesbaren Code oder andere elektronische Mittel leicht zugänglich ist.
 (3)   Die CE-Kennzeichnung wird gut sichtbar, leserlich und dauerhaft an Hochrisiko-KI-Systemen angebracht. Falls die Art des Hochrisiko-KI-Systems dies nicht zulässt oder nicht rechtfertigt, wird sie auf der Verpackung bzw. der beigefügten Dokumentation angebracht.
 (4)   Gegebenenfalls wird der CE-Kennzeichnung die Identifizierungsnummer der für die in Artikel 43 festgelegten Konformitätsbewertungsverfahren zuständigen notifizierten Stelle hinzugefügt. Die Identifizierungsnummer der notifizierten Stelle ist entweder von der Stelle selbst oder nach ihren Anweisungen durch den Anbieter oder den Bevollmächtigten des Anbieters anzubringen. Diese Identifizierungsnummer wird auch auf jeglichem Werbematerial angegeben, in dem darauf hingewiesen wird, dass das Hochrisiko-KI-System die Anforderungen für die CE-Kennzeichnung erfüllt.
 (5)   Falls Hochrisiko-KI-Systeme ferner unter andere Rechtsvorschriften der Union fallen, in denen die CE-Kennzeichnung auch vorgesehen ist, bedeutet die CE-Kennzeichnung, dass das Hochrisiko-KI-System auch die Anforderungen dieser anderen Rechtsvorschriften erfüllt.
-Artikel 49
-Registrierung
+Artikel 49: Registrierung
 (1)   Vor dem Inverkehrbringen oder der Inbetriebnahme eines in Anhang III aufgeführten Hochrisiko-KI-Systems — mit Ausnahme der in Anhang III Nummer 2 genannten Hochrisiko-KI-Systeme — registriert der Anbieter oder gegebenenfalls sein Bevollmächtigter sich und sein System in der in Artikel 71 genannten EU-Datenbank.
 (2)   Vor dem Inverkehrbringen oder der Inbetriebnahme eines Hochrisiko-KI-Systems, bei dem der Anbieter zu dem Schluss gelangt ist, dass es nicht hochriskant gemäß Artikel 6 Absatz 3 ist, registriert dieser Anbieter oder gegebenenfalls sein Bevollmächtigter sich und dieses System in der in Artikel 71 genannten EU-Datenbank.
 (3)   Vor der Inbetriebnahme oder Verwendung eines in Anhang III aufgeführten Hochrisiko-KI-Systems — mit Ausnahme der in Anhang III Nummer 2 aufgeführten Hochrisiko-KI-Systeme — registrieren sich Betreiber, bei denen es sich um Behörden oder Organe, Einrichtungen oder sonstige Stellen der Union oder in ihrem Namen handelnde Personen handelt, in der in Artikel 71 genannten EU-Datenbank, wählen das System aus und registrieren es dort.
@@ -1275,10 +1218,8 @@ d)
 Anhang IX Nummern 1, 2, 3 und Nummer 5.
 Nur die Kommission und die in Artikel 74 Absatz 8 genannten nationalen Behörden haben Zugang zu den jeweiligen beschränkten Teilen der EU-Datenbank gemäß Unterabsatz 1 dieses Absatzes.
 (5)   Die in Anhang III Nummer 2 genannten Hochrisiko-KI-Systeme werden auf nationaler Ebene registriert.
-KAPITEL IV
-TRANSPARENZPFLICHTEN FÜR ANBIETER UND BETREIBER BESTIMMTER KI-SYSTEME
-Artikel 50
-Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
+KAPITEL IV: TRANSPARENZPFLICHTEN FÜR ANBIETER UND BETREIBER BESTIMMTER KI-SYSTEME
+Artikel 50: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
 (1)   Die Anbieter stellen sicher, dass KI-Systeme, die für die direkte Interaktion mit natürlichen Personen bestimmt sind, so konzipiert und entwickelt werden, dass die betreffenden natürlichen Personen informiert werden, dass sie mit einem KI-System interagieren, es sei denn, dies ist aus Sicht einer angemessen informierten, aufmerksamen und verständigen natürlichen Person aufgrund der Umstände und des Kontexts der Nutzung offensichtlich. Diese Pflicht gilt nicht für gesetzlich zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten zugelassene KI-Systeme, wenn geeignete Schutzvorkehrungen für die Rechte und Freiheiten Dritter bestehen, es sei denn, diese Systeme stehen der Öffentlichkeit zur Anzeige einer Straftat zur Verfügung.
 (2)   Anbieter von KI-Systemen, einschließlich KI-Systemen mit allgemeinem Verwendungszweck, die synthetische Audio-, Bild-, Video- oder Textinhalte erzeugen, stellen sicher, dass die Ausgaben des KI-Systems in einem maschinenlesbaren Format gekennzeichnet und als künstlich erzeugt oder manipuliert erkennbar sind. Die Anbieter sorgen dafür, dass — soweit technisch möglich — ihre technischen Lösungen wirksam, interoperabel, belastbar und zuverlässig sind und berücksichtigen dabei die Besonderheiten und Beschränkungen der verschiedenen Arten von Inhalten, die Umsetzungskosten und den allgemein anerkannten Stand der Technik, wie er in den einschlägigen technischen Normen zum Ausdruck kommen kann. Diese Pflicht gilt nicht, soweit die KI-Systeme eine unterstützende Funktion für die Standardbearbeitung ausführen oder die vom Betreiber bereitgestellten Eingabedaten oder deren Semantik nicht wesentlich verändern oder wenn sie zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten gesetzlich zugelassen sind.
 (3)   Die Betreiber eines Emotionserkennungssystems oder eines Systems zur biometrischen Kategorisierung informieren die davon betroffenen natürlichen Personen über den Betrieb des Systems und verarbeiten personenbezogene Daten gemäß den Verordnungen (EU) 2016/679 und (EU) 2018/1725 und der Richtlinie (EU) 2016/680. Diese Pflicht gilt nicht für gesetzlich zur Aufdeckung, Verhütung oder Ermittlung von Straftaten zugelassene KI-Systeme, die zur biometrischen Kategorisierung und Emotionserkennung im Einklang mit dem Unionsrecht verwendet werden, sofern geeignete Schutzvorkehrungen für die Rechte und Freiheiten Dritter bestehen.
@@ -1287,12 +1228,9 @@ Betreiber eines KI-Systems, das Text erzeugt oder manipuliert, der veröffentlic
 (5)   Die in den Absätzen 1 bis 4 genannten Informationen werden den betreffenden natürlichen Personen spätestens zum Zeitpunkt der ersten Interaktion oder Aussetzung in klarer und eindeutiger Weise bereitgestellt. Die Informationen müssen den geltenden Barrierefreiheitsanforderungen entsprechen.
 (6)   Die Absätze 1 bis 4 lassen die in Kapitel III festgelegten Anforderungen und Pflichten unberührt und berühren nicht andere Transparenzpflichten, die im Unionsrecht oder dem nationalen Recht für Betreiber von KI-Systemen festgelegt sind.
 (7)   Das Büro für Künstliche Intelligenz fördert und erleichtert die Ausarbeitung von Praxisleitfäden auf Unionsebene, um die wirksame Umsetzung der Pflichten in Bezug auf die Feststellung und Kennzeichnung künstlich erzeugter oder manipulierter Inhalte zu erleichtern. Die Kommission kann Durchführungsrechtsakte zur Genehmigung dieser Praxisleitfäden nach dem in Artikel 56 Absatz 6 festgelegten Verfahren erlassen. Hält sie einen Kodex für nicht angemessen, so kann die Kommission einen Durchführungsrechtsakt gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen, in dem gemeinsame Vorschriften für die Umsetzung dieser Pflichten festgelegt werden.
-KAPITEL V
-KI-MODELLE MIT ALLGEMEINEM VERWENDUNGSZWECK
-ABSCHNITT 1
-Einstufungsvorschriften
-Artikel 51
-Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem Verwendungszweck mit systemischem Risiko
+KAPITEL V: KI-MODELLE MIT ALLGEMEINEM VERWENDUNGSZWECK
+ABSCHNITT 1: Einstufungsvorschriften
+Artikel 51: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem Verwendungszweck mit systemischem Risiko
 (1)   Ein KI-Modell mit allgemeinem Verwendungszweck wird als KI-Modell mit allgemeinem Verwendungszweck mit systemischem Risiko eingestuft, wenn eine der folgenden Bedingungen erfüllt ist:
 a)
 Es verfügt über Fähigkeiten mit hohem Wirkungsgrad, die mithilfe geeigneter technischer Instrumente und Methoden, einschließlich Indikatoren und Benchmarks, bewertet werden;
@@ -1300,8 +1238,7 @@ b)
 einem unter Berücksichtigung der in Anhang XIII festgelegten Kriterien von der Kommission von Amts wegen oder aufgrund einer qualifizierten Warnung des wissenschaftlichen Gremiums getroffenen Entscheidung zufolge verfügt es über Fähigkeiten oder eine Wirkung, die denen gemäß Buchstabe a entsprechen.
 (2)   Bei einem KI-Modell mit allgemeinem Verwendungszweck wird angenommen, dass es über Fähigkeiten mit hohem Wirkungsgrad gemäß Absatz 1 Buchstabe a verfügt, wenn die kumulierte Menge der für sein Training verwendeten Berechnungen, gemessen in Gleitkommaoperationen, mehr als 1025 beträgt.
 (3)   Die Kommission erlässt gemäß Artikel 97 delegierte Rechtsakte zur Änderung der in den Absätzen 1 und 2 des vorliegenden Artikels aufgeführten Schwellenwerte sowie zur Ergänzung von Benchmarks und Indikatoren vor dem Hintergrund sich wandelnder technologischer Entwicklungen, wie z. B. algorithmische Verbesserungen oder erhöhte Hardwareeffizienz, wenn dies erforderlich ist, damit diese Schwellenwerte dem Stand der Technik entsprechen.
-Artikel 52
-Verfahren
+Artikel 52: Verfahren
 (1)   Erfüllt ein KI-Modell mit allgemeinem Verwendungszweck die Bedingung gemäß Artikel 51 Absatz 1 Buchstabe a, so teilt der betreffende Anbieter dies der Kommission unverzüglich, in jedem Fall jedoch innerhalb von zwei Wochen, nachdem diese Bedingung erfüllt ist oder bekannt wird, dass sie erfüllt wird, mit. Diese Mitteilung muss die Informationen enthalten, die erforderlich sind, um nachzuweisen, dass die betreffende Bedingung erfüllt ist. Erlangt die Kommission Kenntnis von einem KI-Modell mit allgemeinem Verwendungszweck, das systemische Risiken birgt, die ihr nicht mitgeteilt wurden, so kann sie entscheiden, es als Modell mit systemischen Risiken auszuweisen.
 (2)   Der Anbieter eines KI-Modells mit allgemeinem Verwendungszweck, das die in Artikel 51 Absatz 1 Buchstabe a genannte Bedingung erfüllt, kann in seiner Mitteilung hinreichend begründete Argumente vorbringen, um nachzuweisen, dass das KI-Modell mit allgemeinem Verwendungszweck, obwohl es diese Bedingung erfüllt, aufgrund seiner besonderen Merkmale außerordentlicherweise keine systemischen Risiken birgt und daher nicht als KI-Modell mit allgemeinem Verwendungszweck mit systemischem Risiko eingestuft werden sollte.
 (3)   Gelangt die Kommission zu dem Schluss, dass die gemäß Absatz 2 vorgebrachten Argumente nicht hinreichend begründet sind, und konnte der betreffende Anbieter nicht nachweisen, dass das KI-Modell mit allgemeinem Verwendungszweck aufgrund seiner besonderen Merkmale keine systemischen Risiken aufweist, weist sie diese Argumente zurück, und das KI-Modell mit allgemeinem Verwendungszweck gilt als KI-Modell mit allgemeiner Zweckbestimmung mit systemischem Risiko.
@@ -1309,10 +1246,8 @@ Verfahren
 Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zu erlassen, um Anhang XIII zu ändern, indem die in dem genannten Anhang genannten Indikatoren präzisiert und aktualisiert werden.
 (5)   Stellt der Anbieter, dessen Modell gemäß Absatz 4 als KI-Modell mit allgemeinem Verwendungszweck mit systemischem Risiko ausgewiesen wurde, einen entsprechenden Antrag, berücksichtigt die Kommission den Antrag und kann entscheiden, erneut zu prüfen, ob beim KI-Modell mit allgemeinem Verwendungszweck auf der Grundlage der in Anhang XIII festgelegten Kriterien immer noch davon ausgegangen werden kann, dass es systemische Risiken aufweist. Dieser Antrag muss objektive, detaillierte und neue Gründe enthalten, die sich seit der Entscheidung zur Ausweisung ergeben haben. Die Anbieter können frühestens sechs Monate nach der Entscheidung zur Ausweisung eine Neubewertung beantragen. Entscheidet die Kommission nach ihrer Neubewertung, die Ausweisung als KI-Modell mit allgemeiner Zweckbestimmung mit systemischem Risiko beizubehalten, können die Anbieter frühestens sechs Monate nach dieser Entscheidung eine Neubewertung beantragen.
 (6)   Die Kommission stellt sicher, dass eine Liste von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko veröffentlicht wird, und hält diese Liste unbeschadet der Notwendigkeit, Rechte des geistigen Eigentums und vertrauliche Geschäftsinformationen oder Geschäftsgeheimnisse im Einklang mit dem Unionsrecht und dem nationalen Recht zu achten und zu schützen, auf dem neuesten Stand.
-ABSCHNITT 2
-Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
-Artikel 53
-Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+ABSCHNITT 2: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+Artikel 53: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
 (1)   Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
 a)
 erstellen und aktualisieren die technische Dokumentation des Modells, einschließlich seines Trainings- und Testverfahrens und der Ergebnisse seiner Bewertung, die mindestens die in Anhang XI aufgeführten Informationen enthält, damit sie dem Büro für Künstliche Intelligenz und den zuständigen nationalen Behörden auf Anfrage zur Verfügung gestellt werden kann;
@@ -1332,8 +1267,7 @@ erstellen und veröffentlichen eine hinreichend detaillierte Zusammenfassung der
 (5)   Um die Einhaltung von Anhang XI, insbesondere Nummer 2 Buchstaben d und e, zu erleichtern, ist die Kommission befugt, gemäß Artikel 97 delegierte Rechtsakte zu erlassen, um die Mess- und Berechnungsmethoden im Einzelnen festzulegen, damit eine vergleichbare und überprüfbare Dokumentation ermöglicht wird.
 (6)   Die Kommission ist befugt, gemäß Artikel 97 Absatz 2 delegierte Rechtsakte zu erlassen, um die Anhänge XI und XII vor dem Hintergrund sich wandelnder technologischer Entwicklungen zu ändern.
 (7)   Jegliche Informationen oder Dokumentation, die gemäß diesem Artikel erlangt werden, einschließlich Geschäftsgeheimnisse, werden im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten behandelt.
-Artikel 54
-Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+Artikel 54: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
 (1)   Anbieter, die in Drittländern niedergelassen sind, benennen vor dem Inverkehrbringen eines KI-Modells mit allgemeinem Verwendungszweck auf dem Unionsmarkt schriftlich einen in der Union niedergelassenen Bevollmächtigten.
 (2)   Der Anbieter muss seinem Bevollmächtigten ermöglichen, die Aufgaben wahrzunehmen, die im vom Anbieter erhaltenen Auftrag festgelegt sind.
 (3)   Der Bevollmächtigte nimmt die Aufgaben wahr, die in seinem vom Anbieter erhaltenen Auftrag festgelegt sind. Er stellt dem Büro für Künstliche Intelligenz auf Anfrage eine Kopie des Auftrags in einer der Amtssprachen der Institutionen der Union bereit. Für die Zwecke dieser Verordnung ermächtigt der Auftrag den Bevollmächtigten zumindest zur Wahrnehmung folgender Aufgaben:
@@ -1348,10 +1282,8 @@ Zusammenarbeit mit dem Büro für Künstliche Intelligenz und den zuständigen B
 (4)   Mit dem Auftrag wird der Bevollmächtigte ermächtigt, neben oder anstelle des Anbieters als Ansprechpartner für das Büro für Künstliche Intelligenz oder die zuständigen Behörden in allen Fragen zu dienen, die die Gewährleistung der Einhaltung dieser Verordnung betreffen.
 (5)   Der Bevollmächtigte beendet den Auftrag, wenn er der Auffassung ist oder Grund zu der Annahme hat, dass der Anbieter gegen seine Pflichten gemäß dieser Verordnung verstößt. In einem solchen Fall informiert er auch das Büro für Künstliche Intelligenz unverzüglich über die Beendigung des Auftrags und die Gründe dafür.
 (6)   Die Pflicht gemäß diesem Artikel gilt nicht für Anbieter von KI-Modellen, die im Rahmen einer freien und quelloffenen Lizenz bereitgestellt werden, die den Zugang, die Nutzung, die Änderung und die Verbreitung des Modells ermöglicht und deren Parameter, einschließlich Gewichte, Informationen über die Modellarchitektur und Informationen über die Modellnutzung, öffentlich zugänglich gemacht werden, es sei denn, die KI-Modelle mit allgemeinem Verwendungszweck bergen systemische Risiken.
-ABSCHNITT 3
-Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko
-Artikel 55
-Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko
+ABSCHNITT 3: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko
+Artikel 55: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko
 (1)   Zusätzlich zu den in den Artikeln 53 und 54 aufgeführten Pflichten müssen Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko
 a)
 eine Modellbewertung mit standardisierten Protokollen und Instrumenten, die dem Stand der Technik entsprechen, durchführen, wozu auch die Durchführung und Dokumentation von Angriffstests beim Modell gehören, um systemische Risiken zu ermitteln und zu mindern,
@@ -1363,10 +1295,8 @@ d)
 ein angemessenes Maß an Cybersicherheit für die KI-Modelle mit allgemeinem Verwendungszweck mit systemischem Risiko und die physische Infrastruktur des Modells gewährleisten.
 (2)   Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko können sich bis zur Veröffentlichung einer harmonisierten Norm auf Praxisleitfäden im Sinne des Artikels 56 stützen, um die Einhaltung der in Absatz 1 des vorliegenden Artikels genannten Pflichten nachzuweisen. Die Einhaltung der harmonisierten europäischen Norm begründet für die Anbieter die Vermutung der Konformität, insoweit diese Normen diese Verpflichtungen abdecken. Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko, die einen genehmigten Praxisleitfaden nicht befolgen oder eine harmonisierte europäische Norm nicht einhalten, müssen geeignete alternative Verfahren der Einhaltung aufzeigen, die von der Kommission zu bewerten sind.
 (3)   Jegliche Informationen oder Dokumentation, die gemäß diesem Artikel erlangt werden, werden im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten behandelt.
-ABSCHNITT 4
-Praxisleitfäden
-Artikel 56
-Praxisleitfäden
+ABSCHNITT 4: Praxisleitfäden
+Artikel 56: Praxisleitfäden
 (1)   Das Büro für Künstliche Intelligenz fördert und erleichtert die Ausarbeitung von Praxisleitfäden auf Unionsebene, um unter Berücksichtigung internationaler Ansätze zur ordnungsgemäßen Anwendung dieser Verordnung beizutragen.
 (2)   Das Büro für Künstliche Intelligenz und das KI-Gremium streben an, sicherzustellen, dass die Praxisleitfäden mindestens die in den Artikeln 53 und 55 vorgesehenen Pflichten abdecken, einschließlich der folgenden Aspekte:
 a)
@@ -1386,10 +1316,8 @@ Die Kommission kann im Wege eines Durchführungsrechtsakts einen Praxisleitfaden
 (8)   Das Büro für Künstliche Intelligenz fördert und erleichtert gegebenenfalls auch die Überprüfung und Anpassung der Praxisleitfäden, insbesondere vor dem Hintergrund neuer Normen. Das Büro für Künstliche Intelligenz unterstützt bei der Bewertung der verfügbaren Normen.
 (9)   Praxisleitfäden müssen spätestens am 2. Mai 2025 vorliegen. Das Büro für Künstliche Intelligenz unternimmt die erforderlichen Schritte, einschließlich des Ersuchens von Anbietern gemäß Absatz 7.
 Kann bis zum 2. August 2025 ein Verhaltenskodex nicht fertiggestellt werden oder erachtet das Büro für Künstliche Intelligenz dies nach seiner Bewertung gemäß Absatz 6 des vorliegenden Artikels für nicht angemessen, kann die Kommission im Wege von Durchführungsrechtsakten gemeinsame Vorschriften für die Umsetzung der in den Artikeln 53 und 55 vorgesehenen Pflichten, einschließlich der in Absatz 2 des vorliegenden Artikels genannten Aspekte, festlegen. Diese Durchführungsrechtsakte werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
-KAPITEL VI
-MASSNAHMEN ZUR INNOVATIONSFÖRDERUNG
-Artikel 57
-KI-Reallabore
+KAPITEL VI: MASSNAHMEN ZUR INNOVATIONSFÖRDERUNG
+Artikel 57: KI-Reallabore
 (1)   Die Mitgliedstaaten sorgen dafür, dass ihre zuständigen Behörden mindestens ein KI-Reallabor auf nationaler Ebene einrichten, das bis zum 2. August 2026 einsatzbereit sein muss. Dieses Reallabor kann auch gemeinsam mit den zuständigen Behörden anderer Mitgliedstaaten eingerichtet werden. Die Kommission kann technische Unterstützung, Beratung und Instrumente für die Einrichtung und den Betrieb von KI-Reallaboren bereitstellen.
 Die Verpflichtung nach Unterabsatz 1 kann auch durch Beteiligung an einem bestehenden Reallabor erfüllt werden, sofern eine solche Beteiligung die nationale Abdeckung der teilnehmenden Mitgliedstaaten in gleichwertigem Maße gewährleistet.
 (2)   Es können auch zusätzliche KI-Reallabore auf regionaler oder lokaler Ebene oder gemeinsam mit den zuständigen Behörden anderer Mitgliedstaaten eingerichtet werden;
@@ -1419,8 +1347,7 @@ Erleichterung und Beschleunigung des Zugangs von KI-Systemen zum Unionsmarkt, in
 (15)   Die zuständigen nationalen Behörden unterrichten das Büro für Künstliche Intelligenz und das KI-Gremium über die Einrichtung eines Reallabors und können sie um Unterstützung und Anleitung bitten. Das Büro für Künstliche Intelligenz veröffentlicht eine Liste der geplanten und bestehenden Reallabore und hält sie auf dem neuesten Stand, um eine stärkere Interaktion in den KI-Reallaboren und die grenzüberschreitende Zusammenarbeit zu fördern.
 (16)   Die zuständigen nationalen Behörden übermitteln dem Büro für Künstliche Intelligenz und dem KI-Gremium jährliche Berichte, und zwar ab einem Jahr nach der Einrichtung des Reallabors und dann jedes Jahr bis zu dessen Beendigung, sowie einen Abschlussbericht. Diese Berichte informieren über den Fortschritt und die Ergebnisse der Umsetzung dieser Reallabore, einschließlich bewährter Verfahren, Vorfällen, gewonnener Erkenntnisse und Empfehlungen zu deren Aufbau, sowie gegebenenfalls über die Anwendung und mögliche Überarbeitung dieser Verordnung, einschließlich ihrer delegierten Rechtsakte und Durchführungsrechtsakte, sowie über die Anwendung anderen Unionsrechts, deren Einhaltung von den zuständigen Behörden innerhalb des Reallabors beaufsichtigt wird. Die zuständigen nationalen Behörden stellen diese jährlichen Berichte oder Zusammenfassungen davon der Öffentlichkeit online zur Verfügung. Die Kommission trägt den jährlichen Berichten gegebenenfalls bei der Wahrnehmung ihrer Aufgaben gemäß dieser Verordnung Rechnung.
 (17)   Die Kommission richtet eine eigene Schnittstelle ein, die alle relevanten Informationen zu den KI-Reallaboren enthält, um es den Interessenträgern zu ermöglichen, mit den KI-Reallaboren zu interagieren und Anfragen an die zuständigen Behörden zu richten und unverbindliche Beratung zur Konformität von innovativen Produkten, Dienstleistungen und Geschäftsmodellen mit integrierter KI-Technologie im Einklang mit Artikel 62 Absatz 1 Buchstabe c einzuholen. Die Kommission stimmt sich gegebenenfalls proaktiv mit den zuständigen nationalen Behörden ab.
-Artikel 58
-Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
+Artikel 58: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
 (1)   Um eine Zersplitterung in der Union zu vermeiden, erlässt die Kommission Durchführungsrechtsakte, in denen detaillierte Regelungen für die Einrichtung, Entwicklung, Umsetzung, den Betrieb und die Beaufsichtigung der KI-Reallabore enthalten sind. In den Durchführungsrechtsakten sind gemeinsame Grundsätze zu den folgenden Aspekten festgelegt:
 a)
 Voraussetzungen und Auswahlkriterien für eine Beteiligung am KI-Reallabor;
@@ -1450,8 +1377,7 @@ i)
 dass die KI-Reallabore die Entwicklung von Instrumenten und Infrastruktur für das Testen, das Benchmarking, die Bewertung und die Erklärung der Dimensionen von KI-Systemen erleichtern, die für das regulatorische Lernen Bedeutung sind, wie etwa Genauigkeit, Robustheit und Cybersicherheit, sowie Maßnahmen zur Risikominderung im Hinblick auf die Grundrechte und die Gesellschaft als Ganzes fördern.
 (3)   Zukünftige Anbieter in den KI-Reallaboren, insbesondere KMU und Start-up-Unternehmen, werden gegebenenfalls vor der Einrichtung an Dienste verwiesen, die beispielsweise eine Anleitung zur Umsetzung dieser Verordnung oder andere Mehrwertdienste wie Hilfe bei Normungsdokumenten bereitstellen, sowie an Zertifizierungs-, Test- und Versuchseinrichtungen, europäische digitale Innovationszentren und Exzellenzzentren.
 (4)   Wenn zuständige nationale Behörden in Betracht ziehen, Tests unter Realbedingungen zu genehmigen, die im Rahmen eines KI-Reallabors beaufsichtigt werden, welches nach diesem Artikel einzurichten ist, vereinbaren sie mit den Beteiligten ausdrücklich die Anforderungen und Bedingungen für diese Tests und insbesondere geeignete Schutzvorkehrungen für Grundrechte, Gesundheit und Sicherheit. Gegebenenfalls arbeiten sie mit anderen zuständigen nationalen Behörden zusammen, um für unionsweit einheitliche Verfahren zu sorgen.
-Artikel 59
-Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen Interesse im KI-Reallabor
+Artikel 59: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen Interesse im KI-Reallabor
 (1)   Rechtmäßig für andere Zwecke erhobene personenbezogene Daten dürfen im KI-Reallabor ausschließlich für die Zwecke der Entwicklung, des Trainings und des Testens bestimmter KI-Systeme im Reallabor verarbeitet werden, wenn alle der folgenden Bedingungen erfüllt sind:
 a)
 Die KI-Systeme werden zur Wahrung eines erheblichen öffentlichen Interesses durch eine Behörde oder eine andere natürliche oder juristische Person und in einem oder mehreren der folgenden Bereiche entwickelt:
@@ -1485,8 +1411,7 @@ j)
 eine kurze Zusammenfassung des im Reallabor entwickelten KI-Projekts, seiner Ziele und der erwarteten Ergebnisse wird auf der Website der zuständigen Behörden veröffentlicht; diese Pflicht erstreckt sich nicht auf sensible operative Daten zu den Tätigkeiten von Strafverfolgungs-, Grenzschutz-, Einwanderungs- oder Asylbehörden.
 (2)   Für die Zwecke der Verhütung, Ermittlung, Aufdeckung oder Verfolgung von Straftaten oder der Strafvollstreckung — einschließlich des Schutzes vor und der Abwehr von Gefahren für die öffentliche Sicherheit — unter der Kontrolle und Verantwortung der Strafverfolgungsbehörden erfolgt die Verarbeitung personenbezogener Daten in KI-Reallaboren auf der Grundlage eines spezifischen Unionsrechts oder nationalen Rechts und unterliegt den kumulativen Bedingungen des Absatzes 1.
 (3)   Das Unionsrecht oder nationale Recht, das die Verarbeitung personenbezogener Daten für andere Zwecke als die ausdrücklich in jenem Recht genannten ausschließt, sowie Unionsrecht oder nationales Recht, in dem die Grundlagen für eine für die Zwecke der Entwicklung, des Testens oder des Trainings innovativer KI-Systeme notwendige Verarbeitung personenbezogener Daten festgelegt sind, oder jegliche anderen dem Unionsrecht zum Schutz personenbezogener Daten entsprechenden Rechtsgrundlagen bleiben von Absatz 1 unberührt.
-Artikel 60
-Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
+Artikel 60: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
 (1)   Tests von Hochrisiko-KI-Systemen unter Realbedingungen können von Anbietern oder zukünftigen Anbietern von in Anhang III aufgeführten Hochrisiko-KI-Systemen außerhalb von KI-Reallaboren gemäß diesem Artikel und — unbeschadet der Bestimmungen unter Artikel 5 — dem in diesem Artikel genannten Plan für einen Test unter Realbedingungen durchgeführt werden.
 Die Kommission legt die einzelnen Elemente des Plans für einen Test unter Realbedingungen im Wege von Durchführungsrechtsakten fest. Diese Durchführungsrechtsakte werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
 Das Unionsrecht oder nationale Recht für das Testen von Hochrisiko-KI-Systemen unter Realbedingungen im Zusammenhang mit Produkten, die unter die in Anhang I aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, bleibt von dieser Bestimmung unberührt.
@@ -1520,8 +1445,7 @@ die Vorhersagen, Empfehlungen oder Entscheidungen des KI-Systems können effekti
 (7)   Jegliche schwerwiegenden Vorfälle im Verlauf des Tests unter Realbedingungen sind den nationalen Marktüberwachungsbehörden gemäß Artikel 73 zu melden. Der Anbieter oder zukünftige Anbieter trifft Sofortmaßnahmen zur Schadensbegrenzung; andernfalls setzt er den Test unter Realbedingungen so lange aus, bis eine Schadensbegrenzung stattgefunden hat, oder bricht ihn ab. Im Fall eines solchen Abbruchs des Tests unter Realbedingungen richtet der Anbieter oder zukünftige Anbieter ein Verfahren für den sofortigen Rückruf des KI-Systems ein.
 (8)   Anbieter oder zukünftige Anbieter setzen die nationalen Marktüberwachungsbehörde in dem Mitgliedstaat, in dem der Test unter Realbedingungen stattfindet, über die Aussetzung oder den Abbruch des Tests unter Realbedingungen und die Endergebnisse in Kenntnis.
 (9)   Anbieter oder zukünftige Anbieter sind nach geltendem Recht der Union und geltendem nationalen Recht für Schäden haftbar, die während ihrer Tests unter Realbedingungen entstehen.
-Artikel 61
-Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb von KI-Reallaboren
+Artikel 61: Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb von KI-Reallaboren
 (1)   Für die Zwecke von Tests unter Realbedingungen gemäß Artikel 60 ist von den Testteilnehmern eine freiwillig erteilte informierte Einwilligung einzuholen, bevor sie an dem Test teilnehmen und nachdem sie mit präzisen, klaren, relevanten und verständlichen Informationen über Folgendes ordnungsgemäß informiert wurden:
 a)
 die Art und die Zielsetzungen des Tests unter Realbedingungen und etwaige mit ihrer Teilnahme verbundene Unannehmlichkeiten;
@@ -1534,8 +1458,7 @@ die Regelungen, unter denen die Rückgängigmachung oder Außerachtlassung der V
 e)
 die unionsweit einmalige Identifizierungsnummer des Tests unter Realbedingungen gemäß Artikel 60 Absatz 4 Buchstabe c und die Kontaktdaten des Anbieters oder seines gesetzlichen Vertreters, bei dem weitere Informationen eingeholt werden können.
 (2)   Die informierte Einwilligung ist zu datieren und zu dokumentieren, und eine Kopie wird den Testteilnehmern oder ihren gesetzlichen Vertretern ausgehändigt.
-Artikel 62
-Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
+Artikel 62: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
 (1)   Die Mitgliedstaaten ergreifen die folgenden Maßnahmen:
 a)
 Sie gewähren KMU — einschließlich Start-up-Unternehmen —, die ihren Sitz oder eine Zweigniederlassung in der Union haben, soweit sie die Voraussetzungen und Auswahlkriterien erfüllen, vorrangigen Zugang zu den KI-Reallaboren; der vorrangige Zugang schließt nicht aus, dass andere als die in diesem Absatz genannten KMU, einschließlich Start-up-Unternehmen, Zugang zum KI-Reallabor erhalten, sofern sie ebenfalls die Zulassungsvoraussetzungen und Auswahlkriterien erfüllen;
@@ -1555,20 +1478,15 @@ c)
 es führt geeignete Informationskampagnen durch, um für die aus dieser Verordnung erwachsenden Pflichten zu sensibilisieren;
 d)
 es bewertet und fördert die Zusammenführung bewährter Verfahren im Bereich der mit KI-Systemen verbundenen Vergabeverfahren.
-Artikel 63
-Ausnahmen für bestimmte Akteure
+Artikel 63: Ausnahmen für bestimmte Akteure
 (1)   Kleinstunternehmen im Sinne der Empfehlung 2003/361/EG können bestimmte Elemente des in Artikel 17 dieser Verordnung vorgeschriebenen Qualitätsmanagementsystems in vereinfachter Weise einhalten, sofern sie keine Partnerunternehmen oder verbundenen Unternehmen im Sinne dieser Empfehlung haben. Zu diesem Zweck arbeitet die Kommission Leitlinien zu den Elementen des Qualitätsmanagementsystems aus, die unter Berücksichtigung der Bedürfnisse von Kleinstunternehmen in vereinfachter Weise eingehalten werden können, ohne das Schutzniveau oder die Notwendigkeit zur Einhaltung der Anforderungen in Bezug auf Hochrisiko-KI-Systeme zu beeinträchtigen.
 (2)   Absatz 1 dieses Artikels ist nicht dahin gehend auszulegen, dass diese Akteure auch von anderen in dieser Verordnung festgelegten Anforderungen oder Pflichten, einschließlich der nach den Artikeln 9, 10, 11, 12, 13, 14, 15, 72 und 73 geltenden, befreit sind.
-KAPITEL VII
-GOVERNANCE
-ABSCHNITT 1
-Governance auf Unionsebene
-Artikel 64
-Büro für Künstliche Intelligenz
+KAPITEL VII: GOVERNANCE
+ABSCHNITT 1: Governance auf Unionsebene
+Artikel 64: Büro für Künstliche Intelligenz
 (1)   Die Kommission entwickelt über das Büro für Künstliche Intelligenz die Sachkenntnis und Fähigkeiten der Union auf dem Gebiet der KI.
 (2)   Die Mitgliedstaaten erleichtern dem Büro für Künstliche Intelligenz die ihm gemäß dieser Verordnung übertragenen Aufgaben.
-Artikel 65
-Einrichtung und Struktur des Europäischen Gremiums für Künstliche Intelligenz
+Artikel 65: Einrichtung und Struktur des Europäischen Gremiums für Künstliche Intelligenz
 (1)   Ein Europäisches Gremium für Künstliche Intelligenz (im Folgenden „KI-Gremium“) wird hiermit eingerichtet.
 (2)   Das KI-Gremium setzt sich aus einem Vertreter je Mitgliedstaat zusammen. Der Europäische Datenschutzbeauftragte nimmt als Beobachter teil. Das Büro für Künstliche Intelligenz nimmt ebenfalls an den Sitzungen des KI-Gremiums teil, ohne sich jedoch an den Abstimmungen zu beteiligen. Andere Behörden oder Stellen der Mitgliedstaaten und der Union oder Sachverständige können im Einzelfall zu den Sitzungen des KI-Gremiums eingeladen werden, wenn die erörterten Fragen für sie von Belang sind.
 (3)   Die Vertreter werden von ihren Mitgliedstaaten für einen Zeitraum von drei Jahren benannt, der einmal verlängert werden kann.
@@ -1585,8 +1503,7 @@ Die ständige Untergruppe für Marktüberwachung sollte für diese Verordnung al
 Das KI-Gremium kann weitere ständige oder nichtständige Untergruppen einrichten, falls das für die Prüfung bestimmter Fragen zweckmäßig sein sollte. Gegebenenfalls können Vertreter des in Artikel 67 genannten Beratungsforums als Beobachter zu diesen Untergruppen oder zu bestimmten Sitzungen dieser Untergruppen eingeladen werden.
 (7)   Das KI-Gremium wird so organisiert und geführt, dass bei seinen Tätigkeiten Objektivität und Unparteilichkeit gewahrt sind.
 (8)   Den Vorsitz im KI-Gremium führt einer der Vertreter der Mitgliedstaaten. Die Sekretariatsgeschäfte des KI-Gremiums werden vom Büro für Künstliche Intelligenz geführt; dieses beruft auf Anfrage des Vorsitzes die Sitzungen ein und erstellt die Tagesordnung im Einklang mit den Aufgaben des KI-Gremiums gemäß dieser Verordnung und seiner Geschäftsordnung.
-Artikel 66
-Aufgaben des KI-Gremiums
+Artikel 66: Aufgaben des KI-Gremiums
 Das KI-Gremium berät und unterstützt die Kommission und die Mitgliedstaaten, um die einheitliche und wirksame Anwendung dieser Verordnung zu erleichtern. Für diese Zwecke kann das KI-Gremium insbesondere
 a)
 zur Koordinierung zwischen den für die Anwendung dieser Verordnung zuständigen nationalen Behörden beitragen und in Zusammenarbeit mit den betreffenden Marktüberwachungsbehörden und vorbehaltlich ihrer Zustimmung gemeinsame Tätigkeiten der Marktüberwachungsbehörden gemäß Artikel 74 Absatz 11 unterstützen;
@@ -1632,8 +1549,7 @@ n)
 der Kommission Stellungnahmen zu qualifizierten Warnungen in Bezug auf KI-Modelle mit allgemeinem Verwendungszweck vorlegen;
 o)
 Stellungnahmen der Mitgliedstaaten zu qualifizierten Warnungen in Bezug auf KI-Modelle mit allgemeinem Verwendungszweck entgegennehmen sowie zu nationalen Erfahrungen und Praktiken bei der Überwachung und Durchsetzung von KI-Systemen, insbesondere von Systemen, die KI-Modelle mit allgemeinem Verwendungszweck integrieren.
-Artikel 67
-Beratungsforum
+Artikel 67: Beratungsforum
 (1)   Es wird ein Beratungsforum eingerichtet, das technisches Fachwissen bereitstellt, das KI-Gremium und die Kommission berät und zu deren Aufgaben im Rahmen dieser Verordnung beiträgt.
 (2)   Die Mitglieder des Beratungsforums vertreten eine ausgewogene Auswahl von Interessenträgern, darunter die Industrie, Start-up-Unternehmen, KMU, die Zivilgesellschaft und die Wissenschaft. Bei der Zusammensetzung des Beratungsforums wird auf ein ausgewogenes Verhältnis zwischen wirtschaftlichen und nicht-wirtschaftlichen Interessen und innerhalb der Kategorie der wirtschaftlichen Interessen zwischen KMU und anderen Unternehmen geachtet.
 (3)   Die Kommission ernennt die Mitglieder des Beratungsforums gemäß den in Absatz 2 genannten Kriterien aus dem Kreis der Interessenträger mit anerkanntem Fachwissen auf dem Gebiet der KI.
@@ -1644,8 +1560,7 @@ Beratungsforum
 (8)   Das Beratungsforum kann auf Ersuchen des KI-Gremiums oder der Kommission Stellungnahmen, Empfehlungen und schriftliche Beiträge ausarbeiten.
 (9)   Das Beratungsforum kann gegebenenfalls ständige oder zeitweilige Untergruppen einsetzen, um spezifische Fragen im Zusammenhang mit den Zielen dieser Verordnung zu prüfen.
 (10)   Das Beratungsforum erstellt jährlich einen Bericht über seine Tätigkeit. Dieser Bericht wird veröffentlicht.
-Artikel 68
-Wissenschaftliches Gremium unabhängiger Sachverständiger
+Artikel 68: Wissenschaftliches Gremium unabhängiger Sachverständiger
 (1)   Die Kommission erlässt im Wege eines Durchführungsrechtsakts Bestimmungen über die Einrichtung eines wissenschaftlichen Gremiums unabhängiger Sachverständiger („wissenschaftliches Gremium“), das die Durchsetzungstätigkeiten im Rahmen dieser Verordnung unterstützen soll. Dieser Durchführungsrechtsakt wird gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
 (2)   Das wissenschaftliche Gremium setzt sich aus Sachverständigen zusammen, die von der Kommission auf der Grundlage aktueller wissenschaftlicher oder technischer Fachkenntnisse auf dem Gebiet der KI, die zur Erfüllung der in Absatz 3 genannten Aufgaben erforderlich sind, ausgewählt werden, und muss nachweisen können, dass es alle folgenden Bedingungen erfüllt:
 a)
@@ -1676,15 +1591,12 @@ d)
 Unterstützung des Büros für Künstliche Intelligenz bei der Wahrnehmung seiner Aufgaben im Rahmen des Schutzklauselverfahrens der Union gemäß Artikel 81.
 (4)   Die Sachverständigen des wissenschaftlichen Gremiums führen ihre Aufgaben nach den Grundsätzen der Unparteilichkeit und der Objektivität aus und gewährleisten die Vertraulichkeit der Informationen und Daten, in deren Besitz sie bei der Ausführung ihrer Aufgaben und Tätigkeiten gelangen. Sie dürfen bei der Wahrnehmung ihrer Aufgaben nach Absatz 3 weder Weisungen anfordern noch entgegennehmen. Jeder Sachverständige gibt eine Interessenerklärung ab, die öffentlich zugänglich gemacht wird. Das Büro für Künstliche Intelligenz richtet Systeme und Verfahren ein, mit denen mögliche Interessenkonflikte aktiv bewältigt und verhindert werden können.
 (5)   Der in Absatz 1 genannte Durchführungsrechtsakt enthält Bestimmungen über die Bedingungen, Verfahren und detaillierten Regelungen nach denen das wissenschaftliche Gremium und seine Mitglieder Warnungen ausgeben und das Büro für Künstliche Intelligenz um Unterstützung bei der Wahrnehmung der Aufgaben des wissenschaftlichen Gremiums ersuchen können.
-Artikel 69
-Zugang zum Pool von Sachverständigen durch die Mitgliedstaaten
+Artikel 69: Zugang zum Pool von Sachverständigen durch die Mitgliedstaaten
 (1)   Die Mitgliedstaaten können Sachverständige des wissenschaftlichen Gremiums hinzuziehen, um ihre Durchsetzungstätigkeiten im Rahmen dieser Verordnung zu unterstützen.
 (2)   Die Mitgliedstaaten können verpflichtet werden, für die Beratung und Unterstützung durch die Sachverständigen Gebühren zu entrichten. Struktur und Höhe der Gebühren sowie Umfang und Struktur erstattungsfähiger Kosten werden in dem in Artikel 68 Absatz 1 genannten Durchführungsrechtsakt festgelegt, wobei die Zielsetzung berücksichtigt wird, für die angemessene Durchführung dieser Verordnung, für Kosteneffizienz sowie dafür zu sorgen, dass alle Mitgliedstaaten effektiven Zugang zu Sachverständigen haben müssen.
 (3)   Die Kommission ermöglicht den Mitgliedstaaten bei Bedarf einen rechtzeitigen Zugang zu den Sachverständigen und sorgt dafür, dass die Kombination aus unterstützenden Tätigkeiten durch die Union zur Prüfung von KI gemäß Artikel 84 und durch die Sachverständigen gemäß dem vorliegenden Artikel effizient organisiert ist und den bestmöglichen zusätzlichen Nutzen bringt.
-ABSCHNITT 2
-Zuständige nationale Behörden
-Artikel 70
-Benennung von zuständigen nationalen Behörden und zentrale Anlaufstelle
+ABSCHNITT 2: Zuständige nationale Behörden
+Artikel 70: Benennung von zuständigen nationalen Behörden und zentrale Anlaufstelle
 (1)   Jeder Mitgliedstaat muss für die Zwecke dieser Verordnung mindestens eine notifizierende Behörde und mindestens eine Marktüberwachungsbehörde als zuständige nationale Behörden einrichten oder benennen. Diese zuständigen nationalen Behörden üben ihre Befugnisse unabhängig, unparteiisch und unvoreingenommen aus, um die Objektivität ihrer Tätigkeiten und Aufgaben zu gewährleisten und die Anwendung und Durchführung dieser Verordnung sicherzustellen. Die Mitglieder dieser Behörden haben jede Handlung zu unterlassen, die mit ihren Aufgaben unvereinbar ist. Sofern diese Grundsätze gewahrt werden, können die betreffenden Tätigkeiten und Aufgaben gemäß den organisatorischen Erfordernissen des Mitgliedstaats von einer oder mehreren benannten Behörden wahrgenommen werden.
 (2)   Die Mitgliedstaaten teilen der Kommission die Namen der notifizierenden Behörden und der Marktüberwachungsbehörden und die Aufgaben dieser Behörden sowie alle späteren Änderungen mit. Die Mitgliedstaaten machen Informationen darüber, wie die zuständigen Behörden und zentralen Anlaufstellen bis zum 2. August 2025 auf elektronischem Wege kontaktiert werden können, öffentlich zugänglich. Die Mitgliedstaaten benennen eine Marktüberwachungsbehörde, die als zentrale Anlaufstelle für diese Verordnung fungiert, und teilen der Kommission den Namen der zentralen Anlaufstelle mit. Die Kommission erstellt eine öffentlich verfügbare Liste der zentralen Anlaufstellen.
 (3)   Die Mitgliedstaaten sorgen dafür, dass ihre zuständigen nationalen Behörden mit angemessenen technischen und finanziellen Mitteln sowie geeignetem Personal und Infrastrukturen ausgestattet werden, damit sie ihre Aufgaben im Rahmen dieser Verordnung wirksam erfüllen können. Insbesondere müssen die zuständigen nationalen Behörden zu jeder Zeit über eine ausreichende Zahl von Mitarbeitern verfügen, zu deren Kompetenzen und Fachwissen ein tiefes Verständnis der KI-Technologien, der Daten und Datenverarbeitung, des Schutzes personenbezogener Daten, der Cybersicherheit, der Grundrechte, der Gesundheits- und Sicherheitsrisiken sowie Kenntnis der bestehenden Normen und rechtlichen Anforderungen gehört. Die Mitgliedstaaten bewerten und aktualisieren, falls erforderlich, jährlich die in diesem Absatz genannten Erfordernisse bezüglich Kompetenzen und Ressourcen.
@@ -1694,31 +1606,24 @@ Benennung von zuständigen nationalen Behörden und zentrale Anlaufstelle
 (7)   Die Kommission fördert den Erfahrungsaustausch zwischen den zuständigen nationalen Behörden.
 (8)   Die zuständigen nationalen Behörden können gegebenenfalls insbesondere KMU, einschließlich Start-up-Unternehmen, unter Berücksichtigung der Anleitung und Beratung durch das KI-Gremium oder der Kommission mit Anleitung und Beratung bei der Durchführung dieser Verordnung zur Seite stehen. Wenn zuständige nationale Behörden beabsichtigen, Anleitung und Beratung in Bezug auf ein KI-System in Bereichen anzubieten, die unter das Unionrecht fallen, so sind gegebenenfalls die nach jenen Unionsrecht zuständigen nationalen Behörden zu konsultieren.
 (9)   Soweit Organe, Einrichtungen und sonstige Stellen der Union in den Anwendungsbereich dieser Verordnung fallen, übernimmt der Europäische Datenschutzbeauftragte die Funktion der für ihre Beaufsichtigung zuständigen Behörde.
-KAPITEL VIII
-EU-DATENBANK FÜR HOCHRISIKO-KI-SYSTEME
-Artikel 71
-EU-Datenbank für die in Anhang III aufgeführten Hochrisiko-KI-Systeme
+KAPITEL VIII: EU-DATENBANK FÜR HOCHRISIKO-KI-SYSTEME
+Artikel 71: EU-Datenbank für die in Anhang III aufgeführten Hochrisiko-KI-Systeme
 (1)   Die Kommission errichtet und führt in Zusammenarbeit mit den Mitgliedstaaten eine EU-Datenbank mit den in den Absätzen 2 und 3 dieses Artikels genannten Informationen über Hochrisiko-KI-Systeme nach Artikel 6 Absatz 2, die gemäß den Artikeln 49 und 60 registriert werden und über KI-Systeme, die nicht als Hochrisiko-KI-Systeme gemäß Artikel 6 Absatz 3 gelten und gemäß Artikel 6 Absatz 4 und Artikel 49 registriert werden. Bei der Festlegung der Funktionsspezifikationen dieser Datenbank konsultiert die Kommission die einschlägigen Sachverständigen und bei der Aktualisierung der Funktionsspezifikationen dieser Datenbank konsultiert sie das KI-Gremium.
 (2)   Die in Anhang VIII Abschnitte A und B aufgeführten Daten werden vom Anbieter oder gegebenenfalls vom Bevollmächtigten in die EU-Datenbank eingegeben.
 (3)   Die in Anhang VIII Abschnitt C aufgeführten Daten werden vom Betreiber, der eine Behörde, Einrichtung oder sonstige Stelle ist oder in deren Namen handelt, gemäß Artikel 49 Absätze 3 und 4 in die EU-Datenbank eingegeben.
 (4)   Mit Ausnahme des in Artikel 49 Absatz 4 und Artikel 60 Absatz 4 Buchstabe c genannten Abschnitts müssen die gemäß Artikel 49 in der Datenbank registrierten und dort enthaltenen Informationen auf benutzerfreundliche Weise zugänglich und öffentlich verfügbar sein. Die Informationen sollten leicht handhabbar und maschinenlesbar sein. Auf die gemäß Artikel 60 registrierten Informationen können nur Marktüberwachungsbehörden und die Kommission zugreifen, es sei denn, der zukünftige Anbieter oder der Anbieter hat seine Zustimmung dafür erteilt, dass die Informationen auch öffentlich zugänglich sind.
 (5)   Die EU-Datenbank enthält personenbezogene Daten nur, soweit dies für die Erfassung und Verarbeitung von Informationen gemäß dieser Verordnung erforderlich ist. Zu diesen Informationen gehören die Namen und Kontaktdaten der natürlichen Personen, die für die Registrierung des Systems verantwortlich sind und die rechtlich befugt sind, den Anbieter oder gegebenenfalls den Betreiber zu vertreten.
 (6)   Die Kommission gilt als für die EU-Datenbank Verantwortlicher. Sie stellt Anbietern, zukünftigen Anbietern und Betreibern angemessene technische und administrative Unterstützung bereit. Die EU-Datenbank muss den geltenden Barrierefreiheitsanforderungen entsprechen.
-KAPITEL IX
-BEOBACHTUNG NACH DEM INVERKEHRBRINGEN, INFORMATIONSAUSTAUSCH UND MARKTÜBERWACHUNG
-ABSCHNITT 1
-Beobachtung nach dem Inverkehrbringen
-Artikel 72
-Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung nach dem Inverkehrbringen für Hochrisiko-KI-Systeme
+KAPITEL IX: BEOBACHTUNG NACH DEM INVERKEHRBRINGEN, INFORMATIONSAUSTAUSCH UND MARKTÜBERWACHUNG
+ABSCHNITT 1: Beobachtung nach dem Inverkehrbringen
+Artikel 72: Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung nach dem Inverkehrbringen für Hochrisiko-KI-Systeme
 (1)   Anbieter müssen ein System zur Beobachtung nach dem Inverkehrbringen, das im Verhältnis zur Art der KI-Technik und zu den Risiken des Hochrisiko-KI-Systems steht, einrichten und dokumentieren.
 (2)   Mit dem System zur Beobachtung nach dem Inverkehrbringen müssen sich die einschlägigen Daten zur Leistung der Hochrisiko-KI-Systeme, die von den Anbietern oder den Betreibern bereitgestellt oder aus anderen Quellen erhoben werden können, über ihre gesamte Lebensdauer hinweg aktiv und systematisch erheben, dokumentieren und analysieren lassen, und der Anbieter muss damit die fortdauernde Einhaltung der in Kapitel III Abschnitt 2 genannten Anforderungen an die KI-Systeme bewerten können. Gegebenenfalls umfasst die Beobachtung nach dem Inverkehrbringen eine Analyse der Interaktion mit anderen KI-Systemen. Diese Pflicht gilt nicht für sensible operative Daten von Betreibern, die Strafverfolgungsbehörden sind.
 (3)   Das System zur Beobachtung nach dem Inverkehrbringen muss auf einem Plan für die Beobachtung nach dem Inverkehrbringen beruhen. Der Plan für die Beobachtung nach dem Inverkehrbringen ist Teil der in Anhang IV genannten technischen Dokumentation. Die Kommission erlässt einen Durchführungsrechtsakt, in dem sie detaillierte Bestimmungen für die Erstellung eines Musters des Plans für die Beobachtung nach dem Inverkehrbringen sowie die Liste der in den Plan aufzunehmenden Elemente bis zum 2. Februar 2026 detailliert festlegt. Dieser Durchführungsrechtsakt wird gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
 (4)   Bei Hochrisiko-KI-Systemen, die unter die in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, und für die auf der Grundlage dieser Rechtvorschriften bereits ein System zur Beobachtung nach dem Inverkehrbringen sowie ein entsprechender Plan festgelegt wurden, haben die Anbieter zur Gewährleistung der Kohärenz, zur Vermeidung von Doppelarbeit und zur Minimierung zusätzlicher Belastungen die Möglichkeit, unter Verwendung des Musters nach Absatz 3, gegebenenfalls die in den Absätzen 1, 2 und 3 genannten erforderlichen Elemente in die im Rahmen dieser Vorschriften bereits vorhandenen Systeme und Pläne zu integrieren, sofern ein gleichwertiges Schutzniveau erreicht wird.
 Unterabsatz 1 dieses Absatzes gilt auch für in Anhang III Nummer 5 genannte Hochrisiko-KI-Systeme, die von Finanzinstituten in Verkehr gebracht oder in Betrieb genommen wurden, die bezüglich ihrer internen Unternehmensführung, Regelungen oder Verfahren Anforderungen gemäß den Rechtsvorschriften der Union über Finanzdienstleistungen unterliegen.
-ABSCHNITT 2
-Austausch von Informationen über schwerwiegende Vorfälle
-Artikel 73
-Meldung schwerwiegender Vorfälle
+ABSCHNITT 2: Austausch von Informationen über schwerwiegende Vorfälle
+Artikel 73: Meldung schwerwiegender Vorfälle
 (1)   Anbieter von in der Union in Verkehr gebrachten Hochrisiko-KI-Systemen melden schwerwiegende Vorfälle den Marktüberwachungsbehörden der Mitgliedstaaten, in denen der Vorfall stattgefunden hat.
 (2)   Die Meldung nach Absatz 1 erfolgt unmittelbar, nachdem der Anbieter den kausalen Zusammenhang zwischen dem KI-System und dem schwerwiegenden Vorfall oder die naheliegende Wahrscheinlichkeit eines solchen Zusammenhangs festgestellt hat und in jedem Fall spätestens 15 Tage, nachdem der Anbieter oder gegebenenfalls der Betreiber Kenntnis von diesem schwerwiegenden Vorfall erlangt hat.
 Bezüglich des in Unterabsatz 1 genannten Meldezeitraums wird der Schwere des schwerwiegenden Vorfalls Rechnung getragen.
@@ -1732,10 +1637,8 @@ Der Anbieter arbeitet bei den Untersuchungen gemäß Unterabsatz 1 mit den zust�
 (9)   Bei Hochrisiko-KI-Systemen nach Anhang III, die von Anbietern in Verkehr gebracht oder in Betrieb genommen wurden, die Rechtsinstrumenten der Union mit gleichwertigen Meldepflichten wie jenen in dieser Verordnung festgesetzten unterliegen, müssen nur jene schwerwiegenden Vorfälle gemeldet werden, die in Artikel 3 Nummer 49 Buchstabe c genannt werden.
 (10)   Bei Hochrisiko-KI-Systemen, bei denen es sich um Sicherheitsbauteile von Produkten handelt, die unter die Verordnungen (EU) 2017/745 und (EU) 2017/746 fallen, oder die selbst solche Produkte sind, müssen nur die in Artikel 3 Nummer 49 Buchstabe c dieser Verordnung genannten schwerwiegenden Vorfälle gemeldet werden, und zwar der zuständigen nationalen Behörde, die für diesen Zweck von den Mitgliedstaaten, in denen der Vorfall stattgefunden hat, ausgewählt wurde.
 (11)   Die zuständigen nationalen Behörden melden der Kommission unverzüglich jeden schwerwiegenden Vorfall gemäß Artikel 20 der Verordnung (EU) 2019/1020, unabhängig davon, ob sie diesbezüglich Maßnahmen ergriffen haben.
-ABSCHNITT 3
-Durchsetzung
-Artikel 74
-Marktüberwachung und Kontrolle von KI-Systemen auf dem Unionsmarkt
+ABSCHNITT 3: Durchsetzung
+Artikel 74: Marktüberwachung und Kontrolle von KI-Systemen auf dem Unionsmarkt
 (1)   Die Verordnung (EU) 2019/1020 gilt für KI-Systeme, die unter die vorliegende Verordnung fallen. Für die Zwecke einer wirksamen Durchsetzung der vorliegenden Verordnung gilt Folgendes:
 a)
 Jede Bezugnahme auf einen Wirtschaftsakteur nach der Verordnung (EU) 2019/1020 gilt auch als Bezugnahme auf alle Akteure, die in Artikel 2 Absatz 1 der vorliegenden Verordnung genannt werden;
@@ -1760,13 +1663,11 @@ Der Zugang zum Quellcode ist zur Bewertung der Konformität eines Hochrisiko-KI-
 b)
 die Test- oder Prüfverfahren und Überprüfungen aufgrund der vom Anbieter bereitgestellten Daten und Dokumentation wurden ausgeschöpft oder haben sich als unzureichend erwiesen.
 (14)   Jegliche Informationen oder Dokumentation, in deren Besitz die Marktüberwachungsbehörden gelangen, werden im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten behandelt.
-Artikel 75
-Amtshilfe, Marktüberwachung und Kontrolle von KI-Systemen mit allgemeinem Verwendungszweck
+Artikel 75: Amtshilfe, Marktüberwachung und Kontrolle von KI-Systemen mit allgemeinem Verwendungszweck
 (1)   Beruht ein KI-System auf einem KI-Modell mit allgemeinem Verwendungszweck und werden das Modell und das System vom selben Anbieter entwickelt, so ist das Büro für Künstliche Intelligenz befugt, die Konformität des KI-Systems mit den Pflichten aus dieser Verordnung zu überwachen und beaufsichtigen. Zur Wahrnehmung seiner Beobachtungs- und Überwachungsaufgaben hat das Büro für Künstliche Intelligenz alle in diesem Abschnitt und in der Verordnung (EU) 2019/1020 vorgesehenen Befugnisse einer Marktüberwachungsbehörde.
 (2)   Haben die zuständigen Marktüberwachungsbehörden hinreichenden Grund für die Auffassung, dass KI-Systeme mit allgemeinem Verwendungszweck, die von Betreibern direkt für mindestens einen Zweck, der gemäß dieser Verordnung als hochriskant eingestuft ist, verwendet werden können, nicht mit den in dieser Verordnung festgelegten Anforderungen konform sind, so arbeiten sie bei der Durchführung von Konformitätsbewertungen mit dem Büro für Künstliche Intelligenz zusammen und unterrichten das KI-Gremium und andere Marktüberwachungsbehörden entsprechend.
 (3)   Ist eine Marktüberwachungsbehörde wegen der Unzugänglichkeit bestimmter Informationen im Zusammenhang mit dem KI-Modell mit allgemeinem Verwendungszweck nicht in der Lage, ihre Ermittlungen zu dem Hochrisiko-KI-System abzuschließen, obwohl sie alle angemessenen Anstrengungen unternommen hat, diese Informationen zu erhalten, kann sie ein begründetes Ersuchen an das Büro für Künstliche Intelligenz richten, durch das der Zugang zu den Informationen durchgesetzt werden kann. In diesem Fall übermittelt das Büro für Künstliche Intelligenz der ersuchenden Behörde unverzüglich, spätestens aber innerhalb von 30 Tagen, alle Informationen, die das Büro für Künstliche Intelligenz für die Feststellung, ob ein Hochrisiko-KI-System nicht konform ist, für erforderlich erachtet. Die Marktüberwachungsbehörden gewährleisten gemäß Artikel 78 der vorliegenden Verordnung die Vertraulichkeit der von ihnen erlangten Informationen. Das Verfahren nach Kapitel VI der Verordnung (EU) 2019/1020 gilt entsprechend.
-Artikel 76
-Beaufsichtigung von Tests unter Realbedingungen durch Marktüberwachungsbehörden
+Artikel 76: Beaufsichtigung von Tests unter Realbedingungen durch Marktüberwachungsbehörden
 (1)   Marktüberwachungsbehörden müssen über die Kompetenzen und Befugnisse verfügen, um sicherzustellen, dass Tests unter Realbedingungen gemäß dieser Verordnung erfolgen.
 (2)   Wenn ein Test unter Realbedingungen für KI-Systeme durchgeführt wird, die in einem KI-Reallabor gemäß Artikel 58 beaufsichtigt werden, überprüfen die Marktüberwachungsbehörden im Rahmen ihrer Aufsichtsaufgaben für das KI-Reallabor die Einhaltung des Artikels 60. Die Behörden können gegebenenfalls gestatten, dass der Anbieter oder zukünftige Anbieter den Test unter Realbedingungen in Abweichung von den in Artikel 60 Absatz 4 Buchstaben f und g festgelegten Bedingungen durchführt.
 (3)   Wenn eine Marktüberwachungsbehörde vom zukünftigen Anbieter, vom Anbieter oder von einem Dritten über einen schwerwiegenden Vorfall informiert wurde oder Grund zu der Annahme hat, dass die in den Artikeln 60 und 61 festgelegten Bedingungen nicht erfüllt sind, kann sie — je nachdem, was angemessen ist — in ihrem Hoheitsgebiet gegebenenfalls entscheiden, entweder
@@ -1776,14 +1677,12 @@ b)
 den Anbieter oder zukünftigen Anbieter und die Betreiber oder zukünftigen Betreiber zur Änderung eines beliebigen Aspekts des Tests unter Realbedingungen zu verpflichten.
 (4)   Wenn eine Marktüberwachungsbehörde eine Entscheidung nach Absatz 3 des vorliegenden Artikels getroffen oder Einwände im Sinne des Artikels 60 Absatz 4 Buchstabe b erhoben hat, sind im Rahmen der Entscheidung oder der Einwände die Gründe dafür zu nennen sowie anzugeben, wie der Anbieter oder zukünftige Anbieter die Entscheidung oder die Einwände anfechten kann.
 (5)   Wenn eine Marktüberwachungsbehörde eine Entscheidung nach Absatz 3 getroffen hat, teilt sie ihre Gründe dafür gegebenenfalls den Marktüberwachungsbehörden anderer Mitgliedstaaten mit, in denen das KI-System gemäß dem Plan für den Test getestet wurde.
-Artikel 77
-Befugnisse der für den Schutz der Grundrechte zuständigen Behörden
+Artikel 77: Befugnisse der für den Schutz der Grundrechte zuständigen Behörden
 (1)   Nationale Behörden oder öffentliche Stellen, die die Einhaltung des Unionsrechts zum Schutz der Grundrechte, einschließlich des Rechts auf Nichtdiskriminierung, in Bezug auf die Verwendung der in Anhang III genannten Hochrisiko-KI-Systeme beaufsichtigen oder durchsetzen, sind befugt, sämtliche auf der Grundlage dieser Verordnung in zugänglicher Sprache und Format erstellte oder geführte Dokumentation anzufordern und einzusehen, sofern der Zugang zu dieser Dokumentation für die wirksame Ausübung ihrer Aufträge im Rahmen ihrer Befugnisse innerhalb der Grenzen ihrer Hoheitsgewalt notwendig ist. Die jeweilige Behörde oder öffentliche Stelle informiert die Marktüberwachungsbehörde des betreffenden Mitgliedstaats von jeder diesbezüglichen Anfrage.
 (2)   Bis 2. November 2024 muss jeder Mitgliedstaat die in Absatz 1 genannten Behörden oder öffentlichen Stellen benennen und in einer öffentlichen Liste verfügbar machen. Die Mitgliedstaaten übermitteln die Liste der Kommission und den anderen Mitgliedstaaten und halten die Liste auf dem neuesten Stand.
 (3)   Sollte die in Absatz 1 genannte Dokumentation nicht ausreichen, um feststellen zu können, ob ein Verstoß gegen das Unionsrecht zum Schutz der Grundrechte vorliegt, so kann die in Absatz 1 genannte Behörde oder öffentliche Stelle bei der Marktüberwachungsbehörde einen begründeten Antrag auf Durchführung eines technischen Tests des Hochrisiko-KI-Systems stellen. Die Marktüberwachungsbehörde führt den Test unter enger Einbeziehung der beantragenden Behörde oder öffentlichen Stelle innerhalb eines angemessenen Zeitraums nach Eingang des Antrags durch.
 (4)   Jegliche Informationen oder Dokumentation, in deren Besitz die in Absatz 1 des vorliegenden Artikels genannten nationalen Behörden oder öffentlichen Stellen auf der Grundlage des vorliegenden Artikels gelangen, werden im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten behandelt.
-Artikel 78
-Vertraulichkeit
+Artikel 78: Vertraulichkeit
 (1)   Die Kommission, die Marktüberwachungsbehörden und die notifizierten Stellen sowie alle anderen natürlichen oder juristischen Personen, die an der Anwendung dieser Verordnung beteiligt sind, wahren gemäß dem Unionsrecht oder dem nationalen Recht die Vertraulichkeit der Informationen und Daten, in deren Besitz sie bei der Ausführung ihrer Aufgaben und Tätigkeiten gelangen, sodass insbesondere Folgendes geschützt ist:
 a)
 die Rechte des geistigen Eigentums sowie vertrauliche Geschäftsinformationen oder Geschäftsgeheimnisse natürlicher oder juristischer Personen, einschließlich Quellcodes, mit Ausnahme der in Artikel 5 der Richtlinie (EU) 2016/943 des Europäischen Parlaments und des Rates (57);
@@ -1800,8 +1699,7 @@ gemäß dem Unionsrecht oder dem nationalen Recht als Verschlusssache eingestuft
 Handeln Strafverfolgungs-, Einwanderungs- oder Asylbehörden als Anbieter von in Anhang III Nummer 1, 6 oder 7 genannten Hochrisiko-KI-Systemen, so verbleibt die technische Dokumentation nach Anhang IV in den Räumlichkeiten dieser Behörden. Diese Behörden sorgen dafür, dass die in Artikel 74 Absätze 8 und 9 genannten Marktüberwachungsbehörden auf Anfrage unverzüglich Zugang zu dieser Dokumentation oder eine Kopie davon erhalten. Zugang zu dieser Dokumentation oder zu einer Kopie davon darf nur das Personal der Marktüberwachungsbehörde erhalten, das über eine entsprechende Sicherheitsfreigabe verfügt.
 (4)   Die Absätze 1, 2 und 3 dürfen sich weder auf die Rechte oder Pflichten der Kommission, der Mitgliedstaaten und ihrer einschlägigen Behörden sowie der notifizierten Stellen in Bezug auf den Informationsaustausch und die Weitergabe von Warnungen, einschließlich im Rahmen der grenzüberschreitenden Zusammenarbeit, noch auf die Pflichten der betreffenden Parteien auswirken, Informationen auf der Grundlage des Strafrechts der Mitgliedstaaten bereitzustellen.
 (5)   Die Kommission und die Mitgliedstaaten können erforderlichenfalls und im Einklang mit den einschlägigen Bestimmungen internationaler Übereinkommen und Handelsabkommen mit Regulierungsbehörden von Drittstaaten, mit denen sie bilaterale oder multilaterale Vertraulichkeitsvereinbarungen getroffen haben und die ein angemessenes Niveau an Vertraulichkeit gewährleisten, vertrauliche Informationen austauschen.
-Artikel 79
-Verfahren auf nationaler Ebene für den Umgang mit KI-Systemen, die ein Risiko bergen
+Artikel 79: Verfahren auf nationaler Ebene für den Umgang mit KI-Systemen, die ein Risiko bergen
 (1)   Als KI-Systeme, die ein Risiko bergen, gelten „Produkte, mit denen ein Risiko verbunden ist“ im Sinne des Artikels 3 Nummer 19 der Verordnung (EU) 2019/1020, sofern sie Risiken für die Gesundheit oder Sicherheit oder Grundrechte von Personen bergen.
 (2)   Hat die Marktüberwachungsbehörde eines Mitgliedstaats hinreichend Grund zu der Annahme, dass ein KI-System ein Risiko nach Absatz 1 des vorliegenden Artikels birgt, so prüft sie das betreffende KI-System im Hinblick auf die Erfüllung aller in der vorliegenden Verordnung festgelegten Anforderungen und Pflichten. Besondere Aufmerksamkeit gilt KI-Systemen, die für schutzbedürftige Gruppen ein Risiko bergen. Wenn Risiken für die Grundrechte festgestellt werden, informiert die Marktüberwachungsbehörde auch die in Artikel 77 Absatz 1 genannten einschlägigen nationalen Behörden oder öffentlichen Stellen und arbeitet uneingeschränkt mit ihnen zusammen. Die betreffenden Akteure arbeiten erforderlichenfalls mit der Marktüberwachungsbehörde und den in Artikel 77 Absatz 1 genannten anderen Behörden oder öffentlichen Stellen zusammen.
 Stellt die Marktüberwachungsbehörde oder gegebenenfalls die Marktüberwachungsbehörde in Zusammenarbeit mit der in Artikel 77 Absatz 1 genannten nationalen Behörde im Verlauf dieser Prüfung fest, dass das KI-System die in dieser Verordnung festgelegten Anforderungen und Pflichten nicht erfüllt, fordert sie den jeweiligen Akteur unverzüglich auf, alle Korrekturmaßnahmen zu ergreifen, die geeignet sind, die Konformität des KI-Systems herzustellen, das KI-System vom Markt zu nehmen oder es innerhalb einer Frist, die die Marktüberwachungsbehörde vorgeben kann, in jedem Fall innerhalb von weniger als 15 Arbeitstagen, oder gemäß den einschlägigen Harmonisierungsrechtsvorschriften der Union zurückzurufen.
@@ -1821,8 +1719,7 @@ Nichteinhaltung des Artikels 50.
 (7)   Die anderen Marktüberwachungsbehörden — mit Ausnahme der Marktüberwachungsbehörde des Mitgliedstaats, der das Verfahren eingeleitet hat — informieren unverzüglich die Kommission und die anderen Mitgliedstaaten über jegliche Maßnahmen und ihnen vorliegende zusätzlichen Informationen zur Nichtkonformität des betreffenden KI-Systems sowie — falls sie die ihnen mitgeteilte nationale Maßnahme ablehnen — über ihre Einwände.
 (8)   Erhebt weder eine Marktüberwachungsbehörde eines Mitgliedstaats noch die Kommission innerhalb von drei Monaten nach Eingang der in Absatz 5 des vorliegenden Artikels genannten Notifizierung Einwände gegen eine von einer Marktüberwachungsbehörde eines anderen Mitgliedstaats erlassene vorläufige Maßnahme, so gilt diese Maßnahme als gerechtfertigt. Die Verfahrensrechte des betreffenden Akteurs nach Artikel 18 der Verordnung (EU) 2019/1020 bleiben hiervon unberührt. Die Frist von drei Monaten gemäß dem vorliegenden Absatz wird bei Nichteinhaltung des Verbots der in Artikel 5 der vorliegenden Verordnung genannten KI-Praktiken auf 30 Tage verkürzt.
 (9)   Die Marktüberwachungsbehörden tragen dafür Sorge, dass geeignete einschränkende Maßnahmen in Bezug auf das betreffende Produkt oder KI-System ergriffen werden, beispielsweise die unverzügliche Rücknahme des Produkts oder KI-Systems von ihrem Markt.
-Artikel 80
-Verfahren für den Umgang mit KI-Systemen, die vom Anbieter gemäß Anhang III als nicht hochriskant eingestuft werden
+Artikel 80: Verfahren für den Umgang mit KI-Systemen, die vom Anbieter gemäß Anhang III als nicht hochriskant eingestuft werden
 (1)   Hat eine Marktüberwachungsbehörde hinreichend Grund zu der Annahme, dass ein vom Anbieter als nicht hochriskant gemäß Artikel 6 Absatz 3 eingestuftes KI-System tatsächlich hochriskant ist, so prüft die Marktüberwachungsbehörde das betreffende KI-System im Hinblick auf seine Einstufung als Hochrisiko-KI-System auf der Grundlage der in Artikel 6 Absatz 3 festgelegten Bedingungen und den Leitlinien der Kommission.
 (2)   Stellt die Marktüberwachungsbehörde im Verlauf dieser Prüfung fest, dass das betreffende KI-System hochriskant ist, fordert sie den jeweiligen Anbieter unverzüglich auf, alle erforderlichen Maßnahmen zu ergreifen, um die Konformität des KI-Systems mit den in dieser Verordnung festgelegten Anforderungen und Pflichten herzustellen, sowie innerhalb einer Frist, die die Marktüberwachungsbehörde vorgeben kann, geeignete Korrekturmaßnahmen zu ergreifen.
 (3)   Gelangt die Marktüberwachungsbehörde zu der Auffassung, dass die Verwendung des betreffenden KI-Systems nicht auf ihr nationales Hoheitsgebiet beschränkt ist, so informiert sie die Kommission und die anderen Mitgliedstaaten unverzüglich über die Ergebnisse der Prüfung und über die Maßnahmen, zu denen sie den Anbieter aufgefordert hat.
@@ -1831,20 +1728,17 @@ Verfahren für den Umgang mit KI-Systemen, die vom Anbieter gemäß Anhang III a
 (6)   Ergreift der Anbieter des betreffenden KI-Systems innerhalb der in Absatz 2 des vorliegenden Artikels genannten Frist keine angemessenen Korrekturmaßnahmen, so findet Artikel 79 Absätze 5 bis 9 Anwendung.
 (7)   Stellt die Marktüberwachungsbehörde im Verlauf der Prüfung gemäß Absatz 1 des vorliegenden Artikels fest, dass das KI-System vom Anbieter fälschlich als nicht hochriskant eingestuft wurde, um die Geltung der Anforderungen von Kapitel III Abschnitt 2 zu umgehen, so werden gegen den Anbieter Geldbußen gemäß Artikel 99 verhängt.
 (8)   Bei der Ausübung ihrer Befugnis zur Überwachung der Anwendung dieses Artikels können die Marktüberwachungsbehörden im Einklang mit Artikel 11 der Verordnung (EU) 2019/1020 geeignete Überprüfungen durchführen, wobei sie insbesondere Informationen berücksichtigen, die in der EU-Datenbank gemäß Artikel 71 der vorliegenden Verordnung gespeichert sind.
-Artikel 81
-Schutzklauselverfahren der Union
+Artikel 81: Schutzklauselverfahren der Union
 (1)   Erhebt eine Marktüberwachungsbehörde eines Mitgliedstaats innerhalb von drei Monaten nach Eingang der in Artikel 79 Absatz 5 genannten Notifizierung — oder bei Nichteinhaltung des Verbots der in Artikel 5 genannten KI-Praktiken innerhalb von 30 Tagen — Einwände gegen eine von der Marktüberwachungsbehörde eines anderen Mitgliedstaats getroffene Maßnahme oder ist die Kommission der Ansicht, dass die Maßnahme mit dem Unionsrecht unvereinbar ist, so nimmt die Kommission unverzüglich Konsultationen mit der Marktüberwachungsbehörde des betreffenden Mitgliedstaats und dem Akteur bzw. den Akteuren auf und prüft die nationale Maßnahme. Anhand der Ergebnisse dieser Prüfung entscheidet die Kommission innerhalb von sechs Monaten — oder bei Nichteinhaltung des Verbots der in Artikel 5 genannten KI-Praktiken innerhalb von 60 Tagen — ab dem Eingang der in Artikel 79 Absatz 5 genannten Notifizierung, ob die nationale Maßnahme gerechtfertigt ist, und teilt der Marktüberwachungsbehörde des betreffenden Mitgliedstaats ihre Entscheidung mit. Die Kommission unterrichtet auch alle übrigen Marktüberwachungsbehörden über ihre Entscheidung.
 (2)   Ist die Kommission der Ansicht, dass die von dem betreffenden Mitgliedstaat ergriffene Maßnahme gerechtfertigt ist, so tragen alle Mitgliedstaaten dafür Sorge, dass sie geeignete einschränkende Maßnahmen in Bezug auf das betreffende KI-System ergreifen, etwa die Anordnung der unverzüglichen Rücknahme des KI-Systems von ihrem Markt, und informiert die Kommission darüber. Erachtet die Kommission die nationale Maßnahme als nicht gerechtfertigt, nimmt der betreffende Mitgliedstaat die Maßnahme zurück und informiert die Kommission darüber.
 (3)   Gilt die nationale Maßnahme als gerechtfertigt und wird die Nichtkonformität des KI-Systems auf Mängel in den in den Artikeln 40 und 41 dieser Verordnung genannten harmonisierten Normen oder gemeinsamen Spezifikationen zurückgeführt, so leitet die Kommission das in Artikel 11 der Verordnung (EU) Nr. 1025/2012 festgelegte Verfahren ein.
-Artikel 82
-Konforme KI-Systeme, die ein Risiko bergen
+Artikel 82: Konforme KI-Systeme, die ein Risiko bergen
 (1)   Stellt die Marktüberwachungsbehörde eines Mitgliedstaats — nach einer Konsultation der in Artikel 77 Absatz 1 genannten betreffenden nationalen Behörde — nach der gemäß Artikel 79 durchgeführten Prüfung fest, dass ein Hochrisiko-KI-System zwar dieser Verordnung entspricht, aber dennoch ein Risiko für die Gesundheit oder Sicherheit von Personen, für die Grundrechte oder für andere Aspekte des Schutzes öffentlicher Interessen darstellt, so fordert sie unverzüglich den betreffenden Akteur auf, alle geeigneten Maßnahmen zu treffen, damit das betreffende KI-System zum Zeitpunkt des Inverkehrbringens oder der Inbetriebnahme dieses Risiko nicht mehr birgt, und zwar innerhalb einer Frist, die sie vorgeben kann.
 (2)   Der Anbieter oder der andere einschlägige Akteur sorgt dafür, dass in Bezug auf alle betroffenen KI-Systeme, die er auf dem Unionsmarkt bereitgestellt hat, innerhalb der Frist, die von der in Absatz 1 genannten Marktüberwachungsbehörde des Mitgliedstaats vorgegeben wurde, Korrekturmaßnahmen ergriffen werden.
 (3)   Die Mitgliedstaaten unterrichten unverzüglich die Kommission und die anderen Mitgliedstaaten über Feststellungen gemäß Absatz 1. Diese Unterrichtung enthält alle vorliegenden Angaben, insbesondere die für die Identifizierung des betreffenden KI-Systems notwendigen Daten, den Ursprung und die Lieferkette des KI-Systems, die Art des sich daraus ergebenden Risikos sowie die Art und Dauer der ergriffenen nationalen Maßnahmen.
 (4)   Die Kommission nimmt unverzüglich mit den betreffenden Mitgliedstaaten und den jeweiligen Akteuren Konsultationen auf und prüft die ergriffenen nationalen Maßnahmen. Anhand der Ergebnisse dieser Prüfung entscheidet die Kommission, ob die Maßnahme gerechtfertigt ist, und schlägt, falls erforderlich, weitere geeignete Maßnahmen vor.
 (5)   Die Kommission teilt ihren Beschluss unverzüglich den betroffenen Mitgliedstaaten und den jeweiligen Akteuren mit. Sie unterrichtet auch die übrigen Mitgliedstaaten.
-Artikel 83
-Formale Nichtkonformität
+Artikel 83: Formale Nichtkonformität
 (1)   Wenn die Marktüberwachungsbehörde eines Mitgliedstaats eine der folgenden Nichtkonformitäten feststellt, fordert sie den jeweiligen Anbieter auf, diese binnen einer Frist, die sie vorgeben kann, zu beheben:
 a)
 die CE-Kennzeichnung wurde unter Verstoß gegen Artikel 48 angebracht;
@@ -1861,32 +1755,24 @@ es wurde kein Bevollmächtigter — sofern erforderlich — ernannt;
 g)
 es ist keine technische Dokumentation verfügbar.
 (2)   Besteht die Nichtkonformität nach Absatz 1 weiter, so ergreift die Marktüberwachungsbehörde des betreffenden Mitgliedstaats geeignete und verhältnismäßige Maßnahmen, um die Bereitstellung des Hochrisiko-KI-Systems auf dem Markt zu beschränken oder zu verbieten oder um dafür zu sorgen, dass es unverzüglich zurückgerufen oder vom Markt genommen wird.
-Artikel 84
-Unionsstrukturen zur Unterstützung der Prüfung von KI
+Artikel 84: Unionsstrukturen zur Unterstützung der Prüfung von KI
 (1)   Die Kommission benennt eine oder mehrere Unionsstrukturen zur Unterstützung der Prüfung von KI, die die Aufgaben gemäß Artikel 21 Absatz 6 der Verordnung (EU) 2019/1020 im KI-Bereich wahrnehmen.
 (2)   Unbeschadet der in Absatz 1 genannten Aufgaben leisten die Unionsstrukturen zur Unterstützung der Prüfung von KI auf Anfrage des KI-Gremiums, der Kommission oder der Marktüberwachungsbehörden auch unabhängige technische oder wissenschaftliche Beratung.
-ABSCHNITT 4
-Rechtsbehelfe
-Artikel 85
-Recht auf Beschwerde bei einer Marktüberwachungsbehörde
+ABSCHNITT 4: Rechtsbehelfe
+Artikel 85: Recht auf Beschwerde bei einer Marktüberwachungsbehörde
 Unbeschadet anderer verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe kann jede natürliche oder juristische Person, die Grund zu der Annahme hat, dass gegen die Bestimmungen dieser Verordnung verstoßen wurde, bei der betreffenden Marktüberwachungsbehörde Beschwerden einreichen.
 Gemäß der Verordnung (EU) 2019/1020 werden solche Beschwerden für die Zwecke der Durchführung von Marktüberwachungstätigkeiten berücksichtigt und nach den einschlägigen von den Marktüberwachungsbehörden dafür eingerichteten Verfahren behandelt.
-Artikel 86
-Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
+Artikel 86: Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
 (1)   Personen, die von einer Entscheidung betroffen sind, die der Betreiber auf der Grundlage der Ausgaben eines in Anhang III aufgeführten Hochrisiko-KI-Systems, mit Ausnahme der in Nummer 2 des genannten Anhangs aufgeführten Systeme, getroffen hat und die rechtliche Auswirkungen hat oder sie in ähnlicher Art erheblich auf eine Weise beeinträchtigt, die ihrer Ansicht nach ihre Gesundheit, ihre Sicherheit oder ihre Grundrechte beeinträchtigt, haben das Recht, vom Betreiber eine klare und aussagekräftige Erläuterung zur Rolle des KI-Systems im Entscheidungsprozess und zu den wichtigsten Elementen der getroffenen Entscheidung zu erhalten.
 (2)   Absatz 1 gilt nicht für die Verwendung von KI-Systemen, bei denen sich Ausnahmen von oder Beschränkungen der Pflicht nach dem genannten Absatz aus dem Unionsrecht oder dem nationalen Recht im Einklang mit dem Unionsrecht ergeben.
 (3)   Dieser Artikel gilt nur insoweit, als das Recht gemäß Absatz 1 nicht anderweitig im Unionsrecht festgelegt ist.
-Artikel 87
-Meldung von Verstößen und Schutz von Hinweisgebern
+Artikel 87: Meldung von Verstößen und Schutz von Hinweisgebern
 Für die Meldung von Verstößen gegen diese Verordnung und den Schutz von Personen, die solche Verstöße melden, gilt die Richtlinie (EU) 2019/1937.
-ABSCHNITT 5
-Aufsicht, Ermittlung, Durchsetzung und Überwachung in Bezug auf Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
-Artikel 88
-Durchsetzung der Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+ABSCHNITT 5: Aufsicht, Ermittlung, Durchsetzung und Überwachung in Bezug auf Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+Artikel 88: Durchsetzung der Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
 (1)   Die Kommission verfügt unter Berücksichtigung der Verfahrensgarantien nach Artikel 94 über ausschließliche Befugnisse zur Beaufsichtigung und Durchsetzung von Kapitel V. Unbeschadet der Organisationsbefugnisse der Kommission und der Aufteilung der Zuständigkeiten zwischen den Mitgliedstaaten und der Union auf der Grundlage der Verträge überträgt die Kommission dem Büro für Künstliche Intelligenz die Durchführung dieser Aufgaben.
 (2)   Unbeschadet des Artikels 75 Absatz 3 können die Marktüberwachungsbehörden die Kommission ersuchen, die in diesem Abschnitt festgelegten Befugnisse auszuüben, wenn es erforderlich und verhältnismäßig ist, um die Wahrnehmung ihrer Aufgaben gemäß dieser Verordnung zu unterstützen.
-Artikel 89
-Überwachungsmaßnahmen
+Artikel 89: Überwachungsmaßnahmen
 (1)   Zur Wahrnehmung der ihr in diesem Abschnitt übertragenen Aufgaben kann das Büro für Künstliche Intelligenz die erforderlichen Maßnahmen ergreifen, um die wirksame Umsetzung und Einhaltung dieser Verordnung durch Anbieter von KI-Modellen mit allgemeinem Verwendungszweck, einschließlich der Einhaltung genehmigter Praxisleitfäden, zu überwachen.
 (2)   Nachgelagerte Anbieter haben das Recht, eine Beschwerde wegen eines Verstoßes gegen diese Verordnung einzureichen. Eine Beschwerde ist hinreichend zu begründen und enthält mindestens Folgendes:
 a)
@@ -1895,8 +1781,7 @@ b)
 eine Beschreibung der einschlägigen Fakten, die betreffenden Bestimmungen dieser Verordnung und die Begründung, warum der nachgelagerte Anbieter der Auffassung ist, dass der Anbieter des KI-Modells mit allgemeinem Verwendungszweck gegen diese Verordnung verstoßen hat;
 c)
 alle sonstigen Informationen, die der nachgelagerte Anbieter, der die Anfrage übermittelt hat, für relevant hält, gegebenenfalls einschließlich Informationen, die er auf eigene Initiative hin zusammengetragen hat.
-Artikel 90
-Warnungen des wissenschaftlichen Gremiums vor systemischen Risiken
+Artikel 90: Warnungen des wissenschaftlichen Gremiums vor systemischen Risiken
 (1)   Das wissenschaftliche Gremium kann dem Büro für Künstliche Intelligenz eine qualifizierte Warnung übermitteln, wenn es Grund zu der Annahme hat, dass
 a)
 ein KI-Modell mit allgemeinem Verwendungszweck ein konkretes, identifizierbares Risiko auf Unionsebene birgt oder
@@ -1910,15 +1795,13 @@ b)
 eine Beschreibung der einschlägigen Fakten und der Gründe für die Warnung durch das wissenschaftliche Gremium;
 c)
 alle sonstigen Informationen, die das wissenschaftliche Gremium für relevant hält, gegebenenfalls einschließlich Informationen, die es auf eigene Initiative hin zusammengetragen hat.
-Artikel 91
-Befugnis zur Anforderung von Dokumentation und Informationen
+Artikel 91: Befugnis zur Anforderung von Dokumentation und Informationen
 (1)   Die Kommission kann den Anbieter des betreffenden KI-Modells mit allgemeinem Verwendungszweck auffordern, die vom Anbieter gemäß den Artikeln 53 und 55 erstellte Dokumentation oder alle zusätzlichen Informationen vorzulegen, die erforderlich sind, um die Einhaltung dieser Verordnung durch den Anbieter zu beurteilen.
 (2)   Vor der Übermittlung des Informationsersuchens kann das Büro für Künstliche Intelligenz einen strukturierten Dialog mit dem Anbieter des KI-Modells mit allgemeinem Verwendungszweck einleiten.
 (3)   Auf hinreichend begründeten Antrag des wissenschaftlichen Gremiums kann die Kommission ein Informationsersuchen an einen Anbieter eines KI-Modells mit allgemeinem Verwendungszweck richten, wenn der Zugang zu Informationen für die Wahrnehmung der Aufgaben des wissenschaftlichen Gremiums gemäß Artikel 68 Absatz 2 erforderlich und verhältnismäßig ist.
 (4)   In dem Auskunftsersuchen sind die Rechtsgrundlage und der Zweck des Ersuchens zu nennen, anzugeben, welche Informationen benötigt werden, eine Frist für die Übermittlung der Informationen zu setzen, und die Geldbußen für die Erteilung unrichtiger, unvollständiger oder irreführender Informationen gemäß Artikel 101 anzugeben.
 (5)   Der Anbieter des betreffenden KI-Modells mit allgemeinem Verwendungszweck oder sein Vertreter stellt die angeforderten Informationen bereit. Im Falle juristischer Personen, Gesellschaften oder — wenn der Anbieter keine Rechtspersönlichkeit besitzt — die Personen, die nach Gesetz oder Satzung zur Vertretung dieser Personen befugt sind, stellen die angeforderten Informationen im Namen des Anbieters des betreffenden KI-Modells mit allgemeinem Verwendungszweck zur Verfügung. Ordnungsgemäß bevollmächtigte Rechtsanwälte können Informationen im Namen ihrer Mandanten erteilen. Die Mandanten bleiben jedoch in vollem Umfang dafür verantwortlich, dass die erteilten Auskünfte vollständig, sachlich richtig oder nicht irreführend sind.
-Artikel 92
-Befugnis zur Durchführung von Bewertungen
+Artikel 92: Befugnis zur Durchführung von Bewertungen
 (1)   Das Büro für Künstliche Intelligenz kann nach Konsultation des KI-Gremiums Bewertungen des betreffenden KI-Modells mit allgemeinem Verwendungszweck durchführen, um
 a)
 die Einhaltung der Pflichten aus dieser Verordnung durch den Anbieter zu beurteilen, wenn die gemäß Artikel 91 eingeholten Informationen unzureichend sind, oder
@@ -1930,8 +1813,7 @@ systemische Risiken auf Unionsebene von KI-Modellen mit allgemeinem Verwendungsz
 (5)   Die Anbieter des betreffenden KI-Modells mit allgemeinem Verwendungszweck oder seine Vertreter stellen die angeforderten Informationen zur Verfügung. Im Falle juristischer Personen, Gesellschaften oder — wenn der Anbieter keine Rechtspersönlichkeit besitzt — die Personen, die nach Gesetz oder ihrer Satzung zur Vertretung dieser Personen befugt sind, stellen den angeforderten Zugang im Namen des Anbieters des betreffenden KI-Modells mit allgemeinem Verwendungszweck zur Verfügung.
 (6)   Die Kommission erlässt Durchführungsrechtsakte, in denen die detaillierten Regelungen und Voraussetzungen für die Bewertungen, einschließlich der detaillierten Regelungen für die Einbeziehung unabhängiger Sachverständiger, und das Verfahren für deren Auswahl festgelegt werden. Diese Durchführungsrechtsakte werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
 (7)   Bevor es den Zugang zu dem betreffenden KI-Modell mit allgemeinem Verwendungszweck anfordert, kann das Büro für Künstliche Intelligenz einen strukturierten Dialog mit dem Anbieter des KI-Modells mit allgemeinem Verwendungszweck einleiten, um mehr Informationen über die interne Erprobung des Modells, interne Vorkehrungen zur Vermeidung systemischer Risiken und andere interne Verfahren und Maßnahmen, die der Anbieter zur Minderung dieser Risiken ergriffen hat, einzuholen.
-Artikel 93
-Befugnis zur Aufforderung zu Maßnahmen
+Artikel 93: Befugnis zur Aufforderung zu Maßnahmen
 (1)   Soweit erforderlich und angemessen, kann die Kommission die Anbieter auffordern,
 a)
 geeignete Maßnahmen zu ergreifen, um die Verpflichtungen gemäß den Artikeln 53 und 54 einzuhalten;
@@ -1941,13 +1823,10 @@ c)
 die Bereitstellung des Modells auf dem Markt einzuschränken, es zurückzunehmen oder zurückzurufen.
 (2)   Vor der Aufforderung zu einer Maßnahme kann das Büro für Künstliche Intelligenz einen strukturierten Dialog mit dem Anbieter des KI-Modells mit allgemeinem Verwendungszweck einleiten.
 (3)   Wenn der Anbieter des KI-Modells mit allgemeinem Verwendungszweck im Rahmen des strukturierten Dialogs gemäß Absatz 2 Verpflichtungszusagen zur Durchführung von Risikominderungsmaßnahmen, um einem systemischen Risiko auf Unionsebene zu begegnen, anbietet, kann die Kommission diese Verpflichtungszusagen durch einen Beschluss für bindend erklären und feststellen, dass es keinen weiteren Anlass zum Handeln gibt.
-Artikel 94
-Verfahrensrechte der Wirtschaftsakteure des KI-Modells mit allgemeinem Verwendungszweck
+Artikel 94: Verfahrensrechte der Wirtschaftsakteure des KI-Modells mit allgemeinem Verwendungszweck
 Unbeschadet der in dieser Verordnung enthaltenen spezifischeren Verfahrensrechte gilt für die Anbieter des KI-Modells mit allgemeinem Verwendungszweck Artikel 18 der Verordnung (EU) 2019/1020 sinngemäß.
-KAPITEL X
-VERHALTENSKODIZES UND LEITLINIEN
-Artikel 95
-Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
+KAPITEL X: VERHALTENSKODIZES UND LEITLINIEN
+Artikel 95: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
 (1)   Das Büro für Künstliche Intelligenz und die Mitgliedstaaten fördern und erleichtern die Aufstellung von Verhaltenskodizes, einschließlich damit zusammenhängender Governance-Mechanismen, mit denen die freiwillige Anwendung einiger oder aller der in Kapitel III Abschnitt 2 genannten Anforderungen auf KI-Systeme, die kein hohes Risiko bergen, gefördert werden soll, wobei den verfügbaren technischen Lösungen und bewährten Verfahren der Branche, die die Anwendung dieser Anforderungen ermöglichen, Rechnung zu tragen ist.
 (2)   Das Büro für Künstliche Intelligenz und die Mitgliedstaaten erleichtern die Aufstellung von Verhaltenskodizes in Bezug auf die freiwillige Anwendung spezifischer Anforderungen auf alle KI-Systeme, einschließlich durch Betreiber, auf der Grundlage klarer Zielsetzungen sowie wesentlicher Leistungsindikatoren zur Messung der Erfüllung dieser Zielsetzungen, einschließlich unter anderem folgender Elemente:
 a)
@@ -1962,8 +1841,7 @@ e)
 Bewertung und Verhinderung der negativen Auswirkungen von KI-Systemen auf schutzbedürftige Personen oder Gruppen schutzbedürftiger Personen, einschließlich im Hinblick auf die Barrierefreiheit für Personen mit Behinderungen, sowie auf die Gleichstellung der Geschlechter.
 (3)   Verhaltenskodizes können von einzelnen KI-System-Anbietern oder -Betreibern oder von Interessenvertretungen dieser Anbieter oder Betreiber oder von beiden aufgestellt werden, auch unter Einbeziehung von Interessenträgern sowie deren Interessenvertretungen einschließlich Organisationen der Zivilgesellschaft und Hochschulen. Verhaltenskodizes können sich auf ein oder mehrere KI-Systeme erstrecken, um ähnlichen Zweckbestimmungen der jeweiligen Systeme Rechnung zu tragen.
 (4)   Das Büro für Künstliche Intelligenz und die Mitgliedstaaten berücksichtigen die besonderen Interessen und Bedürfnisse von KMU, einschließlich Startups, bei der Förderung und Erleichterung der Aufstellung von Verhaltenskodizes.
-Artikel 96
-Leitlinien der Kommission zur Durchführung dieser Verordnung
+Artikel 96: Leitlinien der Kommission zur Durchführung dieser Verordnung
 (1)   Die Kommission erarbeitet Leitlinien für die praktische Umsetzung dieser Verordnung, die sich insbesondere auf Folgendes beziehen:
 a)
 die Anwendung der in den Artikeln 8 bis 15 und in Artikel 25 genannten Anforderungen und Pflichten;
@@ -1980,24 +1858,19 @@ die Anwendung der Definition eines KI-Systems gemäß Artikel 3 Nummer 1.
 Wenn die Kommission solche Leitlinien herausgibt, widmet sie den Bedürfnissen von KMU einschließlich Start-up-Unternehmen, von lokalen Behörden und von den am wahrscheinlichsten von dieser Verordnung betroffenen Sektoren besondere Aufmerksamkeit.
 Die Leitlinien gemäß Unterabsatz 1 dieses Absatzes tragen dem allgemein anerkannten Stand der Technik im Bereich KI sowie den einschlägigen harmonisierten Normen und gemeinsamen Spezifikationen, auf die in den Artikeln 40 und 41 Bezug genommen wird, oder den harmonisierten Normen oder technischen Spezifikationen, die gemäß den Harmonisierungsrechtsvorschriften der Union festgelegt wurden, gebührend Rechnung.
 (2)   Auf Ersuchen der Mitgliedstaaten oder des Büros für Künstliche Intelligenz oder von sich aus aktualisiert die Kommission früher verabschiedete Leitlinien, wenn es als notwendig erachtet wird.
-KAPITEL XI
-BEFUGNISÜBERTRAGUNG UND AUSSCHUSSVERFAHREN
-Artikel 97
-Ausübung der Befugnisübertragung
+KAPITEL XI: BEFUGNISÜBERTRAGUNG UND AUSSCHUSSVERFAHREN
+Artikel 97: Ausübung der Befugnisübertragung
 (1)   Die Befugnis zum Erlass delegierter Rechtsakte wird der Kommission unter den in diesem Artikel festgelegten Bedingungen übertragen.
 (2)   Die in Artikel 6 Absätze 6 und 7, Artikel 7 Absätze 1 und 3, Artikel 11 Absatz 3, Artikel 43 Absätze 5 und 6, Artikel 47 Absatz 5, Artikel 51 Absatz 3, Artikel 52 Absatz 4 sowie Artikel 53 Absätze 5 und 6 genannte Befugnis zum Erlass delegierter Rechtsakte wird der Kommission für einen Zeitraum von fünf Jahren ab 1. August 2024 übertragen. Die Kommission erstellt spätestens neun Monate vor Ablauf des Zeitraums von fünf Jahren einen Bericht über die Befugnisübertragung. Die Befugnisübertragung verlängert sich stillschweigend um Zeiträume gleicher Länge, es sei denn, das Europäische Parlament oder der Rat widersprechen einer solchen Verlängerung spätestens drei Monate vor Ablauf des jeweiligen Zeitraums.
 (3)   Die Befugnisübertragung gemäß Artikel 6 Absätze 6 und 7, Artikel 7 Absätze 1 und 3, Artikel 11 Absatz 3, Artikel 43 Absätze 5 und 6, Artikel 47 Absatz 5, Artikel 51 Absatz 3, Artikel 52 Absatz 4 sowie Artikel 53 Absätze 5 und 6 kann vom Europäischen Parlament oder vom Rat jederzeit widerrufen werden. Der Beschluss über den Widerruf beendet die Übertragung der in jenem Beschluss angegebenen Befugnis. Er wird am Tag nach seiner Veröffentlichung im Amtsblatt der Europäischen Union oder zu einem darin angegebenen späteren Zeitpunkt wirksam. Die Gültigkeit von delegierten Rechtsakten, die bereits in Kraft sind, wird von dem Beschluss über den Widerruf nicht berührt.
 (4)   Vor dem Erlass eines delegierten Rechtsakts konsultiert die Kommission die von den einzelnen Mitgliedstaaten benannten Sachverständigen im Einklang mit den in der Interinstitutionellen Vereinbarung vom 13. April 2016 über bessere Rechtsetzung niedergelegten Grundsätzen.
 (5)   Sobald die Kommission einen delegierten Rechtsakt erlässt, übermittelt sie ihn gleichzeitig dem Europäischen Parlament und dem Rat.
 (6)   Ein delegierter Rechtsakt, der nach Artikel 6 Absatz 6 oder 7, Artikel 7 Absatz 1 oder 3, Artikel 11 Absatz 3, Artikel 43 Absatz 5 oder 6, Artikel 47 Absatz 5, Artikel 51 Absatz 3, Artikel 52 Absatz 4 sowie Artikel 53 Absatz 5 oder 6 erlassen wurde, tritt nur in Kraft, wenn weder das Europäische Parlament noch der Rat innerhalb einer Frist von drei Monaten nach Übermittlung jenes Rechtsakts an das Europäische Parlament und den Rat Einwände erhoben haben oder wenn vor Ablauf dieser Frist das Europäische Parlament und der Rat beide der Kommission mitgeteilt haben, dass sie keine Einwände erheben werden. Auf Initiative des Europäischen Parlaments oder des Rates wird diese Frist um drei Monate verlängert.
-Artikel 98
-Ausschussverfahren
+Artikel 98: Ausschussverfahren
 (1)   Die Kommission wird von einem Ausschuss unterstützt. Dieser Ausschuss ist ein Ausschuss im Sinne der Verordnung (EU) Nr. 182/2011.
 (2)   Wird auf diesen Absatz Bezug genommen, so gilt Artikel 5 der Verordnung (EU) Nr. 182/2011.
-KAPITEL XII
-SANKTIONEN
-Artikel 99
-Sanktionen
+KAPITEL XII: SANKTIONEN
+Artikel 99: Sanktionen
 (1)   Entsprechend den Vorgaben dieser Verordnung erlassen die Mitgliedstaaten Vorschriften für Sanktionen und andere Durchsetzungsmaßnahmen, zu denen auch Verwarnungen und nichtmonetäre Maßnahmen gehören können, die bei Verstößen gegen diese Verordnung durch Akteure Anwendung finden, und ergreifen alle Maßnahmen, die für deren ordnungsgemäße und wirksame Durchsetzung notwendig sind, wobei die von der Kommission gemäß Artikel 96 erteilten Leitlinien zu berücksichtigen sind. Die vorgesehenen Sanktionen müssen wirksam, verhältnismäßig und abschreckend sein. Sie berücksichtigen die Interessen von KMU, einschließlich Start-up-Unternehmen, sowie deren wirtschaftliches Überleben.
 (2)   Die Mitgliedstaaten teilen der Kommission die Vorschriften für Sanktionen und andere Durchsetzungsmaßnahmen gemäß Absatz 1 unverzüglich und spätestens zum Zeitpunkt ihres Inkrafttretens mit und melden ihr unverzüglich etwaige spätere Änderungen.
 (3)   Bei Missachtung des Verbots der in Artikel 5 genannten KI-Praktiken werden Geldbußen von bis zu 35 000 000 EUR oder — im Falle von Unternehmen — von bis zu 7 % des gesamten weltweiten Jahresumsatzes des vorangegangenen Geschäftsjahres verhängt, je nachdem, welcher Betrag höher ist.
@@ -2043,8 +1916,7 @@ alle Maßnahmen, die der Akteur ergriffen hat, um den Schaden, der den betroffen
 (9)   In Abhängigkeit vom Rechtssystem der Mitgliedstaaten können die Vorschriften über Geldbußen je nach den dort geltenden Regeln so angewandt werden, dass die Geldbußen von den zuständigen nationalen Gerichten oder von sonstigen Stellen verhängt werden. Die Anwendung dieser Vorschriften in diesen Mitgliedstaaten muss eine gleichwertige Wirkung haben.
 (10)   Die Ausübung der Befugnisse gemäß diesem Artikel muss angemessenen Verfahrensgarantien gemäß dem Unionsrecht und dem nationalen Recht, einschließlich wirksamer gerichtlicher Rechtsbehelfe und ordnungsgemäßer Verfahren, unterliegen.
 (11)   Die Mitgliedstaaten erstatten der Kommission jährlich Bericht über die Geldbußen, die sie in dem betreffenden Jahr gemäß diesem Artikel verhängt haben, und über damit zusammenhängende Rechtsstreitigkeiten oder Gerichtsverfahren.
-Artikel 100
-Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
+Artikel 100: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
 (1)   Der Europäische Datenschutzbeauftragte kann gegen Organe, Einrichtungen und sonstige Stellen der Union, die in den Anwendungsbereich dieser Verordnung fallen, Geldbußen verhängen. Bei der Entscheidung, ob eine Geldbuße verhängt wird, und bei der Festsetzung der Höhe der Geldbuße werden in jedem Einzelfall alle relevanten Umstände der konkreten Situation sowie Folgendes gebührend berücksichtigt:
 a)
 Art, Schwere und Dauer des Verstoßes und dessen Folgen, unter Berücksichtigung des Zwecks des betreffenden KI-Systems sowie gegebenenfalls der Zahl der betroffenen Personen und des Ausmaßes des von ihnen erlittenen Schadens;
@@ -2066,8 +1938,7 @@ der Jahreshaushalt des Organs, der Einrichtung oder der sonstigen Stelle der Uni
 (5)   Die Verteidigungsrechte der betroffenen Parteien werden während des Verfahrens in vollem Umfang gewahrt. Vorbehaltlich der legitimen Interessen von Einzelpersonen oder Unternehmen im Hinblick auf den Schutz ihrer personenbezogenen Daten oder Geschäftsgeheimnisse haben die betroffenen Parteien Anspruch auf Einsicht in die Unterlagen des Europäischen Datenschutzbeauftragten.
 (6)   Das Aufkommen aus den nach diesem Artikel verhängten Geldbußen trägt zum Gesamthaushalt der Union bei. Die Geldbußen dürfen nicht den wirksamen Betrieb des Organs, der Einrichtung oder der sonstigen Stelle der Union beeinträchtigen, dem bzw. der die Geldbuße auferlegt wurde.
 (7)   Der Europäische Datenschutzbeauftragte macht der Kommission jährlich Mitteilung über die Geldbußen, die er nach Maßgabe dieses Artikels verhängt hat, und über die von ihm eingeleiteten Rechtsstreitigkeiten oder Gerichtsverfahren.
-Artikel 101
-Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+Artikel 101: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
 (1)   Die Kommission kann gegen Anbieter von KI-Modellen mit allgemeinem Verwendungszweck Geldbußen von bis zu 3 % ihres gesamten weltweiten Jahresumsatzes im vorangegangenen Geschäftsjahr oder 15 000 000 EUR verhängen, je nachdem, welcher Betrag höher ist, wenn sie feststellt, dass der Anbieter vorsätzlich oder fahrlässig
 a)
 gegen die einschlägigen Bestimmungen dieser Verordnung verstoßen hat;
@@ -2083,34 +1954,26 @@ Bei der Festsetzung der Höhe der Geldbuße oder des Zwangsgelds wird der Art, d
 (4)   Informationen über gemäß diesem Artikel verhängte Geldbußen werden gegebenenfalls dem KI-Gremium mitgeteilt.
 (5)   Der Gerichtshof der Europäischen Union hat die unbeschränkte Befugnis zur Überprüfung der Entscheidungen der Kommission über die Festsetzung einer Geldbuße gemäß diesem Artikel. Er kann die verhängte Geldbuße aufheben, herabsetzen oder erhöhen.
 (6)   Die Kommission erlässt Durchführungsrechtsakte mit detaillierten Regelungen und Verfahrensgarantien für die Verfahren im Hinblick auf den möglichen Erlass von Beschlüssen gemäß Absatz 1 dieses Artikels. Diese Durchführungsrechtsakte werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
-KAPITEL XIII
-SCHLUSSBESTIMMUNGEN
-Artikel 102
-Änderung der Verordnung (EG) Nr. 300/2008
+KAPITEL XIII: SCHLUSSBESTIMMUNGEN
+Artikel 102: Änderung der Verordnung (EG) Nr. 300/2008
 In Artikel 4 Absatz 3 der Verordnung (EG) Nr. 300/2008 wird folgender Unterabsatz angefügt:
 „Beim Erlass detaillierter Maßnahmen, die technische Spezifikationen und Verfahren für die Genehmigung und den Einsatz von Sicherheitsausrüstung betreffen, bei der auch Systeme der künstlichen Intelligenz im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) zum Einsatz kommen, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.
-Artikel 103
-Änderung der Verordnung (EU) Nr. 167/2013
+Artikel 103: Änderung der Verordnung (EU) Nr. 167/2013
 In Artikel 17 Absatz 5 der Verordnung (EU) Nr. 167/2013 wird folgender Unterabsatz angefügt:
 „Beim Erlass delegierter Rechtsakte nach Unterabsatz 1, die sich auf Systeme der künstlichen Intelligenz beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.
-Artikel 104
-Änderung der Verordnung (EU) Nr. 168/2013
+Artikel 104: Änderung der Verordnung (EU) Nr. 168/2013
 In Artikel 22 Absatz 5 der Verordnung (EU) Nr. 168/2013 wird folgender Unterabsatz angefügt:
 „Beim Erlass delegierter Rechtsakte nach Unterabsatz 1, die sich auf Systeme der künstlichen Intelligenz beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.
-Artikel 105
-Änderung der Richtlinie 2014/90/EU
+Artikel 105: Änderung der Richtlinie 2014/90/EU
 In Artikel 8 der Richtlinie 2014/90/EU wird folgender Absatz angefügt:
 „(5)   Bei Systemen der künstlichen Intelligenz, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) handelt, berücksichtigt die Kommission bei der Ausübung ihrer Tätigkeiten nach Absatz 1 und bei Erlass technischer Spezifikationen und Prüfnormen nach den Absätzen 2 und 3 die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen.
-Artikel 106
-Änderung der Richtlinie (EU) 2016/797
+Artikel 106: Änderung der Richtlinie (EU) 2016/797
 In Artikel 5 der Richtlinie (EU) 2016/797 wird folgender Absatz angefügt:
 „(12)   Beim Erlass von delegierten Rechtsakten nach Absatz 1 und von Durchführungsrechtsakten nach Absatz 11, die sich auf Systeme der künstlichen Intelligenz beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.
-Artikel 107
-Änderung der Verordnung (EU) 2018/858
+Artikel 107: Änderung der Verordnung (EU) 2018/858
 In Artikel 5 der Verordnung (EU) 2018/858 wird folgender Absatz angefügt:
 „(4)   Beim Erlass delegierter Rechtsakte nach Absatz 3, die sich auf Systeme der künstlichen Intelligenz beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.
-Artikel 108
-Änderungen der Verordnung (EU) 2018/1139
+Artikel 108: Änderungen der Verordnung (EU) 2018/1139
 Die Verordnung (EU) 2018/1139 wird wie folgt geändert:
 1.
 In Artikel 17 wird folgender Absatz angefügt:
@@ -2131,23 +1994,19 @@ In Artikel 57 wird folgender Unterabsatz angefügt:
 6.
 In Artikel 58 wird folgender Absatz angefügt:
 „(3)   Beim Erlass delegierter Rechtsakte nach den Absätzen 1 und 2, die sich auf Systeme der künstlichen Intelligenz beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.“
-Artikel 109
-Änderung der Verordnung (EU) 2019/2144
+Artikel 109: Änderung der Verordnung (EU) 2019/2144
 In Artikel 11 der Verordnung (EU) 2019/2144 wird folgender Absatz angefügt:
 „(3)   Beim Erlass von Durchführungsrechtsakten nach Absatz 2, die sich auf Systeme der künstlichen Intelligenz beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.
-Artikel 110
-Änderung der Richtlinie (EU) 2020/1828
+Artikel 110: Änderung der Richtlinie (EU) 2020/1828
 In Anhang I der Richtlinie (EU) 2020/1828 des Europäischen Parlaments und des Rates (58) wird die folgende Nummer angefügt:
 „68.
 Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates vom 13. Juni 2024 zur Festlegung harmonisierter Vorschriften für künstliche Intelligenz und zur Änderung der Verordnungen (EG) Nr. 300/2008, (EU) Nr. 167/2013, (EU) Nr. 168/2013, (EU) 2018/858, (EU) 2018/1139 und (EU) 2019/2144 sowie der Richtlinien 2014/90/EU, (EU) 2016/797 und (EU) 2020/1828 (Verordnung über künstliche Intelligenz) (ABl. L, 2024/1689, 12.7.2024, ELI: http://data.europa.eu/eli/reg/2024/1689/oj).“
-Artikel 111
-Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr gebrachte KI-Modelle mit allgemeinem Verwendungszweck
+Artikel 111: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr gebrachte KI-Modelle mit allgemeinem Verwendungszweck
 (1)   Unbeschadet der Anwendung des Artikels 5 gemäß Artikel 113 Absatz 3 Buchstabe a werden KI-Systeme, bei denen es sich um Komponenten von IT-Großsystemen handelt, die mit den in Anhang X aufgeführten Rechtsakten eingerichtet wurden und vor dem 2. August 2027 in Verkehr gebracht oder in Betrieb genommen wurden, bis zum 31. Dezember 2030 mit dieser Verordnung in Einklang gebracht.
 Die in dieser Verordnung festgelegten Anforderungen werden bei der Bewertung jedes IT-Großsystems, das mit den in Anhang X aufgeführten Rechtsakten eingerichtet wurde, berücksichtigt, wobei die Bewertung entsprechend den Vorgaben der jeweiligen Rechtsakte und bei Ersetzung oder Änderung dieser Rechtsakte erfolgt.
 (2)   Unbeschadet der Anwendung des Artikels 5 gemäß Artikel 113 Absatz 3 Buchstabe a gilt diese Verordnung für Betreiber von Hochrisiko-KI-Systemen — mit Ausnahme der in Absatz 1 des vorliegenden Artikels genannten Systeme —, die vor dem 2. August 2026 in Verkehr gebracht oder in Betrieb genommen wurden, nur dann, wenn diese Systeme danach in ihrer Konzeption erheblich verändert wurden. In jedem Fall treffen die Anbieter und Betreiber von Hochrisiko-KI-Systemen, die bestimmungsgemäß von Behörden verwendet werden sollen, die erforderlichen Maßnahmen für die Erfüllung der Anforderungen und Pflichten dieser Verordnung bis zum 2. August 2030.
 (3)   Anbieter von KI-Modellen mit allgemeinem Verwendungszweck, die vor dem 2. August 2025 in Verkehr gebracht wurden, treffen die erforderlichen Maßnahmen für die Erfüllung der in dieser Verordnung festgelegten Pflichten bis zum 2. August 2027.
-Artikel 112
-Bewertung und Überprüfung
+Artikel 112: Bewertung und Überprüfung
 (1)   Die Kommission prüft nach Inkrafttreten dieser Verordnung und bis zum Ende der Befugnisübertragung gemäß Artikel 97 einmal jährlich, ob eine Änderung der Liste in Anhang III und der Liste der verbotenen Praktiken im KI-Bereich gemäß Artikel 5 erforderlich ist. Die Kommission übermittelt die Ergebnisse dieser Bewertung dem Europäischen Parlament und dem Rat.
 (2)   Bis zum 2. August 2028 und danach alle vier Jahre bewertet die Kommission Folgendes und erstattet dem Europäischen Parlament und dem Rat Bericht darüber:
 a)
@@ -2181,8 +2040,7 @@ c)
 die Liste der KI-Systeme, die zusätzliche Transparenzmaßnahmen erfordern, in Artikel 50.
 (12)   Eine Änderung dieser Verordnung im Sinne des Absatzes 10 oder entsprechende delegierte Rechtsakte oder Durchführungsrechtsakte, die sektorspezifische Rechtsvorschriften für eine unionsweite Harmonisierung gemäß Anhang I Abschnitt B betreffen, berücksichtigen die regulatorischen Besonderheiten des jeweiligen Sektors und die in der Verordnung festgelegten bestehenden Governance-, Konformitätsbewertungs- und Durchsetzungsmechanismen und -behörden.
 (13)   Bis zum 2. August 2031 nimmt die Kommission unter Berücksichtigung der ersten Jahre der Anwendung der Verordnung eine Bewertung der Durchsetzung dieser Verordnung vor und erstattet dem Europäischen Parlament, dem Rat und dem Europäischen Wirtschafts- und Sozialausschuss darüber Bericht. Auf Grundlage der Ergebnisse wird dem Bericht gegebenenfalls ein Vorschlag zur Änderung dieser Verordnung beigefügt, der die Struktur der Durchsetzung und die Notwendigkeit einer Agentur der Union für die Lösung festgestellter Mängel betrifft.
-Artikel 113
-Inkrafttreten und Geltungsbeginn
+Artikel 113: Inkrafttreten und Geltungsbeginn
 Diese Verordnung tritt am zwanzigsten Tag nach ihrer Veröffentlichung im Amtsblatt der Europäischen Union in Kraft.
 Sie gilt ab dem 2. August 2026.
 Jedoch:
@@ -2725,8 +2583,7 @@ Modalität (zum Beispiel Text, Bild usw.) und Format der Ein- und Ausgaben und d
 c)
 gegebenenfalls Informationen über die für das Trainieren, Testen und Validieren verwendeten Daten, einschließlich der Art und Herkunft der Daten und der Aufbereitungsmethoden.
 ANHANG XIII
-Kriterien für die Benennung von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko gemäß Artikel 51
-Um festzustellen, ob ein KI-Modell mit allgemeinem Verwendungszweck über Fähigkeiten oder eine Wirkung verfügt, die den in Artikel 51 Absatz 1 Buchstabe a genannten gleichwertig sind, berücksichtigt die Kommission folgende Kriterien:
+Kriterien für die Benennung von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko gemäß Artikel 51: Um festzustellen, ob ein KI-Modell mit allgemeinem Verwendungszweck über Fähigkeiten oder eine Wirkung verfügt, die den in Artikel 51 Absatz 1 Buchstabe a genannten gleichwertig sind, berücksichtigt die Kommission folgende Kriterien:
 a)
 die Anzahl der Parameter des Modells;
 b)
