@@ -1,0 +1,68 @@
+
+
+/* Fonts */
+@font-face{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/OpenSans-Bold-webfont.woff');
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/OpenSans-Semibold-webfont.woff');
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/OpenSans-Regular-webfont.woff');
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('assets/fonts/OpenSans-Light-webfont.woff');
+}
+
+.content-row{
+  display: grid;
+  grid-template-columns: 1fr 40%;
+  grid-gap: 30px;
+  align-items: start;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  
+  .left-column{
+    height: 100%;
+    .uk-card{
+      height: 100%;
+    }
+  }
+}
+.chunk-settings label{
+  display: block;
+  text-align: left;
+  margin-top: 8px;
+}
+
+.row-gap-md {
+  row-gap: 8px;
+}
+.left-column{
+  border: 1px solid #d9d9d9;
+  padding: 16px;
+  line-height: 1.8em;
+}
+.content-chunk {
+  border: 2px #d9d9d9 solid;
+  padding: 12px;
+  padding: 36px 12px;
+}
+body, * {
+  box-sizing: border-box;
+}
