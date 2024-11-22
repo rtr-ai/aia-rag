@@ -3,7 +3,7 @@
 This project provides a tool for manually chunking texts for Retrieval Augmented Generation (RAG) usages.
 Currently, it allows only importing and exporting JSON of the annotated text.
 It is indeed to be run in Docker container.
-To rebuild the container when starting, please use `docker compose up --buid` options.
+To rebuild the container when starting, please use `docker compose up --build` options.
 
 ## Available Scripts (Inside the container)
 
