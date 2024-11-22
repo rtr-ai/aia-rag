@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Annotation Tool
 
 This project provides a tool for manually chunking texts for Retrieval Augmented Generation (RAG) usages.
 Currently, it allows only importing and exporting JSON of the annotated text.
