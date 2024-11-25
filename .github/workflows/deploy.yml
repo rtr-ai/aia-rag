@@ -3,6 +3,9 @@ name: Deploy
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - data/**
+      - annotation-tool/**
 
 jobs:
   build:
