@@ -23,7 +23,7 @@ jobs:
 
     - name: Deploy to server
       run: |
-        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }] "mkdir -p /app/trunk.new";
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "mkdir -p /app/trunk.new";
         scp -i ~/.ssh/deploy_key -r ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }}:/app/trunk.new
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
           mv /app/trunk /app/trunk.old && 
