@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$DEPLOY_SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+        chmod 600 ~/.ssh/deploy_key
+        echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      shell: bash
+      env:
+        DEPLOY_SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+        SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+
+    - name: Deploy to server
+      run: |
+        scp -i ~/.ssh/deploy_key -r ./* user@${{ secrets.DEPLOY_IP }}:/app/trunk.new
+        ssh -i ~/.ssh/deploy_key user@${{ secrets.DEPLOY_IP }} "
+          mv /app/trunk /app/trunk.old && 
+          mv /app/trunk.new /app/trunk &&
+          cd /app/trunk &&
+          ls -lah
+          "
+        EOF
+      shell: bash
+      env:
+        DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
