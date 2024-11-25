@@ -1,4 +1,4 @@
-name: Deploy
+ name: Deploy
 
 on:
   push:
@@ -38,8 +38,11 @@ jobs:
     - name: Run docker
       run: |
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
-        docker container prune -f;
-        # docker-compose build, down, up
+        cp /app/trunk &&
+        docker container prune -f &&
+        docker-compose build &&
+        docker-compose down &&
+        docker-compose up -d;
         "
       shell: bash
       env:
