@@ -20,6 +20,8 @@ jobs:
       run:
         shell: bash
         working-directory: ./annotation-tool
+    env:
+      CI: ""
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
