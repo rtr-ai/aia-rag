@@ -6,8 +6,8 @@ name: Annotation Tool CI
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - annotation-tool/**
+   # paths:
+   #   - annotation-tool/**
   pull_request:
     branches: [ "main" ]
     paths:
