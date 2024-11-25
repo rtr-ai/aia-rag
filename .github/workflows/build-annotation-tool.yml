@@ -15,20 +15,19 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./annotation-tool
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
         node-version: 22
     - run: npm i
-      working-directory: ./annotation-tool
     - run: npm run build --if-present
-      working-directory: ./annotation-tool
     - uses: actions/upload-artifact@v4
-      working-directory: ./annotation-tool
       with:
         name: build-zip
         path: build/
