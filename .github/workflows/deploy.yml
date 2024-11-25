@@ -26,6 +26,7 @@ jobs:
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "mkdir -p /app/trunk.new" 
         scp -i ~/.ssh/deploy_key -r ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }}:/app/trunk.new
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
+          rm -r /app/trunk.old
           mv /app/trunk /app/trunk.old && 
           mv /app/trunk.new /app/trunk &&
           cd /app/trunk &&
@@ -40,9 +41,9 @@ jobs:
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
         cd /app/trunk &&
         docker container prune -f &&
-        docker-compose build &&
-        docker-compose down &&
-        docker-compose up -d;
+        docker compose build &&
+        docker compose down &&
+        docker compose up -d;
         "
       shell: bash
       env:
