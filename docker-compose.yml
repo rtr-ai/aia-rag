@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  ollama:
+    volumes:
+      - /app/ollama/data:/root/.ollama
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    restart: unless-stopped
+    image: ollama/ollama:latest
+    ports:
+      - 127.0.0.1:11434:11434
+    environment:
+      - OLLAMA_KEEP_ALIVE=1h
+    networks:
+      - ollama-docker
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  annotation-tool:
+    build:
+      context: ./annotation-tool 
+      dockerfile: Dockerfile      
+    ports:
+      - "127.0.0.1:8081:3000"   
+    environment:
+      - HOST=0.0.0.0            
+    command: npm start
+    networks:
+      - ollama-docker
+    depends_on:
+      - ollama
+
+networks:
+  ollama-docker:
+    external: false

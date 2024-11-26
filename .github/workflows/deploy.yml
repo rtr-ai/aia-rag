@@ -1,0 +1,54 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - data/**
+      - annotation-tool/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh/ ;
+        echo "$DEPLOY_SSH_PRIVATE_KEY" > ~/.ssh/deploy_key ;
+        chmod 600 ~/.ssh/deploy_key ;
+        echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts ;
+      shell: bash
+      env:
+        DEPLOY_SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+        SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+
+    - name: Deploy to server
+      run: |
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "mkdir -p /app/trunk.new" 
+        scp -i ~/.ssh/deploy_key -r ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }}:/app/trunk.new
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
+          rm -r /app/trunk.old
+          mv /app/trunk /app/trunk.old && 
+          mv /app/trunk.new /app/trunk &&
+          cd /app/trunk &&
+          ls -lah
+          "
+      shell: bash
+      env:
+        DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
+        DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+    - name: Run docker
+      run: |
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
+        cd /app/trunk &&
+        docker container prune -f &&
+        docker compose build &&
+        docker compose down &&
+        docker compose up -d;
+        "
+      shell: bash
+      env:
+        DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
+        DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
