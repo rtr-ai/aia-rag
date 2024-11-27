@@ -91,7 +91,14 @@ class IndexService:
         vectors = [item["vector"] for item in chunks_vector]
         similarities = self.cosine_similarity(query_vector, vectors)
         top_k_indices = np.argsort(similarities)[-top_k:][::-1]
-        return [{**chunks_vector[i], "score": similarities[i]} for i in top_k_indices]
+        return [
+            {
+                **chunks_vector[i],
+                "score": similarities[i],
+                "title": chunks_vector[i].get("title"),
+            }
+            for i in top_k_indices
+        ]
 
     async def create_index(self, manual_index: ManualIndex):
         """
@@ -163,7 +170,11 @@ class IndexService:
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"], top_k)
         sources: List[Source] = []
         for chunk in top_chunks:
-            sources.append(Source(content=chunk["content"], score=chunk["score"]))
+            sources.append(
+                Source(
+                    content=chunk["content"], score=chunk["score"], title=chunk["title"]
+                )
+            )
         LOGGER.debug(f"Generated chunks for the query {sources}")
         return sources
 
