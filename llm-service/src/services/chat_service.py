@@ -39,6 +39,8 @@ class ChatService:
                 yield part
 
             prompt = generate_prompt(prompt=request.prompt, sources=chunks)
+            data = json.dumps({"content": prompt, "type": "user"})
+            yield f"data: {data}\n\n"
             LOGGER.debug("Prompting Ollama")
             response = ""
             async for part in self.prompt_ollama(prompt):
