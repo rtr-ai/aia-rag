@@ -56,9 +56,9 @@ services:
       depends_on:
         - ollama
 
-  frontend:
+  user-interface:
     build:
-      context: ./frontend
+      context: ./user-interface
       dockerfile: Dockerfile      
     ports:
       - "127.0.0.1:8090:80"   
