@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   ollama:
     volumes:
@@ -32,6 +30,27 @@ services:
     environment:
       - HOST=0.0.0.0            
     command: npm start
+    networks:
+      - ollama-docker
+    depends_on:
+      - ollama
+
+llm-service:
+    build:
+      context: ./llm-service
+      dockerfile: Dockerfile      
+    ports:
+      - "127.0.0.1:8085:8000"   
+    environment:
+      - HOST=0.0.0.0         
+      - OLLAMA_HOST=ollama
+      - EMBEDDING_MODELS=bge-m3
+      - LLM_MODELS=llama3.1:8b-instruct-fp16,mixtral:8x7b-instruct-v0.1-q2_K
+      - ALLOWED_ORIGINS=https://148.251.182.39,http://148.251.182.39
+      - TEMPERATURE=0.1
+      - CONTEXT_WINDOW=8000
+    volumes:
+      - ./data/aia_chunks_index.json:/app/data/chunks.json
     networks:
       - ollama-docker
     depends_on:

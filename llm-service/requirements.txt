@@ -1,0 +1,6 @@
+fastapi[all]
+uvicorn
+pydantic
+httpx
+ollama
+numpy

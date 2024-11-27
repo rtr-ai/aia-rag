@@ -1,0 +1,120 @@
+#Logs
+
+/logs
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+venv/
+.env/
+.env.bak/
+*.env
+
+# pipenv files
+Pipfile
+Pipfile.lock
+
+# Poetry files
+poetry.lock
+
+# pyenv
+.python-version
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# pyright or mypy type checking
+.mypy_cache/
+.pyre/
+.pytype/
+
+# coverage tool output
+.coverage
+*.cover
+coverage.xml
+htmlcov/
+.coverage.*
+
+# test coverage reports
+*.py,cover
+.tox/
+.nox/
+.cache/
+coverage/
+
+# pytest cache
+.pytest_cache/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy/
+
+# Sphinx documentation
+docs/_build/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# macOS hidden files
+.DS_Store
+
+# Windows hidden files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Idea/VScode settings
+.vscode/
+.idea/
+
+# Source folders
+src/__pycache__/
+src/*.py[cod]
+src/*$py.class
+
+# Build and distribution artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+MANIFEST
+
+# wheel files
+*.whl
+
+# Editable installs
+*.egg-link
+
+# Compiled code artifacts
+*.pyd
+
+# Jupyter output
+.ipynb_checkpoints/
+*.ipynb
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
