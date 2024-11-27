@@ -1,10 +1,10 @@
-# KiServicestelleAiabot
+# KI Servicestelle AI-Act RAG-Chat
 
-## Know issues
+## Known issues
 
 Docker does not correctly replace the environment variable LLM_ENDPOINT defined in docker-compose.yml.
-Temporarity, the environment variable default value is set to the actual endpoint in `/src/environments/environment.ts`
+Temporarily, the environment variable default value is set to the actual endpoint in `/src/environments/environment.ts`
 
-## Starting the Frontend
+## Starting the User Interface
 
-Please start the frontend using `docker-compose.yml` provided
+Please start the user interface using `docker-compose.yml` provided
