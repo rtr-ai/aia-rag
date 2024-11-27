@@ -1,7 +1,7 @@
 # LLM Service
 
 This service is used for communicating with LLMs (Large Language Model).
-Upoon starting the service, it fetches the LLM models from Ollama repository if requires and creates a vectore store index from manually annotated chunks.
+Upon starting the service, it fetches the LLM models from Ollama repository if requires and creates a vectore store index from manually annotated chunks.
 
 ## Endpoints
 
