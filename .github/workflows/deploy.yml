@@ -3,12 +3,6 @@ name: Deploy
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - data/**
-      - annotation-tool/**
-      - ./*
-      - llm-service/**
-
 jobs:
   build:
     runs-on: ubuntu-latest
