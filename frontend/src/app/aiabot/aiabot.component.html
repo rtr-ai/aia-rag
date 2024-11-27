@@ -1,0 +1,122 @@
+<div class="uk-section-default uk-section">
+  <div class="uk-container">
+    <h2 i18n="@@zrdbQuery">KI-Servicestelle AI Act Chatbot</h2>
+  </div>
+
+  <div class="uk-container">
+    <div class="uk-container">
+      <p class="uk-text-large uk-margin-top">
+        Sie haben Fragen zum AI Act und regulatorischen Rahmenbedingungen zu AI?
+        <br />
+        Unser <a>RAG</a>-Chatbot beantwortet Ihre Fragen!
+      </p>
+
+      <h3>Stellen Sie Ihre Frage!</h3>
+      <form class="uk-form uk-padding-remove">
+        <p>
+          <label class="uk-margin-medium-bottom">Ihre Frage: </label>
+        </p>
+        <textarea
+          class="uk-input"
+          style="height: 70px"
+          [(ngModel)]="userPrompt"
+          name="userPrompt"
+        ></textarea>
+        <p>
+          <a
+            class="uk-button uk-button-large uk-button-primary"
+            [ngClass]="step == 'initial' || step == 'done' ? '' : 'uk-disabled'"
+            (click)="playDemo()"
+            >Frage stellen</a
+          >
+        </p>
+      </form>
+      <p class="text-muted">
+        <a>Weitere Informationen zum Chatbot</a>
+      </p>
+    </div>
+    <div *ngIf="step != 'initial'">
+      <div class="uk-container uk-margin-top-50">
+        <h3>
+          <img
+            src="assets/buffering.gif"
+            class="spinner"
+            *ngIf="step == 'research'"
+          />
+          <span *ngIf="step != 'research'">&check;</span>
+          Relevante Quellen erheben <i>(&ldquor;<b>R</b>etrieve&rdquor;)</i>
+        </h3>
+        <h4 *ngIf="sources.length > 0">Relevante Quellen</h4>
+        <ul>
+          <li *ngFor="let source of sources; let i = index">
+            <a (click)="toggleAccordion(i)">
+              {{ source.title || "Quelle" }} ({{ formatScore(source.score) }})
+            </a>
+            <div
+              id="content-{{ i }}"
+              class="accordion-content"
+              style="display: none; margin-left: 20px"
+            >
+              {{ source.content }}
+            </div>
+          </li>
+        </ul>
+        <p *ngIf="sources.length > 0">
+          <i><a>Information: Wie werden relevante Quellen erhoben?</a></i>
+        </p>
+      </div>
+
+      <div class="uk-container uk-margin-top-50">
+        <h3>
+          <img
+            src="assets/buffering.gif"
+            class="spinner"
+            *ngIf="step == 'prompt'"
+          />
+          <span *ngIf="step == 'done' || step == 'output'">&check;</span>
+          Prompt erstellen <i>(&ldquor;<b>A</b>ugment&rdquor;)</i>
+        </h3>
+        <ul
+          uk-accordion
+          class="uk-accordion ac-content"
+          *ngIf="prompt.length > 0"
+        >
+          <li class="">
+            <a class="uk-accordion-title anchor" aria-expanded="true">
+              <b>Prompt</b>
+            </a>
+            <div class="uk-accordion-content">
+              <p [innerHTML]="prompt"></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="uk-container uk-margin-top-50">
+        <h3>
+          <img
+            src="assets/buffering.gif"
+            class="spinner"
+            *ngIf="step == 'output'"
+          />
+          <span *ngIf="step == 'done'">&check;</span>
+          Antwort erstellen <i>(&ldquor;<b>G</b>enerate&rdquor;)</i>
+        </h3>
+        <blockquote *ngIf="displayAnswer.length > 0">
+          <p [innerHTML]="displayAnswer"></p>
+        </blockquote>
+      </div>
+    </div>
+    <div class="uk-container uk-margin-top-50">
+      <h4>Hintergrundinformationen zum AI Act Chatbot</h4>
+      <ul>
+        <li><a>Datenschutz</a></li>
+        <li><a>Technische Ausführung und Source Code</a></li>
+        <li><a>Chatbots und der AI Act</a></li>
+        <li><a>Softwarelizenzen</a></li>
+        <li><a>Datenstand, Datenbasis, Datenaufbereitung</a></li>
+        <li><a>Umweltaspekte</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
