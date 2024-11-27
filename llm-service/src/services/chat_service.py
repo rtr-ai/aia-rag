@@ -21,7 +21,7 @@ CONTEXT_WINDOW = int(os.getenv("CONTEXT_WINDOW", "8000"))
 class ChatService:
     def __init__(self):
         self.indices = {}
-        self.model = (DEFAULT_MODEL,)
+        self.model = DEFAULT_MODEL
         self.embedding_service = EmbeddingService()
         self.index_service = IndexService()
         self.client = AsyncClient(host=os.getenv("OLLAMA_HOST"))
