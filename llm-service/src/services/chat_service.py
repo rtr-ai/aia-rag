@@ -9,6 +9,7 @@ from services.index_service import IndexService
 from utils.logger import get_logger
 from models.chat_request import ChatRequest
 from models.sources import Source, SourceList
+from utils.prompt_utils import generate_prompt
 
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 LOGGER = get_logger(__name__)
@@ -34,19 +35,13 @@ class ChatService:
             chunks = await self.index_service.query_index(
                 "main", query=request.prompt, top_k=10
             )
-            LOGGER.debug(f"Chunks are {chunks}")
-            chunks_printable = "\n".join(
-                [f"Score: {node.score}\n{node.content}" for node in chunks]
-            )
-
-            LOGGER.debug(f"Received chunks: <{chunks_printable}>")
-
             async for part in self.__yield_sources__(chunks):
                 yield part
 
+            prompt = generate_prompt(prompt=request.prompt, sources=chunks)
             LOGGER.debug("Prompting Ollama")
             response = ""
-            async for part in self.prompt_ollama(request.prompt):
+            async for part in self.prompt_ollama(prompt):
                 response += part
                 data = json.dumps({"content": part, "type": "assistant"})
                 yield f"data: {data}\n\n"
