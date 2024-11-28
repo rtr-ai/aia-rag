@@ -41,9 +41,18 @@ export class AiabotComponent implements OnInit {
     const updatePrompt = (prompt: string) => {
       this.prompt = prompt;
     };
+    let buffer = "";
+    let updateTimeout: any = null;
+
     const appendAnswer = (answer: string) => {
-      this.displayAnswer += answer;
-    };
+      buffer += answer; 
+      if (!updateTimeout) {
+        updateTimeout = setTimeout(() => {
+          this.displayAnswer += buffer;
+          buffer = ""; 
+          updateTimeout = null; 
+        }, 100);
+      }
     this.displayAnswer = "";
     await fetchEventSource(`${server}/chat`, {
       signal: signal,
