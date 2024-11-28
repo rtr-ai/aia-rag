@@ -4,7 +4,8 @@ import { FormsModule } from "@angular/forms";
 import { answer1, answer2 } from "./knowledge";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
 import { LLMMessageParams, Source, Step } from "./models";
-import { environment } from "../../environments/environment";
+import { environment } from "../. ./environments/environment";
+import { ChangeDetectorRef } from "@angular/core";
 @Component({
   selector: "app-aiabot",
   standalone: true,
@@ -20,6 +21,7 @@ export class AiabotComponent implements OnInit {
   multiplier = 1;
   userPrompt: string =
     "Ich möchte LLama-3 für meine Firma fine-tunen. Gilt der AIA für mich?";
+  constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {}
 
   promptLLM = async () => {
@@ -51,6 +53,7 @@ export class AiabotComponent implements OnInit {
           this.displayAnswer += buffer;
           buffer = "";
           updateTimeout = null;
+          this.cdr.detectChanges();
         }, 100);
       }
     };
