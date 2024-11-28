@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { answer1, answer2 } from "./knowledge";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
 import { LLMMessageParams, Source, Step } from "./models";
-import { environment } from "../. ./environments/environment";
+import { environment } from "../../environments/environment";
 import { ChangeDetectorRef } from "@angular/core";
 @Component({
   selector: "app-aiabot",
