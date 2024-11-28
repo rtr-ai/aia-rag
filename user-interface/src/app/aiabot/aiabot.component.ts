@@ -45,14 +45,15 @@ export class AiabotComponent implements OnInit {
     let updateTimeout: any = null;
 
     const appendAnswer = (answer: string) => {
-      buffer += answer; 
+      buffer += answer;
       if (!updateTimeout) {
         updateTimeout = setTimeout(() => {
           this.displayAnswer += buffer;
-          buffer = ""; 
-          updateTimeout = null; 
+          buffer = "";
+          updateTimeout = null;
         }, 100);
       }
+    };
     this.displayAnswer = "";
     await fetchEventSource(`${server}/chat`, {
       signal: signal,
