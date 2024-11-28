@@ -65,7 +65,7 @@ services:
       - "127.0.0.1:8090:80"   
     environment:
       - HOST=0.0.0.0 
-      - LLM_ENDPOINT=https://rag.ki.rtr.at  #Known issue, currently doesn't replace the actual environment variable in Angular          
+      - LLM_ENDPOINT=https://rag.ki.rtr.at/llm-service  #Known issue, currently doesn't replace the actual environment variable in Angular          
     networks:
       - ollama-docker
     depends_on:
