@@ -69,6 +69,7 @@ export class AiabotComponent implements OnInit {
       },
       onopen(response: Response): Promise<void> {
         if (response.ok && response.status === 200) {
+          updateStep("research");
           return Promise.resolve();
         } else if (
           response.status >= 400 &&
@@ -86,16 +87,15 @@ export class AiabotComponent implements OnInit {
         const data: LLMMessageParams = JSON.parse(event.data);
         switch (data.type) {
           case "sources":
-            updateStep("research");
             const sources: Source[] = JSON.parse(data.content);
             updateSources(sources);
+            updateStep("prompt");
             break;
           case "user":
-            updateStep("prompt");
             updatePrompt(data.content);
+            updateStep("output");
             break;
           case "assistant":
-            updateStep("output");
             appendAnswer(data.content);
             break;
           default:
