@@ -11,6 +11,7 @@ from utils import path_utils
 
 LOGGER = get_logger(__name__)
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
+TOP_N_CHUNKS = int(os.getenv("TOP_N_CHUNKS", "15"))
 
 
 class IndexService:
@@ -76,28 +77,28 @@ class IndexService:
         if os.path.exists(self.vector_store_path):
             os.remove(self.vector_store_path)
 
-    def get_top_chunks(self, query_vector, chunks_vector, top_k=5):
+    def get_top_chunks(self, query_vector, chunks_vector, top_n=TOP_N_CHUNKS):
         """
-        Get top-k chunks based on cosine similarity to a query vector.
+        Get top-n chunks based on cosine similarity to a query vector.
 
         Args:
             query_vector (list): The embedding of the query.
             chunks_vector (list): List of chunks with embeddings.
-            top_k (int): Number of top results to return.
+            top_n (int): Number of top results to return.
 
         Returns:
-            list: Top-k chunks with similarity scores.
+            list: Top-n chunks with similarity scores.
         """
         vectors = [item["vector"] for item in chunks_vector]
         similarities = self.cosine_similarity(query_vector, vectors)
-        top_k_indices = np.argsort(similarities)[-top_k:][::-1]
+        top_n_indices = np.argsort(similarities)[-top_n:][::-1]
         return [
             {
                 **chunks_vector[i],
                 "score": similarities[i],
                 "title": chunks_vector[i].get("title"),
             }
-            for i in top_k_indices
+            for i in top_n_indices
         ]
 
     async def create_index(self, manual_index: ManualIndex):
@@ -149,7 +150,9 @@ class IndexService:
         self._save_vector_store()
 
     async def query_index(
-        self, index_id: str, query: str, top_k: int = 5
+        self,
+        index_id: str,
+        query: str,
     ) -> List[Source]:
         """
         Query an index and return top-k similar chunks.
@@ -157,7 +160,6 @@ class IndexService:
         Args:
             index_id (str): ID of the index to query.
             query (str): Query string.
-            top_k (int): Number of top results to return.
 
 
         """
@@ -167,7 +169,7 @@ class IndexService:
 
         query_vector = (await self.embedding_service.generate_embedding(query))[0]
         index_data = self.vector_store[index_id]
-        top_chunks = self.get_top_chunks(query_vector, index_data["chunks"], top_k)
+        top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
         sources: List[Source] = []
         for chunk in top_chunks:
             sources.append(

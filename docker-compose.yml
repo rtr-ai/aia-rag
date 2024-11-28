@@ -50,6 +50,7 @@ services:
         - TEMPERATURE=0.1
         - CONTEXT_WINDOW=10000
         - ROOT_PATH=/llm-service
+        - TOP_N_CHUNKS=15
       volumes:
         - ./data/aia_chunks_index.json:/app/data/chunks.json
       networks:

@@ -32,9 +32,7 @@ class ChatService:
             yield f"data: {data}\n\n"
             LOGGER.debug(f"Prompting: <{request.prompt}>")
             self.model = request.model
-            chunks = await self.index_service.query_index(
-                "main", query=request.prompt, top_k=10
-            )
+            chunks = await self.index_service.query_index("main", query=request.prompt)
             async for part in self.__yield_sources__(chunks):
                 yield part
 
