@@ -6,6 +6,7 @@ Informationen aus dem EU AI Act sind unten angeführt.
 {context_str}
 Basierend auf den Informationen und ohne Vorwissen beantworte die Anfrage. Antworte faktenbasiert und ohne Konklusionen.
 Antworte in der selben Sprache, in der die Anfrage geschrieben ist.
+Falls diese Begriffe in deiner Antwort vorkommen, beachte die Artikel der folgenden Begriffe: der EU AI Act, das LLM, das Large Language Modell, die KI, die DSGVO.
 Anfrage: {query_str}
 Antwort:
 """
