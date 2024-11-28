@@ -5,7 +5,7 @@ import { answer1, answer2 } from "./knowledge";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
 import { LLMMessageParams, Source, Step } from "./models";
 import { environment } from "../../environments/environment";
-import { ChangeDetectorRef } from "@angular/core";
+import { NgZone } from "@angular/core";
 @Component({
   selector: "app-aiabot",
   standalone: true,
@@ -21,7 +21,7 @@ export class AiabotComponent implements OnInit {
   multiplier = 1;
   userPrompt: string =
     "Ich möchte LLama-3 für meine Firma fine-tunen. Gilt der AIA für mich?";
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private zone: NgZone) {}
   ngOnInit(): void {}
 
   promptLLM = async () => {
@@ -50,10 +50,11 @@ export class AiabotComponent implements OnInit {
       buffer += answer;
       if (!updateTimeout) {
         updateTimeout = setTimeout(() => {
-          this.displayAnswer += buffer;
-          buffer = "";
-          updateTimeout = null;
-          this.cdr.detectChanges();
+          this.zone.run(() => {
+            this.displayAnswer += buffer;
+            buffer = "";
+            updateTimeout = null;
+          });
         }, 100);
       }
     };
