@@ -13,6 +13,7 @@ LOGGER = get_logger(__name__)
 
 EMBEDDING_MODELS = os.getenv("EMBEDDING_MODELS", "").split(",")
 LLM_MODELS = os.getenv("LLM_MODELS", "").split(",")
+ROOT_PATH = os.getenv("ROOT_PATH", "")
 
 
 async def is_model_available(client: AsyncClient, model_name: str) -> bool:
@@ -75,7 +76,7 @@ async def lifespan(app: FastAPI):
         await client.aclose()
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(lifespan=lifespan, root_path=ROOT_PATH)
 allowed_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 app.add_middleware(
     CORSMiddleware,
