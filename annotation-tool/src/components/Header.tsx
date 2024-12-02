@@ -45,12 +45,6 @@ const Header: React.FC<HeaderProps> = ({
     });
   };
 
-  const handleSave = () => {
-    UIkit.notification('Diese Funktion ist derzeit nicht verfügbar', {
-      status: 'danger',
-    });
-  };
-
   const onSelectFile = async () => {
     try {
       const file = await selectFile();
@@ -95,13 +89,6 @@ const Header: React.FC<HeaderProps> = ({
         disabled={!hasValidSelection}
       >
         Textpassage schneiden
-      </button>
-      <button
-        className="uk-button uk-button-primary"
-        disabled
-        onClick={handleSave}
-      >
-        Index Speichern
       </button>
 
       <button className="uk-button uk-button-primary" onClick={onDownload}>
