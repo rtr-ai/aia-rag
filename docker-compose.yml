@@ -28,7 +28,8 @@ services:
     ports:
       - "127.0.0.1:8081:3000"   
     environment:
-      - HOST=0.0.0.0            
+      - HOST=0.0.0.0
+      - PUBLIC_URL=/annotation-tool         
     command: npm start
     networks:
       - ollama-docker
