@@ -2,8 +2,10 @@
 
 ### Introduction
 
-Each node represent single chunk of textual data that has been feeded into vector store. Process of chunnking the data was mostly manual so that the perfect structure of embbedings could be reached. Each chunk of text represent either chapter (Kapitel), section (Abschnitt), article (Artikel) and etc. In each chunk of text there are also information about relation pof that chunk of text to other text chunks (Querwerweis). In the visualization each node represent single embbeding (chapter, section...) and entities (lines that connect nodes) represnet the relationship between two or more nodes.
+Each node represents a single chunk of textual data that has been fed into the vector store. The process of chunking the data was largely manual to achieve an optimal structure for the embeddings. Each chunk corresponds to a specific unit, such as a chapter (Kapitel), section (Abschnitt), article (Artikel), or similar. Additionally, each chunk contains information about its relationship to other chunks (Querweise).
+
+In the visualization, each node represents an individual embedding (e.g., chapter, section), while the connecting lines between nodes (entities) depict the relationships between two or more nodes.
 
 ### How to open interactive network visualization
 
-Download the .html file from this folder and store it localy on your computer. Open the file in web broweser aplication and the visualization will show up.
+Download the .html file from this folder and save it locally on your computer. Open the file in a web browser application, and the visualization will be displayed.
