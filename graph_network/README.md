@@ -1,5 +1,6 @@
 # Interactive Network Graph Visualization of AiAct
-![Screenshot 2024-12-03 at 15-32-21 ](https://github.com/user-attachments/assets/4f24a2a3-14b1-410a-93c8-55b96a329e39)
+![Untitled](https://github.com/user-attachments/assets/4feb3fb5-99a5-43e8-a6b5-9343bf3e7643)
+
 
 ### Introduction
 
