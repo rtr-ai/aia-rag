@@ -1,4 +1,5 @@
 # Interactive network visualization of AiAct
+![Screenshot 2024-12-03 at 15-32-21 ](https://github.com/user-attachments/assets/4f24a2a3-14b1-410a-93c8-55b96a329e39)
 
 ### Introduction
 
