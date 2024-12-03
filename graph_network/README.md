@@ -1,4 +1,4 @@
-# Interactive Graph Network Visualization of AiAct
+# Interactive Network Graph Visualization of AiAct
 ![Screenshot 2024-12-03 at 15-32-21 ](https://github.com/user-attachments/assets/4f24a2a3-14b1-410a-93c8-55b96a329e39)
 
 ### Introduction
@@ -16,3 +16,5 @@ Download the .html file from this folder and save it locally on your computer. O
 You can zoom in and out to get a clearer view of the node names. Hover your mouse over the nodes or attributes to see the text appear. By holding the left mouse button on a node, you can drag and move it across the visualization.
 
 The size of the node represents the number of edges, or connections, it has with its neighboring nodes.
+
+#### Filter
