@@ -18,3 +18,9 @@ You can zoom in and out to get a clearer view of the node names. Hover your mous
 The size of the node represents the number of edges, or connections, it has with its neighboring nodes.
 
 #### Filter
+
+There are several ways to filter the results of the graph. You can filter by nodes, edges, and their properties (such as color, size, title, ID, etc.), as well as by property values.
+
+#### Physics
+
+Here, you can adjust various settings related to the visualization itself, allowing you to configure the level of interactivity for the network graph.
