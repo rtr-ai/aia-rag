@@ -53,7 +53,7 @@ services:
         - ROOT_PATH=/llm-service
         - TOP_N_CHUNKS=15
       volumes:
-        - ./data/aia_chunks_querverweise_index.json:/app/data/chunks.json
+        - ./data/aia_chunks_querverweise_index_ohne_ErwG.json:/app/data/chunks.json
       networks:
         - ollama-docker
       depends_on:
