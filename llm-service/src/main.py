@@ -1,3 +1,4 @@
+import asyncio
 import json
 import os
 from fastapi import FastAPI
@@ -54,6 +55,8 @@ async def lifespan(app: FastAPI):
     if not LLM_MODELS:
         raise RuntimeError("At least one LLM model has to be configured")
     try:
+        LOGGER.debug("Waiting 15 seconds to ensure all services are available...")
+        await asyncio.sleep(15) 
         LOGGER.debug("Checking models...")
         required_models = EMBEDDING_MODELS + LLM_MODELS
         for model in required_models:
