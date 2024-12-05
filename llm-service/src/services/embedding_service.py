@@ -29,8 +29,7 @@ class EmbeddingService:
         batches = [prefixed_input[i:i + batch_size] for i in range(0, len(prefixed_input), batch_size)]
         all_embeddings = []
         for index, batch in enumerate(batches):
-            LOGGER.debug(f"Processing batch <{index+1} of {len(batches)}")
-            LOGGER.debug(f"Generating embeddings for {batch}")
+            LOGGER.debug(f"Processing embeddings batch <{index+1}> of <{len(batches)}>")
             response = await self.client.embed(model=DEFAULT_MODEL, input=batch)
             all_embeddings.extend(response["embeddings"])
             
