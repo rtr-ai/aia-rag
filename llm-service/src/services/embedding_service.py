@@ -18,11 +18,16 @@ class EmbeddingService:
 
         return response["embeddings"]
 
-    async def generate_embeddings_batch(self, input: List[str]) -> dict:
+    async def generate_embeddings_batch(self, input: List[str], batch_size: int = 10) -> dict:
         passage_prefix = ""
+        
         if "multilingual-e5" in DEFAULT_MODEL:
             passage_prefix = "passage: "
         prefixed_input = [f"{passage_prefix}{text}" for text in input]
-        response = await self.client.embed(model=DEFAULT_MODEL, input=prefixed_input)
-
-        return response["embeddings"]
+        batches = [prefixed_input[i:i + batch_size] for i in range(0, len(prefixed_input), batch_size)]
+        all_embeddings = []
+        for batch in batches:
+            response = await self.client.embed(model=DEFAULT_MODEL, input=batch)
+            all_embeddings.extend(response["embeddings"])
+            
+        return all_embeddings
