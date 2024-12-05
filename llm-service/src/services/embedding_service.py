@@ -1,8 +1,10 @@
 import os
 from typing import List
 from ollama import AsyncClient
+from utils.logger import get_logger
 
 DEFAULT_MODEL = os.getenv("EMBEDDING_MODELS", "bge-m3").split(",")[0]
+LOGGER = get_logger(__name__)
 
 
 class EmbeddingService:
@@ -26,7 +28,9 @@ class EmbeddingService:
         prefixed_input = [f"{passage_prefix}{text}" for text in input]
         batches = [prefixed_input[i:i + batch_size] for i in range(0, len(prefixed_input), batch_size)]
         all_embeddings = []
-        for batch in batches:
+        for index, batch in enumerate(batches):
+            LOGGER.debug(f"Processing batch <{index+1} of {len(batches)}")
+            LOGGER.debug(f"Generating embeddings for {batch}")
             response = await self.client.embed(model=DEFAULT_MODEL, input=batch)
             all_embeddings.extend(response["embeddings"])
             
