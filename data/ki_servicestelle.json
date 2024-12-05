@@ -1,0 +1,317 @@
+{
+  "id": "1",
+  "date_created": 1733416387074,
+  "last_modified": 1733416387074,
+  "chunks": [
+    {
+      "id": "4a4e5d76-5052-4da8-b716-fbb0c5316035",
+      "title": "KI-Servicestelle: FAQ - Was macht die KI-Servicestelle der RTR?",
+      "content": "# Was macht die KI-Servicestelle der RTR?\n\nDie KI-Servicestelle bei der RTR, gilt als Ansprechpartner und Informationshub und steht dem österreichischen KI-Ökosystem bei der Vorbereitung auf den europäischen AI Act zur Verfügung. Folgende Aufgaben sind dabei im Mittelpunkt:\n\n-   Ein niedrigschwellig zugänglicher Service zu Information und Unterstützung über regulatorische Rahmenbedingungen beim Einsatz und der Entwicklung von KI;\n-   Die Förderung des Wissensaufbaus und des Wissensaustauschs zu KI, auch durch Fachveranstaltungen und Studien;\n-   Unterstützung für Medienunternehmen, um sie beim verantwortungsvollen und kontrollierten Einsatz von KI-Systemen zu begleiten;\n-   Die Betreuung des hochkarätig besetzten KI-Beirats, der die KI-Servicestelle und die Bundesregierung zu aktuellen Entwicklungen bei KI berät.\n\nWir empfehlen Ihnen, das Informationsangebot der KI-Servicestelle bei der RTR in Anspruch zu nehmen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "f63dfa65-68ef-47e1-a339-e0adfc260fb0",
+      "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+      "content": "# Warum wird KI reguliert?\n\nKünstliche Intelligenz entwickelt sich rasch weiter und betrifft auch sensible Bereiche wie Gesundheit, Sicherheit und Grundrechte. Mit dem AI Act („Gesetz über Künstliche Intelligenz“) führt die EU umfassende gesetzliche Regelungen ein, um die Risiken in diesen Bereichen zu minimieren. Darüber hinaus soll der AI Act die Rechtsstaatlichkeit, die Demokratie und die Umwelt schützen.\n\nWeiteres Ziel des AI Act ist es, einheitliche Regelungen für Betroffene in der gesamten EU zu schaffen. Dabei sollen auch Rechtsunsicherheiten aus dem Weg geräumt werden, um Unternehmen zu motivieren, sich durch künstliche Intelligenz an Fortschritt und Innovation zu beteiligen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "bdaff5ed-d37e-4686-a1d9-f4b59cfb83ec",
+      "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+      "content": "# Für wen gilt die KI-Regulierung?\n\nDer AI Act wurde als Verordnung erlassen und ist damit direkt in den Mitliedstaaten anwendbar und reguliert sowohl den privaten als auch den öffentlichen Sektor. Betroffen sind Unternehmen in und außerhalb der EU, wenn sie KI-Systeme oder KI-Modelle in der Union in Verkehr bringen oder Menschen in der EU davon betroffen sind. Das reicht von reinen Anbietern von Tools, die auf künstliche Intelligenz zurückgreifen, bis zu Entwicklern von KI-Systemen mit hohem Risiko.\n\nMehr zu den [Akteuren](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html \"Link zu den Akteuren im AI Act\") im AI Act",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "81c0b657-fac0-4b76-a86e-bfff22f75a63",
+      "title": "KI-Servicestelle: FAQ - Ab wann gilt der AI Act?",
+      "content": "# Ab wann gilt der AI Act?\n\nNach seiner Annahme durch das Europäische Parlament und den Rat wird der AI Act am zwanzigsten Tag nach seiner Veröffentlichung im Amtsblatt in Kraft treten. Es wird dann 24 Monate nach dem Inkrafttreten in vollem Umfang anwendbar sein, wobei das folgende abgestufte Verfahren gilt:\n\n-   6 Monate nach Inkrafttreten: Verbotene Praktiken dürfen nicht mehr angewandt werden;\n-   12 Monate: Die Verpflichtungen in Bezug auf “General Purpose AI“ werden anwendbar;\n-   24 Monate: Alle weiteren Vorschriften des AI Acts werden anwendbar, einschließlich der Verpflichtungen für Hochrisikosysteme, die in Anhang III (Liste der Anwendungsfälle mit hohem Risiko) festgelegt sind. Jene gemäß Anhang II sind zu diesem Zeitpunkt noch ausgenommen;\n-   36 Monate: Die Verpflichtungen für Hochrisikosysteme gemäß Anhang II (Liste der Harmonisierungsrechtsvorschriften der Union) werden anwendbar.\n\nMehr zum [zeitlichen Rahmen des AI Act](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Zeitplan.de.html \"Link zum Zeitplan des AI Act\")",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "7f48a1de-637b-45ca-a910-f7a73ad90904",
+      "title": "KI-Servicestelle: FAQ - In welche vier Risikostufen werden KI-Systeme eingeteilt?",
+      "content": "# In welche vier Risikostufen werden KI-Systeme eingeteilt?\n\n-   Inakzeptables Risiko\n-   Hohes Risiko\n-   Begrenztes Risiko\n-   Minimales oder kein Risiko\n\nMehr zu den [Risikostufen von KI-Systemen](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-systeme.de.html \"Link zu den Risikostufen von KI-Systemen\")",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "c778be50-e474-4992-ad36-c564a8bdad2c",
+      "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+      "content": "# Wie bestimme ich das Risiko eines KI-Systems?\n\nDie Einstufung hängt vom Verwendungszweck und den Anwendungsmodalitäten des KI-Systems ab. Im AI Act werden die verbotenen Praktiken und Anwendungsfälle von Hochrisiko-KI-Systeme (Anhang I und III) abschießend angeführt. Die EU-Kommission ist dazu ermächtigt, die Liste der Hochrisiko-KI-Systeme zu erweitern. Sie trägt dabei den Markt- und technologische Entwicklungen Rechnung und achtet auf Kohärenz. Immer als hochriskant gelten KI-Systeme, welche Profiling durchführen, das heißt das Erstellen von Persönlichkeitsprofilen natürlicher Personen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "be2475ee-b7ff-4afe-9eeb-97028800cf97",
+      "title": "KI-Servicestelle: FAQ - Welche Verpflichtungen treffen Anbieter von Hochrisiko-KI-Systemen?",
+      "content": "# Welche Verpflichtungen treffen Anbieter von Hochrisiko-KI-Systemen?\n\nDie Person, Behörde, Einrichtung oder sonstige Stelle, die ein Hochrisiko-KI-System entwickelt oder entwickeln lässt und diese auch unter ihrem eigenen Namen oder ihrer eigenen Marke in Verkehr bringt oder in Betrieb nimmt, treffen die umfangreichsten Verpflichtungen. Sie haben sicherzustellen, dass die an Hochrisiko-KI-Systeme gestellten Anforderungen erfüllt sind. Zu den Verpflichtungen zählen unter anderem:\n\n-   Einrichtung von Risikomanagementsystemen;\n-   Erfüllen der Anforderungen an die Data Governance;\n-   Dokumentationspflichten in technischer Hinsicht;\n-   Aufzeichnungspflichten;\n-   Transparenzpflichten in Bezug auf Anwender:innen;\n-   Ausreichende Implementierung menschlicher Überwachungstools;\n-   Sicherstellung der Genauigkeit, Robustheit und Cybersicherheit.\n\nMehr über die [Anbieterverpflichtungen](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Anbieterverpflichtungen.de.html \"Link zu den Anbieterverpflichtungen\")",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "c7be8215-ad70-4bd9-a020-4e5efeff7cca",
+      "title": "KI-Servicestelle: FAQ - Wie wird der AI Act durchgesetzt?",
+      "content": "# Wie wird der AI Act durchgesetzt?\n\nJeder Mitgliedstaat errichtet oder benennt mindestens eine notifizierende Behörde und mindestens eine Marktüberwachungsbehörde für die Zwecke dieser Verordnung als zuständige nationale Behörden. Diese nationalen zuständigen Behörden üben ihre Befugnisse unabhängig, unparteiisch und unvoreingenommen aus.\n\nDarüber hinaus wurde durch die Kommission ein neues Europäisches [AI Office](https://digital-strategy.ec.europa.eu/en/policies/ai-office \"Link zum AI Office\") innerhalb der Kommission eingerichtet, das General Purpose AI-Modelle überwachen soll.\n\nFerner wird es auch ein AI Board, ein Scientific Panel und ein Advisory Forum geben, denen beratende und unterstützende Funktion zukommen soll.\n\nMehr zu den [Behörden und Einrichtungen auf EU-Ebene](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Behoerden_Einrichtungen.de.html \"Link zu den Behörden und Einrichtungen\")",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "e3368f8d-8bb5-46c1-873f-4af231bce512",
+      "title": "KI-Servicestelle: FAQ - Welche Sanktionen sind bei Verstößen vorgesehen?",
+      "content": "# Welche Sanktionen sind bei Verstößen vorgesehen?\n\nFür den Fall, dass KI-Systeme in Verkehr gebracht oder in Betrieb genommen werden, die den Anforderungen der Verordnung nicht genügen, müssen die Mitgliedstaaten wirksame, verhältnismäßige und abschreckende Sanktionen, einschließlich Geldbußen, festlegen und diese der Kommission mitteilen.\n\nDafür werden in der Verordnung bestimmte Schwellenwerte festgelegt:\n\n-   bis zu 35 Mio. EUR oder 7 Prozent des gesamten weltweiten Vorjahresumsatzes (je nachdem, welcher Wert höher ist) bei Verstößen durch verbotene Praktiken oder Verletzungen von Datenanforderungen;\n-   bis zu 15 Mio. EUR oder 3 Prozent des gesamten weltweiten Vorjahresumsatzes bei Verstößen gegen andere Anforderungen oder Verpflichtungen aus der Verordnung, auch bei Verletzungen der Vorschriften für General Purpose AI Models;\n-   bis zu 7,5 Mio. EUR oder 1,5 Prozent des gesamten weltweiten Vorjahresumsatzes bei falschen, unvollständigen oder irreführenden Angaben in angeforderten Auskünften an benannte Stellen und zuständige nationale Behörden;\n-   Bei allen Kategorien von Verstößen wäre der Schwellenwert jeweils der niedrigere der beiden Beträge für KMU und der höhere für andere Unternehmen.\n\nZur Harmonisierung der nationalen Vorschriften und Verfahren bei der Festsetzung von Geldbußen wird die Kommission anhand von Empfehlungen des Ausschusses Leitlinien ausarbeiten.\n\nDa die Organe, Einrichtungen und sonstigen Stellen der EU mit gutem Beispiel vorangehen sollten, werden auch sie den Vorschriften und möglichen Sanktionen unterworfen. Der bzw. die Europäische Datenschutzbeauftragte wird befugt sein, Geldbußen gegen sie zu verhängen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "0ca3b298-b05b-490f-aded-9c6476a13580",
+      "title": "KI-Servicestelle: FAQ - Ich bin von einem Verstoß gegen die Vorschriften betroffen. Was kann ich tun?",
+      "content": "# Ich bin von einem Verstoß gegen die Vorschriften betroffen. Was kann ich tun?\n\nDer AI Act sieht das Recht von natürlichen und juristischen Personen vor, bei einer nationalen Behörde Beschwerde einzulegen. Auf dieser Grundlage können nationale Behörden eine Marktüberwachung nach den Verfahren der Marktüberwachungsverordnungen einleiten.\n\nDarüber hinaus soll die [vorgeschlagene KI-Haftungsrichtlinie](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A52022PC0496 \"Link zum Vorschlag über eine KI-Haftungsrichtlinie\") den Personen, die Entschädigungen für durch Hochrisiko-KI-Systeme verursachte Schäden beantragen wollen, wirksame Mittel an die Hand geben, um möglicherweise haftende Personen zu ermitteln und einschlägige Beweise für eine Schadensersatzklage zu sichern. Dazu sieht die vorgeschlagene Richtlinie die Offenlegung von Nachweisen über bestimmte Hochrisiko-KI-Systeme vor, bei denen der Verdacht besteht, dass sie Schäden verursacht haben.\n\nÜberdies wird die [derzeit in Überarbeitung befindliche Produkthaftungsrichtlinie](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:52022PC0495 \"Link zur Produkthaftungsrichtlinie\") dafür sorgen, dass Personen, die in der Union durch ein fehlerhaftes Produkt getötet oder verletzt werden oder Sachschäden erleiden, eine Entschädigung erhalten. Es wird klargestellt, dass KI-Systeme und Produkte, die ihrerseits KI-Systeme enthalten, ebenfalls unter die bestehenden Vorschriften fallen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "de47fa95-324c-4d75-89c4-ddb875707ef3",
+      "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+      "content": "# Brauche ich einen „KI-Beauftragten“ im Unternehmen?\n\nDer AI Act verpflichtet nicht dazu, einen KI-Beauftragten zu bestellen oder eine KI-Rechtsvertretung zu beauftragen. Er verpflichtet aber unabhängig von der Risikostufe Anbieter und Betreiber von KI-Systemen dazu, Maßnahmen zu ergreifen, dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von KI-Systemen befasst werden, ausreichende Kompetenzen darin haben.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "cf7337ff-5e03-49da-beec-ed1fafaf88b7",
+      "title": "KI-Servicestelle: FAQ - Was versteht man unter maschinellem Lernen (Machine Learning)?",
+      "content": "# Was versteht man unter maschinellem Lernen (Machine Learning)?\n\nVon maschinellem Lernen (Machine Learning) spricht man dann, wenn Algorithmen die Fähigkeit besitzen, ihre Leistung bei der Lösung von Problemen mit immer mehr Erfahrung oder Daten zu verbessern. Die Wurzeln des maschinellen Lernens liegen in der Statistik. Was den Prozess des Lernens betrifft, lassen sich unterschiedliche Formen von maschinellem Lernen unterscheiden.\n\nÜberwachtes Lernen (Supervised Learning) benötigt für das Training einen mit sogenannten Labeln gekennzeichneten Datensatz. Eine Anwendung ist die Krebsdiagnostik, wo mittels maschinellem Lernen Röntgenbilder ausgewertet werden. Vereinfacht gesagt besteht hier der Trainingsdatensatz aus Röntgenbildern, die zuvor von medizinischem Fachpersonal mit den Labeln \"Krebs\" bzw. \"Kein Krebs\" versehen wurden. Beim Training erkennt das KI-Modell dann durch Mustererkennung in den Bilddaten, welche Merkmale typisch für bösartige und welche für gutartige Gewebe sind. Dieses gelernte Wissen kann das KI-Modell dann auf neue Röntgenbilder anwenden. Überwachtes Lernen kommt also für solche Aufgaben in Frage, wo es eine korrekte Antwort bzw. ein Label gibt und die Aufgabe des Algorithmus für maschinelles Lernen besteht darin, ein Modell zu finden, das dies auf der Grundlage der Eingabedaten vorhersagt.\n\nIm Unterschied dazu kann unüberwachtes Lernen (Unsupervised Learning) für Aufgaben verwendet werden, wo eine Struktur in Eingabedaten erkannt werden soll. So können etwa Cluster von Elementen identifiziert werden, die einander ähnlich sind, sich aber von den Daten in anderen Clustern unterscheiden. Ein Anwendungsbeispiel ist die Anomalieerkennung in Maschinendaten, wo ein Fertigungsunternehmen Ausfälle oder ungewöhnliches Verhalten in seinen Produktionsmaschinen frühzeitig erkennen möchte, um Wartungen rechtzeitig durchzuführen und Produktionsausfälle zu vermeiden. Der Trainingsdatensatz besteht aus verschiedenen Sensordaten der Maschinen, die während des normalen Betriebs gesammelt werden. Dabei werden diese Sensordaten ohne spezifische Labels gesammelt. Durch die Anwendung spezieller Algorithmen lernt das KI-Modell Muster des normalen Maschinenbetriebs und identifiziert Datenpunkte, die stark von diesen Normalwerten abweichen.\n\nVon bestärkendem bzw. verstärkendem Lernen (Reinforcement Learning) spricht man, wenn das KI-Modell durch Interaktionen mit einer Umgebung lernt und Belohnungen oder Strafen basierend auf seinen Aktionen erhält. Dies ist besonders nützlich für Aufgaben, bei denen unmittelbares Feedback verfügbar ist, wie zum Beispiel in Computerspielen oder bei der Robotersteuerung.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "8ff10fba-b55e-4c99-b089-7971806ebee8",
+      "title": "KI-Servicestelle: FAQ - Was versteht man unter Deep Learning und was sind neuronale Netzwerke?",
+      "content": "# Was versteht man unter Deep Learning und was sind neuronale Netzwerke?\n\nDeep Learning ist ein spezieller Teilbereich des maschinellen Lernens. Hier sind künstliche neuronale Netzwerke in der Lage, aus riesigen Mengen unstrukturierter Daten zu lernen und komplexe Muster zu erkennen. Das Training stellt hohe Anforderungen an die Rechenleistung.\n\nDie künstlichen neuronalen Netze bestehen aus künstlichen Neuronen, deren Aufbau von biologischen Neuronen inspiriert ist. Die künstlichen Neuronen sind in hierarchischen Schichten angeordnet, die untereinander verbunden sind. Die Architektur beinhaltet eine Eingabeschicht, mehrere versteckte Schichten (hidden layers) und eine Ausgabeschicht. Die zahlreichen Schichten können es schwierig machen, die Entscheidungsfindung des KI-Modells nachzuvollziehen. Von der Verwendung tiefer (mehrschichtiger) neuronaler Netzwerke leitet sich auch die Bezeichnung \"Deep\" Learning ab.\n\nTypische Anwendungsbereiche sind die Spracherkennung bei der automatischen Übersetzung, bei der Umwandlung von gesprochener Sprache in Text oder in Sprachassistenten (z.B. Siri oder Alexa). Weitere Beispiele sind die Vorhersage von Markttrends im Finanzsektor und das autonome Fahren. Deep Fakes sind mittels Deep Learning erstellte oder manipulierte Videos, Audioaufnahmen oder Bilder, die wirklichen Personen, Gegenständen, Orten, Einrichtungen oder Ereignissen ähneln und einer Person fälschlicherweise als echt oder wahrheitsgemäß erscheinen würden. Der Begriff Deep Fake selbst ist eine Kombination aus \"Deep Learning\" und \"Fake\".\n\nDeep Learning ist also eine leistungsstarke und hochentwickelte Technologie mit einem breiten Anwendungsspektrum. Allerdings bringt es auch Herausforderungen in Bezug auf Daten- und Rechenanforderungen sowie die Erklärbarkeit und Nachvollziehbarkeit der Modelle mit sich.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "73d6d9b2-be6d-4359-8896-2c0277c9026b",
+      "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+      "content": "# Was ist ein „KI-System“?\n\nFür die rechtliche Behandlung von Künstlicher Intelligenz ist die gesetzliche Definition des AI Act von Relevanz. Sie stellt das Einfallstor zum Anwendungsbereich der Verordnung dar. Diese Definition lautet gemäß Art. 3 Ziffer 1 AIA wie folgt:\n\n„KI-System“ ein maschinengestütztes System, das für einen in unterschiedlichem Grade autonomen Betrieb ausgelegt ist und das nach seiner Betriebsaufnahme anpassungsfähig sein kann und das aus den erhaltenen Eingaben für explizite oder implizite Ziele ableitet, wie Ausgaben wie etwa Vorhersagen, Inhalte, Empfehlungen oder Entscheidungen erstellt werden, die physische oder virtuelle Umgebungen beeinflussen können.\n\nKI-Systeme, sind Computersysteme, die in der Lage sind, Aufgaben auszuführen, die normalerweise menschliche Intelligenz erfordern. Diese Systeme können Informationen verarbeiten, Muster erkennen, Schlussfolgerungen ziehen und sogar lernen, um ihre Leistung zu verbessern. KI-Systeme basieren auf Algorithmen und Daten, die es ihnen ermöglichen, komplexe Probleme zu lösen und Entscheidungen zu treffen. Beispiele für KI-Systeme sind Chatbots, Gesichtserkennungstechnologien, selbstfahrende Autos und personalisierte Empfehlungssysteme. Die Intention des Unionsgesetzgebers ist nicht, einfachere traditionelle Softwareanwendungen oder Programmieransätze zu erfassen, welche auf ausschließlich von natürlichen Personen definierten Regeln zur automatischen Ausführung von Vorgängen beruhen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "780d67fe-08bc-4789-a2f1-df4d30ef1de3",
+      "title": "KI-Servicestelle: FAQ - Was ist generative KI?",
+      "content": "# Was ist generative KI?\n\nGenerative KI sind KI-Systeme, die es ermöglichen, basierend auf Nutzereingaben neue entsprechende Informationen, einschließlich Text, Audio und Bilder, zu erzeugen. Durch den weiten Anwendungsbereich werden derartige KI-Systeme in den verschiedensten Kontexten verwendet, wie z. B. für Übersetzungen, bei der Beantwortung von Fragen und bei Chatbots.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "7e5b0065-efed-4c70-933f-0da191a391ef",
+      "title": "KI-Servicestelle: FAQ - Was ist ein „Prompt“?",
+      "content": "# Was ist ein „Prompt“?\n\nDer englische Begriff „Prompt“ wird in der IT als Anweisung an eine:n Nutzer:in zur Vornahme einer Eingabe bezeichnet. Generative KI funktioniert durch die Eingabe von „Prompts“. Um ein Bild, Text oder Video zu generieren (Output), braucht das KI-System eine Eingabe (Input). Je nach KI-System kann ein Prompt text-, bild- oder audiobasiert sein. Ein textbasierter Prompt kann aus Wörtern, Sonderzeichen und Zahlen bestehen wie z. B.: „_Ein Bild mit 3 Katzen, die auf der Fensterbank sitzen und schlafen._“\n\nDie Bedeutung der Prompts hat schon zur Entwicklung von Prompt-Marktplätzen geführt.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "8f0aacde-27ab-460f-a731-735f3ea78739",
+      "title": "KI-Servicestelle: FAQ - Was ist ein \"RAG\"-System und wie funktioniert es?",
+      "content": "# Was ist ein \"RAG\"-System und wie funktioniert es?\n\nDie Abkürzung \"RAG\" steht für Retrieval-Augmented-Generation. Bei RAG-Systemen werden zwei Techniken miteinander kombiniert, und zwar der Informationsabruf (Information Retrieval) und die Generierung von Text (Generation). Dadurch können Large Language Models (LLMs) um eine zusätzliche externe Wissensquelle (z. B. eine Datenbank) erweitert werden, ohne dass das LLM aufwändig neu mit diesen zusätzlichen Daten trainiert werden muss. Die Anfangsbuchstaben RAG stehen für die einzelnen Arbeitsschritte, die ein RAG-System durchläuft, um eine Antwort auf eine Benutzeranfrage zu generieren.\n\nFür den Abruf (Retrieval) relevanter Informationen wird die jeweilige Anfrage mit der externen Wissensquelle abgeglichen. So ruft etwa das System auf die Frage \"Wie ist die Budgetübersicht des letzten Quartals\" die relevanten Dokumente der externen Wissensquelle (Quartalsberichte etc.) auf. Der nächste Schritt ist die Erweiterung (Augmentation) der Benutzeranfrage um die zuvor identifizierten relevanten Dokumente der externen Wissensquelle. Erst in dieser erweiterten Form wird die Anfrage dann an das LLM für die Generierung (Generation) der Antwort übergeben.\n\nRAG-Systeme bieten Vorteile gegenüber reinen LLM-Systemen. So ist es nicht nötig, ein LLM aufwändig neu zu trainieren, wenn die Wissensbasis erweitert werden soll. Die Antworten eines RAG-Systems sind präziser und relevanter. Zudem lassen sich durch die externe Wissensquelle sogenannten \"Halluzinationen\" eingrenzen, die unter anderem dann entstehen, wenn relevante Informationen nicht in der Wissensbasis des LLM-Systems vorhanden sind.\n\nRAG-Systeme ermöglichen es etwa, interne Wissensbestände effizient zu durchsuchen und zu nutzen. Andere Anwendungsbeispiele für RAG-Systeme sind Chatbots im Kundensupport, Produktempfehlungen im Onlinehandel oder das Wissensmanagement in Unternehmen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "c961ad84-cbd5-4b03-9ab7-3a7593855c66",
+      "title": "KI-Servicestelle: FAQ - Was sind Large Language Models (LLMs)",
+      "content": "# Was sind Large Language Models (LLMs)\n\n\"Large Language Models\" sind computerlinguistische Sprachmodelle, die Texte generieren. Dabei wird in einem gegebenen Kontext das jeweils nächste Wort aufgrund einer vorher im Algorithmus definierten Wahrscheinlichkeit ausgewählt. \"Groß\" werden diese Modelle in Bezug auf den Umfang ihrer Trainingsdaten und die Anzahl der Parameter genannt. Überspitzt formuliert wird davon gesprochen, dass diese Modelle mit dem „gesamten Internet“ trainiert werden.\n\nLLMs basieren auf dem sogenannten Transformer Modell, einer besonderen Art des künstlichen neuronalen Netzes. Damit fallen sie in den Bereich des Deep Learning. Die Einsatzgebiete sind vielfältig: das Erstellen von Texten, die Beantwortung von Fragen (Chatbots, virtuelle Assistenten), das Generieren von Code, die Erstellung von Content für Marketing und Websites sowie die Übersetzung zwischen verschiedenen Sprachen, um nur einige Möglichkeiten aufzuzählen. Zu den bekanntesten Beispielen für Large Language Models zählen die GPT-Modellreihe von OpenAI, Meta LLama oder die Mistral-Reihe der Firma Mistral AI.\n\nLLMs können unter Umständen zu den General Purpose AIs zählen. Auf jeden Fall ist zu beachten, dass sie nicht perfekt sind. Auch erfordern sie menschliche Überwachung, da sie manchmal Fehler machen können oder in Fragen der Ethik und Fairness Herausforderungen aufwerfen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "b2735701-dd85-4e80-a648-baff0e065612",
+      "title": "KI-Servicestelle: FAQ - Ist für das Trainieren von KI-Modellen stets eine große Menge an Daten notwendig?",
+      "content": "# Ist für das Trainieren von KI-Modellen stets eine große Menge an Daten notwendig?\n\nDie benötigte Datenmenge für das Trainieren eines KI-Modells kann stark variieren und hängt von mehreren Faktoren ab. Es ist schwer, allgemeine Zahlen zu geben, da dies stark vom Anwendungsfall, der Komplexität des Modells und den spezifischen Anforderungen des Projekts abhängt. Dennoch können einige grobe Richtwerte und Beispiele hilfreich sein, um ein Gefühl dafür zu bekommen.\n\nEine Faustregel besagt, dass man mindestens 10 bis 100 Mal mehr Trainingsdatensätze als Modellparameter benötigt, um ein gut generalisierendes Modell zu trainieren. Für eine einfache Aufgabe wie die E-Mail-Spam-Filterung, wo eine Klassifikation mit nur wenigen Klassen stattfindet, können einige hundert bis tausend E-Mails für das Training des Modells genügen.\n\nEin Beispiel für eine moderate Aufgabe ist die Klassifikation von handgeschriebenen Ziffern mit dem MNIST-Datensatz. Der Trainingsdatensatz besteht aus 60.000 Bildern von handgeschriebenen Ziffern (0-9), dazu kommt noch ein Testdatensatz mit 10.000 Bildern.\n\nKomplexe Aufgaben können Datensätze in der Größe von Hunderttausenden bis Millionen an Trainingsdaten erfordern. Ein Beispiel dafür ist die Klassifikation von Objekten in hochauflösenden Bildern mittels Deep Learning und neuronalen Netzen. Ein konkretes Anwendungsbeispiel hierfür ist die Erkennung und Diagnose von Krankheiten auf medizinischen Bildern wie Röntgenaufnahmen, CT-Scans und MRT-Bildern.\n\nErheblich mehr Trainingsdaten werden von Large Language Models (LLMs) benötigt. Das von Meta als Open Source veröffentlichte LLama-3-Modell wurde mit 15T Token Text trainiert, das sind 15 Billionen Token (T steht hier für das englische „Trillion“, also 1.000.000.000.000).\n\nBei der Entwicklung und dem Testen von autonom fahrenden Autos schließlich werden Petabytes an Daten ausgewertet, wie z. B. Tesla oder NVIDIA bekannt gegeben haben (1 Petabyte (PB) entspricht 1.000.000 Gigabyte (GB)).\n\nMan sieht also, dass sich diese Frage nicht generell mit „Ja“ oder „Nein“ beantworten lässt und stehts vom konkreten Anwendungsfall anhängig ist.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "aa88e918-3fa9-4093-85a6-8dea72a863e7",
+      "title": "KI-Servicestelle: FAQ - Was bedeutet es, wenn ein KI-System „halluziniert“?",
+      "content": "# Was bedeutet es, wenn ein KI-System „halluziniert“?\n\nGeneriert ein KI-Modell Informationen, die nicht auf Trainingsdaten oder realen Fakten basieren, dann spricht man davon, dass es „halluziniert“. Solche Halluzinationen kennt man besonders von Large Language Models (LLMs). Sie können wie echte, plausible Antworten erscheinen, sind aber in Wirklichkeit inkorrekt oder unzuverlässig. Dabei lassen sich abhängig vom Kontext der Anfrage unterschiedliche Formen von Halluzinationen unterscheiden.\n\nJe nachdem, ob die Bezugsgröße Daten sind, die dem KI-System zur Verfügung gestellt worden sind, oder reales, überprüfbares Wissen ist, spricht man im ersten Fall von Treue oder aber im zweiten Fall von Faktizität. Halluzinationen können grundsätzlich aus verschiedenen Gründen auftreten. Wenn die Trainingsdaten unvollständig, fehlerhaft oder verzerrt sind, kann das KI-Modell falsche Schlüsse ziehen.\n\nGenerative KI-Modelle, die aus Wahrscheinlichkeiten Vorhersagen machen, können halluzinieren, wenn sie versuchen, logische oder zusammenhängende Antworten zu geben. Die wahrscheinlichste Antwort muss nicht immer korrekt sein.\n\nWie lässt sich diesem Problem begegnen? Faktische Halluzinationen lassen sich durch Retrieval-Augmented-Generation (RAG) eingrenzen. Dabei wird eine zusätzliche externe Wissensquelle (z. B. eine Datenbank) hinzugefügt, aus der relevante Dokumente oder Informationen auf der Basis der jeweiligen Benutzeranfrage identifiziert und extrahiert werden. Diese Retrieval (Abruf-) Komponente ist die Basis für die nachfolgende Generation (Erzeugungs-) Komponente des RAG-Systems. Weitere Strategien sind verbesserte Trainingsdaten und die Entwicklung von Mechanismen, um generierte Informationen durch externe Quellen zu validieren und zu verifizieren.\n\nNicht zuletzt sind Bewusstseinsbildung und Schulung der Benutzer:innen wichtig. Es ist wichtig, die Antworten eines KI-Systems kritisch zu hinterfragen und, wenn möglich, mit verlässlichen Quellen zu validieren. Dies gilt insbesondere bei wichtigen oder sensiblen Informationen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "81a9f3e6-f4ca-4e67-a8ae-771d3ffe3b01",
+      "title": "KI-Servicestelle: FAQ - Müssen Inhalte (Texte oder Bilder) gekennzeichnet werden, die mit einer generativen KI erstellt wurden?",
+      "content": "# Müssen Inhalte (Texte oder Bilder) gekennzeichnet werden, die mit einer generativen KI erstellt wurden?\n\nWenn Sie als Unternehmen eine am Markt angebotene KI nutzen, d. h. im Sinne des AI Act („AIA“) Betreiber und nicht Anbieter sind, gilt Folgendes: Unberührt von anderen unionsrechtlichen oder nationalen Transparenzpflichten, müssen Betreiber eines KI-Systems, das Bild-, Ton- oder Videoinhalte erzeugt oder manipuliert, die ein Deep-Fake sind, gemäß Art. 50 Abs. 4 AIA offenlegen, dass die Inhalte künstlich erzeugt oder manipuliert wurden.\n\nEin „Deep Fake“ im Sinne des AI Act ist ein durch ein KI erzeugter oder manipulierter Bild-, Ton- oder Videoinhalt, der wirklichen Personen, Gegenständen, Orten, Einrichtungen oder Ereignissen ähnelt und einer Person fälschlicherweise als echt oder wahrheitsgemäß erscheinen würde (siehe Art. 3 Ziffer 60 AIA). Z. B. ein Video einer politisch aktiven Person, welche ein Interview gibt und dies als echt erscheint, jedoch nicht ist.\n\nHandelt es sich bei den erzeugten Bildern um keine „Deep Fakes“, entstehen für Sie keine Transparenzpflichten, d. h., Sie müssen KI-generierte Bilder dann nicht als solche ausweisen. Auch für künstlerische, kreative, satirische oder fiktionale Darstellungen bestehen Ausnahmen von der Transparenzpflicht (Art. 50 Abs. 4 AIA).\n\nBei mit KI erzeugten und manipulierten Texten gelten die Transparenzpflichten nicht, wenn diese von einem Menschen überprüft wurden oder es einen redaktionellen Verantwortlichen gibt. Ist dies nicht der Fall und es sich um Texte von öffentlichem Interesse handelt, sind diese als KI-generiert offenzulegen.\n\nFalls eine Kennzeichnung erforderlich ist, hat diese in klarer und eindeutiger Weise zu erfolgen und muss den geltenden Barrierefreiheitsanforderungen entsprechen (siehe Art. 50 Abs. 5 AIA).\n\nDabei ist auch zu beachten, dass der AI Act schrittweise seine Verpflichtungen entfaltet, er ist zwar bereits am 1. August 2024 in Kraft getreten, jedoch gibt es [Übergangsregelungen](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Zeitplan.de.html). Die Bestimmungen zu [Transparenzpflichten](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html) sind ab 2. August 2026 verpflichtend anzuwenden.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "64ec31a3-f49d-403d-8234-753a1abb695d",
+      "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+      "content": "# Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?\n\nEin \"Anbieter\" ist laut Art. 3 Z. 3 AIA eine natürliche oder juristische Person, Behörde, Einrichtung oder sonstige Stelle, die ein KI-System oder ein KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln lässt und es unter ihrem eigenen Namen oder ihrer Handelsmarke in Verkehr bringt oder das KI-System unter ihrem eigenen Namen oder ihrer Handelsmarke in Betrieb nimmt, sei es entgeltlich oder unentgeltlich.  \n\"Inbetriebnahme\" ist gem. Art. 3 Z. 11 AIA die Bereitstellung eines KI-Systems in der Union zum Erstgebrauch direkt an den Betreiber oder zum Eigengebrauch entsprechend seiner Zweckbestimmung.  \nWenn ein Anbieter ein KI-System oder KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln lässt und es zum Eigengebrauch in Betrieb nimmt, treffen ihn weiterhin die Anbieterpflichten. Auf eine \"Benennung\" des KI-Systems kommt es nicht an.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "d8d0a3eb-4dfd-4643-a565-aacee640088d",
+      "title": "KI-Servicestelle: FAQ - Gibt es bereits eine behördliche Zuständigkeit im Zusammenhang mit [Sektor]?",
+      "content": "# Gibt es bereits eine behördliche Zuständigkeit im Zusammenhang mit [Sektor]?\n\nDie Benennung der national für die Umsetzung zuständigen Behörden hat im Wesentlichen bis 2.8.2025 zu erfolgen ([https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Zeitplan.de.html](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Zeitplan.de.html \"Link zum Zeitplan\")).\n\nDerzeit gibt es noch keine nationale Umsetzung der Zuständigkeiten des AI Acts in Österreich. Das betrifft sowohl die Marktüberwachungsbehörden als auch die notifizierenden Behörde.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "c3154f04-5972-4c94-bb49-33de0cc3c6c2",
+      "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+      "content": "# Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?\n\nAnhang III sieht hier keine spezielle Aufgaben- oder Rollenverteilung vor, sondern definiert, welche KI-Systeme als hochriskant iSd Art. 6 Abs. 2 gelten. Ein Unternehmen, das ihr eigenes KI-System entwickelt und selbst in Betrieb nimmt, wird einerseits selbst die Rolle des Anbieters innehaben, als auch die Rolle des Betreibers. Es werden damit sowohl die Verpflichtungen des Anbieters ([https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Anbieterverpflichtungen.de.html](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Anbieterverpflichtungen.de.html \"Link zu den Anbieterverpflichtungen\")) als auch die des Betreibers ([https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Betreiberverpflichtungen.de.html](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Betreiberverpflichtungen.de.html \"Link zu den Betreiberverpflichtungen\")) schlagend.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "26604e5a-bcad-4972-8e6f-a2007c1d4761",
+      "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+      "content": "# Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?\n\nWird ein Hochrisiko-KI-System in einem Teilunternehmen des Konzerns entwickelt, und in einem anderen Teilunternehmen des Konzerns eingesetzt, gestalten sich die Pflichten für Anbieter und Betreiber je nach Einzelfall.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "e3a3782a-9936-4a26-902c-d07af5bfb88e",
+      "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+      "content": "# Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?\n\nWenn Sie als Unternehmer KI-Systeme Dritter einsetzen, ohne eine Änderung daran vorzunehmen, sind sie in der KI-Wertschöpfungskette in der Regel als Betreiber einzustufen, d.h. für Sie gelten die Betreiberverpflichtungen. Im Fall von KI-generierten Videos handelt es sich um ein KI-System mit begrenztem Risiko, bei welchem ab 2.8.2026 Transparenzpflichten gelten.\n\nDas heißt, wenn es sich bei Ihren Videos um \"Deep Fakes\" im Sinne des AI Acts handelt, trifft sie eine Kennzeichnungspflicht. Andernfalls ergeben sich für die Videos keine gesonderten Verpflichtungen aus dem AI Act. Nähere Informationen dazu finden Sie auf unserer Website: [https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html \"Link zu den Transparenzpflichten\")",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "8fea4ada-f7cc-4b5f-92b7-495865c95467",
+      "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+      "content": "# Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?\n\nOb gesonderte Ansprüche des KI-Anbieters bestehen, werden Sie in der Regel in dessen AGB oder anderen vertraglichen Vereinbarungen finden. Anbieter von GPAI-Modellen, wie es ein System zur synthetischen Generierung von Text, Bildern und Videos sein kann, haben nach den Verpflichtungen des AI Acts ab 2.8.2025 eine Strategie zur Einhaltung des Urheberrechts (Art. 53 Abs. 1 lit. c AIA) bereitzustellen.\n\nManche Anbieter bieten eine solche bereits jetzt an und beschränken die Trainingsdaten des Modells auf lizenzierten Content. Einige Anbieter gewährleisten auch die unbedenkliche Nutzung der generierten Inhalte mit einer Garantie der Schad- und Klagloshaltung. Hier wäre eine Prüfung der konkreten privatrechtlich vereinbarten Zusicherungen ratsam.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "146330a8-dcb0-4f24-a51b-6c90354ad5e3",
+      "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
+      "content": "# Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?\n\nWenn Sie als Unternehmer KI-Systeme Dritter, ohne eine Änderung daran vorzunehmen, sind Sie in der [KI-Wertschöpfungskette](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html \"Link öffnet die Übersicht der Akteure\") in der Regel als Betreiber einzustufen, d.h. für Sie gelten die [Betreiberverpflichtungen](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Betreiberverpflichtungen.de.html \"Link zu den Betreiberverpflichtungen\"). Im Fall von KI-generierten Videos und Audio handelt es sich um ein KI-System mit begrenztem Risiko, bei welchem ab 2.8.2026 [Transparenzpflichten](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html \"Link zu den Transparenzpflichten\") gelten.\n\nWelche Pflichten jeweils gelten ist davon abhängig, ob es sich bei diesen Avataren um fotorealistische oder illustrative Avatare handelt.\n\nDas heißt, wenn es sich bei Ihren Videos um \"Deep Fakes\" im Sinne des AI Acts handelt (etwa weil das Avatar Sie fotorealistisch als Person darstellen soll), trifft sie eine Kennzeichnungspflicht. Dies gilt ebenso bei illustrativen Avataren, welche Ihre Stimme KI-generiert wiedergeben, obwohl Sie diesen Text nicht gesprochen haben.\n\nAndernfalls ergeben sich für die Videos keine gesonderten Verpflichtungen aus dem AI Act, da bei illustrativen Avataren hervorgeht, dass es sich nicht um die eigentliche Person handelt, welche Inhalte vermeintlich wiedergibt.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "fd982bdd-fd66-49a7-9fb1-5551eb202552",
+      "title": "KI-Servicestelle: FAQ - Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? Was ist ein Sicherheitsbauteil?",
+      "content": "# Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? Was ist ein Sicherheitsbauteil?\n\nEin KI-System stellt ein Hochrisiko-KI-System dar, wenn es im Bereich der kritischen Infrastruktur als Sicherheitsbauteil verwendet wird, Anhang III Z. 2 AIA:\n\n-   im Rahmen der Verwaltung und des Betriebs\n-   kritischer digitaler Infrastruktur,\n-   des Straßenverkehrs oder\n-   der Wasser-, Gas-, Wärme- oder Stromversorgung\n\nIm Bereich der Hochrisiko-KI-Systeme wird in Art. 6 Abs. 1 lit. a AIA darauf verweisen, dass ein KI-System als hochriskant eingestuft wird, wenn\n\n-   es als Sicherheitsbauteil eines in Anhang I genannten Produkts dienen soll, oder\n-   wenn das KI-System in Anhang III genannt wird (Art. 6 Abs. 2 AIA).\n\nGrundsätzlich gehört die kritische Infrastruktur zu einer kritischen Einrichtung. In der Definition in Art. 3 Z. 62 AIA wird bzgl. des Begriffes \"kritische Infrastruktur\" auf Art. 2 Z. 4 der [RL (EU) 2022/2557](https://eur-lex.europa.eu/eli/dir/2022/2557/oj?locale=de \"Link öffnet die Richtlinie 2022/2557\") (\"Richtlinie über die Resilienz kritischer Infrastruktur\", \"critical entities resilience directive\", \"CER\") verwiesen. Laut Art. 2 Z. 1, 4 und 5 CER muss diese \"kritische Einrichtung\", also eine öffentliche oder private Einrichtung, vom jeweiligen Mitgliedstaat als solche eingestuft werden.\n\nZur dazugehörigen konkreten \"kritischen Infrastruktur\" zählen demnach:\n\n-   Objekte, Anlagen, Ausrüstung, Netze oder Systeme oder\n-   Teile eines Objekts, einer Anlage, Ausrüstung,\n-   eines Netzes oder eines Systems,\n\ndie für die Erbringung eines wesentlichen Dienstes erforderlich ist. Ein solcher Dienst ist wesentlich, wenn er von entscheidender Bedeutung ist\n\n-   für die Aufrechterhaltung wichtiger gesellschaftlicher Funktionen,\n-   wichtiger wirtschaftlicher Tätigkeiten,\n-   der öffentlichen Gesundheit und Sicherheit oder\n-   der Erhaltung der Umwelt.\n\nIn Art. 2 der aufgrund der CER ergangenen [Delegierten Verordnung 2023/2450](https://eur-lex.europa.eu/eli/reg_del/2023/2450/oj?locale=de \"Link zur Delegierten Verordnung 2023/2450\") der Europäischen Kommission, ist eine nicht erschöpfende Liste von wesentlichen Diensten genannt.\n\nDer Begriff des \"Sicherheitsbauteil\" wird in Art. 3 Z 14 AIA folgendermaßen definiert:\n\n\"ein […] Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfunktion für dieses Produkt oder KI-System erfüllt oder dessen Ausfall oder Störung die Gesundheit und Sicherheit von Personen oder Eigentum gefährdet\"\n\nSpeziell zu Kritischer Infrastruktur wird der Gesetzgeber in ErwG 55 AIA etwas deutlicher:\n\n„(55) […] Sicherheitsbauteile kritischer Infrastruktur, einschließlich kritischer digitaler Infrastruktur, sind Systeme, die verwendet werden, um die physische Integrität kritischer Infrastruktur oder die Gesundheit und Sicherheit von Personen und Eigentum zu schützen, die aber nicht notwendig sind, damit das System funktioniert. Ausfälle oder Störungen solcher Komponenten können direkt zu Risiken für die physische Integrität kritischer Infrastruktur und somit zu Risiken für die Gesundheit und Sicherheit von Personen und Eigentum führen. Komponenten, die für die ausschließliche Verwendung zu Zwecken der Cybersicherheit vorgesehen sind, sollten nicht als Sicherheitsbauteile gelten. Zu Beispielen von Sicherheitsbauteilen solcher kritischen Infrastruktur zählen etwa Systeme für die Überwachung des Wasserdrucks oder Feuermelder-Kontrollsysteme in Cloud-Computing-Zentren.“\n\nOb eine Ausnahme davon iSd einer der Ausnahmegründen des Art. 6 Abs. 3 AIA vorliegt, wird auf die Ausgestaltung im konkreten Einzelfall ankommen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "30977cbc-3e3a-469b-823d-7859b1113c51",
+      "title": "KI-Servicestelle: FAQ - Ich möchte gerne KI-Reallabore nutzen. Ab wann ist dies möglich und wie genau funktionieren diese?",
+      "content": "# Ich möchte gerne KI-Reallabore nutzen. Ab wann ist dies möglich und wie genau funktionieren diese?\n\nIn KI-Reallaboren oder auch Regulatory Sandboxes genannt, können darin beaufsichtigte Tests unter Realbedingungen durchgeführt werden.\n\nArt. 57 AIA sieht vor, dass Mitgliedstaaten dafür sorgen, dass ihre zuständigen Behörden mindestens ein KI-Reallabor auf nationaler Ebene einrichten, [das bis zum 2. August 2026 einsatzbereit sein muss](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Zeitplan.de.html \"Link zum Zeitplan\"). Dieses Reallabor kann auch gemeinsam mit den zuständigen Behörden anderer Mitgliedstaaten eingerichtet werden. Die Kommission kann technische Unterstützung, Beratung und Instrumente für die Einrichtung und den Betrieb von KI-Reallaboren bereitstellen.\n\nIn KI-Reallaboren erhalten Entwickler eine kontrollierte Umgebung, um neue KI-Systeme für einen begrenzten Zeitraum zu testen und weiterzuentwickeln, bevor diese auf den Markt kommen. Dabei einigen sich die Entwickler und die Behörden auf einen Plan, der den Ablauf der Tests regelt.\n\nDer Vorteil dieser Reallabore ist, dass die zuständigen Behörden Unterstützung und Aufsicht bieten, um Risiken zu minimieren. Dies betrifft vor allem die Einhaltung von Grundrechten, Gesundheits- und Sicherheitsstandards sowie andere gesetzliche Anforderungen. Dazu wird es Leitfäden zu regulatorischen Erwartungen und zur Erfüllung der Anforderungen geben.\n\nZudem kann der Anbieter auf Anfrage einen schriftlichen Nachweis für die im Reallabor durchgeführten Tätigkeiten erhalten. Außerdem erstellt die Behörde einen Bericht, der die durchgeführten Aktivitäten und deren Ergebnisse beschreibt. Diesen können die Anbieter im Rahmen des Konformitätsbewertungsverfahrens nutzen.\n\nDie Einrichtung von KI-Reallaboren soll zu den folgenden Zielen beitragen:\n\n-   Verbesserung der Rechtssicherheit\n-   Förderung des Austauschs bewährter Verfahren durch Zusammenarbeit mit den am KI-Reallabor beteiligten Behörden\n-   Förderung von Innovation und Wettbewerbsfähigkeit sowie Erleichterung der Entwicklung eines KI-Ökosystems\n-   Leisten eines Beitrags zum evidenzbasierten regulatorischen Lernens\n-   Erleichterung und Beschleunigung des Zugangs von KI-Systemen zum Binnenmarkt\n\nDie am KI-Reallabor beteiligten Anbieter bleiben nach geltendem Recht der Union und nationalem Haftungsrecht für Schäden haftbar, die Dritten infolge der Erprobung im Reallabor entstehen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "739e16c5-14bb-44f1-b7cd-b0cfac4a2a79",
+      "title": "KI-Servicestelle: FAQ - Unser Unternehmen hat seinen Sitz in der EU und möchte Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU eingesetzt werden sollen. Gilt der AI Act für diese KI-Systeme?",
+      "content": "# Unser Unternehmen hat seinen Sitz in der EU und möchte Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU eingesetzt werden sollen. Gilt der AI Act für diese KI-Systeme?\n\nGrundsätzlich gilt für die Anwendbarkeit des AIA das Marktortprinzip, d.h. es gelten die Regelungen, welche für den jeweiligen Markt, auf welchem das Produkt in Verkehr gebracht wird, und zwar unabhängig vom Niederlassungsort. Dabei ist ausschlaggebend, dass das KI-System oder KI-Modell in einem Mitgliedsstaat der Europäischen Union bereitgestellt oder in Betrieb genommen wird (Art. 2 Abs. 1 lit. a AIA).\n\nHier hat das Unternehmen zwar seinen Sitz in der EU, möchte aber Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU vertrieben und eingesetzt werden sollen, somit auf einem anderen Markt. Daher gilt der AIA nicht für Anbieter, die ein Produkt ausschließlich exportieren.\n\nJedoch könnte das Unternehmen trotzdem dazu verpflichtet sein, die Betreiberpflichten einzuhalten, da es seinen Sitz in der EU hat (Art. 2 Abs. 1 lit. b AIA). Dafür ist Voraussetzung, dass das Unternehmen das KI-System aber auch in der EU betreibt. Dies ist hier nicht der Fall und der AIA deshalb nicht anwendbar.\n\nFerner darf das KI-System gem. Art. 2 Abs. 1 lit. c AIA aber auch nicht so genutzt werden, dass Ergebnisse in die EU gelangen. Wenn auch die Nutzungen ausschließlich außerhalb der EU erfolgen, ist der AIA nicht anwendbar.\n\nZu beachten ist, dass die Regelungen des AIA gem. Art. 2 Abs. 1 lit. g AIA Anwendung finden können, wenn es betroffene Personen geben kann, die sich in der EU befinden. Deren Betroffenenrechte, z.B. in Art. 86 AIA und auch Erwägungsgrund 22, sehen vor, dass die Daten in der Union rechtmäßig erhoben worden sein müssen. D.h. weitergehende Regelungen, – auch aus anderen Gesetzen – welche die Rechtmäßigkeit der Datenerhebung, insbesondere von betroffenen natürlichen Personen betreffen, um dieses KI-System zu entwickeln, müssen trotzdem beachtet werden.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    }
+  ]
+}
