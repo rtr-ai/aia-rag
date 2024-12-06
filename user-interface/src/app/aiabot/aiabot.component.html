@@ -52,6 +52,11 @@
             <a (click)="toggleAccordion(i)">
               {{ source.title || "Quelle" }} ({{ formatScore(source.score) }})
             </a>
+            <ul style="margin-left: 20px;">
+              <li *ngFor="let chunk of source.relevantChunks">
+                {{ chunk.title.length > 0 ? chunk.title : chunk.id }}
+              </li>
+            </ul>
             <div
               id="content-{{ i }}"
               class="accordion-content"
