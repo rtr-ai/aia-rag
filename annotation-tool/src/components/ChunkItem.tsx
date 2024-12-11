@@ -4,6 +4,7 @@ import { Select } from "./Select";
 import { isTextItem } from "./../utilities/index";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
+import { htmlToText } from 'html-to-text';
 import {
   deleteChunk,
   relevantChunksOptions,
@@ -41,11 +42,18 @@ const ChunkComponent: React.FC<
   ).filter((p) => p.value !== chunk.id);
 
   const handleContentChange = (e: React.ChangeEvent<HTMLDivElement>) => {
+
+    const plainText = htmlToText(e.currentTarget.innerHTML, {
+      preserveNewlines: true, 
+      selectors: [
+        { selector: 'br', format: 'lineBreak' } 
+      ]
+    });
     dispatch(
       updateChunkProperty({
         chunkId: chunk.id,
         property: "content",
-        value: e.currentTarget.textContent || "",
+        value: plainText || "",
       })
     );
   };
