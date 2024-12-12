@@ -31,11 +31,12 @@ Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflic
 
 Als Betreiber von KI-Systemen müssen sie Maßnahmen ergreifen um nach besten Kräften sicherzustellen, dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von 
 KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen. Dabei sind besonders ihre technischen Kenntnise, ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt
-werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingesetzt werden sollen, zu berücksichtigen. [1],[2],[3]
+werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingesetzt werden sollen, zu berücksichtigen. [1],[2],[3],[4]
 	
 [1] Art 4 AIA
 [2] Art 3 AIA
 [3] KI-Servicestelle: KI-Kompetenz
+[4] KI-Servicestelle: Risikostufen
 
 # 5. Ich möchte auf meiner Website eine KI-generierte Hintergrundmusik implementieren? Ist das urheberrechtlich bedenklich bzw unterliege ich etwaigen Verpflichtungen?
 
@@ -84,6 +85,7 @@ Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflic
 [3] Art 8 bis 15 AIA
 [4] Art 26 AIA
 [5] KI-Servicestelle: Risikostufen
+[6] KI-Servicestelle: Betreiberpflichten
 
 # 9. Ich habe mein eigenes KI-System/KI-Modell für den internen Gebrauch im Unternehmen entwickelt. Gilt der AI-Act auch für mich?
 
@@ -116,12 +118,12 @@ werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingese
 [2] Art 3 AIA
 [3] KI-Servicestelle: KI-Kompetenz
 
-# 12. Ich möchte im Bewerbungsprozess ein KI-System einsetzen, dass eine Risikobewertung durchführt. Das KI-System soll insbesondere bewerten ob der/die Bewerber/in eine Neigung zur Begehung von Straftaten hat. Was muss ich da beachten?
+# 12. Ich möchte im Bewerbungsprozess ein KI-System einsetzen, das eine Risikobewertung durchführt. Das KI-System soll insbesondere bewerten ob der/die Bewerber/in eine Neigung zur Begehung von Straftaten hat. Was muss ich da beachten?
 
 Der Einsatz von KI-Systemen zur Durchführung von Risikobewertungen in Bezug auf natürliche Personen um ihre Neigung zur Begehung von Straftaten festzustellen
 ist verboten. [1][2]
 
-[1] Art 5 AIA
+[1] Art 5 Abs 1 lit d AIA
 [2] ErwG 42
 
 # 13. Ich möchte ein KI-System einsetzen, dass die Emotionen meiner Mitarbeiter während des Arbeitens am PC/Laptop abliest und bewertet. Was muss ich da beachten?
@@ -167,7 +169,7 @@ Der Einsatz von KI-Systemen zur biometrischne Kategorisierung von natürlichen P
 
 [1] Art 3 Z 34 AIA
 [2] Art 5 AIA
-[3]	ErwG 14
+[3] ErwG 14
 [4] ErwG 30
 
 # 18. Eine FH möchte ein KI-System verwenden, welche die Zulassung ausländischer Studenten prüft. Kann man hier ein KI-System ohne Weiteres einsetzen oder ist eine vorherige Genehmigung notwendig? 
