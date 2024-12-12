@@ -4,3 +4,4 @@ pydantic
 httpx
 ollama
 numpy
+tiktoken

@@ -50,7 +50,7 @@
         <ul>
           <li *ngFor="let source of sources; let i = index">
             <a (click)="toggleAccordion(i)">
-              {{ source.title || "Quelle" }} ({{ formatScore(source.score) }})
+              {{ source.title || "Quelle" }} ({{ formatScore(source.score) }}) ({{source.num_tokens}} Token)
             </a>
             <ul style="margin-left: 20px;">
               <li *ngFor="let chunk of source.relevantChunks">

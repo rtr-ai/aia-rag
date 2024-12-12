@@ -4,6 +4,7 @@ import os
 from fastapi import HTTPException
 import numpy as np
 from services.embedding_service import EmbeddingService
+from services.tokenizer_service import TokenizerService
 from models.manual_index import ChunkNode, ManualIndex
 from utils.logger import get_logger
 from models.sources import Source
@@ -33,6 +34,7 @@ class IndexService:
         LOGGER.debug("Creating new instance of IndexService")
         self.vector_store: Dict[str, dict] = {}
         self.embedding_service = EmbeddingService()
+        self.tokenizer_service = TokenizerService()
         self.storage_path = STORAGE_PATH
         self.vector_store_path = os.path.join(self.storage_path, "vector_store.json")
         os.makedirs(self.storage_path, exist_ok=True)
@@ -187,7 +189,7 @@ class IndexService:
         for chunk in top_chunks:
             sources.append(
                 Source(
-                    content=chunk["content"], score=chunk["score"], title=chunk["title"], relevantChunks=chunk["relevantChunks"]
+                    content=chunk["content"], score=chunk["score"], title=chunk["title"], relevantChunks=chunk["relevantChunks"], num_tokens=self.tokenizer_service.count_tokens(chunk["content"])
                 )
             )
         LOGGER.debug(f"Generated chunks for the query {sources}")

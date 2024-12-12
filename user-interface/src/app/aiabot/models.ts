@@ -12,6 +12,7 @@ export interface Source {
   content: string;
   title?: string;
   relevantChunks: RelevantSource[]
+  num_tokens: number;
 }
 
 export type Step = 'initial' | 'research' | 'prompt' | 'output' | 'done';

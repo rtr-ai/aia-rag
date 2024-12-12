@@ -10,6 +10,7 @@ class Source(BaseModel):
     score: float
     title: str = ""
     relevantChunks: List[RelevantChunk] = []
+    num_tokens: int
 
 
 class SourceList(RootModel[List[Source]]):
