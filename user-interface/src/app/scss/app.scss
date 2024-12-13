@@ -855,6 +855,7 @@ blockquote::after {
       @media (min-width: $breakpoint-medium) {
         p {
           width: 80%;
+          white-space: pre-wrap;
         }
       }
 
