@@ -211,7 +211,7 @@ class IndexService:
                     relevant_chunk_tokens = relevant_chunk["num_tokens"]
 
                     if total_tokens + relevant_chunk_tokens <= token_limit:
-                        new_source.relevantChunks.append(RelevantChunk(id=relevant_chunk["id"], content=relevant_chunk["content"], num_tokens=relevant_chunk_tokens))
+                        new_source.relevantChunks.append(RelevantChunk(id=relevant_chunk["id"], content=relevant_chunk["content"],title=relevant_chunk.get("title") or relevant_chunk["id"], num_tokens=relevant_chunk_tokens))
                         total_tokens += relevant_chunk_tokens
 
                 sources.append(new_source)
