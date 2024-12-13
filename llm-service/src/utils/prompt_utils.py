@@ -15,9 +15,10 @@ Antwort:
 def generate_prompt(prompt: str, sources: List[Source]) -> str:
     chunks = ""
     for source in sources:
-        chunks += f"Score: {source.score}\n{source.content}\n"
+        chunks += f"Titel: {source.title} \n{source.content}\n"
         for relevant_chunk in source.relevantChunks:
-            chunks += f"{relevant_chunk.content}\n"
+            chunks += f"Titel: {source.title} \n{relevant_chunk.content}\n"
+            chunks += "\n"
         chunks += "\n"
     
     final_prompt = DEFAULT_PROMPT_RAG.format(context_str=chunks.strip(), query_str=prompt)
