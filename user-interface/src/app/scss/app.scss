@@ -774,6 +774,7 @@ th {
 blockquote {
   font-weight: bold;
   font-size: 14px;
+  white-space: pre-wrap;
 }
 
 blockquote::before {
