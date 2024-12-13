@@ -13,6 +13,12 @@ Antwort:
 
 
 def generate_prompt(prompt: str, sources: List[Source]) -> str:
-    chunks = "\n".join([f"Score: {node.score}\n{node.content}" for node in sources])
-    final_prompt = DEFAULT_PROMPT_RAG.format(context_str=chunks, query_str=prompt)
+    chunks = ""
+    for source in sources:
+        chunks += f"Score: {source.score}\n{source.content}\n"
+        for relevant_chunk in source.relevantChunks:
+            chunks += f"{relevant_chunk.content}\n"
+        chunks += "\n"
+    
+    final_prompt = DEFAULT_PROMPT_RAG.format(context_str=chunks.strip(), query_str=prompt)
     return final_prompt

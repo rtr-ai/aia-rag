@@ -13,6 +13,7 @@ from utils import path_utils
 LOGGER = get_logger(__name__)
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 TOP_N_CHUNKS = int(os.getenv("TOP_N_CHUNKS", "15"))
+CONTEXT_WINDOW = int(os.getenv("CONTEXT_WINDOW", "8000"))
 
 
 class IndexService:
@@ -116,6 +117,7 @@ class IndexService:
                 "score": similarities[i],
                 "title": chunks_vector[i].get("title"),
                 "relevantChunks": get_related_chunks(chunks_vector[i]),
+                "num_tokens":self.tokenizer_service.count_tokens(chunks_vector[i].get("content"))
             }
             for i in top_n_indices
         ]
@@ -189,13 +191,31 @@ class IndexService:
         query_vector = (await self.embedding_service.generate_embedding(query))[0]
         index_data = self.vector_store[index_id]
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
-        sources: List[Source] = []
+        total_tokens = 0
+        token_limit = CONTEXT_WINDOW - 1500
+        sources = []
+
         for chunk in top_chunks:
-            sources.append(
-                Source(
-                    content=chunk["content"], score=chunk["score"], title=chunk["title"], relevantChunks=chunk["relevantChunks"], num_tokens=self.tokenizer_service.count_tokens(chunk["content"])
-                )
-            )
+            chunk_tokens = chunk["num_tokens"]
+
+            if total_tokens + chunk_tokens <= token_limit:
+                new_source = {
+                    "content": chunk["content"],
+                    "score": chunk["score"],
+                    "title": chunk["title"],
+                    "relevantChunks": [],
+                    "num_tokens": chunk_tokens,
+                }
+                total_tokens += chunk_tokens
+
+                for relevant_chunk in chunk["relevantChunks"]:
+                    relevant_chunk_tokens = relevant_chunk["num_tokens"]
+
+                    if total_tokens + relevant_chunk_tokens <= token_limit:
+                        new_source["relevantChunks"].append(relevant_chunk)
+                        total_tokens += relevant_chunk_tokens
+
+                sources.append(new_source)
         LOGGER.debug(f"Generated chunks for the query {sources}")
         return sources
 
