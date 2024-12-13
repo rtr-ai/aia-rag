@@ -3,11 +3,13 @@ from models.sources import Source
 
 DEFAULT_PROMPT_RAG: str = """
 Informationen aus dem EU AI Act sind unten angeführt.
+
 {context_str}
+
 Aufgabe: Basierend auf den Informationen oben und ohne Vorwissen beantworte die Anfrage. Antworte faktenbasiert und ohne Konklusionen.
 Antworte in der selben Sprache, in der die Anfrage geschrieben ist.
 Falls diese Begriffe in deiner Antwort vorkommen, beachte das folgende Wörterbuch/Glossar: der EU AI Act, das LLM, das Large Language Modell, die KI, die DSGVO, der AI Act.
-Beziehe dich in deiner Antwort immer auf die verwendeten Quellen. 
+Beziehe dich in deiner Antwort immer auf die verwendeten Quellen. Schreibe dazu im Text deiner Antwort jeweils die Ziffer der verwendeten Quelle in eckige Klammer und am Ende deiner Antwort eine Liste aller verwendeten Quellen inkl. der Ziffer in eckiger Klammer.  
 
 Beispiel 1: 
 
