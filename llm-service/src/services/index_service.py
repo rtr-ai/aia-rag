@@ -7,9 +7,8 @@ from services.embedding_service import EmbeddingService
 from services.tokenizer_service import TokenizerService
 from models.manual_index import ChunkNode, ManualIndex
 from utils.logger import get_logger
-from models.sources import Source
+from models.sources import RelevantChunk, Source
 from utils import path_utils
-
 LOGGER = get_logger(__name__)
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 TOP_N_CHUNKS = int(os.getenv("TOP_N_CHUNKS", "15"))
@@ -193,26 +192,26 @@ class IndexService:
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
         total_tokens = 0
         token_limit = CONTEXT_WINDOW - 1500
-        sources = []
+        sources :List[Source] = []
 
         for chunk in top_chunks:
             chunk_tokens = chunk["num_tokens"]
 
             if total_tokens + chunk_tokens <= token_limit:
-                new_source = {
-                    "content": chunk["content"],
-                    "score": chunk["score"],
-                    "title": chunk["title"],
-                    "relevantChunks": [],
-                    "num_tokens": chunk_tokens,
-                }
+                new_source = Source(
+                    content = chunk["content"],
+                    score = chunk["score"],
+                    title= chunk["title"],
+                    relevantChunks =  [],
+                    num_tokens = chunk_tokens,
+                )
                 total_tokens += chunk_tokens
 
                 for relevant_chunk in chunk["relevantChunks"]:
                     relevant_chunk_tokens = relevant_chunk["num_tokens"]
 
                     if total_tokens + relevant_chunk_tokens <= token_limit:
-                        new_source["relevantChunks"].append(relevant_chunk)
+                        new_source.relevantChunks.append(RelevantChunk(id=relevant_chunk["id"], content=relevant_chunk["content"], num_tokens=relevant_chunk_tokens))
                         total_tokens += relevant_chunk_tokens
 
                 sources.append(new_source)
