@@ -1,3 +1,5 @@
+
+
 # 1. Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?
 
 ChatGPT wird als KI-System im Sinne des AI Acts einzustufen sein [1].  
@@ -8,10 +10,10 @@ Da Sie als Unternehmen das KI-System nicht selbst entwickeln, sondern dieses im 
 
 # 2. Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?
 
-Das Erstellen von KI-generierten Texten, Bildern und Videos unterliegt ab 2.8.2025 den Transparenzpflichten des AI-Acts, denn betroffene natürliche Personen müssen darüber informiert werden, dass es
-sich um künstlich erzeugte Inhalte handelt. [1],[2]
- [1] Art 50 AI Act
- [2] KI-Servicestelle: Transparenzpflichten
+Das Einsatz von Large Language Models bei der automatischen Generierung von Werbeaussendungen unterliegt nicht den Transparenzpflichten des AI-Acts, weil kein öffentliches Interesse gegeben ist, [1],[2], [3]
+ [1] Art 50 Abs 1 AI Act
+ [2] Art 50 Abs 4 UA 2 AI Act 
+ [3] KI-Servicestelle: Transparenzpflichten
 
 # 3. Ich möchte die Arbeitsleistung meiner Mitarbeiter im Home Office mittels eines KI-Systems auswerten. Wie ist dieses System einzustufen?
  
@@ -38,15 +40,14 @@ werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingese
 [3] KI-Servicestelle: KI-Kompetenz
 [4] KI-Servicestelle: Risikostufen
 
-# 5. Ich möchte auf meiner Website eine KI-generierte Hintergrundmusik implementieren? Ist das urheberrechtlich bedenklich bzw unterliege ich etwaigen Verpflichtungen?
+# 5. Ich möchte auf meiner Website eine  KI-generierte Hintergrundmusik implementieren? Ist das urheberrechtlich bedenklich bzw unterliege ich etwaigen Verpflichtungen?
 
-Das Erstellen von KI-generierten Audios unterliegt ab 2.8.2025 den Transparenzpflichten des AI-Acts, denn betroffene natürliche Personen müssen darüber informiert werden, dass es
+Das Erstellen von KI-generierten Audios sog. "Deepfakes" unterliegt ab 2.8.2025 den Transparenzpflichten des AI-Acts, denn betroffene natürliche Personen müssen darüber informiert werden, dass es
 sich um künstlich erzeugte Inhalte handelt. [1] 
 Zudem sind Betreiber, die KI-generierte Inhalte verwenden dazu verpflichtet eine Strategie zur Einhaltung des Urheberrechts zu entwickeln.[2]
 
-[1] Art 50 AIA
-[2] Art 53 AIA
-[3] KI-Servicestelle: FAQ
+[1] Art 50 Abs 1 AIA
+[2] KI-Servicestelle: Betreiberverpflichtungen
 
 
 # 6. Ich möchte gerne KI-Reallabore nutzen. Ab wann ist das möglich und wie genau funktionieren diese?
@@ -103,20 +104,25 @@ Es sind daher hier sowohl die zu erfüllenden Pflichten eines Anbieters als auch
                                       
 # 10. Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?
 
-Die Veröffentlichung von KI-generierten Videos auf einer eigenen Plattform unterliegen ab 2.8.2025 den Transparenzpflichten des AI-Acts. [1][2]
+Die Veröffentlichung von KI-generierten Videos, sogenannten "Deepfakes" auf der eigenen Plattform unterliegen ab 2.8.2025 den Transparenzpflichten des AI-Acts. [1][2], [3]. Durch die Verwendung von KI-generierten Inhalten (Videos) sind sie nach Betreiber einzustufen und unterliegen Offenlegungspflichten gemäß dem AI Act.  [4]
 
 [1] Art 50 Abs 4 AIA
-[2] KI-Servicestelle: FAQ
+[2] KI-Servicestelle: Transparenzpflichten
+[3] KI- Servicestelle: FAQ
+[4] KI- Servicestelle: Betreiberpflichten
  
 # 11. Ich möchte in meinem Unternehmen KI einsetzen. Muss ich eine KI-Policy erlassen?
 
 Als Betreiber von KI-Systemen müssen sie Maßnahmen ergreifen um nach besten Kräften sicherzustellen, dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von 
-KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen. Dabei sind besonders ihre technischen Kenntnise, ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt
-werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingesetzt werden sollen, zu berücksichtigen. [1],[2],[3]
+KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen. Dabei sind besonders ihre technischen Kenntnisse, ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt
+werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingesetzt werden sollen, zu berücksichtigen.   [1],[2],[3], [5]
+Die zu setzenden Maßnahmen hängt davon ab, welches KI-Modell oder KI-System zum Einsatz kommt (Risikostufen) [4] Die Erstellung einer KI-Policy innerhalb eines Unternehmen wird daher jedenfalls empfohlen. 
 	
 [1] Art 4 AIA
-[2] Art 3 AIA
+[2] Art 3 Z 56 AIA
 [3] KI-Servicestelle: KI-Kompetenz
+[4] KI-Servicestelle: Risikostufen
+[5] ErwG 20
 
 # 12. Ich möchte im Bewerbungsprozess ein KI-System einsetzen, das eine Risikobewertung durchführt. Das KI-System soll insbesondere bewerten ob der/die Bewerber/in eine Neigung zur Begehung von Straftaten hat. Was muss ich da beachten?
 
@@ -138,19 +144,21 @@ Der Einsatz von KI-Systemen zur zur Ableitung von Emotionen einer natürlichen P
 [4] ErwG 44
 
 
-# 14. Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? 
+# 14. Ich möchte in meinem Unternehmen ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? 
 
-Ein KI-System stellt ein Hochrisiko-KI-System dar, wenn es im Bereich der kritischen Infrastruktur als Sicherheitsbauteil verwendet wird. 
+Ein KI-System stellt ein Hochrisiko-KI-System dar, wenn es im Bereich der kritischen Infrastruktur als Sicherheitsbauteil eines im Anhang I des AI Acts genannten Produkts dienen soll oder das verwendete KI-System selbst im Anhang III des AI Acts genannt wird . 
 
 [1] Art 6 AIA
 [2] Art 3 Z 14 AIA
 [3] ErwG 55 AIA
 [4] KI-Servicestelle: FAQ
+[5] Anhang II
+[6] Anhang III
 
-# 16. Ich bin ein Versicherungsmakler und berechne mit Hilfe eines KI-System die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?
+# 16. Ich bin ein Versicherungsmakler und berechne mit Hilfe eines gekauften KI-Systems die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?
 	  Treffen mich besondere Verpflichtungen? Welcher Risikostufe sind derartige KI-Systeme zuzuordnen?
 
-KI-Systeme, welche im Versicherungsbereich für die Durchführung einer Risikobewertung und Preisbildung im Bezug auf natürlichen Personen eingesetzt werden, sind als Hochrisiko-KI-Systemene 
+KI-Systeme, welche im Versicherungsbereich für die Durchführung einer Risikobewertung und Preisbildung im Bezug auf natürlichen Personen eingesetzt werden, sind als Hochrisiko-KI-Systeme
 einzustufen. [1],[2],[3] Als Betreiber eines solchen KI-Systems müssen sie bestimmte Anforderungen nach dem AI-Act erfüllen. [4]
 
 [1] Art 6 AIA
@@ -185,7 +193,7 @@ Hochrisiko-KI-System einzustufen. [1],[3], [4] Als Betreiber eines solchen KI-Sy
 [5] Art 8 ff AIA
 
 
-# 19. Eine FH möchte mit Hilfe eines KI-Systems die Lernerfolge der Studenten aufzeichnen um am Ende des Studienjahres den Studenten zu einem passenden Praktikumplatz für das kommende Studienjahr zuzuordnen. Ist ein solches KI-System genehmigungspflichtig? 
+# 19. Eine FH möchte mit Hilfe eines KI-Systems die Lernerfolge der Studenten aufzeichnen um am Ende des Studienjahres den Studenten zu einem passenden Praktikumsplatz für das kommende Studienjahr zuzuordnen. Ist ein solches KI-System genehmigungspflichtig? 
 	 Welcher Risikostufe unterliegt ein solches System?
 
 Der Einsatz eines KI-Systems im Bildungsbereich, welches der Auswertung von Lernergebnissen von natürlichen Personen in Bildungseinrichtungen dienen soll, ist als 
@@ -199,8 +207,8 @@ Hochrisiko-KI-System einzustufen. [1],[2],[4] Als Betreiber eines solchen KI-Sys
 
 # 20. Ich bin ein Kleinunternehmer und möchte beim Bewerbungsgespräch KI-gesteuerte Lügendetektoren einsetzen. Ist das erlaubt? 
 
-KI-gesteuerte Lügendetektoren oder ähnliche Instrumente sind als Hochrisiko-KI-Systeme einzustufen. [1], [2]. Der Einsatz solcher KI-Systeme ist lediglich Behörden oder in deren Namen oder Organen
-Einrichtungen und sonstigen Stellen der Union vorbehalten.
+KI-gesteuerte Lügendetektoren oder ähnliche Instrumente sind als Hochrisiko-KI-Systeme einzustufen. [1] Der Einsatz solcher KI-Systeme ist lediglich Behörden oder in deren Namen oder Organen
+Einrichtungen und sonstigen Stellen der Union vorbehalten.[2], [3]
 
 [1] Art 6 Abs 2 AIA
 [2] Anhang III Z 6 lit b und Z 7 lit a
@@ -222,7 +230,7 @@ die Kriterien für ein KI-Modell mit allgemeinem Verwendungszweck mit systemisch
 
 [1] Art 3 Z 3 AIA
 [2] Art 50 AIA
-[3] Art 53 AIA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+[3] Art 53 AIA                                                                                                                                                                              
 [3]	KI-Servicestelle: Akteure
 [4] KI-Servicestelle: Anbieterverpflichtungen
 [5] KI-Servicestelle: Zeitplan
@@ -249,4 +257,3 @@ Betreiber von KI-Modellen mit allgemeinem Verwendungszweck müssen ab 2.8.2025 T
 [3] Art 50 AIA
 [4] KI-Servicestelle: Akteure
 [5] KI-Servicestelle: Zeitplan
-
