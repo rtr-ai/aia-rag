@@ -6,6 +6,8 @@ export interface LLMMessageParams {
 interface RelevantSource {
   id:string;
   title:string;
+  content:string;
+  num_tokens:number;
 }
 export interface Source {
   score: number;

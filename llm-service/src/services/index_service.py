@@ -103,6 +103,10 @@ class IndexService:
                     "title": next(
                         (c["title"] for c in chunks_vector if c["id"] == related_id), ""
                     ),
+                     "content": next(
+                        (c["content"] for c in chunks_vector if c["id"] == related_id), ""
+                    ),
+                    "num_tokens": self.tokenizer_service.count_tokens(next((c["content"] for c in chunks_vector if c["id"] == related_id), "")),
                 }
                 for related_id in related_ids
             ]

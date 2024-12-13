@@ -4,6 +4,8 @@ from pydantic import BaseModel, RootModel
 class RelevantChunk(BaseModel):
     id: str
     title: str
+    content: str
+    num_tokens: int
 
 class Source(BaseModel):
     content: str

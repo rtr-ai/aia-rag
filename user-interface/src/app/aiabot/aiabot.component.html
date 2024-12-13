@@ -54,7 +54,7 @@
             </a>
             <ul style="margin-left: 20px;">
               <li *ngFor="let chunk of source.relevantChunks">
-                {{ chunk.title.length > 0 ? chunk.title : chunk.id }}
+                {{ chunk.title.length > 0 ? chunk.title : chunk.id }} ({{chunk.num_tokens}} Token)
               </li>
             </ul>
             <div
