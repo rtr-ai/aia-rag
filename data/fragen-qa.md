@@ -40,11 +40,9 @@ werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingese
 [3] KI-Servicestelle: KI-Kompetenz
 [4] KI-Servicestelle: Risikostufen
 
-# 5. Ich möchte auf meiner Website eine  KI-generierte Hintergrundmusik implementieren? Ist das urheberrechtlich bedenklich bzw unterliege ich etwaigen Verpflichtungen?
+# 5. Ich möchte auf meiner Website eine  KI-generierte Hintergrundmusik implementieren?  Unterliege ich etwaigen Verpflichtungen nach dem AI Act?
 
-Das Erstellen von KI-generierten Audios sog. "Deepfakes" unterliegt ab 2.8.2025 den Transparenzpflichten des AI-Acts, denn betroffene natürliche Personen müssen darüber informiert werden, dass es
-sich um künstlich erzeugte Inhalte handelt. [1] 
-Zudem sind Betreiber, die KI-generierte Inhalte verwenden dazu verpflichtet eine Strategie zur Einhaltung des Urheberrechts zu entwickeln.[2]
+Das Erstellen von KI-generierten Audios unterliegt ab 2.8.2025 nur dann den Transparenzpflichten des AI-Acts, wenn es sich um sog. "Deepfakes" handelt [1],[2]
 
 [1] Art 50 Abs 1 AIA
 [2] KI-Servicestelle: Betreiberverpflichtungen
@@ -104,7 +102,9 @@ Es sind daher hier sowohl die zu erfüllenden Pflichten eines Anbieters als auch
                                       
 # 10. Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?
 
-Die Veröffentlichung von KI-generierten Videos, sogenannten "Deepfakes" auf der eigenen Plattform unterliegen ab 2.8.2025 den Transparenzpflichten des AI-Acts. [1][2], [3]. Durch die Verwendung von KI-generierten Inhalten (Videos) sind sie nach Betreiber einzustufen und unterliegen Offenlegungspflichten gemäß dem AI Act.  [4]
+Wenn Sie als Unternehmer KI-Systeme Dritter einsetzen, ohne eine Änderung daran vorzunehmen, sind sie in der KI-Wertschöpfungskette in der Regel als Betreiber einzustufen, d.h. für Sie gelten die Betreiberverpflichtungen. Im Fall von KI-generierten Videos handelt es sich um ein KI-System mit begrenztem Risiko, bei welchem ab 2.8.2026 Transparenzpflichten gelten.
+
+Das heißt, wenn es sich bei Ihren Videos um "Deep Fakes" im Sinne des AI Acts handelt, trifft sie eine Kennzeichnungspflicht. Andernfalls ergeben sich für die Videos keine gesonderten Verpflichtungen aus dem AI Act. [1],[2],[3],[4]
 
 [1] Art 50 Abs 4 AIA
 [2] KI-Servicestelle: Transparenzpflichten
