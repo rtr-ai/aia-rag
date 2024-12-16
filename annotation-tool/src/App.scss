@@ -29,21 +29,44 @@
   src: url('assets/fonts/OpenSans-Light-webfont.woff');
 }
 
-.content-row{
+.content-row {
   display: grid;
-  grid-template-columns: 1fr 40%;
+  grid-template-columns: auto 40%; 
   grid-gap: 30px;
   align-items: start;
   margin-bottom: 30px;
   margin-top: 30px;
-  
-  .left-column{
-    height: 100%;
-    .uk-card{
-      height: 100%;
-    }
-  }
 }
+.left-column {
+  border: 1px solid #d9d9d9;
+  padding: 16px;
+  line-height: 1.8em;
+  white-space: pre-wrap;
+  display: flex;  
+  flex-direction: column;
+  height: auto;
+  flex-direction: column;
+  height: 100%;
+}
+.chunk-content {
+  flex-grow: 1;
+  display: flex;
+}
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  background: none;
+  width: 100%;
+  height: auto; 
+  font: inherit;
+  color: inherit;
+  overflow: hidden; 
+  min-height: 4rem; 
+  box-sizing: border-box; 
+}
+
+
 .chunk-settings label{
   display: block;
   text-align: left;
@@ -53,12 +76,7 @@
 .row-gap-md {
   row-gap: 8px;
 }
-.left-column{
-  border: 1px solid #d9d9d9;
-  padding: 16px;
-  line-height: 1.8em;
-  white-space: pre-wrap;
-}
+ 
 .content-chunk {
   border: 2px #d9d9d9 solid;
   padding: 12px;

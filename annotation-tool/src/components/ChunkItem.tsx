@@ -4,7 +4,6 @@ import { Select } from "./Select";
 import { isTextItem } from "./../utilities/index";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
-import { htmlToText } from 'html-to-text';
 import {
   deleteChunk,
   relevantChunksOptions,
@@ -40,24 +39,26 @@ const ChunkComponent: React.FC<
   const options = useSelector((state: RootState) =>
     relevantChunksOptions(state.chunk)
   ).filter((p) => p.value !== chunk.id);
+  const [localContent, setLocalContent] = useState(chunk.content); // Local state for textarea content
+  const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = e.target;
+    const scrollPosition = window.scrollY;
 
-  const handleContentChange = (e: React.ChangeEvent<HTMLDivElement>) => {
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
 
-    const plainText = htmlToText(e.currentTarget.innerHTML, {
-      preserveNewlines: true, 
-      selectors: [
-        { selector: 'br', format: 'lineBreak' } 
-      ]
-    });
+    setLocalContent(e.target.value); 
+    window.scrollTo({ top: scrollPosition });
+  };
+  const handleBlur = () => {
     dispatch(
       updateChunkProperty({
         chunkId: chunk.id,
         property: "content",
-        value: plainText || "",
+        value: localContent || "",
       })
     );
   };
-
   const handleTitleBlur = () => {
     dispatch(
       updateChunkProperty({
@@ -71,7 +72,7 @@ const ChunkComponent: React.FC<
   return (
     <div className="content-row content-chunk">
       <div className="left-column">
-        <div>
+        <div style={{display:"flex", flexDirection:"column", flexGrow:1}}> 
           <div className="uk-card-title">
             <div
               style={{
@@ -121,12 +122,28 @@ const ChunkComponent: React.FC<
           </div>
           <div
             className="chunk-content"
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={handleContentChange}
-          >
-            {chunk.content}
-          </div>
+            style={{
+              display:"flex",
+             }}
+             >
+            <textarea
+            style={
+              {
+                border: "none",
+                outline: "none",
+                resize: "none",
+                background: "none",
+                width: "100%",
+                height: "100%",
+                font: "inherit",
+                color: "inherit"
+              }
+            } 
+            onChange={handleContentChange}
+            onBlur={handleBlur}
+            value={localContent}>
+            </textarea>
+           </div>
         </div>
       </div>
       <div className="right-column">
