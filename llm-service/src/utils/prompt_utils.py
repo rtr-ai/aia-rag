@@ -71,7 +71,7 @@ def generate_prompt(prompt: str, sources: List[Source]) -> str:
     for source in sources:
         chunks += f"Titel: {source.title} \n{source.content}\n"
         for relevant_chunk in source.relevantChunks:
-            chunks += f"Titel: {source.title} \n{relevant_chunk.content}\n"
+            chunks += f"Titel: {relevant_chunk.title} \n{relevant_chunk.content}\n"
             chunks += "\n"
         chunks += "\n"
     
