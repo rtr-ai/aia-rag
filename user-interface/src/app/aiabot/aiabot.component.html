@@ -128,8 +128,7 @@
           <p [innerHTML]="displayAnswer"></p>
         </blockquote>
       </div>
-      <form class="uk-form uk-padding-remove">
-       
+      <form  *ngIf="step == 'done'" class="uk-form uk-padding-remove">
         <div *ngIf="feedbackFormVisible"  style="position: relative;" >
         <p>
           <label class="uk-margin-medium-bottom">Ihr Feedback:</label>
