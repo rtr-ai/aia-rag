@@ -16,12 +16,20 @@
         <p>
           <label class="uk-margin-medium-bottom">Ihre Frage: </label>
         </p>
-        <textarea
-          class="uk-input"
-          style="height: 70px"
-          [(ngModel)]="userPrompt"
-          name="userPrompt"
-        ></textarea>
+        <div style="position: relative;">
+          <textarea
+            class="uk-input"
+            [style.height]="'auto'"
+            style="resize: none;"
+            [(ngModel)]="userPrompt"
+            name="userPrompt"
+            (input)="onInput($event)"
+            [maxlength]="maxLength"
+          ></textarea>
+          <small style="position: absolute; bottom: 5px; right: 10px; color: #888;">
+            {{ userPrompt.length }}/{{ maxLength }}
+          </small>
+        </div> 
         <p>
           <a
             class="uk-button uk-button-large uk-button-primary"

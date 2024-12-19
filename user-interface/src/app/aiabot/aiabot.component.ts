@@ -6,6 +6,7 @@ import { fetchEventSource } from "@microsoft/fetch-event-source";
 import { LLMMessageParams, Source, Step } from "./models";
 import { environment } from "../../environments/environment";
 import { NgZone } from "@angular/core";
+
 @Component({
   selector: "app-aiabot",
   standalone: true,
@@ -21,6 +22,8 @@ export class AiabotComponent implements OnInit {
   multiplier = 1;
   userPrompt: string =
     "Ich möchte LLama-3 für meine Firma fine-tunen. Gilt der AIA für mich?";
+  maxLength: number = 500;
+  inputHeight: number = 70;
   constructor(private zone: NgZone) {}
   ngOnInit(): void {}
 
@@ -109,6 +112,12 @@ export class AiabotComponent implements OnInit {
       },
     });
   };
+
+  onInput(event: Event): void {
+    const textarea = event.target as HTMLTextAreaElement;
+    textarea.style.height = 'auto';
+    textarea.style.height = `${Math.min(textarea.scrollHeight, 300)}px`;
+  }
 
   playDemo = async () => {
     await this.promptLLM();
