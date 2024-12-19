@@ -25,6 +25,8 @@ export class AiabotComponent implements OnInit {
   maxLength: number = 500;
   inputHeight: number = 70;
   tokensUsedFormatted: string = "";
+  feedbackFormVisible : boolean = false;
+  feedbackText:string = "";
   constructor(private zone: NgZone) {}
   ngOnInit(): void {}
 
@@ -136,6 +138,10 @@ export class AiabotComponent implements OnInit {
       },
     });
   };
+
+  onFeedBackButtonPressed = async() => {
+    this.feedbackFormVisible = !this.feedbackFormVisible;
+  }
 
   onInput(event: Event): void {
     const textarea = event.target as HTMLTextAreaElement;

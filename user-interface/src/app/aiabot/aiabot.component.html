@@ -128,6 +128,35 @@
           <p [innerHTML]="displayAnswer"></p>
         </blockquote>
       </div>
+      <form class="uk-form uk-padding-remove">
+       
+        <div *ngIf="feedbackFormVisible"  style="position: relative;" >
+        <p>
+          <label class="uk-margin-medium-bottom">Ihr Feedback:</label>
+        </p>
+          <textarea
+            class="uk-input"
+            [style.height]="'auto'"
+            style="resize: none;"
+            [(ngModel)]="feedbackText"
+            name="feedback"
+            (input)="onInput($event)"
+            [maxlength]="maxLength"
+          ></textarea>
+          <small style="position: absolute; bottom: 5px; right: 10px; color: #888;">
+            {{ userPrompt.length }}/{{ maxLength }}
+          </small>
+        </div> 
+        <p>
+          <a
+            class="uk-button uk-button-primary"
+            (click)="onFeedBackButtonPressed()"
+            > <span *ngIf="feedbackFormVisible; else formNotVisibled">Feedback absenden</span>
+            <ng-template #formNotVisibled>Feedback zu dieser Antwort senden</ng-template>
+            </a
+          >
+        </p>
+      </form>
     </div>
     <div class="uk-container uk-margin-top-50">
       <h4>Hintergrundinformationen zum AI Act Chatbot</h4>
