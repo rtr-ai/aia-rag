@@ -80,6 +80,9 @@
             </div>
           </li>
         </ul>
+        <p *ngIf="tokensUsedFormatted.length > 0">
+          Gesamtanzahl Token: {{tokensUsedFormatted}}
+        </p>
         <p *ngIf="sources.length > 0">
           <i><a>Information: Wie werden relevante Quellen erhoben?</a></i>
         </p>

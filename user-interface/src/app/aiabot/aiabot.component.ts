@@ -24,6 +24,7 @@ export class AiabotComponent implements OnInit {
     "Ich möchte LLama-3 für meine Firma fine-tunen. Gilt der AIA für mich?";
   maxLength: number = 500;
   inputHeight: number = 70;
+  tokensUsedFormatted: string = "";
   constructor(private zone: NgZone) {}
   ngOnInit(): void {}
 
@@ -39,12 +40,35 @@ export class AiabotComponent implements OnInit {
     };
     const updateSources = (sources: Source[]) => {
       this.sources = sources;
+      calculateTotalTokens();
     };
+    const calculateTotalTokens = () => {
+      const tokensUsed = this.sources.reduce((total, source) => {
+        const sourceTokens = !source.skip ? source.num_tokens : 0;
+  
+        const relevantTokens = source.relevantChunks.reduce((chunkTotal, chunk) => {
+          return chunkTotal + (!chunk.skip ? chunk.num_tokens : 0);
+        }, 0);
+  
+        return total + sourceTokens + relevantTokens;
+      }, 0);
+    this.tokensUsedFormatted = formatWithSeperator(tokensUsed);
+    }
+    const formatWithSeperator = (value: number): string => {
+      return Intl.NumberFormat('de-DE').format(value);
+    }
     const updateStep = (step: Step) => {
       this.step = step;
     };
     const updatePrompt = (prompt: string) => {
-      this.prompt = prompt;
+      const lines = prompt.split('\n');
+      const formattedLines = lines.map(line => {
+        if (line.trim().startsWith('Titel:')) {
+          return '********************\n' + line;
+        }
+        return line;
+      });
+      this.prompt = formattedLines.join('\n');;
     };
     let buffer = "";
     let updateTimeout: any = null;
