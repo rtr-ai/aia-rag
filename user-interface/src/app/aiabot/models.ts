@@ -8,6 +8,7 @@ interface RelevantSource {
   title:string;
   content:string;
   num_tokens:number;
+  skip: boolean;
 }
 export interface Source {
   score: number;
@@ -15,6 +16,7 @@ export interface Source {
   title?: string;
   relevantChunks: RelevantSource[]
   num_tokens: number;
+  skip: boolean;
 }
 
 export type Step = 'initial' | 'research' | 'prompt' | 'output' | 'done';

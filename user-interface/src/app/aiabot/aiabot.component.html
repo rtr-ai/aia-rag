@@ -49,12 +49,18 @@
         <h4 *ngIf="sources.length > 0">Relevante Quellen</h4>
         <ul>
           <li *ngFor="let source of sources; let i = index">
-            <a (click)="toggleAccordion(i)">
-              {{ source.title || "Quelle" }} ({{ formatScore(source.score) }}) ({{source.num_tokens}} Token)
+            <a 
+              (click)="toggleAccordion(i)"
+              [style.color]="source.skip ? 'darkgray' : 'black'"
+            >
+            {{ source.title || "Quelle" }} ({{ formatScore(source.score) }}) ({{source.num_tokens}} Token)
             </a>
             <ul style="margin-left: 20px;">
-              <li *ngFor="let chunk of source.relevantChunks">
-                {{ chunk.title.length > 0 ? chunk.title : chunk.id }} ({{chunk.num_tokens}} Token)
+              <li 
+                *ngFor="let chunk of source.relevantChunks"
+                [style.color]="chunk.skip ? 'darkgray' : 'black'"
+              >
+              {{ chunk.title.length > 0 ? chunk.title : chunk.id }} ({{chunk.num_tokens}} Token)
               </li>
             </ul>
             <div

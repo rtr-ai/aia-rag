@@ -69,10 +69,12 @@ Antwort:
 def generate_prompt(prompt: str, sources: List[Source]) -> str:
     chunks = ""
     for source in sources:
-        chunks += f"Titel: {source.title} \n{source.content}\n"
+        if not source.skip:
+            chunks += f"Titel: {source.title} \n{source.content}\n"
         for relevant_chunk in source.relevantChunks:
-            chunks += f"Titel: {relevant_chunk.title} \n{relevant_chunk.content}\n"
-            chunks += "\n"
+            if not relevant_chunk.skip:
+                chunks += f"Titel: {relevant_chunk.title} \n{relevant_chunk.content}\n"
+                chunks += "\n"
         chunks += "\n"
     
     final_prompt = DEFAULT_PROMPT_RAG.format(context_str=chunks.strip(), query_str=prompt)

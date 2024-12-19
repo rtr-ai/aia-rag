@@ -175,13 +175,14 @@ class IndexService:
         query: str,
     ) -> List[Source]:
         """
-        Query an index and return top-k similar chunks.
+        Query an index and return all chunks, marking those exceeding token limits.
 
         Args:
             index_id (str): ID of the index to query.
             query (str): Query string.
 
-
+        Returns:
+            List[Source]: A list of all sources with skip property set based on token limit.
         """
         if index_id not in self.vector_store:
             LOGGER.debug(f"Unable to find index with id <{index_id}>")
@@ -192,29 +193,42 @@ class IndexService:
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
         total_tokens = 0
         token_limit = CONTEXT_WINDOW - 1500
-        sources :List[Source] = []
+        sources: List[Source] = []
 
         for chunk in top_chunks:
             chunk_tokens = chunk["num_tokens"]
+            skip = total_tokens + chunk_tokens > token_limit
 
-            if total_tokens + chunk_tokens <= token_limit:
-                new_source = Source(
-                    content = chunk["content"],
-                    score = chunk["score"],
-                    title= chunk["title"],
-                    relevantChunks =  [],
-                    num_tokens = chunk_tokens,
-                )
+            new_source = Source(
+                content=chunk["content"],
+                score=chunk["score"],
+                title=chunk["title"],
+                relevantChunks=[],
+                num_tokens=chunk_tokens,
+                skip=skip,
+            )
+
+            if not skip:
                 total_tokens += chunk_tokens
 
-                for relevant_chunk in chunk["relevantChunks"]:
-                    relevant_chunk_tokens = relevant_chunk["num_tokens"]
+            for relevant_chunk in chunk["relevantChunks"]:
+                relevant_chunk_tokens = relevant_chunk["num_tokens"]
+                relevant_skipped = total_tokens + relevant_chunk_tokens > token_limit
 
-                    if total_tokens + relevant_chunk_tokens <= token_limit:
-                        new_source.relevantChunks.append(RelevantChunk(id=relevant_chunk["id"], content=relevant_chunk["content"],title=relevant_chunk.get("title") or relevant_chunk["id"], num_tokens=relevant_chunk_tokens))
-                        total_tokens += relevant_chunk_tokens
+                new_relevant_chunk = RelevantChunk(
+                    id=relevant_chunk["id"],
+                    content=relevant_chunk["content"],
+                    title=relevant_chunk.get("title") or relevant_chunk["id"],
+                    num_tokens=relevant_chunk_tokens,
+                    skip=relevant_skipped,
+                )
 
-                sources.append(new_source)
+                if not relevant_skipped:
+                    new_source.relevantChunks.append(new_relevant_chunk)
+                    total_tokens += relevant_chunk_tokens
+
+            sources.append(new_source)
+
         LOGGER.debug(f"Generated chunks for the query {sources}")
         return sources
 
