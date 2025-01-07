@@ -205,13 +205,13 @@ Hochrisiko-KI-System einzustufen. [1],[2],[4] Als Betreiber eines solchen KI-Sys
 [4] KI-Servicestelle: Risikostufen
 [5] Art 8 ff AIA
 
-# 20. Ich bin ein Kleinunternehmer und möchte beim Bewerbungsgespräch KI-gesteuerte Lügendetektoren einsetzen. Ist das erlaubt? 
+# 20. Ich habe einen KI-gesteuerten Lügendetektor entwickelt und möchte es an die Polizei lizenzieren? Handelt es sich bei dem Lügendetektor um eine Hochrisiko-KI?
 
-KI-gesteuerte Lügendetektoren oder ähnliche Instrumente sind als Hochrisiko-KI-Systeme einzustufen. [1] Der Einsatz solcher KI-Systeme ist lediglich Behörden oder in deren Namen oder Organen
-Einrichtungen und sonstigen Stellen der Union vorbehalten.[2], [3]
+KI-gesteuerte Lügendetektoren oder ähnliche Instrumente die von Behörden zu Strafverfolgungszwecken eingesetzt werden sollen, sind als Hochrisiko-KI-Systeme einzustufen. [1], [3]. Der Einsatz solcher KI-Systeme ist lediglich Behörden oder in deren Namen oder Organen
+Einrichtungen und sonstigen Stellen der Union vorbehalten.[2] 
 
 [1] Art 6 Abs 2 AIA
-[2] Anhang III Z 6 lit b und Z 7 lit a
+[2] Anhang III Z 6 lit b 
 [3] KI-Servicestelle: Risikostufen
 
 
