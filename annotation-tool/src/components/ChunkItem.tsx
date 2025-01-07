@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Chunk, TextItem } from "../models/Chunk";
 import { Select } from "./Select";
 import { isTextItem } from "./../utilities/index";
@@ -39,7 +39,11 @@ const ChunkComponent: React.FC<
   const options = useSelector((state: RootState) =>
     relevantChunksOptions(state.chunk)
   ).filter((p) => p.value !== chunk.id);
-  const [localContent, setLocalContent] = useState(chunk.content); // Local state for textarea content
+  const [localContent, setLocalContent] = useState(chunk.content);
+  useEffect(() => {
+    setLocalContent(chunk.content);
+  }, [chunk.content]);
+  
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textarea = e.target;
     const scrollPosition = window.scrollY;
@@ -227,8 +231,8 @@ const ChunkComponent: React.FC<
   );
 };
 
-const ChunkItem: React.FC<ChunkItemProps> = (props) => {
-  const { chunk } = props;
+const ChunkItem: React.FC<ChunkItemProps> = React.memo((props) => {
+    const { chunk } = props;
 
   if (isTextItem(chunk)) {
     return (
@@ -246,6 +250,6 @@ const ChunkItem: React.FC<ChunkItemProps> = (props) => {
       onGenerateKeywords={props.onGenerateKeywords}
     />
   );
-};
+});
 
 export { ChunkItem };

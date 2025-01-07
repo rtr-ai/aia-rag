@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 interface SelectOption {
   label: string;
@@ -13,13 +13,7 @@ interface SelectProps {
   style?: React.CSSProperties;
 }
 
-const Select: React.FC<SelectProps> = ({
-  value,
-  onChange,
-  options,
-  mode,
-  style,
-}) => {
+const Select: React.FC<SelectProps> = React.memo(({ value, onChange, options, mode, style }) => {
   const [inputValue, setInputValue] = React.useState<string>("");
   const [selectedOptions, setSelectedOptions] = React.useState<string[]>(
     value || []
@@ -27,14 +21,23 @@ const Select: React.FC<SelectProps> = ({
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
 
-  React.useEffect(() => {
-    setSelectedOptions(value);
-  }, [value]);
-
+    React.useEffect(() => {
+      setSelectedOptions((prev) => (prev !== value ? value : prev));
+    }, [value]);
+    
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
     setIsDropdownVisible(true);
   };
+
+  const filteredOptions = React.useMemo(() => {
+    const lowerInput = inputValue.toLowerCase();
+    return options.filter(
+      (option) =>
+        !selectedOptions.includes(option.value.toString()) &&
+        option.label.toLowerCase().includes(lowerInput)
+    );
+  }, [inputValue, options, selectedOptions]);
 
   const handleAddTag = () => {
     if (mode === "multiple") {
@@ -49,22 +52,25 @@ const Select: React.FC<SelectProps> = ({
     setIsDropdownVisible(false);
   };
 
-  const handleRemoveTag = (optionValue: string) => {
-    const updatedSelectedOptions = selectedOptions.filter(
-      (val) => val !== optionValue
-    );
-    setSelectedOptions(updatedSelectedOptions);
-    onChange(updatedSelectedOptions);
-  };
-
-  const handleOptionSelect = (optionValue: string) => {
-    if (!selectedOptions.includes(optionValue)) {
-      const updatedSelectedOptions = [...selectedOptions, optionValue];
-      setSelectedOptions(updatedSelectedOptions);
-      onChange(updatedSelectedOptions);
-    }
+  const handleRemoveTag = useCallback((optionValue: string) => {
+    setSelectedOptions((prev) => {
+      const updated = prev.filter((val) => val !== optionValue);
+      onChange(updated);
+      return updated;
+    });
+  }, [onChange]);
+  
+  const handleOptionSelect = useCallback((optionValue: string) => {
+    setSelectedOptions((prev) => {
+      if (!prev.includes(optionValue)) {
+        const updated = [...prev, optionValue];
+        onChange(updated);
+        return updated;
+      }
+      return prev;
+    });
     setIsDropdownVisible(false);
-  };
+  }, [onChange]);
 
   return (
     <div className="uk-form-controls uk-margin-bottom" style={style}>
@@ -140,13 +146,7 @@ const Select: React.FC<SelectProps> = ({
                   {inputValue}
                 </li>
               )}
-            {options
-              .filter(
-                (option) =>
-                  !selectedOptions.includes(option.value.toString()) &&
-                  option.label.toLowerCase().includes(inputValue.toLowerCase())
-              )
-              .map((option) => (
+            {filteredOptions.map((option) => (
                 <li
                   key={option.value}
                   className="uk-flex uk-flex-between uk-flex-middle uk-flex-wrap"
@@ -161,6 +161,6 @@ const Select: React.FC<SelectProps> = ({
       </div>
     </div>
   );
-};
+});
 
 export { Select };
