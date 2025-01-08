@@ -58,7 +58,7 @@ Dabei einigen sich die Entwickler und die Behörden auf einen Plan, der den Abla
 
 [1] Art 57 AIA
 [2] ErWG 138, 139
-[3] KI-Servicestelle: FAQ
+[3] KI-Servicestelle: FAQ "Ich möchte gerne KI-Reallabore nutzen. Ab wann ist dies möglich und wie genau funktionieren diese?"
 
 # 7. Ich möchte meine Jobinserate mittels KI generieren lassen. Ist das zulässig? Was muss ich beachten?
 
@@ -98,7 +98,8 @@ Es sind daher hier sowohl die zu erfüllenden Pflichten eines Anbieters als auch
 [3] Art 3 Z 4 AIA
 [4] Art 50 AIA
 [5] Art 51 AIA
-[5] KI-Servicestelle: FAQ
+[6] KI-Servicestelle: FAQ "Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?"
+[7] KI-Servicestelle: FAQ "Was ist ein „KI-System"?"
                                       
 # 10. Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?
 
@@ -108,7 +109,7 @@ Das heißt, wenn es sich bei Ihren Videos um "Deep Fakes" im Sinne des AI Acts h
 
 [1] Art 50 Abs 4 AIA
 [2] KI-Servicestelle: Transparenzpflichten
-[3] KI- Servicestelle: FAQ
+[3] KI- Servicestelle: FAQ "Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?"
 [4] KI- Servicestelle: Betreiberpflichten
  
 # 11. Ich möchte in meinem Unternehmen KI einsetzen. Muss ich eine KI-Policy erlassen?
@@ -151,7 +152,7 @@ Ein KI-System stellt ein Hochrisiko-KI-System dar, wenn es im Bereich der kritis
 [1] Art 6 AIA
 [2] Art 3 Z 14 AIA
 [3] ErwG 55 AIA
-[4] KI-Servicestelle: FAQ
+[4] KI-Servicestelle: FAQ "Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? Was ist ein Sicherheitsbauteil?"
 [5] Anhang II
 [6] Anhang III
 
@@ -224,17 +225,17 @@ Der Einsatz eines zur Ableitung von Emotionen einer natürlichen Person am Arbei
 # 22. Ich habe ein KI-Modell entwickelt, dass Patienteninformationen sammelt und in eine Datenbank speichert. Dieses KI-System möchte ich Arztpraxen zur Verfügung stellen. Was muss ich beachten?
 
 Jede natürliche oder juristische Person, die ein KI-Modell mit allgemeinem Verwendungszweck entwickelt und es unter ihrem eigenen Namen oder ihrer Handelsmarke in Betrieb nimmt, sei es entgeltlich
-oder unentgeltlich ist als Anbieter einzustufen. [1][2] Anbieter von KI-Modellen mit allemeinem Verwendungszweck unterliegen besonderen Transparenzpflichten die ab 02.08.2025 gelten.[2][4][5] Hier muss auch genau geprüft werden, ob 
-die Kriterien für ein KI-Modell mit allgemeinem Verwendungszweck mit systemischem Risiko vorliegen. [3] Sollte das Vorliegen eines solchen KI-Modells bejaht werden, sind weitere Pflichten einzuhalten. [6]
+oder unentgeltlich ist als Anbieter einzustufen. [1][2] Anbieter von KI-Modellen mit allemeinem Verwendungszweck unterliegen besonderen Transparenzpflichten die ab 02.08.2025 gelten.[2][4][6] Hier muss auch genau geprüft werden, ob 
+die Kriterien für ein KI-Modell mit allgemeinem Verwendungszweck mit systemischem Risiko vorliegen. [3] Sollte das Vorliegen eines solchen KI-Modells bejaht werden, sind weitere Pflichten einzuhalten. [7]
 
 
 [1] Art 3 Z 3 AIA
 [2] Art 50 AIA
-[3] Art 53 AIA                                                                                                                                                                              
-[3]	KI-Servicestelle: Akteure
-[4] KI-Servicestelle: Anbieterverpflichtungen
-[5] KI-Servicestelle: Zeitplan
-[6] Art 55 AIA
+[3] Art 53 AIA             
+[4] KI-Servicestelle: Akteure
+[5] KI-Servicestelle: Anbieterverpflichtungen
+[6] KI-Servicestelle: Zeitplan
+[7] Art 55 AIA
 
 # 23. Ich bin ein Kleinunternehmer und hätte gerne Zugang zu den Reallaboren. Was muss ich tun um Zugang zu diesen zu bekommen bzw bin ich überhaupt berechtigt Zugang zu einem Reallabor zu erhalten?
 
