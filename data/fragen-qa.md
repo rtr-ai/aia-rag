@@ -178,8 +178,7 @@ Der Einsatz von KI-Systemen zur biometrischne Kategorisierung von natürlichen P
 [3] ErwG 14
 [4] ErwG 30
 
-# 18. Eine FH möchte ein KI-System verwenden, welche die Zulassung ausländischer Studenten prüft. Kann man hier ein KI-System ohne Weiteres einsetzen oder ist eine vorherige Genehmigung notwendig? 
-	Welcher Risikostufe unterliegt so ein KI-System?
+# 18. Eine FH möchte ein KI-System verwenden, welche die Zulassung ausländischer Studenten prüft. Kann man hier ein KI-System ohne Weiteres einsetzen oder ist eine vorherige Genehmigung notwendig? Welcher Risikostufe unterliegt so ein KI-System?
 	
 Der Einsatz eines KI-Systems im Bildungsbereich, der die Feststellung des Zugangs, der Zulassung oder zur Zuweisung von natürlichen Personen zu Bildungseinrichtungen kontrollieren soll, ist als 
 Hochrisiko-KI-System einzustufen. [1],[3], [4] Als Betreiber eines solchen KI-Systems müssen sie bestimmte Anforderungen nach dem AI-Act erfüllen. [5]
@@ -191,8 +190,7 @@ Hochrisiko-KI-System einzustufen. [1],[3], [4] Als Betreiber eines solchen KI-Sy
 [5] Art 8 ff AIA
 
 
-# 19. Eine FH möchte mit Hilfe eines KI-Systems die Lernerfolge der Studenten aufzeichnen um am Ende des Studienjahres den Studenten zu einem passenden Praktikumsplatz für das kommende Studienjahr zuzuordnen. Ist ein solches KI-System genehmigungspflichtig? 
-	 Welcher Risikostufe unterliegt ein solches System?
+# 19. Eine FH möchte mit Hilfe eines KI-Systems die Lernerfolge der Studenten aufzeichnen um am Ende des Studienjahres den Studenten zu einem passenden Praktikumsplatz für das kommende Studienjahr zuzuordnen. Ist ein solches KI-System genehmigungspflichtig? Welcher Risikostufe unterliegt ein solches System?
 
 Der Einsatz eines KI-Systems im Bildungsbereich, welches der Auswertung von Lernergebnissen von natürlichen Personen in Bildungseinrichtungen dienen soll, ist als 
 Hochrisiko-KI-System einzustufen. [1],[2],[4] Als Betreiber eines solchen KI-Systems müssen sie bestimmte Anforderungen nach dem AI-Act erfüllen. [3][5]
@@ -236,8 +234,7 @@ die Kriterien für ein KI-Modell mit allgemeinem Verwendungszweck mit systemisch
 
 # 23. Ich bin ein Kleinunternehmer und hätte gerne Zugang zu den Reallaboren. Was muss ich tun um Zugang zu diesen zu bekommen bzw bin ich überhaupt berechtigt Zugang zu einem Reallabor zu erhalten?
 
-Österreich ist verpflichtet zumindest ein Reallabor einzurichten. [1] [2] Klein- und Mittelunternehmen sowie Start-Ups die ihren Sitz oder eine Zweigniederlassung in Österreich haben, 
-sind berechtigt (soweit sie die Auswahlkriterien und Voraussetzungen erfüllen) vorrangigen Zugang zu Reallabore zu erhalten. 
+Österreich ist verpflichtet zumindest ein Reallabor einzurichten. [1] [2] Klein- und Mittelunternehmen sowie Start-Ups die ihren Sitz oder eine Zweigniederlassung in Österreich haben, sind berechtigt (soweit sie die Auswahlkriterien und Voraussetzungen erfüllen) vorrangigen Zugang zu Reallabore zu erhalten. 
 
 [1] Art 57 AIA
 [2] ErwG 138, 139, 140
