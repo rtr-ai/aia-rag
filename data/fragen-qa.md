@@ -4,8 +4,8 @@
 
 ChatGPT wird als KI-System im Sinne des AI Acts einzustufen sein [1].  
 Da Sie als Unternehmen das KI-System nicht selbst entwickeln, sondern dieses im Rahmen der beruflichen Tätigkeit in eigener Verantwortung einsetzen, wird Ihr Unternehmen die Rolle eines Betreibers einnehmen [2, 3]. 
-[1] Art 3 Z 1 AI Act
-[2] Art 3 Z 3 AI Act
+[1] Art 3 Z 1 AI Act (Akteure)
+[2] Art 3 Z 3 AI Act (Akteure)
 [3] KI-Servicestelle: Akteure
 
 # 2. Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?
@@ -36,7 +36,7 @@ KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen
 werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingesetzt werden sollen, zu berücksichtigen. [1],[2],[3],[4]
 	
 [1] Art 4 AIA
-[2] Art 3 AIA
+[2] Art 3 Z 1 AIA (Definition KI-System)
 [3] KI-Servicestelle: KI-Kompetenz
 [4] KI-Servicestelle: Risikostufen
 
@@ -93,9 +93,9 @@ Unter Inbetriebnahme fällt auch die Bereitstellung eines KI-Systems in der Unio
 Ein Unternehmen, das ihr eigenes KI-System entwickelt und selbst verwendet gilt auch als Betreiber. [3]
 Es sind daher hier sowohl die zu erfüllenden Pflichten eines Anbieters als auch eines Betreibers zu beachten. 
 
-[1] Art 3 Z 4 AIA
-[2] Art 3 Z 11 AIA
-[3] Art 3 Z 4 AIA
+[1] Art 3 Z 3 AIA (Akteure)
+[2] Art 3 Z 11 AIA (Akteure)
+[3] Art 3 Z 4 AIA (Akteure)
 [4] Art 50 AIA
 [5] Art 51 AIA
 [6] KI-Servicestelle: FAQ "Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?"
@@ -120,7 +120,7 @@ werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingese
 Die zu setzenden Maßnahmen hängt davon ab, welches KI-Modell oder KI-System zum Einsatz kommt (Risikostufen) [4] Die Erstellung einer KI-Policy innerhalb eines Unternehmen wird daher jedenfalls empfohlen. 
 	
 [1] Art 4 AIA
-[2] Art 3 Z 56 AIA
+[2] Art 3 Z 56 AIA (KI-Kompetenz)
 [3] KI-Servicestelle: KI-Kompetenz
 [4] KI-Servicestelle: Risikostufen
 [5] ErwG 20
@@ -139,7 +139,7 @@ Ein Ermotiongserkennungssystem ist ein KI-System, das dem Zweck dient, Emotionen
 auf der Grundlage ihrer biometrischen Daten festzustellen oder daraus abzuleiten. [1],[3]
 Der Einsatz von KI-Systemen zur zur Ableitung von Emotionen einer natürlichen Person am Arbeitsplatz ist verboten. [2],[4]
 
-[1] Art 3 Z 39 AIA
+[1] Art 3 Z 39 AIA (Biometrie)
 [2] Art 5 AIA
 [3] ErwG 18
 [4] ErwG 44
@@ -150,14 +150,13 @@ Der Einsatz von KI-Systemen zur zur Ableitung von Emotionen einer natürlichen P
 Ein KI-System stellt ein Hochrisiko-KI-System dar, wenn es im Bereich der kritischen Infrastruktur als Sicherheitsbauteil eines im Anhang I des AI Acts genannten Produkts dienen soll oder das verwendete KI-System selbst im Anhang III des AI Acts genannt wird . 
 
 [1] Art 6 AIA
-[2] Art 3 Z 14 AIA
+[2] Art 3 Z 14 AIA (Sicherheitsbauteil)
 [3] ErwG 55 AIA
 [4] KI-Servicestelle: FAQ "Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? Was ist ein Sicherheitsbauteil?"
 [5] Anhang II
 [6] Anhang III
 
-# 16. Ich bin ein Versicherungsmakler und berechne mit Hilfe eines gekauften KI-Systems die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?
-	  Treffen mich besondere Verpflichtungen? Welcher Risikostufe sind derartige KI-Systeme zuzuordnen?
+# 16. Ich bin ein Versicherungsmakler und berechne mit Hilfe eines gekauften KI-Systems die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?Treffen mich besondere Verpflichtungen? Welcher Risikostufe sind derartige KI-Systeme zuzuordnen?
 
 KI-Systeme, welche im Versicherungsbereich für die Durchführung einer Risikobewertung und Preisbildung im Bezug auf natürlichen Personen eingesetzt werden, sind als Hochrisiko-KI-Systeme
 einzustufen. [1],[2],[3] Als Betreiber eines solchen KI-Systems müssen sie bestimmte Anforderungen nach dem AI-Act erfüllen. [4]
@@ -167,17 +166,15 @@ einzustufen. [1],[2],[3] Als Betreiber eines solchen KI-Systems müssen sie best
 [3] KI-Servicestelle: Risikostufen
 [4] Art 8 ff AIA
 
-# 17. Ich möchte die biometrischen Daten meiner Kunden mit Hilfe eines KI-Systems sammeln um anhand dieser Daten 
-	  Rückschlüsse auf ihre Rasse, Religionszugehörigkeit und politische Einstellung ziehen zu können. Diese Daten möchte ich für 
-	  zielgerichtete Werbung benutzen. Handelt es sich dabei um eine nach dem AI-Act erlaubte KI-Nutzung?
+# 17. Ich möchte die biometrischen Daten meiner Kunden mit Hilfe eines KI-Systems sammeln um anhand dieser Daten Rückschlüsse auf ihre Rasse, Religionszugehörigkeit und politische Einstellung ziehen zu können. Diese Daten möchte ich für zielgerichtete Werbung benutzen. Handelt es sich dabei um eine nach dem AI-Act erlaubte KI-Nutzung?
 	   
 „Biometrische Daten“ sind mit speziellen technischen Verfahren gewonnene personenbezogene Daten zu den physischen,
 physiologischen oder verhaltenstypischen Merkmalen einer natürlichen Person, wie etwa Gesichtsbilder oder
 daktyloskopische Daten. [1] [2]
 Der Einsatz von KI-Systemen zur biometrischne Kategorisierung von natürlichen Personen ist verboten. [2][4]
 
-[1] Art 3 Z 34 AIA
-[2] Art 5 AIA
+[1] Art 3 Z 34 AIA (Biometrie)
+[2] Art 5 Abs 1 lit AIA (Biometrie)
 [3] ErwG 14
 [4] ErwG 30
 
@@ -189,7 +186,7 @@ Hochrisiko-KI-System einzustufen. [1],[3], [4] Als Betreiber eines solchen KI-Sy
 
 [1] Art 6 Abs 2 AIA
 [2] Anhang III Z 3 lit a
-[3] Art 3 Z 3 AIA
+[3] Art 3 Z 3 AIA (Akteure)
 [4] KI-Servicestelle: Risikostufen
 [5] Art 8 ff AIA
 
@@ -202,7 +199,7 @@ Hochrisiko-KI-System einzustufen. [1],[2],[4] Als Betreiber eines solchen KI-Sys
 	 
 [1] Art 6 Abs 2 AIA
 [2] Anhang III Z 3 lit a
-[3] Art 3 Z 3 AIA
+[3] Art 3 Z 3 AIA (Akteure)
 [4] KI-Servicestelle: Risikostufen
 [5] Art 8 ff AIA
 
@@ -220,7 +217,7 @@ Einrichtungen und sonstigen Stellen der Union vorbehalten.[2]
 
 Der Einsatz eines zur Ableitung von Emotionen einer natürlichen Person am Arbeitsplatz fähigen KI-Systems ist ausdrücklich verboten. 
 
-[1] Art 5 Abs 1 lit f AIA
+[1] Art 5 Abs 1 lit f AIA (Emotionen in Arbeit und Bildung)
 
 # 22. Ich habe ein KI-Modell entwickelt, dass Patienteninformationen sammelt und in eine Datenbank speichert. Dieses KI-System möchte ich Arztpraxen zur Verfügung stellen. Was muss ich beachten?
 
@@ -229,7 +226,7 @@ oder unentgeltlich ist als Anbieter einzustufen. [1][2] Anbieter von KI-Modellen
 die Kriterien für ein KI-Modell mit allgemeinem Verwendungszweck mit systemischem Risiko vorliegen. [3] Sollte das Vorliegen eines solchen KI-Modells bejaht werden, sind weitere Pflichten einzuhalten. [7]
 
 
-[1] Art 3 Z 3 AIA
+[1] Art 3 Z 3 AIA (Akteure)
 [2] Art 50 AIA
 [3] Art 53 AIA             
 [4] KI-Servicestelle: Akteure
@@ -253,8 +250,8 @@ Ein Empfehlungssytem ist als KI-Modell mit allgemeinem Verwendungszweck einzustu
 Betreiber von KI-Modellen mit allgemeinem Verwendungszweck müssen ab 2.8.2025 Transparenzpflichten erfüllen. [3][5] 
 
 
-[1] Art 3 Z 63 AIA
-[2] Art 3 Z 4 AIA
+[1] Art 3 Z 63 AIA (KI-Modell mit allg. Verwendungszweck)
+[2] Art 3 Z 4 AIA (Akteure)
 [3] Art 50 AIA
 [4] KI-Servicestelle: Akteure
 [5] KI-Servicestelle: Zeitplan
