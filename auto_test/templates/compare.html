@@ -6,35 +6,18 @@
 <body>
     <h1>Comparison for:</h1>
     <p>{{ question }}</p>
-
-    <h2>All Evaluated Chunks</h2>
-    <ul>
-        {% for chunk in evaluated %}
-        <li>{{ chunk }}</li>
-        {% endfor %}
-    </ul>
-
-    <h2>All True Chunks</h2>
-    <ul>
-        {% for chunk in true %}
-        <li>{{ chunk }}</li>
-        {% endfor %}
-    </ul>
-
     <h2>Matched Chunks</h2>
     <ul>
         {% for chunk in matched %}
         <li>{{ chunk }}</li>
         {% endfor %}
     </ul>
-
     <h2>Non-Matched Chunks (Evaluated but not True)</h2>
     <ul>
         {% for chunk in non_matched %}
         <li>{{ chunk }}</li>
         {% endfor %}
     </ul>
-
     <h2>Missing Chunks (True but not Evaluated)</h2>
     <ul>
         {% for chunk in missing %}
