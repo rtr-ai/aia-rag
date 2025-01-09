@@ -41,3 +41,6 @@ def compare(question):
 def normalize_string(s):
     """Normalize strings by removing special characters, extra spaces, and making them lowercase."""
     return " ".join(s.lower().split()).replace("„", "").replace("“", "")
+
+if __name__ == "__main__":
+    app.run(debug=True)
