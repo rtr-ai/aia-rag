@@ -24,6 +24,8 @@ STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "power")
 class PowerMeterService:
     def __init__(self):
         self.logger = get_logger(__name__)
+        if not os.path.exists(STORAGE_PATH):
+            os.makedirs(STORAGE_PATH) 
         self.storage_path = os.path.join(STORAGE_PATH, "index_power_consumption.json")
         
         try:
