@@ -17,12 +17,17 @@ def index():
 
 @app.route("/compare/<question>")
 def compare(question):
-    evaluated = set(evaluated_results.get(question, []))
-    true = set(true_results.get(question, []))
+    evaluated = evaluated_results.get(question, [])
+    true = true_results.get(question, [])
     
-    matched = evaluated & true
-    non_matched = evaluated - true
-    missing = true - evaluated
+    # Convert both lists to sets for easier comparison
+    evaluated_set = set(evaluated)
+    true_set = set(true)
+    
+    # Calculate matched, non-matched, and missing chunks
+    matched = evaluated_set.intersection(true_set)
+    non_matched = evaluated_set.difference(true_set)
+    missing = true_set.difference(evaluated_set)
     
     return render_template(
         "compare.html",
@@ -30,8 +35,8 @@ def compare(question):
         matched=list(matched),
         non_matched=list(non_matched),
         missing=list(missing),
-        evaluated=list(evaluated),
-        true=list(true),
+        evaluated=evaluated,
+        true=true,
     )
 
 if __name__ == "__main__":
