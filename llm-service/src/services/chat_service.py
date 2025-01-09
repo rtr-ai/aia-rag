@@ -40,7 +40,7 @@ class ChatService:
             LOGGER.debug(f"Initial index power usage: {index_power_usage}")
             data = {
             "type": "power_index",
-            "content": json.dumps(index_power_usage)
+            "content": index_power_usage
             }
 
             chunks = await self.index_service.query_index("main", query=request.prompt)
@@ -51,12 +51,12 @@ class ChatService:
 
             data = {
             "type": "power_prompt",
-            "content": json.dumps({
+            "content": {
             "cpu_kWh": (measurement.cpu_watts * measurement.duration_seconds / 3600 / 1000),
             "gpu_kWh": (measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000),
             "ram_kWh": (measurement.ram_watts * measurement.duration_seconds / 3600 / 1000),
             "total_kWh": (measurement.total_watts * measurement.duration_seconds / 3600 / 1000),
-            })
+            }
             }
             yield f"data: {data}\n\n"
             LOGGER.debug(f"Power consumption for generating prompt: {data}")
@@ -79,12 +79,12 @@ class ChatService:
             LOGGER.debug(f"Generating response: Median Power consumption over {measurement.duration_seconds:.2f} seconds:")
             data = {
             "type": "power_response",
-            "content": json.dumps({
+            "content": {
             "cpu_kWh": (median_measurement.cpu_watts * measurement.duration_seconds / 3600 / 1000),
             "gpu_kWh": (median_measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000),
             "ram_kWh": (median_measurement.ram_watts * measurement.duration_seconds / 3600 / 1000),
             "total_kWh": (median_measurement.total_watts * measurement.duration_seconds / 3600 / 1000),
-            })
+            }
             }
             yield f"data: {data}\n\n"
 
