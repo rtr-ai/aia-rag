@@ -6,23 +6,38 @@
 <body>
     <h1>Comparison for:</h1>
     <p>{{ question }}</p>
+
     <h2>Matched Chunks</h2>
+    {% if matched %}
     <ul>
         {% for chunk in matched %}
         <li>{{ chunk }}</li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No matched chunks.</p>
+    {% endif %}
+
     <h2>Non-Matched Chunks (Evaluated but not True)</h2>
+    {% if non_matched %}
     <ul>
         {% for chunk in non_matched %}
         <li>{{ chunk }}</li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No non-matched chunks.</p>
+    {% endif %}
+
     <h2>Missing Chunks (True but not Evaluated)</h2>
+    {% if missing %}
     <ul>
         {% for chunk in missing %}
         <li>{{ chunk }}</li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No missing chunks.</p>
+    {% endif %}
 </body>
 </html>
