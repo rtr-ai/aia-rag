@@ -20,7 +20,6 @@ class PowerMeterService:
     def __init__(self):
         self.logger = get_logger(__name__)
         
-        # Initialize GPU monitoring
         try:
             nvml.nvmlInit()
             self.gpu_available = True
@@ -29,7 +28,6 @@ class PowerMeterService:
             self.logger.warning(f"GPU monitoring not available: {e}")
             self.gpu_available = False
         
-        # State variables
         self._start_time: Optional[float] = None
         self._start_cpu_energy = None
         self._start_gpu_energy = None

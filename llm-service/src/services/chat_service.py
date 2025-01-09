@@ -10,6 +10,7 @@ from utils.logger import get_logger
 from models.chat_request import ChatRequest
 from models.sources import Source, SourceList
 from utils.prompt_utils import generate_prompt
+from services.power_meter_service import PowerMeterService
 
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 LOGGER = get_logger(__name__)
@@ -32,7 +33,16 @@ class ChatService:
             yield f"data: {data}\n\n"
             LOGGER.debug(f"Prompting: <{request.prompt}>")
             self.model = request.model
+            meter = PowerMeterService()
+            meter.start()
+            
             chunks = await self.index_service.query_index("main", query=request.prompt)
+            LOGGER.debug(f"Generating embeddings: Power consumption over {measurement.duration_seconds:.2f} seconds:")
+            measurement = meter.stop()
+            LOGGER.debug(f"CPU: {measurement.cpu_watts:.2f} W")
+            LOGGER.debug(f"GPU: {measurement.gpu_watts:.2f} W")
+            LOGGER.debug(f"RAM: {measurement.ram_watts:.2f} W")
+            LOGGER.debug(f"Total for generating embeddings: {measurement.total_watts:.2f} W")
             async for part in self.__yield_sources__(chunks):
                 yield part
 
@@ -41,11 +51,19 @@ class ChatService:
             yield f"data: {data}\n\n"
             LOGGER.debug("Prompting Ollama")
             response = ""
+            meter = PowerMeterService()
+            meter.start()
             async for part in self.prompt_ollama(prompt):
                 response += part
                 data = json.dumps({"content": part, "type": "assistant"})
                 yield f"data: {data}\n\n"
+            measurement = meter.stop()
             LOGGER.debug(f"Final response: {response}")
+            LOGGER.debug(f"Generate response: Power consumption over {measurement.duration_seconds:.2f} seconds:")
+            LOGGER.debug(f"CPU: {measurement.cpu_watts:.2f} W")
+            LOGGER.debug(f"GPU: {measurement.gpu_watts:.2f} W")
+            LOGGER.debug(f"RAM: {measurement.ram_watts:.2f} W")
+            LOGGER.debug(f"Total for generating response: {measurement.total_watts:.2f} W")
         except HTTPException as e:
             data = json.dumps({"content": f"{e.detail}", "type": "error"})
             yield f"data: {data}\n\n"

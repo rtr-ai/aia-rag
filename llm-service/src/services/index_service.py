@@ -154,7 +154,7 @@ class IndexService:
         LOGGER.debug(f"CPU: {measurement.cpu_watts:.2f} W")
         LOGGER.debug(f"GPU: {measurement.gpu_watts:.2f} W")
         LOGGER.debug(f"RAM: {measurement.ram_watts:.2f} W")
-        LOGGER.debug(f"Total: {measurement.total_watts:.2f} W")
+        LOGGER.debug(f"Total for generating initial index: {measurement.total_watts:.2f} W")
 
         vector_data = {
             "id": manual_index.id,
