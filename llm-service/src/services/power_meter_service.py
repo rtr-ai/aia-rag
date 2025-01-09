@@ -37,7 +37,7 @@ class PowerMeterService:
         
         # RAM power constants (based on DDR4 average consumption)
         self.RAM_POWER_FACTOR = 0.375  # Watts per GB
-        
+
     def _get_cpu_energy(self) -> float:
         """Read CPU energy consumption from RAPL"""
         try:
@@ -45,8 +45,13 @@ class PowerMeterService:
             socket_count = 0
             while True:
                 try:
-                    with open(f'/sys/class/powercap/intel-rapl/intel-rapl:{socket_count}/energy_uj', 'r') as f:
+                    with open(f'/sys/class/powercap/intel-rapl:{socket_count}/energy_uj', 'r') as f:
                         total_energy += int(f.read())
+                    try:
+                        with open(f'/sys/class/powercap/intel-rapl:{socket_count}:0/energy_uj', 'r') as f:
+                            total_energy += int(f.read())
+                    except FileNotFoundError:
+                        pass
                     socket_count += 1
                 except FileNotFoundError:
                     break
