@@ -16,7 +16,6 @@ def index():
     return render_template("index.html", questions=questions)
 
 @app.route("/compare/<question>")
-@app.route("/compare/<question>")
 def compare(question):
     # Get evaluated and true results for the question
     evaluated = evaluated_results.get(question, [])
