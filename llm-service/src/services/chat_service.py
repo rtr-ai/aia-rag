@@ -43,6 +43,7 @@ class ChatService:
             "content": index_power_usage
             }
 
+            yield f"data: {json.dumps(data)}\n\n"
             chunks = await self.index_service.query_index("main", query=request.prompt)
             measurement = meter.stop()
        
@@ -58,7 +59,7 @@ class ChatService:
             "total_kWh": (measurement.total_watts * measurement.duration_seconds / 3600 / 1000),
             }
             }
-            yield f"data: {data}\n\n"
+            yield f"data: {json.dumps(data)}\n\n"
             LOGGER.debug(f"Power consumption for generating prompt: {data}")
 
             prompt = generate_prompt(prompt=request.prompt, sources=chunks)
@@ -86,7 +87,7 @@ class ChatService:
             "total_kWh": (median_measurement.total_watts * measurement.duration_seconds / 3600 / 1000),
             }
             }
-            yield f"data: {data}\n\n"
+            yield f"data: {json.dumps(data)}\n\n"
 
         except HTTPException as e:
             data = json.dumps({"content": f"{e.detail}", "type": "error"})
