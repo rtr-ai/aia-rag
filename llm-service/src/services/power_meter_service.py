@@ -1,3 +1,4 @@
+import statistics
 import time
 import psutil
 import pynvml as nvml
@@ -35,6 +36,26 @@ class PowerMeterService:
         
         # RAM power constants (based on DDR4 average consumption)
         self.RAM_POWER_FACTOR = 0.375  # Watts per GB
+
+    
+    def sample_power(self) -> PowerMeasurement:
+        current_cpu_energy = self._get_cpu_energy()
+        current_gpu_energy = self._get_gpu_energy()
+        current_ram_usage = self._get_ram_usage()
+
+        # Calculate watts at this point
+        cpu_watts = max(0, (current_cpu_energy - self._start_cpu_energy)) / (time.time() - self._start_time)
+        gpu_watts = max(0, (current_gpu_energy - self._start_gpu_energy)) / (time.time() - self._start_time)
+        avg_ram_usage = (self._start_ram_usage + current_ram_usage) / 2
+        ram_watts = avg_ram_usage * self.RAM_POWER_FACTOR
+
+        return PowerMeasurement(cpu_watts, gpu_watts, ram_watts, 0)  # Duration can be 0 for snapshot
+    
+    def get_median_power(self, measurements: list) -> PowerMeasurement:
+        median_cpu = statistics.median([m.cpu_watts for m in measurements])
+        median_gpu = statistics.median([m.gpu_watts for m in measurements])
+        median_ram = statistics.median([m.ram_watts for m in measurements])
+        return PowerMeasurement(median_cpu, median_gpu, median_ram, 0)
 
     def _get_cpu_energy(self) -> float:
         """Read CPU energy consumption from RAPL"""

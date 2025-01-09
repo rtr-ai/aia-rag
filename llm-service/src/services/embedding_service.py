@@ -2,6 +2,7 @@ import os
 from typing import List
 from ollama import AsyncClient
 from utils.logger import get_logger
+from services.power_meter_service import PowerMeterService
 
 DEFAULT_MODEL = os.getenv("EMBEDDING_MODELS", "bge-m3").split(",")[0]
 LOGGER = get_logger(__name__)
@@ -21,6 +22,9 @@ class EmbeddingService:
         return response["embeddings"]
 
     async def generate_embeddings_batch(self, input: List[str], batch_size: int = 10) -> dict:
+        meter = PowerMeterService()
+        meter.start()
+        power_samples = []
         passage_prefix = ""
         
         if "multilingual-e5" in DEFAULT_MODEL:
@@ -29,8 +33,15 @@ class EmbeddingService:
         batches = [prefixed_input[i:i + batch_size] for i in range(0, len(prefixed_input), batch_size)]
         all_embeddings = []
         for index, batch in enumerate(batches):
+            power_samples.append(meter.sample_power())
             LOGGER.debug(f"Processing embeddings batch <{index+1}> of <{len(batches)}>")
             response = await self.client.embed(model=DEFAULT_MODEL, input=batch)
             all_embeddings.extend(response["embeddings"])
-            
+        median_measurement = meter.get_median_power(power_samples)
+        meter.stop()
+        LOGGER.debug(f"Generatinginitial index: Power consumption over {median_measurement.duration_seconds:.2f} seconds:")
+        LOGGER.debug(f"CPU: {median_measurement.cpu_watts:.2f} W")
+        LOGGER.debug(f"GPU: {median_measurement.gpu_watts:.2f} W")
+        LOGGER.debug(f"RAM: {median_measurement.ram_watts:.2f} W")
+        LOGGER.debug(f"Total for generating response: {median_measurement.total_watts:.2f} W")
         return all_embeddings

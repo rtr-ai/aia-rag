@@ -5,7 +5,6 @@ from fastapi import HTTPException
 import numpy as np
 from services.embedding_service import EmbeddingService
 from services.tokenizer_service import TokenizerService
-from services.power_meter_service import PowerMeterService
 from models.manual_index import ChunkNode, ManualIndex
 from utils.logger import get_logger
 from models.sources import RelevantChunk, Source
@@ -142,20 +141,9 @@ class IndexService:
         ]
 
         LOGGER.debug(f"Generating embedding for <{len(chunk_nodes)}> chunks")
-
-        meter = PowerMeterService()
-        meter.start()
         embeddings = await self.embedding_service.generate_embeddings_batch(
             [chunk.content for chunk in chunk_nodes]
         )
-        measurement = meter.stop()
-            
-        LOGGER.debug(f"Power consumption over {measurement.duration_seconds:.2f} seconds:")
-        LOGGER.debug(f"CPU: {measurement.cpu_watts:.2f} W")
-        LOGGER.debug(f"GPU: {measurement.gpu_watts:.2f} W")
-        LOGGER.debug(f"RAM: {measurement.ram_watts:.2f} W")
-        LOGGER.debug(f"Total for generating initial index: {measurement.total_watts:.2f} W")
-
         vector_data = {
             "id": manual_index.id,
             "creation_date": manual_index.creation_date,
