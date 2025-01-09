@@ -37,6 +37,7 @@ services:
       - ollama
 
   llm-service:
+      privileged: true
       build:
         context: ./llm-service
         dockerfile: Dockerfile      
