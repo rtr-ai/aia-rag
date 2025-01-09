@@ -114,6 +114,7 @@ export class AiabotComponent implements OnInit {
         if (!event.data || event.data.length == 0) {
           return;
         }
+        try{
         const data: LLMMessageParams = JSON.parse(event.data);
         switch (data.type) {
           case "sources":
@@ -132,6 +133,11 @@ export class AiabotComponent implements OnInit {
             console.log(`Event of type <${data.type}> is not supported yet.`);
             break;
         }
+      }
+      catch(e:any) {
+        console.error("Unable to parse JSON",e);
+        console.log("Received data", event.data);
+      }
       },
       onclose() {
         updateStep("done");
