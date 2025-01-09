@@ -52,7 +52,7 @@ class PowerMeterService:
         with open(self.storage_path, 'w') as f:
             json.dump(data, f, indent=4)
 
-    def get_power_consumption(self):
+    def get_initial_power_consumption(self):
         if os.path.exists(self.storage_path):
             with open(self.storage_path, 'r') as f:
                 data = json.load(f)
