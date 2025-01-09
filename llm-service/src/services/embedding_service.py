@@ -45,4 +45,5 @@ class EmbeddingService:
         LOGGER.debug(f"GPU: {(median_measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
         LOGGER.debug(f"RAM: {(median_measurement.ram_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
         LOGGER.debug(f"Total for generating response: {(median_measurement.total_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
+        meter.save_initial_power_consumption_data(median_measurement=median_measurement, measurement=measurement)
         return all_embeddings
