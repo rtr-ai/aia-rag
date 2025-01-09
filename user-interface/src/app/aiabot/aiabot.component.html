@@ -128,6 +128,35 @@
           <p [innerHTML]="displayAnswer"></p>
         </blockquote>
       </div>
+      <div  *ngIf="step == 'done'" class="table-container">
+        <table class="ui-table">
+          <thead>
+            <tr>
+              <th><i class="ui icon bolt"></i> Energieverbrauch</th>
+              <th>Prozessor (kWh)</th>
+              <th>Grafikkarte (kWh)</th>
+              <th>Arbeitspeicher (kWh)</th>
+              <th>Gesamt (kWh)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of powerData">
+              <td>{{ row.label }}</td>
+              <td>{{ row.cpu_kWh.toFixed(6).replace(".", ",") }}</td>
+              <td>{{ row.gpu_kWh.toFixed(6).replace(".", ",") }}</td>
+              <td>{{ row.ram_kWh.toFixed(6).replace(".", ",")  }}</td>
+              <td>{{ row.total_kWh.toFixed(6).replace(".", ",") }}</td>
+            </tr>
+            <tr>
+              <td>Gesampt (kWh)</td>
+              <td>{{ totalConsumption.cpu_kWh.toFixed(6).replace(".", ",") }}</td>
+              <td>{{ totalConsumption.gpu_kWh.toFixed(6).replace(".", ",") }}</td>
+              <td>{{ totalConsumption.ram_kWh.toFixed(6).replace(".", ",")  }}</td>
+              <td>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <form  *ngIf="step == 'done'" class="uk-form uk-padding-remove">
         <div *ngIf="feedbackFormVisible"  style="position: relative;" >
         <p>
