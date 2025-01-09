@@ -54,6 +54,15 @@ services:
         - TOP_N_CHUNKS=25
       volumes:
         - ./data/combined.json:/app/data/chunks.json
+        - /sys/class/powercap:/sys/class/powercap:ro
+        - /proc/stat:/proc/stat:ro
+        - /proc/cpuinfo:/proc/cpuinfo:ro
+        - /sys/devices/system/cpu:/sys/devices/system/cpu:ro
+      devices:
+        - /dev/nvidia0:/dev/nvidia0
+        - /dev/nvidiactl:/dev/nvidiactl
+        - /dev/nvidia-modeset:/dev/nvidia-modeset
+        - /dev/nvidia-uvm:/dev/nvidia-uvm
       networks:
         - ollama-docker
       depends_on:

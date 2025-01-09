@@ -5,3 +5,5 @@ httpx
 ollama
 numpy
 tiktoken
+psutil
+py3nvml
