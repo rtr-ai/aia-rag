@@ -67,6 +67,14 @@ services:
         - ollama-docker
       depends_on:
         - ollama
+      deploy:
+        resources:
+          reservations:
+            devices:
+              - driver: nvidia
+                count: 1
+                capabilities: [gpu]
+
 
   user-interface:
     build:
