@@ -37,8 +37,8 @@ class ChatService:
             meter.start()
             
             chunks = await self.index_service.query_index("main", query=request.prompt)
-            LOGGER.debug(f"Generating embeddings: Power consumption over {measurement.duration_seconds:.2f} seconds:")
             measurement = meter.stop()
+            LOGGER.debug(f"Generating embeddings: Power consumption over {measurement.duration_seconds:.2f} seconds:")
             LOGGER.debug(f"CPU: {measurement.cpu_watts:.2f} W")
             LOGGER.debug(f"GPU: {measurement.gpu_watts:.2f} W")
             LOGGER.debug(f"RAM: {measurement.ram_watts:.2f} W")
@@ -51,7 +51,6 @@ class ChatService:
             yield f"data: {data}\n\n"
             LOGGER.debug("Prompting Ollama")
             response = ""
-            meter = PowerMeterService()
             meter.start()
             async for part in self.prompt_ollama(prompt):
                 response += part
