@@ -18,9 +18,12 @@ def index():
 @app.route("/compare/<question>")
 def compare(question):
     question_text = question.replace("_", " ")  # Handle spaces in URLs if necessary
-    evaluated = set(evaluated_results.get(question_text, []))
-    true = set(true_results.get(question_text, []))
     
+    # Load the evaluated and true JSONs
+    evaluated = set([normalize_string(chunk) for chunk in evaluated_results.get(question_text, [])])
+    true = set([normalize_string(chunk) for chunk in true_results.get(question_text, [])])
+    
+    # Calculate matched, non-matched, and missing chunks
     matched = evaluated & true
     non_matched = evaluated - true
     missing = true - evaluated
@@ -35,5 +38,6 @@ def compare(question):
         true=list(true),
     )
 
-if __name__ == "__main__":
-    app.run(debug=True)
+def normalize_string(s):
+    """Normalize strings by removing special characters, extra spaces, and making them lowercase."""
+    return " ".join(s.lower().split()).replace("„", "").replace("“", "")
