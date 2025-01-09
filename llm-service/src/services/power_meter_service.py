@@ -1,6 +1,6 @@
 import time
 import psutil
-import py3nvml.py3nvml as nvml
+import pynvml as nvml
 from dataclasses import dataclass
 from typing import Optional
 from utils.logger import get_logger
@@ -42,7 +42,6 @@ class PowerMeterService:
         """Read CPU energy consumption from RAPL"""
         try:
             total_energy = 0
-            # Read from all CPU sockets
             socket_count = 0
             while True:
                 try:
@@ -54,7 +53,6 @@ class PowerMeterService:
             return total_energy / 1_000_000  # Convert microjoules to joules
         except Exception as e:
             self.logger.warning(f"Failed to read CPU energy: {e}")
-            # Fallback to CPU utilization as a proxy
             return psutil.cpu_percent() * psutil.cpu_count() * 0.5  # Rough estimation
             
     def _get_gpu_energy(self) -> float:
@@ -63,10 +61,9 @@ class PowerMeterService:
             return 0.0
         try:
             return nvml.nvmlDeviceGetTotalEnergyConsumption(self.handle) / 1000.0  # Convert mJ to joules
-        except Exception as e:
+        except nvml.NVMLError as e:
             self.logger.warning(f"Failed to read GPU energy: {e}")
             try:
-                # Fallback to current power reading
                 return nvml.nvmlDeviceGetPowerUsage(self.handle) / 1000.0  # Convert mW to W
             except:
                 return 0.0
@@ -97,11 +94,9 @@ class PowerMeterService:
         end_gpu_energy = self._get_gpu_energy()
         end_ram_usage = self._get_ram_usage()
         
-        # Calculate average power consumption
         cpu_watts = max(0, (end_cpu_energy - self._start_cpu_energy)) / duration
         gpu_watts = max(0, (end_gpu_energy - self._start_gpu_energy)) / duration
         
-        # Calculate average RAM power
         avg_ram_usage = (self._start_ram_usage + end_ram_usage) / 2
         ram_watts = avg_ram_usage * self.RAM_POWER_FACTOR
         
