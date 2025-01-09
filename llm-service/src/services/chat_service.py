@@ -42,10 +42,10 @@ class ChatService:
             async for part in self.__yield_sources__(chunks):
                 yield part
             LOGGER.debug(f"Generating prompt: Power consumption over {measurement.duration_seconds:.2f} seconds:")
-            LOGGER.debug(f"CPU: {(measurement.cpu_watts * measurement.duration_seconds / 3600 / 1000):.4f} kWh")
-            LOGGER.debug(f"GPU: {(measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000):.4f} kWh")
-            LOGGER.debug(f"RAM: {(measurement.ram_watts * measurement.duration_seconds / 3600 / 1000):.4f} kWh")
-            LOGGER.debug(f"Total for generating response: {(measurement.total_watts * measurement.duration_seconds / 3600 / 1000):.4f} kWh")
+            LOGGER.debug(f"CPU: {(measurement.cpu_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
+            LOGGER.debug(f"GPU: {(measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
+            LOGGER.debug(f"RAM: {(measurement.ram_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
+            LOGGER.debug(f"Total for generating response: {(measurement.total_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
 
             prompt = generate_prompt(prompt=request.prompt, sources=chunks)
             data = json.dumps({"content": prompt, "type": "user"})
@@ -63,10 +63,10 @@ class ChatService:
             median_measurement = meter.get_median_power(power_samples)
             LOGGER.debug(f"Final response: {response}")
             LOGGER.debug(f"Generating response: Median Power consumption over {measurement.duration_seconds:.2f} seconds:")
-            LOGGER.debug(f"CPU: {(median_measurement.cpu_watts * measurement.duration_seconds / 3600 / 1000):.4f} kWh")
-            LOGGER.debug(f"GPU: {(median_measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000):.4f} kWh")
-            LOGGER.debug(f"RAM: {(median_measurement.ram_watts * measurement.duration_seconds / 3600 / 1000):.4f} kWh")
-            LOGGER.debug(f"Total for generating response: {(median_measurement.total_watts * measurement.duration_seconds / 3600 / 1000):.4f} kWh")
+            LOGGER.debug(f"CPU: {(median_measurement.cpu_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
+            LOGGER.debug(f"GPU: {(median_measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
+            LOGGER.debug(f"RAM: {(median_measurement.ram_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
+            LOGGER.debug(f"Total for generating response: {(median_measurement.total_watts * measurement.duration_seconds / 3600 / 1000):.8f} kWh")
 
         except HTTPException as e:
             data = json.dumps({"content": f"{e.detail}", "type": "error"})
