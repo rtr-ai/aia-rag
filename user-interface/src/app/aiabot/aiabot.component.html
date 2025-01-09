@@ -148,11 +148,11 @@
               <td>{{ row.total_kWh.toFixed(6).replace(".", ",") }}</td>
             </tr>
             <tr>
-              <td>Gesampt (kWh)</td>
-              <td>{{ totalConsumption.cpu_kWh.toFixed(6).replace(".", ",") }}</td>
-              <td>{{ totalConsumption.gpu_kWh.toFixed(6).replace(".", ",") }}</td>
-              <td>{{ totalConsumption.ram_kWh.toFixed(6).replace(".", ",")  }}</td>
-              <td>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }}</td>
+              <td><strong>Gesamt (kWh)</strong></td>
+              <td><strong>{{ totalConsumption.cpu_kWh.toFixed(6).replace(".", ",") }}</strong></td>
+              <td><strong>{{ totalConsumption.gpu_kWh.toFixed(6).replace(".", ",") }}</strong></td>
+              <td><strong>{{ totalConsumption.ram_kWh.toFixed(6).replace(".", ",")  }}</strong></td>
+              <td><strong>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }}</strong></td>
             </tr>
           </tbody>
         </table>
