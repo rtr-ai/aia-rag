@@ -28,7 +28,7 @@ export class AiabotComponent implements OnInit {
   feedbackFormVisible : boolean = false;
   feedbackText:string = "";
   powerData: PowerDataDisplayed[] = [];
-  totalConsumption: PowerDataDisplayed = { name:"total", label:"Gesamter Energieverbrauch", cpu_kWh: 0, gpu_kWh: 0, ram_kWh: 0, total_kWh: 0 };
+  totalConsumption: PowerDataDisplayed = { name:"total", label:"Gesamter Energieverbrauch", cpu_kWh: 0, gpu_kWh: 0, ram_kWh: 0, total_kWh: 0, duration:0 };
 
   constructor(private zone: NgZone) {}
   ngOnInit(): void {}
@@ -68,6 +68,7 @@ export class AiabotComponent implements OnInit {
         this.totalConsumption.gpu_kWh += item.gpu_kWh;
         this.totalConsumption.ram_kWh += item.ram_kWh;
         this.totalConsumption.total_kWh += item.total_kWh;
+        this.totalConsumption.duration += item.duration;
       });
     }
     const calculateTotalTokens = () => {
@@ -115,7 +116,7 @@ export class AiabotComponent implements OnInit {
     };
     this.displayAnswer = "";
     this.powerData = [];
-    this.totalConsumption =  { name:"total", label:"Gesamter Energieverbrauch", cpu_kWh: 0, gpu_kWh: 0, ram_kWh: 0, total_kWh: 0 };;
+    this.totalConsumption =  { name:"total", label:"Gesamter Energieverbrauch", cpu_kWh: 0, gpu_kWh: 0, ram_kWh: 0, total_kWh: 0, duration:0 };;
 
     await fetchEventSource(`${server}/chat`, {
       signal: signal,

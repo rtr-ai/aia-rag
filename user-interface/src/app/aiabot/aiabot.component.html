@@ -129,30 +129,36 @@
         </blockquote>
       </div>
       <div  *ngIf="step == 'done'" class="table-container">
-        <table class="ui-table">
+        <table class="uk-table uk-table-hover">
           <thead>
             <tr>
-              <th><i class="ui icon bolt"></i> Energieverbrauch</th>
-              <th>Prozessor (kWh)</th>
-              <th>Grafikkarte (kWh)</th>
-              <th>Arbeitspeicher (kWh)</th>
-              <th>Gesamt (kWh)</th>
+              <th><span uk-icon="bolt"></span> Energieverbrauch</th>
+              <th>Prozessor</th>
+              <th>Grafikkarte</th>
+              <th>Arbeitspeicher</th>
+              <th>Gesamt</th>
+              <th>Dauer</th>
+
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let row of powerData">
               <td>{{ row.label }}</td>
-              <td>{{ row.cpu_kWh.toFixed(6).replace(".", ",") }}</td>
-              <td>{{ row.gpu_kWh.toFixed(6).replace(".", ",") }}</td>
-              <td>{{ row.ram_kWh.toFixed(6).replace(".", ",")  }}</td>
-              <td>{{ row.total_kWh.toFixed(6).replace(".", ",") }}</td>
+              <td>{{ row.cpu_kWh.toFixed(6).replace(".", ",") }} kWh</td>
+              <td>{{ row.gpu_kWh.toFixed(6).replace(".", ",") }} kWh</td>
+              <td>{{ row.ram_kWh.toFixed(6).replace(".", ",")  }} </td>
+              <td>{{ row.total_kWh.toFixed(6).replace(".", ",") }} kWh</td>
+              <td>{{ row.duration.toFixed(3).replace(".", ",") }} Sek.</td>
+
             </tr>
             <tr>
-              <td><strong>Gesamt (kWh)</strong></td>
-              <td><strong>{{ totalConsumption.cpu_kWh.toFixed(6).replace(".", ",") }}</strong></td>
-              <td><strong>{{ totalConsumption.gpu_kWh.toFixed(6).replace(".", ",") }}</strong></td>
-              <td><strong>{{ totalConsumption.ram_kWh.toFixed(6).replace(".", ",")  }}</strong></td>
-              <td><strong>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }}</strong></td>
+              <td><strong>Gesamt</strong></td>
+              <td><strong>{{ totalConsumption.cpu_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
+              <td><strong>{{ totalConsumption.gpu_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
+              <td><strong>{{ totalConsumption.ram_kWh.toFixed(6).replace(".", ",")  }} kWh</strong></td>
+              <td><strong>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
+              <td><strong>{{ totalConsumption.duration.toFixed(6).replace(".", ",") }} Sek.</strong></td>
+
             </tr>
           </tbody>
         </table>

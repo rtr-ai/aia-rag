@@ -24,6 +24,7 @@ export interface PowerUsageData {
   gpu_kWh: number;
   ram_kWh: number;
   total_kWh: number;
+  duration:number;
 }
 
 export interface PowerDataDisplayed {
@@ -31,6 +32,7 @@ export interface PowerDataDisplayed {
   gpu_kWh: number;
   ram_kWh: number;
   total_kWh: number;
+  duration:number;
   label:string;
   name:string;
 }

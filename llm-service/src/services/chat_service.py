@@ -57,6 +57,7 @@ class ChatService:
             "gpu_kWh": (measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000),
             "ram_kWh": (measurement.ram_watts * measurement.duration_seconds / 3600 / 1000),
             "total_kWh": (measurement.total_watts * measurement.duration_seconds / 3600 / 1000),
+            "duration": measurement.duration_seconds
             }
             }
             yield f"data: {json.dumps(data)}\n\n"
@@ -85,6 +86,7 @@ class ChatService:
             "gpu_kWh": (median_measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000),
             "ram_kWh": (median_measurement.ram_watts * measurement.duration_seconds / 3600 / 1000),
             "total_kWh": (median_measurement.total_watts * measurement.duration_seconds / 3600 / 1000),
+            "duration": measurement.duration_seconds
             }
             }
             yield f"data: {json.dumps(data)}\n\n"

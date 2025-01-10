@@ -50,6 +50,7 @@ class PowerMeterService:
             "gpu_kWh": (median_measurement.gpu_watts * measurement.duration_seconds / 3600 / 1000),
             "ram_kWh": (median_measurement.ram_watts * measurement.duration_seconds / 3600 / 1000),
             "total_kWh": (median_measurement.total_watts * measurement.duration_seconds / 3600 / 1000),
+            "duration": measurement.duration_seconds
         }
         with open(self.storage_path, 'w') as f:
             json.dump(data, f, indent=4)
