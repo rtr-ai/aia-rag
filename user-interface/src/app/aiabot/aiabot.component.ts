@@ -51,10 +51,10 @@ export class AiabotComponent implements OnInit {
       let name = '';
       switch (eventType) {
         case 'power_index':
-          name = 'Indexierung von Relevanten Daten (einmalig pro Serverstart)';
+          name = 'Indexierung von relevanten Daten (einmalig pro Serverstart)';
           break;
         case 'power_prompt':
-          name = 'Erstellung des Prompts';
+          name = 'Erstellung des Prompts („Retrieve” und „Augment”)';
           break;
         case 'power_response':
           name = 'Generierung der Antwort';
