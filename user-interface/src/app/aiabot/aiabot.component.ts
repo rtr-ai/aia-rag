@@ -57,7 +57,7 @@ export class AiabotComponent implements OnInit {
           name = 'Erstellung des Prompts („Retrieve” und „Augment”)';
           break;
         case 'power_response':
-          name = 'Generierung der Antwort';
+          name = 'Generierung der Antwort („Generate”)';
           break;
       }
       this.powerData.push({label:name, name:eventType, ...data});
