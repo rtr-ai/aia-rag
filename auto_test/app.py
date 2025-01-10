@@ -23,6 +23,9 @@ def compare(question):
     matched = evaluated & true
     non_matched = evaluated - true
     missing = true - evaluated
+    print("Matched:", matched)  # Debugging print
+    print("Non-Matched:", non_matched)  # Debugging print
+    print("Missing:", missing)  # Debugging print
     
     return render_template(
         "compare.html",

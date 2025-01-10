@@ -8,7 +8,7 @@
     <p>{{ question }}</p>
 
     <h2>Matched Chunks</h2>
-    {% if matched %}
+    {% if matched and matched|length > 0 %}
     <ul>
         {% for chunk in matched %}
         <li>{{ chunk }}</li>
