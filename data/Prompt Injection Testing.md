@@ -1,4 +1,4 @@
-Verschiedene Scenarios wurden jeweils einmal getestet.  
+Verschiedene Scenarios wurden jeweils einmal getestet (Commit 7f30a95).  
 Die Scenarios stammen von _https://academy.test.io/en/articles/9353170-llm-testing-prompt-injection (Letzter Zugriff am 7.1.2025)_ und wurden ggfs. den Rahmenbedingungen des KI-Servicestelle AI Chatbots entsprechend abgeändert.  
 
 # [Injection Scenario ](#injection-scenario)  
