@@ -144,6 +144,7 @@ class IndexService:
         embeddings = await self.embedding_service.generate_embeddings_batch(
             [chunk.content for chunk in chunk_nodes]
         )
+        valid_chunk_ids = {chunk.id for chunk in chunk_nodes}
         vector_data = {
             "id": manual_index.id,
             "creation_date": manual_index.creation_date,
@@ -155,7 +156,7 @@ class IndexService:
                     "keywords": chunk.keywords,
                     "content": chunk.content,
                     "negativeKeywords": chunk.negativeKeywords,
-                    "relevantChunksIds": chunk.relevantChunksIds,
+                    "relevantChunksIds":[cid for cid in chunk.relevantChunksIds if cid in valid_chunk_ids],
                     "parameters": chunk.parameters,
                     "vector": embedding,
                 }
