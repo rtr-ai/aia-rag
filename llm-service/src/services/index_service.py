@@ -137,7 +137,7 @@ class IndexService:
             raise ValueError(f"Index with ID {manual_index.id} already exists.")
 
         chunk_nodes = [
-            chunk for chunk in manual_index.chunks if isinstance(chunk, ChunkNode)
+            chunk for chunk in manual_index.chunks if isinstance(chunk, ChunkNode) and chunk.content.strip()
         ]
 
         LOGGER.debug(f"Generating embedding for <{len(chunk_nodes)}> chunks")
