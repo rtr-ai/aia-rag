@@ -7,7 +7,7 @@
     <h1>Questions</h1>
     <ul>
         {% for question in questions %}
-        <li><a href="/compare/{{ question }}">{{ question }}</a></li>
+        <li><a href="/compare/{{ question | urlencode }}">{{ question }}</a></li>
         {% endfor %}
     </ul>
 </body>
