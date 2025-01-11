@@ -1,9 +1,15 @@
 {
-    "Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein.": [
+    "Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen? Welche Rolle im AI Act nehme ich als Unternehmen ein.": [
         "Art 3 Z 1 AI Act (Akteure)",
         "Art 4",
         "Art 3 Z 3 AI Act (Akteure)",
         "KI-Servicestelle: Akteure"
         
-    ]
+    ],
+    "Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?":[
+    "Art 51 Abs 1 AI Act",
+    "Art 51 Abs 4 UA 2 AI Act",
+    "KI-Servicestelle: Transparenzpflichten",
+    "ErwG 22"
+]
 }
