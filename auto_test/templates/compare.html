@@ -7,37 +7,59 @@
     <h1>Comparison for:</h1>
     <p>{{ question }}</p>
 
-    <h2>Matched Chunks</h2>
-    {% if matched and matched|length > 0 %}
+    <h2>Matched Relevant Chunks</h2>
+    {% if matched_relevant and matched_relevant|length > 0 %}
     <ul>
-        {% for chunk in matched %}
+        {% for chunk in matched_relevant %}
         <li>{{ chunk }}</li>
         {% endfor %}
     </ul>
     {% else %}
-    <p>No matched chunks.</p>
+    <p>No matched relevant chunks.</p>
     {% endif %}
 
-    <h2>Non-Matched Chunks (Evaluated but not True)</h2>
-    {% if non_matched %}
+    <h2>Non-Matched Relevant Chunks (Evaluated but not True)</h2>
+    {% if non_matched_relevant and non_matched_relevant|length > 0 %}
     <ul>
-        {% for chunk in non_matched %}
+        {% for chunk in non_matched_relevant %}
         <li>{{ chunk }}</li>
         {% endfor %}
     </ul>
     {% else %}
-    <p>No non-matched chunks.</p>
+    <p>No non-matched relevant chunks.</p>
     {% endif %}
 
-    <h2>Missing Chunks (True but not Evaluated)</h2>
-    {% if missing %}
+    <h2>Missing Relevant Chunks (True but not Evaluated)</h2>
+    {% if missing_relevant and missing_relevant|length > 0 %}
     <ul>
-        {% for chunk in missing %}
+        {% for chunk in missing_relevant %}
         <li>{{ chunk }}</li>
         {% endfor %}
     </ul>
     {% else %}
-    <p>No missing chunks.</p>
+    <p>No missing relevant chunks.</p>
+    {% endif %}
+
+    <h2>Matched Articles</h2>
+    {% if matched_articles and matched_articles|length > 0 %}
+    <ul>
+        {% for article in matched_articles %}
+        <li>{{ article }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No matched articles.</p>
+    {% endif %}
+
+    <h2>Non-Matched Articles (Evaluated but not True)</h2>
+    {% if non_matched_articles and non_matched_articles|length > 0 %}
+    <ul>
+        {% for article in non_matched_articles %}
+        <li>{{ article }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No non-matched articles.</p>
     {% endif %}
 </body>
 </html>

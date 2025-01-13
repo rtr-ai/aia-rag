@@ -1,14 +1,12 @@
 {
     "Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen? Welche Rolle im AI Act nehme ich als Unternehmen ein.": 
-    ["KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
-    "Art 4",
-    "ErwG 20",
-    "ErwG 21"
-],
-"Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?":[
-    "Art 50 Abs 1 AI Act",
-    "Art 50 Abs 4 UA 2 AI Act",
-    "KI-Servicestelle: Transparenzpflichten",
-    "ErwG 21"
-]
+    [
+    {"articles":["KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?"]},
+    {"relevant": ["Art 4","ErwG 20","ErwG 21"]}
+    ],
+    "Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?":
+    [
+    {"articles":["KI-Servicestelle: Transparenzpflichten"]},
+    {"relevant": ["Art 50 Abs 1 AI Act","Art 50 Abs 4 UA 2 AI Act","ErwG 21"]}
+    ]
 }
