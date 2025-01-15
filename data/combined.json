@@ -492,7 +492,7 @@
     },
     {
       "id": "e419d565-51f0-41b6-92b6-c80be68c2956",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure,  KI-Wertschöpfungskette",
       "content": "### Übersicht: Die Akteure im AI Act\n\nDer AI Act sieht viele Rollen in der KI-Wertschöpfungskette vor. Die verschiedenen Akteure sind dabei keineswegs unbekannt, der Unionsgesetzgeber orientierte sich dabei in vielerlei Hinsicht an den EU-Produktrechtsnormen (siehe etwa die [Produktsicherheitsverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R0988 \"Link zur Produktsicherheitsverordnung\"), [Medizinprodukteverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32017R0745 \"Link zur Medizinprodukteverordnung\")).\n\nZu den Akteuren im AI Act zählen gemäß Art. 3 Ziffer 8:\n\n-   Anbieter („Provider“);\n-   Produkthersteller („Product Manufacturer“);\n-   Bevollmächtigter („Authorised Representative“);\n-   Einführer („Importer“);\n-   Händler („Distributor“);\n-   Betreiber („Deployer“).\n\nFerner kommen auch noch Nutzer und „betroffene Personen“ vor. Diese werden aber nicht als Akteure im Sinne des AI Act bezeichnet.",
       "keywords": [],
       "availableKeywords": [],
@@ -511,7 +511,7 @@
     },
     {
       "id": "0a3fb82e-b170-41b1-bce4-6271864f0212",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Inverkehrbringen",
       "content": "### Inverkehrbringen, Bereitstellen, Inbetriebnahme\n\nDie verschiedenen Akteure übernehmen verschiedene Tätigkeiten in der\nKI-Wertschöpfungskette. Unterschieden wird dabei in „Inverkehrbringen“,\n„Bereitstellen“ und der „Inbetriebnahme“, die im AI Act auch legaldefiniert\nwerden. Diese Begriffe sind nicht neu, kommen sie doch bereits im\nEU-Produktrecht vor.\n\nMit „Inverkehrbringen“ ist gemäß Art. 3 Ziffer 9 AIA „die erstmalige\nBereitstellung eines KI-Systems oder eines\n[GPAI-Modell](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-modelle.de.html\n\"Link zum Beitrag über KI-Modelle mit allgemeinem Verwendungszweck (GPAI)\") auf\ndem Unionsmarkt“ gemeint. Laut Definition erfasst das Inverkehrbringen zugleich\ndie „Bereitstellung auf dem Markt“, was wiederum „die entgeltliche oder\nunentgeltliche Bereitstellung eines KI-Systems oder eines KI-Modells mit\nallgemeinem Verwendungszweck zum Vertrieb oder zur Verwendung auf dem\nUnionsmarkt im Rahmen einer Geschäftstätigkeit“ bezeichnet (Art. 3 Ziffer 10\nAIA).\n\nDer Unterschied zwischen „Inverkehrbringen“ und „Bereitstellen“ liegt darin,\ndass beim Inverkehrbringen die Bereitstellung auf dem Markt erstmalig erfolgt.\nDas Inverkehrbringen übernimmt innerhalb der EU in der Regel der Hersteller des\nProdukts bzw. im Falle des KI-Systems/GPAI-Modell der Anbieter; bei Produkten\nbzw. KI-Systemen außerhalb der EU der Importeur. Ist die erstmalige\nBereitstellung erfolgt, wird die weitere Bereitstellung (umgangssprachlich als\n„Vertrieb“ bezeichnet) für gewöhnlich vom Händler übernommen, die typische\nTätigkeiten wie den Verkauf, die Lagerung, den Transport (etwa bei in physischen\nProdukten integrierte Hochrisiko-KI-Systeme), die Kundenbetreuung oder die\nWartung übernehmen.\n\nDiese Form der Lieferkette stellt vor allem den traditionellen Weg einer\nLieferkette dar, wo das Produkt vom Hersteller über den Importeur und\n(Zwischen-)Händler ihren Weg zum Endkunden findet. Mit dem Fernabsatz haben sich\nauch neue Vertriebsformen entwickelt. Anbieter und Händler aus Drittstaaten\nkönnen ihre Produkte durch Online-Schnittstellen am Unionsmarkt anbieten, was\nvor allem Anbieter auch das Ausklammern bestimmter Akteure (z. B. Händler)\nermöglicht. Gerade bei digitalen Produkten wie Software-Anwendungen, welche\ndurch einen simplen Download erworben werden können, spielt diese Form des\nAbsatzes eine bedeutsame Rolle.\n\nAuf die Veränderungen der Absatzformen hat auch der Unionsgesetzgeber in der\n[Marktüberwachungsverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32019R1020\n\"Link zur Marktüberwachungsverordnung\") (Erwägungsgründe 15) reagiert: Wird ein\nProdukt online oder über eine andere Form des Fernabsatzes angeboten, so sollte\ndas Produkt als auf dem Markt bereitgestellt gelten, wenn sich das\nVerkaufsangebot an Endnutzer in der Union richtet. Ob ein solches\nVerkaufsangebot an Endnutzer vorliegt, ist eine Einzelfallentscheidung und hat\nunter Berücksichtigung von Kriterien wie etwa die geografischen Gebiete, in die\ngeliefert werden kann, die für das Angebot oder für die Bestellung verfügbaren\nSprachen und die Zahlungsarten zu erfolgen. Die bloße Zugänglichkeit der Website\ndes Akteurs reicht für sich alleine nicht aus, eine Bereitstellung auf dem\nUnionsmarkt anzunehmen.\n\nMit „Inbetriebnahme“ wird gemäß Art. 3 Ziffer 11 AIA „die Bereitstellung eines\nKI-Systems durch den Anbieter in der Union zum Erstgebrauch direkt an den\nBetreiber oder zum Eigengebrauch entsprechend seiner Zweckbestimmung“\nbezeichnet. Mit „Zweckbestimmung“ wird kurzgefasst die Verwendung, für die ein\nKI-System laut Anbieter bestimmt oder propagiert wird (vgl. Art. 3 Ziffer 12\nAIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -523,7 +523,7 @@
     },
     {
       "id": "18cba04a-f269-4f84-b97c-fbbbe2ef300f",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Verpflichtungen allgemein",
       "content": "### Die einzelnen Akteure\n\nJe nachdem, um welchen Akteur und welches KI-System oder GPAI-Modell es sich handelt, sind unterschiedlich weitreichende Verpflichtungen einzuhalten. Es ist daher von fundamentaler Bedeutung, in den einzelnen Verpflichtungsadressaten zu unterscheiden. In bestimmten Situationen kann ein Akteur auch mehrere Rollen gleichzeitig übernehmen. Die folgenden Erläuterungen und die Grafik sollen einen Überblick geben.",
       "keywords": [],
       "availableKeywords": [],
@@ -535,7 +535,7 @@
     },
     {
       "id": "4353602b-f09f-41e8-b609-864a7ea1a448",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Anbieter",
       "content": "### Wer ist Anbieter?Laut Art. 3 Ziffer 3 AIA ist ein Anbieter\n\n> _eine natürliche oder juristische Person, Behörde, Einrichtung oder sonstige Stelle, die ein KI-System oder ein KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln lässt und es unter ihrem eigenen Namen oder ihrer Handelsmarke in Verkehr bringt oder das KI-System unter ihrem eigenen Namen oder ihrer Handelsmarke in Betrieb nimmt, sei es entgeltlich oder unentgeltlich._\n\nBeim Anbieter handelt es sich um jenes Glied in der KI-Wertschöpfungskette, das das KI-System oder GPAI-Modell entwickelt. Typischerweise handelt es sich dabei um Personen und Einrichtungen, die in den einzelnen Entwicklungsphasen – Datenvorbereitung, Modelltraining, Evaluierung und Optimierung – von KI-Systemen oder GPAI-Modellen beteiligt sind.\n\nDa die Entwicklung eines KI-Systems oder GPAI-Modells meist mehrere Berufsdisziplinen umfasst, arbeiten oft mehrere Fachleute wie Datenwissenschaftler, Ingenieure, Domänenexperten und Designer zusammen. Von einem Anbieter wird daher auch dann ausgegangen, wenn diese das KI-System oder ein GPAI-Modell entwickeln lässt (mit anderen Worten „in Auftrag gibt“), um es in der Folge selbst [in den Verkehr zu bringen](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html#heading__heading_Inverkehrbringen__Bereitstellen__InbetriebnahmeInverkehrbringen__Bereitstellen__Inbetriebnahme \"Sprung zu Wer ist der Einführer?\") oder das System unter dem eigenen Namen oder ihrer eigenen Marke – entgeltlich oder unentgeltlich [in Betrieb zu nehmen](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html#heading__heading_Inverkehrbringen__Bereitstellen__InbetriebnahmeInverkehrbringen__Bereitstellen__Inbetriebnahme \"Sprung zu Wer ist der Betreiber?\"). Anbieter können auch bestimmte Instrumente, Dienstleistungen, Komponenten oder Prozesse, wie z.B. Trainieren, Neutrainieren, Testen und Bewerten von Modellen, die Integration in Software oder andere Aspekte der Modellentwicklung auslagern. Die Verpflichtungen im Zusammenhang mit dem AI Act treffen allerdings weitergehend die Anbieter.\n\nHinweis: Um die Anwendung des AI Act auch in diesen Situationen sicherzustellen, gilt es die Pflichten vertraglich zu regeln. Das AI Office wird diesbezüglich ermächtigt, Mustervertragsbestimmungen zu erstellen und zur Verfügung zu stellen (Art. 25 Abs. 4 AI Act).\n\nVon einem Anbieter ist auch dann die Rede, wenn diese ein KI-Modell in ihr KI-System oder GPAI-System integriert. Irrelevant ist dabei, ob das Modell von ihm selbst bereitgestellt und vertikal integriert wird oder von jemand anderem stammt. In diesem Fall wird von einem „nachgelagerten Anbieter“ gesprochen (siehe Art. 3 Ziffer 68 AIA)\n\nDurch die Regel in Art. 25 Abs. 1 AIA werden auch Einführer, Händler, Betreiber und sonstige Dritte als Anbieter behandelt, wenn sie:\n\n-   ein bereits in Verkehr gebrachtes oder in Betrieb genommenes Hochrisiko-KI-System mit ihrem Namen oder ihrer Handelsmarke versehen, unbeschadet vertraglicher Vereinbarungen, die eine andere Aufteilung der Pflichten vorsieht. Der jeweilige Akteur tritt somit als Anbieter eines KI-Systems auf obwohl dieses nicht selbst entwickelt wurde („Quasi-Hersteller“);\n-   eine wesentliche Änderung an einem Hochrisiko-KI-System, das bereits in Verkehr gebracht oder in Betrieb genommen wurde, so vornehmen, dass es weiterhin ein Hochrisiko-KI-System im Sinne von Art. 6 AIA bleibt;\n-   die Zweckbestimmung eines KI-Systems, einschließlich eines GPAI-Systems, das nicht als hochriskant eingestuft wurde und bereits in Verkehr gebracht oder in Betrieb genommen wurde, so verändern, dass das betreffende KI-System zu einem Hochrisiko-KI-System im Sinne von Art. 6 AIA wird.",
       "keywords": [],
       "availableKeywords": [],
@@ -549,7 +549,7 @@
     },
     {
       "id": "125e0d9e-7308-4567-a0ec-8a82fa1b0d33",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Produkthersteller",
       "content": "### Wer ist Produkthersteller?\n\nProdukthersteller werden zwar als Akteure aufgezählt, eine entsprechende Definition fehlt allerdings im AI Act. Da im Anhang I des AI Acts auf unionsrechtliche Normen des Produktrechts verwiesen wird, ist als Produkthersteller im AI Act der Hersteller des jeweiligen Produkts gemeint.\n\nBeispielshaft wird als Hersteller im Sinne der Aufzüge-Richtlinie „jede natürliche oder juristische Person, die ein Sicherheitsbauteil für Aufzüge herstellt bzw. entwickeln oder herstellen lässt und es unter ihrem eigenen Namen oder ihrer eigenen Handelsmarke vermarktet“ (Art. 2 Ziffer 8 [Aufzüge-Richtlinie](https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32014L0033&from=LV \"Link zur Aufzüge-Richtlinie\")).\n\nWird ein KI-System als Sicherheitskomponente in ein Produkt eingebaut, hat der Produkthersteller die im AI Act festgelegten Pflichten eines Anbieters eines KI-Systems zu erfüllen. Der Produkthersteller wird in diesen Fällen als Anbieter behandelt.",
       "keywords": [],
       "availableKeywords": [],
@@ -561,7 +561,7 @@
     },
     {
       "id": "aecae742-1970-41a4-aaa5-7d2389209d72",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Bevollmächtigter",
       "content": "### Wer ist Bevollmächtigter?\n\nGemäß Art. 3 Z 5 AIA ist ein Bevollmächtigter\n\n> _eine in der Union befindliche oder niedergelassene natürliche oder juristische Person, die vom Anbieter eines KI-Systems oder eines KI-Modells mit allgemeinem Verwendungszweck schriftlich dazu bevollmächtigt wurde und sich damit einverstanden erklärt hat, in seinem Namen die in dieser Verordnung festgelegten Pflichten zu erfüllen bzw. Verfahren durchzuführen._\n\nEin Bevollmächtigter wird notwendig, wenn die Anbieter des KI-Systems bzw. des GPAI-Modells nicht innerhalb der Union niedergelassen ist. Damit die Einhaltung der unionsrechtlichen Anforderungen an KI-Systeme bzw. GPAI-Modelle sichergestellt wird, ist die Bestellung eines Bevollmächtigten vorgesehen, der im Namen der Anbieter des KI-Systems bzw. des GPAI-Modells für die Einhaltung der im AI Act festgelegten Pflichten sorgt und auch Verfahren führt. Diese Verpflichtung gilt nicht für Anbieter von ausgenommenen Open-Source-Modellen und -Systemen im Sinne des Art. 2 Abs. 12 AIA.",
       "keywords": [],
       "availableKeywords": [],
@@ -574,7 +574,7 @@
     },
     {
       "id": "fe38e634-50f1-4fcd-972e-428ed0b00086",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Einführer",
       "content": "### Wer ist Einführer?\n\nArt 3 Z 6 AIA definiert einen Einführer als\n\n> _eine in der Union befindliche oder niedergelassene natürliche oder juristische Person, die ein KI-System, das den Namen oder die Handelsmarke einer in einem Drittland niedergelassenen natürlichen oder juristischen Person trägt, in der Union in Verkehr bringt._\n\nDer Einführer, auch als Importeur bezeichnet, stellt jenes Glied in der KI-Wertschöpfungskette dar, das ein KI-System eines ausländischen Anbieters in der Union [in Verkehr bringt](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html#heading__heading_Inverkehrbringen__Bereitstellen__InbetriebnahmeInverkehrbringen__Bereitstellen__Inbetriebnahme). Der Importeur spielt also nur eine Rolle bei KI-Systemen aus Drittländern. In gewissen Situationen kann die Rolle des Einführers mit jener des Händlers zusammenfallen, und zwar dann, wenn der Einführer das KI-System vom Anbieter bezieht und gleichzeitig bereitstellt.\n\nUnter Umständen kann der Einführer auch als Anbieter behandelt werden (siehe Art. 25 Abs. 1 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -587,7 +587,7 @@
     },
     {
       "id": "5258a087-d836-41b0-b6ce-6df5f13bedc9",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Händler",
       "content": "### Wer ist Händler?\n\nGemäß Art 3 Z 7 AIA wird ein Händler wie folgt legaldefiniert:\n\n> _Eine natürliche oder juristische Person in der Lieferkette, die ein KI-System auf dem Unionsmarkt bereitstellt, mit Ausnahme des Anbieters oder des Einführers._\n\nBeim Händler handelt es sich um jene Person in der KI-Wertschöpfungskette, die ein KI-System auf dem Unionsmarkt [bereitstellt](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html#heading__heading_Inverkehrbringen__Bereitstellen__InbetriebnahmeInverkehrbringen__Bereitstellen__Inbetriebnahme). Die reine Bereitstellung kommt in zeitlicher Hinsicht nach dem Inverkehrbringen.\n\nUnter Umständen kann der Händler auch als Anbieter behandelt werden (siehe Art. 25 Abs. 1 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -600,7 +600,7 @@
     },
     {
       "id": "54902079-8fec-477d-81b8-12abdae3a221",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Betreiber",
       "content": "### Wer ist Betreiber?\n\nGemäß Art. 3 Ziffer 4 AIA ist ein Betreiber\n\n> _eine natürliche oder juristische Person, Behörde, Einrichtung oder sonstige Stelle, die ein KI-System in eigener Verantwortung verwendet, es sei denn, das KI-System wird im Rahmen einer persönlichen und nicht beruflichen Tätigkeit verwendet._\n\nAls Betreiber wird jenes Glied in der KI-Wertschöpfungskette bezeichnet, das ein KI-System in eigener Verantwortung verwendet. Beispielhaft werden die Organe, Einrichtungen und sonstigen Stellen der Union genannt (Erwägungsgründe 23). In der KI-Wertschöpfungskette sind sie den Anbietern nachgelagert, sie führen das KI-System in der Praxis aus. Betreiber ist jene Person, Behörde, etc. die entscheidet, ob und wie ein KI-System eingesetzt wird und trägt dafür auch die Verantwortung. Ausgenommen ist vom Betreiber-Begriff die rein private Nutzung von KI-Systemen.\n\nUnter Umständen kann der Betreiber auch als Anbieter behandelt werden (siehe Art. 25 Abs. 1 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -615,7 +615,7 @@
     },
     {
       "id": "356bb808-a31d-4d14-9273-1da6952a312a",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, Nutzer",
       "content": "### Wer ist Nutzer?\n\nDer Begriff „Nutzer“ kommt im AI Act zwar vor, wird aber nicht legaldefiniert. Der Begriff Nutzer wird an verschiedenen Stellten des AI Act genannt, z. B. im Anhang XIII zu finden als „Endnutzer“ und „gewerblicher Nutzer“ oder in verschiedenen Erwägungsgründen (siehe Erwägungsgründe 16: „um es den Nutzern zu ermöglichen“; Erwägungsgründe 102: „Software und Daten, einschließlich Modellen […] die Nutzer kostenlos abrufen, nutzen, verändern und weiter verteilen können“, „wenn sie es den Nutzern ermöglicht“). In der vom Parlament abgestimmten Fassung wurde dieser Begriff teilweise mit dem Betreiber gleichgestellt.",
       "keywords": [],
       "availableKeywords": [],
@@ -628,7 +628,7 @@
     },
     {
       "id": "7336e729-b4b4-4470-8d51-db20970705cc",
-      "title": "KI-Servicestelle: Akteure",
+      "title": "KI-Servicestelle: Akteure, betroffene Personen",
       "content": "### „Betroffene“ Personen\n\nJe nach Art des KI-Systems kann sich dessen Verwendung auf andere Personen als den Betreiber auswirken (Erwägungsgründe 13 AIA). Damit sind jene Personen gemeint, die Gegenstand des Einsatzes des KI-Systems sind oder in anderweitiger Weise von der Nutzung eines KI-Systems tangiert werden.\n\nBeispiele hierfür sind auch im AI Act zu finden, wie z. B. die Nutzung eines Chatbot oder die Herstellung künstlicher Audio-, Bild-, Video- oder Textinhalte wie Deepfakes (siehe Art. 50 Abs. 1 und 2 AIA), die Nutzung eines Emotionserkennungssystems oder eines Systems zur biometrischen Kategorisierung (siehe Art. 50 Abs. 3 AIA), die Verwendung eines biometrischen Echtzeit-Fernidentifizierungssystems (Art. 5 Abs. 2 AIA) oder die Inbetriebnahme oder Verwendung eines Hochrisiko-KI-Systems am Arbeitsplatz (Art. 26 Abs. 7 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -642,7 +642,7 @@
     },
     {
       "id": "9be93838-5d82-4573-a63f-81a708c77fa7",
-      "title": "KI-Servicestelle: Behörden & Einrichtungen",
+      "title": "KI-Servicestelle: Behörden & Einrichtungen, AI-Office",
       "content": "## Was ist und macht das Europäische Büro für Künstliche Intelligenz („AI Office“)?\n\nDas [AI Office](https://digital-strategy.ec.europa.eu/de/policies/ai-office \"Link zum AI Office\") wurde durch [Beschluss der Kommission](https://digital-strategy.ec.europa.eu/de/library/commission-decision-establishing-european-ai-office \"Link zum Beschluss der Europäischen Kommission\") eingerichtet und ist bei Kommission in der [Generaldirektion Kommunikationsnetze, Inhalte und Technologien](https://commission.europa.eu/about-european-commission/departments-and-executive-agencies/communications-networks-content-and-technology_en?prefLang=de \"Link zur DG Connect\") (DG CNCT) angesiedelt. Über das AI Office soll die Kommission die Sachkenntnis und Fähigkeiten der Union auf dem Gebiet der Künstlichen Intelligenz entwickeln (Art. 64 AIA). Die übertragenen Tätigkeiten werden von bereits mit diesen Aufgaben betrauten Beamt:innen übernommen. Die dem AI Office übertragenen Aufgaben können daher bereits wahrgenommen werden.\n\nDas AI Office übernimmt eine Fülle von Aufgaben. Diese sind einerseits im AI Act festgeschrieben, andererseits auch im Beschluss der Kommission spezifiziert. Bei der Durchführung ihrer Aufgaben hat das AI Office mit relevanten Stakeholdern (Wissenschaft, KI-Entwicklern, Zivilgesellschaft, Sozialpartner, etc.), den unionsrechtlichen und nationalen Behörden und Stellen zusammenzuarbeiten.\n\nZu den im Beschlussaufgelisteten Aufgaben gehören unter anderem:\n\n-   Überwachung der Umsetzung und Anwendung des AI Act ganz allgemein auf Unionsebene. Dazu zählen insbesondere folgende Aufgaben:\n    -   Unterstützung der Kommission bei der Vorbereitung einschlägiger Kommissionsentscheidungen, und von Durchführungs- und delegierten Rechtsakten; Ausarbeitung von Anleitungen und Leitlinien zur Unterstützung der praktischen Umsetzung des AI Act; Vorbereitung von Normungsaufträgen, Bewertung bestehender Normen und der Ausarbeitung gemeinsamer Spezifikationen;\n    -   Beitrag zur Bereitstellung von technischer Unterstützung, Beratung und Instrumenten für die Einrichtung und den Betrieb von KI-Reallaboren;\n    -   Durchführung von Bewertungen und Überprüfungen sowie Erstellung von Berichten;\n    -   Koordinierung der Einrichtung eines wirksamen Governance-Systems, unter anderem durch Vorbereitung der Einsetzung von Beratungsgremien auf Unionsebene;\n    -   Bereitstellung des Sekretariats für den AI Board und seine Unterausschüsse, sowie administrative Unterstützung des Advisory Forums und des Scientific Panels;\n    -   Förderung und Erleichterung der Ausarbeitung von Verfahrens- und Verhaltenskodizes.\n\n-   Überwachung der Umsetzung und Anwendung des AI Act im Zusammenhang mit KI-Modellen mit allgemeinem Verwendungszweck („General Purpose AI“, GPAI). Dazu zählen insbesondere folgende Aufgaben:\n    -   Marktüberwachungsbehörde bei GPAI-Systemen, wo das Modell und das System vom gleichen Anbieter stammen (Art 75 AIA);\n    -   Entwicklung von Werkzeugen, Methoden und Benchmarks zur Bewertung der Fähigkeiten von GPAI, insbesondere für sehr große GPAI mit systemischen Risiken;\n    -   Überwachung des Auftretens unvorhergesehener Risiken, die sich aus GPAI-Modellen ergeben, unter anderem durch Reaktion auf Warnungen des wissenschaftlichen Gremiums;\n    -   Koordinierung der Überwachung und Durchsetzung von Rechtsvorschriften, für die die Kommission Aufsichts- und Durchsetzungsbefugnisse hat (z. B. Digital Services Act oder Digital Markets Act);\n    -   Unterstützung der Umsetzung der Vorschriften über verbotene KI-Praktiken und Hochrisiko-KI-Systeme in Abstimmung mit den nach den sektoralen Rechtsvorschriften zuständigen Stellen, einschließlich der Erleichterung des Informationsaustauschs und der Zusammenarbeit zwischen den nationalen Behörden, der Sammlung von Meldungen und der Einrichtung von Informationsplattformen und Datenbanken, insbesondere wenn ein GPAI-Modell in ein Hochrisiko-KI-System integriert wird.  \n          \n          \n        \n\n-   Zusammenarbeit mit Stakeholdern, Überwachung der Umsetzung und Anwendung des AI Act;\n-   Internationale Kooperation mit Drittstaaten und internationalen Organisationen, um einen Beitrag zu einem strategischen, kohärenten und wirksamen Ansatz der Union im Bereich der KI in Abstimmung mit den Mitgliedstaaten und im Einklang mit den Standpunkten und Politiken der Union sicherzustellen;\n-   Die Förderung der sektorenübergreifenden Zusammenarbeit innerhalb der Kommission;\n-   Unterstützung der Entwicklung, Einführung und Nutzung vertrauenswürdiger KI-Systeme und -Anwendungen, die gesellschaftliche und wirtschaftliche Vorteile bringen und zur Wettbewerbsfähigkeit und zum Wirtschaftswachstum der Union beitragen. Insbesondere die Förderung der Innovationsökosysteme durch die Zusammenarbeit mit den einschlägigen öffentlichen und privaten Akteuren und der Startup-Community;\n-   Marktbeobachtung der KI-Märkte und -Technologien.",
       "keywords": [],
       "availableKeywords": [],
@@ -655,7 +655,7 @@
     },
     {
       "id": "73b4b412-4437-4a0a-a3de-75077b666509",
-      "title": "KI-Servicestelle: Behörden & Einrichtungen",
+      "title": "KI-Servicestelle: Behörden & Einrichtungen, AI-Board",
       "content": "## Was ist und macht das Europäische Gremium für künstliche Intelligenz (\"AI Board\")?\n\nDas AI Board setzt sich zusammen aus je einem Repräsentanten jedes Mitgliedstaates, dem Europäischen Datenschutzbeauftragten und des AI Office, wobei der Europäische Datenschutzbeauftragter dabei die Position des Beobachters übernimmt und das AI Office bei Abstimmungen nicht teilnimmt. Andere nationale und europäische Behörden, Stellen oder Experten können bei relevanten Themen eingeladen werden. Den Vorsitz bildet ein Repräsentant eines Mitgliedstaates (Art. 65 Abs. 2 AIA).\n\nRepräsentanten werden von den Mitgliedstaaten auf drei Jahre gewählt und können einmal wiedergewählt werden. Bei der Wahl des Repräsentanten sind folgende Kriterien zu berücksichtigen(Art. 65 Abs. 4 AIA):\n\n-   Jeder Repräsentant muss innerstaatlich über die nötigen Kompetenzen verfügen, um die Aufgaben des AI Board umsetzen zu können;\n-   Jeder Repräsentant muss Befugnisse haben, die Durchführung dieser Verordnung zu erleichtern, etwa durch Erhebung einschlägiger Daten;\n-   Jeder Repräsentant hat als zentrale Kontaktstelle zwischen Mitgliedstaat und AI Board zu dienen; gegebenenfalls soll dieser auch als Ansprechpartner für Stakeholder in ihrem Mitgliedstaat dienen.\n\nDie Objektivität und Unparteilichkeit des AI Board ist zu gewährleisten.\n\nDas AI Board übernimmt gemäß Art. 66 AIA unter anderem folgende Aufgaben:\n\n-   Beitrag zur Koordinierung zwischen den für die Anwendung dieser Verordnung zuständigen nationalen Behörden und Unterstützung der Marktüberwachungsbehörden;\n-   Zusammenarbeit mit anderen Organen, Einrichtungen, Ämtern und Agenturen der Union sowie zuständigen Behörden von Drittländern und internationalen Organisationen;\n-   Sammlung und Austausch von technischem und regulatorischem Fachwissen und bewährten Verfahren unter den Mitgliedstaaten;\n-   Beratung bei der Durchführung dieser Verordnung, insbesondere in Bezug auf die Durchsetzung der Vorschriften über GPAI;\n-   Beitrag zur Harmonisierung der Verwaltungspraxis (Konformitätsbewertungsverfahren, KI-Reallabore und Tests unter realen Bedingungen) in den Mitgliedstaaten;\n-   Empfehlungen und schriftliche Stellungnahmen zu allen relevanten Fragen im Zusammenhang mit der Durchführung und Anwendung dieser Verordnung.\n\nDas AI Board besteht aus zwei ständigen Unterausschüssen, welche die Zusammenarbeit und den Austausch zwischen den Marktüberwachungsbehörden und den notifizierenden Behörden sicherstellen sollen. Zur Bewältigung der Aufgaben können weitere ständige oder temporäre Unterausschüsse gebildet werden.\n\nDas AI Office übernimmt die Verwaltungsaufgaben für das AI Board.\n\nNicht zu verwechseln ist das Advisory Forum mit dem [KI-Beirat](https://www.digitalaustria.gv.at/Themen/KI/AI-Advisory-Board.html \"Link zum österreichischen KI-Beirat\") (oft auch als AI Advisory Board bezeichnet) in Österreich!",
       "keywords": [],
       "availableKeywords": [],
@@ -669,7 +669,7 @@
     },
     {
       "id": "e8636770-3900-45b1-a25d-a32616c51a42",
-      "title": "KI-Servicestelle: Behörden & Einrichtungen",
+      "title": "KI-Servicestelle: Behörden & Einrichtungen, Advisory Forum",
       "content": "## Wer ist und was macht der Beratungsforum („Advisory Forum“)?\n\nDas Advisory Forum gemäß Art. 67 AIA dient als Beratungsgremium in technischen Angelegenheiten für die Kommission und das AI Board und besteht aus Stakeholdern aus Industrie, Start-ups, KMU-Sektor, Wissenschaft, Think Tanks und Zivilgesellschaft. Die Zusammensetzung bestimmt die Kommission, wobei sie auf ein ausgewogenes Verhältnis zwischen kommerziellen und nicht-kommerziellen Interessen zu achten hat. Die [Agentur für Grundrechte](http://fra.europa.eu/ \"Link zur FRA\") (FRA), die [Agentur der Europäischen Union für Cybersicherheit](https://www.enisa.europa.eu/ \"Link zur ENISA\") (ENISA), das [Europäische Komitee für elektrotechnische Normung](https://www.cencenelec.eu/ \"Link zum CENELEC\") (CENELEC) und das [Europäische Institut für Telekommunikationsnormen](https://www.etsi.org/ \"Link zum ETSI\") (ETSI) sind ständige Mitglieder des Beratungsgremiums.\n\nDie Mitglieder müssen ausgewiesene Kompetenzen auf dem Gebiet der Künstlichen Intelligenz haben. Die Mandatszeit beträgt zwei Jahre und kann um höchstens vier Jahre verlängert werden. Das Advisory Forum tritt mindestens zweimal im Jahr zusammen und hat einen jährlichen Tätigkeitsbericht zu verfassen, der zu veröffentlichen ist.\n\nDem Advisory Forum kommt gemäß Art. 67 Abs. 8 AIA als Aufgabe die Erstellung von\n\n-   Stellungnahmen,\n-   Empfehlungen und\n-   Schriftliche Stellungnahmen zu.\n\nZur Bewältigung der Aufgaben können ständige oder temporäre Unterausschüsse gebildet werden.\n\nNicht zu verwechseln ist das Advisory Forum mit dem [KI-Beirat](https://www.digitalaustria.gv.at/Themen/KI/AI-Advisory-Board.html \"Link zum österreichischen KI-Beirat\") (oft auch als AI Advisory Board bezeichnet) in Österreich!",
       "keywords": [],
       "availableKeywords": [],
@@ -682,7 +682,7 @@
     },
     {
       "id": "7f776c36-7b5f-47d2-b5bc-43cf3bc74d3e",
-      "title": "KI-Servicestelle: Behörden & Einrichtungen",
+      "title": "KI-Servicestelle: Behörden & Einrichtungen, Scientific Panel",
       "content": "## Wer ist und was macht das wissenschaftliche Gremium unabhängiger Sachverständiger („Scientific Panel“)?\n\nDie Kommission wird gemäß Art. 68 Abs. 1 AIA im Wege eines Durchführungsrechtsakts ein Scientific Panel von unabhängigen Experten einrichten, das zur Unterstützung der Durchsetzungsmaßnahmen im Rahmen dieser Verordnung eingesetzt wird.\n\nDie Kommission wählt die Mitglieder auf der Grundlage aktueller wissenschaftlicher oder technischer Fachkenntnisse auf dem Gebiet der Künstlichen Intelligenz aus, die für die dem Scientific Panel übertragenen Aufgaben erforderlich sind. Die Anzahl der Mitglieder bestimmt die Kommission in Abstimmung mit dem AI Board auf Basis des erforderlichen Bedarfs. Sie nimmt bei der Bestellung auf eine ausgewogene geschlechtliche und geografische Vertretung Rücksicht.\n\nExperten müssen gemäß Art. 68 Abs. 2 AIA folgende Kriterien erfüllen:\n\n-   Besondere Sachkenntnis und Kompetenz sowie wissenschaftliches oder technisches Fachwissen auf dem Gebiet der Künstlichen Intelligenz;\n-   Unabhängigkeit von allen Anbietern von KI-Systemen oder GPAI-Modellen;\n-   Fähigkeit zur sorgfältigen, genauen und objektiven Ausführung der Tätigkeiten.\n\nDas Scientific Panel übernimmt gemäß Art. 68 Abs. 3 AIA folgende Beratungs- und Unterstützungsleistungen:\n\n-   Durchführung und Durchsetzung dieser Verordnung, vor allem in Bezug auf GPAI-Modelle, wozu im Besonderen folgende Tätigkeiten zählen:\n    -   Warnungen des AI Office vor möglichen Systemrisiken bei GPAI-Modellen auf Unionsebene;\n    -   Beitrag zur Entwicklung von Instrumenten und Methoden zur Bewertung der Fähigkeiten von GPAI-Modellen, auch durch Benchmarks;\n    -   Beratung bei der Einstufung von GPAI mit systemischem Risiko;\n    -   Beratung bei der Klassifizierung verschiedener GPAI;\n    -   Beitrag zur Entwicklung von Instrumenten und Vorlagen;\n-   Unterstützung der Arbeit der nationalen Marktaufsichtsbehörden auf deren Ersuchen;\n-   Unterstützung der grenzüberschreitenden Marktüberwachungstätigkeiten;\n-   Unterstützung des AI Office im Rahmen des „Schutzklauselverfahrens“ gemäß Art 81 AIA.\n\nDie Mitglieder des Scientific Panel erfüllen ihre Aufgaben weisungsungebunden, unparteiisch und objektiv. Sie gewährleisten die Vertraulichkeit der Informationen und Daten, die sie bei der Wahrnehmung ihrer Aufgaben und Tätigkeiten erhalten. Jedes Mitglied gibt eine Interessenerklärung ab, welche öffentlich zugänglich gemacht wird.\n\nDas AI Office führt Systeme und Verfahren ein, um potenzielle Interessenkonflikte aktiv zu bewältigen und zu verhindern.",
       "keywords": [],
       "availableKeywords": [],
@@ -696,7 +696,7 @@
     },
     {
       "id": "8ce6bcf0-99b5-4801-a15c-e73a5c5355f4",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen Allgemein",
       "content": "### Die einzelnen Akteure und deren Verpflichtungen\n\nWie im AI Act bereits in den Erwägungsgründen festgehalten wird, ist es angesichts des Wesens und der Komplexität der [KI-Wertschöpfungskette](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html \"Link zu den Akteuren im AI Act\") und im Einklang mit dem neuen Rechtsrahmen von wesentlicher Bedeutung, Rechtssicherheit zu gewährleisten und die Einhaltung dieser Verordnung zu erleichtern. Daher müssen die Rollen und die spezifischen Pflichten der relevanten Akteure entlang der Wertschöpfungskette präzisiert werden. Der Kern des AI Act betrifft Verpflichtungen in Zusammenhang mit KI-Systemen bzw. KI-Modellen entsprechend ihrer Risikoklassifizierung.\n\nIn bestimmte Situationen können verschiedene Rollen der KI-Wertschöpfungskette in einer Person oder Organisation zusammenfallen. Folgende Konstellationen sind z.B. möglich:\n\n-   Ein Anbieter von KI-Modellen oder GPAI-Modellen kann gleichzeitig auch ein Anbieter eines KI-Systems sein (Art. 75 AIA).\n-   Ein Einführer kann auch die Rolle eines Händlers übernehmen (siehe Erwägungsgründe 83)",
       "keywords": [],
       "availableKeywords": [],
@@ -712,7 +712,7 @@
     },
     {
       "id": "e1c5a1de-3024-4178-a191-283ad1525b65",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
       "content": "### Welche Pflichten treffen Anbieter?\n\nGanz allgemein treffen Anbieter von KI-Systemen jeder Art die Pflicht, sicherzustellen, dass eingesetztes Personal und anderen Personen, welche mit den KI-Systemen betraut sind ein ausreichendes Maß an KI-Kompetenz aufweisen (Art. 4 AIA). Das umfasst die Fähigkeiten, die Kenntnisse und das Verständnis, die es Anbietern unter Berücksichtigung ihrer jeweiligen Rechte und Pflichten im Rahmen des AI Act ermöglichen, KI-Systeme sachkundig einzusetzen sowie sich der Chancen und Risiken von KI und möglicher Schäden, die sie verursachen kann, bewusst zu werden (Art. 3 Ziffer 56 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -728,7 +728,7 @@
     },
     {
       "id": "f707c5a0-6873-4780-802e-51814906b167",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen Hochrisiko-KI-Systeme",
       "content": "#### Hochrisiko-KI-Systeme\n\nDabei handelt es sich um KI-Systeme, die ein hohes Risiko aufweisen. Sie sind zwar nicht verboten, aber dafür sind zum Teil weitreichende Pflichten einzuhalten. Die Pflichten der Anbieter von Hochrisiko-KI-Systemen werden in Art. 16 AIA normiert. Zu den Pflichten zählt die Sicherstellung der Anforderungen an Hochrisiko-KI-Systeme gemäß Art. 16 Buchstabe a iVm. Kapitel III Abschnitt 2:",
       "keywords": [],
       "availableKeywords": [],
@@ -742,7 +742,7 @@
     },
     {
       "id": "0d630708-202b-4ce7-84f0-930e77637a94",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Risikomanagement",
       "content": "-   Risikomanagementsystem\n    \n    Ein Risikomanagementsystem ist einzurichten, anzuwenden, zu dokumentieren und aufrechtzuerhalten (siehe Art. 9 Abs. 1 AIA). Das Risikomanagement versteht sich als ein kontinuierlicher iterativer, also sich wiederholender, Prozess während des gesamten Lebenszyklus. Den Anbieter von Hochrisiko-KI-Systeme treffen Risikobewertungs- und minderungspflichten. Bekannte und vernünftigerweise vorhersehbare Risiken in Bezug auf Gesundheit, Sicherheit oder Grundrechte sind zu ermitteln, zu analysieren und zu bewerten. Neben möglicher Risiken entsprechend der Zweckbestimmung des KI-Systems sind auch vernünftige vorhersehbare Fehlanwendungen zu bewerten. Risiken, die sich erst nach dem Inverkehrbringen, gemäß Art. 72 AIA zeigen, sind auch zu bewerten. Auf Basis der ermittelten Risiken sind „geeignete und gezielte“ Risikomanagementmaßnahmen zu ergreifen. Das Risikomanagementsystem erfordert auch, dass Hochrisiko-KI-Systeme während des gesamten Entwicklungsprozesses getestet werden (etwa durch Tests unter Realbedingungen außerhalb von KI-Reallaboren gemäß Art. 60 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -758,7 +758,7 @@
     },
     {
       "id": "9cf28dba-9ed8-4cfb-ada5-5eb80160e94e",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen , Daten und Daten-Governance",
       "content": "-   Daten und Daten-Governance\n    \n    KI-Systeme basieren in der Regel auf [KI-Modellen](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-modelle.de.html \"Link zu den Risikostufen von KI-Modellen\"). Sofern die in Hochrisiko-KI-Systemen verwendeten KI-Modelle mit Daten trainiert wurden, müssen Trainings-, Validierungs- und Testdatensätze entwickelt werden, welche den Qualitätsanforderungen des Art. 10 Abs. 2 bis 5 AIA entsprechen (siehe Art. 10 Abs. 1 AIA). Unter anderem sind diese Datensätze auf Verfügbarkeit, Menge und Eignung zu bewerten, mögliche Verzerrungen sind zu prüfen (Bias), Datenlücken oder Mängel sind zu ermitteln. Datensätze haben hinreichend repräsentativ, soweit möglich fehlerfrei und vollständig zu sein. Es müssen Datensätze eingesetzt werden, die den geografischen, kontextuellen, verhaltensbezogenen oder funktionalen Rahmenbedingungen, unter denen das Hochrisiko-KI-System bestimmungsgemäß verwendet werden soll, typisch sind; z.B. autonome Fahrsysteme – diese Systeme müssen stark auf sicherheitskritische Entscheidungen vorbereitet sein und in einer breiten Palette von geografischen und kontextuellen Situationen (z. B. ungünstigen Wetterbedingungen) funktionieren.",
       "keywords": [],
       "availableKeywords": [],
@@ -777,7 +777,7 @@
     },
     {
       "id": "65ecc4bf-ac73-4860-a566-328ac49a6c41",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, technische Dokumentation",
       "content": "Technische Dokumentation\n    \n    Die technische Dokumentation gemäß Art. 11 AIA ist vor [Inverkehrbringen oder Inbetriebnahme](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html \"Link zu den Akteuren im AI Act\") eines Hochrisiko-KI-Systems zu erstellen. Die Mindestangaben für eine technische Dokumentation sind in Anhang IV aufgezählt. Die technische Dokumentation hat so zu erfolgen, dass daraus der Nachweis hervorgeht, dass die Anforderungen an Hochrisiko-KI-Systeme erfüllt werden. Sie muss zuständige Behörden und notifizierte Stellen in die Lage versetzen, zu beurteilen, ob das KI-System die geforderten Anforderungen erfüllt.  \n    KMU, einschließlich Start-up-Unternehmen, können die in Anhang IV aufgeführten Elemente der technischen Dokumentation in vereinfachter Weise bereitstellen.\n    \n    In Bezug auf Produkte gemäß Anhang I Abschnitt A angeführte [Harmonisierungsvorschriften](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-systeme.de.html \"Link zu den Risikostufen der KI-Systeme\") kann eine einzige technische Dokumentation erstellt werden, die neben der allgemeinen Dokumentation auch die Erfordernisse des AI Acts abdeckt. Z.B. wird in der Medizinprodukteverordnung auch die Pflicht normiert, dass Hersteller von Produkten eine technische Dokumentation erstellen müssen (Art. 10 Abs. 4 MDR).",
       "keywords": [],
       "availableKeywords": [],
@@ -790,7 +790,7 @@
     },
     {
       "id": "4de289ef-a262-4a5c-a5da-b85a80d53dc7",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Protokollierung",
       "content": "-   Aufzeichnung von Ereignissen – „Protokollierung“\n    \n    Hochrisiko-KI-Systeme müssen technisch so konzipiert und entwickelt sein, dass sie die automatische Aufzeichnung von Ereignissen – sog „Protokollierung“ – ermöglichen (siehe Art. 12 AIA). Diese Protokollierung dient zu Dokumentationszwecken, vor allem, um zu ermitteln, ob das Hochrisiko-KI-System ein Risiko im Sinne des Art. 79 Abs. 1 AIA birgt oder eine „wesentliche Änderung“ vorgenommen wurde.\n    \n    Die in Anhang III Nummer 1 Buchstabe a AIA genannten Hochrisiko-KI-Systeme (Biometrische Fernidentifizierungssysteme) müssen besondere Protokollierungsfunktionen erfüllen.\n    \n-   Transparenz und Bereitstellung von Information für nachgelagerte Akteure\n    \n    Hochrisiko-KI-Systeme sind transparent zu konzipieren und zu entwickeln, damit [Betreiber](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html#heading_Wer_ist_Betreiber_ \"Link zu den Akteuren im AI Act\") im Sinne des Art. 3 Ziffer 4 AIA die Ausgaben angemessen interpretieren und anwenden können (siehe Art. 13 AIA). Diese Pflicht umfasst im Besonderen die Erstellung einer Betriebsanleitung, die präzise, vollständige, korrekte und eindeutige Informationen für die Betreiber bereitstellt. Betriebsanleitung hat unter anderem folgende Information zu enthalten:\n    \n    -   Namen und die Kontaktangaben des Anbieters (ggf. auch Bevollmächtigter);\n    -   Merkmale, Fähigkeiten und Leistungsgrenzen des Hochrisiko-KI-Systems;\n    -   etwaige Änderungen des Hochrisiko-KI-Systems und seiner Leistung;\n    -   Maßnahmen zur Gewährleistung der menschlichen Aufsicht;\n    -   erforderlichen Rechen- und Hardware-Ressourcen etc.",
       "keywords": [],
       "availableKeywords": [],
@@ -805,7 +805,7 @@
     },
     {
       "id": "23225ccc-255f-4ebf-841a-ba906dbf896d",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, menschliche Aufsicht",
       "content": "-   Menschliche Aufsicht\n    \n    Hochrisiko-KI-Systeme müssen so konzipiert und entwickelt sein, dass diese während der Dauer ihrer Verwendung von natürlichen Personen wirksam beaufsichtigt werden können (siehe Art. 14 AIA). Zweck dieser Anforderung ist, Risiken für Gesundheit, Sicherheit und Grundrechte zu verhindern oder zu minimieren, da es nicht ausgeschlossen ist, dass Risiken trotz Einhaltung aller Anforderungen des Kapitels III Abschnitt 2 fortbestehen.\n    \n    Entsprechend den Risiken, dem Grad der Autonomie und dem Kontext der Nutzung des Hochrisiko-KI-Systems sind angemessene Aufsichtsmaßnahmen zu treffen. Dies können Vorkehrungen technischer Natur sein, die in das Hochrisiko-KI-System eingebaut werden oder/und Vorkehrungen sein, die vom Betreiber umzusetzen sind.",
       "keywords": [],
       "availableKeywords": [],
@@ -818,7 +818,7 @@
     },
     {
       "id": "9a15e8cd-db82-492d-8897-c2b4ef6d9039",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Genauigkeit, Robustheit und Cybersicherheit",
       "content": "-   Genauigkeit, Robustheit und Cybersicherheit\n    \n    Hochrisiko-KI-Systeme müssen so konzipiert und entwickelt sein, dass ein angemessenes Maß an Genauigkeit, Robustheit und Cybersicherheit während des gesamten Lebenszyklus erreicht wird (siehe Art. 15 AIA).\n    \n    Die „Genauigkeit“ („Accuracy“) bezieht sich auf das Ausmaß, in dem die Vorhersagen oder Klassifizierungen eines Modells mit den tatsächlichen Daten übereinstimmen. Es ist ein Maß dafür, wie gut das Modell in der Lage ist, die richtigen Vorhersagen zu treffen.\n    \n    „Robustheit“ beschreibt die Widerstandsfähigkeit von Hochrisiko-KI-Systeme; diese müssen so widerstandsfähig wie möglich gegenüber Fehlern, Störungen oder Unstimmigkeiten sein, die innerhalb des Systems oder der Umgebung, in der das System betrieben wird, insbesondere wegen seiner Interaktion mit natürlichen Personen oder anderen Systemen, auftreten können (ErwG 75).\n    \n    „Cybersicherheit“ spielt eine entscheidende Rolle, wenn es darum geht, sicherzustellen, dass KI-Systeme widerstandsfähig gegenüber Versuchen böswilliger Dritter sind, unter Ausnutzung der Schwachstellen der Systeme deren Verwendung, Verhalten, Leistung zu verändern oder ihre Sicherheitsmerkmale zu beeinträchtigen.\n    \n    Bei den Anforderungen an Genauigkeit, Robustheit und Cybersicherheit handelt es sich großteils um technische Aspekte, weshalb diese Messungen anhand von zu entwickelnden Benchmarks und Messmethoden sichergestellt werden sollen. Neben technischen sind auch organisatorische Maßnahmen zu ergreifen.\n    \n    Als mögliche Maßnahmen werden Sicherungs- oder Störungssicherheitspläne (siehe Art. 15 Abs. 4 Unterabs. 2 AIA), Maßnahmen zur Risikominderung von sog „Rückkoppelungsschleifen“ sowie Maßnahmen (siehe Art. 15 Abs. 4 Unterabs. 3 AIA), um Angriffe, mit denen versucht wird, eine Manipulation des Trainingsdatensatzes („data poisoning“) oder vortrainierter Komponenten, die beim Training verwendet werden („model poisoning“), vorzunehmen, Eingabedaten, die das KI-Modell zu Fehlern verleiten sollen („adversarial examples“ oder „model evasions“) (siehe Art. 15 Abs. 5 AIA) werden exemplarisch genannt.\n    \n\nGem. Art. 16 Buchstabe a bis l AIA treffen den Anbieter auch noch weitere folgende Pflichten. Dabei handelt es sich nicht um Anforderungen an das Hochrisiko-KI-System selbst, sondern um „sonstige“ Pflichten.",
       "keywords": [],
       "availableKeywords": [],
@@ -836,7 +836,7 @@
     },
     {
       "id": "2ef9a966-cbd1-46a6-b276-cf7bfbbff1df",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Qualitätsmanagement",
       "content": "-   Qualitätsmanagement\n    \n    Anbieter von Hochrisiko-KI-Systemen haben ein Qualitätsmanagementsystem einzurichten, das die Einhaltung dieser Verordnung gewährleistet. Es sind Regeln, Verfahren und Anweisungen zu dokumentieren (siehe Art. 17 AIA). Dieses System hat unter anderem ein Konzept zu enthalten, wie Regulierungsvorschriften und Konformitätsbewertungsverfahren eingehalten werden sollen.",
       "keywords": [],
       "availableKeywords": [],
@@ -849,7 +849,7 @@
     },
     {
       "id": "acd0edef-f67f-4d8f-9c99-76bc6ebe0092",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Kennzeichnung",
       "content": "-   Kennzeichnung\n    \n    Anbieter von Hochrisiko-KI-Systemen haben am KI-System selbst oder, falls dies nicht möglich ist, auf seiner Verpackung oder beigefügten Dokumentation, ihren Namen, ihren eingetragenen Handelsnamen bzw. ihre Handelsmarke sowie ihre Kontaktanschrift anzuführen (siehe Art. 16 Buchstabe b AIA)",
       "keywords": [],
       "availableKeywords": [],
@@ -863,7 +863,7 @@
     },
     {
       "id": "4052397b-e75f-463d-8380-06bb7be621a1",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Aufbewarungsfrist",
       "content": "-   Aufbewahrung von bestimmten Unterlagen und Protokollereignissen\n    \n    Für einen Zeitraum von zehn Jahren ab Inverkehrbringen oder Inbetriebnahme Dokumente wie die technische Dokumentation gemäß Art. 11 AIA, die Dokumentation im Sinne des Art. 18 AIA, Dokumentation über von den notifizierten Stellen genehmigte Änderungen, gegebenenfalls von den notifizierten Stellen ausgestellte Entscheidungen und sonstige Dokumente sowie die EU-Konformitätserklärung gemäß Art. 47 AIA aufzubewahren (siehe Art. 18 AIA).\n    \n    Für einen Zeitraum von sechs Monaten sind die automatisch erzeugten Protokolle gemäß Art. 12 Abs. 1 AIA aufzubewahren (siehe Art. 19 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -879,7 +879,7 @@
     },
     {
       "id": "006419f7-d820-4171-aa0a-bc6e78eff100",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
       "content": "-   Registrierung des KI-Systems\n    \n    Vor dem Inverkehrbringen oder der Inbetriebnahme von Hochrisiko-KI-Systemen im Sinne des Anhangs III (ausgenommen ist Ziffer 2: Kritische Infrastruktur) muss der Anbieter das Hochrisiko-KI-System in der EU-Datenbank im Sinne des Art. 71 AIA registrieren (siehe Art. 49 Abs. 1 AIA)",
       "keywords": [],
       "availableKeywords": [],
@@ -893,7 +893,7 @@
     },
     {
       "id": "ee52640d-4f93-446a-9a94-aa8b1225ddb9",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Behördenzusammenarbeit",
       "content": "-   Zusammenarbeit mit den zuständigen Behörden\n    \n    Auf begründete Anfrage einer zuständigen Behörde haben Anbieter von Hochrisiko-KI-Systemen sämtliche Informationen und Dokumentationen zu übermitteln, einschließlich der automatisch erzeugten Protokolle, sofern sie Zugriff darauf haben (siehe Art. 21 AIA)",
       "keywords": [],
       "availableKeywords": [],
@@ -905,7 +905,7 @@
     },
     {
       "id": "be9d0595-f380-4ba4-9b06-207fb395a8e4",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Konformitätsbewertung",
       "content": "-   Konformitätsbewertung, -erklärung, -kennzeichnung\n    \n    Der Anbieter von Hochrisiko-KI-Systemen hat sicherzustellen, dass ein Konformitätsbewertungsverfahren durchgeführt wird (Art. 43 AIA). Je nachdem um welches Hochrisiko-KI-System es sich handelt, kann dies auf Grundlage einer internen Kontrolle oder unter Beteiligung einer notifizierten Stelle erfolgen. Weiters ist eine Konformitätsbewertungserklärung auszustellen (Art. 47 AIA) und eine CE-Kennzeichnung am KI-System selbst oder, wenn dies nicht möglich ist, auf seiner Verpackung oder in der beigefügten Dokumentation anzubringen (Art. 48 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -924,7 +924,7 @@
     },
     {
       "id": "d44da4c3-33ab-48fa-85e2-f47de3562bb7",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Meldepflicht",
       "content": "-   Meldepflicht gegenüber zuständigen Behörden bei schwerwiegenden Vorfällen\n    \n    Bei schwerwiegenden Vorfällen von in Verkehr gebrachte Hochrisiko-KI-Systeme hat der Anbieter dies jener nationalen Marktüberwachungsbehörde zu melden, wo der Vorfall stattgefunden hat. Eine Meldung hat unmittelbar nach Feststellen des kausalen Zusammenhangs oder der naheliegenden Wahrscheinlichkeit, aber in jedem Fall spätestens 15 Tage nach Kenntnis des schwerwiegenden Vorfalls, zu erfolgen (siehe Art. 73 AIA). Von dieser Grundregel gibt es für bestimmte Vorfälle zeitlich engere Anforderungen.\n    \n    Von einem schwerwiegenden Vorfall sind gemäß Art. 3 Ziffer 49 AIA Vorfälle oder Fehlfunktionen gemeint, die zum Tod oder zu schweren Gesundheitsschäden führen, schwerwiegende und irreversible Störungen der Verwaltung und des Betriebs kritischer Infrastrukturen, Verstöße gegen Verpflichtungen aus dem Unionsrecht, mit denen die Grundrechte geschützt werden sollen, oder schwere Sach- oder Umweltschäden.",
       "keywords": [],
       "availableKeywords": [],
@@ -943,7 +943,7 @@
     },
     {
       "id": "a9c29f95-f8f9-494c-bf52-f6bdc0b0b126",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Barrierefreiheit",
       "content": "- Sicherstellung der Barrierefreiheitsanforderungen\n    \n    Konkret sind die Barrierefreiheitsanforderungen der Richtlinien (EU) 2016/2102 und (EU) 2019/882 zu erfüllen (siehe Art. 16 Buchstabe l AIA). Gemäß Anhang I Abschnitt I der Richtlinie (EU) 2019/882 betrifft dies etwa konkrete Anforderungen an die Bereitstellung von Informationen, die Gestaltung von Benutzerschnittstellen und Funktionalität und auch Unterstützungsdienste wie z. B. Help-Desk, Call-Center etc.).",
       "keywords": [],
       "availableKeywords": [],
@@ -957,7 +957,7 @@
     },
     {
       "id": "649ea5ee-b256-46c3-9332-53e42dcce5d1",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Bevollmächtigter",
       "content": "-   Sofern erforderlich, Benennung eines Bevollmächtigten\n    \n    In Drittstaaten niedergelassene Anbieter müssen vor der Bereitstellung des Hochrisiko-KI-Systems gemäß Art. 22 AIA einen in der Union niedergelassenen [Bevollmächtigten](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html \"Link zu den Akteuren im AI Act\") benennen. Anbieter sind verpflichtet, dem Bevollmächtigten zu ermöglichen, ihre Aufgaben wahrzunehmen.",
       "keywords": [],
       "availableKeywords": [],
@@ -970,7 +970,7 @@
     },
     {
       "id": "97de0d49-8dfd-445b-becb-01576d557e09",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Korrekturmaßnahmen",
       "content": "-   Sofern erforderlich, Korrekturmaßnahmen (Art. 20)\n    \n    Ist ein Anbieter von Hochrisiko-KI-Systemen der Auffassung oder gibt es Grund zur Annahme, dass ein in bereits in Verkehr gebrachtes oder in Betrieb genommenes Hochrisiko-KI-System nicht dem AI Act entspricht, sind unverzüglich Korrekturmaßnahmen zu ergreifen. Dies bedeutet primär die Herstellung der Konformität, es kann aber auch das Zurücknehmen, Deaktivieren oder Zurückrufen des KI-Systems bedeuten. Gleichzeitig sind auch nachgelagerte Akteure (Betreiber, Bevollmächtigte, Einführer) davon zu informieren.\n    \n    Birgt das Hochrisiko-KI-System ein Risiko im Sinne des Art. 79 Abs 1 AIA und wird sich der Anbieter dessen bewusst, so nimmt dieser – gegebenenfalls gemeinsam mit dem Betreiber – die Meldung an die Marktüberwachungsbehörden, gegebenenfalls auch an die notifizierte Stelle vor.",
       "keywords": [],
       "availableKeywords": [],
@@ -988,7 +988,7 @@
     },
     {
       "id": "020bdcf5-11bc-470e-afb9-6045f8cd50dd",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Syteme mit begrenztem Risiko",
       "content": "#### KI-Systeme mit „begrenztem“ Risiko\n\nDer AI Act listet in Art. 50 AIA bestimmte [KI-Systeme auf, welche ein begrenztes Risiko](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-systeme.de.html \"Link zu den Risikostufen von KI-Systemen\") bergen. Das Risiko kann mittels bestimmter Transparenzpflicht minimiert werden. Zusammengefasst können sie unter die Kategorie „Transparenz gegenüber nachgelagerten Akteuren“ zusammengefasst werden.",
       "keywords": [],
       "availableKeywords": [],
@@ -1005,7 +1005,7 @@
     },
     {
       "id": "cba8a6f7-4035-4e48-9cde-de0d62edfa78",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
       "content": "##### KI-Systeme, welche mit natürlichen Personen direkt interagieren (z. B. Chatbots)\n\nSolche KI-Systeme sind dahingehend zu konzipieren und zu entwickeln, dass betroffene natürliche Personen darüber informiert werden, dass sie mit einem KI-System interagieren. Ausgenommen davon sind Fälle, wo dies aus den Umständen und des Kontextes der Nutzung offensichtlich ist.",
       "keywords": [],
       "availableKeywords": [],
@@ -1018,7 +1018,7 @@
     },
     {
       "id": "4e59e48e-bfc6-4ccc-9979-12ba3220dcec",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Erzeugung von Inhalten mit KI-Systemen",
       "content": "##### KI-Systeme, die Bild-, Audio- oder Videoinhalte erzeugen oder manipulieren (z. B. Deepfakes)\n\nKI-Systeme (einschließlich GPAI-Systeme), welche Bild-, Audio- oder Videoinhalte erzeugen oder manipulieren, sind so zu konzipieren und zu entwickeln, dass die Ausgaben in einem maschinenlesbaren Format ausgegeben und als künstlich erzeugt oder manipuliert erkannt werden können.",
       "keywords": [],
       "availableKeywords": [],
@@ -1031,7 +1031,7 @@
     },
     {
       "id": "5841b6df-de62-452c-8a19-f2b6391feb5d",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
       "content": "##### KI-Systeme mit „minimalem“ Risiko\n\nBei [KI-Systemen mit minimalem Risiko](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-systeme.de.html \"Link zu den Risikostufen von KI-Systemen\") werden keine verpflichtend einzuhaltenden Anforderungen normiert. Lediglich die Verpflichtung zur „KI-Kompetenz“ gemäß Art. 4 AIA trifft auch auf solche KI-Systeme zu. Im Übrigen wird die Einhaltung von Code of Practices gefördert, diese ist aber freiwillig.",
       "keywords": [],
       "availableKeywords": [],
@@ -1052,7 +1052,7 @@
     },
     {
       "id": "74f0a1e0-89f6-47f5-b65e-8fc4327d62d7",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, technische Dokumentation",
       "content": "-   Technische Dokumentation\n    \n    Anbieter von GPAI-Modellen erstellen und aktualisieren die technische Dokumentation des Modells, einschließlich seines Trainings- und Testverfahrens und der Ergebnisse seiner Bewertung, die mindestens die in Anhang XI aufgeführten Informationen enthält (Art. 53 Abs. 1 Buchstabe a Satz 1 AIA).\n    \n    Diese Verpflichtung gilt nicht für Anbieter von ausgenommenen Open-Source-Modellen im Sinne des Art. 2 Abs. 12 AIA, ausgenommen es handelt sich um ein GPAI-Modell mit systemischem Risiko.",
       "keywords": [],
       "availableKeywords": [],
@@ -1070,7 +1070,7 @@
     },
     {
       "id": "3960ac09-8d97-4baf-a897-eac5f554a03e",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Zusammenarbeit mit Behörden",
       "content": "-   Zusammenarbeit mit den zuständigen Behörden\n    \n    Auf Anfrage einer zuständigen Behörde bzw. des AI Office haben Anbieter von GPAI-Modellen die oben bezeichnete technische Dokumentation zur Verfügung zu stellen (Art. 53 Abs. 1 Buchstabe a Satz 2 AIA).\n    \n    Ganz allgemein gilt, dass Anbieter von GPAI-Modellen „bei der Ausübung ihrer Zuständigkeiten und Befugnisse gemäß dieser Verordnung“ mit den zuständigen nationalen Behörden, erforderlichenfalls auch mit der Kommission, zusammenzuarbeiten haben (siehe Art. 53 Abs. 3 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1087,7 +1087,7 @@
     },
     {
       "id": "00c8f4c7-c9c8-4a8d-8c17-5bb005aeb14b",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Transparenz",
       "content": "-   Transparenz und Bereitstellung von Information für Anbieter von KI-Systemen\n    \n    Anbieter von GPAI-Modellen haben für nachgelagerte Anbieter von KI-Systemen, die beabsichtigen dieses Modell in ihre KI-Systeme zu integrieren, bestimmte Informationen und Dokumentationen zu erstellen und aktualisieren sowie den Anbietern von KI-Systemen zur Verfügung stellen. Die technische Dokumentation hat die in Anhang XII genannten Mindestangaben zu erfüllen.\n    \n    Diese Informationen und Dokumentation muss Anbieter von KI-Systemen in die Lage versetzen, die Fähigkeiten und die Grenzen des GPAI-Modells „gut zu verstehen“ und sie auch befähigen, dass sie ihren Pflichten des AI Act nachkommen können (Art. 53 Abs. 1 Buchstabe b AIA)\n    \n    Diese Verpflichtung gilt nicht für Anbieter von ausgenommenen Open-Source-Modellen im Sinne des Art. 2 Abs. 12 AIA, ausgenommen es handelt sich um ein GPAI-Modell mit systemischem Risiko.",
       "keywords": [],
       "availableKeywords": [],
@@ -1105,7 +1105,7 @@
     },
     {
       "id": "92de995d-6ec6-4518-aefe-5e81d76b7db3",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Strategie Urheberrecht",
       "content": "-   Strategie zur Einhaltung des EU-Urheberrechts\n    \n    Anbieter von GPAI-Modellen haben eine Strategie zur Einhaltung des EU-Urheberrechts samt damit zusammenhängender Rechte auch durch modernste Technologien vorzubringen. Das schließt im Besonderen die Ermittlung und Einhaltung eines gemäß Art. 4 Abs. 3 Urheberrechterichtlinie geltend gemachten Rechtsvorbehalts ein (siehe Art. 53 Abs. 1 Buchstabe c AIA).\n    \n    Anmerkung: Mit Art. 3 Urheberrechterichtlinie ([Richtlinie (EU) 2019/790](https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32019L0790 \"Link zur Urheberrechterichtlinie\")) wird normiert, dass Text- und Data Mining („TDM“) grundsätzlich betrieben werden darf. Dieses Recht kann durch einen Vorbehalt der Rechteinhaber gemäß Art. 4 Abs. 3 Urheberrechterichtlinie aber derart eingeschränkt werden, sodass nur mehr Forschungseinrichtungen und Einrichtungen des Kulturerbes TDM zulässig betreiben können.\n    \n    Bei TDM handelt es sich um einen Sammelbegriff für verschiedene Verfahren, die es ermöglichen, große Mengen von Texten oder Daten unter verschiedenen Aspekten zu durchsuchen und auszuwerten. In Österreich ist dies in [§ 42h UrhG](https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001848 \"Link zum österreichischen Urheberrechtsgesetz\") umgesetzt. Ferner sind die für das Training des GPAI-Modells verwendeten Inhalte nach einer vom AI Office bereitgestellten Vorlage zur veröffentlichen (siehe Art. 53 Abs. 1 Buchstabe d AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1126,7 +1126,7 @@
     },
     {
       "id": "8380352c-9c45-4369-b85f-2458cb560103",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Benennung des Bevollmächtigten",
       "content": "-   Benennung eines Bevollmächtigten\n    \n    Ist der Anbieter eines GPAI-Modells in einem Drittstaat niedergelassen, ist der Anbieter verpflichtet, vor Inverkehrbringen des Modells einen Bevollmächtigten innerhalb der Union zu benennen (siehe Art. 54 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1139,7 +1139,7 @@
     },
     {
       "id": "7d2ce9a7-cb03-4c28-aaa2-28e0f63262bf",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, GPAI-Modelle mit system. Risiko",
       "content": "#### GPAI-Modelle mit systemischem Risiko\n\nHandelt es sich beim GPAI-Modell um ein solches mit systemischem Risiko haben Anbieter zusätzlich zu den in Art. 53 und 54 AIA genannten Pflichten auch jene des Art. 55 AIA zu erfüllen:\n\n-   Risikomanagement\n    \n    Unter dem Titel „Risikomanagement“ können die Pflichten gemäß Art. 55 Abs. 1 Buchstabe a und b zusammengefasst werden. Demnach haben Anbieter von GPAI-Modellen eine Modellevaluierung nach standardisierten Protokollen und Instrumenten vorzunehmen. Dies umfasst auch die Durchführung und Dokumentation von Angriffstest, um systemische Risiken zu ermitteln und zu mindern. Darüber hinaus sind ganz generell mögliche systemische Risiken auf Unionsebene – einschließlich ihrer Ursachen –, die sich aus der Entwicklung, dem Inverkehrbringen oder der Verwendung von GPAI-Modellen mit systemischem Risiko ergeben können, zu bewerten und zu mindern.\n    \n-   Meldepflicht gegenüber zuständigen Behörden bei schwerwiegenden Vorfällen\n    \n    Schwerwiegende Vorfälle sind zu dokumentieren und unverzüglich ans AI Office und gegebenenfalls an die zuständigen nationalen Behörden zu melden.\n    \n-   Cybersicherheit\n    \n    Anbieter von GPAI-Modellen haben ein „angemessenes Maß“ an Cybersicherheit und die physische Infrastruktur des Modells zu gewährleisten (siehe Art. 55 Abs. 1 Buchstabe d AIA). Beim Schutz der Cybersicherheit im Zusammenhang mit systemischen Risiken, die mit böswilliger Nutzung oder böswilligen Angriffen verbunden sind, sollte der unbeabsichtigte Modelldatenverlust, die unerlaubte Bereitstellung, die Umgehung von Sicherheitsmaßnahmen und der Schutz vor Cyberangriffen, unbefugtem Zugriff oder Modelldiebstahl gebührend beachtet werden.\n    \n    Dieser Schutz könnte durch die Sicherung von Modellgewichten, Algorithmen, Servern und Datensätzen erleichtert werden, z. B. durch Betriebssicherheitsmaßnahmen für die Informationssicherheit, spezifische Cybersicherheitsstrategien, geeignete technische und etablierte Lösungen sowie Kontrollen des physischen Zugangs und des Cyberzugangs, die den jeweiligen Umständen und den damit verbundenen Risiken angemessen sind (siehe Erwägungsgründe 115).",
       "keywords": [],
       "availableKeywords": [],
@@ -1161,7 +1161,7 @@
     },
     {
       "id": "856e2b50-28e3-4e59-afb8-e0b942ae265d",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Produkthersteller",
       "content": "### Welche Pflichten treffen Produkthersteller?\n\nBei Hochrisiko-KI-Systemen, bei denen es sich um Sicherheitsbauteil von Produkten handelt, die unter die in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, gilt gemäß Art. 25 Abs. 3 AIA der Produkthersteller als Anbieter des Hochrisiko-KI-Systems und unterliegt in den beiden nachfolgenden Fällen den Pflichten eines Anbieter gemäß Art. 16 AIA:\n\n-   Das Hochrisiko-KI-System wird zusammen mit dem Produkt unter dem Namen oder der Handelsmarke des Produktherstellers in Verkehr gebracht;\n-   das Hochrisiko-KI-System wird unter dem Namen oder der Handelsmarke des Produktherstellers in Betrieb genommen, nachdem das Produkt in Verkehr gebracht wurde\n",
       "keywords": [],
       "availableKeywords": [],
@@ -1177,7 +1177,7 @@
     },
     {
       "id": "268f2a84-8cd3-49f7-9690-f547936af47a",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
       "content": "### Welche Verpflichtungen treffen Betreiber?\n\nGenauso wie Anbieter, sind auch die Betreiber von KI-Systemen \nverpflichtet, bei der Verwendung jeder Art von KI-Systemen \nsicherzustellen, dass eingesetztes Personal und andere Personen, welche \nmit den KI-Systemen betraut sind ein ausreichendes Maß an KI-Kompetenz \naufweisen (Art. 4 iVm. Art. 3 Ziffer 56 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1192,7 +1192,7 @@
     },
     {
       "id": "2b4e2670-f415-4bb2-ae30-8e1951e9f535",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Hochrisiko-KI-Systeme",
       "content": "#### Hochrisiko-KI-Systeme\n\nDie Pflichten der Betreiber von Hochrisiko-KI-Systemen werden in Art. 26 AIA geregelt. Folgende Verpflichtungen sind dabei einzuhalten:",
       "keywords": [],
       "availableKeywords": [],
@@ -1205,7 +1205,7 @@
     },
     {
       "id": "725eccf5-6895-43c3-bd02-fd28a674168f",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Hochrisiko-KI-Systeme, Betriebsanleitung",
       "content": "-   Verwendung des Hochrisiko-KI-Systems laut Betriebsanleitung\n    \n    Anbieter haben gemäß Art. 13 Abs. 2 AIA eine Betriebsanleitung bereitzustellen und den Betreibern zur Verfügung zu stellen. Betreiber von Hochrisiko-KI-Systemen haben die erforderlichen technischen und organisatorischen Maßnahmen zu treffen, um sicherzustellen, dass Hochrisiko-KI-Systemen entsprechend der beigefügten Betriebsanleitung verwendet wird (siehe Art. 26 Abs. 1 AIA).\n    \n    Sofern die Betreiber die Kontrolle über Eingabedaten haben, müssen diese der Zweckbestimmung des Hochrisiko-KI-Systems entsprechen und müssen ausreichend repräsentativ sein (siehe Art. 26 Abs. 4 AIA).\n    \n    Davon bleiben sonstige Pflichten des Betreibers nach dem Unionsrecht oder nationalem Recht unberührt (siehe Art. 26 Abs. 3 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1223,7 +1223,7 @@
     },
     {
       "id": "2629f5ca-f950-440a-96be-44e71d8d2a85",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Menschliche Aufsicht",
       "content": "-   Menschliche Aufsicht\n    \n    Für die grundsätzliche Implementierung menschlicher Überwachungstools sind die Anbieter zuständig (siehe Art. 16 Buchstabe a iVm Art. 14 AIA), die Betreiber sind in der Folge verpflichtet, natürlichen Personen, die über die erforderliche Kompetenz, Ausbildung und Befugnis verfügen, die menschliche Aufsicht zu übertragen (siehe Art. 26 Abs. 2 AIA). Betreiber sind auch verpflichtet, diesen natürlichen Personen die erforderliche Unterstützung zukommen zu lassen.\n    \n    Davon bleiben sonstige Pflichten des Betreibers nach dem Unionsrecht oder nationalem Recht unberührt (siehe Art. 26 Abs. 3).",
       "keywords": [],
       "availableKeywords": [],
@@ -1240,7 +1240,7 @@
     },
     {
       "id": "7dd66929-d63c-4bac-bec0-a41ec1644573",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Überwachung",
       "content": "-   Überwachung des KI-Systems\n    \n    Gemäß Art. 26 Abs. 5 UAbs. 1 AIA haben die Betreiber den Betrieb des eingesetzten Hochrisiko-KI-Systems anhand der beigefügten Betriebsanleitung zu überwachen und informieren ggf. Anbieter gemäß Art. 72 AIA („Beobachtung nach dem Inverkehrbringen“).\n    \n    Für Betreiber, die Finanzinstitute sind und den einschlägigen Rechtsvorschriften über Finanzdienstleistungen unterliegen, gelten die Anforderungen über Regelungen, Verfahren oder Mechanismen der internen Unternehmensführung (siehe Art. 26 Abs. 5 Uabs. 2 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1276,7 +1276,7 @@
     },
     {
       "id": "e3e8d669-8420-4865-9fd8-0ad760b09242",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Aufbewahrung Protokolle",
       "content": "-   Aufbewahrung von erzeugten Protokollen\n    \n    Betreiber haben die automatisch erzeugten Protokolle von Hochrisiko-KI-Systeme für mindestens 6 Monate (ausgenommen das geltende Unionsrecht wie z.B. die DSGVO bestimmen etwas anderes) aufzubewahren, sofern diese unter ihrer Kontrolle liegen (siehe Art. 26 Abs. 6 UAbs. 1 AIA).\n    \n    Betreiber, die Finanzinstitute sind und den einschlägigen Rechtsvorschriften über Finanzdienstleistungen unterliegen, haben die Protokolle als Teil dieser Anforderungen aufzubewahren (siehe Art. 26 Abs. 6 UAbs. 2 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1289,7 +1289,7 @@
     },
     {
       "id": "fb82ef44-9f09-40c7-bad5-4656bebeb483",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Datenschutz-Folgenabschätzung",
       "content": "-   Sofern relevant, Datenschutz-Folgenabschätzung gemäß Art. 35 DSGVO\n    \n    Betreiber von Hochrisiko-KI-Systemen verwenden ggf. die gemäß Art. 13 AIA von den Anbietern bereitgestellten Informationen („Betriebsanleitungen“), um ihrer Pflicht zur Durchführung einer Datenschutz-Folgenabschätzung gemäß Art. 35 der DSGVO oder Artikel 27 der Richtlinie (EU) 2016/680 nachzukommen (siehe Art. 26 Abs. 9).",
       "keywords": [],
       "availableKeywords": [],
@@ -1304,7 +1304,7 @@
     },
     {
       "id": "44e0a04a-089c-40ec-a3bc-86f4015339f3",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Zusammenarbeit mit Behörden",
       "content": "-   Zusammenarbeit mit zuständigen nationalen Behörden\n    \n    Gemäß Art. 26 Abs. 12 AIA arbeiten die Betreiber mit den zuständigen Behörden bei allen Maßnahmen zusammen, die diese im Zusammenhang mit dem Hochrisiko-KI-System zur Umsetzung des AIA ergreifen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1317,7 +1317,7 @@
     },
     {
       "id": "0a86d1c5-9a31-4783-842f-6086786f0867",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Transparenz nachgelagerte Akteure",
       "content": "-   Transparenz gegenüber nachgelagerten Akteuren\n    \n    Beim Einsatz von Hochrisiko-KI-Systemen gemäß Anhang III sind natürliche Personen gemäß Art. 26 Abs. 11 AIA, die von einer Entscheidung betroffen sind oder bei solchen Entscheidungen, wo das besagte KI-System Unterstützung leistet, über die Verwendung des Hochrisiko-KI-Systems zu informieren. Im Rahmen der Strafverfolgung gilt Art. 13 Richtlinie 2016/680. Das betrifft etwa KI-Systeme, die bei der Zulassung zu Bildungseinrichtungen oder der Filterung von Bewerber:innen bei Stellenanzeigen eingesetzt werden.\n    \n    Diese Pflichten gelten unbeschadet der Transparenzpflichten gemäß Art. 50 AIA.",
       "keywords": [],
       "availableKeywords": [],
@@ -1333,7 +1333,7 @@
     },
     {
       "id": "7b61393c-3edc-4b21-a63a-67ef711aa4bb",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Erläuterung der Entscheidungsfindung",
       "content": "-   Recht auf Erläuterung der Entscheidungsfindung im Einzelfall\n    \n    Gemäß Art. 86 AIA haben Personen, die von einer Entscheidung betroffen sind, die der Betreiber auf der Grundlage der Ausgaben eines in Anhang III aufgeführten Hochrisiko-KI-Systems (ausgenommen Nummer 2: Kritische Infrastruktur) getroffen hat und die rechtliche Auswirkungen hat oder sie in ähnlicher Art erheblich auf eine Weise beeinträchtigt, die ihrer Ansicht nach ihre Gesundheit, ihre Sicherheit oder ihre Grundrechte beeinträchtigt, haben das Recht, vom Betreiber eine klare und aussagekräftige Erläuterung zur Rolle des KI-Systems im Entscheidungsprozess und zu den wichtigsten Elementen der getroffenen Entscheidung zu erhalten.",
       "keywords": [],
       "availableKeywords": [],
@@ -1347,7 +1347,7 @@
     },
     {
       "id": "f7521e56-add5-4d83-a21e-e9c641ccf8d8",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
       "content": "Folgende Pflichten treffen nur bestimmte Betreiber beim Einsatz spezifischer Hochrisiko-KI-Systeme:\n\n-   Sofern Arbeitgeber, der Hochrisiko-KI-Systeme am Arbeitsplatz einsetzt: Informationspflichten gegenüber der Arbeiternehmervertretung\n    \n    Arbeitgeber informieren neben den betroffenen Arbeitnehmer:innen auch die Arbeitnehmervertretung vor Inbetriebnahme oder Verwendung eines Hochrisiko-KI-Systems am Arbeitsplatz über den geplanten Einsatz eines solchen KI-Systems (siehe Art. 26 Abs. 7). Gemäß Anhang III Ziffer 4 Buchstabe a und b AIA zählen hierunter KI-Systeme die bestimmungsgemäß für die Einstellung oder Auswahl natürlicher Personen verwendet werden sollen, insbesondere um gezielte Stellenanzeigen zu schalten, Bewerbungen zu sichten oder zu filtern und Bewerber zu bewerten sowie KI-Systeme, die bestimmungsgemäß für Entscheidungen, die die Bedingungen von Arbeitsverhältnissen, Beförderungen und Kündigungen von Arbeitsvertragsverhältnissen beeinflussen, für die Zuweisung von Aufgaben aufgrund des individuellen Verhaltens oder persönlicher Merkmale oder Eigenschaften oder für die Beobachtung und Bewertung der Leistung und des Verhaltens von Personen in solchen Beschäftigungsverhältnissen verwendet werden soll.",
       "keywords": [],
       "availableKeywords": [],
@@ -1361,7 +1361,7 @@
     },
     {
       "id": "e3612b37-75ae-4a48-a2d5-0c86a8d41255",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Registrierungspflicht",
       "content": "-   Sofern EU-Organe, EU-Einrichtungen und sonstige EU-Stellen Betreiber sind: Registrierungspflicht\n    \n    EU-Organe, -Einrichtungen und sonstige Stellen der Union, welche Betreiber von Hochrisiko-KI-Systemen sind, müssen das verwendete KI-System gemäß Art. 49 AIA registrieren (siehe Art. 26 Abs. 8 AIA). Sofern das zur Verwendung geplante Hochrisiko-KI-System nicht in der in Art. 71 genannten EU-Datenbank registriert ist, sehen sie von der Verwendung ab und informieren auch den Anbieter oder Händler hierüber.",
       "keywords": [],
       "availableKeywords": [],
@@ -1376,7 +1376,7 @@
     },
     {
       "id": "455a7f0e-e6cf-4241-892f-098bec6464d2",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Genehmigungspflicht",
       "content": "-   Sofern Einsatz zur nachträglichen biometrischen Fernidentifizierung: Genehmigungspflicht einer Justiz- oder Verwaltungsbehörde\n    \n    Setzen Betreiber (also Strafverfolgungsbehörden) Hochrisiko-KI-Systeme zur nachträglichen biometrischen Fernidentifizierung im Rahmen von Ermittlungen zur gezielten Suche einer Person, die der Begehung einer Straftat verdächtigt wird oder aufgrund einer solchen verurteilt wurde, haben diese gemäß Art. 26 Abs. 10 AIA eine Genehmigung vorab oder unverzüglich, spätestens binnen 48 Stunden bei einer Justiz- oder Verwaltungsbehörde einzuholen, die einer justiziellen Überprüfung unterliegt. Wird die beantragte Genehmigung abgelehnt, ist die Verwendung des besagten Hochrisiko-KI-Systems mit sofortiger Wirkung einzustellen und etwaige personenbezogene Daten, die im Zusammenhang mit der Verwendung dieses Systems stehen, sind zu löschen. Jede Verwendung solcher Hochrisiko-KI-Systeme ist in der einschlägigen Polizeiakte zu dokumentieren und der zuständigen Marktüberwachungsbehörde und der nationalen Datenschutzbehörde (ausgenommen sensible operative Daten) auf Anfrage zur Verfügung zu stellen. Den genannten Behörden sind auch Jahresberichte vorzulegen.\n    \n    Der Einsatz von solchen KI-Systemen in nicht zielgerichteter Weise und ohne jeglichen Zusammenhang mit einer Straftat oder der Suche nach einer bestimmten vermissten Person sind untersagt.\n    \n    Ausgenommen davon ist die erstmalige Identifizierung eines potenziellen Verdächtigen auf der Grundlage objektiver und nachprüfbarer Tatsachen, die in unmittelbarem Zusammenhang mit der Straftat stehen.\n    \n    Den Mitgliedstaaten bleibt es unbenommen, strengere Rechtsvorschriften für die Verwendung von KI-Systemen zur nachträglichen biometrischen Fernidentifizierung zu erlassen.\n    \n    Unberührt bleibt von diesem Artikel die Anwendung der Richtlinie (EU) 2016/680.",
       "keywords": [],
       "availableKeywords": [],
@@ -1388,7 +1388,7 @@
     },
     {
       "id": "9cf8614f-614f-4a97-a52f-93a37e60c327",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Grundrechte-Folgenabschätzung",
       "content": "-   Sofern öffentliche und private Einrichtungen, welche öffentliche Dienste erbringen/teilweise private Institutionen: Erstellung einer Grundrechte-Folgenabschätzung\n    \n    Gemäß Art. 27 AIA haben Einrichtungen des öffentlichen Rechts und private Einrichtungen, welche öffentliche Dienste erbringen, beim Einsatz (gilt für die erste Verwendung) eines Hochrisiko-KI-Systems gemäß Art. 6 Abs. 2 iVm. Annex III (ausgenommen Ziffer 2: Kritische Infrastruktur) und Betreiber von Hochrisiko-KI-Systemen beim Einsatz von Hochrisiko-KI-Systemen gemäß Anhang III Nummer 5 Buchstaben b (Kreditwürdigkeitsprüfung und Bonitätsbewertung natürlicher Personen) und c (Risikobewertung und Preisbildung in Bezug auf natürliche Personen im Fall von Lebens- und Krankenversicherungen) eine Grundrechte-Folgenabschätzung vorzunehmen.\n    \n    Folgende Aspekte sind dabei zu berücksichtigen:\n    \n    -   eine Beschreibung der Verfahren des Betreibers, bei denen das Hochrisiko-KI-System im Einklang mit seiner Zweckbestimmung verwendet wird;\n    -   eine Beschreibung des Zeitraums und der Häufigkeit, innerhalb dessen bzw. mit der jedes Hochrisiko-KI-System verwendet werden soll;\n    -   die Kategorien der natürlichen Personen und Personengruppen, die von seiner Verwendung im spezifischen Kontext betroffen sein könnten;\n    -   die spezifischen Schadensrisiken, die sich auf die gemäß Buchstabe c dieses Absatzes ermittelten Kategorien natürlicher Personen oder Personengruppen auswirken könnten, unter Berücksichtigung der vom Anbieter gemäß Artikel 13 bereitgestellten Informationen;\n    -   eine Beschreibung der Umsetzung von Maßnahmen der menschlichen Aufsicht entsprechend den Betriebsanleitungen;\n    -   die Maßnahmen, die im Falle des Eintretens dieser Risiken zu ergreifen sind, einschließlich der Regelungen für die interne Unternehmensführung und Beschwerdemechanismen.\n    \n    Sofern diese Pflichten bereits mit der Datenschutz-Folgenabschätzung gemäß Art. 35 DSGVO oder Art. 27 der Richtlinie (EU) 2016/680 abgedeckt sind, so ergänzt die Grundrechte- die Datenschutz-Folgenabschätzung im Sinne des AIA.",
       "keywords": [],
       "availableKeywords": [],
@@ -1402,7 +1402,7 @@
     },
     {
       "id": "b48bb3d6-986f-4161-a486-48216c35347a",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
       "content": "#### KI-Systeme mit „begrenztem“ Risiko\n\nIn Art 50 AIA werden bestimmte KI-Systeme aufgelistet, welche ein begrenztes\nRisiko bergen, da das Risiko mittels bestimmter Transparenzpflichten minimiert\nwerden kann. Die Betreiber treffen bei folgenden KI-Systemen folgende\nTransparenzpflichten:\n\n- Emotionserkennungssysteme oder KI-Systeme zur biometrischen Kategorisierung\n\nUnberührt von anderen Transparenzpflichten, welche aus dem Unionsrecht oder dem\nnationalen Recht resultieren, sind betroffene Personen über den Betrieb eines\nEmotionserkennungssystems oder eines KI-Systems zur biometrischen\nKategorisierung zu informieren (siehe Art. 50 Abs. 3 AIA). Personenbezogene\nDaten dürfen nur im Einklang mit den Datenschutzbestimmungen verarbeitet werden.\nAusgenommen sind zugelassene KI-Systeme, zur Aufdeckung, Verhütung und\nErmittlung von Straftaten, sofern geeignete Schutzvorkehrungen für die Rechte\nund Freiheiten Dritter bestehen.\n\nDie Information ist spätestens zum Zeitpunkt der ersten Interaktion oder\nAussetzung in klarer und eindeutiger Weise bereitzustellen und müssen den\ngeltenden Barrierefreiheitsanforderungen entsprechen (siehe Art. 50 Abs. 5 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1416,7 +1416,7 @@
     },
     {
       "id": "16b18429-94ae-4d83-80ed-907e2e552fe5",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, generative KI-Systeme",
       "content": "-   KI-Systeme, die Text-, Bild-, Ton- oder Videoinhalte erzeugen oder manipulieren\n    \n    Unberührt von anderen unionsrechtlichen oder nationalen Transparenzpflichten, müssen Betreiber eines KI-Systems, das Textinhalte erzeugt oder manipuliert oder/und Bild-, Ton- oder Videoinhalte erzeugt oder manipuliert, die ein Deep-Fake sind, gemäß Art. 50 Abs. 4 AIA offenlegen, dass die Inhalte künstlich erzeugt oder manipuliert wurden. Ausgenommen ist die Verwendung zur Aufdeckung, Verhütung, Ermittlung und Verfolgung von Straftaten.\n    \n    Ein „Deep Fake“ im Sinne des AI Acts ist ein durch ein KI erzeugter oder manipulierter Bild-, Ton- oder Videoinhalt, der wirklichen Personen, Gegenständen, Orten, Einrichtungen oder Ereignissen ähnelt und einer Person fälschlicherweise als echt oder wahrheitsgemäß erscheinen würde (siehe Art. 3 Ziffer 60 AIA).\n    \n    Ist offensichtlich, dass der künstlich erzeugte oder manipulierte Bild-, Ton- oder Videoinhalt Teil eines künstlerischen, kreativen, satirischen, fiktionalen oder analogen Werks oder Programms ist, beschränkt sich die Transparenzpflicht darauf, das Vorhandensein von künstlich erzeugten und manipulierten Inhalten derart offenzulegen, dass die Darstellung oder der Genuss des Werkes nicht beeinträchtigt wird.\n    \n    Bei erzeugten und manipulierten Texten gelten die Transparenzpflichten nicht, wenn dieser Text von einem Menschen überprüft wurde und es einen redaktionellen Verantwortlichen gibt.\n    \n    Die Information ist spätestens zum Zeitpunkt der ersten Interaktion oder Aussetzung in klarer und eindeutiger Weise bereitzustellen und müssen den geltenden Barrierefreiheitsanforderungen entsprechen (siehe Art. 50 Abs. 5 AIA).\n    \n    Lesen Sie mehr zu den [Transparenzpflichten](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html)!",
       "keywords": [],
       "availableKeywords": [],
@@ -1446,7 +1446,7 @@
     },
     {
       "id": "ecfd2b0e-fbbd-4551-8c94-4eaef2c02ec5",
-      "title": "KI-Servicestelle: KI-Kompetenz",
+      "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
       "content": "## Was ist KI-Kompetenz?\n\nMit 02.02.2025 kommen die ersten Bestimmungen des AI Act zur Anwendung, darunter auch die KI-Kompetenz gemäß Art. 4 AIA. Gemäß Art. 4 AIA gilt dann ohne Unterscheidung in KI-Systeme, -Modelle oder Risikoklassen folgende Verpflichtung:\n\n> Art. 4 AIA: Die Anbieter und Betreiber von KI-Systemen ergreifen Maßnahmen, um nach besten Kräften sicherzustellen, dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen, wobei ihre technischen Kenntnisse, ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt werden sollen, sowie die Personen oder Personengruppen, bei denen die KI-Systeme eingesetzt werden sollen, zu berücksichtigen sind.\n\nDer im Normtext und auch in der Überschrift des Art 4 AIA enthaltene Begriff \"KI-Kompetenz\" wird mit jener der Begriffsbestimmungen in Art 3 Ziffer 56 AIA nochmals näher umschrieben. In der Folge werden die Zusammenhänge und Unterschiede dieser beiden Vorschriften beschrieben.",
       "keywords": [],
       "availableKeywords": [],
@@ -1461,7 +1461,7 @@
     },
     {
       "id": "1b027697-3d10-4487-9e5c-0a9be1158e3f",
-      "title": "KI-Servicestelle: KI-Kompetenz",
+      "title": "KI-Servicestelle: KI-Kompetenz, Begriffdefinition",
       "content": "### Der Begriff „KI-Kompetenz“ gemäß Art. 3 Ziffer 56 AIA\n\nGemäß Art. 3 Ziffer 56 AIA ist \"KI-Kompetenz\"\n\n> die Fähigkeiten, die Kenntnisse und das Verständnis, die es Anbietern, Betreibern und Betroffenen unter Berücksichtigung ihrer jeweiligen Rechte und Pflichten im Rahmen dieser Verordnung ermöglichen, KI-Systeme sachkundig einzusetzen sowie sich der Chancen und Risiken von KI und möglicher Schäden, die sie verursachen kann, bewusst zu werden\n\nMit KI-Kompetenz wird abstrakt umschrieben, was notwendig ist, um in der digitalen Welt unter dem Einsatz von KI-Systemen erfolgreich agieren zu können.",
       "keywords": [],
       "availableKeywords": [],
@@ -1473,7 +1473,7 @@
     },
     {
       "id": "5a9f9935-184c-45e2-8864-b91d0b030612",
-      "title": "KI-Servicestelle: KI-Kompetenz",
+      "title": "KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette",
       "content": "### Anbieter, Betreiber und Betroffene\n\nKI-Kompetenz trifft damit alle relevanten Akteure auf der [KI-Wertschöpfungsebene](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html \"Link zu den Akteuren\") im Kontext ihrer Rolle entlang der Wertschöpfungskette (vgl. ErwG 20). Natürlich sind an den unterschiedlichen Stellen der Wertschöpfungskette auch unterschiedliche Kompetenzen notwendig. Anbieter von Hochrisiko-KI-Systemen etwa müssen bereits während der Entwicklungsphase die technischen Besonderheiten von KI kennen, um eine mit europäischen Werten vereinbare und sichere KI zu entwickeln.\n\nMit **Art. 4 AIA** werden **Betreiber und Anbieter verpflichtet, \"Maßnahmen\"** zu ergreifen, dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen. Welche Maßnahmen das sein können, hängt vom eingesetzten [KI-System](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-systeme.de.html \"Link zu den Risikostufen von KI-Systemen\") oder [KI-Modell](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-modelle.de.html \"Link zu den Risikostufen von KI-Modellen\") und dessen Risikostufe ab. Die technischen Kenntnisse der Mitarbeiter:innen, ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt werden sollen, sowie die Personen oder Personengruppen, bei denen die KI-Systeme eingesetzt werden sollen, sind zu berücksichtigen. KI-Kompetenz ist ein interdisziplinäres Feld, es umfasst nicht nur technische, sondern auch rechtliche und ethische Aspekte (siehe Erwägungsgründe 20 AIA). So haben sich Anbieter, die sich mit der Entwicklung eines Chatbots beschäftigen naturgemäß mit anderen Thematiken auseinanderzusetzen als ein Betreiber, der dieses System in seinem Unternehmen lediglich anwendet.",
       "keywords": [],
       "availableKeywords": [],
@@ -1489,7 +1489,7 @@
     },
     {
       "id": "0018756c-5b2f-46b7-abb9-8a5e3ffc3054",
-      "title": "KI-Servicestelle: KI-Kompetenz",
+      "title": "KI-Servicestelle: KI-Kompetenz, Anwendungsfall",
       "content": "-### Veranschaulichung für KI-Kompetenz anhand eines Beispiels zum Thema Datenschutz und Sicherheit:\n    \nEin Anbieter eines Chatbots hat sich in der Entwicklung unter anderem damit zu beschäftigen, dass vom Nutzer eingegebene Daten sicher gespeichert und verarbeitet werden (z.B. Verschlüsselung der Daten, Sicherheitsupdates, etc.). Ein Betreiber eines solchen Chatbots, der seinen Mitarbeiter:innen ein solches System zur Verfügung stellt, hat darauf zu achten, dass keine personenbezogene Daten oder Geschäftsgeheimnisse unrechtmäßig an den Anbieter als Dritter übermittelt werden. Dies umfasst etwa Maßnahmen, dass der Betreiber etwaige \"on-premises\"- Lösungen nutzt, vertragliche Absicherungen notwendig sind, oder/und entsprechende Schulungen der Mitarbeiter:innen zum Einsatz eines Chatbots unternimmt, dass derartige Eingaben zu unterlassen sind (siehe zum Thema KI und Datenschutz auch die [Informationen der DSB](https://www.dsb.gv.at/download-links/FAQ-zum-Thema-KI-und-Datenschutz.html \"Link zur Datenschutzbehörde\")).\n    \n Aufgrund der unterschiedlichen Einsatzgebiete und Ausgestaltung von KI-Systemen können Maßnahmen gemäß Art. 4 AIA sehr divers und unterschiedlich ausfallen. Es gibt sohin keine pauschale Beantwortung auf die Frage, welche konkreten Maßnahmen notwendig sind, um den Anforderungen des Art. 4 AIA nachzukommen. Das bedeutet auch, dass nicht jedes Unternehmen im gleichen Ausmaß von Art. 4 AIA betroffen ist. Auch nicht jeder Mitarbeitende muss zwingendermaßen im gleichen Ausmaß über KI-Kompetenz verfügen. Wird z.B. der gesamten Belegschaft die Nutzung von Chatbots wie ChatGPT ermöglicht, sind entsprechende wiederkehrende (auch Neueintritte sind zu berücksichtigen) Schulungsmaßnahmen für die ganze Belegschaft vorzusehen. Wird lediglich der Personal- oder Kommunikationsabteilung ein bestimmtes \"KI-Tool\" zur Verfügung gestellt, können sich Maßnahmen auf wenige Personen beschränken. Auch die Intensität der Schulung kann dabei variieren. Der Einsatz von KI-Systemen mit begrenztem Risiko erfordert ggf. andere Maßnahmen als der Einsatz von KI-Systemen im Hochrisikobereich.\n    \nWichtig ist, dass aus Art. 4 AIA – anders als in der DSGVO – nicht die gesetzliche Pflicht resultiert, einen \"KI-Beauftragten\" zu benennen. Dass es für die Umsetzung von KI-Konzepten notwendig sein kann, dass sich Mitarbeitende schulen lassen oder Personen mit KI-Expertise eingestellt werden, ist eine individuelle Entscheidung des Unternehmens. Entsprechende Konzepte sind im Einzelfall zu entwickeln. Da es sich um keinen starren Prozess handelt, ist es ratsam, KI-Kompetenz als Teil des Fort- und Weiterbildungsprozesses einzubeziehen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1504,7 +1504,7 @@
     },
     {
       "id": "26497c14-895e-4da7-bf4a-018625e3e739",
-      "title": "KI-Servicestelle: KI-Kompetenz",
+      "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
       "content": "Die Begriffsdefinition beinhaltet explizit auch die positive Anforderung, die Chancen von KI zu kennen, um Möglichkeiten des wertstiftenden Einsatzes von KI zu erkennen.\n\nBetroffen von der Verpflichtung zu KI-Kompetenz sind damit folgende Personengruppen:\n\n-   Mit der Entwicklung von KI betrauten Personen\n-   Mit dem Betrieb von KI-Systemen betrauten Personen\n-   Personen innerhalb eines Unternehmens, die KI-Systeme einsetzen.\n\nÜber die Art und Weise der zu treffenden Schulungsmaßnahmen bleibt der AI Acts offen. Diese kann durch interne Fortbildungen, externe Beratungen oder interne Schulungen erfolgen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1519,7 +1519,7 @@
     },
     {
       "id": "14294dba-dcf9-475a-8f96-d58137d64c43",
-      "title": "KI-Servicestelle: KI-Kompetenz",
+      "title": "KI-Servicestelle: KI-Kompetenz, Sanktionierung",
       "content": "### Sanktionierung\n\nWährend der AI Act selbst keine verwaltungsstrafrechtliche Sanktionierung des Art. 4 AIA vorsieht, können sich in verschiedenen Konstellationen Konsequenzen einer Nicht-Einhaltung manifestieren. Fehlende Mitarbeiterschulungen sind idR auch außerhalb des AI Acts nach § 1313a ABGB dem Unternehmer zurechenbar. Der Art. 4 AI Act stellt hier eine Präzisierung der unternehmerischen Sorgfaltspflichten in Hinblick auf KI dar. Entstehen demnach Schäden, die durch fehlende KI-Kompetenz verursacht wurden, präzisiert der Art. 4 AIA, dass eine Pflicht zur Schulung bestanden hätte.",
       "keywords": [],
       "availableKeywords": [],
@@ -1534,7 +1534,7 @@
     },
     {
       "id": "f3529f8b-f673-4bc4-aa17-3022e4814d31",
-      "title": "KI-Servicestelle: KI-Kompetenz",
+      "title": "KI-Servicestelle: KI-Kompetenz, weitere Informationen",
       "content": "### Weitere Informationen\n\nKI-Kompetenz wird oftmals mit digitaler Kompetenz in Verbindung gebracht. Das\nThema KI-Kompetenz und digitale Kompetenz ist tatsächlich eng miteinander\nverbunden. Das zeigt sich bereits daran, dass KI-Kompetenz auch in den einzelnen\nKompetenzbereichen und Teilkompetenzen integriert ist. Zudem baut KI-Kompetenz\nauf das Vorhandensein von digitalen Kompetenzen auf. Um KI-Systeme und -modelle\nerfolgreich anwenden und entwickeln zu können, braucht es auch digitale\nKompetenzen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1549,7 +1549,7 @@
     },
     {
       "id": "b2ad8ee0-3563-4261-b77f-e51e8f14ae46",
-      "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+      "title": "KI-Servicestelle: Risikostufen KI-Modelle, KI-Modelle mit allg. Verwendungszweck",
       "content": "# Risikostufen KI-Modelle\n\n### KI-Modelle mit allgemeinem Verwendungszweck\n\nDie gesetzgebenden EU-Organe fokussierten sich zu Beginn auf die Regulierung von KI-Systeme, welche für einen mehr oder weniger spezifischen Zweck (z. B. autonomes Fahren) entwickelt wurden. Seitdem KI-Tools wie ChatGPT & Co auch die breite Öffentlichkeit erreichte, wandte sich dann auch der Blick auf „KI-Modelle mit allgemeinem Verwendungszweck“.",
       "keywords": [],
       "availableKeywords": [],
@@ -1561,7 +1561,7 @@
     },
     {
       "id": "244539de-d09c-4047-8f24-0970ea22e691",
-      "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+      "title": "KI-Servicestelle: Risikostufen KI-Modelle, Definition KI-Modelle mit allg. Verwendungszweck",
       "content": "### Was sind KI-Modelle mit allgemeinem Verwendungszweck?\n\nKI-Modelle mit allgemeinem Verwendungszweck – im Englischen als General Purpose AI Models (GPAI) oder Foundation Model bezeichnet – sind KI-Modelle (nicht zu verwechseln mit KI-Systemen, siehe Erwägungsgründe 97f), die ein breites Spektrum von Aufgaben zu bewältigen können, anstatt für eine spezifische Aufgabe oder Anwendung optimiert worden zu sein. Diese Modelle sind oft in der Lage, große Mengen an unstrukturierten Daten wie Text, Bildern, Audio und Videos zu verarbeiten und auch Aufgaben wie Klassifizierung, Generierung und Vorhersagen zu übernehmen.\n\nAufgrund der Flexibilität und Anpassungsfähigkeit werden diese Modelle in einer Vielzahl von Fällen und verschiedenen Branchen eingesetzt. Sie bilden auch oftmals die Basis für Feinjustierungen in Bezug auf spezifische KI-Systeme. Zu den Beispielen für GPAI-Modelle zählen etwa die auf Transformer-Modelle beruhenden großen Sprachmodelle („Large Language Models [LLM])“ von OpenAI („GPT-3.5/GPT-4“), Meta („LLama“) oder Mistral („Mixtral“). GPAI-Modelle beschränken sich allerdings nicht auf Sprachmodelle, auch andere Modelle beispielsweise zur Klassifikation können unter diese Definition fallen.\n\nUm mögliche für GPAI-Modelle spezifische Risiken (etwa unerwünschte Ergebnisse, Urheber- und Datenschutzverstöße bei der Entwicklung) zu begegnen, werden den Anbieter:innen insbesondere Dokumentations- und Informationspflichten (siehe Art. 53 AIA) auferlegt.",
       "keywords": [],
       "availableKeywords": [],
@@ -1577,7 +1577,7 @@
     },
     {
       "id": "a544c6f9-a5c0-44a9-8767-64afdfdda1e8",
-      "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+      "title": "KI-Servicestelle: Risikostufen KI-Modelle, Zusammenhang KI-Modelle, GPAI, KI-Systeme",
       "content": "### In welchem Zusammenhang stehen KI-Modelle, GPAI-Modelle und KI-Systeme?  \n\nZwischen den Begriffen „KI-Systeme“ und „KI-Modelle“ ist klar zu trennen. In den Anwendungsbereich des AI Act fallen nicht alle KI-Modelle, sondern ausschließlich GPAI-Modelle. GPAI-Modelle können zwar Teil eines KI-Systems sein, sie bilden allerdings isoliert betrachtet kein KI-System. Damit ein GPAI-Modell zu einem KI-System werden kann, wird das Hinzufügen weiterer Komponenten – wie z. B. einer Nutzerschnittstelle – notwendig. In diesem Fall wird dann von einem KI-System mit allgemeinem Verwendungszweck (bzw. GPAI-System) im Sinne des Art. 3 Ziffer 66 AIA gesprochen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1591,7 +1591,7 @@
     },
     {
       "id": "83722d3a-a3fb-4f8b-9733-9a4c583b3754",
-      "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+      "title": "KI-Servicestelle: Risikostufen KI-Modelle, GPAI vs generative KI",
       "content": "### Sind GPAI und generative KI dasselbe?\n\nGPAI und generative KI sind ähnliche Konzepte, aber nicht genau dasselbe. GPAI-Modelle sind darauf ausgelegt, ein breites Anwendungsspektrum zu bedienen und erfassen verschiedenste KI-Modelle. Generative KI bezieht sich hingegen auf Modelle, die auf das Erzeugen von Texten, Bildern, Videos, Musik und anderen Inhalten ausgerichtet sind (GPAI-Systeme wie z. B. ChatGPT für das Generieren von Texten; Midjourney oder DALL-E für das Generieren von Bilder und Videos etc.). Generative KI ist daher ein spezifischer Unterbereich von GPAI-Modellen.  \nKurzgefasst haben GPAI-Modelle vielseitige Einsatzmöglichkeiten, während generative KI-Systeme sich speziell auf die Fähigkeit beziehen, Daten oder Inhalte zu generieren.",
       "keywords": [],
       "availableKeywords": [],
@@ -1604,7 +1604,7 @@
     },
     {
       "id": "35d4c6fc-05c7-4377-8737-52ee79a7441b",
-      "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+      "title": "KI-Servicestelle: Risikostufen KI-Modelle, GPAI-Modell mit systemischem Risiko",
       "content": "### Wann liegt ein GPAI-Modell mit systemischem Risiko vor?Eine Sonderstellung nehmen GPAI-Modelle mit systemischen Risiken ein. Mit „Systemrisiko“ referiert der Unionsgesetzgeber auf Risiken, die für ein GPAI-Modell, welche über Fähigkeiten mit einem hohen Wirkungsgrad („high impact capabilities“) verfügt, spezifisch sind (Art. 3 Ziffer 65 Teilsatz 1 AIA). Ein GPAI-Modell, welches Fähigkeiten mit einem hohen Wirkungsgrad verfügt, liegt dann vor, wenn die Fähigkeiten des in Rede stehenden GPAI-Modells jene der fortschrittlichsten GPAI-Modelle entsprechen oder diese sogar übertreffen (Art. 3 Ziffer 64 AIA). Diese Modelle haben eine gewisse Reichweite bzw haben diese für die öffentliche Gesundheit, die Sicherheit, die öffentliche Sicherheit, die Grundrechte oder die Gesellschaft tatsächlich oder vernünftigerweise vorhersehbare negative Folgen, die insgesamt erhebliche Auswirkungen auf den Unionsmarkt haben, die sich in großem Umfang über die gesamte Wertschöpfungskette hinweg verbreiten können (vgl. Art. 3 Ziffer 65 Teilsatz 2 AIA).  \n  \nEin GPAI-Modell mit systemischem Risiko liegt vor, wenn eines der folgenden Kriterien erfüllt ist (Art. 51 Abs. 1 AIA):\n\n-   Es verfügt über Fähigkeiten mit einem hohen Wirkungsgrad, welche auf der Grundlage geeigneter technischer Instrumente und Methodologien, einschließlich Indikatoren und Benchmarks ermittelt wird (z. B. wird dies angenommen, wenn die im Training des Modells notwendige Anzahl an Berechnungen, welche in Gleitkommaoperationen, oder kurz „FLOP“ („Floating Point Operation“) gemessen wird, über 1025 liegt, siehe Art. 51 Abs. 2 AIA);\n-   Es liegt eine von Amts wegen ergangene Entscheidung der Kommission oder eine qualifizierte Warnung durch das wissenschaftliche Gremium vor, wonach das GPAI-Modell Fähigkeiten oder Auswirkungen hat, die den oben genannten Kriterien gleichwertig sind.",
       "keywords": [],
       "availableKeywords": [],
@@ -1621,7 +1621,7 @@
     },
     {
       "id": "c119b51c-2e95-494b-9e83-7ceead178087",
-      "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+      "title": "KI-Servicestelle: Risikostufen KI-Modelle, FLOP",
       "content": "#### Exkurs: Was ist eigentlich ein FLOP?\n\nAls Gleitkommaoperation (Englisch: **FL**oating Point **OP**eration, FLOP) definiert der AI Act in Art. 3 Z. 67 jede Rechenoperation mit Gleitkommazahlen. Davon umfasst sind etwa Grundrechenoperationen wie Addition und Multiplikation. Eine einfache Rechnung wie „42 * 42 + 17,32“ wären damit zwei FLOPs (42*42; 1764 + 17,32).\n\nDie Anzahl der Gleitkommaoperationen, die in der Trainingsphase notwendig waren, verwendet der AIA als Substitut für die Mächtigkeit eines Modells. So geht der AI Act davon aus, dass beim derzeit festgelegten Schwellenwert von 1025 FLOPs (ausgeschrieben: 10.000.000.000.000.000.000.000.000 Rechenoperationen) ein Modell mit hohem Wirkungsgrad entsteht. Aktuelle Open Source-Modelle überschreiten diese Grenze bereits: Das von Meta im Juli 2024 als Open Source veröffentlichte LLama-3-Modell 405B erreicht in der aufgewendeten Trainingsleistung 3,8 x 1025 FLOPS.\n\nUm diese Zahl einzuordnen: Ein aktueller Smartphone-Chip schafft derzeit eine Größenordnung von mehreren 1012 FLOPs pro Sekunde („Teraflop/s“), eine aktuelle Heimanwender-Grafikkarte mehr als das vierzigfache davon. Aktuelle Rechenzentren-GPUs schaffen derzeit bereits fast 2.000 Teraflops pro Sekunde bei einfachen Rechenoperationen. Ein aktuelles Smartphone müsste damit 100.000 Jahre am Stück rechnen, um die Grenze der 1025 Rechenoperationen zu erreichen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1637,7 +1637,7 @@
     },
     {
       "id": "80cd63d8-b1ac-4a11-9e9e-8bb628596d72",
-      "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+      "title": "KI-Servicestelle: Risikostufen KI-Modelle, Beurteilung GPAI-Modell mit system. Risiko",
       "content": "Zur Beurteilung, ob ein GPAI-Modell mit systemischem Risiko vorliegt, sind folgende Parameter gemäß Anhang XIII zu berücksichtigen:\n\n-   Anzahl der Parameter des Modells;\n-   Qualität oder Größe des Datensatzes, zum Beispiel gemessen durch Tokens;\n-   der für das Training des Modells verwendete Rechenaufwand, gemessen in FLOPs oder angegeben durch eine Kombination anderer Variablen wie geschätzte Kosten des Trainings, geschätzte Zeit, geschätzter Zeitbedarf für das Training oder geschätzter Energieverbrauch für das Training;\n-   Eingabe- und Ausgabemodalitäten des Modells, zum Beispiel Text-zu-Text (große Sprachmodelle), Text zu Bild, Multimodalität, Schwellenwerte auf dem Stand der Technik für die Bestimmung von Fähigkeiten mit hohem Wirkungsgrad für jede Modalität sowie die spezifische Art der Inputs und Outputs (z. B. biologische Sequenzen);\n-   Benchmarks und Bewertungen der Fähigkeiten des Modells, einschließlich der Berücksichtigung der Anzahl der Aufgaben ohne zusätzliches Training, Anpassungsfähigkeit zum Erlernen neuer, unterschiedlicher Aufgaben, seinen Grad an Autonomie und Skalierbarkeit sowie die Werkzeuge, zu denen es Zugang hat;\n-   ob es hat aufgrund seiner Reichweite große Auswirkungen auf den Binnenmarkt hat, wovon auszugehen ist, wenn es mindestens 10 000 registrierten gewerblichen Nutzern zur Verfügung gestellt wurde mit Sitz in der Union zur Verfügung steht;\n-   Anzahl der registrierten Endnutzer:innen.  \n      \n    \n\nAufgrund des Risikopotentials werden den Anbieter:innen von GPAI-Modellen mit systemischen Risiken über Art. 53 AIA hinausgehende Pflichten auferlegt. Anbieter:innen haben insbesondere Maßnahmen zur Ermittlung, Bewertung und Minderung von Systemrisiken zu treffen (siehe Art. 55 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1671,7 +1671,7 @@
     },
     {
       "id": "479fd058-034c-4a38-b806-38bf6965c0b7",
-      "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+      "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
       "content": "### Praktiken mit inakzeptablem Risiko\n\nManche Praktiken in Zusammenhang mit KI-Systeme bergen ein **zu hohes Risiko** im Hinblick auf die Wahrscheinlichkeit eines Schadenseintritts und auch des Schadensausmaßes an individuellen oder öffentlichen Interessen, weshalb sie **verboten** sind.\n\nDazu zählen gemäß Artikel 5 AI Act:\n\n-   KI-Systeme, die das menschliche Verhalten manipulieren, um den freien Willen des Menschen zu umgehen;\n-   KI-Systeme, die eingesetzt werden, um die Schwächen von Menschen (aufgrund ihres Alters, einer Behinderung, ihrer sozialen oder wirtschaftlichen Lage) auszunutzen;\n-   KI-Systeme, die auf der Grundlage von Sozialverhalten oder persönlichen Merkmalen von natürlichen Bewertungen vornehmen, die zu einer Schlechterstellung führen können (Social Scoring);\n-   Risikobewertungssysteme, die auf der Grundlage von Profiling das Risiko bewerten oder vorhersagen, ob eine natürliche Person eine Straftat begeht (Predictive Policing; zu Deutsch „vorhersagende Polizeiarbeit“);\n-   Ungezieltes Auslesen von Gesichtsbildern aus dem Internet oder aus Überwachungsaufnahmen zur Erstellung von Gesichtserkennungsdatenbanken;\n-   Emotionserkennung am Arbeitsplatz und in Bildungseinrichtungen (ausgenommen sind KI-Systeme zu medizinischen [z. B. therapeutischen Nutzung] oder sicherheitstechnischen Zwecken);\n-   Biometrische Kategorisierungssysteme um Rückschlüsse auf sensible Informationen (z. B. politische, religiöse oder philosophische Überzeugungen, sexuelle Orientierung, Rasse) zu ziehen oder zu bestimmen;\n-   Verwendung von biometrischen Echtzeit-Fernerkennungssystemen in öffentlich zugänglichen Räumen zu Strafverfolgungszwecken (mit einigen Ausnahmen wie z. B. bestimmten Opfern oder vermissten Kindern, Täter bestimmter Straftaten etc.).",
       "keywords": [],
       "availableKeywords": [],
@@ -1705,7 +1705,7 @@
     },
     {
       "id": "32ec33e4-0b93-498d-bf92-8f561ac77fbd",
-      "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+      "title": "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme ",
       "content": "### Hochrisiko-KI-Systeme\n\nHochrisiko-KI-Systeme stellen – wie bereits der Name sagt – ein **hohes Risiko** dar im Hinblick auf die Wahrscheinlichkeit eines Schadenseintritts und auch des Schadensausmaßes an individuellen oder öffentlichen Interessen. Hochrisiko-KI-Systeme gemäß Artikel 6 AI Act sind allerdings nicht per se verboten. Das Inverkehrbringen oder die Inbetriebnahme ist nur **unter Einhaltung bestimmter Anforderungen erlaubt**. Derartige KI-Systeme sind unter anderem im Anhang I und III des AI Act aufgelistet:\n\n**Anhang I** – Das KI-System soll als Sicherheitskomponente eines unter den unten angeführten EU-Vorschriften fallenden Produkts verwendet werden oder ist selbst ein unter diese Vorschriften fallendes Produkt.\n\n**Abschnitt A** – Liste der Harmonisierungsrechtsvorschriften der Union auf der Grundlage des neuen Rechtsrahmens:  \n\n-   Maschinen – [Richtlinie 2006/42/EG](https://eur-lex.europa.eu/legal-content/de/ALL/?uri=CELEX%3A32006L0042 \"Link zur Richtlinie\") (wird mit Wirkung vom 14. Januar 2027 aufgehoben und durch [Verordnung (EU) 2023/1230](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R1230 \"Link zur Verordnung\") ersetzt)\n-   Spielzeug – [Richtlinie 2009/48/EG](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX%3A32009L0048 \"Link zur Richtlinie\") (ein neuer [Verordnungsvorschlag](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=COM:2023:462:FIN \"Link zum Verordnungsvorschlag\") wird verhandelt)\n-   Sportboote und Wassermotorräder – [Richtlinie 2013/53/EU](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32013L0053 \"Link zur Richtlinie\")\n-   Aufzüge – [Richtlinie 2014/33/EU](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32014L0033 \"Link zur Richtlinie\")\n-   Geräte und Schutzsysteme zur bestimmungsgemäßen Verwendung in explosionsgefährdeten Bereichen – [Richtlinie 2014/34/EU](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32014L0034 \"Link zur Richtlinie\")\n-   Funkanlagen – [Richtlinie 2014/53/EU](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32014L0053 \"Link zur Richtlinie\")\n-   Druckgeräte – [Richtlinie 2014/68/EU](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32014L0068 \"Link zur Richtlinie\")\n-   Seilbahnen – [Verordnung (EU) 2016/424](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX%3A32016R0424 \"Link zur Verordnung\")\n-   Persönliche Schutzausrüstung – [Verordnung (EU) 2016/425](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX%3A32016R0425 \"Link zur Verordnung\")\n-   Verbrennung gasförmiger Brennstoffe – [Verordnung (EU) 2016/426](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX%3A32016R0426 \"Link zur Verordnung\")\n-   Medizinprodukte – [Verordnung (EU) 2017/745](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32017R0745 \"Link zur Verordnung\")\n-   In-vitro-Diagnostika – [Verordnung (EU) 2017/746](https://eur-lex.europa.eu/legal-content/de/ALL/?uri=CELEX%3A32017R0746 \"Link zur Verordnung\")\n\n**Abschnitt B** – Liste anderer Harmonisierungsrechtsvorschriften der Union;  \n\n-   Zivilluftfahrt – [Verordnung (EG) Nr 300/2008](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=celex:32008R0300 \"Link zur Verordnung\") und [Verordnung (EU) 2018/1139](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32018R1139 \"Link zur Verordnung\")\n-   Zwei- oder dreirädrigen und vierrädrigen Fahrzeugen – [Verordnung (EU) Nr 168/2013](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX:32013R0168 \"Link zur Verordnung\")\n-   Land- und forstwirtschaftliche Fahrzeuge – [Verordnung (EU) Nr 167/2013](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX%3A32013R0167 \"Link zur Verordnung\")\n-   Schiffsausrüstung – [Richtlinie 2014/90/EU](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX%3A32014L0090 \"Link zur Richtlinie\")\n-   Interoperabilität des Eisenbahnsystem – [Richtlinie (EU) 2016/797](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32016L0797 \"Link zur Richtlinie\")\n-   Kraftfahrzeugen und Kraftfahrzeuganhängern sowie von Systemen, Bauteilen und selbstständigen technischen Einheiten für diese Fahrzeuge – [Verordnung (EU) 2018/858](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32018R0858 \"Link zu Verordnung\") und [Verordnung (EU) 2019/2144](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32019R2144 \"Link zur Verordnung\")",
       "keywords": [],
       "availableKeywords": [],
@@ -1718,7 +1718,7 @@
     },
     {
       "id": "d6b1d3b4-a6fc-460d-adac-3810b3fd4b9a",
-      "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+      "title": "KI-Servicestelle: Risikostufen KI-System, Anhang IIIe",
       "content": "Zusätzlich gelten auch noch die in **Anhang III** abschließend genannten KI-Systeme als hochriskant im Sinne des AIA:\n\n-   Biometrik, soweit ihr Einsatznach dem einschlägigen Unionsrecht oder dem nationalen Recht zugelassen ist;\n-   Sicherheitsbauteile in kritischer Infrastruktur;\n-   Bestimmte Systeme im Rahmen von beruflicher Aus- und Weiterbildung, insbesondere wenn diese über den Zugang zu dieser entscheiden können;\n-   Bestimmte Systeme in Zusammenhang mit Beschäftigung, Personalmanagement und Zugang zur Selbstständigkeit, insbesondere wenn diese für Entscheidungen eingesetzt werden;\n-   Zugänglichkeit und Inanspruchnahme grundregelnder privater und öffentlicher Dienste und Leistungen;\n-   Bestimmte Systeme, die zur Strafverfolgung verwendet werden;\n-   Bestimmte Systeme zur Migrations-, Asyl- und Grenzkontrolle;\n-   Bestimmte Systeme innerhalb der Justiz und der demokratischen Prozesse.",
       "keywords": [],
       "availableKeywords": [],
@@ -1737,7 +1737,7 @@
     },
     {
       "id": "a9bf3bf8-40da-4c63-a908-e12625e1e946",
-      "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+      "title": "KI-Servicestelle: Risikostufen KI-Systeme, kritische Infrastr. und Sicherheitsbauteil",
       "content": "#### Kritische Infrastruktur und Sicherheitsbauteile (Anl. III Z 2 AIA)\n\nIn kritischer Infrastruktur eingesetzte KI-Systeme können nach Art. 6 Abs. 2 iVm Anhang III Z 2 AIA Hochrisiko-KI-Systeme sein. Konkret ist ein KI-System als Hochrisiko-KI-System einzustufen, wenn es im Bereich der kritischen Infrastruktur als Sicherheitsbauteil verwendet wird:\n\n-   im Rahmen der Verwaltung und des Betriebs\n-   kritischer digitaler Infrastruktur,\n-   des Straßenverkehrs oder\n-   der Wasser-, Gas-, Wärme- oder Stromversorgung\n\nFür die Beurteilung stellt sich die Frage, was konkret \"kritische Infrastruktur\" und was ein \"Sicherheitsbauteil\" ist.\n\nGrundsätzlich gehört die kritische Infrastruktur zu einer kritischen Einrichtung. In der Definition in Art. 3 Z. 62 AIA wird bzgl. des Begriffes \"kritische Infrastruktur\" auf Art. 2 Z. 4 der [Richtlinie (EU) 2022/2557](https://eur-lex.europa.eu/eli/dir/2022/2557/oj?locale=de \"Link zur Richtlinie über die Resilienz kritischer Infrastruktur\") (\"Richtlinie über die Resilienz kritischer Infrastruktur\", \"critical entities resilience directive\", \"CER\") verwiesen. Laut Art. 2 Z. 1, 4 und 5 CER muss diese \"kritische Einrichtung\", also eine öffentliche oder private Einrichtung, vom jeweiligen Mitgliedstaat als solche eingestuft werden.\n\nZur dazugehörigen konkreten „kritischen Infrastruktur“ zählen demnach:\n\n-   Objekte, Anlagen, Ausrüstung, Netze oder Systeme oder\n-   Teile eines Objekts, einer Anlage, Ausrüstung,\n-   eines Netzes oder eines Systems,\n\ndie für die Erbringung eines **wesentlichen Dienstes** erforderlich ist. Ein Dienst ist wesentlich, wenn er von entscheidender Bedeutung ist\n\n-   für die Aufrechterhaltung wichtiger gesellschaftlicher Funktionen,\n-   wichtiger wirtschaftlicher Tätigkeiten,\n-   der öffentlichen Gesundheit und Sicherheit oder\n-   der Erhaltung der Umwelt.\n\nIn Art. 2 der aufgrund der CER ergangenen [Delegierten Verordnung 2023/2450](https://eur-lex.europa.eu/eli/reg_del/2023/2450/oj?locale=de \"Link zur Delegierten Verordnung 2023/2450\") der Europäischen Kommission, ist eine nicht erschöpfende Liste von wesentlichen Diensten genannt.\n\nDer Begriff des \"Sicherheitsbauteil\" wird in Art. 3 Z 14 AIA folgendermaßen definiert:\n\n> ein[…] Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfunktion für dieses Produkt oder KI-System erfüllt oder dessen Ausfall oder Störung die Gesundheit und Sicherheit von Personen oder Eigentum gefährdet\n\nSpeziell zu Kritischer Infrastruktur wird der Gesetzgeber in ErwG 55 AIA etwas deutlicher:\n\n> (55) […] Sicherheitsbauteile kritischer Infrastruktur, einschließlich kritischer digitaler Infrastruktur, sind **Systeme**, die **verwendet** werden, um die **physische Integrität kritischer Infrastruktur oder die Gesundheit und Sicherheit von Personen und Eigentum zu schützen**, die **aber nicht notwendig** sind, **damit das System funktioniert**. Ausfälle oder Störungen solcher Komponenten können direkt zu Risiken für die physische Integrität kritischer Infrastruktur und somit zu Risiken für die Gesundheit und Sicherheit von Personen und Eigentum führen. Komponenten, die für die ausschließliche Verwendung zu Zwecken der Cybersicherheit vorgesehen sind, sollten nicht als Sicherheitsbauteile gelten. Zu Beispielen von Sicherheitsbauteilen solcher kritischen Infrastruktur zählen etwa Systeme für die Überwachung des Wasserdrucks oder Feuermelder-Kontrollsysteme in Cloud-Computing-Zentren.\n\nOb eine Ausnahme davon iSd einer der Ausnahmegründen des Art. 6 Abs. 3 AIA vorliegt, wird auf die Ausgestaltung im konkreten Einzelfall ankommen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1752,7 +1752,7 @@
     },
     {
       "id": "032907d6-0290-44ab-bee5-be05248e3ae2",
-      "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+      "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
       "content": "### KI-Systeme mit \"begrenztem\" Risiko\n\nAls KI-Systeme mit \"begrenztem\" Risiko werden KI-Systeme bezeichnet, deren Risiko durch Transparenz minimiert werden kann. Derartige KI-Systeme **sind nicht verboten.** Den Anbieter:innen und Betreiber:innen werden überwiegend **Transparenzpflichten** auferlegt, etwa dass Personen darüber informiert werden, dass sie mit einem KI-System interagieren oder Inhalte künstlich erzeugt wurden. Unter KI-Systeme mit \"begrenztem\" Risiko fallen gemäß Artikel 50 AI Act folgende Systeme:\n\n-   KI-Systeme, welche mit natürlichen Personen direkt interagieren (z. B. Chatbots);\n-   KI-Systeme, die Bild-, Audio-, Text- oder Videoinhalte erzeugen oder manipulieren (z. B. Deepfakes – davon zu unterscheiden sind Deepfakes zur Manipulation menschlichen Verhaltens, welche verboten sind!);\n-   Biometrische Kategorisierungs- und Emotionserkennungssysteme (davon zu unterscheiden sind KI-Systeme, welche verboten sind!).",
       "keywords": [],
       "availableKeywords": [],
@@ -1765,7 +1765,7 @@
     },
     {
       "id": "d9cb5958-fede-437d-a0f6-ad55c6d6db50",
-      "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+      "title": "KI-Servicestelle: Risikostufen KI-Systeme, minimales oder kein Risiko",
       "content": "### KI-Systeme mit \"minimalem\" oder keinem Risiko\n\nAlle sonstigen KI-Systeme werden als solche mit \"minimalem\" oder keinem Risiko klassifiziert. Darunter fallen z. B. Videospiele oder Spam-Filter. Sie unterliegen **keinen spezifischen Pflichten** im Sinne des AI Act. Das Einhalten von Verhaltenskodizes (Code of Practices) wird gefördert, sie sind aber freiwillig (Erwägungsgründe 165 iVm. Artikel 95 AI Act).",
       "keywords": [],
       "availableKeywords": [],
@@ -1810,7 +1810,7 @@
     },
     {
       "id": "d71c298c-6a5a-4562-a514-2cdd57d72029",
-      "title": "KI-Servicestelle: Transparenzpflichten",
+      "title": "KI-Servicestelle: Transparenzpflichten, Kennzeichnungspflicht",
       "content": "# Offenlegungs-, Kennzeichnungs- und Informationspflichten\n\nIn der Risikostufe „begrenztes Risiko“ werden den [Anbietern](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html#heading_Wer_ist_Anbieter_) und [Betreibern](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html#heading_Wer_ist_Betreiber_) von KI-Systemen Offenlegungs-, Kennzeichnungs- bzw. Informationspflichten auferlegt. Die konkreten Bestimmungen finden sich in Art. 50 AIA wieder.",
       "keywords": [],
       "availableKeywords": [],
@@ -1823,7 +1823,7 @@
     },
     {
       "id": "5068565f-3628-4022-83bb-b39a1fa52110",
-      "title": "KI-Servicestelle: Transparenzpflichten",
+      "title": "KI-Servicestelle: Transparenzpflichten, KI-Systeme mit  direkter Interaktion",
       "content": "### KI-Systeme zur direkten Interaktion\n\n**Anbieter** von KI-Systemen, die für die direkte Interaktion mit natürlichen Personen bestimmt sind, haben diese so zu konzipieren und zu entwickeln, dass die betreffenden natürlichen Personen informiert werden, dass sie mit einem KI-System interagieren (Art. 50 Abs. 1 AIA). Typischerweise fallen unter diese Kategorie Chatbots. Der Anbieter eines Chatbot-Systems hat dieses so zu gestalten, dass in Gesprächen klargestellt wird, dass eine Interaktion mit einer KI stattfindet.\n\nAusnahme: Die Anwendung eines KI-Systems ist aus Sicht einer angemessen informierten, aufmerksamen und verständigen natürlichen Person aufgrund der Umstände und des Kontexts der Nutzung offensichtlich. Z. B. virtuelle Assistenzsysteme, die durch Sprachbefehle mit ihren Nutzern agieren wie Siri (Apple) oder Alexa (Amazon).",
       "keywords": [],
       "availableKeywords": [],
@@ -1837,7 +1837,7 @@
     },
     {
       "id": "a4835586-f359-456e-833a-89d5d54259ec",
-      "title": "KI-Servicestelle: Transparenzpflichten",
+      "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
       "content": "### KI-Systeme zur Generierung synthetischer Inhalte\n\n**Anbieter** von KI-Systemen, einschließlich KI-Systemen mit allgemeinem Verwendungszweck, die synthetische Audio-, Bild-, Video- oder Textinhalte erzeugen, stellen sicher, dass die Ausgaben des KI-Systems in einem maschinenlesbaren Format gekennzeichnet und als künstlich erzeugt oder manipuliert erkennbar sind (Art. 50 Abs. 2 AIA). Die Kennzeichnung hat durch technische Lösungen zu erfolgen, wie z. B. Wasserzeichen, Metadatenidentifizierungen, kryptografische Methoden zum Nachweis der Herkunft und Authentizität des Inhalts, Protokollierungsmethoden, Fingerabdrücke oder andere Techniken, oder eine Kombination solcher Techniken je nach Sachlage (siehe ErwGr. 133). Typischerweise fallen unter diese Kategorie KI-gestützte Textgeneratoren wie ChatGPT sowie KI-gestützte Bild- und Videogenerator Midjourney oder DALL-E etc. Die Kennzeichnung muss maschinenlesbar sein, eine für menschliche Betrachter vorgesehene Kennzeichnungspflicht ist für Anbieter nicht vorgesehen.\n\nAusnahme 1: KI-Systeme, welche eine unterstützende Funktion für die Standardbearbeitung ausführen oder welche die vom Betreiber bereitgestellten Eingabedaten oder deren Semantik nicht wesentlich verändern. Z. B. kleinflächiges „generative fill“ in Bildbearbeitungsprogrammen.\n\nAusnahme 2: KI-Systeme, die gesetzlich zur Aufdeckung, Verhütung oder Ermittlung von Straftaten zugelassen sind.",
       "keywords": [],
       "availableKeywords": [],
@@ -1852,7 +1852,7 @@
     },
     {
       "id": "e2f421fa-1fc0-47b8-9769-ca6042253dcd",
-      "title": "KI-Servicestelle: Transparenzpflichten",
+      "title": "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
       "content": "**Betreiber** treffen ebenfalls einige Offenlegungspflichten. Bei KI-Systemen, die **Deepfake**-**Bild**-, **Ton**- oder **Videoinhalte** erzeugen oder manipulieren, ist offenzulegen, dass die Inhalte künstlich erzeugt oder manipuliert wurden. Für Bild-, Ton- und Videoinhalte, die kein Deepfake sind, besteht eine solche Offenlegungspflicht nicht. (Art. 50 Abs. 4 UAbs. 1 AIA)\n\nAusnahme 1: Verwendung zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten ist gesetzlich zugelassen.\n\nAusnahme 2: Ist der Bild-, Ton- oder Videoinhalt Teil eines offensichtlich künstlerischen, kreativen, satirischen, fiktionalen oder analogen Werks oder Programms, so beschränken sich die in diesem Absatz festgelegten Transparenzpflichten darauf, das Vorhandensein solcher erzeugten oder manipulierten Inhalte in geeigneter Weise offenzulegen, die die Darstellung oder den Genuss des Werks nicht beeinträchtigt. Z.B. Überspitzte satirische Darstellung von Personen des Öffentlichen Interesses.",
       "keywords": [],
       "availableKeywords": [],
@@ -1868,7 +1868,7 @@
     },
     {
       "id": "9366d9d8-b619-4196-9503-fe6f97bf038b",
-      "title": "KI-Servicestelle: Transparenzpflichten",
+      "title": "KI-Servicestelle: Transparenzpflichten, Textgenierung",
       "content": "**Betreiber** eines KI-Systems, das **Text** erzeugt oder manipuliert, der veröffentlicht wird, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren, müssen offenlegen, dass der Text künstlich erzeugt oder manipuliert wurde (Art. 50 Abs. 4 UAbs. 2 AIA). KI-generierte Texte, die nicht veröffentlicht werden, oder die nicht verwendet werden, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren, unterliegen keiner Offenlegungspflicht.\n\nAusnahme 1: Künstlich erzeugte Textinhalte unterliegen einer menschlichen Überprüfung oder redaktionellen Kontrolle und eine natürliche oder juristische Person trägt die redaktionelle Verantwortung für die Veröffentlichung der Inhalte. Z.B. traditionelle Medieninhaber (Zeitungsverlag)\n\nAusnahme 2: Verwendung zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten ist gesetzlich zugelassen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1883,7 +1883,7 @@
     },
     {
       "id": "f142935d-789b-4aa9-b531-57d800014ffe",
-      "title": "KI-Servicestelle: Transparenzpflichten",
+      "title": "KI-Servicestelle: Transparenzpflichten, synthetisches Bild/Video/Audio",
       "content": "#### Ist ein synthetisches Bild/Video/Audio zugleich ein Deepfake?\n\nZwischen den Begriffen synthetischer Inhalt und Deepfake gibt es zwar Überlappungen, es gilt hier aber in Bezug auf die rechtlichen Folgen zu trennen.\n\nIm AI Act wird der Begriff „Deepfake“ wie folgt definiert (Art. 3 Z 60 AIA):\n\n> _einen durch KI erzeugten oder manipulierten Bild-, Ton- oder Videoinhalt, der wirklichen Personen, Gegenständen, Orten, Einrichtungen oder Ereignissen ähnelt und einer Person fälschlicherweise als echt oder wahrheitsgemäß erscheinen würde_\n\nDer Begriff „Deepfake“ ist ein Kofferwort, also ein Wort, das aus mindestens zwei Wortsegmenten besteht. Es setzt sich zusammen aus den Wörtern „Deep Learning“ und „Fake“. Zusammengefasst sind darunter realistisch wirkende Medieninhalte gemeint, die aber so nicht stattgefunden haben. Die Anwendungsgebiete sind breit gestreut; sowohl in positiver als auch negativer Hinsicht.\n\nPositive Beispiele:\n\n-   **Unterhaltung und Medien**: In Filmen und Videospielen können Deepfakes eingesetzt werden, um beeindruckende Spezialeffekte zu erzeugen. Musikvideos können auch mit Deepfake-Technologie erstellt werden, um visuell ansprechende Effekte zu erzielen.\n-   **Forensik**: Vorfälle können rekonstruiert oder visualisiert werden, die aufgrund fehlender Videos oder Bilder sonst schwer darstellbar wären.\n\nNegative Beispiele:\n\n-   **Desinformation und Fake News**: Falschinformationen können mittels Deepfake-Technologie verbreitet werden, indem Persönlichkeiten in Videos präsentiert werden, die etwas tun oder sagen, was sie nie getan oder gesagt haben.\n-   **Cybersicherheit und Datenschutz**: Kriminelle können Deepfakes nutzen, um betrügerische Videos oder Anrufe zu erstellen, um Menschen zu täuschen oder identitätsbezogene Verbrechen zu begehen.\n-   **Missbrauch und Erpressung**: Deepfake-Technologie kann missbraucht werden, um kompromittierende Bilder oder Videos von unschuldigen Menschen zu erstellen (z.B. Herstellung von pornographischen Inhalten)\n\nSynthetische Audio-, Bild- oder Videoinhalte sind all jene Inhalte, die nicht vom Menschen erzeugt wurden (vgl. Erwägungsgründe 133). Der Begriff geht daher weiter als ein Deepfake. Ein KI-generiertes Cartoon ist beispielsweise ein synthetischer Bildinhalt, aber kein Deepfake, weil es nicht realistisch ist. Ein KI-generiertes Video, in dem beispielsweise ein tatsächlicher Politiker vor dem Parlament in einer Interviewsituation simuliert wird und dieser über politische Agenden spricht, ist ein synthetischer Videoinhalt, der zugleich ein Deepfake ist. Solche Situationen finden tagtäglich statt und können daher von Bürger:innen fälschlicherweise für echt gehalten werden.\n\nOb tatsächlich ein Deepfake vorliegt, ist allerdings stets im Einzelfall zu untersuchen!\n\n**Zusammengefasst gilt: Jedes Deepfake ist ein synthetisches Bild/Video/Audio, aber nicht jedes synthetische Bild/Video/Audio ist auch ein Deepfake.**",
       "keywords": [],
       "availableKeywords": [],
@@ -1898,7 +1898,7 @@
     },
     {
       "id": "fd81d40a-c22c-4aff-a4d2-ddc6dbc37550",
-      "title": "KI-Servicestelle: Transparenzpflichten",
+      "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
       "content": "### KI-Systeme zur Emotionserkennung\n\nBetreiber von Emotionserkennungssystemen oder eines Systems zur biometrischen\nKategorisierung informieren die davon betroffenen natürlichen Personen über den\nBetrieb des Systems (Art. 50 Abs. 3 AIA).\n\nAusnahme: KI-Systeme, die gesetzlich zur Aufdeckung, Verhütung oder Ermittlung\nvon Straftaten zugelassen sind, sofern geeignete Schutzvorkehrungen für die\nRechte und Freiheiten Dritter bestehen.",
       "keywords": [],
       "availableKeywords": [],
