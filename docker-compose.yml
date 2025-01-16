@@ -24,12 +24,13 @@ services:
   annotation-tool:
     build:
       context: ./annotation-tool 
-      dockerfile: Dockerfile      
+      dockerfile: Dockerfile
+    restart: unless-stopped
     ports:
-      - "127.0.0.1:8081:3000"   
+      - "127.0.0.1:8081:3000"
     environment:
       - HOST=0.0.0.0
-      - PUBLIC_URL=/annotation-tool         
+      - PUBLIC_URL=/annotation-tool
     command: npm start
     networks:
       - ollama-docker
@@ -40,11 +41,12 @@ services:
       privileged: true
       build:
         context: ./llm-service
-        dockerfile: Dockerfile      
+        dockerfile: Dockerfile
+      restart: unless-stopped
       ports:
-        - "127.0.0.1:8085:8000"   
+        - "127.0.0.1:8085:8000"
       environment:
-        - HOST=0.0.0.0         
+        - HOST=0.0.0.0
         - OLLAMA_HOST=ollama
         - EMBEDDING_MODELS=snowflake-arctic-embed2
         - LLM_MODELS=llama3.1:8b-instruct-fp16,mixtral:8x7b-instruct-v0.1-q2_K
@@ -80,12 +82,13 @@ services:
   user-interface:
     build:
       context: ./user-interface
-      dockerfile: Dockerfile      
+      dockerfile: Dockerfile
+    restart: unless-stopped
     ports:
       - "127.0.0.1:8090:80"   
     environment:
       - HOST=0.0.0.0 
-      - LLM_ENDPOINT=https://rag.ki.rtr.at/llm-service  #Known issue, currently doesn't replace the actual environment variable in Angular          
+      - LLM_ENDPOINT=https://rag.ki.rtr.at/llm-service  #Known issue, currently doesn't replace the actual environment variable in Angular
     networks:
       - ollama-docker
     depends_on:
