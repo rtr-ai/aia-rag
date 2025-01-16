@@ -9,6 +9,7 @@ from models.manual_index import ChunkNode, ManualIndex
 from utils.logger import get_logger
 from models.sources import RelevantChunk, Source
 from utils import path_utils
+
 LOGGER = get_logger(__name__)
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 TOP_N_CHUNKS = int(os.getenv("TOP_N_CHUNKS", "15"))
@@ -103,20 +104,34 @@ class IndexService:
                     "title": next(
                         (c["title"] for c in chunks_vector if c["id"] == related_id), ""
                     ),
-                     "content": next(
-                        (c["content"] for c in chunks_vector if c["id"] == related_id), ""
+                    "content": next(
+                        (c["content"] for c in chunks_vector if c["id"] == related_id),
+                        "",
                     ),
-                    "num_tokens": self.tokenizer_service.count_tokens(next((c["content"] for c in chunks_vector if c["id"] == related_id), "")),
+                    "num_tokens": self.tokenizer_service.count_tokens(
+                        next(
+                            (
+                                c["content"]
+                                for c in chunks_vector
+                                if c["id"] == related_id
+                            ),
+                            "",
+                        )
+                    ),
                 }
                 for related_id in related_ids
             ]
+
         return [
             {
                 **chunks_vector[i],
                 "score": similarities[i],
+                "id": chunks_vector[i].get("id"),
                 "title": chunks_vector[i].get("title"),
                 "relevantChunks": get_related_chunks(chunks_vector[i]),
-                "num_tokens":self.tokenizer_service.count_tokens(chunks_vector[i].get("content"))
+                "num_tokens": self.tokenizer_service.count_tokens(
+                    chunks_vector[i].get("content")
+                ),
             }
             for i in top_n_indices
         ]
@@ -137,7 +152,9 @@ class IndexService:
             raise ValueError(f"Index with ID {manual_index.id} already exists.")
 
         chunk_nodes = [
-            chunk for chunk in manual_index.chunks if isinstance(chunk, ChunkNode) and chunk.content.strip()
+            chunk
+            for chunk in manual_index.chunks
+            if isinstance(chunk, ChunkNode) and chunk.content.strip()
         ]
 
         LOGGER.debug(f"Generating embedding for <{len(chunk_nodes)}> chunks")
@@ -156,7 +173,9 @@ class IndexService:
                     "keywords": chunk.keywords,
                     "content": chunk.content,
                     "negativeKeywords": chunk.negativeKeywords,
-                    "relevantChunksIds":[cid for cid in chunk.relevantChunksIds if cid in valid_chunk_ids],
+                    "relevantChunksIds": [
+                        cid for cid in chunk.relevantChunksIds if cid in valid_chunk_ids
+                    ],
                     "parameters": chunk.parameters,
                     "vector": embedding,
                 }
@@ -193,10 +212,13 @@ class IndexService:
         total_tokens = 0
         token_limit = CONTEXT_WINDOW - 1500
         sources: List[Source] = []
+        added_chunks = set()
 
         for chunk in top_chunks:
             chunk_tokens = chunk["num_tokens"]
-            skip = total_tokens + chunk_tokens > token_limit
+            skip = (
+                total_tokens + chunk_tokens > token_limit or chunk["id"] in added_chunks
+            )
 
             new_source = Source(
                 content=chunk["content"],
@@ -209,10 +231,14 @@ class IndexService:
 
             if not skip:
                 total_tokens += chunk_tokens
+                added_chunks.add(chunk["id"])
 
             for relevant_chunk in chunk["relevantChunks"]:
                 relevant_chunk_tokens = relevant_chunk["num_tokens"]
-                relevant_skipped = total_tokens + relevant_chunk_tokens > token_limit
+                relevant_skipped = (
+                    total_tokens + relevant_chunk_tokens > token_limit
+                    or relevant_chunk["id"] in added_chunks
+                )
 
                 new_relevant_chunk = RelevantChunk(
                     id=relevant_chunk["id"],
@@ -223,6 +249,7 @@ class IndexService:
                 )
 
                 if not relevant_skipped:
+                    added_chunks.add(relevant_chunk["id"])
                     new_source.relevantChunks.append(new_relevant_chunk)
                     total_tokens += relevant_chunk_tokens
 
