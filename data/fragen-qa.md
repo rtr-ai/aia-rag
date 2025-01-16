@@ -154,7 +154,7 @@ Ein KI-System stellt ein Hochrisiko-KI-System dar, wenn es im Bereich der kritis
 [5] Anhang II
 [6] Anhang III
 
-# 16. Ich bin ein Versicherungsmakler und berechne mit Hilfe eines gekauften KI-Systems die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?Treffen mich besondere Verpflichtungen? Welcher Risikostufe sind derartige KI-Systeme zuzuordnen?
+# 15. Ich bin ein Versicherungsmakler und berechne mit Hilfe eines gekauften KI-Systems die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?Treffen mich besondere Verpflichtungen? Welcher Risikostufe sind derartige KI-Systeme zuzuordnen?
 
 KI-Systeme, welche im Versicherungsbereich für die Durchführung einer Risikobewertung und Preisbildung im Bezug auf natürlichen Personen eingesetzt werden, sind als Hochrisiko-KI-Systeme
 einzustufen. [1],[2],[3] Als Betreiber eines solchen KI-Systems müssen sie bestimmte Anforderungen nach dem AI-Act erfüllen. [4]
@@ -164,7 +164,7 @@ einzustufen. [1],[2],[3] Als Betreiber eines solchen KI-Systems müssen sie best
 [3] KI-Servicestelle: Risikostufen (Allgemein, Anhang III Hochrisiko-KI-Systeme)
 [4] Art 8 ff AIA
 
-# 17. Ich möchte die biometrischen Daten meiner Kunden mit Hilfe eines KI-Systems sammeln um anhand dieser Daten Rückschlüsse auf ihre Rasse, Religionszugehörigkeit und politische Einstellung ziehen zu können. Diese Daten möchte ich für zielgerichtete Werbung benutzen. Handelt es sich dabei um eine nach dem AI-Act erlaubte KI-Nutzung?
+# 16. Ich möchte die biometrischen Daten meiner Kunden mit Hilfe eines KI-Systems sammeln um anhand dieser Daten Rückschlüsse auf ihre Rasse, Religionszugehörigkeit und politische Einstellung ziehen zu können. Diese Daten möchte ich für zielgerichtete Werbung benutzen. Handelt es sich dabei um eine nach dem AI-Act erlaubte KI-Nutzung?
 	   
 „Biometrische Daten“ sind mit speziellen technischen Verfahren gewonnene personenbezogene Daten zu den physischen,
 physiologischen oder verhaltenstypischen Merkmalen einer natürlichen Person, wie etwa Gesichtsbilder oder
@@ -176,7 +176,7 @@ Der Einsatz von KI-Systemen zur biometrischne Kategorisierung von natürlichen P
 [3] ErwG 14
 [4] ErwG 30
 
-# 18. Eine FH möchte ein KI-System verwenden, welche die Zulassung ausländischer Studenten prüft. Kann man hier ein KI-System ohne Weiteres einsetzen oder ist eine vorherige Genehmigung notwendig? Welcher Risikostufe unterliegt so ein KI-System?
+# 17. Eine FH möchte ein KI-System verwenden, welche die Zulassung ausländischer Studenten prüft. Kann man hier ein KI-System ohne Weiteres einsetzen oder ist eine vorherige Genehmigung notwendig? Welcher Risikostufe unterliegt so ein KI-System?
 	
 Der Einsatz eines KI-Systems im Bildungsbereich, der die Feststellung des Zugangs, der Zulassung oder zur Zuweisung von natürlichen Personen zu Bildungseinrichtungen kontrollieren soll, ist als 
 Hochrisiko-KI-System einzustufen. [1],[3], [4] Als Betreiber eines solchen KI-Systems müssen sie bestimmte Anforderungen nach dem AI-Act erfüllen. [5]
@@ -188,7 +188,7 @@ Hochrisiko-KI-System einzustufen. [1],[3], [4] Als Betreiber eines solchen KI-Sy
 [5] Art 8 ff AIA
 
 
-# 19. Eine FH möchte mit Hilfe eines KI-Systems die Lernerfolge der Studenten aufzeichnen um am Ende des Studienjahres den Studenten zu einem passenden Praktikumsplatz für das kommende Studienjahr zuzuordnen. Ist ein solches KI-System genehmigungspflichtig? Welcher Risikostufe unterliegt ein solches System?
+# 18. Eine FH möchte mit Hilfe eines KI-Systems die Lernerfolge der Studenten aufzeichnen um am Ende des Studienjahres den Studenten zu einem passenden Praktikumsplatz für das kommende Studienjahr zuzuordnen. Ist ein solches KI-System genehmigungspflichtig? Welcher Risikostufe unterliegt ein solches System?
 
 Der Einsatz eines KI-Systems im Bildungsbereich, welches der Auswertung von Lernergebnissen von natürlichen Personen in Bildungseinrichtungen dienen soll, ist als 
 Hochrisiko-KI-System einzustufen. [1],[2],[4] Als Betreiber eines solchen KI-Systems müssen sie bestimmte Anforderungen nach dem AI-Act erfüllen. [3][5]
@@ -199,7 +199,7 @@ Hochrisiko-KI-System einzustufen. [1],[2],[4] Als Betreiber eines solchen KI-Sys
 [4] KI-Servicestelle: Risikostufen (Allgemein, Anhang III  Hochrisiko-KI-Systeme)
 [5] Art 8 ff AIA
 
-# 20. Ich habe einen KI-gesteuerten Lügendetektor entwickelt und möchte es an die Polizei lizenzieren? Handelt es sich bei dem Lügendetektor um eine Hochrisiko-KI?
+# 19. Ich habe einen KI-gesteuerten Lügendetektor entwickelt und möchte es an die Polizei lizenzieren? Handelt es sich bei dem Lügendetektor um eine Hochrisiko-KI?
 
 KI-gesteuerte Lügendetektoren oder ähnliche Instrumente die von Behörden zu Strafverfolgungszwecken eingesetzt werden sollen, sind als Hochrisiko-KI-Systeme einzustufen. [1], [3]. Der Einsatz solcher KI-Systeme ist lediglich Behörden oder in deren Namen oder Organen
 Einrichtungen und sonstigen Stellen der Union vorbehalten.[2] 
@@ -209,13 +209,13 @@ Einrichtungen und sonstigen Stellen der Union vorbehalten.[2]
 [3] KI-Servicestelle: Risikostufen (Allgemein, Anhang III - Hochrisiko-KI-Systeme)
 
 
-# 21. Mein Arbeitgeber wertet den Gemütszustand seiner Mitarbeiter am Arbeitsplatz mittels eines eigens dafür angeschafften KI-Systems aus. Ist das erlaubt? 
+# 20. Mein Arbeitgeber wertet den Gemütszustand seiner Mitarbeiter am Arbeitsplatz mittels eines eigens dafür angeschafften KI-Systems aus. Ist das erlaubt? 
 
 Der Einsatz eines zur Ableitung von Emotionen einer natürlichen Person am Arbeitsplatz fähigen KI-Systems ist ausdrücklich verboten. 
 
 [1] Art 5 Abs 1 lit f AIA (Emotionen in Arbeit und Bildung)
 
-# 22. Ich habe ein KI-Modell entwickelt, dass Patienteninformationen sammelt und in eine Datenbank speichert. Dieses KI-System möchte ich Arztpraxen zur Verfügung stellen. Was muss ich beachten?
+# 21. Ich habe ein KI-Modell entwickelt, dass Patienteninformationen sammelt und in eine Datenbank speichert. Dieses KI-System möchte ich Arztpraxen zur Verfügung stellen. Was muss ich beachten?
 
 Jede natürliche oder juristische Person, die ein KI-Modell mit allgemeinem Verwendungszweck entwickelt und es unter ihrem eigenen Namen oder ihrer Handelsmarke in Betrieb nimmt, sei es entgeltlich
 oder unentgeltlich ist als Anbieter einzustufen. [1][2] Anbieter von KI-Modellen mit allemeinem Verwendungszweck unterliegen besonderen Transparenzpflichten die ab 02.08.2025 gelten.[2][4][6] Hier muss auch genau geprüft werden, ob 
@@ -230,7 +230,7 @@ die Kriterien für ein KI-Modell mit allgemeinem Verwendungszweck mit systemisch
 [6] KI-Servicestelle: Zeitplan
 [7] Art 55 AIA
 
-# 23. Ich bin ein Kleinunternehmer und hätte gerne Zugang zu den Reallaboren. Was muss ich tun um Zugang zu diesen zu bekommen bzw bin ich überhaupt berechtigt Zugang zu einem Reallabor zu erhalten?
+# 22. Ich bin ein Kleinunternehmer und hätte gerne Zugang zu den Reallaboren. Was muss ich tun um Zugang zu diesen zu bekommen bzw bin ich überhaupt berechtigt Zugang zu einem Reallabor zu erhalten?
 
 Österreich ist verpflichtet zumindest ein Reallabor einzurichten. [1] [2] Klein- und Mittelunternehmen sowie Start-Ups die ihren Sitz oder eine Zweigniederlassung in Österreich haben, sind berechtigt (soweit sie die Auswahlkriterien und Voraussetzungen erfüllen) vorrangigen Zugang zu Reallabore zu erhalten. 
 
@@ -238,7 +238,7 @@ die Kriterien für ein KI-Modell mit allgemeinem Verwendungszweck mit systemisch
 [2] ErwG 138, 139, 140
 [3] Art 62 AIA
 
-# 24. Ich bin eine Kleinunternehmerin und verkaufe in meinem Onlineshop ausschließlich Frauenbekleidung. Je nach Verkaufsverhalten meiner Kundinnen liefert, das sich im Einsatz befindliche 
+# 23. Ich bin eine Kleinunternehmerin und verkaufe in meinem Onlineshop ausschließlich Frauenbekleidung. Je nach Verkaufsverhalten meiner Kundinnen liefert, das sich im Einsatz befindliche 
 KI-Modell personalisierte Bekleidungsvorschläge, die den Kundinnen direkt auf der Webseite angezeigt werden. Bin ich als Betreiberin gemäß dem AI-Act einzustufen? Was muss ich beachten?
 
 Ein Empfehlungssytem ist als KI-Modell mit allgemeinem Verwendungszweck einzustufen. [1] Durch das Verwenden eines KI-Modell in eigener Verantwortung ist hier die Rolle eines "Betreibers" erfüllt. [2] [4]
