@@ -194,6 +194,7 @@ class IndexService:
     ) -> List[Source]:
         """
         Query an index and return all chunks, marking those exceeding token limits.
+        Once context window is reached, all subsequent chunks are skipped.
 
         Args:
             index_id (str): ID of the index to query.
@@ -209,16 +210,25 @@ class IndexService:
         query_vector = (await self.embedding_service.generate_embedding(query))[0]
         index_data = self.vector_store[index_id]
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
+
         total_tokens = 0
         token_limit = CONTEXT_WINDOW - 1500
         sources: List[Source] = []
         added_chunks = set()
+        context_window_reached = False
 
         for chunk in top_chunks:
             chunk_tokens = chunk["num_tokens"]
-            skip = (
-                total_tokens + chunk_tokens > token_limit or chunk["id"] in added_chunks
-            )
+
+            if context_window_reached:
+                skip = True
+            else:
+                skip = (
+                    total_tokens + chunk_tokens > token_limit
+                    or chunk["id"] in added_chunks
+                )
+                if total_tokens + chunk_tokens > token_limit:
+                    context_window_reached = True
 
             new_source = Source(
                 content=chunk["content"],
@@ -233,25 +243,32 @@ class IndexService:
                 total_tokens += chunk_tokens
                 added_chunks.add(chunk["id"])
 
-            for relevant_chunk in chunk["relevantChunks"]:
-                relevant_chunk_tokens = relevant_chunk["num_tokens"]
-                relevant_skipped = (
-                    total_tokens + relevant_chunk_tokens > token_limit
-                    or relevant_chunk["id"] in added_chunks
-                )
+                for relevant_chunk in chunk["relevantChunks"]:
+                    relevant_chunk_tokens = relevant_chunk["num_tokens"]
 
-                new_relevant_chunk = RelevantChunk(
-                    id=relevant_chunk["id"],
-                    content=relevant_chunk["content"],
-                    title=relevant_chunk.get("title") or relevant_chunk["id"],
-                    num_tokens=relevant_chunk_tokens,
-                    skip=relevant_skipped,
-                )
+                    if context_window_reached:
+                        relevant_skipped = True
+                    else:
+                        relevant_skipped = (
+                            total_tokens + relevant_chunk_tokens > token_limit
+                            or relevant_chunk["id"] in added_chunks
+                        )
+                        if total_tokens + relevant_chunk_tokens > token_limit:
+                            context_window_reached = True
 
-                if not relevant_skipped:
-                    added_chunks.add(relevant_chunk["id"])
+                    new_relevant_chunk = RelevantChunk(
+                        id=relevant_chunk["id"],
+                        content=relevant_chunk["content"],
+                        title=relevant_chunk.get("title") or relevant_chunk["id"],
+                        num_tokens=relevant_chunk_tokens,
+                        skip=relevant_skipped,
+                    )
+
+                    if not relevant_skipped:
+                        added_chunks.add(relevant_chunk["id"])
+                        total_tokens += relevant_chunk_tokens
+
                     new_source.relevantChunks.append(new_relevant_chunk)
-                    total_tokens += relevant_chunk_tokens
 
             sources.append(new_source)
 
