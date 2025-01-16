@@ -11,7 +11,7 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure,  KI-Wertschöpfungskette",
                 "relevant_chunks": [
                     "ErwG 3",
                     "ErwG 13",
@@ -24,7 +24,7 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": [
                     "Art 4",
                     "ErwG 20",
@@ -33,7 +33,7 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Allgemein",
                 "relevant_chunks": [
                     "Art 4",
                     "Art 75",
@@ -45,24 +45,26 @@
             {
                 "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
                 "relevant_chunks": [
+                    "Art 50",
                     "ErwG 132",
                     "Art 113",
-                    "ErwG 13"
+                    "ErwG 179",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12",
+                    "ErwG 13",
+                    "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck"
                 ]
             },
             {
                 "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
-                "relevant_chunks": [
-                    "ErwG 21",
-                    "ErwG 23"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, Nutzer",
                 "relevant_chunks": []
             },
             {
@@ -70,15 +72,15 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -90,15 +92,15 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, KI-Systeme mit  direkter Interaktion",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
                 "relevant_chunks": []
             },
             {
@@ -106,7 +108,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -143,7 +145,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenierung",
                 "relevant_chunks": [
                     "ErwG 13",
                     "Art 50",
@@ -176,29 +178,39 @@
             {
                 "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
                 "relevant_chunks": [
-                    "Art 3: Z3-Z11, Z68 Akteure"
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
                 ]
             },
             {
                 "title": "ErwG 101",
-                "relevant_chunks": []
-            },
-            {
-                "title": "ErwG 99",
-                "relevant_chunks": []
-            },
-            {
-                "title": "ErwG 89",
-                "relevant_chunks": []
-            },
-            {
-                "title": "KI-Servicestelle: Transparenzpflichten",
                 "relevant_chunks": [
-                    "Art 3: Z1"
+                    "Art 53"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "ErwG 99",
+                "relevant_chunks": [
+                    "Art 51"
+                ]
+            },
+            {
+                "title": "ErwG 89",
+                "relevant_chunks": [
+                    "Art 25"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
+                "relevant_chunks": [
+                    "ErwG 133",
+                    "Art 50",
+                    "Art 3: Z1",
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
                 "relevant_chunks": []
             },
             {
@@ -206,7 +218,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, Definition KI-Modelle mit allg. Verwendungszweck",
                 "relevant_chunks": []
             },
             {
@@ -234,11 +246,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Kennzeichnung",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, KI-Modelle mit allg. Verwendungszweck",
                 "relevant_chunks": []
             },
             {
@@ -246,7 +258,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Transparenz",
                 "relevant_chunks": []
             },
             {
@@ -323,7 +335,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -335,7 +347,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
@@ -347,7 +359,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             },
             {
@@ -363,7 +375,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -391,13 +403,13 @@
                     "ErwG 73",
                     "Art 3: Z3-Z11, Z68 Akteure",
                     "ErwG 13",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz"
+                    "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette",
+                    "KI-Servicestelle: KI-Kompetenz, Anwendungsfall",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Sanktionierung",
+                    "KI-Servicestelle: KI-Kompetenz, weitere Informationen"
                 ]
             },
             {
@@ -409,7 +421,7 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": [
                     "Art 4",
                     "ErwG 20",
@@ -426,19 +438,31 @@
             {
                 "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
                 "relevant_chunks": [
-                    "Art 3: Z3-Z11, Z68 Akteure"
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
                 ]
             },
             {
                 "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
                 "relevant_chunks": [
+                    "ErwG 12",
                     "Art 3: Z1"
                 ]
             },
             {
                 "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
                 "relevant_chunks": [
-                    "Anhang III: Z2"
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z3",
+                    "Anhang III: Z4",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 6",
+                    "ErwG 26",
+                    "ErwG 46"
                 ]
             },
             {
@@ -446,19 +470,19 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
-                "relevant_chunks": []
-            },
-            {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
                 "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -482,19 +506,19 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -510,7 +534,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
                 "relevant_chunks": []
             }
         ]
@@ -549,6 +573,8 @@
                     "ErwG 1",
                     "ErwG 2",
                     "ErwG 4",
+                    "ErwG 9",
+                    "ErwG 3",
                     "ErwG 5"
                 ]
             },
@@ -562,32 +588,30 @@
             },
             {
                 "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
-                "relevant_chunks": [
-                    "ErwG 23"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenierung",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, generative KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -603,7 +627,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -615,7 +639,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
                 "relevant_chunks": []
             },
             {
@@ -635,11 +659,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             }
         ]
@@ -665,20 +689,25 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
                 "relevant_chunks": [
-                    "Art 50"
+                    "Art 50",
+                    "ErwG 132"
                 ]
             },
             {
                 "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
                 "relevant_chunks": [
+                    "Art 2",
+                    "ErwG 21",
                     "ErwG 23"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Modelle",
-                "relevant_chunks": []
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, KI-Modelle mit allg. Verwendungszweck",
+                "relevant_chunks": [
+                    "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck"
+                ]
             },
             {
                 "title": "ErwG 100",
@@ -713,7 +742,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, KI-Systeme mit  direkter Interaktion",
                 "relevant_chunks": []
             },
             {
@@ -737,7 +766,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -794,17 +823,20 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenierung",
                 "relevant_chunks": [
-                    "ErwG 13"
+                    "ErwG 13",
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 3: Z3-Z11, Z68 Akteure"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
                 "relevant_chunks": []
             },
             {
@@ -828,7 +860,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
                 "relevant_chunks": []
             },
             {
@@ -840,7 +872,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             },
             {
@@ -856,7 +888,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -872,11 +904,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
                 "relevant_chunks": []
             },
             {
@@ -896,13 +928,13 @@
                     "ErwG 73",
                     "Art 3: Z3-Z11, Z68 Akteure",
                     "ErwG 13",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz"
+                    "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette",
+                    "KI-Servicestelle: KI-Kompetenz, Anwendungsfall",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Sanktionierung",
+                    "KI-Servicestelle: KI-Kompetenz, weitere Informationen"
                 ]
             },
             {
@@ -921,18 +953,39 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": [
                     "Art 26",
-                    "ErwG 91"
+                    "ErwG 91",
+                    "ErwG 92"
                 ]
             },
             {
                 "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Anhang I",
+                    "Anhang II",
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "ErwG 26",
+                    "ErwG 51",
+                    "ErwG 46",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
                 "relevant_chunks": []
             },
             {
@@ -940,7 +993,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
@@ -948,7 +1001,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -956,7 +1009,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
@@ -964,11 +1017,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, weitere Informationen",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -980,7 +1033,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             },
             {
@@ -992,11 +1045,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, KI-Systeme mit  direkter Interaktion",
                 "relevant_chunks": []
             },
             {
@@ -1050,7 +1103,8 @@
                     "Anhang III: Z7",
                     "Anhang III: Z8",
                     "Art 6",
-                    "ErwG 26"
+                    "ErwG 26",
+                    "ErwG 46"
                 ]
             },
             {
@@ -1059,30 +1113,26 @@
             },
             {
                 "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
-                "relevant_chunks": [
-                    "ErwG 13"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, Zusammenhang KI-Modelle, GPAI, KI-Systeme",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
-                "relevant_chunks": [
-                    "ErwG 13"
-                ]
+                "title": "KI-Servicestelle: Akteure,  KI-Wertschöpfungskette",
+                "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
@@ -1094,7 +1144,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
                 "relevant_chunks": []
             },
             {
@@ -1110,11 +1160,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -1122,7 +1172,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Syteme mit begrenztem Risiko",
                 "relevant_chunks": []
             },
             {
@@ -1174,33 +1224,37 @@
                 "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
                 "relevant_chunks": [
                     "Art 3: Z3-Z11, Z68 Akteure",
-                    "ErwG 13"
+                    "ErwG 12",
+                    "ErwG 13",
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 25",
+                    "ErwG 83",
+                    "ErwG 89"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenierung",
                 "relevant_chunks": []
             },
             {
                 "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
-                "relevant_chunks": [
-                    "ErwG 23"
-                ]
-            },
-            {
-                "title": "KI-Servicestelle: Transparenzpflichten",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, generative KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure,  KI-Wertschöpfungskette",
                 "relevant_chunks": []
             },
             {
@@ -1208,7 +1262,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
@@ -1228,7 +1282,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -1264,7 +1318,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             }
         ]
@@ -1282,20 +1336,7 @@
             },
             {
                 "title": "Art 4",
-                "relevant_chunks": [
-                    "ErwG 20",
-                    "ErwG 21",
-                    "ErwG 73",
-                    "Art 3: Z3-Z11, Z68 Akteure",
-                    "ErwG 13",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz",
-                    "KI-Servicestelle: KI-Kompetenz"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "ErwG 23",
@@ -1312,15 +1353,23 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": [
                     "Art 4",
-                    "ErwG 20"
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
-                "relevant_chunks": []
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73",
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
             },
             {
                 "title": "ErwG 137",
@@ -1328,18 +1377,46 @@
             },
             {
                 "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
+                ]
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
-                "relevant_chunks": []
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": [
+                    "Art 3: Z56 KI-Kompetenz",
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21"
+                ]
             },
             {
                 "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Anhang I",
+                    "Anhang II",
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "ErwG 26",
+                    "ErwG 51",
+                    "ErwG 46",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
@@ -1363,7 +1440,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -1387,7 +1464,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
                 "relevant_chunks": []
             },
             {
@@ -1436,13 +1513,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
-                "relevant_chunks": [
-                    "ErwG 45"
-                ]
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -1486,7 +1561,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang IIIe",
                 "relevant_chunks": []
             },
             {
@@ -1494,7 +1569,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             },
             {
@@ -1506,11 +1581,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
                 "relevant_chunks": []
             },
             {
@@ -1522,7 +1597,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Risikomanagement",
                 "relevant_chunks": []
             }
         ]
@@ -1531,7 +1606,7 @@
         "question": "Ich möchte ein KI-System einsetzen, dass die Emotionen meiner Mitarbeiter während des Arbeitens am PC/Laptop abliest und bewertet. Was muss ich da beachten?",
         "main_titles": [
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": [
                     "Art 50",
                     "ErwG 132",
@@ -1541,9 +1616,7 @@
             },
             {
                 "title": "ErwG 18",
-                "relevant_chunks": [
-                    "Art 3: Z34-Z36, Z39-Z44 Biometrie"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "ErwG 44",
@@ -1553,33 +1626,42 @@
             },
             {
                 "title": "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung",
-                "relevant_chunks": [
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme"
-                ]
+                "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": [
+                    "Art 26",
                     "ErwG 91",
                     "ErwG 92"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
-                "relevant_chunks": []
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132"
+                ]
             },
             {
                 "title": "Art 4",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 13",
+                    "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette",
+                    "KI-Servicestelle: KI-Kompetenz, Anwendungsfall",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Sanktionierung",
+                    "KI-Servicestelle: KI-Kompetenz, weitere Informationen"
+                ]
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
                 "relevant_chunks": []
             },
             {
@@ -1603,11 +1685,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -1619,7 +1701,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
                 "relevant_chunks": []
             },
             {
@@ -1639,7 +1721,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
                 "relevant_chunks": []
             },
             {
@@ -1647,7 +1729,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
                 "relevant_chunks": []
             }
         ]
@@ -1680,11 +1762,14 @@
                     "ErwG 26",
                     "ErwG 51",
                     "ErwG 46",
-                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung"
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -1700,11 +1785,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang IIIe",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
                 "relevant_chunks": []
             },
             {
@@ -1720,7 +1805,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -1805,7 +1890,7 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -1813,13 +1898,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
-                "relevant_chunks": [
-                    "ErwG 13"
-                ]
+                "title": "KI-Servicestelle: Akteure,  KI-Wertschöpfungskette",
+                "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Syteme mit begrenztem Risiko",
                 "relevant_chunks": []
             },
             {
@@ -1831,11 +1914,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
@@ -1851,11 +1934,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette",
                 "relevant_chunks": []
             },
             {
@@ -1863,15 +1946,15 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -1899,7 +1982,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             }
         ]
@@ -1911,16 +1994,16 @@
                 "title": "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
                 "relevant_chunks": [
                     "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme"
+                    "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme ",
+                    "KI-Servicestelle: Risikostufen KI-System, Anhang IIIe",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, kritische Infrastr. und Sicherheitsbauteil",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, minimales oder kein Risiko"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": [
                     "Art 50",
                     "ErwG 132",
@@ -1930,14 +2013,13 @@
             },
             {
                 "title": "ErwG 94",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Art 26"
+                ]
             },
             {
-                "title": "KI-Servicestelle: Akteure",
-                "relevant_chunks": [
-                    "ErwG 13",
-                    "Art 50"
-                ]
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
+                "relevant_chunks": []
             },
             {
                 "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
@@ -1945,9 +2027,7 @@
             },
             {
                 "title": "ErwG 39",
-                "relevant_chunks": [
-                    "Art 5: Abs 8 Sonstiges"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "ErwG 3",
@@ -1974,10 +2054,8 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
-                "relevant_chunks": [
-                    "ErwG 45"
-                ]
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                "relevant_chunks": []
             },
             {
                 "title": "ErwG 38",
@@ -2004,7 +2082,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
                 "relevant_chunks": []
             },
             {
@@ -2020,7 +2098,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
                 "relevant_chunks": []
             },
             {
@@ -2065,15 +2143,15 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang IIIe",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, Genehmigungspflicht",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
                 "relevant_chunks": []
             },
             {
@@ -2101,11 +2179,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             },
             {
@@ -2113,7 +2191,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -2121,7 +2199,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -2186,37 +2264,35 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
-                "relevant_chunks": [
-                    "ErwG 45"
-                ]
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                "relevant_chunks": []
             },
             {
                 "title": "ErwG 56",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang IIIe",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
-                "relevant_chunks": []
-            },
-            {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
                 "relevant_chunks": []
             },
             {
                 "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": []
             },
             {
@@ -2224,7 +2300,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
                 "relevant_chunks": []
             },
             {
@@ -2236,7 +2312,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
                 "relevant_chunks": []
             },
             {
@@ -2248,15 +2324,15 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Syteme mit begrenztem Risiko",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, Genehmigungspflicht",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Risikomanagement",
                 "relevant_chunks": []
             },
             {
@@ -2293,7 +2369,7 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": [
                     "Art 26",
                     "ErwG 91",
@@ -2301,7 +2377,7 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": [
                     "Art 50",
                     "ErwG 132",
@@ -2317,13 +2393,7 @@
             },
             {
                 "title": "Art 4",
-                "relevant_chunks": [
-                    "ErwG 20",
-                    "ErwG 21",
-                    "ErwG 73",
-                    "ErwG 13",
-                    "KI-Servicestelle: KI-Kompetenz"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "ErwG 170",
@@ -2335,10 +2405,12 @@
             },
             {
                 "title": "ErwG 23",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Art 2"
+                ]
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
                 "relevant_chunks": []
             },
             {
@@ -2378,7 +2450,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -2398,7 +2470,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenierung",
                 "relevant_chunks": []
             },
             {
@@ -2411,7 +2483,7 @@
         "question": "Mein Arbeitgeber wertet den Gemütszustand seiner Mitarbeiter am Arbeitsplatz mittels eines eigens dafür angeschafften KI-Systems aus. Ist das erlaubt? ",
         "main_titles": [
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": [
                     "Art 50",
                     "ErwG 132",
@@ -2427,40 +2499,37 @@
             },
             {
                 "title": "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung",
-                "relevant_chunks": [
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme",
-                    "KI-Servicestelle: Risikostufen KI-Systeme"
-                ]
+                "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
                 "relevant_chunks": [
+                    "Art 26",
                     "ErwG 91",
                     "ErwG 92"
                 ]
             },
             {
                 "title": "ErwG 18",
-                "relevant_chunks": [
-                    "Art 3: Z34-Z36, Z39-Z44 Biometrie"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "ErwG 13",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
             },
             {
                 "title": "ErwG 63",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Art 8"
+                ]
             },
             {
                 "title": "ErwG 57",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Art 6"
+                ]
             },
             {
                 "title": "ErwG 31",
@@ -2471,7 +2540,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
                 "relevant_chunks": []
             },
             {
@@ -2483,7 +2552,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
                 "relevant_chunks": []
             },
             {
@@ -2503,7 +2572,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
                 "relevant_chunks": []
             },
             {
@@ -2519,7 +2588,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
@@ -2543,7 +2612,7 @@
                 ]
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Transparenz",
                 "relevant_chunks": [
                     "Art 53",
                     "ErwG 101",
@@ -2569,11 +2638,16 @@
                     "Anhang III: Z3",
                     "Anhang III: Z4",
                     "Anhang III: Z5",
-                    "Anhang III: Z7"
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 6",
+                    "ErwG 26",
+                    "ErwG 46"
                 ]
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
                 "relevant_chunks": []
             },
             {
@@ -2585,11 +2659,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Risikostufen KI-Modelle",
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, Zusammenhang KI-Modelle, GPAI, KI-Systeme",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": []
             },
             {
@@ -2609,7 +2683,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
@@ -2621,7 +2695,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen , Daten und Daten-Governance",
                 "relevant_chunks": []
             },
             {
@@ -2641,11 +2715,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Kennzeichnung",
                 "relevant_chunks": []
             },
             {
@@ -2692,7 +2766,10 @@
             },
             {
                 "title": "ErwG 140",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Art 57",
+                    "Art 59"
+                ]
             },
             {
                 "title": "ErwG 145",
@@ -2724,9 +2801,7 @@
             },
             {
                 "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
-                "relevant_chunks": [
-                    "ErwG 23"
-                ]
+                "relevant_chunks": []
             },
             {
                 "title": "ErwG 68",
@@ -2741,7 +2816,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, Produkthersteller",
                 "relevant_chunks": []
             },
             {
@@ -2749,7 +2824,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, Einführer",
                 "relevant_chunks": []
             },
             {
@@ -2761,11 +2836,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, Händler",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, Nutzer",
                 "relevant_chunks": []
             },
             {
@@ -2808,12 +2883,22 @@
             {
                 "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
                 "relevant_chunks": [
+                    "ErwG 12",
                     "Art 3: Z1"
                 ]
             },
             {
                 "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
-                "relevant_chunks": []
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12",
+                    "ErwG 13",
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 25",
+                    "ErwG 83",
+                    "ErwG 89"
+                ]
             },
             {
                 "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
@@ -2824,15 +2909,15 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure,  KI-Wertschöpfungskette",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
                 "relevant_chunks": []
             },
             {
@@ -2840,11 +2925,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, Händler",
                 "relevant_chunks": []
             },
             {
@@ -2852,19 +2937,19 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Anbieterverpflichtungen",
+                "title": "KI-Servicestelle: Anbieterverpflichtungen Allgemein",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Transparenzpflichten",
+                "title": "KI-Servicestelle: Transparenzpflichten, KI-Systeme mit  direkter Interaktion",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette",
                 "relevant_chunks": []
             },
             {
@@ -2872,11 +2957,11 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Betreiberverpflichtungen",
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: KI-Kompetenz",
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "relevant_chunks": []
             },
             {
@@ -2884,7 +2969,7 @@
                 "relevant_chunks": []
             },
             {
-                "title": "KI-Servicestelle: Akteure",
+                "title": "KI-Servicestelle: Akteure, Betreiber",
                 "relevant_chunks": []
             },
             {
