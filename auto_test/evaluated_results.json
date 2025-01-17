@@ -723,7 +723,7 @@
             ]
         }
     ],
-    "Ich möchte ein KI-System einsetzen, dass die Emotionen meiner Mitarbeiter während des Arbeitens am PC/Laptop abliest und bewertet. Was muss ich da beachten": [
+    "Ich möchte ein KI-System einsetzen, dass die Emotionen meiner Mitarbeiter während des Arbeitens am PC/Laptop abliest und bewertet. Was muss ich da beachten?": [
         {
             "articles": [
                 "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
@@ -738,19 +738,19 @@
                 "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
                 "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
                 "ErwG 57",
-                "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
-                "ErwG 20",
+                "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
                 "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
                 "ErwG 13",
+                "ErwG 20",
                 "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
                 "ErwG 63",
                 "Anhang III: Z4",
-                "ErwG 56",
                 "KI-Servicestelle: FAQ - In welche vier Risikostufen werden KI-Systeme eingeteilt?",
-                "ErwG 23",
-                "KI-Servicestelle: KI-Kompetenz, Allgemein",
-                "ErwG 31"
+                "ErwG 56",
+                "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                "ErwG 31",
+                "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko"
             ]
         },
         {
