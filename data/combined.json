@@ -91,8 +91,6 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "814206ed-2f5c-4c1c-91fd-616f0a128cd3",
-        "fa61592a-861e-4253-a4c6-2a62f0f9be2d",
         "416816a1-c29f-4c2c-b7f4-015e60a43042",
         "88111b7f-ede1-45cc-bedc-9aa57dc012a2",
         "7e595036-3aa8-4edf-b26f-0627760fb44e",
@@ -103,9 +101,6 @@
         "b740c960-f13f-4b09-95d9-3443b6e19b26",
         "a6e85038-89e8-4790-9457-cb624ca42c00",
         "6b073c5f-3422-4b34-b139-b8645e89b463",
-        "16b5ff49-dbab-4e7e-861a-7e1d4cd7cb03",
-        "44ee4963-2543-4ba3-8550-cf2a21c2224c",
-        "070576ca-434c-4246-a1bf-ba25d2a45285",
         "283d70b2-97f7-4252-9190-378e90b707bd",
         "e87ad418-9936-47c0-b4ec-99f31c41a0a8",
         "24b748de-eebc-404f-8b36-d12eed0a6660",
@@ -470,7 +465,6 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "9bacce57-261f-4716-adfa-6f5d904a65b4",
-        "0b34a175-21c7-4d02-9c4e-4380537fff16",
         "8c75b44d-51ac-48e9-b7d7-45c0362eaefb",
         "0af8ee0f-22ec-4daa-92dd-589a6b0f94f1",
         "ca5614f2-4cf4-460e-addd-b5609143a0cd"
@@ -492,7 +486,7 @@
     },
     {
       "id": "e419d565-51f0-41b6-92b6-c80be68c2956",
-      "title": "KI-Servicestelle: Akteure,  KI-Wertschöpfungskette",
+      "title": "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
       "content": "### Übersicht: Die Akteure im AI Act\n\nDer AI Act sieht viele Rollen in der KI-Wertschöpfungskette vor. Die verschiedenen Akteure sind dabei keineswegs unbekannt, der Unionsgesetzgeber orientierte sich dabei in vielerlei Hinsicht an den EU-Produktrechtsnormen (siehe etwa die [Produktsicherheitsverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R0988 \"Link zur Produktsicherheitsverordnung\"), [Medizinprodukteverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32017R0745 \"Link zur Medizinprodukteverordnung\")).\n\nZu den Akteuren im AI Act zählen gemäß Art. 3 Ziffer 8:\n\n-   Anbieter („Provider“);\n-   Produkthersteller („Product Manufacturer“);\n-   Bevollmächtigter („Authorised Representative“);\n-   Einführer („Importer“);\n-   Händler („Distributor“);\n-   Betreiber („Deployer“).\n\nFerner kommen auch noch Nutzer und „betroffene Personen“ vor. Diese werden aber nicht als Akteure im Sinne des AI Act bezeichnet.",
       "keywords": [],
       "availableKeywords": [],
@@ -696,7 +690,7 @@
     },
     {
       "id": "8ce6bcf0-99b5-4801-a15c-e73a5c5355f4",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen Allgemein",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Allgemein",
       "content": "### Die einzelnen Akteure und deren Verpflichtungen\n\nWie im AI Act bereits in den Erwägungsgründen festgehalten wird, ist es angesichts des Wesens und der Komplexität der [KI-Wertschöpfungskette](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html \"Link zu den Akteuren im AI Act\") und im Einklang mit dem neuen Rechtsrahmen von wesentlicher Bedeutung, Rechtssicherheit zu gewährleisten und die Einhaltung dieser Verordnung zu erleichtern. Daher müssen die Rollen und die spezifischen Pflichten der relevanten Akteure entlang der Wertschöpfungskette präzisiert werden. Der Kern des AI Act betrifft Verpflichtungen in Zusammenhang mit KI-Systemen bzw. KI-Modellen entsprechend ihrer Risikoklassifizierung.\n\nIn bestimmte Situationen können verschiedene Rollen der KI-Wertschöpfungskette in einer Person oder Organisation zusammenfallen. Folgende Konstellationen sind z.B. möglich:\n\n-   Ein Anbieter von KI-Modellen oder GPAI-Modellen kann gleichzeitig auch ein Anbieter eines KI-Systems sein (Art. 75 AIA).\n-   Ein Einführer kann auch die Rolle eines Händlers übernehmen (siehe Erwägungsgründe 83)",
       "keywords": [],
       "availableKeywords": [],
@@ -712,7 +706,7 @@
     },
     {
       "id": "e1c5a1de-3024-4178-a191-283ad1525b65",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen - KI-Kompetenz",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
       "content": "### Welche Pflichten treffen Anbieter?\n\nGanz allgemein treffen Anbieter von KI-Systemen jeder Art die Pflicht, sicherzustellen, dass eingesetztes Personal und anderen Personen, welche mit den KI-Systemen betraut sind ein ausreichendes Maß an KI-Kompetenz aufweisen (Art. 4 AIA). Das umfasst die Fähigkeiten, die Kenntnisse und das Verständnis, die es Anbietern unter Berücksichtigung ihrer jeweiligen Rechte und Pflichten im Rahmen des AI Act ermöglichen, KI-Systeme sachkundig einzusetzen sowie sich der Chancen und Risiken von KI und möglicher Schäden, die sie verursachen kann, bewusst zu werden (Art. 3 Ziffer 56 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -728,7 +722,7 @@
     },
     {
       "id": "f707c5a0-6873-4780-802e-51814906b167",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen Hochrisiko-KI-Systeme",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, Hochrisiko-KI-Systeme",
       "content": "#### Hochrisiko-KI-Systeme\n\nDabei handelt es sich um KI-Systeme, die ein hohes Risiko aufweisen. Sie sind zwar nicht verboten, aber dafür sind zum Teil weitreichende Pflichten einzuhalten. Die Pflichten der Anbieter von Hochrisiko-KI-Systemen werden in Art. 16 AIA normiert. Zu den Pflichten zählt die Sicherstellung der Anforderungen an Hochrisiko-KI-Systeme gemäß Art. 16 Buchstabe a iVm. Kapitel III Abschnitt 2:",
       "keywords": [],
       "availableKeywords": [],
@@ -988,7 +982,7 @@
     },
     {
       "id": "020bdcf5-11bc-470e-afb9-6045f8cd50dd",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Syteme mit begrenztem Risiko",
+      "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit begrenztem Risiko",
       "content": "#### KI-Systeme mit „begrenztem“ Risiko\n\nDer AI Act listet in Art. 50 AIA bestimmte [KI-Systeme auf, welche ein begrenztes Risiko](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-systeme.de.html \"Link zu den Risikostufen von KI-Systemen\") bergen. Das Risiko kann mittels bestimmter Transparenzpflicht minimiert werden. Zusammengefasst können sie unter die Kategorie „Transparenz gegenüber nachgelagerten Akteuren“ zusammengefasst werden.",
       "keywords": [],
       "availableKeywords": [],
@@ -1205,7 +1199,7 @@
     },
     {
       "id": "725eccf5-6895-43c3-bd02-fd28a674168f",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen, Hochrisiko-KI-Systeme, Betriebsanleitung",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Betriebsanleitung",
       "content": "-   Verwendung des Hochrisiko-KI-Systems laut Betriebsanleitung\n    \n    Anbieter haben gemäß Art. 13 Abs. 2 AIA eine Betriebsanleitung bereitzustellen und den Betreibern zur Verfügung zu stellen. Betreiber von Hochrisiko-KI-Systemen haben die erforderlichen technischen und organisatorischen Maßnahmen zu treffen, um sicherzustellen, dass Hochrisiko-KI-Systemen entsprechend der beigefügten Betriebsanleitung verwendet wird (siehe Art. 26 Abs. 1 AIA).\n    \n    Sofern die Betreiber die Kontrolle über Eingabedaten haben, müssen diese der Zweckbestimmung des Hochrisiko-KI-Systems entsprechen und müssen ausreichend repräsentativ sein (siehe Art. 26 Abs. 4 AIA).\n    \n    Davon bleiben sonstige Pflichten des Betreibers nach dem Unionsrecht oder nationalem Recht unberührt (siehe Art. 26 Abs. 3 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1260,7 +1254,7 @@
     },
     {
       "id": "2b42aac4-945f-40fb-9f90-7cee39dbbc74",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, Meldepflicht schwerwiegender Vorfälle",
       "content": "Meldung von schwerwiegenden Vorfällen\n    \n    Gibt es Grund zur Annahme, dass das Hochrisiko-KI-System ein Risiko im Sinne des Art. 79 AIA birgt, oder wurde ein schwerwiegender Vorfall festgestellt, treffen den Betreiber Berichtspflichten gegenüber dem Anbieter, Einführer/Händler sowie die zuständigen Marktüberwachungsbehörden (siehe Art. 26 Abs. 5 UAbs. 1 AIA).\n    \n    Wenn Grund zur Annahme besteht, dass ein Hochrisiko-KI-System ein Risiko im Sinne des Art. 79 Abs. 1 birgt, ist von der Verwendung abzusehen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1431,7 +1425,7 @@
     },
     {
       "id": "b2fb0350-3a4b-4eee-89c6-6baf1455e250",
-      "title": "KI-Servicestelle: Betreiberverpflichtungen",
+      "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Systeme mit minimalem Risiko",
       "content": "#### KI-Systeme mit „minimalem Risiko“\n\nBei KI-Systemen mit „minimalem“ Risiko werden keine verpflichtend einzuhaltenden Anforderungen gestellt. Lediglich die Verpflichtung zur „KI-Kompetenz“ gemäß Art. 4 AIA trifft auch auf solche KI-Systeme zu. Die Einhaltung von Code of Practices wird gefördert, aber ist freiwillig.",
       "keywords": [],
       "availableKeywords": [],
@@ -1461,7 +1455,7 @@
     },
     {
       "id": "1b027697-3d10-4487-9e5c-0a9be1158e3f",
-      "title": "KI-Servicestelle: KI-Kompetenz, Begriffdefinition",
+      "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
       "content": "### Der Begriff „KI-Kompetenz“ gemäß Art. 3 Ziffer 56 AIA\n\nGemäß Art. 3 Ziffer 56 AIA ist \"KI-Kompetenz\"\n\n> die Fähigkeiten, die Kenntnisse und das Verständnis, die es Anbietern, Betreibern und Betroffenen unter Berücksichtigung ihrer jeweiligen Rechte und Pflichten im Rahmen dieser Verordnung ermöglichen, KI-Systeme sachkundig einzusetzen sowie sich der Chancen und Risiken von KI und möglicher Schäden, die sie verursachen kann, bewusst zu werden\n\nMit KI-Kompetenz wird abstrakt umschrieben, was notwendig ist, um in der digitalen Welt unter dem Einsatz von KI-Systemen erfolgreich agieren zu können.",
       "keywords": [],
       "availableKeywords": [],
@@ -1473,7 +1467,7 @@
     },
     {
       "id": "5a9f9935-184c-45e2-8864-b91d0b030612",
-      "title": "KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette",
+      "title": "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
       "content": "### Anbieter, Betreiber und Betroffene\n\nKI-Kompetenz trifft damit alle relevanten Akteure auf der [KI-Wertschöpfungsebene](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/akteure.de.html \"Link zu den Akteuren\") im Kontext ihrer Rolle entlang der Wertschöpfungskette (vgl. ErwG 20). Natürlich sind an den unterschiedlichen Stellen der Wertschöpfungskette auch unterschiedliche Kompetenzen notwendig. Anbieter von Hochrisiko-KI-Systemen etwa müssen bereits während der Entwicklungsphase die technischen Besonderheiten von KI kennen, um eine mit europäischen Werten vereinbare und sichere KI zu entwickeln.\n\nMit **Art. 4 AIA** werden **Betreiber und Anbieter verpflichtet, \"Maßnahmen\"** zu ergreifen, dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen. Welche Maßnahmen das sein können, hängt vom eingesetzten [KI-System](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-systeme.de.html \"Link zu den Risikostufen von KI-Systemen\") oder [KI-Modell](https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/risikostufen_ki-modelle.de.html \"Link zu den Risikostufen von KI-Modellen\") und dessen Risikostufe ab. Die technischen Kenntnisse der Mitarbeiter:innen, ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt werden sollen, sowie die Personen oder Personengruppen, bei denen die KI-Systeme eingesetzt werden sollen, sind zu berücksichtigen. KI-Kompetenz ist ein interdisziplinäres Feld, es umfasst nicht nur technische, sondern auch rechtliche und ethische Aspekte (siehe Erwägungsgründe 20 AIA). So haben sich Anbieter, die sich mit der Entwicklung eines Chatbots beschäftigen naturgemäß mit anderen Thematiken auseinanderzusetzen als ein Betreiber, der dieses System in seinem Unternehmen lediglich anwendet.",
       "keywords": [],
       "availableKeywords": [],
@@ -1652,7 +1646,7 @@
     },
     {
       "id": "c8096ef4-8680-44ed-b282-f02c6434e936",
-      "title": "KI-Servicestelle: Risikostufen KI-Systeme",
+      "title": "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
       "content": "# Risikostufen von KI-Systemen\n\n### KI-Systeme und die vier Risikostufen\n\nDer AI Act verfolgt einen risikobasierten Ansatz, um ein verhältnismäßiges,\nwirksames und verbindliches Regelwerk für KI-Systeme einzuführen. KI-Systeme\nwerden entsprechend ihrem Risikopotential nach inakzeptablem, hohem, geringem\nund minimalem Risiko kategorisiert. Risiko definiert der AI Act als „die\nKombination aus der Wahrscheinlichkeit des Auftretens eines Schadens und der\nSchwere dieses Eintritts“ (Art. 3) und bewertet insb mögliche Schäden an\nindividuellen und/oder öffentlichen Interessen (Gesundheit, Sicherheit,\nGrundrechte, einschließlich Demokratie, der Rechtsstaatlichkeit und des\nUmweltschutzes). Schäden können materieller oder immaterieller Natur sein.\nErfasst sind physische, psychische, gesellschaftliche oder wirtschaftliche\nSchäden.\n\nEine Sonderstellung nehmen in dieser Kategorisierung die **KI-Modelle mit\nallgemeinem Verwendungszweck (General Purpose AI Models)** ein.",
       "keywords": [],
       "availableKeywords": [],
@@ -1718,7 +1712,7 @@
     },
     {
       "id": "d6b1d3b4-a6fc-460d-adac-3810b3fd4b9a",
-      "title": "KI-Servicestelle: Risikostufen KI-System, Anhang IIIe",
+      "title": "KI-Servicestelle: Risikostufen KI-System, Anhang III",
       "content": "Zusätzlich gelten auch noch die in **Anhang III** abschließend genannten KI-Systeme als hochriskant im Sinne des AIA:\n\n-   Biometrik, soweit ihr Einsatznach dem einschlägigen Unionsrecht oder dem nationalen Recht zugelassen ist;\n-   Sicherheitsbauteile in kritischer Infrastruktur;\n-   Bestimmte Systeme im Rahmen von beruflicher Aus- und Weiterbildung, insbesondere wenn diese über den Zugang zu dieser entscheiden können;\n-   Bestimmte Systeme in Zusammenhang mit Beschäftigung, Personalmanagement und Zugang zur Selbstständigkeit, insbesondere wenn diese für Entscheidungen eingesetzt werden;\n-   Zugänglichkeit und Inanspruchnahme grundregelnder privater und öffentlicher Dienste und Leistungen;\n-   Bestimmte Systeme, die zur Strafverfolgung verwendet werden;\n-   Bestimmte Systeme zur Migrations-, Asyl- und Grenzkontrolle;\n-   Bestimmte Systeme innerhalb der Justiz und der demokratischen Prozesse.",
       "keywords": [],
       "availableKeywords": [],
@@ -1737,7 +1731,7 @@
     },
     {
       "id": "a9bf3bf8-40da-4c63-a908-e12625e1e946",
-      "title": "KI-Servicestelle: Risikostufen KI-Systeme, kritische Infrastr. und Sicherheitsbauteil",
+      "title": "KI-Servicestelle: Risikostufen KI-Systeme, kritische Infrastruktur und Sicherheitsbauteil",
       "content": "#### Kritische Infrastruktur und Sicherheitsbauteile (Anl. III Z 2 AIA)\n\nIn kritischer Infrastruktur eingesetzte KI-Systeme können nach Art. 6 Abs. 2 iVm Anhang III Z 2 AIA Hochrisiko-KI-Systeme sein. Konkret ist ein KI-System als Hochrisiko-KI-System einzustufen, wenn es im Bereich der kritischen Infrastruktur als Sicherheitsbauteil verwendet wird:\n\n-   im Rahmen der Verwaltung und des Betriebs\n-   kritischer digitaler Infrastruktur,\n-   des Straßenverkehrs oder\n-   der Wasser-, Gas-, Wärme- oder Stromversorgung\n\nFür die Beurteilung stellt sich die Frage, was konkret \"kritische Infrastruktur\" und was ein \"Sicherheitsbauteil\" ist.\n\nGrundsätzlich gehört die kritische Infrastruktur zu einer kritischen Einrichtung. In der Definition in Art. 3 Z. 62 AIA wird bzgl. des Begriffes \"kritische Infrastruktur\" auf Art. 2 Z. 4 der [Richtlinie (EU) 2022/2557](https://eur-lex.europa.eu/eli/dir/2022/2557/oj?locale=de \"Link zur Richtlinie über die Resilienz kritischer Infrastruktur\") (\"Richtlinie über die Resilienz kritischer Infrastruktur\", \"critical entities resilience directive\", \"CER\") verwiesen. Laut Art. 2 Z. 1, 4 und 5 CER muss diese \"kritische Einrichtung\", also eine öffentliche oder private Einrichtung, vom jeweiligen Mitgliedstaat als solche eingestuft werden.\n\nZur dazugehörigen konkreten „kritischen Infrastruktur“ zählen demnach:\n\n-   Objekte, Anlagen, Ausrüstung, Netze oder Systeme oder\n-   Teile eines Objekts, einer Anlage, Ausrüstung,\n-   eines Netzes oder eines Systems,\n\ndie für die Erbringung eines **wesentlichen Dienstes** erforderlich ist. Ein Dienst ist wesentlich, wenn er von entscheidender Bedeutung ist\n\n-   für die Aufrechterhaltung wichtiger gesellschaftlicher Funktionen,\n-   wichtiger wirtschaftlicher Tätigkeiten,\n-   der öffentlichen Gesundheit und Sicherheit oder\n-   der Erhaltung der Umwelt.\n\nIn Art. 2 der aufgrund der CER ergangenen [Delegierten Verordnung 2023/2450](https://eur-lex.europa.eu/eli/reg_del/2023/2450/oj?locale=de \"Link zur Delegierten Verordnung 2023/2450\") der Europäischen Kommission, ist eine nicht erschöpfende Liste von wesentlichen Diensten genannt.\n\nDer Begriff des \"Sicherheitsbauteil\" wird in Art. 3 Z 14 AIA folgendermaßen definiert:\n\n> ein[…] Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfunktion für dieses Produkt oder KI-System erfüllt oder dessen Ausfall oder Störung die Gesundheit und Sicherheit von Personen oder Eigentum gefährdet\n\nSpeziell zu Kritischer Infrastruktur wird der Gesetzgeber in ErwG 55 AIA etwas deutlicher:\n\n> (55) […] Sicherheitsbauteile kritischer Infrastruktur, einschließlich kritischer digitaler Infrastruktur, sind **Systeme**, die **verwendet** werden, um die **physische Integrität kritischer Infrastruktur oder die Gesundheit und Sicherheit von Personen und Eigentum zu schützen**, die **aber nicht notwendig** sind, **damit das System funktioniert**. Ausfälle oder Störungen solcher Komponenten können direkt zu Risiken für die physische Integrität kritischer Infrastruktur und somit zu Risiken für die Gesundheit und Sicherheit von Personen und Eigentum führen. Komponenten, die für die ausschließliche Verwendung zu Zwecken der Cybersicherheit vorgesehen sind, sollten nicht als Sicherheitsbauteile gelten. Zu Beispielen von Sicherheitsbauteilen solcher kritischen Infrastruktur zählen etwa Systeme für die Überwachung des Wasserdrucks oder Feuermelder-Kontrollsysteme in Cloud-Computing-Zentren.\n\nOb eine Ausnahme davon iSd einer der Ausnahmegründen des Art. 6 Abs. 3 AIA vorliegt, wird auf die Ausgestaltung im konkreten Einzelfall ankommen.",
       "keywords": [],
       "availableKeywords": [],
@@ -1778,7 +1772,7 @@
     },
     {
       "id": "63523a36-401e-4c90-82f2-be96588697ba",
-      "title": "KI-Servicestelle: Sanktionen",
+      "title": "KI-Servicestelle: Sanktionen, Allgemein",
       "content": "# Sanktionen\n\nDamit die im AI Act festgelegten Verbote und Verpflichtungen auch eingehalten werden, braucht es Vorschriften, welche die Durchsetzung sicherstellen. In der auf EU-Ebene bekannten Schreibweise müssen Mitgliedstaaten dafür sorgen, dass die vorgesehenen Sanktionen „wirksam, verhältnismäßig und abschreckend“ sein müssen. Zu den möglichen Formen zählen unter anderem Sanktionen und andere Durchsetzungsmaßnahmen wie Verwarnungen und nichtmonetäre Maßnahmen. Ein wesentlicher Teil dieses Bündels an Sanktionen stellt die Verhängung von Geldbußen dar. Die Straftatbestände und auch die Höchststrafsummen werden vom AIA vorgegeben.",
       "keywords": [],
       "availableKeywords": [],
@@ -1794,7 +1788,7 @@
     },
     {
       "id": "80bfe49e-2622-477d-9750-5eb45f903f38",
-      "title": "KI-Servicestelle: Sanktionen",
+      "title": "KI-Servicestelle: Sanktionen, Geldbußen",
       "content": "Bei folgenden Verstößen können folgende maximalen Geldbußen verhängt werden (siehe Art. 99, 101 AIA):\n\n-   **Bis zu 35 Mio. EUR oder 7 Prozent des gesamten weltweiten Vorjahresumsatzes** (je nachdem, welcher Wert höher ist) bei Missachtung der **verbotenen Praktiken;**\n-   **Bis zu 15 Mio. EUR oder 3 Prozent des gesamten weltweiten Vorjahresumsatzes** (je nachdem, welcher Wert höher ist) bei Verstößen gegen **Verpflichtungen, welche Konformitätsbewertungsstellen und die jeweiligen Akteure einzuhalten haben;**\n    -   Anbieter von Hochrisiko-KI-Systemen, KI-Systemen mit begrenztem Risiko, GPAI-Modelle;\n    -   Betreiber von Hochrisiko-KI-Systemen und KI-Systemen mit begrenztem Risiko;\n    -   Bevollmächtigter;\n    -   Einführer;\n    -   Händler;\n-   **Bis zu 7,5 Mio. EUR oder 1,5 Prozent des gesamten weltweiten Vorjahresumsatzes** (je nachdem, welcher Wert höher ist) bei **Bereitstellung falscher, unvollständiger oder irreführender Angaben** an Konformitätsbewertungsstellen oder zuständige nationale Behörden auf deren Auskunftsersuchen.\n\nDa die **Organe, Einrichtungen und sonstigen Stellen der EU** mit gutem Beispiel vorangehen sollten, werden auch sie den Vorschriften und möglichen Sanktionen unterworfen. Bei folgenden Verstößen können folgende maximalen Geldbußen verhängt werden (siehe Art. 100 AIA):\n\n-   **Bis zu 1,5 Mio. EUR** bei Missachtung der **verbotenen Praktiken;**\n-   **Bis zu 750 000 EUR** bei **Nichtkonformität des KI-Systems** mit in dieser Verordnung festgelegten Anforderungen oder Pflichten.\n\nWer Geldbußen verhängen darf, hängt damit zusammen, wer die Aufsicht übertragen bekommen hat. Dem Grunde nach sind es nationale Behörden, die Geldbußen verhängen dürfen (siehe Art. 99 AIA). Im Falle von Anbietern von GPAI-Modellen darf die Kommission Geldbußen verhängen (siehe Art. 101 AIA), im Falle von Verstößen gegen den AIA durch Organe, Einrichtungen und sonstige Stellen der EU ist hierzu der Europäische Datenschutzbeauftragter befugt (siehe Art. 100 AIA).\n\nBei der Frage, ob und/oder in welchem Umfang eine Geldbuße verhängt werden soll, sollen unter anderem folgende Aspekte berücksichtigt werden (siehe Art. 99 Abs. 7 AIA):\n\n-   Art, Schwere und Dauer des Verstoßes und seiner Folgen, unter Berücksichtigung des Zwecks des KI-Systems sowie gegebenenfalls der Zahl der betroffenen Personen und des Ausmaßes des von ihnen erlittenen Schadens;\n-   ob demselben Akteur bereits von anderen Marktüberwachungsbehörden für denselben Verstoß Geldbußen auferlegt wurden oder von anderen Behörden für Verstöße gegen das Unionsrecht oder das nationale Recht Geldbußen auferlegt wurden, wenn diese Verstöße auf dieselbe Handlung oder Unterlassung zurückzuführen sind, die einen einschlägigen Verstoß gegen diese Verordnung darstellt;\n-   Größe, Jahresumsatz und Marktanteil des Akteurs, der den Verstoß begangen hat;\n-   Vorsätzlichkeit oder Fahrlässigkeit des Verstoßes;\n-   etc.  \n    \n\nIm Falle von Organen, Einrichtungen und sonstigen Stellen der EU sind besondere Gründe zu erwägen (siehe näher Art. 100 Abs. 1 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1868,7 +1862,7 @@
     },
     {
       "id": "9366d9d8-b619-4196-9503-fe6f97bf038b",
-      "title": "KI-Servicestelle: Transparenzpflichten, Textgenierung",
+      "title": "KI-Servicestelle: Transparenzpflichten, Textgenerierung",
       "content": "**Betreiber** eines KI-Systems, das **Text** erzeugt oder manipuliert, der veröffentlicht wird, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren, müssen offenlegen, dass der Text künstlich erzeugt oder manipuliert wurde (Art. 50 Abs. 4 UAbs. 2 AIA). KI-generierte Texte, die nicht veröffentlicht werden, oder die nicht verwendet werden, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren, unterliegen keiner Offenlegungspflicht.\n\nAusnahme 1: Künstlich erzeugte Textinhalte unterliegen einer menschlichen Überprüfung oder redaktionellen Kontrolle und eine natürliche oder juristische Person trägt die redaktionelle Verantwortung für die Veröffentlichung der Inhalte. Z.B. traditionelle Medieninhaber (Zeitungsverlag)\n\nAusnahme 2: Verwendung zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten ist gesetzlich zugelassen.",
       "keywords": [],
       "availableKeywords": [],
@@ -4077,7 +4071,7 @@
     },
     {
       "id": "7401fefb-6095-47f0-a00e-78aac879499e",
-      "title": "Art 3: Z1",
+      "title": "Art 3: Z 1 Definition KI-System",
       "content": "### Artikel 3: Begriffsbestimmungen\nFür die Zwecke dieser Verordnung bezeichnet der Ausdruck\n1. „KI-System“ ein maschinengestütztes System, das für einen in\nunterschiedlichem Grade autonomen Betrieb ausgelegt ist und das nach seiner\nBetriebsaufnahme anpassungsfähig sein kann und das aus den erhaltenen Eingaben\nfür explizite oder implizite Ziele ableitet, wie Ausgaben wie etwa Vorhersagen,\nInhalte, Empfehlungen oder Entscheidungen erstellt werden, die physische oder\nvirtuelle Umgebungen beeinflussen können;",
       "keywords": [],
       "availableKeywords": [],
@@ -4087,7 +4081,7 @@
     },
     {
       "id": "7b38ddca-c29b-49fb-aa1c-85366820f3f4",
-      "title": "Art 3: Z12, Z23",
+      "title": "Art 3: Z12, Z23 Zweck und Änderung",
       "content": "### Artikel 3: Begriffsbestimmungen\nFür die Zwecke dieser Verordnung bezeichnet der Ausdruck\n[...]\n12. „Zweckbestimmung“ die Verwendung, für die ein KI-System laut Anbieter\nbestimmt ist, einschließlich der besonderen Umstände und Bedingungen für die\nVerwendung, entsprechend den vom Anbieter bereitgestellten Informationen in den\nBetriebsanleitungen, im Werbe- oder Verkaufsmaterial und in diesbezüglichen\nErklärungen sowie in der technischen Dokumentation;\n[...]\n23. „wesentliche Veränderung“ eine Veränderung eines KI-Systems nach dessen\nInverkehrbringen oder Inbetriebnahme, die in der vom Anbieter durchgeführten\nursprünglichen Konformitätsbewertung nicht vorgesehen oder geplant war und durch\ndie die Konformität des KI-Systems mit den Anforderungen in Kapitel III\nAbschnitt 2 beeinträchtigt wird oder die zu einer Änderung der Zweckbestimmung\nführt, für die das KI-System bewertet wurde;\n",
       "keywords": [],
       "availableKeywords": [],
@@ -4097,7 +4091,7 @@
     },
     {
       "id": "2d6c0b8d-ad3f-4548-935f-963bf8cfcf11",
-      "title": "Art 3: Z13, Z15-Z18, Z20, Z24-Z25",
+      "title": "Art 3: Z13, Z15-Z18, Z20, Z24-Z25 Anbieter- und Betreiberpflichten",
       "content": "### Artikel 3: Begriffsbestimmungen\nFür die Zwecke dieser Verordnung bezeichnet der Ausdruck\n[...]\n13. „vernünftigerweise vorhersehbare Fehlanwendung“ die Verwendung eines\nKI-Systems in einer Weise, die nicht seiner Zweckbestimmung entspricht, die sich\naber aus einem vernünftigerweise vorhersehbaren menschlichen Verhalten oder\neiner vernünftigerweise vorhersehbaren Interaktion mit anderen Systemen, auch\nanderen KI-Systemen, ergeben kann;\n[...]\n15. „Betriebsanleitungen“ die Informationen, die der Anbieter bereitstellt, um\nden Betreiber insbesondere über die Zweckbestimmung und die ordnungsgemäße\nVerwendung eines KI-Systems zu informieren;\n16. „Rückruf eines KI-Systems“ jede Maßnahme, die auf die Rückgabe an den\nAnbieter oder auf die Außerbetriebsetzung oder Abschaltung eines den Betreibern\nbereits zur Verfügung gestellten KI-Systems abzielt;\n17. „Rücknahme eines KI-Systems“ jede Maßnahme, mit der die Bereitstellung eines\nin der Lieferkette befindlichen KI-Systems auf dem Markt verhindert werden soll;\n18. „Leistung eines KI-Systems“ die Fähigkeit eines KI-Systems, seine\nZweckbestimmung zu erfüllen;\n[...]\n20. „Konformitätsbewertung“ ein Verfahren mit dem bewertet wird, ob die in Titel\nIII Abschnitt 2 festgelegten Anforderungen an ein Hochrisiko-KI-System erfüllt\nwurden;\n[...]\n24. „CE-Kennzeichnung“ eine Kennzeichnung, durch die ein Anbieter erklärt, dass\nein KI-System die Anforderungen erfüllt, die in Kapitel III Abschnitt 2 und in\nanderen anwendbaren Harmonisierungsrechtsvorschriften, die die Anbringung dieser\nKennzeichnung vorsehen, festgelegt sind;\n25. „System zur Beobachtung nach dem Inverkehrbringen“ alle Tätigkeiten, die\nAnbieter von KI-Systemen zur Sammlung und Überprüfung von Erfahrungen mit der\nVerwendung der von ihnen in Verkehr gebrachten oder in Betrieb genommenen\nKI-Systeme durchführen, um festzustellen, ob unverzüglich nötige Korrektur- oder\nPräventivmaßnahmen zu ergreifen sind;\n",
       "keywords": [],
       "availableKeywords": [],
@@ -4107,7 +4101,7 @@
     },
     {
       "id": "ee5c5bfc-ded7-4010-bdae-d396f7798630",
-      "title": "Art 3: Z14, Z62",
+      "title": "Art 3: Z14, Z62 Sicherheitsbauteil",
       "content": "### Artikel 3: Begriffsbestimmungen\nFür die Zwecke dieser Verordnung bezeichnet der Ausdruck\n[...]\n14. „Sicherheitsbauteil“ einen Bestandteil eines Produkts oder KI-Systems, der\neine Sicherheitsfunktion für dieses Produkt oder KI-System erfüllt oder dessen\nAusfall oder Störung die Gesundheit und Sicherheit von Personen oder Eigentum\ngefährdet;\n[...]\n62. „kritische Infrastrukturen“ kritische Infrastrukturen im Sinne von Artikel 2\nNummer 4 der Richtlinie (EU) 2022/2557;\n",
       "keywords": [],
       "availableKeywords": [],
@@ -4121,7 +4115,7 @@
     },
     {
       "id": "8371d991-3132-4b4f-b0b4-0cecd37c2b99",
-      "title": "Art 3: Z2, Z49, Z64-Z65",
+      "title": "Art 3: Z2, Z49, Z64-Z65 Risiken",
       "content": "### Artikel 3: Begriffsbestimmungen\nFür die Zwecke dieser Verordnung bezeichnet der Ausdruck\n[...]\n2. „Risiko“ die Kombination aus der Wahrscheinlichkeit des Auftretens eines\nSchadens und der Schwere dieses Schadens;\n[...]\n49. „schwerwiegender Vorfall“ einen Vorfall oder eine Fehlfunktion bezüglich\neines KI-Systems, das bzw. die direkt oder indirekt eine der nachstehenden\nFolgen hat:\na) den Tod oder die schwere gesundheitliche Schädigung einer Person;\nb) eine schwere und unumkehrbare Störung der Verwaltung oder des Betriebs\nkritischer Infrastrukturen;\nc) die Verletzung von Pflichten aus den Unionsrechtsvorschriften zum Schutz der\nGrundrechte;\nd) schwere Sach- oder Umweltschäden;\n[...]\n64. „Fähigkeiten mit hoher Wirkkraft“ bezeichnet Fähigkeiten, die den bei den\nfortschrittlichsten KI-Modellen mit allgemeinem Verwendungszweck festgestellten\nFähigkeiten entsprechen oder diese übersteigen;\n65. „systemisches Risiko“ ein Risiko, das für die Fähigkeiten mit hoher\nWirkkraft von KI-Modellen mit allgemeinem Verwendungszweck spezifisch ist und\naufgrund deren Reichweite oder aufgrund tatsächlicher oder vernünftigerweise\nvorhersehbarer negativer Folgen für die öffentliche Gesundheit, die Sicherheit,\ndie öffentliche Sicherheit, die Grundrechte oder die Gesellschaft insgesamt\nerhebliche Auswirkungen auf den Unionsmarkt hat, die sich in großem Umfang über\ndie gesamte Wertschöpfungskette hinweg verbreiten können;\n",
       "keywords": [],
       "availableKeywords": [],
