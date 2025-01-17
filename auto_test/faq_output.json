@@ -1,1 +1,2927 @@
-[]
+[
+    {
+        "question": "Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
+                "relevant_chunks": [
+                    "ErwG 3",
+                    "ErwG 13",
+                    "Art 25",
+                    "ErwG 84",
+                    "ErwG 86",
+                    "ErwG 88",
+                    "ErwG 89",
+                    "ErwG 90"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21",
+                    "Art 3: Z56 KI-Kompetenz"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Allgemein",
+                "relevant_chunks": [
+                    "Art 4",
+                    "Art 75",
+                    "ErwG 83",
+                    "Art 25",
+                    "ErwG 84"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 113",
+                    "ErwG 179",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12",
+                    "ErwG 13",
+                    "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, Nutzer",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie wird der AI Act durchgesetzt?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, KI-Systeme mit  direkter Interaktion",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich bin von einem Verstoß gegen die Vorschriften betroffen. Was kann ich tun?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Unser Unternehmen hat seinen Sitz in der EU und möchte Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU eingesetzt werden sollen. Gilt der AI Act für diese KI-Systeme?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ab wann gilt der AI Act?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Was sind Large Language Models (LLMs)",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenerierung",
+                "relevant_chunks": [
+                    "ErwG 13",
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
+            },
+            {
+                "title": "ErwG 109",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 102",
+                "relevant_chunks": [
+                    "Art 53"
+                ]
+            },
+            {
+                "title": "ErwG 107",
+                "relevant_chunks": [
+                    "Art 53"
+                ]
+            },
+            {
+                "title": "ErwG 104",
+                "relevant_chunks": [
+                    "Art 53"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
+                ]
+            },
+            {
+                "title": "ErwG 101",
+                "relevant_chunks": [
+                    "Art 53"
+                ]
+            },
+            {
+                "title": "ErwG 99",
+                "relevant_chunks": [
+                    "Art 51"
+                ]
+            },
+            {
+                "title": "ErwG 89",
+                "relevant_chunks": [
+                    "Art 25"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
+                "relevant_chunks": [
+                    "ErwG 133",
+                    "Art 50",
+                    "Art 3: Z 1 Definition KI-System",
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 105",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, Definition KI-Modelle mit allg. Verwendungszweck",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang XII",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 134",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 112",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 94",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Kennzeichnung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, KI-Modelle mit allg. Verwendungszweck",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 113",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Transparenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 136",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte die Arbeitsleistung meiner Mitarbeiter im Home Office mittels eines KI-Systems auswerten. Wie ist dieses System einzustufen?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "ErwG 57",
+                "relevant_chunks": [
+                    "Art 6"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": [
+                    "ErwG 12",
+                    "Art 3: Z 1 Definition KI-System"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - In welche vier Risikostufen werden KI-Systeme eingeteilt?",
+                "relevant_chunks": [
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 50",
+                    "ErwG 132",
+                    "ErwG 26",
+                    "ErwG 52",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 3: Z 1 Definition KI-System",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 61",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 52",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 51",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 13",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z5",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 124",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 31",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 125",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z3",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 123",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte KI-Systeme in meinem Unternehmen einsetzen. Gibt es dafür bestimmte Auflagen, die ich erfüllen muss?",
+        "main_titles": [
+            {
+                "title": "Art 4",
+                "relevant_chunks": [
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 13",
+                    "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
+                    "KI-Servicestelle: KI-Kompetenz, Anwendungsfall",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Sanktionierung",
+                    "KI-Servicestelle: KI-Kompetenz, weitere Informationen"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73"
+                ]
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": [
+                    "Art 2"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": [
+                    "ErwG 12",
+                    "Art 3: Z 1 Definition KI-System"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z3",
+                    "Anhang III: Z4",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 6",
+                    "ErwG 26",
+                    "ErwG 46"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 3: Z 1 Definition KI-System",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 137",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 13",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 26",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte auf meiner Website eine KI-generierte Hintergrundmusik implementieren? Unterliege ich etwaigen Verpflichtungen nach dem AI Act?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 113",
+                    "ErwG 179",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12",
+                    "ErwG 13",
+                    "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+                "relevant_chunks": [
+                    "Art 53",
+                    "ErwG 101",
+                    "ErwG 102",
+                    "ErwG 104",
+                    "ErwG 50",
+                    "ErwG 132"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": [
+                    "Art 1",
+                    "ErwG 1",
+                    "ErwG 2",
+                    "ErwG 4",
+                    "ErwG 9",
+                    "ErwG 3",
+                    "ErwG 5"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenerierung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, generative KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 137",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich bin von einem Verstoß gegen die Vorschriften betroffen. Was kann ich tun?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 136",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 134",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie wird der AI Act durchgesetzt?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 120",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 5: Abs 8 Sonstiges",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 108",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte gerne KI-Reallabore nutzen. Ab wann ist das möglich und wie genau funktionieren diese?",
+        "main_titles": [
+            {
+                "title": "ErwG 138",
+                "relevant_chunks": [
+                    "Art 57"
+                ]
+            },
+            {
+                "title": "ErwG 140",
+                "relevant_chunks": [
+                    "Art 57",
+                    "Art 59"
+                ]
+            },
+            {
+                "title": "Art 3: Z53-Z55, Z57-Z59 KI-Reallabor",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": [
+                    "Art 2",
+                    "ErwG 21",
+                    "ErwG 23"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, KI-Modelle mit allg. Verwendungszweck",
+                "relevant_chunks": [
+                    "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck"
+                ]
+            },
+            {
+                "title": "ErwG 100",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 25",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 76",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 179",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 61",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, KI-Systeme mit  direkter Interaktion",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 68",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 94",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 145",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ab wann gilt der AI Act?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte meine Jobinserate mittels KI generieren lassen. Ist das zulässig? Was muss ich beachten?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+                "relevant_chunks": [
+                    "Art 53",
+                    "ErwG 101",
+                    "ErwG 102",
+                    "ErwG 104",
+                    "ErwG 50",
+                    "ErwG 132"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 113",
+                    "ErwG 179",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12",
+                    "ErwG 13",
+                    "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenerierung",
+                "relevant_chunks": [
+                    "ErwG 13",
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist generative KI?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 57",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 5: Abs 8 Sonstiges",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 137",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte KI beim Personal-Recruiting einsetzen und spezielle Recruitingsoftware dafür anschaffen. Was muss ich beachten?",
+        "main_titles": [
+            {
+                "title": "Art 4",
+                "relevant_chunks": [
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 13",
+                    "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
+                    "KI-Servicestelle: KI-Kompetenz, Anwendungsfall",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Sanktionierung",
+                    "KI-Servicestelle: KI-Kompetenz, weitere Informationen"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21"
+                ]
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": [
+                    "ErwG 12",
+                    "Art 3: Z 1 Definition KI-System"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": [
+                    "Art 26",
+                    "ErwG 91",
+                    "ErwG 92"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 57",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 100",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, weitere Informationen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 56",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, KI-Systeme mit  direkter Interaktion",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 152",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich habe mein eigenes KI-System/KI-Modell für den internen Gebrauch im Unternehmen entwickelt. Gilt der AI-Act auch für mich?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": [
+                    "Art 2",
+                    "ErwG 21",
+                    "ErwG 23"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": [
+                    "ErwG 12",
+                    "Art 3: Z 1 Definition KI-System"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z3",
+                    "Anhang III: Z4",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 6",
+                    "ErwG 26",
+                    "ErwG 46"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Unser Unternehmen hat seinen Sitz in der EU und möchte Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU eingesetzt werden sollen. Gilt der AI Act für diese KI-Systeme?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, Zusammenhang KI-Modelle, GPAI, KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 100",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit begrenztem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 94",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich bin von einem Verstoß gegen die Vorschriften betroffen. Was kann ich tun?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 113",
+                    "ErwG 179",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12",
+                    "ErwG 13",
+                    "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+                "relevant_chunks": [
+                    "Art 53",
+                    "ErwG 101",
+                    "ErwG 102",
+                    "ErwG 104",
+                    "ErwG 50",
+                    "ErwG 132"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12",
+                    "ErwG 13",
+                    "Art 50",
+                    "ErwG 132",
+                    "Art 25",
+                    "ErwG 83",
+                    "ErwG 89"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenerierung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, generative KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 134",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 136",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 108",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich bin von einem Verstoß gegen die Vorschriften betroffen. Was kann ich tun?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 137",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Unser Unternehmen hat seinen Sitz in der EU und möchte Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU eingesetzt werden sollen. Gilt der AI Act für diese KI-Systeme?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 120",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte in meinem Unternehmen KI einsetzen. Muss ich eine KI-Policy erlassen?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21"
+                ]
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": [
+                    "Art 2"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": [
+                    "Art 2",
+                    "ErwG 21",
+                    "ErwG 23"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73",
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
+            },
+            {
+                "title": "ErwG 137",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": [
+                    "Art 3: Z56 KI-Kompetenz",
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 13",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 5: Abs 8 Sonstiges",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 20",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 8",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 2",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Unser Unternehmen hat seinen Sitz in der EU und möchte Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU eingesetzt werden sollen. Gilt der AI Act für diese KI-Systeme?",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte im Bewerbungsprozess ein KI-System einsetzen, das eine Risikobewertung durchführt. Das KI-System soll insbesondere bewerten ob der/die Bewerber/in eine Neigung zur Begehung von Straftaten hat. Was muss ich da beachten?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z6",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                "relevant_chunks": [
+                    "ErwG 26",
+                    "ErwG 27",
+                    "ErwG 28",
+                    "ErwG 29",
+                    "ErwG 30",
+                    "ErwG 31",
+                    "ErwG 32",
+                    "ErwG 33",
+                    "ErwG 34",
+                    "ErwG 35",
+                    "ErwG 36",
+                    "ErwG 37",
+                    "ErwG 38",
+                    "ErwG 39",
+                    "ErwG 42",
+                    "ErwG 43",
+                    "ErwG 44",
+                    "ErwG 45",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 57",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 61",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 56",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 5: 1 lit d predictive policing",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 123",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z8",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - In welche vier Risikostufen werden KI-Systeme eingeteilt?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z3",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 125",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z5",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 132",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z7",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 54",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Risikomanagement",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte ein KI-System einsetzen, dass die Emotionen meiner Mitarbeiter während des Arbeitens am PC/Laptop abliest und bewertet. Was muss ich da beachten",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132",
+                    "ErwG 18",
+                    "Art 3: Z34-Z36, Z39-Z44 Biometrie"
+                ]
+            },
+            {
+                "title": "ErwG 18",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 44",
+                "relevant_chunks": [
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": [
+                    "Art 26",
+                    "ErwG 91",
+                    "ErwG 92"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132"
+                ]
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": [
+                    "ErwG 20",
+                    "ErwG 21",
+                    "ErwG 73",
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 13",
+                    "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
+                    "KI-Servicestelle: KI-Kompetenz, Anwendungsfall",
+                    "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                    "KI-Servicestelle: KI-Kompetenz, Sanktionierung",
+                    "KI-Servicestelle: KI-Kompetenz, weitere Informationen"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 57",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 20",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 13",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 56",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - In welche vier Risikostufen werden KI-Systeme eingeteilt?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 31",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte in meinem Unternehmen ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System?",
+        "main_titles": [
+            {
+                "title": "Anhang III: Z2",
+                "relevant_chunks": [
+                    "ErwG 12",
+                    "Art 3: Z14, Z62 Sicherheitsbauteil"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Hochrisiko-KI-Systeme",
+                "relevant_chunks": [
+                    "Art 16",
+                    "ErwG 79",
+                    "ErwG 80"
+                ]
+            },
+            {
+                "title": "Anhang III: Z5",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 52",
+                "relevant_chunks": [
+                    "Art 6",
+                    "Art 7"
+                ]
+            },
+            {
+                "title": "ErwG 55",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z8",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 85",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - In welche vier Risikostufen werden KI-Systeme eingeteilt?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 51",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 86",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 123",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z1",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Welche Verpflichtungen treffen Anbieter von Hochrisiko-KI-Systemen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z7",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z3",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 177",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 93",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich bin ein Versicherungsmakler und berechne mit Hilfe eines gekauften KI-Systems die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?Treffen mich besondere Verpflichtungen? Welcher Risikostufe sind derartige KI-Systeme zuzuordnen?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Allgemein",
+                "relevant_chunks": [
+                    "Art 4",
+                    "Art 75",
+                    "ErwG 83",
+                    "Art 25",
+                    "ErwG 84"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": [
+                    "Art 4",
+                    "ErwG 20",
+                    "ErwG 21"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit begrenztem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich bin von einem Verstoß gegen die Vorschriften betroffen. Was kann ich tun?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Unser Unternehmen hat seinen Sitz in der EU und möchte Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU eingesetzt werden sollen. Gilt der AI Act für diese KI-Systeme?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 114",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 118",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was muss ich beachten, wenn ich Videos mit KI-Avataren bzw. digitalen Zwillingen erstelle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich möchte die biometrischen Daten meiner Kunden mit Hilfe eines KI-Systems sammeln um anhand dieser Daten Rückschlüsse auf ihre Rasse, Religionszugehörigkeit und politische Einstellung ziehen zu können. Diese Daten möchte ich für zielgerichtete Werbung benutzen. Handelt es sich dabei um eine nach dem AI-Act erlaubte KI-Nutzung?",
+        "main_titles": [
+            {
+                "title": "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                "relevant_chunks": [
+                    "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme ",
+                    "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, kritische Infrastruktur und Sicherheitsbauteil",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                    "KI-Servicestelle: Risikostufen KI-Systeme, minimales oder kein Risiko"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132",
+                    "ErwG 18",
+                    "Art 3: Z34-Z36, Z39-Z44 Biometrie"
+                ]
+            },
+            {
+                "title": "ErwG 94",
+                "relevant_chunks": [
+                    "Art 26"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 39",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 3",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 132",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 30",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 31",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 44",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 54",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 38",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 32",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 43",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Warum wird KI reguliert?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Eine FH möchte ein KI-System verwenden, welche die Zulassung ausländischer Studenten prüft. Kann man hier ein KI-System ohne Weiteres einsetzen oder ist eine vorherige Genehmigung notwendig? Welcher Risikostufe unterliegt so ein KI-System?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "Anhang III: Z7",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z3",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z3",
+                    "Anhang III: Z4",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, Genehmigungspflicht",
+                "relevant_chunks": [
+                    "Art 26"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
+                "relevant_chunks": [
+                    "Art 49",
+                    "Art 71",
+                    "ErwG 131"
+                ]
+            },
+            {
+                "title": "ErwG 56",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 61",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z1",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z5",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 51",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 123",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 35",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z8",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 82",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 113",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z6",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Eine FH möchte mit Hilfe eines KI-Systems die Lernerfolge der Studenten aufzeichnen um am Ende des Studienjahres den Studenten zu einem passenden Praktikumsplatz für das kommende Studienjahr zuzuordnen. Ist ein solches KI-System genehmigungspflichtig? Welcher Risikostufe unterliegt ein solches System?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "Anhang III: Z3",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                "relevant_chunks": [
+                    "ErwG 26",
+                    "ErwG 27",
+                    "ErwG 28",
+                    "ErwG 29",
+                    "ErwG 30",
+                    "ErwG 31",
+                    "ErwG 32",
+                    "ErwG 33",
+                    "ErwG 34",
+                    "ErwG 35",
+                    "ErwG 36",
+                    "ErwG 37",
+                    "ErwG 38",
+                    "ErwG 39",
+                    "ErwG 42",
+                    "ErwG 43",
+                    "ErwG 44",
+                    "ErwG 45",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie"
+                ]
+            },
+            {
+                "title": "ErwG 56",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit minimalem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z6",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, KI-Syteme mit begrenztem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 51",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Systeme mit begrenztem Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, Genehmigungspflicht",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Risikomanagement",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 61",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 113",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 82",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z5",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich habe einen KI-gesteuerten Lügendetektor entwickelt und möchte es an die Polizei lizenzieren? Handelt es sich bei dem Lügendetektor um eine Hochrisiko-KI?",
+        "main_titles": [
+            {
+                "title": "Anhang III: Z6",
+                "relevant_chunks": [
+                    "Art 3: Z45-Z46 Strafverfolgung",
+                    "ErwG 12",
+                    "Art 3: Z 1 Definition KI-System"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z4",
+                    "Anhang III: Z3",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
+                    "Art 6",
+                    "Art 5: Abs 1 lit a-c (i - ii) Manipulation, social scoring",
+                    "Art 5: 1 lit d predictive policing",
+                    "Art 5: Abs 1 lit e Datenbanken zur Gesichtserkennung",
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": [
+                    "Art 8"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Hochrisiko-KI-Systeme",
+                "relevant_chunks": [
+                    "Art 16",
+                    "ErwG 79",
+                    "ErwG 80"
+                ]
+            },
+            {
+                "title": "Anhang III: Z7",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z3",
+                    "Anhang III: Z4",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 6",
+                    "ErwG 26",
+                    "ErwG 46"
+                ]
+            },
+            {
+                "title": "Anhang III: Z8",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 51",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 52",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z5",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Textgenerierung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Modelle, KI-Modelle mit allg. Verwendungszweck",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z1",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, Genehmigungspflicht",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 61",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 79",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Registrierung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, Hochrisiko-KI-Systeme",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 93",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Welche Verpflichtungen treffen Anbieter von Hochrisiko-KI-Systemen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 123",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z3",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Mein Arbeitgeber wertet den Gemütszustand seiner Mitarbeiter am Arbeitsplatz mittels eines eigens dafür angeschafften KI-Systems aus. Ist das erlaubt?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: Transparenzpflichten, Emotionserkennung",
+                "relevant_chunks": [
+                    "Art 50",
+                    "ErwG 132",
+                    "ErwG 18",
+                    "Art 3: Z34-Z36, Z39-Z44 Biometrie"
+                ]
+            },
+            {
+                "title": "ErwG 44",
+                "relevant_chunks": [
+                    "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
+                ]
+            },
+            {
+                "title": "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtungen, spezifischer Hochrisiko-KI-Systeme",
+                "relevant_chunks": [
+                    "Art 26",
+                    "ErwG 91",
+                    "ErwG 92"
+                ]
+            },
+            {
+                "title": "ErwG 18",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 13",
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
+            },
+            {
+                "title": "ErwG 63",
+                "relevant_chunks": [
+                    "Art 8"
+                ]
+            },
+            {
+                "title": "ErwG 57",
+                "relevant_chunks": [
+                    "Art 6"
+                ]
+            },
+            {
+                "title": "ErwG 31",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie bestimme ich das Risiko eines KI-Systems?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, betroffene Personen",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, inakzeptable Praktiken",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang III: Z4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Risikostufen KI-Systeme, begrenztes Risiko",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 3: Z 1 Definition KI-System",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 5: Abs 8 Sonstiges",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+        "main_titles": [
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": [
+                    "Anhang III: Z1",
+                    "Anhang III: Z2",
+                    "Anhang III: Z3",
+                    "Anhang III: Z4",
+                    "Anhang III: Z5",
+                    "Anhang III: Z6",
+                    "Anhang III: Z7",
+                    "Anhang III: Z8",
+                    "Art 6",
+                    "ErwG 26",
+                    "ErwG 46"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+                "relevant_chunks": [
+                    "Art 3: Z3-Z11, Z68 Akteure",
+                    "ErwG 12"
+                ]
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": [
+                    "Art 2"
+                ]
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, Betreiber",
+                "relevant_chunks": [
+                    "ErwG 23",
+                    "Art 25",
+                    "ErwG 84",
+                    "Art 3: Z3-Z11, Z68 Akteure"
+                ]
+            },
+            {
+                "title": "ErwG 13",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Fotos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen. Ist dies urheberrechtlich zulässig?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 4",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 86",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Unser Unternehmen hat seinen Sitz in der EU und möchte Hochrisiko-KI-Systeme entwickeln, die ausschließlich außerhalb der EU eingesetzt werden sollen. Gilt der AI Act für diese KI-Systeme?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, KI-Kompetenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 100",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 85",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Interaktion mit KI-System",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Was ist ein „KI-System“?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Anbieterverpflichtungen, Transparenz",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 89",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 21",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 79",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 137",
+                "relevant_chunks": []
+            }
+        ]
+    },
+    {
+        "question": "Ich bin ein Kleinunternehmer und hätte gerne Zugang zu den Reallaboren. Was muss ich tun um Zugang zu diesen zu bekommen bzw bin ich überhaupt berechtigt Zugang zu einem Reallabor zu erhalten?",
+        "main_titles": [
+            {
+                "title": "ErwG 147",
+                "relevant_chunks": [
+                    "Art 43"
+                ]
+            },
+            {
+                "title": "Art 3: Z53-Z55, Z57-Z59 KI-Reallabor",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 138",
+                "relevant_chunks": [
+                    "Art 57"
+                ]
+            },
+            {
+                "title": "Art 61",
+                "relevant_chunks": [
+                    "ErwG 141"
+                ]
+            },
+            {
+                "title": "Art 76",
+                "relevant_chunks": [
+                    "ErwG 139",
+                    "ErwG 141"
+                ]
+            },
+            {
+                "title": "ErwG 140",
+                "relevant_chunks": [
+                    "Art 57",
+                    "Art 59"
+                ]
+            },
+            {
+                "title": "ErwG 145",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 146",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Anhang IX",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich entwickle mein eigenes KI-System, dass ich danach auch ausschließlich intern einsetze. Das System wird nie für andere Marktteilnehmer zur Verfügung gestellt. Das System wäre als Hochrisiko-KI-System iSd Anh. III einzustufen. Unterliege ich einer Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Brauche ich einen „KI-Beauftragten“ im Unternehmen?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Für wen gilt die KI-Regulierung?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 68",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 69",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 23",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, Produkthersteller",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: FAQ - Gibt es bereits eine behördliche Zuständigkeit im Zusammenhang mit [Sektor]?",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, Einführer",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 150",
+                "relevant_chunks": []
+            },
+            {
+                "title": "Art 85",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, Händler",
+                "relevant_chunks": []
+            },
+            {
+                "title": "KI-Servicestelle: Akteure, Nutzer",
+                "relevant_chunks": []
+            },
+            {
+                "title": "ErwG 170",
+                "relevant_chunks": []
+            }
+        ]
+    }
+]
