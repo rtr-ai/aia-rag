@@ -23,14 +23,14 @@ Das Einsatz von Large Language Models bei der automatischen Generierung von Werb
 # 3. Ich möchte die Arbeitsleistung meiner Mitarbeiter im Home Office mittels eines KI-Systems auswerten. Wie ist dieses System einzustufen?
  
 Ein derartiges KI-System ist als ein Hochrisiko-KI-System einzustufen. [1], [2], [5]
-Hochrisiko-KI-Systeme unterliegen hohen Anforderungen hinsichtlich der Inbetriebnahme und des Inverkehrbringens, welche sie beachten müssen .[3],[5]
+Hochrisiko-KI-Systeme unterliegen hohen Anforderungen hinsichtlich der Inbetriebnahme und des Inverkehrbringens, welche sie beachten müssen .[5]
 Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflichten nach dem AI-Act.[4] [5], [6] Zu beachten sind diesbezüglich auch arbeitsrechtliche Vorschriften. 
 
-[1]Art 6 Abs 2 AIA
+[1] Art 6 Abs 2 AIA
 [2] Anhang III: Z4 
-[4] Art 26 AIA
-[5] KI-Servicestelle: Risikostufen KI-System, Anhang III
-[6] KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme 
+[3] Art 26 AIA
+[4] KI-Servicestelle: Risikostufen KI-System, Anhang III
+[5] KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme 
  
 # 4. Ich möchte KI-Systeme in meinem Unternehmen einsetzen. Gibt es dafür bestimmte Auflagen, die ich erfüllen muss?
 
@@ -42,7 +42,7 @@ werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingese
 [2] Art 3: Z 1 Definition KI-System
 [3] KI-Servicestelle: KI-Kompetenz, Allgemein
 [4] KI-Servicestelle: KI-Kompetenz, Begriffsdefinition
-[5] KI-Servicestelle: KI-Kompetenz, Akteure Wertschöpfungskette
+[5] KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette
 [6] KI-Servicestelle: Risikostufen KI-Systeme, Allgemein
 
 # 5. Ich möchte auf meiner Website eine  KI-generierte Hintergrundmusik implementieren?  Unterliege ich etwaigen Verpflichtungen nach dem AI Act?
@@ -65,7 +65,7 @@ Dabei einigen sich die Entwickler und die Behörden auf einen Plan, der den Abla
 [1] Art 57 AIA
 [2] ErwG 138
 [3] ErwG 139
-[4] KI-Servicestelle: FAQ "Ich möchte gerne KI-Reallabore nutzen. Ab wann ist dies möglich und wie genau funktionieren diese?"
+[4] KI-Servicestelle: FAQ - Ich möchte gerne KI-Reallabore nutzen. Ab wann ist dies möglich und wie genau funktionieren diese?
 
 # 7. Ich möchte meine Jobinserate mittels KI generieren lassen. Ist das zulässig? Was muss ich beachten?
 
@@ -108,8 +108,8 @@ Es sind daher hier sowohl die zu erfüllenden Pflichten eines Anbieters als auch
 [1] Art 3: Z3-Z11, Z68 Akteure
 [2] Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck
 [3] Art 50 AIA
-[4] KI-Servicestelle: FAQ "Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?"
-[5] KI-Servicestelle: FAQ "Was ist ein „KI-System"?"
+[4] KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?
+[5] KI-Servicestelle: FAQ - Was ist ein KI-System?
                                       
 # 10. Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?
 
@@ -119,8 +119,8 @@ Das heißt, wenn es sich bei Ihren Videos um "Deep Fakes" im Sinne des AI Acts h
 
 [1] Art 50 Abs 4 AIA
 [2] KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake
-[3]KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte
-[4] KI- Servicestelle: FAQ "Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?"
+[3] KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte
+[4] KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?
 [4] KI-Servicestelle: Betreiberverpflichtung, Allgemein
  
 # 11. Ich möchte in meinem Unternehmen KI einsetzen. Muss ich eine KI-Policy erlassen?
@@ -141,7 +141,7 @@ Die zu setzenden Maßnahmen hängt davon ab, welches KI-Modell oder KI-System zu
 Der Einsatz von KI-Systemen zur Durchführung von Risikobewertungen in Bezug auf natürliche Personen um ihre Neigung zur Begehung von Straftaten festzustellen
 ist verboten. [1],[2]
 
-[1] Art 5 Abs 1 lit d AIA
+[1] Art 5: Abs 1 lit d predictive policing AIA
 [2] ErwG 42
 
 # 13. Ich möchte ein KI-System einsetzen, dass die Emotionen meiner Mitarbeiter während des Arbeitens am PC/Laptop abliest und bewertet. Was muss ich da beachten?
@@ -151,7 +151,7 @@ auf der Grundlage ihrer biometrischen Daten festzustellen oder daraus abzuleiten
 Der Einsatz von KI-Systemen zur zur Ableitung von Emotionen einer natürlichen Person am Arbeitsplatz ist verboten. [2],[4]
 
 [1] Art 3: Z34-Z36, Z39-Z44 Biometrie
-[2] Art 5 AIA
+[2] Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung
 [3] ErwG 18
 [4] ErwG 44
 
@@ -163,7 +163,7 @@ Ein KI-System stellt ein Hochrisiko-KI-System dar, wenn es im Bereich der kritis
 [1] Art 6 AIA
 [2] Art 3: Z14, Z62 Sicherheitsbauteil
 [3] ErwG 55 AIA
-[4] KI-Servicestelle: FAQ "Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? Was ist ein Sicherheitsbauteil?"
+[4] KI-Servicestelle: FAQ - Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? Was ist ein Sicherheitsbauteil?
 [5] Anhang I
 [6] Anhang III: Z2
 
@@ -200,7 +200,7 @@ Hochrisiko-KI-System einzustufen. [1],[3], [4] Als Betreiber eines solchen KI-Sy
 [2] Anhang III: Z3 
 [3] Art 3: Z3-Z11, Z68 Akteure
 [4] KI-Servicestelle: Risikostufen KI-Systeme, Allgemein
-[5]KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme 
+[5] KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme 
 [6] KI-Servicestelle: Risikostufen KI-System, Anhang III
 
 
@@ -260,14 +260,13 @@ Wenn ein Anbieter ein KI-System oder KI-Modell mit allgemeinem Verwendungszweck 
 [4] ErwG 140
 [5] Art 62 AIA
 
-# 23. Ich bin eine Kleinunternehmerin und verkaufe in meinem Onlineshop ausschließlich Frauenbekleidung. Je nach Verkaufsverhalten meiner Kundinnen liefert, das sich im Einsatz befindliche KI-Modell personalisierte Bekleidungsvorschläge, die den Kundinnen direkt auf der Webseite angezeigt werden. Bin ich als Betreiberin gemäß dem AI-Act einzustufen? Was muss ich beachten?
+ # 23. Ich bin eine Kleinunternehmerin und verkaufe in meinem Onlineshop ausschließlich Frauenbekleidung. Je nach Verkaufsverhalten meiner Kundinnen liefert, eine KI-gestützte Software personalisierte Bekleidungsvorschläge, die den Kundinnen direkt auf der Webseite angezeigt werden. Bin ich als Betreiberin gemäß dem AI-Act einzustufen? 
 
-Ein Empfehlungssystem ist als KI-Modell mit allgemeinem Verwendungszweck einzustufen [1]. Durch das Verwenden eines KI-Modell in eigener Verantwortung ist hier die Rolle eines "Betreibers" erfüllt. [2],[4]
-Betreiber von KI-Modellen mit allgemeinem Verwendungszweck müssen ab 2.8.2025 Transparenzpflichten erfüllen. [3],[5] 
+Hier liegt ein sogenanntes Recommander-System (Empfehlungssystem) vor, welches mittels KI-gestützter Software, automatische Empfehlungen generiert, dass als KI-System nach dem AI-Act einzustufen ist. [1]
 
+Durch den Einsatz dieser Software sind Sie als Betreiber eines KI-Systems einzustufen.  [2],[3],[4]
 
-[1] Art 3 Z 63 AIA (KI-Modell mit allg. Verwendungszweck)
-[2] Art 3 Z 4 AIA (Akteure)
-[3] Art 50 AIA
-[4] KI-Servicestelle: Akteure
-[5] KI-Servicestelle: Zeitplan
+[1] Art 3: Z 1 Definition KI-System
+[2] Art 3: Z3-Z11, Z68 Akteure
+[3] KI-Servicestelle: Akteure, KI-Wertschöpfungskette
+[4] KI-Servicestelle: Akteure, Betreiber
