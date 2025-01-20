@@ -4,11 +4,15 @@
     <title>Question Comparison</title>
 </head>
 <body>
-    <h1>Questions</h1>
+    <h1>Questions:</h1>
     <ul>
         {% for question in questions %}
         <li><a href="/compare/{{ question | urlencode }}">{{ question }}</a></li>
         {% endfor %}
     </ul>
+
+    <h2>Overall Summary</h2>
+    <p><strong>Average Matched Percentage:</strong> {{ average_matched_percentage|float|round(2) }}%</p>
+
 </body>
 </html>
