@@ -3,7 +3,7 @@ import { CommonModule, NgClass, NgForOf, NgIf } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { answer1, answer2 } from "./knowledge";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
-import { LLMMessageParams, Source, Step } from "./models";
+import { LLMMessageParams, PowerDataDisplayed, PowerUsageData, Source, Step } from "./models";
 import { environment } from "../../environments/environment";
 import { NgZone } from "@angular/core";
 
@@ -27,6 +27,9 @@ export class AiabotComponent implements OnInit {
   tokensUsedFormatted: string = "";
   feedbackFormVisible : boolean = false;
   feedbackText:string = "";
+  powerData: PowerDataDisplayed[] = [];
+  totalConsumption: PowerDataDisplayed = { name:"total", label:"Gesamter Energieverbrauch", cpu_kWh: 0, gpu_kWh: 0, ram_kWh: 0, total_kWh: 0, duration:0 };
+
   constructor(private zone: NgZone) {}
   ngOnInit(): void {}
 
@@ -44,6 +47,30 @@ export class AiabotComponent implements OnInit {
       this.sources = sources;
       calculateTotalTokens();
     };
+    const updatePowerData = (data:PowerUsageData, eventType:string) => {
+      let name = '';
+      switch (eventType) {
+        case 'power_index':
+          name = 'Indexierung von relevanten Daten (einmalig pro Serverstart)';
+          break;
+        case 'power_prompt':
+          name = 'Erstellung des Prompts („Retrieve” und „Augment”)';
+          break;
+        case 'power_response':
+          name = 'Generierung der Antwort („Generate”)';
+          break;
+      }
+      this.powerData.push({label:name, name:eventType, ...data});
+    }
+    const calculateTotalPowerConsumption = () => {
+      this.powerData.forEach(item => {
+         this.totalConsumption.cpu_kWh += item.cpu_kWh;
+        this.totalConsumption.gpu_kWh += item.gpu_kWh;
+        this.totalConsumption.ram_kWh += item.ram_kWh;
+        this.totalConsumption.total_kWh += item.total_kWh;
+        this.totalConsumption.duration += item.duration;
+      });
+    }
     const calculateTotalTokens = () => {
       const tokensUsed = this.sources.reduce((total, source) => {
         const sourceTokens = !source.skip ? source.num_tokens : 0;
@@ -88,6 +115,9 @@ export class AiabotComponent implements OnInit {
       }
     };
     this.displayAnswer = "";
+    this.powerData = [];
+    this.totalConsumption =  { name:"total", label:"Gesamter Energieverbrauch", cpu_kWh: 0, gpu_kWh: 0, ram_kWh: 0, total_kWh: 0, duration:0 };;
+
     await fetchEventSource(`${server}/chat`, {
       signal: signal,
       method: "POST",
@@ -114,6 +144,7 @@ export class AiabotComponent implements OnInit {
         if (!event.data || event.data.length == 0) {
           return;
         }
+        try{
         const data: LLMMessageParams = JSON.parse(event.data);
         switch (data.type) {
           case "sources":
@@ -128,13 +159,24 @@ export class AiabotComponent implements OnInit {
           case "assistant":
             appendAnswer(data.content);
             break;
+          case  "power_index":
+          case "power_prompt":
+          case "power_response":
+            updatePowerData(data.content as any, data.type);
+            break;
           default:
             console.log(`Event of type <${data.type}> is not supported yet.`);
             break;
         }
+      }
+      catch(e:any) {
+        console.error("Unable to parse JSON",e);
+        console.log("Received data", event.data);
+      }
       },
       onclose() {
         updateStep("done");
+        calculateTotalPowerConsumption();
       },
     });
   };

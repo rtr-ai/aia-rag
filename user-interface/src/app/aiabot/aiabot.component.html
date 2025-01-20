@@ -128,6 +128,7 @@
           <p [innerHTML]="displayAnswer"></p>
         </blockquote>
       </div>
+    
       <form  *ngIf="step == 'done'" class="uk-form uk-padding-remove">
         <div *ngIf="feedbackFormVisible"  style="position: relative;" >
         <p>
@@ -156,6 +157,39 @@
           >
         </p>
       </form>
+      <div  *ngIf="step == 'done'" class="table-container">
+        <table class="uk-table uk-table-hover">
+          <thead>
+            <tr>
+              <th><span uk-icon="bolt"></span> Energieverbrauch</th>
+              <th>Prozessor (CPU)</th>
+              <th>Grafikkarte (GPU)</th>
+              <th>Arbeitsspeicher (RAM)</th>
+              <th>Gesamt</th>
+              <th>Dauer</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of powerData">
+              <td>{{ row.label }}</td>
+              <td>{{ row.cpu_kWh.toFixed(6).replace(".", ",") }} kWh</td>
+              <td>{{ row.gpu_kWh.toFixed(6).replace(".", ",") }} kWh</td>
+              <td>{{ row.ram_kWh.toFixed(6).replace(".", ",")  }} kWh </td>
+              <td>{{ row.total_kWh.toFixed(6).replace(".", ",") }} kWh</td>
+              <td>{{ row.duration.toFixed(2).replace(".", ",") }} Sek.</td>
+            </tr>
+            <tr>
+              <td><strong>Gesamt</strong></td>
+              <td><strong>{{ totalConsumption.cpu_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
+              <td><strong>{{ totalConsumption.gpu_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
+              <td><strong>{{ totalConsumption.ram_kWh.toFixed(6).replace(".", ",")  }} kWh</strong></td>
+              <td><strong>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
+              <td><strong>{{ totalConsumption.duration.toFixed(2).replace(".", ",") }} Sek.</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="uk-container uk-margin-top-50">
       <h4>Hintergrundinformationen zum AI Act Chatbot</h4>

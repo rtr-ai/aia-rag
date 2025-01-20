@@ -1,6 +1,6 @@
 export interface LLMMessageParams {
   content: string;
-  type: 'error' | 'sources' | 'user' | 'assistant';
+  type: 'error' | 'sources' | 'user' | 'assistant' | 'power_prompt' | 'power_index' | 'power_response';
 }
 
 interface RelevantSource {
@@ -17,6 +17,24 @@ export interface Source {
   relevantChunks: RelevantSource[]
   num_tokens: number;
   skip: boolean;
+}
+
+export interface PowerUsageData {
+  cpu_kWh: number;
+  gpu_kWh: number;
+  ram_kWh: number;
+  total_kWh: number;
+  duration:number;
+}
+
+export interface PowerDataDisplayed {
+  cpu_kWh: number;
+  gpu_kWh: number;
+  ram_kWh: number;
+  total_kWh: number;
+  duration:number;
+  label:string;
+  name:string;
 }
 
 export type Step = 'initial' | 'research' | 'prompt' | 'output' | 'done';
