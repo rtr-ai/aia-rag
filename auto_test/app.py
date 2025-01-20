@@ -8,16 +8,44 @@ import os
 app = Flask(__name__)
 
 # Load results
-with open("auto_test/evaluated_results.json", "r", encoding='utf-8') as f:
+with open("evaluated_results.json", "r", encoding='utf-8') as f:
     evaluated_results = json.load(f)
 
-with open("auto_test/true_results.json", "r", encoding='utf-8') as f:
+with open("true_results.json", "r", encoding='utf-8') as f:
     true_results = json.load(f)
 
 @app.route("/")
 def index():
     questions = list(evaluated_results.keys())
-    return render_template("index.html", questions=questions)
+    
+    # Calculate the average matched percentage across all questions
+    total_matched_percentage = 0
+    count = 0
+
+    for question in questions:
+        evaluated_data = evaluated_results.get(question, [])
+        
+        evaluated_set = set()
+        for item in evaluated_data:
+            if "articles" in item:
+                evaluated_set.update(item["articles"])
+            if "relevant" in item:
+                evaluated_set.update(item["relevant"])
+        
+        true_data = set(true_results.get(question, []))
+        
+        matched_total = evaluated_set & true_data
+        total_count = len(true_data)
+        
+        if total_count > 0:
+            matched_percentage = (len(matched_total) / total_count) * 100
+            total_matched_percentage += matched_percentage
+            count += 1
+
+    average_matched_percentage = (total_matched_percentage / count) if count > 0 else 0
+
+    return render_template("index.html", questions=questions, average_matched_percentage=average_matched_percentage)
+
 
 @app.route("/compare/<path:encoded_question>")
 def compare(encoded_question):
