@@ -2,64 +2,51 @@
 <html>
 <head>
     <title>Comparison for {{ question }}</title>
+    <style>
+        .comparison-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .comparison-section {
+            width: 45%;
+        }
+        .percentage-section {
+            width: 45%;
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
     <h1>Comparison for:</h1>
     <p>{{ question }}</p>
+    
+    <div class="comparison-container">
+        <div class="comparison-section">
+            
+            <h3>Matched: {% if matched_percentage is not none %}{{ matched_percentage|float|round(0) }}%{% else %}N/A{% endif %}</h3>
+            {% if matched_total and matched_total|length > 0 %}
+            <ul>
+                {% for chunk in matched_total %}
+                <li>{{ chunk }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No matched chunks.</p>
+            {% endif %}
 
-    <h2>Matched Relevant Chunks</h2>
-    {% if matched_relevant and matched_relevant|length > 0 %}
-    <ul>
-        {% for chunk in matched_relevant %}
-        <li>{{ chunk }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No matched relevant chunks.</p>
-    {% endif %}
-
-    <h2>Non-Matched Relevant Chunks (Evaluated but not True)</h2>
-    {% if non_matched_relevant and non_matched_relevant|length > 0 %}
-    <ul>
-        {% for chunk in non_matched_relevant %}
-        <li>{{ chunk }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No non-matched relevant chunks.</p>
-    {% endif %}
-
-    <h2>Missing Relevant Chunks (True but not Evaluated)</h2>
-    {% if missing_relevant and missing_relevant|length > 0 %}
-    <ul>
-        {% for chunk in missing_relevant %}
-        <li>{{ chunk }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No missing relevant chunks.</p>
-    {% endif %}
-
-    <h2>Matched Articles</h2>
-    {% if matched_articles and matched_articles|length > 0 %}
-    <ul>
-        {% for article in matched_articles %}
-        <li>{{ article }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No matched articles.</p>
-    {% endif %}
-
-    <h2>Non-Matched Articles (Evaluated but not True)</h2>
-    {% if non_matched_articles and non_matched_articles|length > 0 %}
-    <ul>
-        {% for article in non_matched_articles %}
-        <li>{{ article }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No non-matched articles.</p>
-    {% endif %}
+            <h3>Missing: {% if missing_percentage is not none %}{{ missing_percentage|float|round(0) }}%{% else %}N/A{% endif %}
+</h3>
+            {% if missing_total and missing_total|length > 0 %}
+            <ul>
+                {% for chunk in missing_total %}
+                <li>{{ chunk }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No missing chunks.</p>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
