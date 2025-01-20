@@ -8,10 +8,10 @@ import os
 app = Flask(__name__)
 
 # Load results
-with open("evaluated_results.json", "r", encoding='utf-8') as f:
+with open("auto_test/evaluated_results.json", "r", encoding='utf-8') as f:
     evaluated_results = json.load(f)
 
-with open("true_results.json", "r", encoding='utf-8') as f:
+with open("auto_test/true_results.json", "r", encoding='utf-8') as f:
     true_results = json.load(f)
 
 @app.route("/")
