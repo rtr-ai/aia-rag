@@ -1,148 +1,171 @@
 {
-    "Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen? Welche Rolle im AI Act nehme ich als Unternehmen ein.": [
-        "Art 3: Z1",
+    "Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?": [
+        "Art 3: Z 1 Definition KI-System",
         "Art 3: Z3-Z11, Z68 Akteure",
-        "KI-Servicestelle: Akteure,  KI-Wertschöpfungskette",
+        "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
         "KI-Servicestelle: Akteure, Betreiber"
     ],
     "Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?": [
-        "Art 50 Abs 1 AI Act",
-        "Art 50 Abs 4 UA 2 AI Act",
-        "KI-Servicestelle: Transparenzpflichten (Kennzeichnungspflicht, Generierung synthetischer Inhalte, Textgenerierung)"
+        "Art 50",
+        "KI-Servicestelle: Transparenzpflichten, Kennzeichnungspflicht",
+        "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
+        "KI-Servicestelle: Transparenzpflichten, Textgenerierung"
     ],
     "Ich möchte die Arbeitsleistung meiner Mitarbeiter im Home Office mittels eines KI-Systems auswerten. Wie ist dieses System einzustufen?": [
-        "Art 6 Abs 2 AIA",
-        "Anhang III Z 4 lit b AIA",
-        "Art 8 bis 15 AIA",
-        "Art 26 AIA",
-        "KI-Servicestelle: Risikostufen (Allgemein, 'Anhang III- Hochrisiko-KI-Systeme')"
+        "Art 6",
+        "Anhang III: Z4",
+        "Art 26",
+        "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme"
     ],
     "Ich möchte KI-Systeme in meinem Unternehmen einsetzen. Gibt es dafür bestimmte Auflagen, die ich erfüllen muss?": [
-        "Art 4 AIA",
-        "Art 3 Z 1 AIA (Definition KI-System)",
-        "KI-Servicestelle: KI-Kompetenz (Allgemein, Begriffsdefinition, Akteure, Wertschöpfungskette)",
-        "KI-Servicestelle: Risikostufen (Allgemein)"
+        "Art 4",
+        "Art 3: Z 1 Definition KI-System",
+        "KI-Servicestelle: KI-Kompetenz, Allgemein",
+        "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
+        "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein"
     ],
-    "Ich möchte auf meiner Website eine  KI-generierte Hintergrundmusik implementieren?  Unterliege ich etwaigen Verpflichtungen nach dem AI Act?": [
-        "Art 50 Abs 1 AIA",
-        "KI-Servicestelle: Betreiberverpflichtungen (Allgemein, generative KI-Systeme)"
+    "Ich möchte auf meiner Website eine KI-generierte Hintergrundmusik implementieren? Unterliege ich etwaigen Verpflichtungen nach dem AI Act?": [
+        "Art 50",
+        "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+        "KI-Servicestelle: Betreiberverpflichtungen, generative KI-Systeme"
     ],
     "Ich möchte gerne KI-Reallabore nutzen. Ab wann ist das möglich und wie genau funktionieren diese?": [
-        "Art 57 AIA",
+        "Art 57",
         "ErWG 138",
-        "ErwG139",
-        "KI-Servicestelle: FAQ 'Ich möchte gerne KI-Reallabore nutzen. Ab wann ist dies möglich und wie genau funktionieren diese?'"
+        "ErwG 139",
+        "KI-Servicestelle: FAQ - Ich möchte gerne KI-Reallabore nutzen. Ab wann ist dies möglich und wie genau funktionieren diese?"
     ],
     "Ich möchte meine Jobinserate mittels KI generieren lassen. Ist das zulässig? Was muss ich beachten?": [
-        "Art 6 Abs 2 AIA",
-        "Anhang III Z 4 lit b AIA",
-        "Art 8 bis 15 AIA",
-        "Art 26 AIA",
-        "KI-Servicestelle: Risikostufen (Allgemein, 'Anhang III Hochrisiko-KI-Systeme')"
+        "Art 6",
+        "Anhang III: Z4",
+        "Art 8",
+        "Art 9",
+        "Art 10",
+        "Art 11",
+        "Art 12",
+        "Art 13",
+        "Art 14",
+        "Art 15",
+        "Art 26",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme",
+        "KI-Servicestelle: Risikostufen KI-System, Anhang III"
     ],
     "Ich möchte KI beim Personal-Recruiting einsetzen und spezielle Recruitingsoftware dafür anschaffen. Was muss ich beachten?": [
-        "Art 6 Abs 2 AIA",
-        "Anhang III Z 4 lit a AIA",
-        "Art 8 bis 15 AIA",
-        "Art 26 AIA",
-        "KI-Servicestelle: Risikostufen (Allgemein, 'Anhang III Hochrisiko-KI-Systeme')",
-        "KI-Servicestelle: Betreiberpflichten (Hochrisiko-KI-Systeme, Hochrisiko-KI-Systeme Betriebsanleitung, Menschliche Aufsicht, Überwachung, Meldung von schwerwiegenden Vorfällen, Aufbewahrung Protokolle, Datenschutz-Folgenabschätzung, Zusammenarbeit mit Behörden,  Aufbewahrung Protokolle, Zusammenarbeit mit Behörden)"
+        "Art 6",
+        "Anhang III: Z4",
+        "Art 8",
+        "Art 9",
+        "Art 10",
+        "Art 11",
+        "Art 12",
+        "Art 13",
+        "Art 14",
+        "Art 15",
+        "Art 26",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme",
+        "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+        "KI-Servicestelle: Betreiberverpflichtungen, Hochrisiko-KI-Systeme"
     ],
     "Ich habe mein eigenes KI-System/KI-Modell für den internen Gebrauch im Unternehmen entwickelt. Gilt der AI-Act auch für mich?": [
-        "Art 3 Z 3 AIA (Akteure)",
-        "Art 3 Z 11 AIA (Akteure)",
-        "Art 3 Z 4 AIA (Akteure)",
-        "Art 50 AIA",
-        "Art 51 AIA",
-        "KI-Servicestelle: FAQ 'Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?'",
-        "KI-Servicestelle: FAQ 'Was ist ein KI-System?'"
+        "Art 3: Z3-Z11, Z68 Akteure",
+        "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck",
+        "Art 50",
+        "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
+        "KI-Servicestelle: FAQ - Was ist ein KI-System?"
     ],
     "Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?": [
-        "Art 50 Abs 4 AIA",
-        "KI-Servicestelle: Transparenzpflichten (Betreiber Deepfake, Generierung synthetischer Inhalte)",
-        "KI-Servicestelle: FAQ 'Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?'",
-        "KI-Servicestelle: Betreiberpflichten"
+        "Art 50",
+        "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
+        "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
+        "KI-Servicestelle: Betreiberverpflichtung, Allgemein"
     ],
     "Ich möchte in meinem Unternehmen KI einsetzen. Muss ich eine KI-Policy erlassen?": [
-        "Art 4 AIA",
-        "Art 3 Z 56 AIA (KI-Kompetenz)",
-        "KI-Servicestelle: KI-Kompetenz",
-        "KI-Servicestelle: Risikostufen (Allgemein)",
+        "Art 4",
+        "Art 3: Z56 KI-Kompetenz",
+        "KI-Servicestelle: KI-Kompetenz, Allgemein",
+        "KI-Servicestelle: Risikostufen KI-Modelle, KI-Modelle mit allg. Verwendungszweck",
         "ErwG 20"
     ],
     "Ich möchte im Bewerbungsprozess ein KI-System einsetzen, das eine Risikobewertung durchführt. Das KI-System soll insbesondere bewerten ob der/die Bewerber/in eine Neigung zur Begehung von Straftaten hat. Was muss ich da beachten?": [
-        "Art 5 Abs 1 lit d AIA",
+        "Art 5: Abs 1 lit d predictive policing",
         "ErwG 42"
     ],
     "Ich möchte ein KI-System einsetzen, dass die Emotionen meiner Mitarbeiter während des Arbeitens am PC/Laptop abliest und bewertet. Was muss ich da beachten?": [
-        "Art 3 Z 39 AIA (Biometrie)",
-        "Art 5 AIA",
+        "Art 3: Z34-Z36, Z39-Z44 Biometrie",
+        "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung",
         "ErwG 18",
         "ErwG 44"
     ],
     "Ich möchte in meinem Unternehmen ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System?": [
-        "Art 6 AIA",
-        "Art 3 Z 14 AIA (Sicherheitsbauteil)",
-        "ErwG 55 AIA",
-        "KI-Servicestelle: FAQ 'Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? Was ist ein Sicherheitsbauteil?'",
-        "Anhang II",
-        "Anhang III"
+        "Art 6",
+        "Art 3: Z14, Z62 Sicherheitsbauteil",
+        "ErwG 55",
+        "KI-Servicestelle: FAQ - Ich möchte gerne ein KI-System im Bereich der kritischen Infrastruktur verwenden. Ab wann handelt es sich um ein Hochrisiko-KI-System? Was ist ein Sicherheitsbauteil?",
+        "Anhang I",
+        "Anhang III: Z2"
     ],
-    "Ich bin ein Versicherungsmakler und berechne mit Hilfe eines gekauften KI-Systems die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?Treffen mich besondere Verpflichtungen? Welcher Risikostufe sind der Artige KI-Systeme zuzuordnen?": [
-        "Art 6 AIA",
-        "Anhang III Z 5 lit c",
-        "KI-Servicestelle: Risikostufen (Allgemein, 'Anhang III Hochrisiko-KI-Systeme')",
-        "Art 8 ff AIA"
+    "Ich bin ein Versicherungsmakler und berechne mit Hilfe eines gekauften KI-Systems die Kreditwürdigkeit meiner Kunden. Welche Rolle nach dem AI-Act nehme ich als Unternehmer ein?Treffen mich besondere Verpflichtungen? Welcher Risikostufe sind derartige KI-Systeme zuzuordnen?": [
+        "Art 6",
+        "Anhang III: Z5",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme",
+        "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+        "Art 26"
     ],
     "Ich möchte die biometrischen Daten meiner Kunden mit Hilfe eines KI-Systems sammeln um anhand dieser Daten Rückschlüsse auf ihre Rasse, Religionszugehörigkeit und politische Einstellung ziehen zu können. Diese Daten möchte ich für zielgerichtete Werbung benutzen. Handelt es sich dabei um eine nach dem AI-Act erlaubte KI-Nutzung?": [
-        "Art 3 Z 34 AIA (Biometrie)",
-        "Art 5 Abs 1 lit AIA (Biometrie)",
+        "Art 3: Z34-Z36, Z39-Z44 Biometrie",
+        "Art 5: Abs 1 lit g-h (i - iii) Biometrie",
         "ErwG 14",
         "ErwG 30"
     ],
     "Eine FH möchte ein KI-System verwenden, welche die Zulassung ausländischer Studenten prüft. Kann man hier ein KI-System ohne Weiteres einsetzen oder ist eine vorherige Genehmigung notwendig? Welcher Risikostufe unterliegt so ein KI-System?": [
-        "Art 6 Abs 2 AIA",
-        "Anhang III Z 3 lit a",
-        "Art 3 Z 3 AIA (Akteure)",
-        "KI-Servicestelle: Risikostufen (Allgemein, 'Anhang III Hochrisiko-KI-System')",
-        "Art 8 ff AIA"
+        "Art 6",
+        "Anhang III: Z3",
+        "Art 3: Z3-Z11, Z68 Akteure",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme",
+        "KI-Servicestelle: Risikostufen KI-System, Anhang III"
     ],
     "Eine FH möchte mit Hilfe eines KI-Systems die Lernerfolge der Studenten aufzeichnen um am Ende des Studienjahres den Studenten zu einem passenden Praktikumsplatz für das kommende Studienjahr zuzuordnen. Ist ein solches KI-System genehmigungspflichtig? Welcher Risikostufe unterliegt ein solches System?": [
-        "Art 6 Abs 2 AIA",
-        "Anhang III Z 3 lit a",
-        "Art 3 Z 3 AIA (Akteure)",
-        "KI-Servicestelle: Risikostufen (Allgemein, 'Anhang III  Hochrisiko-KI-Systeme')",
-        "Art 8 ff AIA"
+        "Art 6",
+        "Anhang III: Z3",
+        "Art 3: Z3-Z11, Z68 Akteure",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme",
+        "KI-Servicestelle: Risikostufen KI-System, Anhang III",
+        "Art 26"
     ],
     "Ich habe einen KI-gesteuerten Lügendetektor entwickelt und möchte es an die Polizei lizenzieren? Handelt es sich bei dem Lügendetektor um eine Hochrisiko-KI?": [
-        "Art 6 Abs 2 AIA",
-        "Anhang III Z 6 lit b",
-        "KI-Servicestelle: Risikostufen (Allgemein, 'Anhang III - Hochrisiko-KI-Systeme')"
+        "Art 6",
+        "Anhang III: Z6",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein",
+        "KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme",
+        "KI-Servicestelle: Risikostufen KI-System, Anhang III"
     ],
-    "Mein Arbeitgeber wertet den Gemütszustand seiner Mitarbeiter am Arbeitsplatz mittels eines eigens dafür angeschafften KI-Systems aus. Ist das erlaubt? ": [
-        "Art 5 Abs 1 lit f AIA (Emotionen in Arbeit und Bildung)"
+    "Mein Arbeitgeber wertet den Gemütszustand seiner Mitarbeiter am Arbeitsplatz mittels eines eigens dafür angeschafften KI-Systems aus. Ist das erlaubt?": [
+        "Art 5: Abs 1 lit f Emotionen in Arbeit und Bildung"
     ],
-    "Ich habe ein KI-Modell entwickelt, dass Patienteninformationen sammelt und in eine Datenbank speichert. Dieses KI-System möchte ich Arztpraxen zur Verfügung stellen. Was muss ich beachten?": [
-        "Art 3 Z 3 AIA (Akteure)",
-        "Art 50 AIA",
-        "Art 53 AIA",
-        "KI-Servicestelle: Akteure",
-        "KI-Servicestelle: Anbieterverpflichtungen",
-        "KI-Servicestelle: Zeitplan",
-        "Art 55 AIA"
+    "Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?": [
+        "Art 3: Z3-Z11, Z68 Akteure",
+        "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
+        "KI-Servicestelle: Akteure, Anbieter",
+        "KI-Servicestelle: Akteure, Inverkehrbringen"
     ],
     "Ich bin ein Kleinunternehmer und hätte gerne Zugang zu den Reallaboren. Was muss ich tun um Zugang zu diesen zu bekommen bzw bin ich überhaupt berechtigt Zugang zu einem Reallabor zu erhalten?": [
-        "Art 57 AIA",
+        "Art 57",
         "ErwG 138",
         "ErwG 139",
         "ErwG 140",
-        "Art 62 AIA"
+        "Art 62"
     ],
-    "Ich bin eine Kleinunternehmerin und verkaufe in meinem Onlineshop ausschließlich Frauenbekleidung. Je nach Verkaufsverhalten meiner Kundinnen liefert, das sich im Einsatz befindliche KI-Modell personalisierte Bekleidungsvorschläge, die den Kundinnen direkt auf der Webseite angezeigt werden. Bin ich als Betreiberin gemäß dem AI-Act einzustufen? Was muss ich beachten?": [
-        "Art 3 Z 63 AIA (KI-Modell mit allg. Verwendungszweck)",
-        "Art 3 Z 4 AIA (Akteure)",
-        "Art 50 AIA",
-        "KI-Servicestelle: Akteure",
-        "KI-Servicestelle: Zeitplan"
+    "Ich bin eine Kleinunternehmerin und verkaufe in meinem Onlineshop ausschließlich Frauenbekleidung. Je nach Verkaufsverhalten meiner Kundinnen liefert, eine KI-gestützte Software personalisierte Bekleidungsvorschläge, die den Kundinnen direkt auf der Webseite angezeigt werden. Bin ich als Betreiberin gemäß dem AI-Act einzustufen?": [
+        "Art 3: Z 1 Definition KI-System",
+        "Art 3: Z3-Z11, Z68 Akteure",
+        "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
+        "KI-Servicestelle: Akteure, Betreiber"
     ]
 }
