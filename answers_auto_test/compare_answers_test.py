@@ -4,7 +4,8 @@ import json
 import os
 
 # Initialize OpenAI client
-client = OpenAI()
+OPENAI_API_KEY = os.getenv("RTR_OPENAI_API")
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Existing FAQ data
 faq = [
