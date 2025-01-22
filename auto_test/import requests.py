@@ -3,6 +3,7 @@ import json
 import time
 import subprocess
 import os
+from tqdm import tqdm
 
 # URL of the service
 url = "https://rag.ki.rtr.at/llm-service/chat"
@@ -37,7 +38,7 @@ faq = [
 # Container for the final JSON data
 output_data = {}
 
-for q in faq:
+for q in tqdm(faq, desc="Processing questions", unit="question"):
     # Data payload
     payload = {
         "prompt": q
@@ -46,7 +47,7 @@ for q in faq:
     # Headers, based on your request
     headers = {
         "Accept": "text/event-stream",
-        "Authorization": os.getenv("RTR_BASIC_TOKEN",
+        "Authorization": os.getenv("RTR_BASIC_TOKEN"),
         "Content-Type": "application/json"
     }
 
