@@ -2,6 +2,7 @@ import requests
 import json
 import time
 import subprocess
+import os
 
 # URL of the service
 url = "https://rag.ki.rtr.at/llm-service/chat"
@@ -45,7 +46,7 @@ for q in faq:
     # Headers, based on your request
     headers = {
         "Accept": "text/event-stream",
-        "Authorization": "Basic cnRyLWFpOnJ0ci1haQ==",
+        "Authorization": os.getenv("RTR_BASIC_TOKEN",
         "Content-Type": "application/json"
     }
 
