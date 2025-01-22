@@ -98,7 +98,7 @@ for q in faq:
         print('Request failed with status code:', response.status_code)
 
 # Write the collected data to a JSON file
-with open("your path/evaluated_results.json", "w", encoding="utf-8") as json_file:
+with open("auto_test/evaluated_results.json", "w", encoding="utf-8") as json_file:
     json.dump(output_data, json_file, indent=4, ensure_ascii=False)
 
 print("JSON file 'evaluated_results.json' created successfully.")
@@ -106,7 +106,7 @@ print("JSON file 'evaluated_results.json' created successfully.")
 def git_push():
     try:
         # Add the updated file to the staging area
-        subprocess.run(["git", "add", "evaluated_results.json"], check=True)
+        subprocess.run(["git", "add", "auto_test/evaluated_results.json"], check=True)
 
         # Commit the changes with a message
         subprocess.run(["git", "commit", "-m", "Update FAQ JSON file"], check=True)
