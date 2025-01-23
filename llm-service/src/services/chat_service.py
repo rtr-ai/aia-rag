@@ -150,11 +150,15 @@ class ChatService:
             yield part["message"]["content"]
 
     async def __yield_sources__(self, sources: List[Source]):
+        sources_json = SourceList(root=sources).model_dump_json()
         data = json.dumps(
             {
-                "content": SourceList(root=sources).model_dump_json(),
+                "content": sources_json,
                 "type": "sources",
             }
         )
-        matomo_service.track_event(action=data["type"], value=data["content"])
+        matomo_service.track_event(
+            action="sources",
+            value=sources_json,
+        )
         yield f"data: {data}\n\n"
