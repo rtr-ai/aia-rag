@@ -2,33 +2,33 @@ from openai import OpenAI
 import requests
 import json
 import os
+import re
 from tqdm import tqdm
+
+with open("data/fragen-qa.md", 'r', encoding='utf-8') as file: 
+    markdown_content = file.read()
+    
+def parse_markdown(md_text):
+    pattern = r'#\s\d+\.\s(.*?)\n\n(.*?)(?=\n#\s\d+|\Z)'
+    matches = re.findall(pattern, md_text, re.DOTALL)
+
+    result = []
+    for question, answer in matches:
+        result.append({
+            'question': question.strip(),
+            'answer': answer.strip()
+        })
+    
+    return result
+
+markdown_text = markdown_content
+
+parsed_data = parse_markdown(markdown_text)
+faq = parsed_data
 
 # Initialize OpenAI client
 OPENAI_API_KEY = os.getenv("RTR_OPENAI_API")
 client = OpenAI(api_key=OPENAI_API_KEY)
-
-# Existing FAQ data
-faq = [
-    {
-        'question': 'Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?',
-        'answer': '''ChatGPT wird als KI-System im Sinne des AI Acts einzustufen sein [1].  
-Da Sie als Unternehmen das KI-System nicht selbst entwickeln, sondern dieses im Rahmen der beruflichen Tätigkeit in eigener Verantwortung einsetzen, wird Ihr Unternehmen die Rolle eines Betreibers einnehmen [2], [3], [4]. 
-[1] Art 3: Z 1 Definition KI-System
-[2] Art 3: Z3-Z11, Z68 Akteure
-[3] KI-Servicestelle: Akteure, KI-Wertschöpfungskette
-[4] KI-Servicestelle: Akteure, Betreiber'''
-    },
-    {
-        'question': 'Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?',
-        'answer': '''Das Einsatz von Large Language Models bei der automatischen Generierung von Werbeaussendungen unterliegt nicht den Transparenzpflichten des AI-Acts, weil kein öffentliches Interesse gegeben ist, [1],[2], [3]
-[1] Art 50 Abs 1 AIA
-[2] Art 50 Abs 4 UA 2 AIA
-[3] KI-Servicestelle: Transparenzpflichten, Kennzeichnungspflicht
-[4] KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte
-[5] KI-Servicestelle: Transparenzpflichten, Textgenerierung'''
-    }
-]
 
 # Function to fetch new answers from the API
 def get_new_answers(questions):
