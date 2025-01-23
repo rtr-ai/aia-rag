@@ -47,7 +47,8 @@ services:
       ports:
         - "127.0.0.1:8085:8000"
       env_file:
-      - matomo.env  
+      - path: matomo.env  
+        required: false
       environment:
         - HOST=0.0.0.0
         - OLLAMA_HOST=ollama
