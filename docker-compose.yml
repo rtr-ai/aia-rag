@@ -46,6 +46,8 @@ services:
       restart: unless-stopped
       ports:
         - "127.0.0.1:8085:8000"
+      env_file:
+      - matomo.env  
       environment:
         - HOST=0.0.0.0
         - OLLAMA_HOST=ollama
@@ -56,6 +58,9 @@ services:
         - CONTEXT_WINDOW=11500
         - ROOT_PATH=/llm-service
         - TOP_N_CHUNKS=25
+        - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
+        - MATOMO_TOKEN=${MATOMO_TOKEN}
+        - MATOMO_SITE_ID=${MATOMO_SITE_ID}
       volumes:
         - ./data/combined.json:/app/data/chunks.json
         - /sys/class/powercap:/sys/class/powercap:ro
