@@ -2,6 +2,7 @@ from openai import OpenAI
 import requests
 import json
 import os
+from tqdm import tqdm
 
 # Initialize OpenAI client
 OPENAI_API_KEY = os.getenv("RTR_OPENAI_API")
@@ -39,7 +40,7 @@ def get_new_answers(questions):
     }
 
     results = []
-    for question in questions:
+    for question in tqdm(questions, desc="Fetching new answers", unit="question"):
         payload = json.dumps({"prompt": question})
         response = requests.request("POST", url, headers=headers, data=payload, stream=True)
         
@@ -93,7 +94,7 @@ def compare_answers(question, existing_answer, new_answer):
     return completion.choices[0].message.content
 
 # Compare and print results
-for old, new in zip(faq, new_faq_responses):
+for old, new in tqdm(zip(faq, new_faq_responses), total=len(faq), desc="Comparing answers", unit="comparison"):
     comparison_result = compare_answers(old['question'], old['answer'], new['answer'])
     print(f"Vergleich für Frage: {old['question']}\n")
     print(comparison_result)
