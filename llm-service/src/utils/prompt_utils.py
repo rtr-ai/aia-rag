@@ -1,5 +1,10 @@
+import os
 from typing import List
+from pydantic import TypeAdapter
+
 from models.sources import Source
+
+ORDER_CHUNKS_FROM_SOURCE = TypeAdapter(bool).validate_python(os.getenv("ORDER_CHUNKS_FROM_SOURCE", "false"))
 
 DEFAULT_PROMPT_RAG: str = """
 
@@ -55,7 +60,8 @@ def generate_prompt(prompt: str, sources: List[Source]) -> str:
                 combined_sources.append(relevant_chunk)
 
     # sort
-    combined_sources.sort(key=lambda x: x.position)
+    if ORDER_CHUNKS_FROM_SOURCE:
+        combined_sources.sort(key=lambda x: x.position)
 
     # output
     for source in combined_sources:

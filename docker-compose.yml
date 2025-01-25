@@ -47,7 +47,7 @@ services:
       ports:
         - "127.0.0.1:8085:8000"
       env_file:
-      - path: matomo.env  
+      - path: matomo.env
         required: false
       environment:
         - HOST=0.0.0.0
@@ -62,6 +62,7 @@ services:
         - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
         - MATOMO_TOKEN=${MATOMO_TOKEN}
         - MATOMO_SITE_ID=${MATOMO_SITE_ID}
+        - ORDER_CHUNKS_FROM_SOURCE=false
       volumes:
         - ./data/combined.json:/app/data/chunks.json
         - /sys/class/powercap:/sys/class/powercap:ro
