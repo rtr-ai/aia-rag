@@ -195,6 +195,9 @@ def open_browser():
     webbrowser.open_new("http://127.0.0.1:5000")
 
 if __name__ == "__main__":
+    #public server
+    #from waitress import serve
+    #serve(app, host="0.0.0.0", port=8080)
     # Prevent the browser from opening twice due to the reloader
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true" or not app.debug:
         Timer(1, open_browser).start()
