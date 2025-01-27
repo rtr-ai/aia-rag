@@ -14,7 +14,7 @@ Quellen:
 # 2. Ich möchte Werbeaussendungen mit einem Large Language Model automatisch generieren und individuell angepasst an Kunden versenden. Muss ich das offenlegen?
 
 Antwort:
-Das Einsatz von Large Language Models bei der automatischen Generierung von Werbeaussendungen unterliegt nicht den Transparenzpflichten des AI-Acts, weil kein öffentliches Interesse gegeben ist, [1],[2], [3]
+Das Einsatz von Large Language Models bei der automatischen Generierung von Werbeaussendungen unterliegt nicht den Transparenzpflichten des AI-Acts, weil kein öffentliches Interesse gegeben ist, [1],[2], [3].
 
 Quellen:
 [1] Art 50 Abs 1 AIA
@@ -27,9 +27,9 @@ Quellen:
 # 3. Ich möchte die Arbeitsleistung meiner Mitarbeiter im Home Office mittels eines KI-Systems auswerten. Wie ist dieses System einzustufen?
 
 Antwort:
-Ein derartiges KI-System ist als ein Hochrisiko-KI-System einzustufen. [1], [2], [5]
-Hochrisiko-KI-Systeme unterliegen hohen Anforderungen hinsichtlich der Inbetriebnahme und des Inverkehrbringens, welche sie beachten müssen .[5]
-Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflichten nach dem AI-Act.[4] [5], [6] Zu beachten sind diesbezüglich auch arbeitsrechtliche Vorschriften. 
+Ein derartiges KI-System ist als ein Hochrisiko-KI-System einzustufen. [1], [2], [4]
+Hochrisiko-KI-Systeme unterliegen hohen Anforderungen hinsichtlich der Inbetriebnahme und des Inverkehrbringens, welche sie beachten müssen .[4]
+Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflichten nach dem AI-Act.[3] [4], [5] Zu beachten sind diesbezüglich auch arbeitsrechtliche Vorschriften. 
 
 Quellen:
 [1] Art 6 Abs 2 AIA
@@ -86,17 +86,17 @@ Quellen:
 
 Antwort:
 KI-Systeme die für die Generierung von Jobinseraten eingesetzt werden, sind als Hochrisiko-KI-Systeme einzustufen. [1]
-Hochrisiko-KI-Systeme unterliegen hohen Anforderungen hinsichtlich der Inbetriebnahme und des Inverkehrbringens, welche sie beachten müssen .[2],[3],[6]
-Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflichten nach dem AI-Act.[5], [6], [7], [8]
+Hochrisiko-KI-Systeme unterliegen hohen Anforderungen hinsichtlich der Inbetriebnahme und des Inverkehrbringens, welche sie beachten müssen .[2],[3],[5]
+Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflichten nach dem AI-Act.[4], [5], [6], [7]
 
 Quellen:
 [1] Art 6 Abs 2 AIA
 [2] Anhang III: Z4 
 [3] Art 8 bis 15 AIA
-[5] Art 26 AIA 
-[6] KI-Servicestelle: Risikostufen KI-Systeme, Allgemein
-[7] KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme
-[8] KI-Servicestelle: Risikostufen KI-System, Anhang III
+[4] Art 26 AIA 
+[5] KI-Servicestelle: Risikostufen KI-Systeme, Allgemein
+[6] KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme
+[7] KI-Servicestelle: Risikostufen KI-System, Anhang III
 
 
 # 8. Ich möchte KI beim Personal-Recruiting einsetzen und spezielle Recruitingsoftware dafür anschaffen. Was muss ich beachten?
@@ -288,7 +288,7 @@ Quellen:
 
 # 21. Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?
 Antwort:
-Ein "Anbieter" ist laut Art 3 Z 3 AIA eine natürliche oder juristische Person, Behörde, Einrichtung oder sonstige Stelle, die ein KI-System oder ein KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln lässt und es unter ihrem eigenen Namen oder ihrer Handelsmarke in Verkehr bringt oder das KI-System unter ihrem eigenen Namen oder ihrer Handelsmarke in Betrieb nimmt, sei es entgeltlich oder unentgeltlich. [1], [2]
+Ein "Anbieter" ist laut Art 3 Z 3 AIA eine natürliche oder juristische Person, Behörde, Einrichtung oder sonstige Stelle, die ein KI-System oder ein KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln lässt und es unter ihrem eigenen Namen oder ihrer Handelsmarke in Verkehr bringt oder das KI-System unter ihrem eigenen Namen oder ihrer Handelsmarke in Betrieb nimmt, sei es entgeltlich oder unentgeltlich [1], [2].
 
 "Inbetriebnahme" ist gem. Art. 3 Z. 11 AIA die Bereitstellung eines KI-Systems in der Union zum Erstgebrauch direkt an den Betreiber oder zum Eigengebrauch entsprechend seiner Zweckbestimmung.  
 Wenn ein Anbieter ein KI-System oder KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln lässt und es zum Eigengebrauch in Betrieb nimmt, treffen ihn weiterhin die Anbieterpflichten. Auf eine "Benennung" des KI-Systems kommt es nicht an
