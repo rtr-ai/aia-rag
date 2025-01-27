@@ -1,2 +1,3 @@
 *.local
 *.local.yml
+matomo.env
