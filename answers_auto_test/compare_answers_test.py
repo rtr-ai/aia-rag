@@ -5,25 +5,32 @@ import os
 import re
 from tqdm import tqdm
 
-with open("data/fragen-qa.md", 'r', encoding='utf-8') as file: 
+# Read the markdown file
+with open("L:/System/Downloads/fragen-qa.md", 'r', encoding='utf-8') as file: 
     markdown_content = file.read()
-    
+
 def parse_markdown(md_text):
+    # Regex pattern to capture questions, answers, and sources (Quellen)
     pattern = r'#\s\d+\.\s(.*?)\n\n(.*?)(?=\n#\s\d+|\Z)'
     matches = re.findall(pattern, md_text, re.DOTALL)
 
     result = []
-    for question, answer in matches:
+    for question, content in matches:
+        # Separate answer from sources
+        parts = content.strip().split("\n\nQuellen:\n")
+        answer = content.strip().split("\n\nAntwort:\n")
+        quellen = parts[1].replace("\n", ", ") if len(parts) > 1 else ""
+
         result.append({
             'question': question.strip(),
-            'answer': answer.strip()
+            'answer': answer,
+            'quellen': quellen
         })
     
     return result
 
-markdown_text = markdown_content
-
-parsed_data = parse_markdown(markdown_text)
+# Parse markdown content
+parsed_data = parse_markdown(markdown_content)
 faq = parsed_data
 
 # Initialize OpenAI client
