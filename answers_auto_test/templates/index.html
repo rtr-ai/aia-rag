@@ -7,10 +7,15 @@
 </head>
 <body>
     <h1>FAQ Questions</h1>
-    <ul>
+    <ol>
         {% for question in questions %}
             <li><a href="{{ url_for('compare', question=question) }}">{{ question }}</a></li>
         {% endfor %}
-    </ul>
+    </ol>
+
+    <h2>Download Report</h2>
+    <p>You can download the Excel report containing comparisons for all questions by clicking the button below.</p>
+    
+    <button onclick="window.location.href='{{ url_for('download_excel') }}'">Download Excel Report</button>
 </body>
 </html>
