@@ -286,6 +286,7 @@ Quellen:
 
 
 # 21. Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?
+
 Antwort:
 Ein "Anbieter" ist laut Art 3 Z 3 AIA eine natürliche oder juristische Person, Behörde, Einrichtung oder sonstige Stelle, die ein KI-System oder ein KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln lässt und es unter ihrem eigenen Namen oder ihrer Handelsmarke in Verkehr bringt oder das KI-System unter ihrem eigenen Namen oder ihrer Handelsmarke in Betrieb nimmt, sei es entgeltlich oder unentgeltlich [1], [2].
 
