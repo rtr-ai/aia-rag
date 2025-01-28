@@ -77,8 +77,10 @@ def compare_answers(question, existing_answer, new_answer):
     Neue Antwort:
     {new_answer}
     
-    Aufgabe: Untenstehend wird eine rechtliche Frage zum AI Act zweimal beantwortet.
-    Stimmen die beiden Antworten überein? Antworte entweder mit "ja", oder mit "nein" und einer Liste von Bullet Points mit Widersprüchen. Bitte schreibe neben der Frage auch beide Antworten für alle Fragen.
+    Aufgabe: Untenstehend wird eine rechtliche Frage zum AI Act zweimal beantwortet als 'Bestehende Antwort:' und 'Neue Antwort:'.
+    Stimmen die beiden Antworten überein? Antworte entweder mit "Ja", oder mit "Nein" und einer Liste von Bullet Points mit Widersprüchen und bitte fasse den Vergleich zwischen zwei Fragen unter dem Titel 'Zusammenfassung:' zusammen..
+    Entferne bitte alle ** vor und nach den Wörtern. Zum Beispiel sollte **Frage:** zu Frage: geändert werden.
+    Bitte halte diese Struktur in deiner Antwort ein: 'Frage:', 'Bestehende Antwort:', 'Quellen:', 'Neue Antwort:', 'Quellen:' und 'Zusammenfassung:'.
     """
     completion = client.chat.completions.create(
         model="gpt-4o",
