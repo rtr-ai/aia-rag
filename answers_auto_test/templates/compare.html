@@ -27,14 +27,7 @@
     </p>
 
     <h2>Sources:</h2>
-    <p>
-        {% if 'Quellen:' in comparison and 'Neue Antwort:' in comparison %}
-            {{ comparison.split('Quellen:')[1].split('Neue Antwort:')[0].strip() }}
-        {% else %}
-            No sources provided
-        {% endif %}
-    </p>
-
+    <p>{{ quellen }}</p>
     <h2>New Answer:</h2>
     <p>
         {% if 'Neue Antwort:' in comparison and 'Quellen:' in comparison %}
@@ -43,7 +36,6 @@
             N/A
         {% endif %}
     </p>
-
     <h2>Sources from New Answer:</h2>
     <p>
         {% if 'Quellen:' in comparison and 'Antwort:' in comparison %}
@@ -52,7 +44,6 @@
             No sources provided
         {% endif %}
     </p>
-
     <h2>Comparison Summary:</h2>
     <p>
         {% if 'Zusammenfassung:' in comparison %}
