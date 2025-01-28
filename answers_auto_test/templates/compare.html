@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Result</title>
+</head>
+<body>
+    <h1>Comparison Result</h1>
+    
+    <h2>Question:</h2>
+    <p>
+        {% if 'Frage:' in comparison %}
+            {{ comparison.split('Frage:')[1].split('Bestehende Antwort:')[0].strip() }}
+        {% else %}
+            N/A
+        {% endif %}
+    </p>
+
+    <h2>Existing Answer:</h2>
+    <p>
+        {% if 'Bestehende Antwort:' in comparison and 'Quellen:' in comparison %}
+            {{ comparison.split('Bestehende Antwort:')[1].split('Quellen:')[0].strip() }}
+        {% else %}
+            N/A
+        {% endif %}
+    </p>
+
+    <h2>Sources:</h2>
+    <p>
+        {% if 'Quellen:' in comparison and 'Neue Antwort:' in comparison %}
+            {{ comparison.split('Quellen:')[1].split('Neue Antwort:')[0].strip() }}
+        {% else %}
+            No sources provided
+        {% endif %}
+    </p>
+
+    <h2>New Answer:</h2>
+    <p>
+        {% if 'Neue Antwort:' in comparison and 'Quellen:' in comparison %}
+            {{ comparison.split('Neue Antwort:')[1].split('Quellen:')[0].strip() }}
+        {% else %}
+            N/A
+        {% endif %}
+    </p>
+
+    <h2>Sources from New Answer:</h2>
+    <p>
+        {% if 'Quellen:' in comparison and 'Antwort:' in comparison %}
+            {{ comparison.split('Quellen:')[2].split('Zusammenfassung:')[0].strip() }}
+        {% else %}
+            No sources provided
+        {% endif %}
+    </p>
+
+    <h2>Comparison Summary:</h2>
+    <p>
+        {% if 'Zusammenfassung:' in comparison %}
+            {{ comparison.split('Zusammenfassung:')[1].strip() }}
+        {% else %}
+            N/A
+        {% endif %}
+    </p>
+
+    <a href="{{ url_for('index') }}">Back to questions</a>
+</body>
+</html>
