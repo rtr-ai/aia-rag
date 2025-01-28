@@ -14,7 +14,7 @@ import os
 app = Flask(__name__)
 
 # Read the markdown file
-with open("fragen-qa.md", 'r', encoding='utf-8') as file: 
+with open("data/fragen-qa.md", 'r', encoding='utf-8') as file: 
     markdown_content = file.read()
 
 def parse_markdown(md_text):
