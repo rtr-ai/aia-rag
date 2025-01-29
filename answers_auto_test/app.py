@@ -10,10 +10,12 @@ from io import BytesIO
 import webbrowser
 from threading import Timer
 import os
+
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+
 
 # Read the markdown file
 with open("data/fragen-qa.md", 'r', encoding='utf-8') as file: 
@@ -41,7 +43,7 @@ def excel_data():
         })
     df = pd.DataFrame(data)
     return df
-
+  
 def parse_markdown(md_text):
     pattern = r'#\s\d+\.\s(.*?)\n\n(.*?)(?=\n#\s\d+|\Z)'
     matches = re.findall(pattern, md_text, re.DOTALL)
@@ -70,7 +72,6 @@ def get_new_answers(questions):
         'Accept': 'text/event-stream',
         'Content-Type': 'application/json'
     }
-    
     results = []
     for question in tqdm(questions, desc="Fetching new answers", unit="question"):
         payload = json.dumps({"prompt": question})
@@ -125,8 +126,6 @@ def compare_answers(question, existing_answer, new_answer):
 def index():
     return render_template('index.html', questions=[item['question'] for item in faq])#[:1])
 
-#print(new_faq_responses)
-
 @app.route('/compare', methods=['GET'])
 def compare():
     question_text = request.args.get('question')
@@ -153,7 +152,6 @@ def download_excel():
 
     # Send the file as a response
     return send_file(output, as_attachment=True, download_name='Vergleichsbericht.xlsx', mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-
 def open_browser():
     webbrowser.open_new("http://127.0.0.1:5000")
 

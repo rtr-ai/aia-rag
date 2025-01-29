@@ -19,3 +19,10 @@
     <button onclick="window.location.href='{{ url_for('download_excel') }}'">Download Excel Report</button>
 </body>
 </html>
+    <ul>
+        {% for question in questions %}
+            <li><a href="{{ url_for('compare', question=question) }}">{{ question }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
