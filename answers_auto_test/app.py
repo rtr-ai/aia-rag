@@ -130,7 +130,7 @@ def compare_answers(question, existing_answer, new_answer):
 
 @app.route('/')
 def index():
-    return render_template('index.html', questions=[item['question'] for item in faq][:1])
+    return render_template('index.html', questions=[item['question'] for item in faq])#[:1])
 
 #print(new_faq_responses)
 # Store precomputed comparison results
@@ -138,7 +138,7 @@ comparison_cache = {}
 
 def precompute_comparisons():
     global comparison_cache
-    for item in tqdm(faq[:1], desc="Fetching data for precompute_comparisons", unit="question"):
+    for item in tqdm(faq, desc="Fetching data for precompute_comparisons", unit="question"):
         new_answer = next((n['answer'] for n in new_faq_responses if n['question'] == item['question']), "")
         comparison_result = compare_answers(item['question'], item['answer'], new_answer)
         comparison_cache[item['question']] = comparison_result
