@@ -167,7 +167,7 @@ def download_excel():
 
     # Send the file as a response
     return send_file(output, as_attachment=True, download_name='Vergleichsbericht.xlsx', mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-
+  
 def open_browser():
     webbrowser.open_new("http://127.0.0.1:5000")
 
