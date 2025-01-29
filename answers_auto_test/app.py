@@ -106,8 +106,14 @@ def compare_answers(question, existing_answer, new_answer):
     Neue Antwort:
     {new_answer}
     
-    Aufgabe: Untenstehend wird eine rechtliche Frage zum AI Act zweimal beantwortet als 'Bestehende Antwort:' und 'Neue Antwort:'.
-    Stimmen die beiden Antworten überein? Antworte entweder mit "Ja", oder mit "Nein" und einer Liste von Bullet Points mit Widersprüchen und bitte fasse den Vergleich zwischen zwei Fragen unter dem Titel 'Zusammenfassung:' zusammen..
+    Aufgabe: Untenstehend wird eine rechtliche Frage zum AI Act zweimal beantwortet als {existing_answer} und {new_answer}.
+    Vergleiche die beiden Texte und bestimme, wie stark der neue Text im Vergleich zum bestehenden Text abweicht. Es handelt sich um ein Lehrbuch über das AI-Gesetz in der EU. Schätze den Unterschied in verschiedenen Kategorien ein, wie zum Beispiel:
+    Kein Unterschied
+    Geringer Unterschied
+    Mäßiger Unterschied
+    Großer Unterschied
+    Sehr großer Unterschied.
+    Bitte fasse den Vergleich zwischen zwei Fragen unter dem Titel 'Zusammenfassung:' zusammen und starte immer mit der eingeschätzten Kategorie.
     Entferne bitte alle ** vor und nach den Wörtern. Zum Beispiel sollte **Frage:** zu Frage: geändert werden.
     Bitte halte diese Struktur in deiner Antwort ein: 'Frage:', 'Bestehende Antwort:', 'Quellen:', 'Neue Antwort:', 'Quellen:' und 'Zusammenfassung:'.
     Wenn Sie mehrere Quellen in „Neue Antwort“ finden, speichern Sie diese alle gemeinsam in einem einzigen gemeinsamen Abschnitt namens „Quellen“. Alle Texte, die sich außerhalb von „Quellen“ in „Neue Antwort“ befinden, sollten in einen einzigen Textblock zusammengeführt werden
@@ -124,27 +130,36 @@ def compare_answers(question, existing_answer, new_answer):
 
 @app.route('/')
 def index():
-    return render_template('index.html', questions=[item['question'] for item in faq])#[:1])
+    return render_template('index.html', questions=[item['question'] for item in faq][:1])
+
+#print(new_faq_responses)
+# Store precomputed comparison results
+comparison_cache = {}
+
+def precompute_comparisons():
+    global comparison_cache
+    for item in tqdm(faq[:1], desc="Fetching data for precompute_comparisons", unit="question"):
+        new_answer = next((n['answer'] for n in new_faq_responses if n['question'] == item['question']), "")
+        comparison_result = compare_answers(item['question'], item['answer'], new_answer)
+        comparison_cache[item['question']] = comparison_result
+
+precompute_comparisons()
 
 @app.route('/compare', methods=['GET'])
 def compare():
     question_text = request.args.get('question')
     selected_item = next((item for item in faq if item['question'] == question_text), None)
     if selected_item:
-        new_answer = next((n['answer'] for n in new_faq_responses if n['question'] == question_text), "")
-        comparison_result = compare_answers(selected_item['question'], selected_item['answer'], new_answer)
+        # Fetch the precomputed comparison result
+        comparison_result = comparison_cache.get(selected_item['question'], "No comparison available")
         return render_template('compare.html', question=selected_item['question'], answer=selected_item['answer'], quellen=selected_item['quellen'], comparison=comparison_result)
     return "Question not found", 404
 
-# Convert data to a pandas DataFrame
-df = excel_data()
-print("DataFrame created successfully:")  # Debug statement
+df = excel_data() 
 
 @app.route('/download')
 def download_excel():
-    #print("Download route hit")  # Debug statement
-
-# Create an in-memory Excel file
+    # Create an in-memory Excel file
     output = BytesIO()
     with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
         df.to_excel(writer, index=False, sheet_name='Vergleiche')
@@ -152,6 +167,7 @@ def download_excel():
 
     # Send the file as a response
     return send_file(output, as_attachment=True, download_name='Vergleichsbericht.xlsx', mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
 def open_browser():
     webbrowser.open_new("http://127.0.0.1:5000")
 
