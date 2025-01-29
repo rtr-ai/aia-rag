@@ -10,12 +10,37 @@ from io import BytesIO
 import webbrowser
 from threading import Timer
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Read the markdown file
 with open("data/fragen-qa.md", 'r', encoding='utf-8') as file: 
     markdown_content = file.read()
+
+def excel_data():
+    # Prepare data for the Excel file
+    data = []
+    for item in tqdm(faq, desc="Fetching data for excel report", unit="question"):
+        question = item['question']
+        existing_answer = item['answer'].split('Quellen:')[0].strip()
+        existing_quellen = item['answer'].split('Quellen:')[1].strip()
+        new_answer = next((n['answer'] for n in new_faq_responses if n['question'] == question), "").split("Quellen:")[0].strip()
+        quellen = next((n['answer'] for n in new_faq_responses if n['question'] == question), "").split("Quellen:")[-1].strip()
+        comparison_result = compare_answers(question, existing_answer, new_answer).split("Zusammenfassung:")[-1].strip()
+
+        #print(quellen)
+        data.append({
+            'Frage': question,
+            'Bestehende Antwort': existing_answer,
+            'Bestehende Quellen': existing_quellen,
+            'Neue Antwort': new_answer,
+            'Quellen (Neue)': quellen,
+            'Vergleichsergebnis': comparison_result,
+        })
+    df = pd.DataFrame(data)
+    return df
 
 def parse_markdown(md_text):
     pattern = r'#\s\d+\.\s(.*?)\n\n(.*?)(?=\n#\s\d+|\Z)'
@@ -41,10 +66,11 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 def get_new_answers(questions):
     url = "https://rag.ki.rtr.at/llm-service/chat"
     headers = {
-        'Authorization': "RTR_BASIC_TOKEN",
+        'Authorization': os.getenv("RTR_BASIC_TOKEN"),
         'Accept': 'text/event-stream',
         'Content-Type': 'application/json'
     }
+    
     results = []
     for question in tqdm(questions, desc="Fetching new answers", unit="question"):
         payload = json.dumps({"prompt": question})
@@ -111,32 +137,15 @@ def compare():
         return render_template('compare.html', question=selected_item['question'], answer=selected_item['answer'], quellen=selected_item['quellen'], comparison=comparison_result)
     return "Question not found", 404
 
+# Convert data to a pandas DataFrame
+df = excel_data()
+print("DataFrame created successfully:")  # Debug statement
+
 @app.route('/download')
 def download_excel():
-    # Prepare data for the Excel file
-    excel_data = []
-    for item in faq:
-        question = item['question']
-        existing_answer = item['answer'].split('Quellen:')[0].strip()
-        existing_quellen = item['answer'].split('Quellen:')[1].strip()
-        new_answer = next((n['answer'] for n in new_faq_responses if n['question'] == question), "").split("Quellen:")[0].strip()
-        quellen = next((n['answer'] for n in new_faq_responses if n['question'] == question), "").split("Quellen:")[-1].strip()
-        comparison_result = compare_answers(question, existing_answer, new_answer).split("Zusammenfassung:")[-1].strip()
+    #print("Download route hit")  # Debug statement
 
-        #print(quellen)
-        excel_data.append({
-            'Frage': question,
-            'Bestehende Antwort': existing_answer,
-            'Bestehende Quellen': existing_quellen,
-            'Neue Antwort': new_answer,
-            'Quellen (Neue)': quellen,
-            'Vergleichsergebnis': comparison_result,
-        })
-
-    # Convert data to a pandas DataFrame
-    df = pd.DataFrame(excel_data)
-
-    # Create an in-memory Excel file
+# Create an in-memory Excel file
     output = BytesIO()
     with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
         df.to_excel(writer, index=False, sheet_name='Vergleiche')

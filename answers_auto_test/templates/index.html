@@ -9,7 +9,7 @@
     <h1>FAQ Questions</h1>
     <ol>
         {% for question in questions %}
-            <li><a href="{{ url_for('compare', question=question | urlencode) }}">{{ question }}</a></li>
+            <li><a href="{{ url_for('compare', question=question) }}">{{ question }}</a></li>
         {% endfor %}
     </ol>
 
