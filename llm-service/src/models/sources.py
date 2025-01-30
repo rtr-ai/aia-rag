@@ -7,6 +7,7 @@ class RelevantChunk(BaseModel):
     content: str
     num_tokens: int
     skip: bool
+    position: int
 
 class Source(BaseModel):
     content: str
@@ -15,6 +16,7 @@ class Source(BaseModel):
     relevantChunks: List[RelevantChunk] = []
     num_tokens: int
     skip: bool
+    position: int
 
 
 class SourceList(RootModel[List[Source]]):

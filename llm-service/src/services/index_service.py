@@ -108,6 +108,10 @@ class IndexService:
                         (c["content"] for c in chunks_vector if c["id"] == related_id),
                         "",
                     ),
+                    "position": next(
+                        (c["position"] for c in chunks_vector if c["id"] == related_id),
+                        -1,
+                    ),
                     "num_tokens": self.tokenizer_service.count_tokens(
                         next(
                             (
@@ -178,8 +182,9 @@ class IndexService:
                     ],
                     "parameters": chunk.parameters,
                     "vector": embedding,
+                    "position": i,
                 }
-                for chunk, embedding in zip(chunk_nodes, embeddings)
+                for i, (chunk, embedding) in enumerate(zip(chunk_nodes, embeddings))
             ],
         }
 
@@ -237,6 +242,7 @@ class IndexService:
                 relevantChunks=[],
                 num_tokens=chunk_tokens,
                 skip=skip,
+                position=chunk["position"]
             )
 
             if not skip:
@@ -262,6 +268,7 @@ class IndexService:
                         title=relevant_chunk.get("title") or relevant_chunk["id"],
                         num_tokens=relevant_chunk_tokens,
                         skip=relevant_skipped,
+                        position=relevant_chunk["position"]
                     )
 
                     if not relevant_skipped:
