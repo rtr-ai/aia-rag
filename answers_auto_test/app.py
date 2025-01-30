@@ -106,7 +106,7 @@ def compare_answers(question, existing_answer, new_answer):
     Neue Antwort:
     {new_answer}
     
-    Aufgabe: Untenstehend wird eine rechtliche Frage zum AI Act zweimal beantwortet als {existing_answer} und {new_answer}.
+    Aufgabe: Obenstehend wird eine rechtliche Frage zum AI Act zweimal beantwortet als {existing_answer} und {new_answer}.
     Vergleiche die beiden Texte und bestimme, wie stark der neue Text im Vergleich zum bestehenden Text abweicht. Es handelt sich um ein Lehrbuch über das AI-Gesetz in der EU. Schätze den Unterschied in verschiedenen Kategorien ein, wie zum Beispiel:
     Kein Unterschied
     Geringer Unterschied
