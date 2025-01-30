@@ -98,25 +98,35 @@ new_faq_responses = get_new_answers(questions)
 
 def compare_answers(question, existing_answer, new_answer):
     prompt = f"""
-    Frage: {question}
-    
-    Bestehende Antwort:
+    Untenstehend folgt eine Frage zum AI Act sowie zwei Antworten auf diese Frage. Deine Aufgabe ist es, eine Einschätzung zur Gleichwertigkeit der Antworten zu treffen.
+
+    Frage: 
+    {question}
+
+    Antwort A:
     {existing_answer}
-    
-    Neue Antwort:
+
+    Antwort B:
     {new_answer}
-    
-    Aufgabe: Obenstehend wird eine rechtliche Frage zum AI Act zweimal beantwortet als {existing_answer} und {new_answer}.
-    Vergleiche die beiden Texte und bestimme, wie stark der neue Text im Vergleich zum bestehenden Text abweicht. Es handelt sich um ein Lehrbuch über das AI-Gesetz in der EU. Schätze den Unterschied in verschiedenen Kategorien ein, wie zum Beispiel:
-    Kein Unterschied
-    Geringer Unterschied
-    Mäßiger Unterschied
-    Großer Unterschied
-    Sehr großer Unterschied.
+
+
+    Aufgabe: Obenstehend wurde eine rechtliche Frage zum AI Act zweimal beantwortet als "Antwort A" und "Antwort B".
+    Vergleiche die beiden Texte und bestimme, wie stark die Antwort B von Antwort A abweicht. 
+    Berücksichtige Fälle, wo Antwort B alle Aspekte von Antwort A abdeckt, aber darüber hinausgehend beantwortet. 
+    Es handelt sich um ein Lehrbuch über das AI-Gesetz in der EU. 
+    Schätze den Unterschied in verschiedenen Kategorien ein, wie zum Beispiel:
+    * Kein Unterschied
+    * Kein Unterschied, mehr Information
+    * Mäßiger Unterschied
+    * Mäßiger Unterschied, mehr Information
+    * Großer Unterschied
+    * Widersprüchliche Antwort
+
     Bitte fasse den Vergleich zwischen zwei Fragen unter dem Titel 'Zusammenfassung:' zusammen und starte immer mit der eingeschätzten Kategorie.
     Entferne bitte alle ** vor und nach den Wörtern. Zum Beispiel sollte **Frage:** zu Frage: geändert werden.
     Bitte halte diese Struktur in deiner Antwort ein: 'Frage:', 'Bestehende Antwort:', 'Quellen:', 'Neue Antwort:', 'Quellen:' und 'Zusammenfassung:'.
-    Wenn Sie mehrere Quellen in „Neue Antwort“ finden, speichern Sie diese alle gemeinsam in einem einzigen gemeinsamen Abschnitt namens „Quellen“. Alle Texte, die sich außerhalb von „Quellen“ in „Neue Antwort“ befinden, sollten in einen einzigen Textblock zusammengeführt werden
+    Wenn Sie mehrere Quellen in „Neue Antwort“ finden, speichern Sie diese alle gemeinsam in einem einzigen gemeinsamen Abschnitt namens „Quellen“. 
+    Alle Texte, die sich außerhalb von „Quellen“ in „Neue Antwort“ befinden, sollten in einen einzigen Textblock zusammengeführt werden
     """
     completion = client.chat.completions.create(
         model="gpt-4o",
