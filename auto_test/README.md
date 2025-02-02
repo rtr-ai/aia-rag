@@ -33,13 +33,14 @@ The project workflow is as follows:
    ```terminal
    git clone --branch auto_test https://BojanMakivic@github.com/rtr-ai/aia-rag.git
    cd aia-rag
-
+   ```
 2. **Install Requirements**
-  ```terminal
+   ```terminal
    pip install -r requirements.txt
-  ```
+   ```
 3. **Run these files in this order** 
-  ```terminal
+   ```terminal
    python md_to_jdson.py
    python import_request.py
    python app.py
+   ```
