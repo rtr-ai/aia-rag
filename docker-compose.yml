@@ -62,7 +62,7 @@ services:
         - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
         - MATOMO_TOKEN=${MATOMO_TOKEN}
         - MATOMO_SITE_ID=${MATOMO_SITE_ID}
-        - ORDER_CHUNKS_FROM_SOURCE=false
+        - ORDER_CHUNKS_FROM_SOURCE=true
       volumes:
         - ./data/combined.json:/app/data/chunks.json
         - /sys/class/powercap:/sys/class/powercap:ro
