@@ -1,4 +1,4 @@
-# Answer Auto Test
+# Answer Comparison Tool
 
 ## Overview
 The `answer_auto_test` application automates the comparison of legal expert-generated answers with AI-generated responses from the AiAct chatbot. The process is designed to analyze the differences and similarities between human and AI-generated answers using OpenAI's comparison model.
