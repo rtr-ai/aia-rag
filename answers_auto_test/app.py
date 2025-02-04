@@ -109,7 +109,6 @@ def compare_answers(question, existing_answer, new_answer):
     Antwort B:
     {new_answer}
 
-
     Aufgabe: Obenstehend wurde eine rechtliche Frage zum AI Act zweimal beantwortet als "Antwort A" und "Antwort B".
     Vergleiche die beiden Texte und bestimme, wie stark die Antwort B von Antwort A abweicht. 
     Berücksichtige Fälle, wo Antwort B alle Aspekte von Antwort A abdeckt, aber darüber hinausgehend beantwortet. 
