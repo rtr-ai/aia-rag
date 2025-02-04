@@ -1,5 +1,10 @@
+import os
 from typing import List
+from pydantic import TypeAdapter
+
 from models.sources import Source
+
+ORDER_CHUNKS_FROM_SOURCE = TypeAdapter(bool).validate_python(os.getenv("ORDER_CHUNKS_FROM_SOURCE", "false"))
 
 DEFAULT_PROMPT_RAG: str = """
 
@@ -13,7 +18,7 @@ Richtlinien:
     Quellenhinweis: Verweise in deiner Antwort auf die verwendeten Quellen.
     Quellen: Verwende zur Beantwortung der Frage ausschließlich die unten angeführten Informationen aus dem EU AI Act.
 
-Informationen aus dem EU AI Act sind unten angeführt.
+Informationen aus Texten der KI-Servicestelle und dem EU AI Act sind unten angeführt.
 
 {context_str}
 
@@ -44,14 +49,23 @@ Antwort:
 
 
 def generate_prompt(prompt: str, sources: List[Source]) -> str:
+    combined_sources = [] # flatten
+
     chunks = ""
     for source in sources:
         if not source.skip:
-            chunks += f"Titel: {source.title} \n{source.content}\n"
+            combined_sources.append(source)
         for relevant_chunk in source.relevantChunks:
             if not relevant_chunk.skip:
-                chunks += f"Titel: {relevant_chunk.title} \n{relevant_chunk.content}\n"
-                chunks += "\n"
+                combined_sources.append(relevant_chunk)
+
+    # sort
+    if ORDER_CHUNKS_FROM_SOURCE:
+        combined_sources.sort(key=lambda x: x.position)
+
+    # output
+    for source in combined_sources:
+        chunks += f"Titel: {source.title} \n{source.content}\n"
         chunks += "\n"
     
     final_prompt = DEFAULT_PROMPT_RAG.format(context_str=chunks.strip(), query_str=prompt)

@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Union, Optional
 from pydantic import BaseModel
 
 
@@ -10,6 +10,7 @@ class ChunkNode(BaseModel):
     negativeKeywords: List[str]
     relevantChunksIds: List[str]
     parameters: List[str]
+    position: int = -1
 
 
 class TextNode(BaseModel):
