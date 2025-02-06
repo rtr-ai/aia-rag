@@ -217,7 +217,10 @@ class IndexService:
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
 
         total_tokens = 0
-        token_limit = CONTEXT_WINDOW - 1500
+        LOGGER.debug(
+            f"Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
+        )
+        token_limit = CONTEXT_WINDOW - 5000
         sources: List[Source] = []
         added_chunks = set()
         context_window_reached = False
@@ -242,7 +245,7 @@ class IndexService:
                 relevantChunks=[],
                 num_tokens=chunk_tokens,
                 skip=skip,
-                position=chunk["position"]
+                position=chunk["position"],
             )
 
             if not skip:
@@ -268,7 +271,7 @@ class IndexService:
                         title=relevant_chunk.get("title") or relevant_chunk["id"],
                         num_tokens=relevant_chunk_tokens,
                         skip=relevant_skipped,
-                        position=relevant_chunk["position"]
+                        position=relevant_chunk["position"],
                     )
 
                     if not relevant_skipped:
