@@ -14,6 +14,7 @@ LOGGER = get_logger(__name__)
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 TOP_N_CHUNKS = int(os.getenv("TOP_N_CHUNKS", "15"))
 CONTEXT_WINDOW = int(os.getenv("CONTEXT_WINDOW", "8000"))
+PROMPT_BUFFER = int(os.getenv("PROMPT_BUFFER", "1500"))
 
 
 class IndexService:
@@ -220,7 +221,7 @@ class IndexService:
         LOGGER.debug(
             f"Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
         )
-        token_limit = CONTEXT_WINDOW - 1500
+        token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
         sources: List[Source] = []
         added_chunks = set()
         context_window_reached = False
