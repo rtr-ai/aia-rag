@@ -57,7 +57,7 @@ services:
         - ALLOWED_ORIGINS=http://rag.ki.rtr.at,https://rag.ki.rtr.at
         - TEMPERATURE=0.1
         - CONTEXT_WINDOW=30000
-        - PROMPT_BUFFER=1500
+        - PROMPT_BUFFER=6000
         - ROOT_PATH=/llm-service
         - TOP_N_CHUNKS=25
         - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
