@@ -220,7 +220,7 @@ class IndexService:
         LOGGER.debug(
             f"Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
         )
-        token_limit = CONTEXT_WINDOW - 5000
+        token_limit = CONTEXT_WINDOW - 1500
         sources: List[Source] = []
         added_chunks = set()
         context_window_reached = False
