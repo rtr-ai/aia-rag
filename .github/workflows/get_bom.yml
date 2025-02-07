@@ -28,20 +28,28 @@ jobs:
     - name: Get node deps user-interface
       working-directory: ./user-interface
       run: npm ci &&
-        npm install -g license-report &&
-        license-report --output=table
+        npm install -g license-report
     - name: Get node deps annotation-tool
       working-directory: ./annotation-tool
       run: npm ci &&
-        npm install -g license-report &&
-        license-report --output=table
+        npm install -g license-report
     - name: Get python deps llm-service
       working-directory: ./llm-service
       run: pip install --no-cache-dir -r requirements.txt &&
-           pip install pip-licenses &&
-           pip-licenses
+           pip install pip-licenses
     - name: Get python deps auto_test
       working-directory: ./auto_test
       run: pip install --no-cache-dir -r requirements.txt &&
-        pip install pip-licenses &&
-        pip-licenses
+        pip install pip-licenses
+    - name: License report user-interface
+      working-directory: ./user-interface
+      run: license-report --output=table
+    - name: License report  annotation-tool
+      working-directory: ./annotation-tool
+      run: license-report --output=table
+    - name: License report  llm-service
+      working-directory: ./llm-service
+      run: pip-licenses
+    - name: License report  auto_test
+      working-directory: ./auto_test
+      run: pip-licenses
