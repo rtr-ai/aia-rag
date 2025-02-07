@@ -26,7 +26,7 @@ jobs:
       with:
         python-version: '3.11'
     - name: Get python deps
-      working-directoy: ./llm-service
+      working-directory: ./llm-service
       run: pip install --no-cache-dir -r requirements.txt &&
            pip install pip-licenses &&
            pip-licenses
