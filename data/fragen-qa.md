@@ -1,4 +1,4 @@
-# 1. Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?
+﻿# 1. Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?
 
 Antwort:
 ChatGPT wird als KI-System im Sinne des AI Acts einzustufen sein [1].  
@@ -92,7 +92,7 @@ Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflic
 Quellen:
 [1] Art 6 Abs 2 AIA
 [2] Anhang III: Z4 
-[3] Art 8 bis 15 AIA
+[3] Art 8 AIA
 [4] Art 26 AIA 
 [5] KI-Servicestelle: Risikostufen KI-Systeme, Allgemein
 [6] KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme
@@ -109,7 +109,7 @@ Zudem unterliegen Sie als Betreiber eines Hochrisiko-KI-Systems besonderen Pflic
 Quellen:
 [1] Art 6 Abs 2 AIA
 [2] Anhang III: Z4 
-[3] Art 8 bis 15 AIA
+[3] Art 8 AIA
 [4] Art 26 AIA
 [5] KI-Servicestelle: Risikostufen KI-Systeme, Allgemein
 [6] KI-Servicestelle: Risikostufen KI-Systeme, Hochrisiko-KI-Systeme
@@ -137,10 +137,10 @@ Quellen:
 
 Antwort:
 Wenn Sie als Unternehmer KI-Systeme Dritter einsetzen, ohne eine Änderung daran vorzunehmen, sind sie in der KI-Wertschöpfungskette in der Regel als Betreiber einzustufen, d.h. für Sie gelten die Betreiberverpflichtungen. Im Fall von KI-generierten Videos handelt es sich um ein KI-System mit begrenztem Risiko, bei welchem ab 2.8.2026 Transparenzpflichten gelten.
-Das heißt, wenn es sich bei Ihren Videos um "Deep Fakes" im Sinne des AI Acts handelt, trifft sie eine Kennzeichnungspflicht. Andernfalls ergeben sich für die Videos keine gesonderten Verpflichtungen aus dem AI Act [1], [2], [3], [4].
+Das heißt, wenn es sich bei Ihren Videos um "Deep Fakes" im Sinne des AI Acts handelt, trifft sie eine Kennzeichnungspflicht. Andernfalls ergeben sich für die Videos keine gesonderten Verpflichtungen aus dem AI Act [1], [2], [3], [4], [5].
 
 Quellen:
-[1] Art 50 Abs 4 AIA
+[1] Art 50 Abs 4 UA 1 AIA
 [2] KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake
 [3] KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte
 [4] KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?
@@ -286,7 +286,6 @@ Quellen:
 
 
 # 21. Kann ich Anbieter sein, wenn ich ein KI-System für den rein internen Gebrauch entwickle?
-
 Antwort:
 Ein "Anbieter" ist laut Art 3 Z 3 AIA eine natürliche oder juristische Person, Behörde, Einrichtung oder sonstige Stelle, die ein KI-System oder ein KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln lässt und es unter ihrem eigenen Namen oder ihrer Handelsmarke in Verkehr bringt oder das KI-System unter ihrem eigenen Namen oder ihrer Handelsmarke in Betrieb nimmt, sei es entgeltlich oder unentgeltlich [1], [2].
 
