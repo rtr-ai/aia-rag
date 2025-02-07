@@ -28,10 +28,20 @@ jobs:
     - name: Get node deps user-interface
       working-directory: ./user-interface
       run: npm ci &&
-        npm install -g license-report
+        npm install -g license-report &&
+        license-report --output=table
+    - name: Get node deps annotation-tool
+      working-directory: ./annotation-tool
+      run: npm ci &&
+        npm install -g license-report &&
         license-report --output=table
     - name: Get python deps llm-service
       working-directory: ./llm-service
       run: pip install --no-cache-dir -r requirements.txt &&
            pip install pip-licenses &&
            pip-licenses
+    - name: Get python deps auto_test
+      working-directory: ./auto_test
+      run: pip install --no-cache-dir -r requirements.txt &&
+        pip install pip-licenses &&
+        pip-licenses
