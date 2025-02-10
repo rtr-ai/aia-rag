@@ -3,7 +3,7 @@ import json
 
 # File names
 MARKDOWN_FILE = 'data/fragen-qa.md'
-JSON_FILE = 'true_results.json'
+JSON_FILE = 'auto_test/true_results.json'
 
 def expand_source(source):
     """
@@ -26,29 +26,29 @@ def process_sources(sources):
     Process the list of raw source strings:
     
     1. Expand any "bis" range entries.
-    2. For article references (lines starting with "Art") that are not exempt
+    2. Remove "AIA" from any source text.
+    3. For article references (lines starting with "Art") that are not exempt
        (i.e. not starting with "Art 3:" or "Art 5:"), combine multiple references 
        with the same article number into one simplified reference "Art <number>".
-    3. For other sources (or those that start with "Art 3:" or "Art 5:"), keep them as is.
+    4. For other sources (or those that start with "Art 3:" or "Art 5:"), keep them as is.
     """
     result = []
-    # For combining article references, keep track of which article numbers we have added.
     seen_articles = set()
     
     for source in sources:
+        # Remove "AIA" only when it appears as a separate word
+        source = re.sub(r'\bAIA\b', '', source).strip()
+
         # Expand if there is a "bis" range in the source.
         expanded_items = expand_source(source)
+        
         for item in expanded_items:
             item = item.strip()
-            # If the item looks like an article reference:
+            
             if item.startswith("Art"):
-                # Check if it is exempt from combining. We consider an exemption
-                # if the text immediately after "Art" is "3:" or "5:".
                 if re.match(r"Art\s+3:", item) or re.match(r"Art\s+5:", item):
-                    # Do not combine: simply append the full text.
                     result.append(item)
                 else:
-                    # Otherwise, extract the article number.
                     num_match = re.match(r"Art\s+(\d+)", item)
                     if num_match:
                         art_num = num_match.group(1)
@@ -57,11 +57,10 @@ def process_sources(sources):
                             seen_articles.add(simplified)
                             result.append(simplified)
                     else:
-                        # If for some reason it doesn't match the pattern, append as is.
                         result.append(item)
             else:
-                # For non-article references (e.g. "KI-Servicestelle: ..."), just add.
                 result.append(item)
+    
     return result
 
 def parse_markdown(md_text):
