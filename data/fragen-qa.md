@@ -1,4 +1,5 @@
-﻿# 1. Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?
+﻿
+# 1. Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?
 
 Antwort:
 ChatGPT wird als KI-System im Sinne des AI Acts einzustufen sein [1].  
