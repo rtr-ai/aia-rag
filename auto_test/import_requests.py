@@ -10,6 +10,7 @@ url = "https://rag.ki.rtr.at/llm-service/chat"
 
 # fetch the questions rom true_ersults.json file
 with open("auto_test/true_results.json", "r", encoding="utf-8") as file:
+
     data = json.load(file)
 
 # Extract keys as a list
