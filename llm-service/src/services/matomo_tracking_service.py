@@ -68,7 +68,7 @@ class MatomoTrackingService:
                 else:
                     params["e_v"] = json.dumps(value)
 
-            response = requests.get(f"{self.matomo_url}/matomo.php", params=params)
+            response = requests.get(f"{self.matomo_url}", params=params)
 
             if response.status_code == 200:
                 LOGGER.debug(f"Tracked Matomo event: {category} - {action}")
