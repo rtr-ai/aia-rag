@@ -34,10 +34,12 @@ jobs:
           cd /app/trunk &&
           ls -lah
           "
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "echo $MATOMO_ENV > /app/trunk/matomo.env"
       shell: bash
       env:
         DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        MATOMO_ENV: ${{ secrets.MATOMO_ENV }}
     - name: Run docker
       run: |
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
