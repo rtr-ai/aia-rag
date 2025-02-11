@@ -1,7 +1,7 @@
 import json
 import os
 from typing import Optional, Dict, Any
-import matomo_api as ma
+import requests
 from utils.logger import get_logger
 
 LOGGER = get_logger(__name__)
@@ -18,26 +18,18 @@ class MatomoTrackingService:
 
     @classmethod
     def _initialize(cls, instance):
-        matomo_url = os.getenv("MATOMO_ENDPOINT")
-        matomo_token = os.getenv("MATOMO_TOKEN")
-        matomo_site_id = os.getenv("MATOMO_SITE_ID")
+        instance.matomo_url = os.getenv("MATOMO_ENDPOINT")
+        instance.matomo_token = os.getenv("MATOMO_TOKEN")
+        instance.matomo_site_id = os.getenv("MATOMO_SITE_ID")
 
-        if matomo_url and matomo_token and matomo_site_id:
-            try:
-                instance.client = ma.MatomoApi(matomo_url, matomo_token)
-                instance.site_id = int(matomo_site_id)
-                instance.enabled = True
-                LOGGER.debug(
-                    f"Matomo tracking initialized for site ID: {matomo_site_id}"
-                )
-            except Exception as e:
-                LOGGER.error(f"Failed to initialize Matomo tracking: {e}")
-                instance.enabled = False
+        if instance.matomo_url and instance.matomo_token and instance.matomo_site_id:
+            instance.enabled = True
+            LOGGER.debug(
+                f"Matomo tracking initialized for site ID: {instance.matomo_site_id}"
+            )
         else:
             LOGGER.debug("Matomo tracking not configured. Skipping initialization.")
             instance.enabled = False
-            instance.client = None
-            instance.site_id = None
 
     def track_event(
         self,
@@ -59,21 +51,32 @@ class MatomoTrackingService:
             return
 
         try:
-            params = (
-                ma.idSite.one_or_more(self.site_id) | ma.e_c(category) | ma.e_a(action)
-            )
+            params = {
+                "idsite": self.matomo_site_id,
+                "rec": 1,
+                "e_c": category,
+                "e_a": action,
+                "token_auth": self.matomo_token,
+            }
 
             if name:
-                params |= ma.e_n(name)
+                params["e_n"] = name
 
             if value is not None:
                 if isinstance(value, str):
-                    params |= ma.e_v(value)
+                    params["e_v"] = value
                 else:
-                    params |= ma.e_v(json.dumps(value))
+                    params["e_v"] = json.dumps(value)
 
-            self.client.Events().trackEvent(params)
-            LOGGER.debug(f"Tracked Matomo event: {category} - {action}")
+            response = requests.get(f"{self.matomo_url}/matomo.php", params=params)
+
+            if response.status_code == 200:
+                LOGGER.debug(f"Tracked Matomo event: {category} - {action}")
+            else:
+                LOGGER.error(
+                    f"Failed to track Matomo event: HTTP {response.status_code}"
+                )
+
         except Exception as e:
             LOGGER.error(f"Failed to track Matomo event: {e}")
 
