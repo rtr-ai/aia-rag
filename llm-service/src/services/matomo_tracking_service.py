@@ -1,8 +1,8 @@
 import json
-from utils.logger import get_logger
 import os
 from typing import Optional, Dict, Any
-from matomo_api import MatomoApi
+import matomo_api as ma
+from utils.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
@@ -24,9 +24,8 @@ class MatomoTrackingService:
 
         if matomo_url and matomo_token and matomo_site_id:
             try:
-                instance.client = MatomoApi(
-                    url=matomo_url, token_auth=matomo_token, id_site=matomo_site_id
-                )
+                instance.client = ma.MatomoApi(matomo_url, matomo_token)
+                instance.site_id = int(matomo_site_id)
                 instance.enabled = True
                 LOGGER.debug(
                     f"Matomo tracking initialized for site ID: {matomo_site_id}"
@@ -38,6 +37,7 @@ class MatomoTrackingService:
             LOGGER.debug("Matomo tracking not configured. Skipping initialization.")
             instance.enabled = False
             instance.client = None
+            instance.site_id = None
 
     def track_event(
         self,
@@ -52,28 +52,27 @@ class MatomoTrackingService:
         :param category: Event category, defaults to "llm_service"
         :param action: Event action
         :param name: Optional event name
-        :param value: Optional String or  Dict data  send. If Dict, data serialized to JSON data and included with the event
+        :param value: Optional String or Dict data. If Dict, it's serialized to JSON.
         """
         if not self.enabled:
             LOGGER.debug("Matomo tracking is disabled. Skipping event.")
             return
 
         try:
-            params = {
-                "e_c": category,
-                "e_a": action,
-            }
+            params = (
+                ma.idSite.one_or_more(self.site_id) | ma.e_c(category) | ma.e_a(action)
+            )
 
             if name:
-                params["e_n"] = name
+                params |= ma.e_n(name)
 
             if value is not None:
                 if isinstance(value, str):
-                    params["e_v"] = value
+                    params |= ma.e_v(value)
                 else:
-                    params["e_v"] = json.dumps(value)
+                    params |= ma.e_v(json.dumps(value))
 
-            self.client.track(params)
+            self.client.Events().trackEvent(params)
             LOGGER.debug(f"Tracked Matomo event: {category} - {action}")
         except Exception as e:
             LOGGER.error(f"Failed to track Matomo event: {e}")
