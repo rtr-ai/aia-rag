@@ -47,7 +47,7 @@ services:
       ports:
         - "127.0.0.1:8085:8000"
       env_file:
-      - path: matomo.env
+      - path: /app/trunk/matomo.env
         required: false
       environment:
         - HOST=0.0.0.0
