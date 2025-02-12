@@ -198,7 +198,7 @@
       </form>
       <span *ngIf="step == 'done'">
         <p><strong>Energieverbrauch: </strong>
-        Diese Abfrage hat einen Stromverbrauch von <strong>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }} kWh</strong>  verursacht. Mit dieser Strommenge kann ein Haarfön für  {{ (totalConsumption.total_kWh*1000*2200/60/60).toFixed(2).replace(".", ",") }} Sekunden betrieben werden.
+        Diese Abfrage hat einen Stromverbrauch von <strong>{{ totalProQuery.toFixed(6).replace(".", ",") }} kWh</strong>  verursacht. Mit dieser Strommenge kann ein Haarfön für  {{ (totalProQuery*1000*2200/60/60).toFixed(2).replace(".", ",") }} Sekunden betrieben werden.
         </p>
        
       </span>

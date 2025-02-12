@@ -39,6 +39,7 @@ export class AiabotComponent implements OnInit {
   feedbackFormVisible: boolean = false;
   feedbackText: string = "";
   powerData: PowerDataDisplayed[] = [];
+  totalProQuery: number = 0;
   totalConsumption: PowerDataDisplayed = {
     name: "total",
     label: "Gesamter Energieverbrauch",
@@ -87,6 +88,7 @@ export class AiabotComponent implements OnInit {
       });
     };
     const calculateTotalPowerConsumption = () => {
+      this.totalProQuery = 0;
       this.totalConsumption = {
         name: "total",
         label: "Gesamter Energieverbrauch",
@@ -97,6 +99,9 @@ export class AiabotComponent implements OnInit {
         duration: 0,
       };
       this.powerData.forEach((item) => {
+        if (item.name !== "power_index") {
+          this.totalProQuery += item.total_kWh;
+        }
         this.totalConsumption.cpu_kWh += item.cpu_kWh;
         this.totalConsumption.gpu_kWh += item.gpu_kWh;
         this.totalConsumption.ram_kWh += item.ram_kWh;
