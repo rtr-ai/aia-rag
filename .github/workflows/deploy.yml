@@ -32,7 +32,7 @@ jobs:
           mv /app/trunk /app/trunk.old && 
           mv /app/trunk.new /app/trunk &&
           cd /app/trunk"
-        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.MATOMO_ENV }}" > /app/trunk/matomo.env'
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.MATOMO_ENV }}" > /app/trunk/.env'
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "cd /app/trunk && ls -lah"
       shell: bash
       env:
