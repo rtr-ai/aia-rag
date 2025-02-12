@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { CommonModule, NgClass, NgForOf, NgIf } from "@angular/common";
+import { NgClass, NgForOf, NgIf } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { answer1, answer2 } from "./knowledge";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
 import {
   LLMMessageParams,
@@ -242,23 +241,4 @@ export class AiabotComponent implements OnInit {
       element.style.display = isExpanded ? "none" : "block";
     }
   }
-
-  copyStringWordByWord = async (sourceStr: string, delay = 50) => {
-    let sourceWords = sourceStr.split(/\s|\n/); // Split by space or newline
-    let destStr = "";
-
-    for (let i = 0; i < sourceWords.length; i++) {
-      let word = sourceWords[i];
-      // await only if word is not empty (it can be empty because of \n)
-      if (word) {
-        await new Promise((r) => setTimeout(r, delay));
-        destStr += word + " ";
-      } else {
-        // if word is empty append newline
-        destStr += "<br /><br/>";
-      }
-
-      this.displayAnswer = destStr.trim();
-    }
-  };
 }

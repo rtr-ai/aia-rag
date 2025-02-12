@@ -157,7 +157,23 @@
           >
         </p>
       </form>
-      <div  *ngIf="step == 'done'" class="table-container">
+      <span *ngIf="step == 'done'">
+        <p><strong>Energieverbrauch: </strong>
+        Diese Abfrage hat einen Stromverbrauch von <strong>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }} kWh</strong>  verursacht. Mit dieser Strommenge kann ein Haarfön für  {{ (totalConsumption.total_kWh*1000*2200/60/60).toFixed(2).replace(".", ",") }} Sekunden betrieben werden.
+        </p>
+       
+      </span>
+      <ul
+          uk-accordion
+          class="uk-accordion ac-content"
+          *ngIf="step == 'done'"
+        >
+          <li class="">
+            <a class="uk-accordion-title anchor" aria-expanded="true">
+              <b>Detaillierte Infos zum Energieverbrauch</b>
+            </a>
+            <div class="uk-accordion-content">
+               <div  class="table-container">
         <table class="uk-table uk-table-hover">
           <thead>
             <tr>
@@ -190,6 +206,10 @@
           </tbody>
         </table>
       </div>
+            </div>
+          </li>
+        </ul>
+   
     </div>
     <div class="uk-container uk-margin-top-50">
       <h4>Hintergrundinformationen zum AI Act Chatbot</h4>
