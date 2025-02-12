@@ -54,32 +54,64 @@
           <span *ngIf="step != 'research'">&check;</span>
           Relevante Quellen erheben <i>(&ldquor;<b>R</b>etrieve&rdquor;)</i>
         </h3>
-        <h4 *ngIf="sources.length > 0">Relevante Quellen</h4>
-        <ul>
-          <li *ngFor="let source of sources; let i = index">
-            <a 
-              (click)="toggleAccordion(i)"
-              [style.color]="source.skip ? 'darkgray' : 'black'"
-            >
-            {{ source.title || "Quelle" }} ({{ formatScore(source.score) }}) ({{source.num_tokens}} Token)
-            </a>
-            <ul style="margin-left: 20px;">
-              <li 
-                *ngFor="let chunk of source.relevantChunks"
-                [style.color]="chunk.skip ? 'darkgray' : 'black'"
-              >
-              {{ chunk.title.length > 0 ? chunk.title : chunk.id }} ({{chunk.num_tokens}} Token)
+          <ul
+                  uk-accordion
+                  class="uk-accordion ac-content"
+                  *ngIf="sources.length > 0"
+          >
+              <li class="">
+                  <a class="uk-accordion-title anchor" aria-expanded="true">
+                      <b>
+                          <ng-container>{{ getTotalSources(sources) }}</ng-container>
+                          möglicherweise relevante Quellen identifiziert</b>
+                  </a>
+                  <div class="uk-accordion-content">
+                      <div><i>Hinweis: </i> {{ getNotSkippedSources(sources) }} in schwarzer Schrift
+                          abgebildete Dokumente werden zur
+                          Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten
+                          das
+                          Kontextfenster und bleiben deshalb unberücksichtigt.
+                      </div>
+                      <ol class="references">
+                          <li *ngFor="let source of sources; let i = index">
+                              <a
+                                      (click)="toggleAccordion(i+1)"
+                                      [style.color]="source.skip ? 'darkgray' : 'black'"
+                              >
+                                  {{ source.title || "Quelle" }} ({{ formatScore(source.score) }})
+                                  ({{ source.num_tokens }} Token)
+                              </a>
+                              <div
+                                      id="content-{{ (i+1) }}"
+                                      class="source-content uk-hidden"
+                                      style="margin-left: 20px"
+                              >
+                                  {{ source.content }}
+                              </div>
+
+                              <ol style="margin-left: 20px;">
+                                  <li
+                                          *ngFor="let chunk of source.relevantChunks; let j=index"
+                                  >
+                                      <a (click)="toggleAccordion((i+1)*1000+j)"
+                                         [style.color]="chunk.skip ? 'darkgray' : 'black'"
+                                      >{{ chunk.title.length > 0 ? chunk.title : chunk.id }}
+                                          ({{ chunk.num_tokens }} Token)
+                                      </a>
+                                      <div
+                                              id="content-{{ ((i+1)*1000+j) }}"
+                                              class="source-content uk-hidden"
+                                              style="margin-left: 20px"
+                                      >
+                                          {{ chunk.content }}
+                                      </div>
+                                  </li>
+                              </ol>
+                          </li>
+                      </ol>
+                  </div>
               </li>
-            </ul>
-            <div
-              id="content-{{ i }}"
-              class="accordion-content"
-              style="display: none; margin-left: 20px"
-            >
-              {{ source.content }}
-            </div>
-          </li>
-        </ul>
+          </ul>
         <p *ngIf="tokensUsedFormatted.length > 0">
           Gesamtanzahl Token: {{tokensUsedFormatted}}
         </p>

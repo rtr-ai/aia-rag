@@ -234,11 +234,42 @@ export class AiabotComponent implements OnInit {
   formatScore(score: number): string {
     return (score * 100).toFixed(1) + "%";
   }
+
+  /**
+   * Get number of sources, including relevant chunks
+   * @param sources
+   */
+  getTotalSources(sources: Source[]) {
+    let totalNumber = 0;
+    for (let source of sources) {
+      totalNumber ++;
+      if (source.relevantChunks) {
+        totalNumber = totalNumber + source.relevantChunks.length;
+      }
+    }
+    return totalNumber;
+  }
+
+  /**
+   * Get number of sources with "skip" set to false
+   * @param sources
+   */
+  getNotSkippedSources(sources: Source[]) {
+    let totalNumber = 0;
+    for (let source of sources) {
+      if (!source.skip) {
+        totalNumber ++;
+      }
+      if (source.relevantChunks) {
+        totalNumber = totalNumber + source.relevantChunks.filter(r => !r.skip).length;
+      }
+    }
+    return totalNumber;
+  }
   toggleAccordion(index: number) {
     const element = document.getElementById(`content-${index}`);
     if (element) {
-      const isExpanded = element.style.display === "block";
-      element.style.display = isExpanded ? "none" : "block";
+      element.classList.toggle('uk-hidden');
     }
   }
 }
