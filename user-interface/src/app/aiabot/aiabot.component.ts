@@ -25,8 +25,14 @@ export class AiabotComponent implements OnInit {
   sources: Source[] = [];
   prompt: string = "";
   multiplier = 1;
-  userPrompt: string =
-    "Ich möchte LLama-3 für meine Firma fine-tunen. Gilt der AIA für mich?";
+  userPrompts =
+      ["Ich möchte Lebensläufe von Bewerber:innen mit KI filtern. Ist das eine Hochrisiko-KI-Anwendung?",
+          "Ich möchte E-Mails automatisch mit einem LLM beantworten. Muss ich das offenlegen?",
+          "Muss ich bei KI-generierten Bildern kennzeichnen, dass diese mit KI generiert wurden?",
+          "Wie kann ich KI-Kompetenz in meinem Unternehmen umsetzen?",
+          "Ich entwickle KI-Systeme für Märkte außerhalb der EU. Gilt der AI Act für mich?"
+      ];
+  userPrompt = this.userPrompts[Math.floor(Math.random() * this.userPrompts.length)];
   maxLength: number = 500;
   inputHeight: number = 70;
   tokensUsedFormatted: string = "";
@@ -227,7 +233,6 @@ export class AiabotComponent implements OnInit {
     textarea.style.height = "auto";
     textarea.style.height = `${Math.min(textarea.scrollHeight, 300)}px`;
   }
-
   playDemo = async () => {
     await this.promptLLM();
   };
