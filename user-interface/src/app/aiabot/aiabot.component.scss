@@ -27,6 +27,10 @@ h3 i {
   background-color: #EEEEEE;
 }
 
+.references .sub-references {
+  list-style-type: lower-alpha;
+}
+
 .references a:hover {
   background: lighten(#2F5F00, 70%) !important;
 }
