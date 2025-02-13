@@ -26,6 +26,7 @@
             name="userPrompt"
             (input)="onInput($event)"
             [maxlength]="maxLength"
+            [disabled]="step != 'done' && step != 'initial'"
           ></textarea>
           <small style="position: absolute; bottom: 5px; right: 10px; color: #888;">
             {{ userPrompt.length }}/{{ maxLength }}
@@ -35,7 +36,7 @@
           <a
             class="uk-button uk-button-large uk-button-primary"
             [ngClass]="step == 'initial' || step == 'done' ? '' : 'uk-disabled'"
-            (click)="playDemo()"
+            (click)="answerQuery()"
             >Frage stellen</a
           >
         </p>
@@ -44,7 +45,7 @@
         <a>Weitere Informationen zum Chatbot</a>
       </p>
     </div>
-    <div *ngIf="step != 'initial'">
+    <div *ngIf="step != 'initial'" id="modelContent">
       <div class="uk-container uk-margin-top-50">
         <h3>
           <img
@@ -71,7 +72,11 @@
                           abgebildete Dokumente werden zur
                           Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten
                           das
-                          Kontextfenster und bleiben deshalb unberücksichtigt.
+                          <abbr title="Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann">Kontextfenster</abbr> und bleiben deshalb unberücksichtigt.
+                          <br/>
+                          <p *ngIf="tokensUsedFormatted.length > 0">
+                              Gesamtanzahl der verwendeten Token: {{tokensUsedFormatted}}
+                          </p>
                       </div>
                       <ol class="references">
                           <li *ngFor="let source of sources; let i = index">
@@ -113,9 +118,6 @@
                   </div>
               </li>
           </ul>
-        <p *ngIf="tokensUsedFormatted.length > 0">
-          Gesamtanzahl Token: {{tokensUsedFormatted}}
-        </p>
         <p *ngIf="sources.length > 0">
           <i><a>Information: Wie werden relevante Quellen erhoben?</a></i>
         </p>
@@ -157,16 +159,21 @@
           <span *ngIf="step == 'done'">&check;</span>
           Antwort erstellen <i>(&ldquor;<b>G</b>enerate&rdquor;)</i>
         </h3>
-        <blockquote *ngIf="displayAnswer.length > 0">
-          <p [innerHTML]="displayAnswer"></p>
-        </blockquote>
+          <div class="answer">
+              <div class="uk-text-center" *ngIf="step == 'output' && displayAnswer.length == 0">
+                  <img src="assets/buffering.gif" class="spinner" style="height: 100px;width:100px;">
+              </div>
+              <blockquote *ngIf="displayAnswer.length > 0">
+                  <p [innerHTML]="displayAnswer"></p>
+              </blockquote>
+          </div>
       </div>
     
       <form  *ngIf="step == 'done'" class="uk-form uk-padding-remove uk-margin-top">
           <p class="uk-margin-remove-bottom">
-              <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass die obige Antwort von
-              einer KI erstellt wurde und möglicherweise Fehler enthalten kann.
-              Für fachkundige Unterstützung steht Ihnen das Team der <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a> gerne zur
+              <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass diese Antwort von
+              einer KI rein basierend auf dem obigen Prompt erstellt wurde und Fehler enthalten kann.
+              Für fachkundige Unterstützung steht Ihnen das (menschliche) Team der <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a> gerne zur
               Verfügung.
           </p>
           <div *ngIf="feedbackFormVisible" style="position: relative;">
@@ -199,7 +206,7 @@
       <span *ngIf="step == 'done'">
         <p><strong>Energieverbrauch: </strong>
         Diese Fragenbeantwortung hat einen Stromverbrauch von <strong>{{ totalProQuery.toFixed(6).replace(".", ",") }} kWh</strong>  verursacht.
-            Mit dieser Strommenge kann etwa ein Haarfön für  <i>{{ (totalProQuery*1000*2200/60/60).toFixed(2).replace(".", ",") }} Sekunden</i> betrieben,
+            Mit dieser Energiemenge kann etwa ein Haarfön für  <i>{{ (totalProQuery*1000*2200/60/60).toFixed(2).replace(".", ",") }} Sekunden</i> betrieben,
             oder ein Handyakku um <i>{{ (totalProQuery*1000/5*1000/5000*0.80*100).toFixed(2).replace(".", ",") }}&nbsp;%</i> aufgeladen werden.
         </p>
        

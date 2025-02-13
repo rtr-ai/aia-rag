@@ -200,6 +200,9 @@ export class AiabotComponent implements OnInit {
               const sources: Source[] = JSON.parse(data.content);
               updateSources(sources);
               updateStep("prompt");
+              setTimeout(() => {
+                document.getElementById("modelContent")?.scrollIntoView({behavior: "smooth"});
+              }, 100);
               break;
             case "user":
               updatePrompt(data.content);
@@ -238,7 +241,7 @@ export class AiabotComponent implements OnInit {
     textarea.style.height = "auto";
     textarea.style.height = `${Math.min(textarea.scrollHeight, 300)}px`;
   }
-  playDemo = async () => {
+  answerQuery = async () => {
     await this.promptLLM();
   };
   formatScore(score: number): string {
