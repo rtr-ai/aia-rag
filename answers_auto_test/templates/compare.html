@@ -17,30 +17,22 @@
     </p>
     <h2>Existing Answer:</h2>
     <p>
-        {% if 'Bestehende Antwort:' in comparison and 'Quellen:' in comparison %}
-            {{ comparison.split('Bestehende Antwort:')[1].split('Quellen:')[0].strip() }}
+        {% if 'Bestehende Antwort:' in comparison %}
+            {{ comparison.split('Bestehende Antwort:')[1].split('Neue Antwort:')[0].strip() }}
         {% else %}
             N/A
         {% endif %}
     </p>
-    <h2>Sources:</h2>
-    <p>{{ quellen }}</p>
+
     <h2>New Answer:</h2>
     <p>
-        {% if 'Neue Antwort:' in comparison and 'Quellen:' in comparison %}
-            {{ comparison.split('Neue Antwort:')[1].split('Quellen:')[0].strip() }}
+        {% if 'Neue Antwort:' in comparison %}
+            {{ comparison.split('Neue Antwort:')[1].split('Zusammenfassung:')[0].strip() }}
         {% else %}
             N/A
         {% endif %}
     </p>
-    <h2>Sources from New Answer:</h2>
-    <p>
-        {% if 'Quellen:' in comparison and 'Antwort:' in comparison %}
-            {{ comparison.split('Quellen:')[2].split('Zusammenfassung:')[0].strip() }}
-        {% else %}
-            No sources provided
-        {% endif %}
-    </p>
+  
     <h2>Comparison Summary:</h2>
     <p>
         {% if 'Zusammenfassung:' in comparison %}
