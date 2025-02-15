@@ -13,6 +13,13 @@
         {% endfor %}
     </ol>
 
+    <h2>Vergleichsübersicht</h2>
+    <ul>
+        {% for category, count in comparison_counts.items() %}
+            <li>{{ category }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+
     <h2>Download Report</h2>
     <p>You can download the Excel report containing comparisons for all questions by clicking the button below.</p>
     
