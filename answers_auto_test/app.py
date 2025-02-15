@@ -27,8 +27,8 @@ def excel_data():
 
     category_counts  = {
     "1: Kein Unterschied": 0,
-    "2: Überschießende Antwort": 0,
-    "3: Überschießende Antwort": 0,
+    "2: Überschießende Antwort, kein Widerspruch": 0,
+    "3: Überschießende Antwort, Widerspruch": 0,
     "4: Widersprüchliche Antwort": 0
     }
     for item in tqdm(faq, desc="Fetching data for excel report", unit="question"): # [:5]
@@ -60,7 +60,9 @@ def excel_data():
     summary_rows = [{"Frage": f"Anzahl {category}", "Vergleichsergebnis": count} for category, count in category_counts.items()]
     summary_df = pd.DataFrame(summary_rows)
 
-    df = pd.concat([df, summary_df], ignore_index=True)
+    empty_row = pd.DataFrame([[np.nan] * df.shape[1]], columns=df.columns)
+
+    df = pd.concat([df, empty_row, summary_df], ignore_index=True)
 
     return df
   
@@ -218,8 +220,8 @@ comparison_cache = {}
 
 comparison_counts = {
     "1: Kein Unterschied": 0,
-    "2: Überschießende Antwort": 0,
-    "3: Überschießende Antwort": 0,
+    "2: Überschießende Antwort, kein Widerspruch": 0,
+    "3: Überschießende Antwort, Widerspruch": 0,
     "4: Widersprüchliche Antwort": 0
 }
 
