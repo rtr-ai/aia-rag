@@ -31,13 +31,14 @@ jobs:
           rm -r /app/trunk.old
           mv /app/trunk /app/trunk.old && 
           mv /app/trunk.new /app/trunk &&
-          cd /app/trunk &&
-          ls -lah
-          "
+          cd /app/trunk"
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.MATOMO_ENV }}" > /app/trunk/.env'
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "cd /app/trunk && ls -lah"
       shell: bash
       env:
         DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        MATOMO_ENV: ${{ secrets.MATOMO_ENV }}
     - name: Run docker
       run: |
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "

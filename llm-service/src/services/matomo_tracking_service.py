@@ -1,8 +1,8 @@
 import json
-from utils.logger import get_logger
 import os
 from typing import Optional, Dict, Any
-from matomo_api import MatomoApi
+import requests
+from utils.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
@@ -18,26 +18,18 @@ class MatomoTrackingService:
 
     @classmethod
     def _initialize(cls, instance):
-        matomo_url = os.getenv("MATOMO_ENDPOINT")
-        matomo_token = os.getenv("MATOMO_TOKEN")
-        matomo_site_id = os.getenv("MATOMO_SITE_ID")
+        instance.matomo_url = os.getenv("MATOMO_ENDPOINT")
+        instance.matomo_token = os.getenv("MATOMO_TOKEN")
+        instance.matomo_site_id = os.getenv("MATOMO_SITE_ID")
 
-        if matomo_url and matomo_token and matomo_site_id:
-            try:
-                instance.client = MatomoApi(
-                    url=matomo_url, token_auth=matomo_token, id_site=matomo_site_id
-                )
-                instance.enabled = True
-                LOGGER.debug(
-                    f"Matomo tracking initialized for site ID: {matomo_site_id}"
-                )
-            except Exception as e:
-                LOGGER.error(f"Failed to initialize Matomo tracking: {e}")
-                instance.enabled = False
+        if instance.matomo_url and instance.matomo_token and instance.matomo_site_id:
+            instance.enabled = True
+            LOGGER.debug(
+                f"Matomo tracking initialized for site ID: {instance.matomo_site_id}"
+            )
         else:
             LOGGER.debug("Matomo tracking not configured. Skipping initialization.")
             instance.enabled = False
-            instance.client = None
 
     def track_event(
         self,
@@ -52,7 +44,7 @@ class MatomoTrackingService:
         :param category: Event category, defaults to "llm_service"
         :param action: Event action
         :param name: Optional event name
-        :param value: Optional String or  Dict data  send. If Dict, data serialized to JSON data and included with the event
+        :param value: Optional String or Dict data. If Dict, it's serialized to JSON.
         """
         if not self.enabled:
             LOGGER.debug("Matomo tracking is disabled. Skipping event.")
@@ -60,8 +52,11 @@ class MatomoTrackingService:
 
         try:
             params = {
+                "idsite": self.matomo_site_id,
+                "rec": 1,
                 "e_c": category,
                 "e_a": action,
+                "token_auth": self.matomo_token,
             }
 
             if name:
@@ -73,8 +68,17 @@ class MatomoTrackingService:
                 else:
                     params["e_v"] = json.dumps(value)
 
-            self.client.track(params)
-            LOGGER.debug(f"Tracked Matomo event: {category} - {action}")
+            headers = {"Content-Type": "application/x-www-form-urlencoded"}
+
+            response = requests.post(self.matomo_url, data=params, headers=headers)
+
+            if response.status_code == 200:
+                LOGGER.debug(f"Tracked Matomo event: {category} - {action}")
+            else:
+                LOGGER.error(
+                    f"Failed to track Matomo event: HTTP {response.status_code}"
+                )
+
         except Exception as e:
             LOGGER.error(f"Failed to track Matomo event: {e}")
 

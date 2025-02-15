@@ -19,3 +19,22 @@ h3 i {
   background-color: white;
   color: #333333 !important;
 }
+
+.source-content {
+  margin: 5px;
+  border: 1px solid gray;
+  padding: 5px;
+  background-color: #EEEEEE;
+}
+
+.references .sub-references {
+  list-style-type: lower-alpha;
+}
+
+.references a:hover {
+  background: lighten(#2F5F00, 70%) !important;
+}
+
+.answer {
+  min-height: 100px;
+}

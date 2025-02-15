@@ -3,14 +3,14 @@ This is the repository for the RTR AI Act RAG.
 
 ## Matomo Configuration
 
-Matomo can be configured using matomo.env environment variable.
+Matomo can be configured using a .env environment variable.
 
 ### Environment Configuration
 
 #### Secure Token Management
 
 
-1. Create an `matomo.env`using matomo.env.example as reference file:
+1. Create an `.env`using matomo.env.example as reference file:
 ```
 MATOMO_ENDPOINT=https://your-matomo-instance.com/matomo.php
 MATOMO_TOKEN=your_tracking_token

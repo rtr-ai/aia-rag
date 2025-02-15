@@ -85,6 +85,7 @@ faq = parse_markdown(markdown_content)
 OPENAI_API_KEY = os.getenv("RTR_OPENAI_API")
 client = OpenAI(api_key=OPENAI_API_KEY)
 
+
 def clean_answer(answer):
     import re
     """Removes the 'Quellen:' section and everything after it from the answer."""
@@ -103,13 +104,11 @@ def get_new_answers(questions, max_retries=5, timeout=500):
     for question in tqdm(questions, desc="Fetching new answers", unit="question"):
         payload = json.dumps({"prompt": question})
         attempt = 0
-
         while attempt < max_retries:
             try:
                 response = requests.request(
                     "POST", url, headers=headers, data=payload, stream=True, timeout=timeout
                 )
-
                 full_response = ""
                 for line in response.iter_lines():
                     if line:
@@ -134,7 +133,21 @@ def get_new_answers(questions, max_retries=5, timeout=500):
                 if attempt == max_retries:
                     print(f"Failed to fetch answer for question: {question} after {max_retries} retries.")
                     results.append({"question": question, "answer": "Error retrieving response."})
-
+                
+                results.append({
+                    "question": question,
+                    "answer": full_response.encode('utf-8').decode('utf-8')
+                })
+                break  # Success, exit retry loop
+            
+            except requests.exceptions.ChunkedEncodingError as e:
+                attempt += 1
+                print(f"ChunkedEncodingError: {e}. Retrying {attempt}/{max_retries}...")
+                
+                if attempt == max_retries:
+                    print(f"Failed to fetch answer for question: {question} after {max_retries} retries.")
+                    results.append({"question": question, "answer": "Error retrieving response."})
+    
     return results
 
 questions = [item['question'] for item in faq]#[:1]
