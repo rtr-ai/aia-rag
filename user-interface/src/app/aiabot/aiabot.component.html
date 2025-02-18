@@ -8,7 +8,7 @@
       <p class="uk-text-large uk-margin-top">
         Sie haben Fragen zum AI Act und regulatorischen Rahmenbedingungen zu AI?
         <br />
-        Unser <a>RAG</a>-Chatbot beantwortet Ihre Fragen!
+        Unser <a>RAG-Chatbot</a> (<i>&bdquo;Retrieval-Augmented Generation&ldquo;</i>) beantwortet Ihre Fragen!
       </p>
 
       <h3>Stellen Sie Ihre Frage!</h3>
@@ -159,13 +159,13 @@
           <span *ngIf="step == 'done'">&check;</span>
           Antwort erstellen <i>(&ldquor;<b>G</b>enerate&rdquor;)</i>
         </h3>
-          <div class="answer">
+          <div class="answer" *ngIf="step == 'output' || step == 'done'" [ngClass]="step=='done'?'answer-done':''">
               <div class="uk-text-center" *ngIf="step == 'output' && displayAnswer.length == 0">
                   <img src="assets/buffering.gif" class="spinner" style="height: 100px;width:100px;">
               </div>
-              <blockquote *ngIf="displayAnswer.length > 0">
+              <div class="chat-answer" *ngIf="displayAnswer.length > 0">
                   <p [innerHTML]="displayAnswer"></p>
-              </blockquote>
+              </div>
           </div>
       </div>
     
@@ -206,7 +206,7 @@
       <span *ngIf="step == 'done'">
         <p><strong>Energieverbrauch: </strong>
         Diese Fragenbeantwortung hat einen Stromverbrauch von <strong>{{ totalProQuery.toFixed(6).replace(".", ",") }} kWh</strong>  verursacht.
-            Mit dieser Energiemenge kann etwa ein Haarfön für  <i>{{ ((totalProQuery*1000)/(2200)*60*60).toFixed(2).replace(".", ",") }} Sekunden</i> betrieben,
+            Mit dieser Energiemenge kann etwa ein Haarföhn für  <i>{{ ((totalProQuery*1000)/(2200)*60*60).toFixed(2).replace(".", ",") }} Sekunden</i> betrieben,
             oder ein Handyakku um <i>{{ (totalProQuery*1000/5*1000/5000*0.80*100).toFixed(2).replace(".", ",") }}&nbsp;%</i> aufgeladen werden.
         </p>
        

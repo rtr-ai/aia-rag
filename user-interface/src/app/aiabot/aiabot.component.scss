@@ -31,10 +31,27 @@ h3 i {
   list-style-type: lower-alpha;
 }
 
+.references a {
+  text-decoration: underline !important;
+}
+
 .references a:hover {
   background: lighten(#2F5F00, 70%) !important;
 }
 
 .answer {
   min-height: 100px;
+  background-color: rgba(226, 255, 197, 0.31);
+  border: 1px solid gray;
+  padding: 10px;
+  transition: background-color 1000ms linear;
+}
+
+.answer.answer-done {
+  background-color: rgba(226, 255, 197, 0.07);
+}
+
+.chat-answer {
+  white-space: pre-line;
+  font-size:18px;
 }
