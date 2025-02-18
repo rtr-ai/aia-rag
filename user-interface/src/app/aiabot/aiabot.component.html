@@ -73,6 +73,7 @@
                           Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten
                           das
                           <abbr title="Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann">Kontextfenster</abbr> und bleiben deshalb unberücksichtigt.
+                          Die angeführte Prozentzahl beschreibt die semantische Ähnlichkeit des Dokuments zur gestellten Frage.
                           <br/>
                           <p *ngIf="tokensUsedFormatted.length > 0">
                               Gesamtanzahl der verwendeten Token: {{tokensUsedFormatted}}
@@ -177,8 +178,8 @@
     
       <form  *ngIf="step == 'done'" class="uk-form uk-padding-remove uk-margin-top">
           <p class="uk-margin-remove-bottom">
-              <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass diese Antwort von
-              einer KI rein basierend auf dem obigen Prompt erstellt wurde und Fehler enthalten kann.
+              <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass diese Antwort von einer KI nur auf Grundlage des
+              obigen Prompts erstellt wurde und möglicherweise Fehler enthalten kann.
               Für fachkundige Unterstützung steht Ihnen das (menschliche) Team der <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a> gerne zur
               Verfügung.
           </p>
