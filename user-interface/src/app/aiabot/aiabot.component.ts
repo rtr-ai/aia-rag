@@ -134,7 +134,7 @@ export class AiabotComponent implements OnInit {
       const lines = prompt.split("\n");
       const formattedLines = lines.map((line) => {
         if (line.trim().startsWith("Titel:")) {
-          return "********************\n" + line;
+          return "<hr>" + line;
         }
         return line;
       });

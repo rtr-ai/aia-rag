@@ -39,6 +39,17 @@ h3 i {
   background: lighten(#2F5F00, 70%) !important;
 }
 
+.prompt {
+  background: rgba(226, 255, 197, 0.31);
+  white-space: pre-line;
+  padding: 10px;
+
+  hr {
+    margin: 0;
+    border-top: 1px solid lightgray !important;
+  }
+}
+
 .answer {
   min-height: 100px;
   background-color: rgba(226, 255, 197, 0.31);
