@@ -21,7 +21,7 @@ import { NgZone } from "@angular/core";
 })
 export class AiabotComponent implements OnInit {
   displayAnswer: string = "";
-  step: Step = "done";
+  step: Step = "initial";
   sources: Source[] = [];
   prompt: string = "";
   multiplier = 1;
