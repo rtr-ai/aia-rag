@@ -56,6 +56,7 @@ class MatomoTrackingService:
                 "rec": 1,
                 "e_c": category,
                 "e_a": action,
+                "c_n": action,
                 "token_auth": self.matomo_token,
             }
 
@@ -64,9 +65,9 @@ class MatomoTrackingService:
 
             if value is not None:
                 if isinstance(value, str):
-                    params["e_v"] = value
+                    params["c_p"] = value
                 else:
-                    params["e_v"] = json.dumps(value)
+                    params["c_p"] = json.dumps(value)
 
             headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
