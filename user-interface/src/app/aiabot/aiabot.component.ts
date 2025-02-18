@@ -21,23 +21,22 @@ import { NgZone } from "@angular/core";
 })
 export class AiabotComponent implements OnInit {
   displayAnswer: string = "";
-  step: Step = "initial";
+  step: Step = "done";
   sources: Source[] = [];
   prompt: string = "";
   multiplier = 1;
-  userPrompts =
-      ["Ich möchte Lebensläufe von Bewerber:innen mit KI filtern. Ist das eine Hochrisiko-KI-Anwendung?",
-          "Ich möchte E-Mails automatisch mit einem LLM beantworten. Muss ich das offenlegen?",
-          "Muss ich bei KI-generierten Bildern kennzeichnen, dass diese mit KI generiert wurden?",
-          "Wie kann ich KI-Kompetenz in meinem Unternehmen umsetzen?",
-          "Ich entwickle KI-Systeme für Märkte außerhalb der EU. Gilt der AI Act für mich?"
-      ];
-  userPrompt = this.userPrompts[Math.floor(Math.random() * this.userPrompts.length)];
+  userPrompts = [
+    "Ich möchte Lebensläufe von Bewerber:innen mit KI filtern. Ist das eine Hochrisiko-KI-Anwendung?",
+    "Ich möchte E-Mails automatisch mit einem LLM beantworten. Muss ich das offenlegen?",
+    "Muss ich bei KI-generierten Bildern kennzeichnen, dass diese mit KI generiert wurden?",
+    "Wie kann ich KI-Kompetenz in meinem Unternehmen umsetzen?",
+    "Ich entwickle KI-Systeme für Märkte außerhalb der EU. Gilt der AI Act für mich?",
+  ];
+  userPrompt =
+    this.userPrompts[Math.floor(Math.random() * this.userPrompts.length)];
   maxLength: number = 500;
   inputHeight: number = 70;
   tokensUsedFormatted: string = "";
-  feedbackFormVisible: boolean = false;
-  feedbackText: string = "";
   powerData: PowerDataDisplayed[] = [];
   totalProQuery: number = 0;
   totalConsumption: PowerDataDisplayed = {
@@ -201,7 +200,9 @@ export class AiabotComponent implements OnInit {
               updateSources(sources);
               updateStep("prompt");
               setTimeout(() => {
-                document.getElementById("modelContent")?.scrollIntoView({behavior: "smooth"});
+                document
+                  .getElementById("modelContent")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }, 100);
               break;
             case "user":
@@ -232,10 +233,6 @@ export class AiabotComponent implements OnInit {
     });
   };
 
-  onFeedBackButtonPressed = async () => {
-    this.feedbackFormVisible = !this.feedbackFormVisible;
-  };
-
   onInput(event: Event): void {
     const textarea = event.target as HTMLTextAreaElement;
     textarea.style.height = "auto";
@@ -255,7 +252,7 @@ export class AiabotComponent implements OnInit {
   getTotalSources(sources: Source[]) {
     let totalNumber = 0;
     for (let source of sources) {
-      totalNumber ++;
+      totalNumber++;
       if (source.relevantChunks) {
         totalNumber = totalNumber + source.relevantChunks.length;
       }
@@ -271,10 +268,11 @@ export class AiabotComponent implements OnInit {
     let totalNumber = 0;
     for (let source of sources) {
       if (!source.skip) {
-        totalNumber ++;
+        totalNumber++;
       }
       if (source.relevantChunks) {
-        totalNumber = totalNumber + source.relevantChunks.filter(r => !r.skip).length;
+        totalNumber =
+          totalNumber + source.relevantChunks.filter((r) => !r.skip).length;
       }
     }
     return totalNumber;
@@ -282,7 +280,7 @@ export class AiabotComponent implements OnInit {
   toggleAccordion(index: number) {
     const element = document.getElementById(`content-${index}`);
     if (element) {
-      element.classList.toggle('uk-hidden');
+      element.classList.toggle("uk-hidden");
     }
   }
 }

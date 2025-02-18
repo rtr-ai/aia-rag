@@ -183,31 +183,11 @@
               Für fachkundige Unterstützung steht Ihnen das (menschliche) Team der <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a> gerne zur
               Verfügung.
           </p>
-          <div *ngIf="feedbackFormVisible" style="position: relative;">
-              <p class="uk-margin-top">
-                  <label class="uk-margin-medium-bottom">Ihr Feedback:</label>
-              </p>
-              <textarea
-                      class="uk-input"
-                      [style.height]="'auto'"
-                      style="resize: none;"
-                      [(ngModel)]="feedbackText"
-                      name="feedback"
-                      (input)="onInput($event)"
-                      [maxlength]="maxLength"
-              ></textarea>
-              <small style="position: absolute; bottom: 5px; right: 10px; color: #888;">
-                  {{ feedbackText.length }}/{{ maxLength }}
-              </small>
-          </div>
+      
           <p class="uk-margin-remove-top">
-              <button
-                      class="uk-button uk-button-primary"
-                      (click)="onFeedBackButtonPressed()"
-              > <span *ngIf="feedbackFormVisible; else formNotVisibled">Feedback absenden</span>
-                  <ng-template #formNotVisibled>Feedback zu dieser Antwort senden</ng-template>
-              </button
-              >
+           <a class="uk-button uk-button-primary" href="mailto:ki@rtr.at?subject=Feedback%20RAG%20EU%20AI-Act">
+                Feedback zu dieser Antwort senden
+              </a>
           </p>
       </form>
       <span *ngIf="step == 'done'">
