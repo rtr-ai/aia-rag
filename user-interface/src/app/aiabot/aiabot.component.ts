@@ -39,6 +39,8 @@ export class AiabotComponent implements OnInit {
   tokensUsedFormatted: string = "";
   powerData: PowerDataDisplayed[] = [];
   totalProQuery: number = 0;
+  firstTokenProgressPercent : number = 0;
+  secondsToFirstToken = 40; //approx time until first token is expected
   totalConsumption: PowerDataDisplayed = {
     name: "total",
     label: "Gesamter Energieverbrauch",
@@ -129,6 +131,21 @@ export class AiabotComponent implements OnInit {
     const updateStep = (step: Step) => {
       this.step = step;
     };
+    const startCountdownToFirstToken = () => {
+      const startOfInterval = (new Date()).getTime() / 1000;
+      const interval = self.setInterval(() => {
+        if (this.displayAnswer.length > 0) {
+          this.firstTokenProgressPercent = 100;
+          self.clearInterval(interval);
+          return;
+        }
+        const currentTime = (new Date()).getTime() / 1000;
+        const elapsedTime = currentTime - startOfInterval;
+        const progress = (elapsedTime) / Math.max(this.secondsToFirstToken, elapsedTime + 4);
+        console.log(progress);
+        this.firstTokenProgressPercent = progress*100;
+      },500);
+    }
     const updatePrompt = (prompt: string) => {
       const lines = prompt.split("\n");
       const formattedLines = lines.map((line) => {
@@ -208,6 +225,7 @@ export class AiabotComponent implements OnInit {
             case "user":
               updatePrompt(data.content);
               updateStep("output");
+              startCountdownToFirstToken();
               break;
             case "assistant":
               appendAnswer(data.content);

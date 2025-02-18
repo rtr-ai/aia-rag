@@ -166,6 +166,7 @@
           <span *ngIf="step == 'done'">&check;</span>
           Antwort erstellen <i>(&ldquor;<b>G</b>enerate&rdquor;)</i>
         </h3>
+          <div class="first-token-progress" [ngClass]="firstTokenProgressPercent==100?'first-token-done':''" [style.width]="firstTokenProgressPercent+'%'"></div>
           <div class="answer" *ngIf="step == 'output' || step == 'done'" [ngClass]="step=='done'?'answer-done':''">
               <div class="uk-text-center" *ngIf="step == 'output' && displayAnswer.length == 0">
                   <img src="assets/buffering.gif" class="spinner" style="height: 100px;width:100px;">

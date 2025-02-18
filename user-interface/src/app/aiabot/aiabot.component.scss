@@ -50,6 +50,18 @@ h3 i {
   }
 }
 
+.first-token-progress {
+  height: 5px;
+  background-color: #2F5F00;
+  width: 65%;
+  position: relative;
+  transition: all 1s ease;
+}
+
+.first-token-progress.first-token-done {
+  background-color: rgba(47, 95, 0, 0);
+}
+
 .answer {
   min-height: 100px;
   background-color: rgba(226, 255, 197, 0.31);
