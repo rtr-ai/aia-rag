@@ -103,10 +103,10 @@
                       source.skip_reason === 'duplicate' ? 'italic' : 'normal'
                     "
                   >
-                    {{ source.title || "Quelle" }}
                     <span *ngIf="source.skip_reason === 'duplicate'"
-                      >(Duplikat)</span
-                    >
+                      >(DUPLIKAT)&nbsp;</span
+                    >{{ source.title || "Quelle" }}
+
                     ({{ formatScore(source.score) }}) ({{ source.num_tokens }}
                     Token)
                   </a>
