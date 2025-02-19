@@ -16,6 +16,7 @@ interface RelevantSource {
   content: string;
   num_tokens: number;
   skip: boolean;
+  skip_reason: "context_window" | "duplicate";
 }
 export interface Source {
   score: number;
