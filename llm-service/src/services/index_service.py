@@ -231,13 +231,18 @@ class IndexService:
 
             if context_window_reached:
                 skip = True
+                skip_reason = "context_window"
             else:
-                skip = (
-                    total_tokens + chunk_tokens > token_limit
-                    or chunk["id"] in added_chunks
-                )
-                if total_tokens + chunk_tokens > token_limit:
+                if chunk["id"] in added_chunks:
+                    skip = True
+                    skip_reason = "duplicate"
+                elif total_tokens + chunk_tokens > token_limit:
+                    skip = True
+                    skip_reason = "context_window"
                     context_window_reached = True
+                else:
+                    skip = False
+                    skip_reason = ""
 
             new_source = Source(
                 content=chunk["content"],
@@ -246,6 +251,7 @@ class IndexService:
                 relevantChunks=[],
                 num_tokens=chunk_tokens,
                 skip=skip,
+                skip_reason=skip_reason,
                 position=chunk["position"],
             )
 
@@ -258,13 +264,18 @@ class IndexService:
 
                     if context_window_reached:
                         relevant_skipped = True
+                        relevant_skip_reason = "context_window"
                     else:
-                        relevant_skipped = (
-                            total_tokens + relevant_chunk_tokens > token_limit
-                            or relevant_chunk["id"] in added_chunks
-                        )
-                        if total_tokens + relevant_chunk_tokens > token_limit:
+                        if relevant_chunk["id"] in added_chunks:
+                            relevant_skipped = True
+                            relevant_skip_reason = "duplicate"
+                        elif total_tokens + relevant_chunk_tokens > token_limit:
+                            relevant_skipped = True
+                            relevant_skip_reason = "context_window"
                             context_window_reached = True
+                        else:
+                            relevant_skipped = False
+                            relevant_skip_reason = ""
 
                     new_relevant_chunk = RelevantChunk(
                         id=relevant_chunk["id"],
@@ -272,6 +283,7 @@ class IndexService:
                         title=relevant_chunk.get("title") or relevant_chunk["id"],
                         num_tokens=relevant_chunk_tokens,
                         skip=relevant_skipped,
+                        skip_reason=relevant_skip_reason,
                         position=relevant_chunk["position"],
                     )
 

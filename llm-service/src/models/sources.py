@@ -1,6 +1,7 @@
 from typing import List
 from pydantic import BaseModel, RootModel
 
+
 class RelevantChunk(BaseModel):
     id: str
     title: str
@@ -8,6 +9,7 @@ class RelevantChunk(BaseModel):
     num_tokens: int
     skip: bool
     position: int
+
 
 class Source(BaseModel):
     content: str
@@ -17,6 +19,7 @@ class Source(BaseModel):
     num_tokens: int
     skip: bool
     position: int
+    skip_reason: str = ""
 
 
 class SourceList(RootModel[List[Source]]):

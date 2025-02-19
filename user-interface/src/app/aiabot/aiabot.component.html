@@ -8,7 +8,9 @@
       <p class="uk-text-large uk-margin-top">
         Sie haben Fragen zum AI Act und regulatorischen Rahmenbedingungen zu AI?
         <br />
-        Unser <a>RAG-Chatbot</a> (<i>&bdquo;Retrieval-Augmented Generation&ldquo;</i>) beantwortet Ihre Fragen!
+        Unser <a>RAG-Chatbot</a> (<i
+          >&bdquo;Retrieval-Augmented Generation&ldquo;</i
+        >) beantwortet Ihre Fragen!
       </p>
 
       <h3>Stellen Sie Ihre Frage!</h3>
@@ -16,22 +18,24 @@
         <p>
           <label class="uk-margin-medium-bottom">Ihre Frage: </label>
         </p>
-        <div style="position: relative;">
+        <div style="position: relative">
           <textarea
             class="uk-input"
             placeholder="Stellen Sie uns Ihre Frage zum AI Act"
             [style.height]="'auto'"
-            style="resize: none;"
+            style="resize: none"
             [(ngModel)]="userPrompt"
             name="userPrompt"
             (input)="onInput($event)"
             [maxlength]="maxLength"
             [disabled]="step != 'done' && step != 'initial'"
           ></textarea>
-          <small style="position: absolute; bottom: 5px; right: 10px; color: #888;">
+          <small
+            style="position: absolute; bottom: 5px; right: 10px; color: #888"
+          >
             {{ userPrompt.length }}/{{ maxLength }}
           </small>
-        </div> 
+        </div>
         <p>
           <a
             class="uk-button uk-button-large uk-button-primary"
@@ -56,69 +60,101 @@
           <span *ngIf="step != 'research'">&check;</span>
           Relevante Quellen erheben <i>(&ldquor;<b>R</b>etrieve&rdquor;)</i>
         </h3>
-          <ul
-                  uk-accordion
-                  class="uk-accordion ac-content"
-                  *ngIf="sources.length > 0"
-          >
-              <li class="">
-                  <a class="uk-accordion-title anchor" aria-expanded="true">
-                      <b>
-                          <ng-container>{{ getTotalSources(sources) }}</ng-container>
-                          möglicherweise relevante Quellen identifiziert</b>
+        <ul
+          uk-accordion
+          class="uk-accordion ac-content"
+          *ngIf="sources.length > 0"
+        >
+          <li class="">
+            <a class="uk-accordion-title anchor" aria-expanded="true">
+              <b>
+                <ng-container>{{ getTotalSources(sources) }}</ng-container>
+                möglicherweise relevante Quellen identifiziert</b
+              >
+            </a>
+            <div class="uk-accordion-content">
+              <div>
+                <i>Hinweis: </i> {{ getNotSkippedSources(sources) }} in
+                schwarzer Schrift abgebildete Dokumente werden zur
+                Fragenbeantwortung herangezogen. Grau abgebildete Einträge
+                überschreiten das
+                <abbr
+                  title="Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann"
+                  >Kontextfenster</abbr
+                >
+                und bleiben deshalb unberücksichtigt. Die angeführte Prozentzahl
+                beschreibt die semantische Ähnlichkeit des Dokuments zur
+                gestellten Frage.
+                <br />
+                <p *ngIf="tokensUsedFormatted.length > 0">
+                  Gesamtanzahl der verwendeten Token: {{ tokensUsedFormatted }}
+                </p>
+              </div>
+              <ol class="references">
+                <li *ngFor="let source of sources; let i = index">
+                  <a
+                    (click)="toggleAccordion(i + 1)"
+                    [style.color]="
+                      source.skip_reason === 'context_window'
+                        ? 'darkgray'
+                        : 'black'
+                    "
+                    [style.font-style]="
+                      source.skip_reason === 'duplicate' ? 'italic' : 'normal'
+                    "
+                  >
+                    {{ source.title || "Quelle" }}
+                    <span *ngIf="source.skip_reason === 'duplicate'"
+                      >(Duplikat)</span
+                    >
+                    ({{ formatScore(source.score) }}) ({{ source.num_tokens }}
+                    Token)
                   </a>
-                  <div class="uk-accordion-content">
-                      <div><i>Hinweis: </i> {{ getNotSkippedSources(sources) }} in schwarzer Schrift
-                          abgebildete Dokumente werden zur
-                          Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten
-                          das
-                          <abbr title="Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann">Kontextfenster</abbr> und bleiben deshalb unberücksichtigt.
-                          Die angeführte Prozentzahl beschreibt die semantische Ähnlichkeit des Dokuments zur gestellten Frage.
-                          <br/>
-                          <p *ngIf="tokensUsedFormatted.length > 0">
-                              Gesamtanzahl der verwendeten Token: {{tokensUsedFormatted}}
-                          </p>
-                      </div>
-                      <ol class="references">
-                          <li *ngFor="let source of sources; let i = index">
-                              <a
-                                      (click)="toggleAccordion(i+1)"
-                                      [style.color]="source.skip ? 'darkgray' : 'black'"
-                              >
-                                  {{ source.title || "Quelle" }} ({{ formatScore(source.score) }})
-                                  ({{ source.num_tokens }} Token)
-                              </a>
-                              <div
-                                      id="content-{{ (i+1) }}"
-                                      class="source-content uk-hidden"
-                                      style="margin-left: 20px"
-                              >
-                                  {{ source.content }}
-                              </div>
-
-                              <ol style="margin-left: 20px;" class="sub-references">
-                                  <li
-                                          *ngFor="let chunk of source.relevantChunks; let j=index"
-                                  >
-                                      <a (click)="toggleAccordion((i+1)*1000+j)"
-                                         [style.color]="chunk.skip ? 'darkgray' : 'black'"
-                                      >{{ chunk.title.length > 0 ? chunk.title : chunk.id }}
-                                          ({{ chunk.num_tokens }} Token)
-                                      </a>
-                                      <div
-                                              id="content-{{ ((i+1)*1000+j) }}"
-                                              class="source-content uk-hidden"
-                                              style="margin-left: 20px"
-                                      >
-                                          {{ chunk.content }}
-                                      </div>
-                                  </li>
-                              </ol>
-                          </li>
-                      </ol>
+                  <div
+                    id="content-{{ i + 1 }}"
+                    class="source-content uk-hidden"
+                    style="margin-left: 20px"
+                  >
+                    {{ source.content }}
                   </div>
-              </li>
-          </ul>
+
+                  <ol style="margin-left: 20px" class="sub-references">
+                    <li
+                      *ngFor="let chunk of source.relevantChunks; let j = index"
+                    >
+                      <a
+                        (click)="toggleAccordion((i + 1) * 1000 + j)"
+                        [style.color]="
+                          chunk.skip_reason === 'context_window'
+                            ? 'darkgray'
+                            : 'black'
+                        "
+                        [style.font-style]="
+                          chunk.skip_reason === 'duplicate'
+                            ? 'italic'
+                            : 'normal'
+                        "
+                      >
+                        {{ chunk.title.length > 0 ? chunk.title : chunk.id }}
+                        <span *ngIf="chunk.skip_reason === 'duplicate'"
+                          >(Duplikat)</span
+                        >
+                        ({{ chunk.num_tokens }} Token)
+                      </a>
+                      <div
+                        id="content-{{ (i + 1) * 1000 + j }}"
+                        class="source-content uk-hidden"
+                        style="margin-left: 20px"
+                      >
+                        {{ chunk.content }}
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </li>
+        </ul>
         <p *ngIf="sources.length > 0">
           <i><a>Information: Wie werden relevante Quellen erhoben?</a></i>
         </p>
@@ -144,12 +180,15 @@
               <b>Prompt</b>
             </a>
             <div class="uk-accordion-content">
-                <p>
-                    Basierend auf den gefundenen Quellen wurde ein Prompt erstellt. Dieses setzt
-                    sich aus den möglicherweise relevanten Quellen im Volltext, einem System Prompt
-                    sowie Ihrer Frage zusammen. Dieses Prompt wird zur Fragenbeantwortung an ein
-                    Sprachmodell (<abbr title="Large Language Model">"LLM"</abbr>) übergeben.
-                </p>
+              <p>
+                Basierend auf den gefundenen Quellen wurde ein Prompt erstellt.
+                Dieses setzt sich aus den möglicherweise relevanten Quellen im
+                Volltext, einem System Prompt sowie Ihrer Frage zusammen. Dieses
+                Prompt wird zur Fragenbeantwortung an ein Sprachmodell (<abbr
+                  title="Large Language Model"
+                  >"LLM"</abbr
+                >) übergeben.
+              </p>
               <div class="prompt" [innerHTML]="prompt"></div>
             </div>
           </li>
@@ -166,86 +205,167 @@
           <span *ngIf="step == 'done'">&check;</span>
           Antwort erstellen <i>(&ldquor;<b>G</b>enerate&rdquor;)</i>
         </h3>
-          <div class="first-token-progress" [ngClass]="firstTokenProgressPercent==100?'first-token-done':''" [style.width]="firstTokenProgressPercent+'%'"></div>
-          <div class="answer" *ngIf="step == 'output' || step == 'done'" [ngClass]="step=='done'?'answer-done':''">
-              <div class="uk-text-center" *ngIf="step == 'output' && displayAnswer.length == 0">
-                  <img src="assets/buffering.gif" class="spinner" style="height: 100px;width:100px;">
-              </div>
-              <div class="chat-answer" *ngIf="displayAnswer.length > 0">
-                  <p [innerHTML]="displayAnswer"></p>
-              </div>
+        <div
+          class="first-token-progress"
+          [ngClass]="firstTokenProgressPercent == 100 ? 'first-token-done' : ''"
+          [style.width]="firstTokenProgressPercent + '%'"
+        ></div>
+        <div
+          class="answer"
+          *ngIf="step == 'output' || step == 'done'"
+          [ngClass]="step == 'done' ? 'answer-done' : ''"
+        >
+          <div
+            class="uk-text-center"
+            *ngIf="step == 'output' && displayAnswer.length == 0"
+          >
+            <img
+              src="assets/buffering.gif"
+              class="spinner"
+              style="height: 100px; width: 100px"
+            />
           </div>
+          <div class="chat-answer" *ngIf="displayAnswer.length > 0">
+            <p [innerHTML]="displayAnswer"></p>
+          </div>
+        </div>
       </div>
-    
-      <form  *ngIf="step == 'done'" class="uk-form uk-padding-remove uk-margin-top">
-          <p class="uk-margin-remove-bottom">
-              <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass diese Antwort von einer KI nur auf Grundlage des
-              obigen Prompts erstellt wurde und möglicherweise Fehler enthalten kann.
-              Für fachkundige Unterstützung steht Ihnen das (menschliche) Team der <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a> gerne zur
-              Verfügung.
-          </p>
-      
-          <p class="uk-margin-remove-top">
-           <a class="uk-button uk-button-primary" href="mailto:ki@rtr.at?subject=Feedback%20RAG%20EU%20AI-Act">
-                Feedback zu dieser Antwort senden
-              </a>
-          </p>
+
+      <form
+        *ngIf="step == 'done'"
+        class="uk-form uk-padding-remove uk-margin-top"
+      >
+        <p class="uk-margin-remove-bottom">
+          <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass diese
+          Antwort von einer KI nur auf Grundlage des obigen Prompts erstellt
+          wurde und möglicherweise Fehler enthalten kann. Für fachkundige
+          Unterstützung steht Ihnen das (menschliche) Team der
+          <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a> gerne
+          zur Verfügung.
+        </p>
+
+        <p class="uk-margin-remove-top">
+          <a
+            class="uk-button uk-button-primary"
+            href="mailto:ki@rtr.at?subject=Feedback%20RAG%20EU%20AI-Act"
+          >
+            Feedback zu dieser Antwort senden
+          </a>
+        </p>
       </form>
       <span *ngIf="step == 'done'">
-        <p><strong>Energieverbrauch: </strong>
-        Diese Fragenbeantwortung hat einen Stromverbrauch von <strong>{{ totalProQuery.toFixed(6).replace(".", ",") }} kWh</strong>  verursacht.
-            Mit dieser Energiemenge kann etwa ein Haarföhn für  <i>{{ ((totalProQuery*1000)/(2200)*60*60).toFixed(2).replace(".", ",") }} Sekunden</i> betrieben,
-            oder ein Handyakku um <i>{{ (totalProQuery*1000/5*1000/5000*0.80*100).toFixed(2).replace(".", ",") }}&nbsp;%</i> aufgeladen werden.
+        <p>
+          <strong>Energieverbrauch: </strong> Diese Fragenbeantwortung hat einen
+          Stromverbrauch von
+          <strong>{{ totalProQuery.toFixed(6).replace(".", ",") }} kWh</strong>
+          verursacht. Mit dieser Energiemenge kann etwa ein Haarföhn für
+          <i
+            >{{
+              (((totalProQuery * 1000) / 2200) * 60 * 60)
+                .toFixed(2)
+                .replace(".", ",")
+            }}
+            Sekunden</i
+          >
+          betrieben, oder ein Handyakku um
+          <i
+            >{{
+              (((((totalProQuery * 1000) / 5) * 1000) / 5000) * 0.8 * 100)
+                .toFixed(2)
+                .replace(".", ",")
+            }}&nbsp;%</i
+          >
+          aufgeladen werden.
         </p>
-       
       </span>
-      <ul
-          uk-accordion
-          class="uk-accordion ac-content"
-          *ngIf="step == 'done'"
-        >
-          <li class="">
-            <a class="uk-accordion-title anchor" aria-expanded="true">
-              <b>Detaillierte Infos zum Energieverbrauch</b>
-            </a>
-            <div class="uk-accordion-content">
-               <div  class="table-container">
-        <table class="uk-table uk-table-hover">
-          <thead>
-            <tr>
-              <th><span uk-icon="bolt"></span> Energieverbrauch</th>
-              <th class="uk-text-right">Prozessor (CPU)</th>
-              <th class="uk-text-right">Grafikkarte (GPU)</th>
-              <th class="uk-text-right">Arbeitsspeicher (RAM)</th>
-              <th class="uk-text-right">Gesamt</th>
-              <th class="uk-text-right">Dauer</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let row of powerData">
-              <td>{{ row.label }}</td>
-              <td class="uk-text-right">{{ row.cpu_kWh.toFixed(6).replace(".", ",") }} kWh</td>
-              <td class="uk-text-right">{{ row.gpu_kWh.toFixed(6).replace(".", ",") }} kWh</td>
-              <td class="uk-text-right">{{ row.ram_kWh.toFixed(6).replace(".", ",")  }} kWh </td>
-              <td class="uk-text-right">{{ row.total_kWh.toFixed(6).replace(".", ",") }} kWh</td>
-              <td class="uk-text-right">{{ row.duration.toFixed(2).replace(".", ",") }} Sek.</td>
-            </tr>
-            <tr>
-              <td><strong>Gesamt</strong></td>
-              <td class="uk-text-right"><strong>{{ totalConsumption.cpu_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
-              <td class="uk-text-right"><strong>{{ totalConsumption.gpu_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
-              <td class="uk-text-right"><strong>{{ totalConsumption.ram_kWh.toFixed(6).replace(".", ",")  }} kWh</strong></td>
-              <td class="uk-text-right"><strong>{{ totalConsumption.total_kWh.toFixed(6).replace(".", ",") }} kWh</strong></td>
-              <td class="uk-text-right"><strong>{{ totalConsumption.duration.toFixed(2).replace(".", ",") }} Sek.</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <ul uk-accordion class="uk-accordion ac-content" *ngIf="step == 'done'">
+        <li class="">
+          <a class="uk-accordion-title anchor" aria-expanded="true">
+            <b>Detaillierte Infos zum Energieverbrauch</b>
+          </a>
+          <div class="uk-accordion-content">
+            <div class="table-container">
+              <table class="uk-table uk-table-hover">
+                <thead>
+                  <tr>
+                    <th><span uk-icon="bolt"></span> Energieverbrauch</th>
+                    <th class="uk-text-right">Prozessor (CPU)</th>
+                    <th class="uk-text-right">Grafikkarte (GPU)</th>
+                    <th class="uk-text-right">Arbeitsspeicher (RAM)</th>
+                    <th class="uk-text-right">Gesamt</th>
+                    <th class="uk-text-right">Dauer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of powerData">
+                    <td>{{ row.label }}</td>
+                    <td class="uk-text-right">
+                      {{ row.cpu_kWh.toFixed(6).replace(".", ",") }} kWh
+                    </td>
+                    <td class="uk-text-right">
+                      {{ row.gpu_kWh.toFixed(6).replace(".", ",") }} kWh
+                    </td>
+                    <td class="uk-text-right">
+                      {{ row.ram_kWh.toFixed(6).replace(".", ",") }} kWh
+                    </td>
+                    <td class="uk-text-right">
+                      {{ row.total_kWh.toFixed(6).replace(".", ",") }} kWh
+                    </td>
+                    <td class="uk-text-right">
+                      {{ row.duration.toFixed(2).replace(".", ",") }} Sek.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gesamt</strong></td>
+                    <td class="uk-text-right">
+                      <strong
+                        >{{
+                          totalConsumption.cpu_kWh.toFixed(6).replace(".", ",")
+                        }}
+                        kWh</strong
+                      >
+                    </td>
+                    <td class="uk-text-right">
+                      <strong
+                        >{{
+                          totalConsumption.gpu_kWh.toFixed(6).replace(".", ",")
+                        }}
+                        kWh</strong
+                      >
+                    </td>
+                    <td class="uk-text-right">
+                      <strong
+                        >{{
+                          totalConsumption.ram_kWh.toFixed(6).replace(".", ",")
+                        }}
+                        kWh</strong
+                      >
+                    </td>
+                    <td class="uk-text-right">
+                      <strong
+                        >{{
+                          totalConsumption.total_kWh
+                            .toFixed(6)
+                            .replace(".", ",")
+                        }}
+                        kWh</strong
+                      >
+                    </td>
+                    <td class="uk-text-right">
+                      <strong
+                        >{{
+                          totalConsumption.duration.toFixed(2).replace(".", ",")
+                        }}
+                        Sek.</strong
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </li>
-        </ul>
-   
+          </div>
+        </li>
+      </ul>
     </div>
     <div class="uk-container uk-margin-top-50">
       <h4>Hintergrundinformationen zum AI Act Chatbot</h4>
