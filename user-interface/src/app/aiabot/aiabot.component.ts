@@ -35,11 +35,12 @@ export class AiabotComponent implements OnInit {
   userPrompt =
     this.userPrompts[Math.floor(Math.random() * this.userPrompts.length)];
   maxLength: number = 500;
+  mailtoLink: string = "mailto:ki@rtr.at?subject=Feedback%20RAG%20EU%20AI-Act";
   inputHeight: number = 70;
   tokensUsedFormatted: string = "";
   powerData: PowerDataDisplayed[] = [];
   totalProQuery: number = 0;
-  firstTokenProgressPercent : number = 0;
+  firstTokenProgressPercent: number = 0;
   secondsToFirstToken = 40; //approx time until first token is expected
   totalConsumption: PowerDataDisplayed = {
     name: "total",
@@ -53,6 +54,14 @@ export class AiabotComponent implements OnInit {
 
   constructor(private zone: NgZone) {}
   ngOnInit(): void {}
+  updateMailtoLink() {
+    const recipient = "ki@rtr.at";
+    const encodedSubject = encodeURIComponent("Feedback AI Act Chatbot");
+    const encodedBody = encodeURIComponent(
+      `Mein Feedback betrifft folgende Anfrage:\n${this.userPrompt}\nFolgende Antwort hat die KI ausgegeben:\n\n${this.displayAnswer}`
+    );
+    this.mailtoLink = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
+  }
 
   promptLLM = async () => {
     const controller = new AbortController();
@@ -130,22 +139,26 @@ export class AiabotComponent implements OnInit {
     };
     const updateStep = (step: Step) => {
       this.step = step;
+      if (step === "done") {
+        this.updateMailtoLink();
+      }
     };
     const startCountdownToFirstToken = () => {
-      const startOfInterval = (new Date()).getTime() / 1000;
+      const startOfInterval = new Date().getTime() / 1000;
       const interval = self.setInterval(() => {
         if (this.displayAnswer.length > 0) {
           this.firstTokenProgressPercent = 100;
           self.clearInterval(interval);
           return;
         }
-        const currentTime = (new Date()).getTime() / 1000;
+        const currentTime = new Date().getTime() / 1000;
         const elapsedTime = currentTime - startOfInterval;
-        const progress = (elapsedTime) / Math.max(this.secondsToFirstToken, elapsedTime + 4);
+        const progress =
+          elapsedTime / Math.max(this.secondsToFirstToken, elapsedTime + 4);
         console.log(progress);
-        this.firstTokenProgressPercent = progress*100;
-      },500);
-    }
+        this.firstTokenProgressPercent = progress * 100;
+      }, 500);
+    };
     const updatePrompt = (prompt: string) => {
       const lines = prompt.split("\n");
       const formattedLines = lines.map((line) => {
