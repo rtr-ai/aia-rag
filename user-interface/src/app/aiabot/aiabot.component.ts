@@ -42,6 +42,7 @@ export class AiabotComponent implements OnInit {
   totalProQuery: number = 0;
   firstTokenProgressPercent: number = 0;
   secondsToFirstToken = 40; //approx time until first token is expected
+  progressbarInterval : null|number = null;
   totalConsumption: PowerDataDisplayed = {
     name: "total",
     label: "Gesamter Energieverbrauch",
@@ -151,11 +152,11 @@ export class AiabotComponent implements OnInit {
           self.clearInterval(interval);
           return;
         }
+        this.progressbarInterval = interval;
         const currentTime = new Date().getTime() / 1000;
         const elapsedTime = currentTime - startOfInterval;
         const progress =
           elapsedTime / Math.max(this.secondsToFirstToken, elapsedTime + 4);
-        console.log(progress);
         this.firstTokenProgressPercent = progress * 100;
       }, 500);
     };
@@ -195,6 +196,9 @@ export class AiabotComponent implements OnInit {
       total_kWh: 0,
       duration: 0,
     };
+    if (this.progressbarInterval !== null) {
+      self.clearInterval(this.progressbarInterval)
+    }
 
     await fetchEventSource(`${server}/chat`, {
       signal: signal,
