@@ -21,7 +21,7 @@ def find_missing_titles(combined_data, true_results):
             if similarity < 90:  # Threshold for minor variations
                 if key not in missing_entries:
                     missing_entries[key] = []
-                missing_entries[key].append(value)
+                missing_entries[key].append({"missing": value, "closest_match": best_match, "similarity": similarity})
     
     return missing_entries
 
