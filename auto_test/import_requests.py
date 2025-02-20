@@ -2,6 +2,7 @@ import requests
 import json
 import time
 from tqdm import tqdm
+import os
 
 # URL of the service
 url = "https://rag.ki.rtr.at/llm-service/chat"
