@@ -1,16 +1,13 @@
 import requests
 import json
 import time
-import subprocess
-import os
 from tqdm import tqdm
 
 # URL of the service
 url = "https://rag.ki.rtr.at/llm-service/chat"
 
-# fetch the questions rom true_ersults.json file
+# Load the questions from the JSON file NORMAL
 with open("auto_test/true_results.json", "r", encoding="utf-8") as file:
-
     data = json.load(file)
 
 # Extract keys as a list
@@ -21,11 +18,9 @@ output_data = {}
 
 for q in tqdm(faq, desc="Processing questions", unit="question"):
     # Data payload
-    payload = {
-        "prompt": q
-    }
+    payload = {"prompt": q}
 
-    # Headers, based on your request
+    # Headers
     headers = {
         "Accept": "text/event-stream",
         "Authorization": os.getenv("RTR_BASIC_TOKEN"),
@@ -43,16 +38,11 @@ for q in tqdm(faq, desc="Processing questions", unit="question"):
             if line:
                 decoded_line = line.decode('utf-8')
                 if decoded_line.startswith('data: '):
-                    # Strip 'data: ' part from the line
                     json_data = decoded_line[6:]
                     event_data = json.loads(json_data)
                     events.append(event_data)
-                    
-                    # Check to see if we have enough events
                     if len(events) >= 3:
                         break
-
-            # Introduce a delay, as subsequent responses may take time
             time.sleep(1)
 
         # Process the second event
@@ -64,42 +54,31 @@ for q in tqdm(faq, desc="Processing questions", unit="question"):
         relevant_chunks = []
 
         for item in content:
+            if item.get("skip") == True and item.get("skip_reason") == "context_window":
+                continue  # Skip this object
+
             main_title = item.get('title', '<No Title>')
             articles.append(main_title)
             for chunk in item.get('relevantChunks', []):
                 chunk_title = chunk.get('title', '<No Title>')
                 relevant_chunks.append(chunk_title)
 
-        # Assign to the question key
-        output_data[q] = [
-            {"articles": articles},
-            {"relevant": relevant_chunks}
-        ]
-        
-        
+        # Assign to the question key if relevant data exists
+        if articles or relevant_chunks:
+            output_data[q] = [
+                {"articles": articles},
+                {"relevant": relevant_chunks}
+            ]
+
     else:
         print('Request failed with status code:', response.status_code)
 
-# Write the collected data to a JSON file
+# Write the collected data to a JSON file NORAML
 with open("auto_test/evaluated_results.json", "w", encoding="utf-8") as json_file:
     json.dump(output_data, json_file, indent=4, ensure_ascii=False)
 
-print("JSON file 'evaluated_results.json' created successfully.")
+# Write the collected data to a JSON file GEHEIM
+#with open("auto_test/evaluated_results_geheim.json", "w", encoding="utf-8") as json_file:
+    #json.dump(output_data, json_file, indent=4, ensure_ascii=False)
 
-def git_push():
-    try:
-        # Add the updated file to the staging area
-        subprocess.run(["git", "add", "auto_test/evaluated_results.json"], check=True)
-
-        # Commit the changes with a message
-        subprocess.run(["git", "commit", "-m", "Update FAQ JSON file"], check=True)
-
-        # Push the changes to the remote repository
-        subprocess.run(["git", "push"], check=True)
-
-        print("File successfully pushed to GitHub.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error during Git operations: {e}")
-
-# Call the function to push changes
-git_push()
+print("JSON file 'evaluated_results_geheim.json' created successfully.")
