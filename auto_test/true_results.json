@@ -1,6 +1,6 @@
 {
     "Ich möchte meinen Mitarbeitern den Einsatz von ChatGPT ermöglichen. Welche Rolle im AI Act nehme ich als Unternehmen ein?": [
-        "Art 3: Z 1 Definition KI-System",
+        "Art 3: Z1 Definition KI-System",
         "Art 3: Z3-Z11, Z68 Akteure",
         "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
         "KI-Servicestelle: Akteure, Betreiber"
@@ -20,15 +20,15 @@
     ],
     "Ich möchte KI-Systeme in meinem Unternehmen einsetzen. Gibt es dafür bestimmte Auflagen, die ich erfüllen muss?": [
         "Art 4",
-        "Art 3: Z 1 Definition KI-System",
+        "Art 3: Z1 Definition KI-System",
         "KI-Servicestelle: KI-Kompetenz, Allgemein",
         "KI-Servicestelle: KI-Kompetenz, Begriffsdefinition",
         "KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette",
         "KI-Servicestelle: Risikostufen KI-Systeme, Allgemein"
     ],
-    "Ich möchte auf meiner Website eine  KI-generierte Hintergrundmusik implementieren?  Unterliege ich etwaigen Verpflichtungen nach dem AI Act?": [
+    "Ich möchte auf meiner Website eine KI-generierte Hintergrundmusik implementieren? Unterliege ich etwaigen Verpflichtungen nach dem AI Act?": [
         "Art 50",
-        "KI-Servicestelle: Betreiberverpflichtung, Allgemein",
+        "KI-Servicestelle: Betreiberverpflichtungen, Allgemein",
         "KI-Servicestelle: Betreiberverpflichtungen, generative KI-Systeme"
     ],
     "Ich möchte gerne KI-Reallabore nutzen. Ab wann ist das möglich und wie genau funktionieren diese?": [
@@ -58,7 +58,7 @@
     ],
     "Ich habe mein eigenes KI-System/KI-Modell für den internen Gebrauch im Unternehmen entwickelt. Gilt der AI-Act auch für mich?": [
         "Art 3: Z3-Z11, Z68 Akteure",
-        "Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck",
+        "Art 3: Z63-67 KI-Systeme und KI-Modelle mit allg. Verwendungszweck",
         "Art 50",
         "KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?",
         "KI-Servicestelle: FAQ - Was ist ein KI-System?"
@@ -68,7 +68,7 @@
         "KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake",
         "KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte",
         "KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?",
-        "KI-Servicestelle: Betreiberverpflichtung, Allgemein"
+        "KI-Servicestelle: Betreiberverpflichtungen, Allgemein"
     ],
     "Ich möchte in meinem Unternehmen KI einsetzen. Muss ich eine KI-Policy erlassen?": [
         "Art 4",
@@ -150,7 +150,7 @@
         "Art 62"
     ],
     "Ich bin eine Kleinunternehmerin und verkaufe in meinem Onlineshop ausschließlich Frauenbekleidung. Je nach Verkaufsverhalten meiner Kundinnen liefert, eine KI-gestützte Software personalisierte Bekleidungsvorschläge, die den Kundinnen direkt auf der Webseite angezeigt werden. Bin ich als Betreiberin gemäß dem AI-Act einzustufen?": [
-        "Art 3: Z 1 Definition KI-System",
+        "Art 3: Z1 Definition KI-System",
         "Art 3: Z3-Z11, Z68 Akteure",
         "KI-Servicestelle: Akteure, KI-Wertschöpfungskette",
         "KI-Servicestelle: Akteure, Betreiber"

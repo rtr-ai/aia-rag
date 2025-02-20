@@ -6,7 +6,7 @@ ChatGPT wird als KI-System im Sinne des AI Acts einzustufen sein [1].
 Da Sie als Unternehmen das KI-System nicht selbst entwickeln, sondern dieses im Rahmen der beruflichen Tätigkeit in eigener Verantwortung einsetzen, wird Ihr Unternehmen die Rolle eines Betreibers einnehmen [2], [3], [4]. 
 
 Quellen:
-[1] Art 3: Z 1 Definition KI-System
+[1] Art 3: Z1 Definition KI-System
 [2] Art 3: Z3-Z11, Z68 Akteure
 [3] KI-Servicestelle: Akteure, KI-Wertschöpfungskette
 [4] KI-Servicestelle: Akteure, Betreiber
@@ -49,21 +49,21 @@ werden sollen, sowie die Personen oder -gruppen bei denen die KI-Systeme eingese
 
 Quellen:
 [1] Art 4 AIA
-[2] Art 3: Z 1 Definition KI-System
+[2] Art 3: Z1 Definition KI-System
 [3] KI-Servicestelle: KI-Kompetenz, Allgemein
 [4] KI-Servicestelle: KI-Kompetenz, Begriffsdefinition
 [5] KI-Servicestelle: KI-Kompetenz, Wertschöpfungskette
 [6] KI-Servicestelle: Risikostufen KI-Systeme, Allgemein
 
 
-# 5. Ich möchte auf meiner Website eine  KI-generierte Hintergrundmusik implementieren?  Unterliege ich etwaigen Verpflichtungen nach dem AI Act?
+# 5. Ich möchte auf meiner Website eine KI-generierte Hintergrundmusik implementieren? Unterliege ich etwaigen Verpflichtungen nach dem AI Act?
 
 Antwort:
 Das Erstellen von KI-generierten Audios unterliegt ab 2.8.2025 nur dann den Transparenzpflichten des AI-Acts, wenn es sich um sog. "Deepfakes" handelt [1], [2], [3].
 
 Quellen:
 [1] Art 50 Abs 1 AIA
-[2] KI-Servicestelle: Betreiberverpflichtung, Allgemein
+[2] KI-Servicestelle: Betreiberverpflichtungen, Allgemein
 [3] KI-Servicestelle: Betreiberverpflichtungen, generative KI-Systeme
 
 
@@ -128,7 +128,7 @@ Es sind daher hier sowohl die zu erfüllenden Pflichten eines Anbieters als auch
 
 Quellen:
 [1] Art 3: Z3-Z11, Z68 Akteure
-[2] Art 3: Z63-Z67 KI-Modell mit allg. Verwendungszweck
+[2] Art 3: Z63-67 KI-Systeme und KI-Modelle mit allg. Verwendungszweck
 [3] Art 50 AIA
 [4] KI-Servicestelle: FAQ - Wie werden Unternehmensgruppen behandelt, wenn konzernintern KI-Systeme entwickelt, und durch andere Unternehmen innerhalb des Konzerns genutzt werden?
 [5] KI-Servicestelle: FAQ - Was ist ein KI-System?
@@ -145,7 +145,7 @@ Quellen:
 [2] KI-Servicestelle: Transparenzpflichten, Betreiber, Deepfake
 [3] KI-Servicestelle: Transparenzpflichten, Generierung synthetischer Inhalte
 [4] KI-Servicestelle: FAQ - Ich möchte KI-generierte Videos von einem Anbieter beziehen und auf meiner eigenen Plattform veröffentlichen, was muss ich aus Sicht des AI Acts beachten?
-[5] KI-Servicestelle: Betreiberverpflichtung, Allgemein
+[5] KI-Servicestelle: Betreiberverpflichtungen, Allgemein
 
 
 # 11. Ich möchte in meinem Unternehmen KI einsetzen. Muss ich eine KI-Policy erlassen?
@@ -319,7 +319,7 @@ Hier liegt ein sogenanntes Recommander-System (Empfehlungssystem) vor, welches m
 Durch den Einsatz dieser Software sind Sie als Betreiber eines KI-Systems einzustufen [2], [3], [4].
 
 Quellen:
-[1] Art 3: Z 1 Definition KI-System
+[1] Art 3: Z1 Definition KI-System
 [2] Art 3: Z3-Z11, Z68 Akteure
 [3] KI-Servicestelle: Akteure, KI-Wertschöpfungskette
 [4] KI-Servicestelle: Akteure, Betreiber
