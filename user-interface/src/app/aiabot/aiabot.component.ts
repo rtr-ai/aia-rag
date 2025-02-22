@@ -146,19 +146,22 @@ export class AiabotComponent implements OnInit {
     };
     const startCountdownToFirstToken = () => {
       const startOfInterval = new Date().getTime() / 1000;
+      if (this.progressbarInterval !== null) {
+        self.clearInterval(this.progressbarInterval)
+      }
       const interval = self.setInterval(() => {
         if (this.displayAnswer.length > 0) {
           this.firstTokenProgressPercent = 100;
           self.clearInterval(interval);
           return;
         }
-        this.progressbarInterval = interval;
         const currentTime = new Date().getTime() / 1000;
         const elapsedTime = currentTime - startOfInterval;
         const progress =
           elapsedTime / Math.max(this.secondsToFirstToken, elapsedTime + 4);
         this.firstTokenProgressPercent = progress * 100;
       }, 500);
+      this.progressbarInterval = interval;
     };
     const updatePrompt = (prompt: string) => {
       const lines = prompt.split("\n");
