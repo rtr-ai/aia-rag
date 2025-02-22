@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths-ignore:
-      - auto_test/**
+    #  - auto_test/**
       - graph_network/**
       - answers_auto_test/**
 concurrency:

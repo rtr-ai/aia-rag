@@ -11,7 +11,7 @@ TIMEOUT = 10
 
 URL = "https://rag.ki.rtr.at/llm-service/chat"
 HEADERS = {
-    'Authorization': os.getenv("RTR_BASIC_TOKEN"),
+    'Authorization': os.getenv("HTTP_AUTHORIZATION"),
     'Accept': 'text/event-stream',
     'Content-Type': 'application/json'
 }
