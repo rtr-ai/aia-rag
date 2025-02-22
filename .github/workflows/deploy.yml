@@ -57,9 +57,9 @@ jobs:
         DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
     - name: Validate deployment of llm-service
-      working-directory: ./github
+      working-directory: ./auto_test
       env:
         HTTP_AUTHORIZATION: ${{ secrets.HTTP_AUTHORIZATION }}
       run: |
         pip install requests &&
-        python ci-test 
+        python ci-test.py 
