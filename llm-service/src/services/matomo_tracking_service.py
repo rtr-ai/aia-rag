@@ -35,7 +35,6 @@ class MatomoTrackingService:
         self,
         action: str,
         category: str = "llm_service",
-        name: Optional[str] = None,
         value: Optional[Dict[str, Any] | str] = None,
     ):
         """
@@ -43,7 +42,6 @@ class MatomoTrackingService:
 
         :param category: Event category, defaults to "llm_service"
         :param action: Event action
-        :param name: Optional event name
         :param value: Optional String or Dict data. If Dict, it's serialized to JSON.
         """
         if not self.enabled:
@@ -56,18 +54,14 @@ class MatomoTrackingService:
                 "rec": 1,
                 "e_c": category,
                 "e_a": action,
-                "c_n": action,
                 "token_auth": self.matomo_token,
             }
 
-            if name:
-                params["e_n"] = name
-
             if value is not None:
-                if isinstance(value, str):
-                    params["c_p"] = value
-                else:
-                    params["c_p"] = json.dumps(value)
+                if not isinstance(value, str):
+                    value = json.dumps(value)
+                params["e_n"] = value
+                params["e_v"] = len(value)
 
             headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
