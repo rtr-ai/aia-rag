@@ -33,7 +33,7 @@ class ChatService:
         try:
             yield f"data: {data}\n\n"
             LOGGER.debug(f"Prompting: <{request.prompt}>")
-            self.model = request.model
+            self.model = DEFAULT_MODEL
             meter = PowerMeterService()
             meter.start()
 
