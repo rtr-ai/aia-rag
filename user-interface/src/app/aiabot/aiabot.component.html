@@ -87,7 +87,7 @@
                 gestellten Frage.
                 <br />
                 <p *ngIf="tokensUsedFormatted.length > 0">
-                  Gesamtanzahl der verwendeten Token: {{ tokensUsedFormatted }}
+                  Gesamtanzahl der verwendeten <abbr title="Kleine Texteinheiten von mehrern Buchstaben">Token</abbr>: {{ tokensUsedFormatted }}
                 </p>
               </div>
               <ol class="references">
@@ -180,8 +180,7 @@
               <b>Prompt</b>
             </a>
             <div class="uk-accordion-content">
-              <p>
-                Basierend auf den gefundenen Quellen wurde ein Prompt erstellt.
+              <p>Basierend auf den gefundenen Quellen wurde ein Prompt erstellt.
                 Dieses setzt sich aus den möglicherweise relevanten Quellen im
                 Volltext, einem System Prompt sowie Ihrer Frage zusammen. Dieses
                 Prompt wird zur Fragenbeantwortung an ein Sprachmodell (<abbr
@@ -254,7 +253,7 @@
         <p>
           <strong>Energieverbrauch: </strong> Diese Fragenbeantwortung hat einen
           Stromverbrauch von
-          <strong>{{ totalProQuery.toFixed(6).replace(".", ",") }} kWh</strong>
+          <strong>{{ totalProQuery.toFixed(6).replace(".", ",") }} <abbr title="Kilowattstunden">kWh</abbr></strong>
             verursacht. Mit dieser Energiemenge kann etwa ein <abbr title="Modell mit 2,2 kW Leistung">Haarföhn</abbr> für
           <i
             >{{
@@ -315,28 +314,28 @@
                   <tr>
                     <td><strong>Gesamt</strong></td>
                     <td class="uk-text-right">
-                      <strong
+                      <strong style="word-break:keep-all"
                         >{{
                           totalConsumption.cpu_kWh.toFixed(6).replace(".", ",")
                         }}&nbsp;kWh</strong
                       >
                     </td>
                     <td class="uk-text-right">
-                      <strong
+                      <strong style="word-break:keep-all"
                         >{{
                           totalConsumption.gpu_kWh.toFixed(6).replace(".", ",")
                         }}&nbsp;kWh</strong
                       >
                     </td>
                     <td class="uk-text-right">
-                      <strong
+                      <strong style="word-break:keep-all"
                         >{{
                           totalConsumption.ram_kWh.toFixed(6).replace(".", ",")
                         }}&nbsp;kWh</strong
                       >
                     </td>
                     <td class="uk-text-right">
-                      <strong
+                      <strong style="word-break:keep-all"
                         >{{
                           totalConsumption.total_kWh
                             .toFixed(6)
@@ -345,7 +344,7 @@
                       >
                     </td>
                     <td class="uk-text-right">
-                      <strong
+                      <strong style="word-break:keep-all"
                         >{{
                           totalConsumption.duration.toFixed(2).replace(".", ",")
                         }}&nbsp;Sek.</strong
@@ -369,11 +368,12 @@
     <div class="uk-container uk-margin-top-50">
       <h4>Hintergrundinformationen zum AI Act Chatbot</h4>
       <ul>
-        <li><a>Datenschutz</a></li>
-        <li><a>Technische Ausführung und Source Code</a></li>
-        <li><a>Chatbots und der AI Act</a></li>
-        <li><a>Softwarelizenzen</a></li>
-        <li><a>Datenstand, Datenbasis, Datenaufbereitung</a></li>
+        <li><a href="https://www.rtr.at/rtr/footer/Datenschutz.de.html">Datenschutzerklärung</a></li>
+        <li><a>Datenschutzrechtliche Aspekte des AI Act Chatbots</a></li>
+        <li><a>Analyse des AI Act Chatbot nach dem AI Act</a></li>
+        <li><a>Technische Hintergrundinformationen</a></li>
+        <li><a href="https://github.com/rtr-ai/aia-rag">Source Code und Softwarelizenzen</a></li>
+        <li><a href="https://github.com/rtr-ai/aia-rag/tree/main/data">Im AI Act verfügbare Datenbasis</a></li>
       </ul>
     </div>
   </div>
