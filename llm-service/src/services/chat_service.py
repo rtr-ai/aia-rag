@@ -46,7 +46,9 @@ class ChatService:
             data = {"type": "power_index", "content": index_power_usage}
 
             yield f"data: {json.dumps(data)}\n\n"
-            chunks = await self.index_service.query_index("main", query=request.prompt)
+            chunks = await self.index_service.query_index(
+                "main", query=request.prompt, request_id=request_id
+            )
             measurement = meter.stop()
 
             async for part in self.__yield_sources__(
