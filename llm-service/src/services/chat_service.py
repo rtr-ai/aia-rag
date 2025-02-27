@@ -84,7 +84,7 @@ class ChatService:
 
             prompt = generate_prompt(prompt=request.prompt, sources=chunks)
             data = json.dumps({"content": prompt, "type": "user"})
-            matomo_service.track_event(action="user", value=prompt)
+            matomo_service.track_event(action="user", value=request.prompt)
             yield f"data: {data}\n\n"
             LOGGER.debug("Prompting Ollama")
             response = ""
