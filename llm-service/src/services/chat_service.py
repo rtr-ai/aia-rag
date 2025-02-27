@@ -98,7 +98,6 @@ class ChatService:
             measurement = meter.stop()
             median_measurement = meter.get_median_power(power_samples)
             matomo_service.track_event(action="assistant", value=response)
-            LOGGER.debug(f"Final response: {response}")
             final_log = f"User Prompt: {request.prompt}\n\n\n"
             final_log += f"LLM Response: {response}\n\n\n"
             LOGGER.debug(final_log)
