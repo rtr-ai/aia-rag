@@ -12,7 +12,7 @@ from models.sources import Source, SourceList
 from utils.prompt_utils import generate_prompt
 from services.power_meter_service import PowerMeterService
 from services.matomo_tracking_service import matomo_service
-import uuid
+import secrets
 
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 LOGGER = get_logger(__name__)
@@ -31,7 +31,7 @@ class ChatService:
 
     async def chat(self, request: ChatRequest) -> AsyncGenerator[str, None]:
         data = json.dumps({"content": "", "type": "heartbeat"})
-        request_id = str(uuid.uuid4())
+        request_id = str(secrets.token_hex(8))
         try:
             yield f"data: {data}\n\n"
             LOGGER.debug(f"[{request_id}]   Prompting: <{request.prompt}>")

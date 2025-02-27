@@ -34,7 +34,7 @@ class MatomoTrackingService:
     def track_event(
         self,
         action: str,
-        request_id: str,
+        request_id: str = "",
         category: str = "llm_service",
         value: Optional[Dict[str, Any] | str] = None,
     ):
@@ -57,6 +57,8 @@ class MatomoTrackingService:
                 "e_a": action,
                 "token_auth": self.matomo_token,
             }
+            if request_id:
+                params["_id"] = request_id
 
             if value is not None:
                 if not isinstance(value, str):
