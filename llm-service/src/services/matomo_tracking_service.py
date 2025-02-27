@@ -34,6 +34,7 @@ class MatomoTrackingService:
     def track_event(
         self,
         action: str,
+        request_id: str,
         category: str = "llm_service",
         value: Optional[Dict[str, Any] | str] = None,
     ):
@@ -68,14 +69,16 @@ class MatomoTrackingService:
             response = requests.post(self.matomo_url, data=params, headers=headers)
 
             if response.status_code == 200:
-                LOGGER.debug(f"Tracked Matomo event: {category} - {action}")
+                LOGGER.debug(
+                    f"[{request_id}]    Tracked Matomo event: {category} - {action}"
+                )
             else:
                 LOGGER.error(
-                    f"Failed to track Matomo event: HTTP {response.status_code}"
+                    f"[{request_id}]    Failed to track Matomo event: HTTP {response.status_code}"
                 )
 
         except Exception as e:
-            LOGGER.error(f"Failed to track Matomo event: {e}")
+            LOGGER.error(f"[{request_id}]   Failed to track Matomo event: {e}")
 
 
 matomo_service = MatomoTrackingService()

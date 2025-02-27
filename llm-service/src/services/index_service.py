@@ -194,9 +194,7 @@ class IndexService:
         self._save_vector_store()
 
     async def query_index(
-        self,
-        index_id: str,
-        query: str,
+        self, index_id: str, query: str, request_id: str
     ) -> List[Source]:
         """
         Query an index and return all chunks, marking those exceeding token limits.
@@ -219,7 +217,7 @@ class IndexService:
 
         total_tokens = 0
         LOGGER.debug(
-            f"Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
+            f"[{request_id}]    Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
         )
         token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
         sources: List[Source] = []
@@ -295,7 +293,7 @@ class IndexService:
 
             sources.append(new_source)
 
-        LOGGER.debug(f"Generated chunks for the query {sources}")
+        LOGGER.debug(f"[{request_id}]   Generated chunks for the query {sources}")
         return sources
 
     def _save_vector_store(self):

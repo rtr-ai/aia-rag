@@ -12,6 +12,7 @@ from models.sources import Source, SourceList
 from utils.prompt_utils import generate_prompt
 from services.power_meter_service import PowerMeterService
 from services.matomo_tracking_service import matomo_service
+import uuid
 
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 LOGGER = get_logger(__name__)
@@ -30,22 +31,27 @@ class ChatService:
 
     async def chat(self, request: ChatRequest) -> AsyncGenerator[str, None]:
         data = json.dumps({"content": "", "type": "heartbeat"})
+        request_id = str(uuid.uuid4())
         try:
             yield f"data: {data}\n\n"
-            LOGGER.debug(f"Prompting: <{request.prompt}>")
+            LOGGER.debug(f"[{request_id}]   Prompting: <{request.prompt}>")
             self.model = DEFAULT_MODEL
             meter = PowerMeterService()
             meter.start()
 
             index_power_usage = meter.get_initial_power_consumption()
-            LOGGER.debug(f"Initial index power usage: {index_power_usage}")
+            LOGGER.debug(
+                f"[{request_id}]    Initial index power usage: {index_power_usage}"
+            )
             data = {"type": "power_index", "content": index_power_usage}
 
             yield f"data: {json.dumps(data)}\n\n"
             chunks = await self.index_service.query_index("main", query=request.prompt)
             measurement = meter.stop()
 
-            async for part in self.__yield_sources__(chunks):
+            async for part in self.__yield_sources__(
+                sources=chunks, request_id=request_id
+            ):
                 yield part
 
             data = {
@@ -78,15 +84,21 @@ class ChatService:
                     "duration": measurement.duration_seconds,
                 },
             }
-            matomo_service.track_event(action=data["type"], value=data["content"])
+            matomo_service.track_event(
+                action=data["type"], request_id=request_id, value=data["content"]
+            )
             yield f"data: {json.dumps(data)}\n\n"
-            LOGGER.debug(f"Power consumption for generating prompt: {data}")
+            LOGGER.debug(
+                f"[{request_id}]    Power consumption for generating prompt: {data}"
+            )
 
             prompt = generate_prompt(prompt=request.prompt, sources=chunks)
             data = json.dumps({"content": prompt, "type": "user"})
-            matomo_service.track_event(action="user", value=request.prompt)
+            matomo_service.track_event(
+                action="user", request_id=request_id, value=request.prompt
+            )
             yield f"data: {data}\n\n"
-            LOGGER.debug("Prompting Ollama")
+            LOGGER.debug(f"[{request_id}]   Prompting Ollama")
             response = ""
             meter.start()
             power_samples = []
@@ -97,12 +109,14 @@ class ChatService:
                 yield f"data: {data}\n\n"
             measurement = meter.stop()
             median_measurement = meter.get_median_power(power_samples)
-            matomo_service.track_event(action="assistant", value=response)
+            matomo_service.track_event(
+                action="assistant", request_id=request_id, value=response
+            )
             final_log = f"User Prompt: {request.prompt}\n\n\n"
             final_log += f"LLM Response: {response}\n\n\n"
-            LOGGER.debug(final_log)
+            LOGGER.debug(f"[{request_id}] {final_log}")
             LOGGER.debug(
-                f"Generating response: Median Power consumption over {measurement.duration_seconds:.2f} seconds:"
+                f"[{request_id}]    Generating response: Median Power consumption over {measurement.duration_seconds:.2f} seconds:"
             )
             data = {
                 "type": "power_response",
@@ -134,7 +148,9 @@ class ChatService:
                     "duration": measurement.duration_seconds,
                 },
             }
-            matomo_service.track_event(action=data["type"], value=data["content"])
+            matomo_service.track_event(
+                action=data["type"], request_id=request_id, value=data["content"]
+            )
             yield f"data: {json.dumps(data)}\n\n"
 
         except HTTPException as e:
@@ -151,7 +167,7 @@ class ChatService:
         ):
             yield part["message"]["content"]
 
-    async def __yield_sources__(self, sources: List[Source]):
+    async def __yield_sources__(self, sources: List[Source], request_id: str):
         sources_json = SourceList(root=sources).model_dump_json()
         data = json.dumps(
             {
@@ -161,6 +177,7 @@ class ChatService:
         )
         matomo_service.track_event(
             action="sources",
+            request_id=request_id,
             value=sources_json,
         )
         yield f"data: {data}\n\n"
