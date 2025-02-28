@@ -4,6 +4,7 @@ from fastapi.responses import StreamingResponse
 from services.chat_service import ChatService
 from models.chat_request import ChatRequest
 from utils.logger import get_logger
+from utils.captcha import verify_captcha
 from uvicorn.protocols.utils import ClientDisconnected
 
 router = APIRouter()
@@ -14,6 +15,7 @@ chat_service = ChatService()
 
 @router.post("/chat")
 async def chat(req: ChatRequest):
+    await verify_captcha(req)
     try:
         return StreamingResponse(
             chat_service.chat(req),
