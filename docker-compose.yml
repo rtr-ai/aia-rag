@@ -61,6 +61,9 @@ services:
         - MATOMO_TOKEN=${MATOMO_TOKEN}
         - MATOMO_SITE_ID=${MATOMO_SITE_ID}
         - ORDER_CHUNKS_FROM_SOURCE=true
+        - CAPTCHA_OVERRIDE_SECRET=${CAPTCHA_OVERRIDE_SECRET}
+        - CAPTCHA_API_KEY=${CAPTCHA_API_KEY}
+        - FRIENDLY_CAPTCHA_SITEKEY=${FRIENDLY_CAPTCHA_SITEKEY}
       volumes:
         - ./data/combined.json:/app/data/chunks.json
         - /sys/class/powercap:/sys/class/powercap:ro
@@ -94,7 +97,8 @@ services:
       - "127.0.0.1:8090:80"   
     environment:
       - HOST=0.0.0.0 
-      - LLM_ENDPOINT=https://rag.ki.rtr.at/llm-service  #Known issue, currently doesn't replace the actual environment variable in Angular
+      - LLM_ENDPOINT=https://rag.ki.rtr.at/llm-service  
+      - FRIENDLY_CAPTCHA_SITEKEY=gaga
     networks:
       - ollama-docker
     depends_on:
