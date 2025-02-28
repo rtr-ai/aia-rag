@@ -98,7 +98,7 @@ services:
     environment:
       - HOST=0.0.0.0 
       - LLM_ENDPOINT=https://rag.ki.rtr.at/llm-service  
-      - FRIENDLY_CAPTCHA_SITEKEY=gaga
+      - FRIENDLY_CAPTCHA_SITEKEY=${FRIENDLY_CAPTCHA_SITEKEY}
     networks:
       - ollama-docker
     depends_on:
