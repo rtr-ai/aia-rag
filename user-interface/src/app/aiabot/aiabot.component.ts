@@ -1,4 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 import { NgClass, NgForOf, NgIf } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
@@ -11,7 +17,8 @@ import {
 } from "./models";
 import { environment } from "../../environments/environment";
 import { NgZone } from "@angular/core";
-
+import { FriendlyCaptchaSDK } from "@friendlycaptcha/sdk";
+import { EnvService } from "../../services/env.service";
 @Component({
   selector: "app-aiabot",
   standalone: true,
@@ -19,7 +26,7 @@ import { NgZone } from "@angular/core";
   templateUrl: "./aiabot.component.html",
   styleUrl: "./aiabot.component.scss",
 })
-export class AiabotComponent implements OnInit {
+export class AiabotComponent implements OnInit, AfterViewInit {
   displayAnswer: string = "";
   step: Step = "initial";
   sources: Source[] = [];
@@ -42,7 +49,7 @@ export class AiabotComponent implements OnInit {
   totalProQuery: number = 0;
   firstTokenProgressPercent: number = 0;
   secondsToFirstToken = 40; //approx time until first token is expected
-  progressbarInterval : null|number = null;
+  progressbarInterval: null | number = null;
   totalConsumption: PowerDataDisplayed = {
     name: "total",
     label: "Gesamter Energieverbrauch",
@@ -52,9 +59,60 @@ export class AiabotComponent implements OnInit {
     total_kWh: 0,
     duration: 0,
   };
+  sitekey: string;
+  captchaSolution: string = "";
+  private sdk: FriendlyCaptchaSDK;
+  @ViewChild("captchaContainer", { static: false })
+  captchaContainer!: ElementRef;
+  isCaptchaCompleted: boolean = false;
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone, private envService: EnvService) {
+    this.sdk = new FriendlyCaptchaSDK();
+    this.sitekey = this.envService.friendlyCaptchaSitekey;
+  }
   ngOnInit(): void {}
+  ngAfterViewInit(): void {
+    if (!this.sitekey || this.sitekey == "") {
+      console.warn("Captcha is disabled because sitekey is not set or empty.");
+      this.isCaptchaCompleted = true;
+      return;
+    }
+
+    if (this.captchaContainer) {
+      const widget = this.sdk.createWidget({
+        element: this.captchaContainer.nativeElement,
+        sitekey: this.sitekey,
+        language: "de",
+      });
+
+      this.captchaContainer.nativeElement.addEventListener(
+        "frc:widget.complete",
+        (event: any) => {
+          console.log("Widget completed! Response:", event.detail.response);
+          this.captchaSolution = event.details.response;
+          this.isCaptchaCompleted = true;
+        }
+      );
+
+      this.captchaContainer.nativeElement.addEventListener(
+        "frc:widget.error",
+        (event: any) => {
+          console.error("Captcha error:", event.detail.error);
+          this.captchaSolution = "";
+          this.isCaptchaCompleted = false;
+        }
+      );
+
+      this.captchaContainer.nativeElement.addEventListener(
+        "frc:widget.expired",
+        () => {
+          console.warn("Captcha expired");
+          this.captchaSolution = "";
+          this.isCaptchaCompleted = false;
+        }
+      );
+    }
+  }
   updateMailtoLink() {
     const recipient = "ki@rtr.at";
     const encodedSubject = encodeURIComponent("Feedback AI Act Chatbot");
@@ -73,6 +131,7 @@ export class AiabotComponent implements OnInit {
     }
     const params = {
       prompt: this.userPrompt,
+      frc_captcha_solution: this.captchaSolution,
     };
     const updateSources = (sources: Source[]) => {
       this.sources = sources;
@@ -147,7 +206,7 @@ export class AiabotComponent implements OnInit {
     const startCountdownToFirstToken = () => {
       const startOfInterval = new Date().getTime() / 1000;
       if (this.progressbarInterval !== null) {
-        self.clearInterval(this.progressbarInterval)
+        self.clearInterval(this.progressbarInterval);
       }
       const interval = self.setInterval(() => {
         if (this.displayAnswer.length > 0) {
@@ -200,7 +259,7 @@ export class AiabotComponent implements OnInit {
       duration: 0,
     };
     if (this.progressbarInterval !== null) {
-      self.clearInterval(this.progressbarInterval)
+      self.clearInterval(this.progressbarInterval);
     }
 
     await fetchEventSource(`${server}/chat`, {

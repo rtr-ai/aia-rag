@@ -1,48 +1,59 @@
-<!doctype html>
-<html >
-<head>
-  <meta charset="utf-8">
-  <title >KI-Servicestelle AIA Bot | RTR</title>
-  <base href="/">
-  <!-- Basic page info -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>KI-Servicestelle AIA Bot | RTR</title>
+    <base href="/" />
+    <!-- Basic page info -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <!-- Website icon -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="https://www.rtr.at/images/apple-touch-icon-precomposed.png"
+    />
 
-  <!-- Website icon -->
-  <link rel="apple-touch-icon-precomposed" href="https://www.rtr.at/images/apple-touch-icon-precomposed.png"/>
+    <!-- CSS includes -->
+    <link rel="stylesheet" href="" />
+    <!-- Meta information -->
+    <meta name="description" content="TBD" />
+    <meta name="robots" content="index, follow" />
+    <!-- Social media (frontend only) -->
+    <meta property="og:site_name" content="RTR" />
 
-  <!-- CSS includes -->
-  <link rel="stylesheet" href="">
-  <!-- Meta information --><meta name="description" content="TBD" />
-  <meta name="robots" content="index, follow">
-  <!-- Social media (frontend only) -->
-  <meta property="og:site_name" content="RTR" />
+    <meta property="og:title" content="ZR-DB Einzelrufnummernabfrage | RTR" />
 
-  <meta property="og:title" content="ZR-DB Einzelrufnummernabfrage | RTR" />
+    <meta property="og:type" content="website" />
 
-  <meta property="og:type" content="website" />
-
-  <!-- Matomo -->
-  <script type="text/javascript">
-    var _paq = window._paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="https://piwik.rtr.at/";
-      _paq.push(['setTrackerUrl', u+'matomo.php']);
-      _paq.push(['setSiteId', '6']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <!-- End Matomo Code -->
-  
-</head>
-<body class="green">
-<div class="tm-page">
-  <app-root></app-root>
-</div>
-</body>
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = (window._paq = window._paq || []);
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function () {
+        var u = "https://piwik.rtr.at/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d = document,
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.type = "text/javascript";
+        g.async = true;
+        g.src = u + "matomo.js";
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+    <script src="assets/env.js"></script>
+  </head>
+  <body class="green">
+    <div class="tm-page">
+      <app-root></app-root>
+    </div>
+  </body>
 </html>

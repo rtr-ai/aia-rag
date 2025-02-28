@@ -26,6 +26,8 @@ ENV HOST=127.0.0.1
 
 COPY --from=build /app/dist/* /usr/share/nginx/html
 
-EXPOSE 8080
+COPY docker-entrypoint.sh /
 
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 8080
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
