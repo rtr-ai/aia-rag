@@ -50,6 +50,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   firstTokenProgressPercent: number = 0;
   secondsToFirstToken = 40; //approx time until first token is expected
   avgSecondsPerRequest = 40;
+  queueMessage: string = "";
   progressbarInterval: null | number = null;
   totalConsumption: PowerDataDisplayed = {
     name: "total",
@@ -139,9 +140,20 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       calculateTotalTokens();
     };
     const updateSecondsToFirstToken = (queuePosition: number) => {
-      this.secondsToFirstToken =
-        Math.max(queuePosition, 1) * this.avgSecondsPerRequest;
+      const queueCount = Math.max(queuePosition, 1);
+      const estimatedTime = queueCount * this.avgSecondsPerRequest;
+
+      if (queuePosition === 1) {
+        this.queueMessage = "";
+      } else if (queuePosition === 2) {
+        this.queueMessage = `Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Antwort Ihrer Anfrage ca. ${estimatedTime} Sekunden.`;
+      } else {
+        this.queueMessage = `Es sind aktuell ${
+          queuePosition - 1
+        } Anfragen in der Warteschlange. Dauer bis zur Antwort Ihrer Anfrage ca. ${estimatedTime} Sekunden.`;
+      }
     };
+
     const updatePowerData = (data: PowerUsageData, eventType: string) => {
       let name = "";
       switch (eventType) {
@@ -263,6 +275,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       total_kWh: 0,
       duration: 0,
     };
+    this.queueMessage = "";
     if (this.progressbarInterval !== null) {
       self.clearInterval(this.progressbarInterval);
     }
