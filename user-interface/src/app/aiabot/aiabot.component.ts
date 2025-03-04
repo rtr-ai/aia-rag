@@ -49,6 +49,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   totalProQuery: number = 0;
   firstTokenProgressPercent: number = 0;
   secondsToFirstToken = 40; //approx time until first token is expected
+  avgSecondsPerRequest = 40;
   progressbarInterval: null | number = null;
   totalConsumption: PowerDataDisplayed = {
     name: "total",
@@ -136,6 +137,10 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     const updateSources = (sources: Source[]) => {
       this.sources = sources;
       calculateTotalTokens();
+    };
+    const updateSecondsToFirstToken = (queuePosition: number) => {
+      this.secondsToFirstToken =
+        Math.max(queuePosition, 1) * this.avgSecondsPerRequest;
     };
     const updatePowerData = (data: PowerUsageData, eventType: string) => {
       let name = "";
@@ -318,6 +323,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
               console.log(
                 `Current queue position: ${(data.content as any).position}`
               );
+              updateSecondsToFirstToken((data.content as any).position || 0);
               break;
             default:
               console.log(`Event of type <${data.type}> is not supported yet.`);

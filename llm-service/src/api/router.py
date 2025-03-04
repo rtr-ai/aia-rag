@@ -58,7 +58,7 @@ async def chat(req: ChatRequest):
     LOGGER.info(f"Starting chat request. Active requests: {current_count}")
 
     try:
-        stream = chat_service.chat(req, current_count - 1)
+        stream = chat_service.chat(req, current_count)
         is_async_gen = inspect.isasyncgen(stream) or hasattr(stream, "__aiter__")
 
         if not is_async_gen:
