@@ -141,7 +141,8 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     };
     const updateSecondsToFirstToken = (queuePosition: number) => {
       const queueCount = Math.max(queuePosition, 1);
-      const estimatedTime = queueCount * this.avgSecondsPerRequest;
+      const estimatedTime =
+        Math.max(queueCount - 1, 1) * this.avgSecondsPerRequest;
 
       if (queuePosition === 1) {
         this.queueMessage = "";

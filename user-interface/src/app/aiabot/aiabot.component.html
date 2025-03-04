@@ -65,7 +65,7 @@
           <span *ngIf="step != 'research'">&check;</span>
           Relevante Quellen erheben <i>(&ldquor;<b>R</b>etrieve&rdquor;)</i>
         </h3>
-        <p *ngIf="step != 'research'">
+        <p *ngIf="step == 'research'">
           <ng-container>{{ queueMessage }}</ng-container>
         </p>
         <ul
