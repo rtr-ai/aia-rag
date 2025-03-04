@@ -314,6 +314,9 @@ export class AiabotComponent implements OnInit, AfterViewInit {
             case "power_response":
               updatePowerData(data.content as any, data.type);
               break;
+            case "queue_position":
+              console.log(`Current queue position: ${data.content}`);
+              break;
             default:
               console.log(`Event of type <${data.type}> is not supported yet.`);
               break;

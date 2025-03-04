@@ -29,11 +29,19 @@ class ChatService:
         self.index_service = IndexService()
         self.client = AsyncClient(host=os.getenv("OLLAMA_HOST"))
 
-    async def chat(self, request: ChatRequest) -> AsyncGenerator[str, None]:
+    async def chat(
+        self, request: ChatRequest, queue_position: int
+    ) -> AsyncGenerator[str, None]:
         data = json.dumps({"content": "", "type": "heartbeat"})
+        yield f"data: {data}\n\n"
+        data = {
+            "type": "queue_position",
+            "content": {"position": queue_position},
+        }
+        yield f"data: {json.dumps(data)}\n\n"
         request_id = str(secrets.token_hex(8))
         try:
-            yield f"data: {data}\n\n"
+
             LOGGER.debug(f"[{request_id}]   Prompting: <{request.prompt}>")
             self.model = DEFAULT_MODEL
             meter = PowerMeterService()
