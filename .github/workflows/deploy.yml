@@ -3,10 +3,6 @@ name: Deploy
 on:
   push:
     branches: [ "main" ]
-    paths-ignore:
-    #  - auto_test/**
-      - graph_network/**
-      - answers_auto_test/**
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -57,9 +53,10 @@ jobs:
         DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
     - name: Validate deployment of llm-service
-      working-directory: ./auto_test
+      working-directory: ./.github
       env:
         HTTP_AUTHORIZATION: ${{ secrets.HTTP_AUTHORIZATION }}
       run: |
+        ls -lah &&
         pip install requests &&
         python ci-test.py 
