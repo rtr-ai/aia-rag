@@ -12,6 +12,7 @@ services:
     environment:
       - OLLAMA_KEEP_ALIVE=5m
       - OLLAMA_NUM_PARALLEL=1
+      - OLLAMA_MAX_LOADED_MODELS=2
     networks:
       - ollama-docker
     deploy:
@@ -53,7 +54,7 @@ services:
         - LLM_MODELS=mistral-small,mistral-nemo,granite3.1-dense,phi4,llama3.1:8b-instruct-fp16,mixtral:8x7b-instruct-v0.1-q2_K
         - ALLOWED_ORIGINS=http://rag.ki.rtr.at,https://rag.ki.rtr.at
         - TEMPERATURE=0.1
-        - CONTEXT_WINDOW=20000
+        - CONTEXT_WINDOW=19000
         - PROMPT_BUFFER=4500
         - ROOT_PATH=/llm-service
         - TOP_N_CHUNKS=25
