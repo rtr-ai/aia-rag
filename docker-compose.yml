@@ -6,7 +6,7 @@ services:
     pull_policy: always
     tty: true
     restart: unless-stopped
-    image: ollama/ollama:latest
+    image: ollama/ollama:0.5.12
     ports:
       - 127.0.0.1:11434:11434
     environment:
