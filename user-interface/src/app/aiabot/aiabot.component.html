@@ -40,7 +40,9 @@
           <a
             class="uk-button uk-button-large uk-button-primary"
             [ngClass]="
-              (step == 'initial' || step == 'done') && isCaptchaCompleted
+              (step == 'initial' || step == 'done') &&
+              isCaptchaCompleted &&
+              backendAvailable
                 ? ''
                 : 'uk-disabled'
             "
@@ -48,6 +50,13 @@
             >Frage stellen</a
           >
         </p>
+
+        <div class="uk-alert-danger" uk-alert *ngIf="!backendAvailable">
+          <p>
+            Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es
+            später erneut.
+          </p>
+        </div>
         <div #captchaContainer class="frc-captcha uk-margin-top-50"></div>
       </form>
       <p class="text-muted">

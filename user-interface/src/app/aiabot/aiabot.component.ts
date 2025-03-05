@@ -47,6 +47,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   tokensUsedFormatted: string = "";
   powerData: PowerDataDisplayed[] = [];
   totalProQuery: number = 0;
+  backendAvailable: boolean = true;
   firstTokenProgressPercent: number = 0;
   secondsToFirstToken = 40; //approx time until first token is expected
   avgSecondsPerRequest = 40;
@@ -147,11 +148,11 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       if (queuePosition === 1) {
         this.queueMessage = "";
       } else if (queuePosition === 2) {
-        this.queueMessage = `Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Antwort Ihrer Anfrage ca. ${estimatedTime} Sekunden.`;
+        this.queueMessage = `Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. ${estimatedTime} Sekunden.`;
       } else {
         this.queueMessage = `Es sind aktuell ${
           queuePosition - 1
-        } Anfragen in der Warteschlange. Dauer bis zur Antwort Ihrer Anfrage ca. ${estimatedTime} Sekunden.`;
+        } Anfragen in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. ${estimatedTime} Sekunden.`;
       }
     };
 
@@ -250,6 +251,10 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       });
       this.prompt = formattedLines.join("\n");
     };
+    const onErrorHappened = () => {
+      this.backendAvailable = false;
+      setTimeout(() => (this.backendAvailable = true), 5000);
+    };
     let buffer = "";
     let updateTimeout: any = null;
 
@@ -281,78 +286,89 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       self.clearInterval(this.progressbarInterval);
     }
 
-    await fetchEventSource(`${server}/chat`, {
-      signal: signal,
-      method: "POST",
-      openWhenHidden: true,
-      body: JSON.stringify(params),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "text/event-stream",
-      },
-      onopen(response: Response): Promise<void> {
-        if (response.ok && response.status === 200) {
-          updateStep("research");
-          return Promise.resolve();
-        } else if (
-          response.status >= 400 &&
-          response.status < 500 &&
-          response.status !== 429
-        ) {
-          console.error("Client-Side Errror  opening LLM Stream", response);
-        }
-        throw new Error("Error opening LLM Stream");
-      },
-      onmessage(event: { data: string }) {
-        if (!event.data || event.data.length == 0) {
-          return;
-        }
-        try {
-          const data: LLMMessageParams = JSON.parse(event.data);
-          switch (data.type) {
-            case "sources":
-              const sources: Source[] = JSON.parse(data.content);
-              updateSources(sources);
-              updateStep("prompt");
-              setTimeout(() => {
-                document
-                  .getElementById("modelContent")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }, 100);
-              break;
-            case "user":
-              updatePrompt(data.content);
-              updateStep("output");
-              startCountdownToFirstToken();
-              break;
-            case "assistant":
-              appendAnswer(data.content);
-              break;
-            case "power_index":
-            case "power_prompt":
-            case "power_response":
-              updatePowerData(data.content as any, data.type);
-              break;
-            case "queue_position":
-              console.log(
-                `Current queue position: ${(data.content as any).position}`
-              );
-              updateSecondsToFirstToken((data.content as any).position || 0);
-              break;
-            default:
-              console.log(`Event of type <${data.type}> is not supported yet.`);
-              break;
+    try {
+      await fetchEventSource(`${server}/chat`, {
+        signal: signal,
+        method: "POST",
+        openWhenHidden: true,
+        body: JSON.stringify(params),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "text/event-stream",
+        },
+        onopen(response: Response): Promise<void> {
+          if (response.ok && response.status === 200) {
+            updateStep("research");
+            return Promise.resolve();
+          } else if (
+            response.status >= 400 &&
+            response.status < 500 &&
+            response.status !== 429
+          ) {
+            console.error("Client-Side Errror  opening LLM Stream", response);
           }
-        } catch (e: any) {
-          console.error("Unable to parse JSON", e);
-          console.log("Received data", event.data);
-        }
-      },
-      onclose() {
-        updateStep("done");
-        calculateTotalPowerConsumption();
-      },
-    });
+          throw new Error("Error opening LLM Stream");
+        },
+        onerror() {
+          onErrorHappened();
+          throw new Error();
+        },
+        onmessage(event: { data: string }) {
+          if (!event.data || event.data.length == 0) {
+            return;
+          }
+          try {
+            const data: LLMMessageParams = JSON.parse(event.data);
+            switch (data.type) {
+              case "sources":
+                const sources: Source[] = JSON.parse(data.content);
+                updateSources(sources);
+                updateStep("prompt");
+                setTimeout(() => {
+                  document
+                    .getElementById("modelContent")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+                break;
+              case "user":
+                updatePrompt(data.content);
+                updateStep("output");
+                startCountdownToFirstToken();
+                break;
+              case "assistant":
+                appendAnswer(data.content);
+                break;
+              case "power_index":
+              case "power_prompt":
+              case "power_response":
+                updatePowerData(data.content as any, data.type);
+                break;
+              case "queue_position":
+                console.log(
+                  `Current queue position: ${(data.content as any).position}`
+                );
+                updateSecondsToFirstToken((data.content as any).position || 0);
+                break;
+              default:
+                console.log(
+                  `Event of type <${data.type}> is not supported yet.`
+                );
+                break;
+            }
+          } catch (e: any) {
+            console.error("Unable to parse JSON", e);
+            console.log("Received data", event.data);
+            onErrorHappened();
+          }
+        },
+        onclose() {
+          updateStep("done");
+          calculateTotalPowerConsumption();
+        },
+      });
+    } catch {
+      onErrorHappened();
+    }
   };
 
   onInput(event: Event): void {
