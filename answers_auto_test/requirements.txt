@@ -1,6 +1,0 @@
-Flask
-Flask-Cors
-tqdm
-requests
-openai
-pandas
