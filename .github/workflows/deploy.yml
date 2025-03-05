@@ -58,6 +58,7 @@ jobs:
       working-directory: ./.github
       env:
         HTTP_AUTHORIZATION: ${{ secrets.HTTP_AUTHORIZATION }}
+        CAPTCHA_OVERRIDE_SECRET: ${{ secrets.CAPTCHA_OVERRIDE_SECRET }}
       run: |
         ls -lah &&
         pip install requests &&

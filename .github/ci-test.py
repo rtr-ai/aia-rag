@@ -16,10 +16,15 @@ HEADERS = {
     'Content-Type': 'application/json'
 }
 
+captcha_override = os.getenv('CAPTCHA_OVERRIDE_SECRET')
+
 results = []
 
 for question in ["Ist der AIA ausserhalb der EU anwendbar?"]:
-    payload = json.dumps({"prompt": question})
+    obj = {"prompt": question}
+    if captcha_override is not None and len(captcha_override) > 10:
+        obj["frc_captcha_solution"] = captcha_override
+    payload = json.dumps(obj)
     attempt = 0
     while attempt < MAX_RETRIES:
         try:
