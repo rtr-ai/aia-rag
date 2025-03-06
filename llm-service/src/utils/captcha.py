@@ -60,7 +60,12 @@ async def verify_captcha(req: ChatRequest) -> bool:
             result = response.json()
 
             if response.status_code == 200:
-                return result.get("success", False)
+                if not result.get("success", False):
+                    raise HTTPException(
+                        status_code=503,
+                        detail=f"Error connecting to CAPTCHA verification service",
+                    )
+                return True
             else:
                 error_codes = result.get("errors", ["unknown_error"])
                 LOGGER.error(
