@@ -293,7 +293,13 @@ class IndexService:
 
             sources.append(new_source)
 
-        LOGGER.debug(f"[{request_id}]   Generated chunks for the query {sources}")
+        log_output_used_sources = f"[{request_id}]   Generated chunks for the query:\n"
+        for source in sources:
+            log_output_used_sources += f"(skip_reason:${source.skip_reason}) {source.title} ({str(source.num_tokens)} Token)\n"
+            for relevant_source in source.relevantChunks:
+                log_output_used_sources += f"_______(skip_reason:${relevant_source.skip_reason}) {relevant_source.title} ({str(relevant_source.num_tokens)} Token)\n"
+
+        LOGGER.debug(log_output_used_sources)
         return sources
 
     def _save_vector_store(self):

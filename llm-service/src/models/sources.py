@@ -9,6 +9,7 @@ class RelevantChunk(BaseModel):
     num_tokens: int
     skip: bool
     position: int
+    skip_reason: str = ""
 
 
 class Source(BaseModel):
