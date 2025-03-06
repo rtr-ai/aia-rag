@@ -17,7 +17,7 @@ import {
 } from "./models";
 import { environment } from "../../environments/environment";
 import { NgZone } from "@angular/core";
-import { FriendlyCaptchaSDK } from "@friendlycaptcha/sdk";
+import { WidgetInstance } from "friendly-challenge";
 import { EnvService } from "../../services/env.service";
 @Component({
   selector: "app-aiabot",
@@ -64,14 +64,12 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   };
   sitekey: string;
   captchaSolution: string = "";
-  private sdk: FriendlyCaptchaSDK;
   @ViewChild("captchaContainer", { static: false })
   captchaContainer!: ElementRef;
   isCaptchaCompleted: boolean = false;
 
   constructor(private zone: NgZone, private envService: EnvService) {
-    this.sdk = new FriendlyCaptchaSDK();
-    this.sitekey = this.envService.friendlyCaptchaSitekey;
+    this.sitekey = "FCMM5TN8FVQ34FII"; //this.envService.friendlyCaptchaSitekey;
   }
   ngOnInit(): void {}
   ngAfterViewInit(): void {
@@ -82,38 +80,20 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     }
 
     if (this.captchaContainer) {
-      const widget = this.sdk.createWidget({
-        element: this.captchaContainer.nativeElement,
+      const widget = new WidgetInstance(this.captchaContainer.nativeElement, {
         sitekey: this.sitekey,
         language: "de",
-      });
-
-      this.captchaContainer.nativeElement.addEventListener(
-        "frc:widget.complete",
-        (event: any) => {
-          console.log("Widget completed! Response:", event.detail.response);
-          this.captchaSolution = event.details.response;
+        doneCallback: (solution) => {
+          this.captchaSolution = solution;
+          console.log("solution", solution);
           this.isCaptchaCompleted = true;
-        }
-      );
-
-      this.captchaContainer.nativeElement.addEventListener(
-        "frc:widget.error",
-        (event: any) => {
-          console.error("Captcha error:", event.detail.error);
+        },
+        errorCallback: (error) => {
+          console.warn("Captcha error", error);
           this.captchaSolution = "";
           this.isCaptchaCompleted = false;
-        }
-      );
-
-      this.captchaContainer.nativeElement.addEventListener(
-        "frc:widget.expired",
-        () => {
-          console.warn("Captcha expired");
-          this.captchaSolution = "";
-          this.isCaptchaCompleted = false;
-        }
-      );
+        },
+      });
     }
   }
   updateMailtoLink() {
