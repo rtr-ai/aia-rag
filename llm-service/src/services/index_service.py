@@ -295,7 +295,7 @@ class IndexService:
 
         log_output_used_sources = f"[{request_id}]   Generated chunks for the query:\n"
         for source in sources:
-            log_output_used_sources += f"(skip_reason:${source.skip_reason}) {source.title} ({str(source.num_tokens)} Token)\n"
+            log_output_used_sources += f"(skip_reason:{source.skip_reason}) {source.title} ({str(source.num_tokens)} Token)\n"
             for relevant_source in source.relevantChunks:
                 log_output_used_sources += f"_______(skip_reason:${relevant_source.skip_reason}) {relevant_source.title} ({str(relevant_source.num_tokens)} Token)\n"
 

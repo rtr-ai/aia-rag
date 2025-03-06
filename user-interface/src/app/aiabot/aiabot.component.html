@@ -151,10 +151,11 @@
                             : 'normal'
                         "
                       >
-                        {{ chunk.title.length > 0 ? chunk.title : chunk.id }}
                         <span *ngIf="chunk.skip_reason === 'duplicate'"
-                          >(Duplikat)</span
+                          >(DUPLIKAT)</span
                         >
+                        {{ chunk.title.length > 0 ? chunk.title : chunk.id }}
+
                         ({{ chunk.num_tokens }} Token)
                       </a>
                       <div
