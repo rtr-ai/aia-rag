@@ -36,20 +36,19 @@
             {{ userPrompt.length }}/{{ maxLength }}
           </small>
         </div>
-        <p>
-          <a
-            class="uk-button uk-button-large uk-button-primary"
-            [ngClass]="
-              (step == 'initial' || step == 'done') &&
-              isCaptchaCompleted &&
-              backendAvailable
-                ? ''
-                : 'uk-disabled'
-            "
-            (click)="answerQuery()"
-            >Frage stellen</a
-          >
-        </p>
+        <div #captchaContainer class="frc-captcha uk-grid-margin"></div>
+        <a
+          class="uk-button uk-button-large uk-grid-margin uk-button-primary"
+          [ngClass]="
+            (step == 'initial' || step == 'done') &&
+            isCaptchaCompleted &&
+            backendAvailable
+              ? ''
+              : 'uk-disabled'
+          "
+          (click)="answerQuery()"
+          >Frage stellen</a
+        >
 
         <div class="uk-alert-danger" uk-alert *ngIf="!backendAvailable">
           <p>
@@ -57,7 +56,6 @@
             später erneut.
           </p>
         </div>
-        <div #captchaContainer class="frc-captcha"></div>
       </form>
       <p class="text-muted">
         <a>Weitere Informationen zum Chatbot</a>
