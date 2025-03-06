@@ -21,8 +21,6 @@
     "@angular/router": "^18.0.0",
     "@microsoft/fetch-event-source": "^2.0.1",
     "friendly-challenge": "^0.9.18",
-    "i": "^0.3.7",
-    "npm": "^11.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "uikit": "=3.5.8",
