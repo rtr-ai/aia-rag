@@ -69,7 +69,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   isCaptchaCompleted: boolean = false;
 
   constructor(private zone: NgZone, private envService: EnvService) {
-    this.sitekey = "FCMM5TN8FVQ34FII"; //this.envService.friendlyCaptchaSitekey;
+    this.sitekey = this.envService.friendlyCaptchaSitekey;
   }
   ngOnInit(): void {}
   ngAfterViewInit(): void {
