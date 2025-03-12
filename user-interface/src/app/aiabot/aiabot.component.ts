@@ -234,7 +234,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     const onErrorHappened = () => {
       this.backendAvailable = false;
       this.step = "initial";
-      setTimeout(() => (this.backendAvailable = true), 5000);
+      setTimeout(() => (this.backendAvailable = true), 12000);
     };
     let buffer = "";
     let updateTimeout: any = null;
