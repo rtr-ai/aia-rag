@@ -20,6 +20,24 @@ h3 i {
   min-height: 110px;
 }
 
+.user-input-suggestion {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: gray !important;
+  text-decoration: none;
+  transition: background-color ease 100ms;
+  background-color: #fcfcfc;
+  max-width: 80%;
+}
+
+.user-input-suggestion:hover {
+  background-color: #f0f0f0 !important;
+}
+
 .uk-disabled {
   border: 3px solid gray;
   background-color: white;

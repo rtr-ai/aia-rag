@@ -35,6 +35,9 @@
           >
             {{ userPrompt.length }}/{{ maxLength }}
           </small>
+          <a class="user-input-suggestion" *ngIf="userPrompt == ''" (click)="userPrompt=placeholderPrompt;answerQuery()">
+            z.B.: &ldquor;{{placeholderPrompt}}&ldquo;
+          </a>
         </div>
         <div #captchaContainer class="frc-captcha uk-grid-margin"></div>
         <a
