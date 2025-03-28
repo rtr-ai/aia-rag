@@ -39,7 +39,8 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     "Wie kann ich KI-Kompetenz in meinem Unternehmen umsetzen?",
     "Ich entwickle KI-Systeme für Märkte außerhalb der EU. Gilt der AI Act für mich?",
   ];
-  userPrompt =
+  userPrompt = "";
+  placeholderPrompt =
     this.userPrompts[Math.floor(Math.random() * this.userPrompts.length)];
   maxLength: number = 500;
   mailtoLink: string = "mailto:ki@rtr.at?subject=Feedback%20RAG%20EU%20AI-Act";
