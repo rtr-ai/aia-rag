@@ -40,6 +40,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     "Ich entwickle KI-Systeme für Märkte außerhalb der EU. Gilt der AI Act für mich?",
   ];
   userPrompt = "";
+  submittedUserPrompt = "";
   placeholderPrompt =
     this.userPrompts[Math.floor(Math.random() * this.userPrompts.length)];
   maxLength: number = 500;
@@ -254,6 +255,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     };
     this.displayAnswer = "";
     this.powerData = [];
+    this.submittedUserPrompt = this.userPrompt;
     this.totalConsumption = {
       name: "total",
       label: "Gesamter Energieverbrauch",

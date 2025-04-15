@@ -26,6 +26,7 @@
             style="resize: none"
             [(ngModel)]="userPrompt"
             name="userPrompt"
+            id="userPrompt"
             (input)="onInput($event)"
             [maxlength]="maxLength"
             [disabled]="step != 'done' && step != 'initial'"
@@ -45,6 +46,7 @@
           [ngClass]="
             (step == 'initial' || step == 'done') &&
             isCaptchaCompleted &&
+            userPrompt != '' &&
             backendAvailable
               ? ''
               : 'uk-disabled'
@@ -276,8 +278,10 @@
       >
         <p class="uk-margin-remove-bottom">
           <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass diese
-          Antwort von einer KI nur auf Grundlage des obigen Prompts erstellt
-          wurde und möglicherweise Fehler enthalten kann. Für fachkundige
+          Antwort von einer KI nur auf Grundlage des obigen Prompts
+            (<i>&ldquor;{{ submittedUserPrompt }}&rdquor;</i> - <a><label for="userPrompt" style="cursor: pointer">Prompt adaptieren</label></a>)
+            erstellt
+          wurde, auf den oben angeführten Quellen basiert und möglicherweise Fehler enthalten kann. Für fachkundige
           Unterstützung steht Ihnen das (menschliche) Team der
           <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a> gerne
           zur Verfügung.
