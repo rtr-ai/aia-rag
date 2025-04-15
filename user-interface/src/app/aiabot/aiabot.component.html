@@ -61,7 +61,16 @@
         </div>
       </form>
       <p class="text-muted">
-        <a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html" target="_blank">Weitere technische Informationen zum Chatbot</a>
+          <strong>Wichtiger Hinweis:</strong> Antworten von generativen KI-Systemen (zB Chatbots) können
+          systembedingt Fehler enthalten – sie sind oft aber nicht immer richtig. Dieses Service hat
+          demnach zwei Funktionen: Einerseits werden aufgrund Ihrer Eingaben (Prompts) durch ein Sprachmodell (LLM)
+          Auskünfte zum AI-Act generiert, andererseits soll deutlich werden, dass eine Qualitätskontrolle der
+          Ergebnissen von KI-Systemen dieser Art immer notwendig ist. Dazu können Sie sich für
+          fachkundige Unterstützung gerne an das (menschliche) Team der <a style="white-space: nowrap" href="https://ki.rtr.at">KI-Servicestelle</a> wenden.
+      </p>
+      <p class="text-muted">
+          <a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html"
+             target="_blank">Weitere technische Informationen zum Chatbot</a>
       </p>
     </div>
     <div *ngIf="step != 'initial'" id="modelContent">
@@ -405,7 +414,7 @@
           </div>
         </li>
       </ul>
-        <p *ngIf="sources.length > 0">
+        <p *ngIf="step == 'done'">
             <i><a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch" target="_blank">Information: Wie wird der Stromverbrauch berechnet?</a></i>
         </p>
     </div>
