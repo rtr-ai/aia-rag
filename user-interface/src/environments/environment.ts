@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  LLM_ENDPOINT: "https://rag.ki.rtr.at/llm-service",
+  LLM_ENDPOINT: "/llm-service",
   friendlyCaptcha: {
     sitekey: "",
   },
