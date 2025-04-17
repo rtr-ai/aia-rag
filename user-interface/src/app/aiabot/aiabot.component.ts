@@ -102,7 +102,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     const recipient = "ki@rtr.at";
     const encodedSubject = encodeURIComponent("Feedback AI Act Chatbot");
     const encodedBody = encodeURIComponent(
-      `Mein Feedback betrifft folgende Anfrage:\n${this.userPrompt}\nFolgende Antwort hat die KI ausgegeben:\n\n${this.displayAnswer}`
+      `Mein Feedback betrifft folgende Anfrage:\n\n${this.userPrompt}\n\nFolgende Antwort hat die KI ausgegeben:\n\n${this.displayAnswer}\n\n`
     );
     this.mailtoLink = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
   }
