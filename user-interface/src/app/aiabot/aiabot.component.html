@@ -77,12 +77,7 @@
     </div>
     <div *ngIf="step != 'initial'" id="modelContent">
       <div class="uk-container uk-margin-top-50">
-        <h3>
-          <img
-            src="assets/buffering.gif"
-            class="spinner"
-            *ngIf="step == 'research'"
-          />
+        <h3><div class="loader loader-small-offset" *ngIf="step == 'research'"></div>
           <span *ngIf="step != 'research'">&check;</span>
           Relevante Quellen erheben <i>(&ldquor;<b>R</b>etrieve&rdquor;)</i>
         </h3>
@@ -193,11 +188,7 @@
 
       <div class="uk-container uk-margin-top-50">
         <h3>
-          <img
-            src="assets/buffering.gif"
-            class="spinner"
-            *ngIf="step == 'prompt'"
-          />
+          <div class="loader loader-small-offset" *ngIf="step == 'prompt'"></div>
           <span *ngIf="step == 'done' || step == 'output'">&check;</span>
           Prompt erstellen <i>(&ldquor;<b>A</b>ugment&rdquor;)</i>
         </h3>
@@ -230,11 +221,7 @@
 
       <div class="uk-container uk-margin-top-50">
         <h3>
-          <img
-            src="assets/buffering.gif"
-            class="spinner"
-            *ngIf="step == 'output'"
-          />
+          <div class="loader loader-small-offset" *ngIf="step == 'output'"></div>
           <span *ngIf="step == 'done'">&check;</span>
           Antwort erstellen <i>(&ldquor;<b>G</b>enerate&rdquor;)</i>
         </h3>
@@ -260,11 +247,7 @@
             class="uk-text-center"
             *ngIf="step == 'output' && displayAnswer.length == 0"
           >
-            <img
-              src="assets/buffering.gif"
-              class="spinner"
-              style="height: 100px; width: 100px"
-            />
+            <div class="loader loader-large loader-inline-centered"></div>
           </div>
           <div class="chat-answer" *ngIf="displayAnswer.length > 0">
             <p [innerHTML]="displayAnswer"></p>
