@@ -1,3 +1,5 @@
+@import '../scss/variables-theme';
+
 
 .spinner {
   height: 15px;
@@ -18,6 +20,12 @@ h3 i {
   font-size: 14px;
   line-height: 28px;
   min-height: 110px;
+}
+
+@media (max-width: $breakpoint-medium) {
+  .user-input {
+    min-height: 200px;
+  }
 }
 
 .user-input-suggestion {
