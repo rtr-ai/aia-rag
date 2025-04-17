@@ -101,7 +101,7 @@
                 Fragenbeantwortung herangezogen. Grau abgebildete Einträge
                 überschreiten das
                 <abbr
-                  title="Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann"
+                  uk-tooltip="Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann"
                   >Kontextfenster</abbr
                 >
                 und bleiben deshalb unberücksichtigt. Die angeführte Prozentzahl
@@ -110,7 +110,7 @@
                 <br />
                 <p *ngIf="tokensUsedFormatted.length > 0">
                   Gesamtanzahl der verwendeten
-                  <abbr title="Kleine Texteinheiten von mehrern Buchstaben"
+                  <abbr uk-tooltip="Kleine Texteinheiten von mehrern Buchstaben"
                     >Token</abbr
                   >: {{ tokensUsedFormatted }}
                 </p>
@@ -206,7 +206,7 @@
                 Dieses setzt sich aus den möglicherweise relevanten Quellen im
                 Volltext, einem System Prompt sowie Ihrer Frage zusammen. Dieses
                 Prompt wird zur Fragenbeantwortung an ein Sprachmodell (<abbr
-                  title="Large Language Model"
+                  uk-tooltip="Large Language Model"
                   >"LLM"</abbr
                 >) übergeben.
               </p>
@@ -282,10 +282,10 @@
           Stromverbrauch von
           <strong
             >{{ totalProQuery.toFixed(6).replace(".", ",") }}
-            <abbr title="Kilowattstunden">kWh</abbr></strong
+            <abbr uk-tooltip="Kilowattstunden">kWh</abbr></strong
           >
           verursacht. Mit dieser Energiemenge kann etwa ein
-          <abbr title="Modell mit 2,2 kW Leistung">Haarföhn</abbr> für
+          <abbr uk-tooltip="Modell mit 2,2 kW Leistung">Haarföhn</abbr> für
           <i
             >{{
               (((totalProQuery * 1000) / 2200) * 60 * 60)
@@ -295,7 +295,7 @@
             Sekunden</i
           >
           betrieben, oder ein
-          <abbr title="5000 mAh Kapazität">Handyakku</abbr> um
+          <abbr uk-tooltip="5000 mAh Kapazität">Handyakku</abbr> um
           <i
             >{{
               (((((totalProQuery * 1000) / 5) * 1000) / 5000) * 0.8 * 100)
@@ -391,7 +391,7 @@
             <div>
               Der Stromverbrauch wurde direkt auf Hardware-Ebene gemessen, die
               angegebenen Zahlen entsprechen den dort vorliegenden Daten. Der
-              <abbr title="Power Usage Effectiveness">PUE-Wert</abbr> beträgt
+              <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr> beträgt
               zwischen 1,10 und 1,16. Seitens des Rechenzentrums wird ein
               ausschließlich auf erneuerbare Energien abgestellter Strommix
               verwendt. Der durchschnittliche CO<sub>2</sub>-Ausstoß im
