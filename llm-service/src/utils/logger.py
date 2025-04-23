@@ -1,6 +1,7 @@
 import logging
 import os
 from utils import path_utils
+from logging.handlers import WatchedFileHandler
 
 
 def get_logger(name: str, filename="log.txt"):
@@ -20,7 +21,7 @@ def get_logger(name: str, filename="log.txt"):
     )
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
-    file_handler = logging.FileHandler(file_path, mode="a", encoding="utf-8")
+    file_handler = WatchedFileHandler(file_path, mode="a", encoding="utf-8")
     file_handler.setFormatter(formatter)
 
     # Add handlers to the logger
