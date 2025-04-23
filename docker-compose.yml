@@ -66,6 +66,7 @@ services:
         - CAPTCHA_API_KEY=${CAPTCHA_API_KEY}
         - FRIENDLY_CAPTCHA_SITEKEY=${FRIENDLY_CAPTCHA_SITEKEY}
       volumes:
+        - /app/logs:/app/logs/
         - ./data/combined.json:/app/data/chunks.json
         - /sys/class/powercap:/sys/class/powercap:ro
         - /proc/stat:/proc/stat:ro

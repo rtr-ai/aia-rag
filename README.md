@@ -239,6 +239,7 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
 
 ##### **Volumes Mapping**  
 - `./data/combined.json:/app/data/chunks.json` → Output from the annotation-tool, which should be stored in the file **combined.json** which is used for index creation.
+- `./app/logs:/app/logs/` → Logs from llm-service.
 - `The rest of volumes` → Used for power consumption metrics.
 
 

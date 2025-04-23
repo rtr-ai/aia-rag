@@ -16,6 +16,7 @@ import secrets
 
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 LOGGER = get_logger(__name__)
+LOGGER_CHAT = get_logger("chat","chat.txt")
 DEFAULT_MODEL = os.getenv("LLM_MODELS", "llama3.1:8b-instruct-fp16").split(",")[0]
 TEMPERATURE = float(os.getenv("TEMPERATURE", "0.1"))
 CONTEXT_WINDOW = int(os.getenv("CONTEXT_WINDOW", "8000"))
@@ -125,6 +126,8 @@ class ChatService:
             final_log = f"User Prompt: {request.prompt}\n\n\n"
             final_log += f"LLM Response: {response}\n\n\n"
             LOGGER.debug(f"[{request_id}] {final_log}")
+            LOGGER_CHAT.info(f"[{request_id}] {request.prompt}\n\n")
+            LOGGER_CHAT.info(f"[{request_id}] {response}\n\n\n")
             LOGGER.debug(
                 f"[{request_id}]    Generating response: Median Power consumption over {measurement.duration_seconds:.2f} seconds:"
             )
