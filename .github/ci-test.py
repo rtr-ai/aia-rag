@@ -1,5 +1,6 @@
 import json
 import os
+import time
 from time import sleep
 
 import requests
@@ -8,6 +9,7 @@ logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 
 MAX_RETRIES = 10
 TIMEOUT = 90
+MAX_TIME = 240
 
 URL = "https://rag.ki.rtr.at/llm-service/chat"
 HEADERS = {
@@ -17,6 +19,7 @@ HEADERS = {
 }
 
 captcha_override = os.getenv('CAPTCHA_OVERRIDE_SECRET')
+begin = time.time()
 
 results = []
 
@@ -26,7 +29,7 @@ for question in ["Ist der AIA ausserhalb der EU anwendbar?"]:
         obj["frc_captcha_solution"] = captcha_override
     payload = json.dumps(obj)
     attempt = 0
-    while attempt < MAX_RETRIES:
+    while attempt < MAX_RETRIES and (begin + MAX_TIME > time.time()):
         try:
             response = requests.request(
                 "POST", URL, headers=HEADERS, data=payload, stream=True, timeout=TIMEOUT
