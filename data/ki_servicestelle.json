@@ -314,6 +314,99 @@
       "parameters": []
     },
     {
+      "id": "0d7f4977-182d-4253-899a-b8044ab8c652",
+      "title": "KI-Servicestelle: FAQ - Wir möchten eine KI bei der Durchsicht von Bewerbungsunterlagen einsetzen. Unterliegen wir immer den rechtlichen Anforderungen des Art 6 Abs 2 iVm Anhang III AI Act? Wann greifen die Ausnahmen von Art 6 Abs 3 AI-Act? ",
+      "content": "# Wir möchten eine KI bei der Durchsicht von Bewerbungsunterlagen einsetzen. Unterliegen wir immer den rechtlichen Anforderungen des Art 6 Abs 2 iVm Anhang III AI Act? Wann greifen die Ausnahmen von Art 6 Abs 3 AI-Act? \n\nGrundsätzlich fallen KI-Systeme iZm Beschäftigung und Personalmanagement in den Anwendungsbereich des Anhang III iVm Art 6 Abs 2 des AI Act und sind somit im Risikostufensystem des AI Acts im Bereich der hochriskanten Systeme einzuordnen. \n\nNach Art 6 Abs 3 AI Act gilt ein im Anhang III genanntes KI-System nicht als Hochrisiko-KI-System, wenn es kein erhebliches Risiko für die Gesundheit, Sicherheit oder die Grundrechte natürlichen Personen birgt, indem es unter anderem nicht das Ergebnis der Entscheidungsfindung wesentlich beeinflusst. Dies kommt insbesondere dann in Frage, wenn das KI-System für die Ausführung einer engen verfahrenstechnischen Aufgabe bestimmt sein sollte (Art 6 Abs 3 lit a AI-Act). Die Ausnahme kann auch vorliegen, wenn das KI-System dazu bestimmt ist das Ergebnis einer zuvor abgeschlossenen menschlichen Tätigkeit zu verbessern (Art 6 Abs 3 lit b AI-Act) oder Entscheidungsmuster oder Abweichungen von solchen zu erkennen Darunter ist das Daten umstrukturieren, Dokumente nach Kategorien neu zuordnen, Duplikate erkennen etc. zu fassen. Das KI-System soll eine vorbereitende Rolle übernehmen und selbst keinesfalls Bewertungen vornehmen. \n\nBeachtlich ist ebenfalls, dass, selbst, wenn Ausnahmen angenommen werden, eine Registrierungspflicht nach Art. 49 AI Act besteht. (ErwG 53)",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "6b073c5f-3422-4b34-b139-b8645e89b463",
+        "7e595036-3aa8-4edf-b26f-0627760fb44e"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "bdd6f602-f1a1-4eff-916c-3d6962c88204",
+      "title": "KI-Servicestelle: FAQ - Darf ich ChatGPT als Formulierungshilfe bei diversen Tätigkeiten verwenden. Muss ich mir Gedanken über etwaige urheberrechtlichen Folgen machen?",
+      "content": "# Darf ich ChatGPT als Formulierungshilfe bei diversen Tätigkeiten verwenden (zB Schreiben eines Buches oder Erstellung von div. Schriftstücken etc.) Muss ich mir Gedanken über etwaige urheberrechtlichen Folgen machen?\n\nDas Urheberrecht schützt eigentümliche geistige Schöpfungen eines im § 10 des Urheberrechtsgesetzes (kurz UrhG) definierten Schöpfers, der nur eine natürliche Person sein kann. Eine KI kann aufgrund dieser rechtlichen Definition nach derzeitiger Rechtslage kein Urheber sein. Ob gesonderte Ansprüche des KI-Anbieters bestehen, werden Sie in der Regel in dessen AGB oder anderen vertraglichen Vereinbarungen finden. \n\nDaraus ist aber nicht pauschal abzuleiten, dass kein urheberrechtlicher Schutz bestehen kann. Verwendet man beispielsweise eine KI, bei deren Training bereits möglicherweise urheberrechtlich geschützte Inhalte verwendet wurden, könnte der KI-generierte Output auch urheberrechtlichen Schutz genießen. Manche KI-Anbieter beschränken bereits die Trainingsdaten auf lizenzierten Content. Außerdem gewährleisten auch einige KI-Anbieter bereits die unbedenkliche Nutzung der generierten Inhalte mit einer Garantie der Schad- und Klagloshaltung. Hier wäre eine Prüfung der konkreten privatrechtlich vereinbarten Zusicherungen ratsam. Anbieter von GPAI-Modellen, wie es ein System zur synthetischen Generierung von Text, Bildern und Videos sein kann, haben nach den Verpflichtungen des AI Acts ab 02.08.2025 eine Strategie zur Einhaltung des Urheberrechts (Art. 53 Abs. 1 lit. c AIA) bereitzustellen - in dieser werden diese Themen dann idR genauer behandelt werden",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
+      "id": "d950c78a-f414-4640-9236-7f7800dbd8e7",
+      "title": "KI-Servicestelle: FAQ - Handelt es sich bei einem Kennzeichenerkennungssystem (ANPR) um ein KI-System handelt. Falls, welcher Risikostufe wäre es zuzuordnen?",
+      "content": "# Handelt es sich bei einem Kennzeichenerkennungssystem (ANPR) um ein KI-System handelt. Falls, welcher Risikostufe wäre es zuzuordnen?\n\nEin automatisches Kennzeichenerfassungssystem (ANPR), welches anhand von Fotos eines Kennzeichens die entsprechenden Ziffern und Buchstaben ausliest und diese Daten dann zu weiteren Verarbeitungsschritten zur Verfügung stellt (anders gesagt: Eingangsdatum ist das Foto eines Kennzeichens, Ausgabedatum ist das ausgelesene Kennzeichen.) ist unserer Einschätzung nach als ein maschinengestütztes System einzustufen, welches auch über einen gewissen Grad an Autonomie verfügt, auch wenn manuelle Korrekturen in Einzelfällen vorgenommen werden. Ob es sich bei diesem OCR-System (bzw. dem Kennzeichenerfassungssystem im Gesamten - ANPR) um ein KI-System im Sinne des AI Acts handelt, wird sich ohne eine genaue technische Analyse nicht endgültig beantworten lassen. Basiert das OCR-System auf Algorithmen, die maschinelles Lernen beinhalten, um ua die Genauigkeit der Zeichenerkennung zu verbessern, ist davon auszugehen, dass ein KI-System gemäß Art 3 Z 1 AI-Act vorliegt. Das wäre auch nicht ungewöhnlich, als viele OCR-Systeme auf neuronalen Netzen basieren. \n\nFür eine Beurteilung weiter relevant können die Konsequenzen sein, die auf den Einsatz des ANPR folgen. Etwa: Handelt es sich dabei um Zugangsbeschränkungen, Ausfahrtserlaubnis oder etwa die Kalkulation der Parkgebühren? Wie sind diese Systeme miteinander verbunden? Werden automatische Entscheidungen getroffen? Wird damit eine Maschine angewiesen z.B. die Schranke automatisch zu öffnen?\n\nSelbst wenn es sich hier um ein KI-System handelt, dürfte es sich um keine Hochrisikoanwendung handeln, sofern nicht besondere Anwendungsfälle vorliegen, und es etwa in einer Art und Weise eingesetzt wird, die in die Grundrechte und -freiheiten von natürlichen Personen eingreift, z.B. Einfahrtserlaubnis eines Notarztes ins Spital etc. oder es als Sicherheitsbauteil im Straßenverkehr oder im Rahmen von Grenzkontrollen eingesetzt wird. Dazu möchten wir auch anmerken, dass die Regelungen zu den Hochrisiko-KI-Systemen (Art 6 iZm Anhang III) ab 2. August 2026 in Kraft treten. Bis dorthin werden auch noch Leitlinien der Europäischen Kommission erwartet, die eine detailliertere Einstufung erlauben. Leitlinien zur Definition eines „KI-Systems“ wurden bereits veröffentlicht und sind auf unserer Website unter https://ki.rtr.at abrufbar.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "7401fefb-6095-47f0-a00e-78aac879499e"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "4c59fc2e-ffda-4312-bde4-5869f4250dce",
+      "title": "KI-Servicestelle: FAQ - Muss der Einsatz von einem Voicebot durch Unternehmen offengelegt werden? Gibt es dazu Regelungen im AI-Act?",
+      "content": "# Muss der Einsatz von einem Voicebot durch Unternehmen offengelegt werden? Gibt es dazu Regelungen im AI-Act?\n\nDer AI Act definiert für KI-Systeme in Art. 50 Transparenzpflichten, die mit 2.8.2026 in Kraft treten: https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Zeitplan.de.html\n\nKonkret gilt für Anbieter von KI-Systemen gemäß Art. 50 Abs. 1 AI Act sicherzustellen, dass KI-Systeme, die für die direkte Interaktion mit natürlichen Personen bestimmt sind, so konzipiert und entwickelt werden, dass die betreffenden natürlichen Personen informiert werden, dass sie mit einem KI-System interagieren, es sei denn, dies ist aus Sicht einer angemessen informierten, aufmerksamen und verständigen natürlichen Person aufgrund der Umstände und des Kontexts der Nutzung offensichtlich. D.h. wenn ein Gespräch mit einer KI abgewickelt wird, wäre offenzulegen, dass mit einer KI interagiert wird.\n\nBei KI-Systemen, die Deepfake-Toninhalte erzeugen oder manipulieren, ist offenzulegen, dass die Inhalte künstlich erzeugt oder manipuliert wurden. \n\nFür Toninhalte, die kein Deepfake sind, besteht eine solche Offenlegungspflicht nicht (Art. 50 Abs. 4 UAbs. 1 AIA). Ob ein Deepfake vorliegt ist immer im Einzelfall zu beurteilen - das wäre etwa dann der Fall, wenn durch die KI eine bekannte menschliche Stimme erzeugt wird.\nIm AI Act wird der Begriff „Deepfake“ wie folgt definiert (Art. 3 Z 60 AIA): \"einen durch KI erzeugten oder manipulierten Bild-, Ton- oder Videoinhalt, der wirklichen Personen, Gegenständen, Orten, Einrichtungen oder Ereignissen ähnelt und einer Person fälschlicherweise als echt oder wahrheitsgemäß erscheinen würde.\"\nWeitere Informationen finden Sie auf unserer Website: https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "d6262dea-f475-4de3-9b68-d55068abe47b",
+      "title": "KI-Servicestelle: FAQ -  Was muss ich als Unternehmer, der ein KI-System einsetzt, das für die direkte Interaktion mit natürlichen Personen gedacht ist, beachten?",
+      "content": "# Was muss ich als Unternehmer, der ein KI-System einsetzt, das für die direkte Interaktion mit natürlichen Personen gedacht ist, beachten? Welche Pflichten muss ich erfüllen?\n\nAnbieter von KI-Systemen, welche für direkte Interaktion mit natürlichen Personen bestimmt sind, unterliegen einer Transparenzpflicht nach Art 50 Abs 1 AI Act. Diese KI-Systeme sind daher so zu konzipieren und zu entwickeln, dass die betreffenden natürlichen Personen informiert werden, dass sie mit einem KI-System interagieren (außer die KI-Interaktion ist aus der Sicht einer informierten, aufmerksamen und verständigen natürlichen Person aufgrund der vorliegenden Umstände und des Kontexts der Nutzung offensichtlich). \n\nAusgenommen von der Transparenzpflicht nach Art 50 Abs 1 AI Act sind KI-Systeme, die für die gesetzliche Aufdeckung, Verhütung und Ermittlung oder Verfolgung von Straftaten zugelassen sind. \n\nSind sie allerdings in der KI-Wertschöpfungskette als Betreiber eine solchen KI-Systems einzustufen, treffen Sie von der obengenannten Transparenzpflicht ausgenommen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "a9f296a9-f363-42d0-a4a2-540958409e4a",
+      "title": "KI-Servicestelle FAQ: Welche Pflichten muss ich als Unternehmer beachten, wenn ich ein KI-System entwickle und weiterverkaufe, dass synthetische Audio-, Bild-, Video- oder Textinhalte erzeugt? ",
+      "content": "# Welche Pflichten muss ich als Unternehmer beachten, wenn ich ein KI-System entwickle und weiterverkaufe, dass synthetische Audio-, Bild-, Video- oder Textinhalte erzeugt? \n\nAnbieter von KI-Systemen (einschließlich GPAI-Modells), die synthetische Inhalte (Audio, Bild, Video oder Text) erzeugen, müssen sicherstellen, dass die Ausgaben der KI in einem maschinenlesbaren Format gekennzeichnet und als künstlich erzeugt oder manipuliert erkennbar sind. Ausgenommen von dieser Kennzeichnungspflicht sind KI-Systeme, die lediglich eine unterstützende Funktion haben, die bereitgestellte Eingabedaten oder deren Semantik nicht verändern und die für die Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftraten gesetzlich zugelassen sind.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "80e3c1a0-4654-47b1-a100-aa83bfd8ac58",
+      "title": "KI-Servicestelle: FAQ - Welche Pflichten muss ich als Unternehmer beachten, wenn ich synthetische Audio-, Bild-, Video- oder Textinhalte von einer KI generieren lasse? ",
+      "content": "# Welche Pflichten muss ich als Unternehmer beachten, wenn ich synthetische Audio-, Bild-, Video- oder Textinhalte von einer KI generieren lasse? \n\nDie Betreiber eines KI-Systems, das Textinhalte erzeugt oder manipuliert oder/und Bild-, Ton- oder Videoinhalte erzeugt oder manipuliert, die ein Deep-Fake sind, gemäß Art 50 Abs 4 AI Act offenlegen, dass die Inhalte künstlich erzeugt oder manipuliert wurden. Ausgenommen ist die Verwendung der obengenannten Ausgaben zur Aufdeckung, Verhütung, Ermittlung und Verfolgung von Straftaten.\n\nEin „Deep Fake“ im Sinne des AI Acts ist ein durch ein KI erzeugter oder manipulierter Bild-, Ton- oder Videoinhalt, der wirklichen Personen, Gegenständen, Orten, Einrichtungen oder Ereignissen ähnelt und einer Person fälschlicherweise als echt oder wahrheitsgemäß erscheinen würde (siehe Art. 3 Ziffer 60 AIA).\n\nIst offensichtlich, dass der künstlich erzeugte oder manipulierte Bild-, Ton- oder Videoinhalt Teil eines künstlerischen, kreativen, satirischen, fiktionalen oder analogen Werks oder Programms ist, beschränkt sich die Transparenzpflicht darauf, das Vorhandensein von künstlich erzeugten und manipulierten Inhalten derart offenzulegen, dass die Darstellung oder der Genuss des Werkes nicht beeinträchtigt wird.\n\nHinsichtlich der Textausgaben ist anzumerken, dass die obengenannten Transparenzpflicht nur dann einzuhalten ist, wenn der erzeugte oder manipulierte Text (Ausgabe des KI-Systems) dafür dient, um die Öffentlichkeit über Angelegenheiten vom öffentlichen Interesse zu informieren bzw keiner menschlichen Überprüfung oder redaktionellen Kontrolle unterzogen wurden.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "67558b14-55fe-439d-98ee-1e4e559bc1e3",
+      "title": "KI-Servicestelle: Technische Dokumentation AI Act Chatbot",
+      "content": "Der AI Act Chatbot der KI-Servicestelle verwendet als Large Language Model \"Mistral Small\" des französischen Unternehmens Mistral. \nAls Embedding Model wird \"Arctic Embed 2\" von Snowflake verwendet. \nDer AI Act Chatbot wird auf einem Root Server bei Hetzner in Deutschland betrieben. Als Grafikkarte wird eine NVIDIA RTX 4000 ADA verwendet.\nDer Source Code ist als Open Source auf Github veröffentlicht und am Seitenende verlinkt.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [],
+      "parameters": []
+    },
+    {
       "id": "e419d565-51f0-41b6-92b6-c80be68c2956",
       "title": "KI-Servicestelle: Akteure",
       "content": "### Übersicht: Die Akteure im AI Act\n\nDer AI Act sieht viele Rollen in der KI-Wertschöpfungskette vor. Die verschiedenen Akteure sind dabei keineswegs unbekannt, der Unionsgesetzgeber orientierte sich dabei in vielerlei Hinsicht an den EU-Produktrechtsnormen (siehe etwa die [Produktsicherheitsverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32023R0988 \"Link zur Produktsicherheitsverordnung\"), [Medizinprodukteverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32017R0745 \"Link zur Medizinprodukteverordnung\")).\n\nZu den Akteuren im AI Act zählen gemäß Art. 3 Ziffer 8:\n\n-   Anbieter („Provider“);\n-   Produkthersteller („Product Manufacturer“);\n-   Bevollmächtigter („Authorised Representative“);\n-   Einführer („Importer“);\n-   Händler („Distributor“);\n-   Betreiber („Deployer“).\n\nFerner kommen auch noch Nutzer und „betroffene Personen“ vor. Diese werden aber nicht als Akteure im Sinne des AI Act bezeichnet.",
