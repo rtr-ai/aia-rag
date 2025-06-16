@@ -123,7 +123,7 @@ class ChatService:
                 )
                 if ollama_duration:
                     LOGGER.debug(
-                        f"""Total completion duration from Ollama {part["total_duration"] / 1_000_000_000}"""
+                        f"""Total completion duration from Ollama {ollama_duration}"""
                     )
 
                 if "message" in part:
