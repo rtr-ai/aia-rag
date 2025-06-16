@@ -41,6 +41,7 @@ async def create_vector_store(path: str):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     ollama_host = os.getenv("OLLAMA_HOST")
+    ollama_embedding_host = os.getenv("OLLAMA_EMBEDDING_HOST")
 
     if ollama_host:
         LOGGER.debug(f"Ollama host is: {ollama_host}")
@@ -48,18 +49,34 @@ async def lifespan(app: FastAPI):
         LOGGER.error("Ollama must be configured using OLLAMA_HOST environment")
         raise RuntimeError("Ollama must be configured using OLLAMA_HOST environment")
 
+    if ollama_embedding_host:
+        LOGGER.debug(f"Ollama embedding host is: {ollama_embedding_host}")
+    else:
+        LOGGER.error(
+            "Ollama for embedding must be configured using OLLAMA_EMBEDDING_HOST environment"
+        )
+        raise RuntimeError(
+            "Ollama for embedding must be configured using OLLAMA_EMBEDDING_HOST environment"
+        )
+
     annotations_location = "/app/data/chunks.json"
     client = AsyncClient(base_url=f"http://{ollama_host}:11434/api")
+    embedding_client = AsyncClient(base_url=f"http://{ollama_embedding_host}:11434/api")
     if not EMBEDDING_MODELS:
         raise RuntimeError("At least one embedding model has to be configured")
     if not LLM_MODELS:
         raise RuntimeError("At least one LLM model has to be configured")
     try:
         LOGGER.debug("Waiting 15 seconds to ensure all services are available...")
-        await asyncio.sleep(15) 
+        await asyncio.sleep(15)
+        LOGGER.debug("Checking embedding models...")
+        for model in EMBEDDING_MODELS:
+            if not await is_model_available(embedding_client, model):
+                LOGGER.debug(f"Embedding Model {model} not found. Pulling...")
+                await pull_model(embedding_client, model)
+                LOGGER.debug(f"Embedding Model {model} pulled successfully.")
         LOGGER.debug("Checking models...")
-        required_models = EMBEDDING_MODELS + LLM_MODELS
-        for model in required_models:
+        for model in LLM_MODELS:
             if not await is_model_available(client, model):
                 LOGGER.debug(f"Model {model} not found. Pulling...")
                 await pull_model(client, model)
