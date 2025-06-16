@@ -23,11 +23,11 @@ services:
               count: 1
               capabilities: [gpu]
 
-              
+
   ollama-embedding:
     volumes:
       - /app/ollama/data:/root/.ollama
-    container_name: ollama
+    container_name: ollama-embedding
     pull_policy: always
     tty: true
     restart: unless-stopped
