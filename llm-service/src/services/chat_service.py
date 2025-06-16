@@ -101,11 +101,12 @@ class ChatService:
             async for part in self.prompt_ollama(prompt):
                 message_part = part["message"]["content"]
                 power_samples.append(meter.sample_power())
-                if part.total_duration:
+                if "total_duration" in part:
                     LOGGER.debug(
-                        f"Total completion duration from Ollama {str(part.total_duration / 1_000_000_000)}"
+                        f"""Total completion duration from Ollama {part["total_duration"] / 1_000_000_000}"""
                     )
-                    ollama_duration = part.total_duration / 1_000_000_000
+
+                    ollama_duration = part["total_duration"] / 1_000_000_000
                 response += message_part
                 data = json.dumps({"content": message_part, "type": "assistant"})
                 yield f"data: {data}\n\n"

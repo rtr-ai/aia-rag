@@ -215,11 +215,12 @@ class IndexService:
             raise HTTPException(status_code=404, detail="Index not found")
 
         embedding_response = await self.embedding_service.generate_embedding(query)
-        duration = (
-            embedding_response.total_duration / 1_000_000_000
-            if embedding_response.total_duration
-            else 0.0
-        )
+        duration = 0.0
+        if "total_duration" in embedding_response:
+
+            duration = embedding_response["total_duration"] / 1_000_000_000
+            LOGGER.debug(f"Total duration for embedding from ollama: {str(duration)}")
+
         query_vector = embedding_response.embeddings[0]
         index_data = self.vector_store[index_id]
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])

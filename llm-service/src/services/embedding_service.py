@@ -44,8 +44,8 @@ class EmbeddingService:
             power_samples.append(meter.sample_power())
             LOGGER.debug(f"Processing embeddings batch <{index+1}> of <{len(batches)}>")
             response = await self.client.embed(model=DEFAULT_MODEL, input=batch)
-            if response.total_duration:
-                ollama_duration += response.total_duration / 1_000_000_000
+            if "total_duration" in response:
+                ollama_duration += response["total_duration"] / 1_000_000_000
 
             all_embeddings.extend(response["embeddings"])
         measurement = meter.stop()
