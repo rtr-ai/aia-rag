@@ -99,7 +99,6 @@ class ChatService:
             ollama_duration = 0.0
 
             async for part in self.prompt_ollama(prompt):
-                message_part = part["message"]["content"]
                 power_samples.append(meter.sample_power())
                 if "total_duration" in part:
                     LOGGER.debug(
@@ -107,9 +106,11 @@ class ChatService:
                     )
 
                     ollama_duration = part["total_duration"] / 1_000_000_000
-                response += message_part
-                data = json.dumps({"content": message_part, "type": "assistant"})
-                yield f"data: {data}\n\n"
+                if "message" in part:
+                    message_part = part["message"]["content"]
+                    response += message_part
+                    data = json.dumps({"content": message_part, "type": "assistant"})
+                    yield f"data: {data}\n\n"
             final_duration = (
                 ollama_duration if ollama_duration else measurement.duration_seconds
             )
