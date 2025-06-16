@@ -104,7 +104,7 @@ class ChatService:
                 if part.total_duration:
                     ollama_duration = part.total_duration / 1_000_000_000
                 response += message_part
-                data = json.dumps({"content": part, "type": "assistant"})
+                data = json.dumps({"content": message_part, "type": "assistant"})
                 yield f"data: {data}\n\n"
             final_duration = (
                 ollama_duration if ollama_duration else measurement.duration_seconds
