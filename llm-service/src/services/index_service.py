@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List, Dict, Tuple
 import json
 import os
 from fastapi import HTTPException
@@ -195,23 +195,32 @@ class IndexService:
 
     async def query_index(
         self, index_id: str, query: str, request_id: str
-    ) -> List[Source]:
+    ) -> Tuple[List[Source], float]:
         """
-        Query an index and return all chunks, marking those exceeding token limits.
-        Once context window is reached, all subsequent chunks are skipped.
+            Query an index and return all chunks, marking those exceeding token limits.
+            Once context window is reached, all subsequent chunks are skipped.
 
-        Args:
-            index_id (str): ID of the index to query.
-            query (str): Query string.
+            Args:
+                index_id (str): ID of the index to query.
+                query (str): Query string.
 
-        Returns:
-            List[Source]: A list of all sources with skip property set based on token limit.
+            Returns:
+        Tuple[List[Source], float]:
+            A tuple where:
+            - The first element is a list of all sources
+            - The second element is the duration (in seconds) of querying the index (for power consuption).
         """
         if index_id not in self.vector_store:
             LOGGER.debug(f"Unable to find index with id <{index_id}>")
             raise HTTPException(status_code=404, detail="Index not found")
 
-        query_vector = (await self.embedding_service.generate_embedding(query))[0]
+        embedding_response = await self.embedding_service.generate_embedding(query)
+        duration = (
+            embedding_response.total_duration / 1_000_000_000
+            if embedding_response.total_duration
+            else 0.0
+        )
+        query_vector = embedding_response.embeddings[0]
         index_data = self.vector_store[index_id]
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
 
@@ -300,7 +309,7 @@ class IndexService:
                 log_output_used_sources += f"_______(skip_reason:${relevant_source.skip_reason}) {relevant_source.title} ({str(relevant_source.num_tokens)} Token)\n"
 
         LOGGER.debug(log_output_used_sources)
-        return sources
+        return sources, duration
 
     def _save_vector_store(self):
         """
