@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
     image: ollama/ollama:0.7.1
     ports:
-      - 127.0.0.1:11434:11434
+      - 127.0.0.1:11435:11434
     environment:
       - OLLAMA_KEEP_ALIVE=5m
       - OLLAMA_NUM_PARALLEL=5
