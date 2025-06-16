@@ -102,6 +102,9 @@ class ChatService:
                 message_part = part["message"]["content"]
                 power_samples.append(meter.sample_power())
                 if part.total_duration:
+                    LOGGER.debug(
+                        f"Total completion duration from Ollama {str(part.total_duration / 1_000_000_000)}"
+                    )
                     ollama_duration = part.total_duration / 1_000_000_000
                 response += message_part
                 data = json.dumps({"content": message_part, "type": "assistant"})
