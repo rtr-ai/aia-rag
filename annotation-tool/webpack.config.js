@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
     filename: "[name].[contenthash].js",
     clean: true,
-    publicPath: "/",
+    publicPath: process.env.PUBLIC_URL || "/",
   },
   mode: "development",
   devtool: "source-map",
@@ -26,7 +26,7 @@ module.exports = {
     static: "./dist",
     open: true,
     port: 3000,
-    allowedHosts: ['.rtr.at']
+    allowedHosts: [".rtr.at"],
   },
   module: {
     rules: [
