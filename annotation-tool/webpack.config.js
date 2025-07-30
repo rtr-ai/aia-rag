@@ -26,6 +26,7 @@ module.exports = {
     static: "./dist",
     open: true,
     port: 3000,
+    allowedHosts: ['.rtr.at']
   },
   module: {
     rules: [
