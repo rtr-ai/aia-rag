@@ -1,0 +1,545 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<!-- Toolbar -->
+<div class="tm-toolbar tm-toolbar-default">
+  <div class="uk-navbar-container"
+       uk-navbar="mode: click;boundary-align:true;dropbar:true;dropbar-anchor:!.uk-container;dropbar-mode:slide">
+    <div class="w100">
+      <div class="uk-container uk-container-large">
+        <div id="icontoggle" class="uk-grid">
+          <div class="uk-inline">
+            <button class="uk-button uk-button-top" type="button">
+              <ng-container i18n="@@telecommunicationPostal">Telekommunikation und Post</ng-container>
+              <span class="uk-margin-small-right chevdown" uk-icon="chevron-down"></span><span
+              class="uk-margin-small-right chevup" uk-icon="chevron-up"></span></button>
+            <div class="uk-navbar-dropdown"
+                 uk-drop="mode:click;offset:0;duration:100;delay-show:0;boundary: !.uk-container; boundary-align: true; pos: bottom-justify;">
+              <div class="uk-container uk-container-large">
+                <ul class="uk-subnav uk-list-divider">
+                  <li><a i18n-href="@@media-href" href="https://www.rtr.at/medien/startseite_medien.de.html" class="area-switch" i18n="@@media">Medien</a></li>
+                  <li><a i18n-href="@@rtr-href" href="https://www.rtr.at/rtr/startseite.de.html" class="area-switch" i18n="@@RTR">RTR</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="uk-inline">
+            <button class="uk-button uk-button-top" type="button"><ng-container  i18n="@@de">DE</ng-container><span
+              class="uk-margin-small-right chevdown" uk-icon="chevron-down"></span><span
+              class="uk-margin-small-right  chevup" uk-icon="chevron-up"></span></button>
+            <div class="uk-navbar-dropdown"
+                 uk-drop="mode:click;offset:0;duration:100;delay-show:0;boundary: !.uk-container; boundary-align: true; pos: bottom-justify;">
+              <div class="uk-container uk-container-large">
+                <ul class="uk-subnav uk-list-divider language-select">
+                  <li>
+                    <a href="/en" data-lang-name="en" i18n="@@english">English</a>
+                  <li>
+                    <a href="/de" data-lang-name="de" i18n="@@deutsch">Deutsch</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Mobiles -->
+<div class="tm-header-mobile uk-hidden@l">
+  <div sel-target=".uk-navbar-container">
+    <div class="uk-navbar-container">
+      <nav uk-navbar="" class="uk-navbar">
+        <div class="uk-navbar-left">
+          <div class="uk-grid-small uk-text-center logos-mobile uk-grid uk-grid-stack" uk-grid="">
+            <div class="uk-first-column">
+              <a href="https://www.rtr.at/">
+                <picture>
+                  <img src='assets/logo_rtr_pck_tkk.svg' alt="Logo RTR PCK TKK" title="RTR" style="height:50px;">
+                </picture>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="uk-navbar-right">
+          <a id="mobmenu" class="uk-navbar-toggle" href="#tm-mobile" uk-toggle="animation: true;">
+            <div class="toggleopen uk-icon uk-navbar-toggle-icon" uk-navbar-toggle-icon="">
+              <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                   data-svg="navbar-toggle-icon">
+                <rect y="9" width="20" height="2"></rect>
+                <rect y="3" width="20" height="2"></rect>
+                <rect y="15" width="20" height="2"></rect>
+              </svg>
+            </div>
+            <span class="menclose uk-icon" uk-icon="icon: close; ratio: 1.8"></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div id="tm-mobile" class="" hidden="">
+      <div class="uk-background-default uk-padding">
+        <div class="uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid="">
+          <div>
+            <div class="uk-panel" id="module-menu-mobile">
+              <ul class="uk-nav uk-nav-default uk-list uk-list-divider">
+                <li class="uk-parent">
+                  <div class="uk-navbar-container uk-navbar" uk-navbar="dropbar: true; dropbar-mode: push;mode: click">
+                    <ul class="uk-navbar-nav second-level-nav">
+                      <li class="uk-parent">
+                        <a href="#" aria-expanded="false">Aktuelles
+                          <span class="icon-drop uk-icon" uk-icon="icon: chevron-down; ratio: 1.5"></span>
+                        </a>
+                        <div class="uk-navbar-dropdown">
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                            <li><a i18n-href="@@decisions-href"
+                                   href="https://www.rtr.at/TKP/aktuelles/entscheidungen/Uebersichtseite.de.html" title="Entscheidungen"
+                                   i18n="@@decisions">Entscheidungen</a>
+                            </li>
+
+                            <li><a i18n-href="@@legalPublications-href"
+                                   href="https://www.rtr.at/TKP/aktuelles/veroeffentlichungen/Uebersichtseite.de.html"
+                                   i18n-title="@@legalPublications" title="Veröffentlichungen"
+                                   i18n="@@legalPublications">Veröffentlichungen</a></li>
+
+                            <li><a i18n-href="@@publications-href"
+                                   href="https://www.rtr.at/TKP/aktuelles/publikationen/Uebersichtseite.de.html" title="Publikationen"
+                                   i18n="@@publications">Publikationen</a>
+                            </li>
+
+                            <li><a i18n-href="@@events-href" href="https://www.rtr.at/TKP/aktuelles/veranstaltungen/Uebersicht.de.html"
+                                   title="Veranstaltungen" i18n="@@events">Veranstaltungen</a>
+                            </li>
+
+                            <li><a i18n-href="@@news-href" href="https://www.rtr.at/TKP/aktuelles/neuigkeiten/Uebersicht.de.html"
+                                   title="Neuigkeiten" i18n="@@news">Neuigkeiten</a></li>
+
+                            <li><a i18n-href="@@pressStatements-href"
+                                   href="https://www.rtr.at/TKP/aktuelles/pressemitteilungen/Uebersicht.de.html"
+                                   title="Pressemitteilungen" i18n="@@pressStatements">Pressemitteilungen</a></li>
+
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="uk-parent uk-active">
+                  <div class="uk-navbar-container uk-navbar" uk-navbar="dropbar: true; dropbar-mode: push;mode: click">
+                    <ul class="uk-navbar-nav second-level-nav">
+                      <li class="uk-parent">
+                        <a href="#" aria-expanded="false" ><ng-container i18n="@@aboutOurWork">Was wir tun</ng-container>
+                          <span class="icon-drop uk-icon" uk-icon="icon: chevron-down; ratio: 1.5"></span>
+                        </a>
+                        <div class="uk-navbar-dropdown">
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li><a i18n-href="@@telecommunications-href"
+                                   href="https://www.rtr.at/TKP/was_wir_tun/telekommunikation/startseite.de.html"
+                                   title="Telekommunikation" i18n="@@telecommunications">Telekommunikation</a></li>
+
+                            <li><a i18n-href="@@postal-href" href="https://www.rtr.at/TKP/was_wir_tun/post/startseite.de.html"
+                                   title="Post" i18n="@@postal">Post</a></li>
+
+                            <li><a i18n-href="@@trustServices-href"
+                                   href="https://www.rtr.at/TKP/was_wir_tun/vertrauensdienste/startseite.de.html"
+                                   title="Vertrauensdienste" i18n="@@trustServices">Vertrauensdienste</a></li>
+
+                            <li><a i18n-href="@@international-href"
+                                   href="https://www.rtr.at/TKP/was_wir_tun/internationales/startseite.de.html" title="Internationales"
+                                   i18n="@@international">Internationales</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="uk-parent">
+                  <div class="uk-navbar-container uk-navbar" uk-navbar="dropbar: true; dropbar-mode: push;mode: click">
+                    <ul class="uk-navbar-nav second-level-nav">
+                      <li class="uk-parent">
+                        <a href="#" aria-expanded="false"><ng-container i18n="@@aboutus">Wer wir sind</ng-container>
+                          <span class="icon-drop uk-icon" uk-icon="icon: chevron-down; ratio: 1.5"></span>
+                        </a>
+                        <div class="uk-navbar-dropdown">
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li><a i18n-href="@@rtrTelecomPost-href" href="https://www.rtr.at/TKP/wer_wir_sind/telekommunikation_und_post/startseite.de.html"
+                                   title="RTR.Telekom.Post" i18n="@@rtrTelecomPost">RTR.Telekom.Post</a></li>
+                            <li><a i18n-href="@@tkk-href" href="https://www.rtr.at/TKP/wer_wir_sind/tkk/TKK.de.html" title="TKK" i18n="@@tkk">TKK</a></li>
+                            <li><a i18n-href="@@pck-href" href="https://www.rtr.at/TKP/wer_wir_sind/pck/startseite.de.html" title="PCK" i18n="@pck">PCK</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="uk-parent">
+                  <div class="uk-navbar-container uk-navbar" uk-navbar="dropbar: true; dropbar-mode: push;mode: click">
+                    <ul class="uk-navbar-nav second-level-nav">
+                      <li class="uk-parent">
+                        <a href="#" aria-expanded="false"><ng-container i18n="@@contact">Kontakt</ng-container>
+                          <span class="icon-drop uk-icon" uk-icon="icon: chevron-down; ratio: 1.5"></span>
+                        </a>
+                        <div class="uk-navbar-dropdown">
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                            <li><a i18n-href="@@contactAmtstafel-href" href="https://www.rtr.at/TKP/kontakt/Kontakt_und_Amtstafel/Amtstafel.de.html"
+                                   title="Kontakt und Amtstafel" i18n="@@contactAmtstafel">Kontakt und Amtstafel</a></li>
+
+                            <li><a i18n-href="@@press-href" href="https://www.rtr.at/TKP/kontakt/presse/Presse.de.html" title="Presse" i18n="@@press">Presse</a></li>
+
+                            <li><a i18n-href="@@ertrContact-href" href="https://www.rtr.at/TKP/kontakt/ertr/eRTR.de.html" title="eRTR" i18n="@@ertr">eRTR</a></li>
+
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a i18n-href="@@ourServices-href" href="https://www.rtr.at/TKP/service/startseite.de.html" i18n="@@ourServices">
+                    Unsere Services
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="uk-child-width-auto uk-grid-small uk-grid uk-margin-top-50 uk-grid-stack" uk-grid="">
+          <div class="uk-first-column">
+            <a class="el-link uk-icon-button uk-icon" rel="noreferrer" href="mailto:rtr@rtr.at"
+               uk-icon="icon: mail;">
+            </a>
+          </div>
+          <div>
+            <a class="el-link uk-icon-button uk-icon" rel="noreferrer" href="https://twitter.com/rtrgmbh"
+               uk-icon="icon: twitter;"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Desktop -->
+<!-- Desktop -->
+<div class="tm-header uk-visible@l" uk-header="">
+  <div uk-sticky="" media="@l" cls-active="uk-navbar-sticky" sel-target=".uk-navbar-container" class="uk-sticky"
+       style="">
+    <div class="uk-navbar-container">
+      <div class="uk-container uk-container-large">
+        <nav
+          uk-navbar="mode: click;boundary-align:true;dropbar:true;dropbar-anchor:!.uk-navbar-container;dropbar-mode:slide"
+          class="uk-navbar">
+          <div class="uk-navbar-left">
+            <div class="uk-child-width-expand@s uk-text-center logos uk-grid-small uk-grid" uk-grid="">
+              <div class="uk-first-column">
+                <a href="https://www.rtr.at/">
+                  <picture>
+
+                    <img src='assets/logo_rtr_pck_tkk.svg' alt="Logo RTR PCK TKK" title="RTR" style="height:50px;">
+                  </picture>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+
+              <li class="">
+                <a href="#" aria-expanded="false"><ng-container i18n="@@recent-news">Aktuelles</ng-container>
+                  <span uk-icon="chevron-down" class="uk-icon"></span>
+                </a>
+                <div class="uk-navbar-dropdown">
+                  <div class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid uk-grid-stack" uk-grid="">
+
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@decisions-href" href="https://www.rtr.at/TKP/aktuelles/entscheidungen/Uebersichtseite.de.html" title="Entscheidungen" i18n="@@decisions">Entscheidungen</a>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@legalPublications-href"
+                               href="https://www.rtr.at/TKP/aktuelles/veroeffentlichungen/Uebersichtseite.de.html"
+                               i18n-title="@@legalPublications" title="Veröffentlichungen"
+                               i18n="@@legalPublications">Veröffentlichungen</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@publications-href"
+                               href="https://www.rtr.at/TKP/aktuelles/publikationen/Uebersichtseite.de.html" title="Publikationen"
+                               i18n="@@publications">Publikationen</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@events-href" href="https://www.rtr.at/TKP/aktuelles/veranstaltungen/Uebersicht.de.html"
+                               title="Veranstaltungen" i18n="@@events">Veranstaltungen</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@news-href" href="https://www.rtr.at/TKP/aktuelles/neuigkeiten/Uebersicht.de.html"
+                               title="Neuigkeiten" i18n="@@news">Neuigkeiten</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@pressStatements-href"
+                               href="https://www.rtr.at/TKP/aktuelles/pressemitteilungen/Uebersicht.de.html"
+                               title="Pressemitteilungen" i18n="@@pressStatements">Pressemitteilungen</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class=" uk-active">
+                <a href="#" aria-expanded="false"><ng-container i18n="@@aboutOurWork">Was wir tun</ng-container>
+                  <span uk-icon="chevron-down" class="uk-icon"></span>
+                </a>
+                <div class="uk-navbar-dropdown">
+                  <div class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid uk-grid-stack" uk-grid="">
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@telecommunications-href"
+                               href="https://www.rtr.at/TKP/was_wir_tun/telekommunikation/startseite.de.html"
+                               title="Telekommunikation" i18n="@@telecommunications">Telekommunikation</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@postal-href" href="https://www.rtr.at/TKP/was_wir_tun/post/startseite.de.html"
+                               title="Post" i18n="@@postal">Post</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@trustServices-href"
+                               href="https://www.rtr.at/TKP/was_wir_tun/vertrauensdienste/startseite.de.html"
+                               title="Vertrauensdienste" i18n="@@trustServices">Vertrauensdienste</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@international-href"
+                               href="https://www.rtr.at/TKP/was_wir_tun/internationales/startseite.de.html" title="Internationales"
+                               i18n="@@international">Internationales</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="">
+                <a href="#" aria-expanded="false"><ng-container i18n="@@aboutus">Wer wir sind</ng-container>
+                  <span uk-icon="chevron-down" class="uk-icon"></span>
+                </a>
+                <div class="uk-navbar-dropdown">
+                  <div class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid uk-grid-stack" uk-grid="">
+
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@rtrTelecomPost-href" href="https://www.rtr.at/TKP/wer_wir_sind/telekommunikation_und_post/startseite.de.html"
+                               title="RTR.Telekom.Post" i18n="@@rtrTelecomPost">RTR.Telekom.Post</a></li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@tkk-href" href="https://www.rtr.at/TKP/wer_wir_sind/tkk/TKK.de.html" title="TKK" i18n="@@tkk">TKK</a></li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@pck-href" href="https://www.rtr.at/TKP/wer_wir_sind/pck/startseite.de.html" title="PCK" i18n="@@pck">PCK</a></li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+              </li>
+
+
+
+              <li class="">
+                <a href="#" aria-expanded="false"><ng-container i18n="@@contact">Kontakt</ng-container>
+                  <span uk-icon="chevron-down" class="uk-icon"></span>
+                </a>
+                <div class="uk-navbar-dropdown">
+                  <div class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid uk-grid-stack" uk-grid="">
+
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@contactAmtstafel-href" href="https://www.rtr.at/TKP/kontakt/Kontakt_und_Amtstafel/Amtstafel.de.html"
+                               title="Kontakt und Amtstafel" i18n="@@contactAmtstafel">Kontakt und Amtstafel</a></li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@press-href" href="https://www.rtr.at/TKP/kontakt/presse/Presse.de.html" title="Presse" i18n="@@press">Presse</a></li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a i18n-href="@@ertrContact-href" href="https://www.rtr.at/TKP/kontakt/ertr/eRTR.de.html" title="eRTR" i18n="@@ertr">eRTR</a></li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-button">
+                <a i18n-href="@@ourServices-href" href="https://www.rtr.at/TKP/service/startseite.de.html" i18n="@@ourServices" class="uk-button uk-button-default">
+                  Unsere Services
+                </a></li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="uk-sticky-placeholder" style="height: 70px; margin: 0px;" hidden=""></div>
+</div>
+<!-- Breadcrumbs -->
+<div class="uk-section-default uk-section uk-section-xsmall">
+    <div class="uk-container uk-container-large">
+        <ul class="uk-breadcrumb">
+            <li>
+                <a href="https://www.rtr.at/rtr/startseite.de.html" title="Über uns" aria-label="Über uns">Über uns</a>
+            </li>
+            <li>
+                <a href="https://www.rtr.at/rtr/service/startseite.de.html" title="Service" aria-label="Service">Service</a>
+            </li>
+            <li>
+                <a href="https://www.rtr.at/rtr/service/ki-servicestelle/ki-servicestelle.de.html" title="KI-Servicestelle"
+                   aria-label="KI-Servicestelle">KI-Servicestelle</a>
+            </li>
+            <li>
+                <span>AI Act Chatbot</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="uk-section-default uk-section">
+
+  <app-aiabot></app-aiabot>
+
+</div>
+<!-- Footer -->
+<div id="footer" class="uk-section-default uk-section uk-section-small">
+  <div class="uk-container uk-container-large">
+    <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid="" uk-height-match="target: .uk-card; row: false">
+      <div class="uk-flex-auto uk-width-1-2@s uk-first-column m1 uk-grid-margin">
+        <div class="uk-margin"><p i18n="@@imprint-address"><b>RUNDFUNK UND TELEKOM<br>REGULIERUNGS-GMBH</b><br><br>A-1060 Wien, Mariahilfer
+          Straße 77-79<br>Tel.: +<a target="_self" href="tel:+431580580">43 1 58058-0</a><br></p></div>
+        <div class="uk-margin">
+          <div class="uk-child-width-auto uk-grid-small uk-grid uk-grid-stack" uk-grid="">
+
+            <div class="uk-first-column">
+              <a class="el-link uk-icon-button uk-icon" rel="noreferrer" href="mailto:ki@rtr.at" uk-icon="icon: mail;" aria-label="Mail" title="Mail">
+                  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="mail"><polyline fill="none" stroke="#000" points="1.4,6.5 10,11 18.6,6.5"></polyline><path d="M 1,4 1,16 19,16 19,4 1,4 Z M 18,15 2,15 2,5 18,5 18,15 Z"></path></svg>
+              </a>
+            </div>
+
+            <div class="uk-grid-margin uk-first-column">
+              <a class="el-link uk-icon-button uk-icon" rel="noreferrer" href="https://github.com/rtr-ai/aia-rag" uk-icon="icon: github;" aria-label="Github" title="Github">
+                  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="github"><path d="M10,1 C5.03,1 1,5.03 1,10 C1,13.98 3.58,17.35 7.16,18.54 C7.61,18.62 7.77,18.34 7.77,18.11 C7.77,17.9 7.76,17.33 7.76,16.58 C5.26,17.12 4.73,15.37 4.73,15.37 C4.32,14.33 3.73,14.05 3.73,14.05 C2.91,13.5 3.79,13.5 3.79,13.5 C4.69,13.56 5.17,14.43 5.17,14.43 C5.97,15.8 7.28,15.41 7.79,15.18 C7.87,14.6 8.1,14.2 8.36,13.98 C6.36,13.75 4.26,12.98 4.26,9.53 C4.26,8.55 4.61,7.74 5.19,7.11 C5.1,6.88 4.79,5.97 5.28,4.73 C5.28,4.73 6.04,4.49 7.75,5.65 C8.47,5.45 9.24,5.35 10,5.35 C10.76,5.35 11.53,5.45 12.25,5.65 C13.97,4.48 14.72,4.73 14.72,4.73 C15.21,5.97 14.9,6.88 14.81,7.11 C15.39,7.74 15.73,8.54 15.73,9.53 C15.73,12.99 13.63,13.75 11.62,13.97 C11.94,14.25 12.23,14.8 12.23,15.64 C12.23,16.84 12.22,17.81 12.22,18.11 C12.22,18.35 12.38,18.63 12.84,18.54 C16.42,17.35 19,13.98 19,10 C19,5.03 14.97,1 10,1 L10,1 Z"></path></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="uk-flex-auto uk-width-1-2 uk-width-1-4@s m2 uk-hidden@l uk-first-column">
+        <ul class="uk-list">            <li>
+          <a i18n-href="@@contact-href" href="https://www.rtr.at/rtr/Kontakt/Amtstafel.de.html" i18n="@@contact">Kontakt</a>
+        </li>
+          <li>
+            <a i18n-href="@@imprint-href" href="https://www.rtr.at/rtr/footer/impressum.de.html" i18n="@@imprint">Impressum</a>
+          </li>
+          <li>
+            <a i18n-href="@@privacy-href" href="https://www.rtr.at/rtr/footer/Datenschutz.de.html" i18n="@@privacy">Datenschutz</a>
+          </li>
+          <li>
+            <a i18n-href="@@accessibility-href" href="https://www.rtr.at/rtr/footer/Barrierefreiheit.de.html" i18n="@@accessibility">Barrierefreiheit</a>
+          </li>
+          <li>
+          </li></ul>
+      </div>
+      <div class="uk-flex-auto uk-width-1-2 uk-width-1-4@s m3 uk-hidden@l uk-grid-margin uk-first-column">
+        <ul class="uk-list">            <li>
+          <a i18n-href="@@pressFoooter-href" href="https://www.rtr.at/TKP/presse/Startseite.de.html" i18n="@@press">Presse</a>
+        </li>
+          <li>
+            <a i18n-href="@@ertr-href" href="https://www.rtr.at/rtr/service/ertr/eRTR.de.html" i18n="@@ertr">eRTR</a>
+          </li>
+          <li>
+            <a i18n-href="@@opendata-href" href="https://www.rtr.at/rtr/service/opendata/OpenData.de.html" i18n="@@opendata">Open Data</a>
+          </li>
+          <li>
+            <a i18n-href="@@faq-href" href="https://www.rtr.at/TKP/service/FAQs/FAQ-TKP.de.html" i18n="@@faq">Häufig gestellte Fragen</a>
+          </li>
+        </ul>
+      </div>
+      <div class="uk-flex-auto uk-width-1-2 uk-width-1-4@s footer-large uk-visible@l">
+        <ul class="uk-list">            <li>
+          <a i18n-href="@@pressFoooter-href" href="https://www.rtr.at/TKP/presse/Startseite.de.html" i18n="@@press">Presse</a>
+        </li>
+          <li>
+            <a i18n-href="@@ertr-href" href="https://www.rtr.at/rtr/service/ertr/eRTR.de.html" i18n="@@ertr">eRTR</a>
+          </li>
+          <li>
+            <a i18n-href="@@opendata-href" href="https://www.rtr.at/rtr/service/opendata/OpenData.de.html" i18n="@@opendata">Open Data</a>
+          </li>
+          <li>
+            <a i18n-href="@@faq-href" href="https://www.rtr.at/TKP/service/FAQs/FAQ-TKP.de.html" i18n="@@faq">Häufig gestellte Fragen</a>
+          </li>
+        </ul>
+        <ul class="uk-list">            <li>
+          <a i18n-href="@@contact-href" href="https://www.rtr.at/rtr/Kontakt/Amtstafel.de.html" i18n="@@contact">Kontakt</a>
+        </li>
+          <li>
+            <a i18n-href="@@imprint-href" href="https://www.rtr.at/rtr/footer/impressum.de.html" i18n="@@imprint">Impressum</a>
+          </li>
+          <li>
+            <a i18n-href="@@privacy-href" href="https://www.rtr.at/rtr/footer/Datenschutz.de.html" i18n="@@privacy">Datenschutz</a>
+          </li>
+          <li>
+            <a i18n-href="@@accessibility-href" href="https://www.rtr.at/rtr/footer/Barrierefreiheit.de.html" i18n="@@accessibility">Barrierefreiheit</a>
+          </li>
+          <li>
+          </li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>

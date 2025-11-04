@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useCallback, useRef, useState } from 'react';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../store/store';
 import {
   setManualIndex,
@@ -14,11 +14,9 @@ import { v4 as uuidv4 } from 'uuid';
 const AnnotationTool: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [inputText, setInputText] = useState('');
-
-  const { currentIndex, loading, selectionState } = useSelector(
-    (state: RootState) => state.chunk
-  );
-
+  const currentIndex = useSelector((state: RootState) => state.chunk.currentIndex, shallowEqual);
+  const loading = useSelector((state: RootState) => state.chunk.loading);
+  const selectionState = useSelector((state: RootState) => state.chunk.selectionState);
   const confirmInput = () => {
     dispatch(
       setManualIndex({
@@ -56,19 +54,16 @@ const AnnotationTool: React.FC = () => {
     );
   }
 
-  const handleSelection = (
-    id: string,
-    event: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const handleSelection = useCallback((id: string, event: React.MouseEvent<HTMLDivElement>) => {
     const selection = window.getSelection();
     if (!selection || selection.rangeCount <= 0) return;
-
+  
     const range = selection.getRangeAt(0);
     const start = range.startOffset;
     const end = range.endOffset;
-
+  
     dispatch(setSelectionState({ start, end, id }));
-  };
+  }, [dispatch]);
 
   return (
     <div className="uk-container">
@@ -113,7 +108,7 @@ const AnnotationTool: React.FC = () => {
                 key={chunk.id}
                 chunk={chunk}
                 onGenerateKeywords={(chunk) => {}}
-                onMouseUp={(id, e) => handleSelection(id, e)}
+                onMouseUp={handleSelection}
               />
             ))}
           </div>

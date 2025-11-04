@@ -3,10 +3,9 @@ name: Deploy
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - data/**
-      - annotation-tool/**
-
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,13 +31,16 @@ jobs:
           rm -r /app/trunk.old
           mv /app/trunk /app/trunk.old && 
           mv /app/trunk.new /app/trunk &&
-          cd /app/trunk &&
-          ls -lah
-          "
+          cd /app/trunk"
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.MATOMO_ENV }}" > /app/trunk/.env'
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.FRIENDLYCAPTCHA_ENV }}" >> /app/trunk/.env'
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "cd /app/trunk && ls -lah"
       shell: bash
       env:
         DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        MATOMO_ENV: ${{ secrets.MATOMO_ENV }}
+        FRIENDLYCAPTCHA_ENV: ${{ secrets.FRIENDLYCAPTCHA_ENV }}
     - name: Run docker
       run: |
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
@@ -52,3 +54,12 @@ jobs:
       env:
         DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+    - name: Validate deployment of llm-service
+      working-directory: ./.github
+      env:
+        HTTP_AUTHORIZATION: ${{ secrets.HTTP_AUTHORIZATION }}
+        CAPTCHA_OVERRIDE_SECRET: ${{ secrets.CAPTCHA_OVERRIDE_SECRET }}
+      run: |
+        ls -lah &&
+        pip install requests &&
+        python ci-test.py 

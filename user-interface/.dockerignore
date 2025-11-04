@@ -1,0 +1,16 @@
+node_modules
+
+*.log
+
+.angular/
+
+/tmp/
+/temp/
+
+.vscode/
+.idea/
+
+/dist
+
+.git
+.gitignore

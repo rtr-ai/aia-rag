@@ -1,0 +1,9 @@
+fastapi[all]
+uvicorn
+pydantic
+httpx
+ollama
+numpy
+tiktoken
+psutil
+pynvml

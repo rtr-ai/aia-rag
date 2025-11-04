@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Chunk, TextItem } from "../models/Chunk";
 import { Select } from "./Select";
 import { isTextItem } from "./../utilities/index";
@@ -39,17 +39,30 @@ const ChunkComponent: React.FC<
   const options = useSelector((state: RootState) =>
     relevantChunksOptions(state.chunk)
   ).filter((p) => p.value !== chunk.id);
+  const [localContent, setLocalContent] = useState(chunk.content);
+  useEffect(() => {
+    setLocalContent(chunk.content);
+  }, [chunk.content]);
+  
+  const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = e.target;
+    const scrollPosition = window.scrollY;
 
-  const handleContentChange = (e: React.ChangeEvent<HTMLDivElement>) => {
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+
+    setLocalContent(e.target.value); 
+    window.scrollTo({ top: scrollPosition });
+  };
+  const handleBlur = () => {
     dispatch(
       updateChunkProperty({
         chunkId: chunk.id,
         property: "content",
-        value: e.currentTarget.textContent || "",
+        value: localContent || "",
       })
     );
   };
-
   const handleTitleBlur = () => {
     dispatch(
       updateChunkProperty({
@@ -63,7 +76,7 @@ const ChunkComponent: React.FC<
   return (
     <div className="content-row content-chunk">
       <div className="left-column">
-        <div>
+        <div style={{display:"flex", flexDirection:"column", flexGrow:1}}> 
           <div className="uk-card-title">
             <div
               style={{
@@ -113,12 +126,28 @@ const ChunkComponent: React.FC<
           </div>
           <div
             className="chunk-content"
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={handleContentChange}
-          >
-            {chunk.content}
-          </div>
+            style={{
+              display:"flex",
+             }}
+             >
+            <textarea
+            style={
+              {
+                border: "none",
+                outline: "none",
+                resize: "none",
+                background: "none",
+                width: "100%",
+                height: "100%",
+                font: "inherit",
+                color: "inherit"
+              }
+            } 
+            onChange={handleContentChange}
+            onBlur={handleBlur}
+            value={localContent}>
+            </textarea>
+           </div>
         </div>
       </div>
       <div className="right-column">
@@ -202,8 +231,8 @@ const ChunkComponent: React.FC<
   );
 };
 
-const ChunkItem: React.FC<ChunkItemProps> = (props) => {
-  const { chunk } = props;
+const ChunkItem: React.FC<ChunkItemProps> = React.memo((props) => {
+    const { chunk } = props;
 
   if (isTextItem(chunk)) {
     return (
@@ -221,6 +250,6 @@ const ChunkItem: React.FC<ChunkItemProps> = (props) => {
       onGenerateKeywords={props.onGenerateKeywords}
     />
   );
-};
+});
 
 export { ChunkItem };

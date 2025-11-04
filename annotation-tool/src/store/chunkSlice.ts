@@ -76,7 +76,9 @@ const chunkSlice = createSlice({
         }
       });
 
-      state.currentIndex.chunks = newElements;
+      state.currentIndex.chunks = newElements.filter(
+        (chunk) => chunk.content.trim().length > 0
+      );
       resetSelectionState();
     },
     resetSelectionState(state) {

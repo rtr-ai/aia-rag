@@ -10,6 +10,6 @@ COPY . .
 
 EXPOSE 3000
 
-ENV HOST=127.0.0.1
+#ENV HOST=127.0.0.1
 
 CMD ["npm", "start"]

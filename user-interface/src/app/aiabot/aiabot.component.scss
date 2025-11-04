@@ -1,0 +1,116 @@
+@import '../scss/variables-theme';
+
+
+.spinner {
+  height: 15px;
+  width: 15px;
+  margin-right: 15px;
+}
+
+blockquote {
+  margin-left: 50px;
+}
+
+
+h3 i {
+  font-weight: normal;
+}
+
+.user-input {
+  font-size: 14px;
+  line-height: 28px;
+  min-height: 110px;
+}
+
+@media (max-width: $breakpoint-medium) {
+  .user-input {
+    min-height: 200px;
+  }
+}
+
+.user-input-suggestion {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: gray !important;
+  text-decoration: none;
+  transition: background-color ease 100ms;
+  background-color: #fcfcfc;
+  max-width: 80%;
+}
+
+.user-input-suggestion:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.uk-disabled {
+  border: 3px solid gray;
+  background-color: white;
+  color: #333333 !important;
+}
+
+.source-content {
+  margin: 5px;
+  border: 1px solid gray;
+  padding: 5px;
+  background-color: #EEEEEE;
+}
+
+.references .sub-references {
+  list-style-type: lower-alpha;
+}
+
+.references a {
+  text-decoration: underline !important;
+}
+
+.references a:hover {
+  background: lighten(#2F5F00, 70%) !important;
+}
+
+.prompt {
+  background: rgba(226, 255, 197, 0.31);
+  white-space: pre-line;
+  padding: 10px;
+
+  hr {
+    margin: 0;
+    border-top: 1px solid lightgray !important;
+  }
+}
+
+.first-token-progress {
+  height: 5px;
+  background-color: #2F5F00;
+  width: 65%;
+  position: relative;
+  transition: all 1s ease;
+}
+
+.first-token-progress.first-token-done {
+  background-color: rgba(47, 95, 0, 0);
+}
+
+.answer {
+  min-height: 100px;
+  background-color: rgba(226, 255, 197, 0.31);
+  border: 1px solid gray;
+  padding: 10px;
+  transition: background-color 1000ms linear;
+}
+
+.answer.answer-done {
+  background-color: rgba(226, 255, 197, 0.07);
+}
+
+.chat-answer {
+  white-space: pre-line;
+  font-size:18px;
+}
+
+.energy-table {
+  min-width: 750px;
+}

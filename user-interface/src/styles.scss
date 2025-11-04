@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'app/scss/app';
+
+
+/* Fonts */
+@font-face{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/OpenSans-Bold-webfont.woff');
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/OpenSans-Semibold-webfont.woff');
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/OpenSans-Regular-webfont.woff');
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('assets/fonts/OpenSans-Light-webfont.woff');
+}
