@@ -1,60 +1,11 @@
 services:
-  ollama:
-    volumes:
-      - /app/ollama/data:/root/.ollama
-    container_name: ollama
-    pull_policy: always
-    tty: true
-    restart: unless-stopped
-    image: ollama/ollama:0.11.8
-    ports:
-      - 127.0.0.1:11434:11434
-    environment:
-      - OLLAMA_KEEP_ALIVE=5m
-      - OLLAMA_NUM_PARALLEL=1
-      - OLLAMA_MAX_LOADED_MODELS=1
-    networks:
-      - ollama-docker
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
-
-
-  ollama-embedding:
-    volumes:
-      - /app/ollama/data:/root/.ollama
-    container_name: ollama-embedding
-    pull_policy: always
-    tty: true
-    restart: unless-stopped
-    image: ollama/ollama:0.11.8
-    ports:
-      - 127.0.0.1:11435:11434
-    environment:
-      - OLLAMA_KEEP_ALIVE=5m
-      - OLLAMA_NUM_PARALLEL=5
-      - OLLAMA_MAX_LOADED_MODELS=1
-    networks:
-      - ollama-docker
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
-
   annotation-tool:
     build:
       context: ./annotation-tool 
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "127.0.0.1:8081:3000"
+      - "127.0.0.1:9081:3000"
     environment:
       - HOST=0.0.0.0
       - PUBLIC_URL=/annotation-tool
@@ -71,7 +22,7 @@ services:
         dockerfile: Dockerfile
       restart: unless-stopped
       ports:
-        - "127.0.0.1:8085:8000"
+        - "127.0.0.1:9085:8000"
       environment:
         - HOST=0.0.0.0
         - OLLAMA_HOST=ollama
@@ -122,7 +73,7 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "127.0.0.1:8090:80"   
+      - "127.0.0.1:9090:80"
     environment:
       - HOST=0.0.0.0 
       - LLM_ENDPOINT=/llm-service  

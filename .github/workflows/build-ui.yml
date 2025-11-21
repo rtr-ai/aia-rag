@@ -5,11 +5,11 @@ name: User Interface CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
    # paths:
    #   - user-interface/**
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
     paths:
       - user-interface/**
 
