@@ -7,4 +7,5 @@ DEFAULT_MODEL = os.getenv("LLM_MODELS", "llama3.1:8b-instruct-fp16").split(",")[
 
 class ChatRequest(BaseModel):
     prompt: str = Field(min_length=1, max_length=500)
+    dataset: str = Field(min_length=1, max_length=500)
     frc_captcha_solution: Optional[str] = None
