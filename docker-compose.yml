@@ -12,8 +12,8 @@ services:
     command: npm start
     networks:
       - ollama-docker
-    depends_on:
-      - ollama
+    # depends_on:
+    #   - ollama
 
   llm-service:
       privileged: true
@@ -42,6 +42,8 @@ services:
         - CAPTCHA_OVERRIDE_SECRET=${CAPTCHA_OVERRIDE_SECRET}
         - CAPTCHA_API_KEY=${CAPTCHA_API_KEY}
         - FRIENDLY_CAPTCHA_SITEKEY=${FRIENDLY_CAPTCHA_SITEKEY}
+        - DATASETS={"ai_act_de":"combined.json","ai_act_en":"combined_en.json"}
+        - SYSTEM_PROMPTS_FILE=system_prompts.json
       volumes:
         - /app/logs:/app/logs/
         - ./data/combined.json:/app/data/chunks.json
@@ -56,8 +58,8 @@ services:
         - /dev/nvidia-uvm:/dev/nvidia-uvm
       networks:
         - ollama-docker
-      depends_on:
-        - ollama
+      # depends_on:
+      #   - ollama
       deploy:
         resources:
           reservations:
