@@ -1,11 +1,12 @@
 #!/bin/sh
-
-# Replace environment variables in JavaScript files
 echo "Replacing environment variables"
-for file in /usr/share/nginx/html/assets/env.js;
+
+for file in /usr/share/nginx/html/*/assets/env.js /usr/share/nginx/html/assets/env.js;
 do
-  echo "Processing $file..."
-  sed -i "s|%FRIENDLY_CAPTCHA_SITEKEY%|$FRIENDLY_CAPTCHA_SITEKEY|g" $file
+    if [ -f "$file" ]; then
+        echo "Processing $file..."
+        sed -i "s|%FRIENDLY_CAPTCHA_SITEKEY%|$FRIENDLY_CAPTCHA_SITEKEY|g" $file
+    fi
 done
 
 # Start Nginx
