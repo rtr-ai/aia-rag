@@ -19,6 +19,7 @@ import { environment } from "../../environments/environment";
 import { NgZone } from "@angular/core";
 import { WidgetInstance } from "friendly-challenge";
 import { EnvService } from "../../services/env.service";
+import { LOCALE_ID, Inject } from "@angular/core";
 @Component({
   selector: "app-aiabot",
   standalone: true,
@@ -70,7 +71,11 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   captchaContainer!: ElementRef;
   isCaptchaCompleted: boolean = false;
 
-  constructor(private zone: NgZone, private envService: EnvService) {
+  constructor(
+    private zone: NgZone,
+    private envService: EnvService,
+    @Inject(LOCALE_ID) public locale: string
+  ) {
     this.sitekey = this.envService.friendlyCaptchaSitekey;
   }
   ngOnInit(): void {}
@@ -114,9 +119,19 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     if (server.length === 0) {
       throw Error("No LLM endpoint has been configured");
     }
+
+    const datasetsPerLocale: Record<string, string> = {
+      en: "ai_act_en",
+      de: "ai_act_de",
+    };
+    let defaultDataset = datasetsPerLocale["de"];
+    if (this.locale && typeof datasetsPerLocale[this.locale] != "undefined") {
+      defaultDataset = datasetsPerLocale[this.locale];
+    }
     const params = {
       prompt: this.userPrompt,
       frc_captcha_solution: this.captchaSolution,
+      dataset: defaultDataset,
     };
     const updateSources = (sources: Source[]) => {
       this.sources = sources;
