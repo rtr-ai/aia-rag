@@ -21,6 +21,7 @@ This document provides an overview of the **RTR AI-RAG Project**, including its 
        - [Chunk retrieval](#chunk-retrieval)
        - [Environment Variables](#environment-variables-2)
        - [Volumes Mapping](#volumes-mapping)
+       - [Adding a new dataset](#adding-a-new-dataset)
      + [4. User Interface](#4-user-interface-1)
        - [Environment Variables](#environment-variables-3)
 3. [Server Setup for Ubuntu (NVIDIA GPU Support)](#server-setup-for-ubuntu-nvidia-gpu-support)
@@ -171,12 +172,13 @@ Python FastAPI application which handles **index creation, LLM interactions, and
 Privileged mode is required for accessing the power usage data, which is used to measure approximate power consumuption for each step.
 
 
-Upon application startup, the service first uses Ollama to pull all required LLMs and embedding models, then creates a vectore store index using the chunks cut beforehand and stored in the ./data/combined.json file.
+Upon application startup, the service first uses Ollama to pull all required LLMs and embedding models, then creates a vectore store index using the chunks cut beforehand and defines the the environment variable  `DATASETS`.
 
 To answer a user prompt, the LLM Service vectorizes the user prompt, calculates the **Cosine Similarity** between the user prompt and each of the indexed chunks, and uses the number of chunks defined in the **TOP_N_CHUNKS** variable to retrieve the top N chunks with the highest score. Afterwards, the text of these chunks, together with user and system prompt are sent to the LLM for generating a response.
 
 ##### **Chunk retrieval**
 When retrieving chunks for a specific user prompt, the LLM Service checks the following:
+- **Dataset** Chunks are searched and added only from the dataset specified
 - **Interconnected chunks** For each chunk, the interconnected (related) chunks are added.
 - **Context Window** Chunks that would cause the LLM's context window to be exceeded, are skipped. This check starts at the top of the list (ranking based on Cosine Similarity) and counts till the last chunk that will still fit into the context window. 
 - **Duplicates** Duplicated chunks are skipped.
@@ -202,8 +204,12 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
       - ROOT_PATH=/llm-service
       - TOP_N_CHUNKS=25
       - ORDER_CHUNKS_FROM_SOURCE=true
+      - DATASETS={"ai_act_de":"combined.json","ai_act_en":"combined_en_new.json"}
+      - SYSTEM_PROMPTS_FILE=system_prompts.json
     volumes:
-      - ./data/combined.json:/app/data/chunks.json
+      - ./data/combined.json:/app/data/combined.json
+      - ./data/combined_en_new.json:/app/data/combined_en_new.json
+      - ./data/system_prompts.json:/app/data/system_prompts.json
       - /sys/class/powercap:/sys/class/powercap:ro
       - /proc/stat:/proc/stat:ro
       - /proc/cpuinfo:/proc/cpuinfo:ro
@@ -235,12 +241,25 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
 - `PROMPT_BUFFER=4000` → Reserves tokens for the **user prompt** during prompt construction.  
 - `TOP_N_CHUNKS=25` → Maximum number of text chunks used for RAG. The number corresponds to top level chunks; interconnected (related) chunks are not counted.  
 - `ORDER_CHUNKS_FROM_SOURCE=true` → Maintains original order of text chunks instead of sorting them by score calculated using cosine similarity. The choice of chunks is still based on cosine similarity, the order only affects how the chosen chunks are inserted into the prompt.  
+- `DATASETS`  → A JSON containing name (key) and filenames (value) of datasets that should be indexed into the vector database. Please make sure to map the appropriate JSON containing chunks to data volume beforehand and add the appropriate system prompt to the system_prompts.json file, where the key matches the dataset key.
+- `SYSTEM_PROMPTS_FILE`  → Name of the file containing system prompts. The file must contain JSON with the name of the dataset (key) and the system prompt. 
 
 
 ##### **Volumes Mapping**  
-- `./data/combined.json:/app/data/chunks.json` → Output from the annotation-tool, which should be stored in the file **combined.json** which is used for index creation.
+- `./data/combined.json:/app/data/combined.json` → A example dataset which is the output(s) from the annotation-tool  which is used for index creation. For each dataset a seperate JSON file is required and all datasets should be mapped seperately. 
 - `./app/logs:/app/logs/` → Logs from llm-service.
 - `The rest of volumes` → Used for power consumption metrics.
+
+##### **Adding  A New Dataset**  
+
+In order to add a new dataset called  for excample `copyright`, please follow the steps
+
+1. Copy the output from annotation tool (for example copyright.json) in the data folder. 
+2. Map /data/copyright.json to the container by adding `./data/copyright.json:/app/data/copyright.json` to the `volumes` mapping.
+3. Add the dataset to the environment variables datasets as `copyright:copyright.json`. 
+4. Add the system prompt to `system_prompts.json` file with key `copyright`
+5. Ready. When the frontend sends `{"prompt": "Which copyright laws apply?", "dataset" : "copyright"}`, the LLM Service will use the system prompt called `copyright` and the matching system prompt `from system_prompts.json` 
+
 
 
 ---
