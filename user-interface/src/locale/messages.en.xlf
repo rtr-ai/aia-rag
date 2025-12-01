@@ -10,6 +10,30 @@
           <context context-type="linenumber">3,6</context>
         </context-group>
       </trans-unit>
+        <trans-unit id="askQuestionHeader" datatype="html">
+        <source>Stellen Sie Ihre Frage!</source>
+        <target>Ask your question!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="askQuestionLabel" datatype="html">
+        <source>Ihre Frage: </source>
+        <source>Target: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="askQuestion" datatype="html">
+        <source>Frage stellen</source>
+        <target>Ask a question</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">65,68</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="queueMessageSingle" datatype="html">
         <source>Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime"/> Sekunden.</source>
         <target>There is currently 1 request in the queue. Processing time for your request: approx. <x id="estimatedTime"/> seconds.</target>
