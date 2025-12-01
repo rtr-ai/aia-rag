@@ -86,7 +86,7 @@ services:
     networks:
       - ollama-docker
     depends_on:
-      - llm-service
+      - llm-service-develop
 
 networks:
   ollama-docker:
