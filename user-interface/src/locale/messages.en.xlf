@@ -10,6 +10,46 @@
           <context context-type="linenumber">3,6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="queueMessageSingle" datatype="html">
+        <source>Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime"/> Sekunden.</source>
+        <target>There is currently 1 request in the queue. Processing time for your request: approx. <x id="estimatedTime"/> seconds.</target>
+      </trans-unit>
+      <trans-unit id="queueMessageMultiple" datatype="html">
+        <source>Es sind aktuell <x id="queueCount"/> Anfragen in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime"/> Sekunden.</source>
+        <target>There are currently <x id="queueCount"/> requests in the queue. Processing time for your request: approx. <x id="estimatedTime"/> seconds.</target>
+      </trans-unit>
+      <trans-unit id="powerLabelIndex" datatype="html">
+        <source>Indexierung von relevanten Daten (einmalig pro Serverstart)</source>
+        <target>Indexing of relevant data (once per server start)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="powerLabelPrompt" datatype="html">
+        <source>Erstellung des Prompts („Retrieve&quot; und „Augment&quot;)</source>
+        <target>Prompt creation ("Retrieve" and "Augment")</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="powerLabelResponse" datatype="html">
+        <source>Generierung der Antwort („Generate&quot;)</source>
+        <target>Response generation ("Generate")</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="powerLabelTotal" datatype="html">
+        <source>Gesamter Energieverbrauch</source>
+        <target>Total energy consumption</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="telecommunicationPostal" datatype="html">
         <source>Telekommunikation und Post</source>
         <target state="translated">Telecommunications and Postal Division</target>
