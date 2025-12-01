@@ -48,7 +48,9 @@ services:
       - SYSTEM_PROMPTS_FILE=system_prompts.json
     volumes:
       - /app/logs:/app/logs/
-      - ./data/:/app/data/
+      - ./data/combined.json:/app/data/combined.json
+      - ./data/combined_en_new.json:/app/data/combined_en_new.json
+      - ./data/system_prompts.json:/app/data/system_prompts.json
       - /sys/class/powercap:/sys/class/powercap:ro
       - /proc/stat:/proc/stat:ro
       - /proc/cpuinfo:/proc/cpuinfo:ro
