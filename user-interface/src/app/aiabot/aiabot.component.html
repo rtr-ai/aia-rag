@@ -8,15 +8,22 @@
       <p class="uk-text-large uk-margin-top">
         Sie haben Fragen zum AI Act und regulatorischen Rahmenbedingungen zu AI?
         <br />
-        Unser <a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Unser%20RAG-Chatbot%20beantwortet%20Ihre%20Fragen!" target="_blank">RAG-Chatbot</a> (<i
-          >&bdquo;Retrieval-Augmented Generation&ldquo;</i
-        >) beantwortet Ihre Fragen!
+        Unser
+        <a
+          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Unser%20RAG-Chatbot%20beantwortet%20Ihre%20Fragen!"
+          target="_blank"
+          >RAG-Chatbot</a
+        >
+        (<i>&bdquo;Retrieval-Augmented Generation&ldquo;</i>) beantwortet Ihre
+        Fragen!
       </p>
 
-      <h3>Stellen Sie Ihre Frage!</h3>
+      <h3 i18n="@@askQuestionHeader">Stellen Sie Ihre Frage!</h3>
       <form class="uk-form uk-padding-remove">
         <p>
-          <label class="uk-margin-medium-bottom">Ihre Frage: </label>
+          <label class="uk-margin-medium-bottom" i18n="@@askQuestionLabel"
+            >Ihre Frage:
+          </label>
         </p>
         <div style="position: relative">
           <textarea
@@ -36,12 +43,17 @@
           >
             {{ userPrompt.length }}/{{ maxLength }}
           </small>
-          <a class="user-input-suggestion" *ngIf="userPrompt == ''" (click)="userPrompt=placeholderPrompt;answerQuery()">
-            z.B.: &ldquor;{{placeholderPrompt}}&ldquo;
+          <a
+            class="user-input-suggestion"
+            *ngIf="userPrompt == ''"
+            (click)="userPrompt = placeholderPrompt; answerQuery()"
+          >
+            z.B.: &ldquor;{{ placeholderPrompt }}&ldquo;
           </a>
         </div>
         <!-- <div #captchaContainer class="frc-captcha uk-grid-margin"></div>-->
         <a
+          i18n="@@askQuestion"
           class="uk-button uk-button-large uk-grid-margin uk-button-primary"
           [ngClass]="
             (step == 'initial' || step == 'done') &&
@@ -63,21 +75,34 @@
         </div>
       </form>
       <p class="text-muted">
-          <strong>Wichtiger Hinweis:</strong> Antworten von generativen KI-Systemen (zB Chatbots) können
-          systembedingt Fehler enthalten – sie sind oft aber nicht immer richtig. Dieses Service hat
-          demnach zwei Funktionen: Einerseits werden aufgrund Ihrer Eingaben (Prompts) durch ein Sprachmodell (LLM)
-          Auskünfte zum AI-Act generiert, andererseits soll deutlich werden, dass eine Qualitätskontrolle der
-          Ergebnissen von KI-Systemen dieser Art immer notwendig ist. Dazu können Sie sich für
-          fachkundige Unterstützung gerne an das (menschliche) Team der <a style="white-space: nowrap" href="https://ki.rtr.at">KI-Servicestelle</a> wenden.
+        <strong>Wichtiger Hinweis:</strong> Antworten von generativen
+        KI-Systemen (zB Chatbots) können systembedingt Fehler enthalten – sie
+        sind oft aber nicht immer richtig. Dieses Service hat demnach zwei
+        Funktionen: Einerseits werden aufgrund Ihrer Eingaben (Prompts) durch
+        ein Sprachmodell (LLM) Auskünfte zum AI-Act generiert, andererseits soll
+        deutlich werden, dass eine Qualitätskontrolle der Ergebnissen von
+        KI-Systemen dieser Art immer notwendig ist. Dazu können Sie sich für
+        fachkundige Unterstützung gerne an das (menschliche) Team der
+        <a style="white-space: nowrap" href="https://ki.rtr.at"
+          >KI-Servicestelle</a
+        >
+        wenden.
       </p>
       <p class="text-muted">
-          <a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html"
-             target="_blank">Weitere technische Informationen zum Chatbot</a>
+        <a
+          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html"
+          target="_blank"
+          >Weitere technische Informationen zum Chatbot</a
+        >
       </p>
     </div>
     <div *ngIf="step != 'initial'" id="modelContent">
       <div class="uk-container uk-margin-top-50">
-        <h3><div class="loader loader-small-offset" *ngIf="step == 'research'"></div>
+        <h3>
+          <div
+            class="loader loader-small-offset"
+            *ngIf="step == 'research'"
+          ></div>
           <span *ngIf="step != 'research'">&check;</span>
           Relevante Quellen erheben <i>(&ldquor;<b>R</b>etrieve&rdquor;)</i>
         </h3>
@@ -182,13 +207,22 @@
           </li>
         </ul>
         <p *ngIf="sources.length > 0">
-          <i><a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?" target="_blank">Information: Wie werden relevante Quellen erhoben?</a></i>
+          <i
+            ><a
+              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?"
+              target="_blank"
+              >Information: Wie werden relevante Quellen erhoben?</a
+            ></i
+          >
         </p>
       </div>
 
       <div class="uk-container uk-margin-top-50">
         <h3>
-          <div class="loader loader-small-offset" *ngIf="step == 'prompt'"></div>
+          <div
+            class="loader loader-small-offset"
+            *ngIf="step == 'prompt'"
+          ></div>
           <span *ngIf="step == 'done' || step == 'output'">&check;</span>
           Prompt erstellen <i>(&ldquor;<b>A</b>ugment&rdquor;)</i>
         </h3>
@@ -202,7 +236,8 @@
               <b>Prompt</b>
             </a>
             <div class="uk-accordion-content">
-              <p>Basierend auf den gefundenen Quellen wurde ein Prompt erstellt.
+              <p>
+                Basierend auf den gefundenen Quellen wurde ein Prompt erstellt.
                 Dieses setzt sich aus den möglicherweise relevanten Quellen im
                 Volltext, einem System Prompt sowie Ihrer Frage zusammen. Dieses
                 Prompt wird zur Fragenbeantwortung an ein Sprachmodell (<abbr
@@ -214,14 +249,23 @@
             </div>
           </li>
         </ul>
-          <p *ngIf="sources.length > 0">
-              <i><a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?" target="_blank">Information: Wie ist ein Prompt aufgebaut?</a></i>
-          </p>
+        <p *ngIf="sources.length > 0">
+          <i
+            ><a
+              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
+              target="_blank"
+              >Information: Wie ist ein Prompt aufgebaut?</a
+            ></i
+          >
+        </p>
       </div>
 
       <div class="uk-container uk-margin-top-50">
         <h3>
-          <div class="loader loader-small-offset" *ngIf="step == 'output'"></div>
+          <div
+            class="loader loader-small-offset"
+            *ngIf="step == 'output'"
+          ></div>
           <span *ngIf="step == 'done'">&check;</span>
           Antwort erstellen <i>(&ldquor;<b>G</b>enerate&rdquor;)</i>
         </h3>
@@ -261,16 +305,29 @@
       >
         <p class="uk-margin-remove-bottom">
           <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass diese
-          Antwort von einer KI nur auf Grundlage des obigen Prompts
-            (<i>&ldquor;{{ submittedUserPrompt }}&rdquor;</i> - <a><label for="userPrompt" style="cursor: pointer">Prompt adaptieren</label></a>)
-            erstellt
-          wurde, auf den oben angeführten Quellen basiert und möglicherweise Fehler enthalten kann. Für fachkundige
-          Unterstützung steht Ihnen das (menschliche) Team der
+          Antwort von einer KI nur auf Grundlage des obigen Prompts (<i
+            >&ldquor;{{ submittedUserPrompt }}&rdquor;</i
+          >
+          -
+          <a
+            ><label for="userPrompt" style="cursor: pointer"
+              >Prompt adaptieren</label
+            ></a
+          >) erstellt wurde, auf den oben angeführten Quellen basiert und
+          möglicherweise Fehler enthalten kann. Für fachkundige Unterstützung
+          steht Ihnen das (menschliche) Team der
           <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a> gerne
           zur Verfügung.
         </p>
         <p class="uk-margin-remove-bottom">
-            <i><a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Welche%20Vorteile%20bietet%20ein%20RAG-System%20als%20Auskunftsquelle?" target="_blank">Information: Welche Vorteile bietet ein RAG-System für die Erstellung einer Antwort?</a></i>
+          <i
+            ><a
+              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Welche%20Vorteile%20bietet%20ein%20RAG-System%20als%20Auskunftsquelle?"
+              target="_blank"
+              >Information: Welche Vorteile bietet ein RAG-System für die
+              Erstellung einer Antwort?</a
+            ></i
+          >
         </p>
 
         <p class="uk-margin-remove-top">
@@ -394,9 +451,9 @@
             <div>
               Der Stromverbrauch wurde direkt auf Hardware-Ebene gemessen, die
               angegebenen Zahlen entsprechen den dort vorliegenden Daten. Der
-              <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr> beträgt
-              zwischen 1,10 und 1,16. Seitens des Rechenzentrums wird ein
-              ausschließlich auf erneuerbare Energien abgestellter Strommix
+              <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr>
+              beträgt zwischen 1,10 und 1,16. Seitens des Rechenzentrums wird
+              ein ausschließlich auf erneuerbare Energien abgestellter Strommix
               verwendt. Der durchschnittliche CO<sub>2</sub>-Ausstoß im
               Hosting-Land Deutschland lag zuletzt bei rund 425g CO<sub>2</sub>
               pro kWh.
@@ -404,28 +461,51 @@
           </div>
         </li>
       </ul>
-        <p *ngIf="step == 'done'">
-            <i><a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch" target="_blank">Information: Wie wird der Stromverbrauch berechnet?</a></i>
-        </p>
+      <p *ngIf="step == 'done'">
+        <i
+          ><a
+            href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch"
+            target="_blank"
+            >Information: Wie wird der Stromverbrauch berechnet?</a
+          ></i
+        >
+      </p>
     </div>
     <div class="uk-container uk-margin-top-50">
       <h4>Hintergrundinformationen zum AI Act Chatbot</h4>
       <ul>
         <li>
-          <a href="https://www.rtr.at/rtr/footer/Datenschutz.de.html#AI%20Act%20Chatbot"
+          <a
+            href="https://www.rtr.at/rtr/footer/Datenschutz.de.html#AI%20Act%20Chatbot"
             >Datenschutzerklärung</a
           >
         </li>
-        <li><a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Rechtliche%20Einsch%C3%A4tzung%20nach%20dem%20AI%20Act">Analyse des AI Act Chatbot nach dem AI Act</a></li>
-        <li><a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Datenschutzrechtliche%20Aspekte%20des%20AIA%20RAG%20der%20KI-Servicestelle">Datenschutzrechtliche Aspekte des AI Act Chatbots</a></li>
-        <li><a href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html">Technische Hintergrundinformationen</a></li>
+        <li>
+          <a
+            href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Rechtliche%20Einsch%C3%A4tzung%20nach%20dem%20AI%20Act"
+            >Analyse des AI Act Chatbot nach dem AI Act</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Datenschutzrechtliche%20Aspekte%20des%20AIA%20RAG%20der%20KI-Servicestelle"
+            >Datenschutzrechtliche Aspekte des AI Act Chatbots</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html"
+            >Technische Hintergrundinformationen</a
+          >
+        </li>
         <li>
           <a href="https://github.com/rtr-ai/aia-rag"
             >Source Code und Softwarelizenzen</a
           >
         </li>
         <li>
-          <a href="https://github.com/rtr-ai/aia-rag/blob/main/data/combined.json"
+          <a
+            href="https://github.com/rtr-ai/aia-rag/blob/main/data/combined.json"
             >Im Chatbot hinterlegte Datenbasis</a
           >
         </li>
