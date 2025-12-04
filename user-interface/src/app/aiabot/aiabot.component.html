@@ -47,6 +47,7 @@
             class="user-input-suggestion"
             *ngIf="userPrompt == ''"
             (click)="userPrompt = placeholderPrompt; answerQuery()"
+            i18n="@@userInputSuggestionExample"
           >
             z.B.: &ldquor;{{ placeholderPrompt }}&ldquo;
           </a>
@@ -68,13 +69,13 @@
         >
 
         <div class="uk-alert-danger" uk-alert *ngIf="!backendAvailable">
-          <p>
+          <p i18n="@@errorTryAgainLater">
             Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es
             später erneut.
           </p>
         </div>
       </form>
-      <p class="text-muted">
+      <p class="text-muted" i18n="@@errorDisclaimer">
         <strong>Wichtiger Hinweis:</strong> Antworten von generativen
         KI-Systemen (zB Chatbots) können systembedingt Fehler enthalten – sie
         sind oft aber nicht immer richtig. Dieses Service hat demnach zwei
@@ -90,6 +91,8 @@
       </p>
       <p class="text-muted">
         <a
+          i18n-href="@@chatbot-details-href"
+          i18n="@@chatbotFurtherDetailshref"
           href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html"
           target="_blank"
           >Weitere technische Informationen zum Chatbot</a
@@ -98,7 +101,7 @@
     </div>
     <div *ngIf="step != 'initial'" id="modelContent">
       <div class="uk-container uk-margin-top-50">
-        <h3>
+        <h3 i18n="@@setHeaderResearch">
           <div
             class="loader loader-small-offset"
             *ngIf="step == 'research'"
@@ -114,19 +117,20 @@
         >
           <li class="">
             <a class="uk-accordion-title anchor" aria-expanded="true">
-              <b>
+              <b i18n="@@numSourcesFound">
                 <ng-container>{{ getTotalSources(sources) }}</ng-container>
                 möglicherweise relevante Quellen identifiziert</b
               >
             </a>
             <div class="uk-accordion-content">
-              <div>
+              <div i18n="@@sourcesInfoText">
                 <i>Hinweis: </i> {{ getNotSkippedSources(sources) }} in
                 schwarzer Schrift abgebildete Dokumente werden zur
                 Fragenbeantwortung herangezogen. Grau abgebildete Einträge
                 überschreiten das
                 <abbr
                   uk-tooltip="Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann"
+                  i18n-uk-tooltip="@@contextWindowTooltip"
                   >Kontextfenster</abbr
                 >
                 und bleiben deshalb unberücksichtigt. Die angeführte Prozentzahl
@@ -135,7 +139,9 @@
                 <br />
                 <p *ngIf="tokensUsedFormatted.length > 0">
                   Gesamtanzahl der verwendeten
-                  <abbr uk-tooltip="Kleine Texteinheiten von mehrern Buchstaben"
+                  <abbr
+                    uk-tooltip="Kleine Texteinheiten von mehrern Buchstaben"
+                    i18n-uk-tooltip="@@tokenTooltip"
                     >Token</abbr
                   >: {{ tokensUsedFormatted }}
                 </p>
@@ -153,12 +159,21 @@
                       source.skip_reason === 'duplicate' ? 'italic' : 'normal'
                     "
                   >
-                    <span *ngIf="source.skip_reason === 'duplicate'"
-                      >(DUPLIKAT)&nbsp;</span
-                    >{{ source.title || "Quelle" }}
-
-                    ({{ formatScore(source.score) }}) ({{ source.num_tokens }}
-                    Token)
+                    <span
+                      *ngIf="source.skip_reason === 'duplicate'"
+                      i18n="@@source.duplicate.label"
+                    >
+                      (DUPLICATE)&nbsp;
+                    </span>
+                    <ng-container i18n="@@source.title.fallback">
+                      {{ source.title || "Source" }}
+                    </ng-container>
+                    <span i18n="@@source.score.label">
+                      ({{ formatScore(source.score) }})
+                    </span>
+                    <span i18n="@@source.tokens.label">
+                      ({{ source.num_tokens }} tokens)
+                    </span>
                   </a>
                   <div
                     id="content-{{ i + 1 }}"
@@ -167,7 +182,6 @@
                   >
                     {{ source.content }}
                   </div>
-
                   <ol style="margin-left: 20px" class="sub-references">
                     <li
                       *ngFor="let chunk of source.relevantChunks; let j = index"
@@ -185,12 +199,18 @@
                             : 'normal'
                         "
                       >
-                        <span *ngIf="chunk.skip_reason === 'duplicate'"
-                          >(DUPLIKAT)</span
+                        <span
+                          *ngIf="chunk.skip_reason === 'duplicate'"
+                          i18n="@@chunk.duplicate.label"
                         >
-                        {{ chunk.title.length > 0 ? chunk.title : chunk.id }}
-
-                        ({{ chunk.num_tokens }} Token)
+                          (DUPLICATE)
+                        </span>
+                        <ng-container i18n="@@chunk.title.fallback">
+                          {{ chunk.title.length > 0 ? chunk.title : chunk.id }}
+                        </ng-container>
+                        <span i18n="@@chunk.tokens.label">
+                          ({{ chunk.num_tokens }} tokens)
+                        </span>
                       </a>
                       <div
                         id="content-{{ (i + 1) * 1000 + j }}"
@@ -209,6 +229,8 @@
         <p *ngIf="sources.length > 0">
           <i
             ><a
+              i18n="@@linkHowRetrievalWorksLabel"
+              i18n-href="@@linkHowRetrievalWorks-href"
               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?"
               target="_blank"
               >Information: Wie werden relevante Quellen erhoben?</a
@@ -218,7 +240,7 @@
       </div>
 
       <div class="uk-container uk-margin-top-50">
-        <h3>
+        <h3 i18n="@@progress.prompt.creation">
           <div
             class="loader loader-small-offset"
             *ngIf="step == 'prompt'"
@@ -233,15 +255,16 @@
         >
           <li class="">
             <a class="uk-accordion-title anchor" aria-expanded="true">
-              <b>Prompt</b>
+              <b i18n="@@prompt.title">Prompt</b>
             </a>
             <div class="uk-accordion-content">
-              <p>
+              <p i18n="@@sourceTip">
                 Basierend auf den gefundenen Quellen wurde ein Prompt erstellt.
                 Dieses setzt sich aus den möglicherweise relevanten Quellen im
                 Volltext, einem System Prompt sowie Ihrer Frage zusammen. Dieses
                 Prompt wird zur Fragenbeantwortung an ein Sprachmodell (<abbr
                   uk-tooltip="Large Language Model"
+                  i18n-uk-tooltip="@@sourceTip.tooltip"
                   >"LLM"</abbr
                 >) übergeben.
               </p>
@@ -252,6 +275,8 @@
         <p *ngIf="sources.length > 0">
           <i
             ><a
+              i18n="@@linkHowIsPromptCreated"
+              i18n-href="@@linkHowIsPromptCreated-href"
               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
               target="_blank"
               >Information: Wie ist ein Prompt aufgebaut?</a
@@ -261,7 +286,7 @@
       </div>
 
       <div class="uk-container uk-margin-top-50">
-        <h3>
+        <h3 i18n="@@progressAnswer">
           <div
             class="loader loader-small-offset"
             *ngIf="step == 'output'"
@@ -303,7 +328,7 @@
         *ngIf="step == 'done'"
         class="uk-form uk-padding-remove uk-margin-top"
       >
-        <p class="uk-margin-remove-bottom">
+        <p class="uk-margin-remove-bottom" i18n="@@aiDisclaimer">
           <strong>Wichtiger Hinweis: </strong> Bitte beachten Sie, dass diese
           Antwort von einer KI nur auf Grundlage des obigen Prompts (<i
             >&ldquor;{{ submittedUserPrompt }}&rdquor;</i
@@ -323,6 +348,8 @@
           <i
             ><a
               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Welche%20Vorteile%20bietet%20ein%20RAG-System%20als%20Auskunftsquelle?"
+              i18n="@@labelHowIsAnswerGenerated"
+              i18n-href="@@labelHowIsAnswerGenerated-href"
               target="_blank"
               >Information: Welche Vorteile bietet ein RAG-System für die
               Erstellung einer Antwort?</a
@@ -331,44 +358,53 @@
         </p>
 
         <p class="uk-margin-remove-top">
-          <a class="uk-button uk-button-primary" [href]="mailtoLink">
+          <a
+            class="uk-button uk-button-primary"
+            [href]="mailtoLink"
+            i18n="@@buttonFeedback"
+          >
             Feedback zu dieser Antwort senden
           </a>
         </p>
       </form>
       <span *ngIf="step == 'done'">
-        <p>
+        <p i18n="@@labelEnergyConsumptionIntro">
           <strong>Energieverbrauch: </strong> Diese Fragenbeantwortung hat einen
           Stromverbrauch von
-          <strong
-            >{{ totalProQuery.toFixed(6).replace(".", ",") }}
-            <abbr uk-tooltip="Kilowattstunden">kWh</abbr></strong
-          >
+          <strong>
+            {{ totalProQuery.toFixed(6).replace(".", ",") }}
+            <abbr uk-tooltip="Kilowattstunden">kWh</abbr>
+          </strong>
           verursacht. Mit dieser Energiemenge kann etwa ein
           <abbr uk-tooltip="Modell mit 2,2 kW Leistung">Haarföhn</abbr> für
-          <i
-            >{{
+          <i>
+            {{
               (((totalProQuery * 1000) / 2200) * 60 * 60)
                 .toFixed(2)
                 .replace(".", ",")
             }}
-            Sekunden</i
-          >
+            Sekunden
+          </i>
           betrieben, oder ein
           <abbr uk-tooltip="5000 mAh Kapazität">Handyakku</abbr> um
-          <i
-            >{{
+          <i>
+            {{
               (((((totalProQuery * 1000) / 5) * 1000) / 5000) * 0.8 * 100)
                 .toFixed(2)
                 .replace(".", ",")
-            }}&nbsp;%</i
-          >
+            }}&nbsp;%
+          </i>
           aufgeladen werden.
         </p>
       </span>
+
       <ul uk-accordion class="uk-accordion ac-content" *ngIf="step == 'done'">
-        <li class="">
-          <a class="uk-accordion-title anchor" aria-expanded="true">
+        <li>
+          <a
+            class="uk-accordion-title anchor"
+            aria-expanded="true"
+            i18n="@@labelEnergyDetailsTitle"
+          >
             <b>Detaillierte Infos zum Energieverbrauch</b>
           </a>
           <div class="uk-accordion-content">
@@ -376,12 +412,20 @@
               <table class="uk-table uk-table-hover energy-table">
                 <thead>
                   <tr>
-                    <th><span uk-icon="bolt"></span> Energieverbrauch</th>
-                    <th class="uk-text-right">Prozessor (CPU)</th>
-                    <th class="uk-text-right">Grafikkarte (GPU)</th>
-                    <th class="uk-text-right">Arbeitsspeicher (RAM)</th>
-                    <th class="uk-text-right">Gesamt</th>
-                    <th class="uk-text-right">Dauer</th>
+                    <th i18n="@@labelEnergyConsumption">
+                      <span uk-icon="bolt"></span> Energieverbrauch
+                    </th>
+                    <th class="uk-text-right" i18n="@@labelCPU">
+                      Prozessor (CPU)
+                    </th>
+                    <th class="uk-text-right" i18n="@@labelGPU">
+                      Grafikkarte (GPU)
+                    </th>
+                    <th class="uk-text-right" i18n="@@labelRAM">
+                      Arbeitsspeicher (RAM)
+                    </th>
+                    <th class="uk-text-right" i18n="@@labelTotal">Gesamt</th>
+                    <th class="uk-text-right" i18n="@@labelDuration">Dauer</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -404,51 +448,52 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><strong>Gesamt</strong></td>
+                    <td><strong i18n="@@labelTotalStrong">Gesamt</strong></td>
                     <td class="uk-text-right">
-                      <strong style="word-break: keep-all"
-                        >{{
+                      <strong style="word-break: keep-all">
+                        {{
                           totalConsumption.cpu_kWh.toFixed(6).replace(".", ",")
-                        }}&nbsp;kWh</strong
-                      >
+                        }}&nbsp;kWh
+                      </strong>
                     </td>
                     <td class="uk-text-right">
-                      <strong style="word-break: keep-all"
-                        >{{
+                      <strong style="word-break: keep-all">
+                        {{
                           totalConsumption.gpu_kWh.toFixed(6).replace(".", ",")
-                        }}&nbsp;kWh</strong
-                      >
+                        }}&nbsp;kWh
+                      </strong>
                     </td>
                     <td class="uk-text-right">
-                      <strong style="word-break: keep-all"
-                        >{{
+                      <strong style="word-break: keep-all">
+                        {{
                           totalConsumption.ram_kWh.toFixed(6).replace(".", ",")
-                        }}&nbsp;kWh</strong
-                      >
+                        }}&nbsp;kWh
+                      </strong>
                     </td>
                     <td class="uk-text-right">
-                      <strong style="word-break: keep-all"
-                        >{{
+                      <strong style="word-break: keep-all">
+                        {{
                           totalConsumption.total_kWh
                             .toFixed(6)
                             .replace(".", ",")
-                        }}&nbsp;kWh</strong
-                      >
+                        }}&nbsp;kWh
+                      </strong>
                     </td>
                     <td class="uk-text-right">
-                      <strong style="word-break: keep-all"
-                        >{{
+                      <strong style="word-break: keep-all">
+                        {{
                           totalConsumption.duration
                             .toFixed(2)
                             .replace(".", ",")
-                        }}&nbsp;Sek.</strong
-                      >
+                        }}&nbsp;Sek.
+                      </strong>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div>
+
+            <div i18n="@@labelEnergyMeasurementInfo">
               Der Stromverbrauch wurde direkt auf Hardware-Ebene gemessen, die
               angegebenen Zahlen entsprechen den dort vorliegenden Daten. Der
               <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr>
@@ -461,50 +506,74 @@
           </div>
         </li>
       </ul>
+
       <p *ngIf="step == 'done'">
-        <i
-          ><a
+        <i>
+          <a
             href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch"
             target="_blank"
-            >Information: Wie wird der Stromverbrauch berechnet?</a
-          ></i
-        >
+            i18n="@@labelEnergyCalcInfo"
+            i18n-href="@@labelEnergyCalcInfo-href"
+          >
+            Information: Wie wird der Stromverbrauch berechnet?
+          </a>
+        </i>
       </p>
     </div>
+
     <div class="uk-container uk-margin-top-50">
-      <h4>Hintergrundinformationen zum AI Act Chatbot</h4>
+      <h4 i18n="@@labelBackgroundInfo">
+        Hintergrundinformationen zum AI Act Chatbot
+      </h4>
       <ul>
         <li>
           <a
             href="https://www.rtr.at/rtr/footer/Datenschutz.de.html#AI%20Act%20Chatbot"
-            >Datenschutzerklärung</a
+            i18n="@@labelPrivacyPolicy"
+            i18n-href="@@labelPrivacyPolicy-href"
           >
+            Datenschutzerklärung
+          </a>
         </li>
+
         <li>
           <a
             href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Rechtliche%20Einsch%C3%A4tzung%20nach%20dem%20AI%20Act"
-            >Analyse des AI Act Chatbot nach dem AI Act</a
+            i18n="@@labelAIActAnalysis"
+            i18n-href="@@labelAIActAnalysis-href"
           >
+            Analyse des AI Act Chatbot nach dem AI Act
+          </a>
         </li>
+
         <li>
           <a
+            i18n="@@privacyPolicyAIChatbot"
+            i18n-href="@@privacyPolicyAIChatbot-href"
             href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Datenschutzrechtliche%20Aspekte%20des%20AIA%20RAG%20der%20KI-Servicestelle"
             >Datenschutzrechtliche Aspekte des AI Act Chatbots</a
           >
         </li>
         <li>
           <a
+            i18n="@@technicalBackground"
+            i18n-href="@@technicalBackground-href"
             href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html"
             >Technische Hintergrundinformationen</a
           >
         </li>
         <li>
-          <a href="https://github.com/rtr-ai/aia-rag"
+          <a
+            i18n="@@sourceCodeAndLicense"
+            i18n-href="@@sourceCodeAndLicense-href"
+            href="https://github.com/rtr-ai/aia-rag"
             >Source Code und Softwarelizenzen</a
           >
         </li>
         <li>
           <a
+            i18n="@@sourceDataset"
+            i18n-href="@@sourceDataset-href"
             href="https://github.com/rtr-ai/aia-rag/blob/main/data/combined.json"
             >Im Chatbot hinterlegte Datenbasis</a
           >
