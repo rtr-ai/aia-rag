@@ -5,7 +5,7 @@
 
   <div class="uk-container">
     <div class="uk-container">
-      <p class="uk-text-large uk-margin-top">
+      <p class="uk-text-large uk-margin-top" i18n="@@introText">
         Sie haben Fragen zum AI Act und regulatorischen Rahmenbedingungen zu AI?
         <br />
         Unser
@@ -29,6 +29,7 @@
           <textarea
             class="uk-input user-input"
             placeholder="Stellen Sie uns Ihre Frage zum AI Act"
+            i18n-placeholder="@@askQuestionPlaceholder"
             [style.height]="'auto'"
             style="resize: none"
             [(ngModel)]="userPrompt"
