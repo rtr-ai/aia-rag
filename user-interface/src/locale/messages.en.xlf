@@ -20,7 +20,7 @@
       </trans-unit>
       <trans-unit id="askQuestionLabel" datatype="html">
         <source>Ihre Frage: </source>
-        <target>Your Question</target>
+        <target state="translated">Your Question </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">25</context>
@@ -36,7 +36,7 @@
       </trans-unit>
       <trans-unit id="queueMessageSingle" datatype="html">
         <source>Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime" equiv-text="estimatedTime"/> Sekunden.</source>
-        <target state="new">There is currently 1 request in the queue. Processing time for your request: approx. seconds.</target>
+        <target state="translated">There is currently 1 request in the queue. Processing time for your request: approx. <x id="estimatedTime" equiv-text="estimatedTime"/> seconds.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
           <context context-type="linenumber">131</context>
@@ -44,7 +44,7 @@
       </trans-unit>
       <trans-unit id="queueMessageMultiple" datatype="html">
         <source>Es sind aktuell <x id="queueCount" equiv-text="queueCount"/> Anfragen in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime" equiv-text="estimatedTime"/> Sekunden.</source>
-        <target state="new">There are currently requests in the queue. Processing time for your request: approx. seconds.</target>
+        <target state="translated">There are currently <x id="queueCount" equiv-text="queueCount"/> requests in the queue. Processing time for your request: approx. <x id="estimatedTime" equiv-text="estimatedTime"/> seconds.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
           <context context-type="linenumber">134</context>
@@ -609,7 +609,7 @@
       </trans-unit>
       <trans-unit id="ourServices" datatype="html">
         <source> Unsere Services </source>
-        <target state="translated">Our Services</target>
+        <target state="translated"> Our Services </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">208</context>
@@ -801,7 +801,7 @@
       </trans-unit>
       <trans-unit id="userInputSuggestionExample" datatype="html">
         <source> z.B.: „<x id="INTERPOLATION" equiv-text="{{ placeholderPrompt }}"/>“ </source>
-        <target state="new"> e.g.: „<x id="INTERPOLATION" equiv-text="{{ placeholderPrompt }}"/>“ </target>
+        <target state="translated"> e.g.: „<x id="INTERPOLATION" equiv-text="{{ placeholderPrompt }}"/>“ </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">52</context>
@@ -809,7 +809,7 @@
       </trans-unit>
       <trans-unit id="errorTryAgainLater" datatype="html">
         <source> Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es später erneut. </source>
-        <target state="new"> Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es später erneut. </target>
+        <target state="translated"> The service is currently unavailable. Please try again later. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">73</context>
@@ -817,7 +817,7 @@
       </trans-unit>
       <trans-unit id="errorDisclaimer" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wichtiger Hinweis:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Antworten von generativen KI-Systemen (zB Chatbots) können systembedingt Fehler enthalten – sie sind oft aber nicht immer richtig. Dieses Service hat demnach zwei Funktionen: Einerseits werden aufgrund Ihrer Eingaben (Prompts) durch ein Sprachmodell (LLM) Auskünfte zum AI-Act generiert, andererseits soll deutlich werden, dass eine Qualitätskontrolle der Ergebnissen von KI-Systemen dieser Art immer notwendig ist. Dazu können Sie sich für fachkundige Unterstützung gerne an das (menschliche) Team der <x id="START_LINK" ctype="x-a" equiv-text="&lt;a style=&quot;white-space: nowrap&quot; href=&quot;https://ki.rtr.at&quot; &gt;"/>KI-Servicestelle<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/> wenden. </source>
-        <target state="new"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Important note:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Responses from generative AI systems (e.g. chatbots) may contain errors due to the nature of the system – they are often, but not always, correct. This service therefore has two functions: on the one hand, information about the AI Act is generated by a language model (LLM) based on your input (prompts); on the other hand, it should be made clear that quality control of the results of AI systems of this type is always necessary. For expert support, please feel free to contact the (human) team at the  <x id="START_LINK" ctype="x-a" equiv-text="&lt;a style=&quot;white-space: nowrap&quot; href=&quot;https://ki.rtr.at&quot; &gt;"/>AI Service Desk<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/>.</target>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Important note:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Responses from generative AI systems (e.g. chatbots) may contain errors due to the nature of the system – they are often, but not always, correct. This service therefore has two functions: on the one hand, information about the AI Act is generated by a language model (LLM) based on your input (prompts); on the other hand, it should be made clear that quality control of the results of AI systems of this type is always necessary. For expert support, please feel free to contact the (human) team at the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a style=&quot;white-space: nowrap&quot; href=&quot;https://ki.rtr.at&quot; &gt;"/>AI Service Desk<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/>. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">79</context>
@@ -833,7 +833,7 @@
       </trans-unit>
       <trans-unit id="chatbotFurtherDetailshref" datatype="html">
         <source>Weitere technische Informationen zum Chatbot</source>
-        <target state="new">Weitere technische Informationen zum Chatbot</target>
+        <target state="translated">Further technical information about the chatbot</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">98</context>
@@ -841,7 +841,7 @@
       </trans-unit>
       <trans-unit id="setHeaderResearch" datatype="html">
         <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;research&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step != &apos;research&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Relevante Quellen erheben <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>etrieve”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
-        <target state="new">✓ Relevante Quellen erheben <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>etrieve”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <target state="translated"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;research&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step != &apos;research&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Collect relevant sources <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>etrieve”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">106</context>
@@ -849,7 +849,7 @@
       </trans-unit>
       <trans-unit id="numSourcesFound" datatype="html">
         <source><x id="START_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;ng-container&gt;"/><x id="INTERPOLATION" equiv-text="{{ getTotalSources(sources) }}"/><x id="CLOSE_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;/ng-container&gt;"/> möglicherweise relevante Quellen identifiziert</source>
-        <target state="new"><x id="START_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;ng-container&gt;"/><x id="INTERPOLATION" equiv-text="{{ getTotalSources(sources) }}"/><x id="CLOSE_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;/ng-container&gt;"/> potentially relevant sources identified</target>
+        <target state="translated"><x id="START_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;ng-container&gt;"/><x id="INTERPOLATION" equiv-text="{{ getTotalSources(sources) }}"/><x id="CLOSE_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;/ng-container&gt;"/> potentially relevant sources identified</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">121</context>
@@ -857,7 +857,7 @@
       </trans-unit>
       <trans-unit id="sourcesInfoText" datatype="html">
         <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Hinweis: <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ getNotSkippedSources(sources) }}"/> in schwarzer Schrift abgebildete Dokumente werden zur Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten das <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann&quot; i18n-uk-tooltip=&quot;@@contextWindowTooltip&quot; &gt;"/>Kontextfenster<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> und bleiben deshalb unberücksichtigt. Die angeführte Prozentzahl beschreibt die semantische Ähnlichkeit des Dokuments zur gestellten Frage. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p *ngIf=&quot;tokensUsedFormatted.length &gt; 0&quot;&gt;"/> Gesamtanzahl der verwendeten <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Kleine Texteinheiten von mehrern Buchstaben&quot; i18n-uk-tooltip=&quot;@@tokenTooltip&quot; &gt;"/>Token<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>: <x id="INTERPOLATION_1" equiv-text="{{ tokensUsedFormatted }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
-        <target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Hinweis: <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ getNotSkippedSources(sources) }}"/> in schwarzer Schrift abgebildete Dokumente werden zur Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten das <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann&quot; i18n-uk-tooltip=&quot;@@contextWindowTooltip&quot; &gt;"/>Kontextfenster<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> und bleiben deshalb unberücksichtigt. Die angeführte Prozentzahl beschreibt die semantische Ähnlichkeit des Dokuments zur gestellten Frage. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p *ngIf=&quot;tokensUsedFormatted.length &gt; 0&quot;&gt;"/> Gesamtanzahl der verwendeten <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Kleine Texteinheiten von mehrern Buchstaben&quot; i18n-uk-tooltip=&quot;@@tokenTooltip&quot; &gt;"/>Token<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>: <x id="INTERPOLATION_1" equiv-text="{{ tokensUsedFormatted }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></target>
+        <target state="translated"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Note: <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ getNotSkippedSources(sources) }}"/> Documents displayed in black font are used to answer questions. Entries displayed in grey exceed the <abbr uk-tooltip="The maximum possible length of text that can be passed to a language model" i18n-uk-tooltip="@@contextWindowTooltip">Context Window<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> and are therefore not taken into account. The percentage given describes the semantic similarity of the document to the question asked. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p *ngIf=&quot;tokensUsedFormatted.length &gt; 0&quot;&gt;"/>Total number of all <abbr uk-tooltip="Small text units consisting of several letters" i18n-uk-tooltip="@@tokenTooltip">tokens<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>: <x id="INTERPOLATION_1" equiv-text="{{ tokensUsedFormatted }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></abbr></abbr></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">127</context>
@@ -865,7 +865,7 @@
       </trans-unit>
       <trans-unit id="contextWindowTooltip" datatype="html">
         <source>Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann</source>
-        <target state="new">Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann</target>
+        <target state="translated">The maximum possible length of text that can be passed to a language model</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">132</context>
@@ -873,7 +873,7 @@
       </trans-unit>
       <trans-unit id="tokenTooltip" datatype="html">
         <source>Kleine Texteinheiten von mehrern Buchstaben</source>
-        <target state="new">The maximum possible length of text that can be passed to a language model</target>
+        <target state="translated">Small text units consisting of several letters</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">143</context>
@@ -881,7 +881,7 @@
       </trans-unit>
       <trans-unit id="source.duplicate.label" datatype="html">
         <source> (DUPLICATE)  </source>
-        <target state="new"> (DUPLICATE)  </target>
+        <target state="translated"> (DUPLICATE)  </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">166</context>
@@ -891,7 +891,7 @@
         <source>
           <x id="INTERPOLATION" equiv-text="{{ source.title || &quot;Source&quot; }}"/>
         </source>
-        <target state="new">
+        <target state="translated">
           <x id="INTERPOLATION" equiv-text="{{ source.title || &quot;Source&quot; }}"/>
         </target>
         <context-group purpose="location">
@@ -901,7 +901,7 @@
       </trans-unit>
       <trans-unit id="source.score.label" datatype="html">
         <source> (<x id="INTERPOLATION" equiv-text="{{ formatScore(source.score) }}"/>) </source>
-        <target state="new"> (<x id="INTERPOLATION" equiv-text="{{ formatScore(source.score) }}"/>) </target>
+        <target state="translated"> (<x id="INTERPOLATION" equiv-text="{{ formatScore(source.score) }}"/>) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">172</context>
@@ -909,7 +909,7 @@
       </trans-unit>
       <trans-unit id="source.tokens.label" datatype="html">
         <source> (<x id="INTERPOLATION" equiv-text="{{ source.num_tokens }}"/> tokens) </source>
-        <target state="new"> (<x id="INTERPOLATION" equiv-text="{{ source.num_tokens }}"/> tokens) </target>
+        <target state="translated"> (<x id="INTERPOLATION" equiv-text="{{ source.num_tokens }}"/> tokens) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">175</context>
@@ -917,7 +917,7 @@
       </trans-unit>
       <trans-unit id="chunk.duplicate.label" datatype="html">
         <source> (DUPLICATE) </source>
-        <target state="new"> (DUPLICATE) </target>
+        <target state="translated"> (DUPLICATE) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">206</context>
@@ -927,7 +927,7 @@
         <source>
           <x id="INTERPOLATION" equiv-text="{{ chunk.title.length &gt; 0 ? chunk.title : chunk.id }}"/>
         </source>
-        <target state="new">
+        <target state="translated">
           <x id="INTERPOLATION" equiv-text="{{ chunk.title.length &gt; 0 ? chunk.title : chunk.id }}"/>
         </target>
         <context-group purpose="location">
@@ -937,7 +937,7 @@
       </trans-unit>
       <trans-unit id="chunk.tokens.label" datatype="html">
         <source> (<x id="INTERPOLATION" equiv-text="{{ chunk.num_tokens }}"/> tokens) </source>
-        <target state="new"> (<x id="INTERPOLATION" equiv-text="{{ chunk.num_tokens }}"/> tokens) </target>
+        <target state="translated"> (<x id="INTERPOLATION" equiv-text="{{ chunk.num_tokens }}"/> tokens) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">212</context>
@@ -945,7 +945,7 @@
       </trans-unit>
       <trans-unit id="linkHowRetrievalWorks-href" datatype="html">
         <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?</source>
-        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?</target>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">234</context>
@@ -953,7 +953,7 @@
       </trans-unit>
       <trans-unit id="linkHowRetrievalWorksLabel" datatype="html">
         <source>Information: Wie werden relevante Quellen erhoben?</source>
-        <target state="new">Information: How are relevant sources collected?</target>
+        <target state="translated">Information: How are relevant sources collected?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">236</context>
@@ -961,7 +961,7 @@
       </trans-unit>
       <trans-unit id="progress.prompt.creation" datatype="html">
         <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;prompt&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos; || step == &apos;output&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Prompt erstellen <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>A<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>ugment”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
-        <target state="new"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;prompt&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos; || step == &apos;output&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Create prompt <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>A<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>ugment”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <target state="translated"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;prompt&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos; || step == &apos;output&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Create prompt <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>A<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>ugment”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">245</context>
@@ -969,7 +969,7 @@
       </trans-unit>
       <trans-unit id="prompt.title" datatype="html">
         <source>Prompt</source>
-        <target state="new">Prompt</target>
+        <target state="translated">Prompt</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">258</context>
@@ -977,7 +977,7 @@
       </trans-unit>
       <trans-unit id="sourceTip" datatype="html">
         <source> Basierend auf den gefundenen Quellen wurde ein Prompt erstellt. Dieses setzt sich aus den möglicherweise relevanten Quellen im Volltext, einem System Prompt sowie Ihrer Frage zusammen. Dieses Prompt wird zur Fragenbeantwortung an ein Sprachmodell (<x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Large Language Model&quot; i18n-uk-tooltip=&quot;@@sourceTip.tooltip&quot; &gt;"/>&quot;LLM&quot;<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>) übergeben. </source>
-        <target state="new"> A prompt was created based on the sources found. This consists of the potentially relevant sources in full text, a system prompt and your question. This prompt is passed on to a language model (‘LLM’) (<x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Large Language Model&quot; i18n-uk-tooltip=&quot;@@sourceTip.tooltip&quot; &gt;"/>&quot;LLM&quot;<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>) to answer the question. </target>
+        <target state="translated"> A prompt was created based on the sources found. This consists of the potentially relevant sources in full text, a system prompt and your question. This prompt is passed on to a language model (‘LLM’) (<x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Large Language Model&quot; i18n-uk-tooltip=&quot;@@sourceTip.tooltip&quot; &gt;"/>&quot;LLM&quot;<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>) to answer the question. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">262</context>
@@ -985,7 +985,7 @@
       </trans-unit>
       <trans-unit id="sourceTip.tooltip" datatype="html">
         <source>Large Language Model</source>
-        <target state="new">Large Language Model</target>
+        <target state="translated">Large Language Model</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">266</context>
@@ -993,7 +993,7 @@
       </trans-unit>
       <trans-unit id="linkHowIsPromptCreated-href" datatype="html">
         <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?</source>
-        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?</target>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">280</context>
@@ -1001,7 +1001,7 @@
       </trans-unit>
       <trans-unit id="linkHowIsPromptCreated" datatype="html">
         <source>Information: Wie ist ein Prompt aufgebaut?</source>
-        <target state="new">Information: How is a prompt structured?</target>
+        <target state="translated">Information: How is a prompt structured?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">282</context>
@@ -1009,7 +1009,7 @@
       </trans-unit>
       <trans-unit id="progressAnswer" datatype="html">
         <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;output&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Antwort erstellen <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>G<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>enerate”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
-        <target state="new"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;output&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Generate response <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>G<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>enerate”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <target state="translated"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;output&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Generate response <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>G<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>enerate”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">291</context>
@@ -1017,7 +1017,7 @@
       </trans-unit>
       <trans-unit id="aiDisclaimer" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wichtiger Hinweis: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Bitte beachten Sie, dass diese Antwort von einer KI nur auf Grundlage des obigen Prompts (<x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i &gt;"/>„<x id="INTERPOLATION" equiv-text="{{ submittedUserPrompt }}"/>”<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i &gt;"/> - <x id="START_LINK" ctype="x-a" equiv-text="&lt;a &gt;"/><x id="START_TAG_LABEL" ctype="x-label" equiv-text="&lt;label for=&quot;userPrompt&quot; style=&quot;cursor: pointer&quot; &gt;"/>Prompt adaptieren<x id="CLOSE_TAG_LABEL" ctype="x-label" equiv-text="&lt;/label &gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>) erstellt wurde, auf den oben angeführten Quellen basiert und möglicherweise Fehler enthalten kann. Für fachkundige Unterstützung steht Ihnen das (menschliche) Team der <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://ki.rtr.at&quot; target=&quot;_blank&quot;&gt;"/>KI-Servicestelle<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> gerne zur Verfügung. </source>
-        <target state="new"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wichtiger Hinweis: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Bitte beachten Sie, dass diese Antwort von einer KI nur auf Grundlage des obigen Prompts (<x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i &gt;"/>„<x id="INTERPOLATION" equiv-text="{{ submittedUserPrompt }}"/>”<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i &gt;"/> - <x id="START_LINK" ctype="x-a" equiv-text="&lt;a &gt;"/><x id="START_TAG_LABEL" ctype="x-label" equiv-text="&lt;label for=&quot;userPrompt&quot; style=&quot;cursor: pointer&quot; &gt;"/>Prompt adaptieren<x id="CLOSE_TAG_LABEL" ctype="x-label" equiv-text="&lt;/label &gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>) erstellt wurde, auf den oben angeführten Quellen basiert und möglicherweise Fehler enthalten kann. Für fachkundige Unterstützung steht Ihnen das (menschliche) Team der <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://ki.rtr.at&quot; target=&quot;_blank&quot;&gt;"/>KI-Servicestelle<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> gerne zur Verfügung. </target>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Important note: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Please note that this response was generated by AI based solely on the above prompt (<x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i &gt;"/>„<x id="INTERPOLATION" equiv-text="{{ submittedUserPrompt }}"/>”<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i &gt;"/> - <x id="START_LINK" ctype="x-a" equiv-text="&lt;a &gt;"/><x id="START_TAG_LABEL" ctype="x-label" equiv-text="&lt;label for=&quot;userPrompt&quot; style=&quot;cursor: pointer&quot; &gt;"/>Adapt prompt<x id="CLOSE_TAG_LABEL" ctype="x-label" equiv-text="&lt;/label &gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>) and may contain errors. For expert assistance, the (human) team at the <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://ki.rtr.at&quot; target=&quot;_blank&quot;&gt;"/>AI Service Desk<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">332</context>
@@ -1033,7 +1033,7 @@
       </trans-unit>
       <trans-unit id="labelHowIsAnswerGenerated" datatype="html">
         <source>Information: Welche Vorteile bietet ein RAG-System für die Erstellung einer Antwort?</source>
-        <target state="new">Information: What are the advantages of using an RAG system to generate a response?</target>
+        <target state="translated">Information: What are the advantages of using an RAG system to generate a response?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">354</context>
@@ -1041,7 +1041,7 @@
       </trans-unit>
       <trans-unit id="buttonFeedback" datatype="html">
         <source> Feedback zu dieser Antwort senden </source>
-        <target state="new">Send feedback about this response</target>
+        <target state="translated"> Send feedback about this response </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">366</context>
@@ -1049,7 +1049,7 @@
       </trans-unit>
       <trans-unit id="labelEnergyConsumptionIntro" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Energieverbrauch: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Diese Fragenbeantwortung hat einen Stromverbrauch von <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/> <x id="INTERPOLATION" equiv-text="{{ totalProQuery.toFixed(6).replace(&quot;.&quot;, &quot;,&quot;) }}"/> <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Kilowattstunden&quot;&gt;"/>kWh<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> verursacht. Mit dieser Energiemenge kann etwa ein <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Modell mit 2,2 kW Leistung&quot;&gt;"/>Haarföhn<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> für <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_1" equiv-text="{{ (((totalProQuery * 1000) / 2200) * 60 * 60) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> Sekunden <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> betrieben, oder ein <x id="START_TAG_ABBR_2" ctype="x-abbr_2" equiv-text="&lt;abbr uk-tooltip=&quot;5000 mAh Kapazität&quot;&gt;"/>Handyakku<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> um <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_2" equiv-text="{{ (((((totalProQuery * 1000) / 5) * 1000) / 5000) * 0.8 * 100) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> % <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> aufgeladen werden. </source>
-        <target state="new"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Energieverbrauch: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Diese Fragenbeantwortung hat einen Stromverbrauch von <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/> <x id="INTERPOLATION" equiv-text="{{ totalProQuery.toFixed(6).replace(&quot;.&quot;, &quot;,&quot;) }}"/> <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Kilowattstunden&quot;&gt;"/>kWh<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> verursacht. Mit dieser Energiemenge kann etwa ein <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Modell mit 2,2 kW Leistung&quot;&gt;"/>Haarföhn<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> für <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_1" equiv-text="{{ (((totalProQuery * 1000) / 2200) * 60 * 60) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> Sekunden <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> betrieben, oder ein <x id="START_TAG_ABBR_2" ctype="x-abbr_2" equiv-text="&lt;abbr uk-tooltip=&quot;5000 mAh Kapazität&quot;&gt;"/>Handyakku<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> um <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_2" equiv-text="{{ (((((totalProQuery * 1000) / 5) * 1000) / 5000) * 0.8 * 100) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> % <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> aufgeladen werden. </target>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Energy Consumption: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Answering these questions has consumed <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/> <x id="INTERPOLATION" equiv-text="{{ totalProQuery.toFixed(6).replace(&quot;.&quot;, &quot;,&quot;) }}"/> <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Kilowattstunden&quot;&gt;"/>kWh<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. This amount of energy is enough to power a <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Modell mit 2,2 kW Leistung&quot;&gt;"/>hair dryer<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> for <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_1" equiv-text="{{ (((totalProQuery * 1000) / 2200) * 60 * 60) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> seconds <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> , or charge a <x id="START_TAG_ABBR_2" ctype="x-abbr_2" equiv-text="&lt;abbr uk-tooltip=&quot;5000 mAh Kapazität&quot;&gt;"/>smartphone battery<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> by <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_2" equiv-text="{{ (((((totalProQuery * 1000) / 5) * 1000) / 5000) * 0.8 * 100) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> % <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">372</context>
@@ -1057,7 +1057,7 @@
       </trans-unit>
       <trans-unit id="labelEnergyDetailsTitle" datatype="html">
         <source><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Detaillierte Infos zum Energieverbrauch<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></source>
-        <target state="new"><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Detailed information on energy consumption<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></target>
+        <target state="translated"><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Detailed information on energy consumption<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">408</context>
@@ -1065,7 +1065,7 @@
       </trans-unit>
       <trans-unit id="labelEnergyConsumption" datatype="html">
         <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span uk-icon=&quot;bolt&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Energieverbrauch </source>
-        <target state="new"><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span uk-icon=&quot;bolt&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> energy consumption </target>
+        <target state="translated"><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span uk-icon=&quot;bolt&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> energy consumption </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">416</context>
@@ -1073,7 +1073,7 @@
       </trans-unit>
       <trans-unit id="labelCPU" datatype="html">
         <source> Prozessor (CPU) </source>
-        <target state="new">Processor (CPU)</target>
+        <target state="translated"> Processor (CPU) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">419</context>
@@ -1081,7 +1081,7 @@
       </trans-unit>
       <trans-unit id="labelGPU" datatype="html">
         <source> Grafikkarte (GPU) </source>
-        <target state="new">Graphics card (GPU)</target>
+        <target state="translated"> Graphics card (GPU) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">422</context>
@@ -1089,7 +1089,7 @@
       </trans-unit>
       <trans-unit id="labelRAM" datatype="html">
         <source> Arbeitsspeicher (RAM) </source>
-        <target state="new">Memory (RAM)</target>
+        <target state="translated"> Memory (RAM) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">425</context>
@@ -1097,7 +1097,7 @@
       </trans-unit>
       <trans-unit id="labelTotal" datatype="html">
         <source>Gesamt</source>
-        <target state="new">Total</target>
+        <target state="translated">Total</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">427</context>
@@ -1105,7 +1105,7 @@
       </trans-unit>
       <trans-unit id="labelDuration" datatype="html">
         <source>Dauer</source>
-        <target state="new">Duration</target>
+        <target state="translated">Duration</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">428</context>
@@ -1113,7 +1113,7 @@
       </trans-unit>
       <trans-unit id="labelTotalStrong" datatype="html">
         <source>Gesamt</source>
-        <target state="new">Total</target>
+        <target state="translated">Total</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">451</context>
@@ -1121,7 +1121,7 @@
       </trans-unit>
       <trans-unit id="labelEnergyMeasurementInfo" datatype="html">
         <source> Der Stromverbrauch wurde direkt auf Hardware-Ebene gemessen, die angegebenen Zahlen entsprechen den dort vorliegenden Daten. Der <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Power Usage Effectiveness&quot;&gt;"/>PUE-Wert<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> beträgt zwischen 1,10 und 1,16. Seitens des Rechenzentrums wird ein ausschließlich auf erneuerbare Energien abgestellter Strommix verwendt. Der durchschnittliche CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/>-Ausstoß im Hosting-Land Deutschland lag zuletzt bei rund 425g CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/> pro kWh. </source>
-        <target state="new"> Der Stromverbrauch wurde direkt auf Hardware-Ebene gemessen, die angegebenen Zahlen entsprechen den dort vorliegenden Daten. Der <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Power Usage Effectiveness&quot;&gt;"/>PUE-Wert<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> beträgt zwischen 1,10 und 1,16. Seitens des Rechenzentrums wird ein ausschließlich auf erneuerbare Energien abgestellter Strommix verwendt. Der durchschnittliche CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/>-Ausstoß im Hosting-Land Deutschland lag zuletzt bei rund 425g CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/> pro kWh. </target>
+        <target state="translated"> Power consumption was measured directly at the hardware level; the figures given correspond to the data available there. The Power Usage Effectiveness (PUE) value is between 1.10 and 1.16. The data centre uses an electricity mix based exclusively on renewable energies. The average CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/> emissions in Germany, where the hosting is located, were recently around 425g CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/> per kWh. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">497</context>
@@ -1129,7 +1129,7 @@
       </trans-unit>
       <trans-unit id="labelEnergyCalcInfo-href" datatype="html">
         <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch</source>
-        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch</target>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">513</context>
@@ -1137,7 +1137,7 @@
       </trans-unit>
       <trans-unit id="labelEnergyCalcInfo" datatype="html">
         <source> Information: Wie wird der Stromverbrauch berechnet? </source>
-        <target state="new">Information: How is electricity consumption calculated?</target>
+        <target state="translated"> Information: How is electricity consumption calculated? </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">518</context>
@@ -1145,7 +1145,7 @@
       </trans-unit>
       <trans-unit id="labelBackgroundInfo" datatype="html">
         <source> Hintergrundinformationen zum AI Act Chatbot </source>
-        <target state="new">Background information on the AI Act Chatbot</target>
+        <target state="translated"> Background information on the AI Act Chatbot </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">526</context>
@@ -1153,7 +1153,7 @@
       </trans-unit>
       <trans-unit id="labelPrivacyPolicy-href" datatype="html">
         <source>https://www.rtr.at/rtr/footer/Datenschutz.de.html#AI%20Act%20Chatbot</source>
-        <target state="new">https://www.rtr.at/rtr/footer/Datenschutz.de.html#AI%20Act%20Chatbot</target>
+        <target state="translated">https://www.rtr.at/rtr/footer/Datenschutz.de.html#AI%20Act%20Chatbot</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">531</context>
@@ -1161,7 +1161,7 @@
       </trans-unit>
       <trans-unit id="labelPrivacyPolicy" datatype="html">
         <source> Datenschutzerklärung </source>
-        <target state="new">Privacy policy</target>
+        <target state="translated"> Privacy Policy </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">535</context>
@@ -1169,7 +1169,7 @@
       </trans-unit>
       <trans-unit id="labelAIActAnalysis-href" datatype="html">
         <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Rechtliche%20Einsch%C3%A4tzung%20nach%20dem%20AI%20Act</source>
-        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Rechtliche%20Einsch%C3%A4tzung%20nach%20dem%20AI%20Act</target>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Rechtliche%20Einsch%C3%A4tzung%20nach%20dem%20AI%20Act</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">541</context>
@@ -1177,7 +1177,7 @@
       </trans-unit>
       <trans-unit id="labelAIActAnalysis" datatype="html">
         <source> Analyse des AI Act Chatbot nach dem AI Act </source>
-        <target state="new">Analysis of the AI Act Chatbot according to the AI Act</target>
+        <target state="translated"> Analysis of the AI Act Chatbot under the AI Act </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">545</context>
@@ -1185,7 +1185,7 @@
       </trans-unit>
       <trans-unit id="privacyPolicyAIChatbot-href" datatype="html">
         <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Datenschutzrechtliche%20Aspekte%20des%20AIA%20RAG%20der%20KI-Servicestelle</source>
-        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Datenschutzrechtliche%20Aspekte%20des%20AIA%20RAG%20der%20KI-Servicestelle</target>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Datenschutzrechtliche%20Aspekte%20des%20AIA%20RAG%20der%20KI-Servicestelle</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">553</context>
@@ -1193,7 +1193,7 @@
       </trans-unit>
       <trans-unit id="privacyPolicyAIChatbot" datatype="html">
         <source>Datenschutzrechtliche Aspekte des AI Act Chatbots</source>
-        <target state="new">Data protection aspects of the AI Act chatbot</target>
+        <target state="translated">Data protection aspects of the AI Act chatbot</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">554</context>
@@ -1201,7 +1201,7 @@
       </trans-unit>
       <trans-unit id="technicalBackground-href" datatype="html">
         <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html</source>
-        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html</target>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">561</context>
@@ -1209,7 +1209,7 @@
       </trans-unit>
       <trans-unit id="technicalBackground" datatype="html">
         <source>Technische Hintergrundinformationen</source>
-        <target state="new">Technical background information</target>
+        <target state="translated">Technical background information</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">562</context>
@@ -1217,7 +1217,7 @@
       </trans-unit>
       <trans-unit id="sourceCodeAndLicense-href" datatype="html">
         <source>https://github.com/rtr-ai/aia-rag</source>
-        <target state="new">https://github.com/rtr-ai/aia-rag</target>
+        <target state="translated">https://github.com/rtr-ai/aia-rag</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">569</context>
@@ -1225,7 +1225,7 @@
       </trans-unit>
       <trans-unit id="sourceCodeAndLicense" datatype="html">
         <source>Source Code und Softwarelizenzen</source>
-        <target state="new">Source code and software licences</target>
+        <target state="translated">Source code and software licences</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">570</context>
@@ -1233,7 +1233,7 @@
       </trans-unit>
       <trans-unit id="sourceDataset-href" datatype="html">
         <source>https://github.com/rtr-ai/aia-rag/blob/main/data/combined.json</source>
-        <target state="new">https://github.com/rtr-ai/aia-rag/blob/main/data/combined.json</target>
+        <target state="translated">https://github.com/rtr-ai/aia-rag/blob/main/data/combined.json</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">577</context>
@@ -1241,7 +1241,7 @@
       </trans-unit>
       <trans-unit id="sourceDataset" datatype="html">
         <source>Im Chatbot hinterlegte Datenbasis</source>
-        <target state="new">Data stored in the chatbot</target>
+        <target state="translated">Data stored in the chatbot</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">578</context>
