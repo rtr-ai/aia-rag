@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="de" datatype="plaintext" original="ng2.template" target-language="en">
+  <file source-language="de" target-language="en" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="zrdbQuery" datatype="html">
         <source>KI-Servicestelle AI Act Chatbot</source>
         <target state="translated">AI Service Center AI Act Chatbot</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
-          <context context-type="linenumber">3,6</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-        <trans-unit id="askQuestionHeader" datatype="html">
+      <trans-unit id="askQuestionHeader" datatype="html">
         <source>Stellen Sie Ihre Frage!</source>
         <target>Ask your question!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
-          <context context-type="linenumber">21,22</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="askQuestionLabel" datatype="html">
         <source>Ihre Frage: </source>
-        <source>Target: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
-          <context context-type="linenumber">25,27</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="askQuestion" datatype="html">
@@ -31,16 +30,24 @@
         <target>Ask a question</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
-          <context context-type="linenumber">65,68</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="queueMessageSingle" datatype="html">
-        <source>Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime"/> Sekunden.</source>
-        <target>There is currently 1 request in the queue. Processing time for your request: approx. <x id="estimatedTime"/> seconds.</target>
+        <source>Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime" equiv-text="estimatedTime"/> Sekunden.</source>
+        <target state="new">There is currently 1 request in the queue. Processing time for your request: approx. <x id="estimatedTime"/> seconds.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="queueMessageMultiple" datatype="html">
-        <source>Es sind aktuell <x id="queueCount"/> Anfragen in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime"/> Sekunden.</source>
-        <target>There are currently <x id="queueCount"/> requests in the queue. Processing time for your request: approx. <x id="estimatedTime"/> seconds.</target>
+        <source>Es sind aktuell <x id="queueCount" equiv-text="queueCount"/> Anfragen in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime" equiv-text="estimatedTime"/> Sekunden.</source>
+        <target state="new">There are currently <x id="queueCount"/> requests in the queue. Processing time for your request: approx. <x id="estimatedTime"/> seconds.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="powerLabelIndex" datatype="html">
         <source>Indexierung von relevanten Daten (einmalig pro Serverstart)</source>
@@ -52,7 +59,7 @@
       </trans-unit>
       <trans-unit id="powerLabelPrompt" datatype="html">
         <source>Erstellung des Prompts („Retrieve&quot; und „Augment&quot;)</source>
-        <target>Prompt creation ("Retrieve" and "Augment")</target>
+        <target>Prompt creation (&quot;Retrieve&quot; and &quot;Augment&quot;)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
           <context context-type="linenumber">140</context>
@@ -60,7 +67,7 @@
       </trans-unit>
       <trans-unit id="powerLabelResponse" datatype="html">
         <source>Generierung der Antwort („Generate&quot;)</source>
-        <target>Response generation ("Generate")</target>
+        <target>Response generation (&quot;Generate&quot;)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
           <context context-type="linenumber">141</context>
@@ -79,7 +86,7 @@
         <target state="translated">Telecommunications and Postal Division</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">20,21</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="media-href" datatype="html">
@@ -95,7 +102,7 @@
         <target state="translated">Media</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">27,28</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="rtr-href" datatype="html">
@@ -111,7 +118,7 @@
         <target state="translated">RTR</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">28,29</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="de" datatype="html">
@@ -127,7 +134,7 @@
         <target state="translated">English</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">42,43</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deutsch" datatype="html">
@@ -135,7 +142,7 @@
         <target state="translated">Deutsch</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">44,45</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="decisions-href" datatype="html">
@@ -143,7 +150,7 @@
         <target state="translated">https://www.rtr.at/TKP/aktuelles/entscheidungen/Overview.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">103,104</context>
+          <context context-type="linenumber">103</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
@@ -155,11 +162,11 @@
         <target state="translated">Decisions</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">104,105</context>
+          <context context-type="linenumber">104</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">265,266</context>
+          <context context-type="linenumber">265</context>
         </context-group>
       </trans-unit>
       <trans-unit id="legalPublications-href" datatype="html">
@@ -167,11 +174,11 @@
         <target state="translated">https://www.rtr.at/TKP/aktuelles/veroeffentlichungen/Uebersichtseite.de.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">108,109</context>
+          <context context-type="linenumber">108</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">272,273</context>
+          <context context-type="linenumber">272</context>
         </context-group>
       </trans-unit>
       <trans-unit id="legalPublications" datatype="html">
@@ -179,19 +186,19 @@
         <target state="translated">Legal publications</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">109,110</context>
+          <context context-type="linenumber">109</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">110,112</context>
+          <context context-type="linenumber">110</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">273,274</context>
+          <context context-type="linenumber">273</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">274,275</context>
+          <context context-type="linenumber">274</context>
         </context-group>
       </trans-unit>
       <trans-unit id="publications-href" datatype="html">
@@ -199,11 +206,11 @@
         <target state="translated">https://www.rtr.at/TKP/aktuelles/publikationen/Uebersichtseite.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">113,114</context>
+          <context context-type="linenumber">113</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">280,281</context>
+          <context context-type="linenumber">280</context>
         </context-group>
       </trans-unit>
       <trans-unit id="publications" datatype="html">
@@ -211,11 +218,11 @@
         <target state="translated">Publications</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">114,115</context>
+          <context context-type="linenumber">114</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">281,282</context>
+          <context context-type="linenumber">281</context>
         </context-group>
       </trans-unit>
       <trans-unit id="events-href" datatype="html">
@@ -223,11 +230,11 @@
         <target state="translated">https://www.rtr.at/TKP/aktuelles/veranstaltungen/Uebersicht.de.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">117,118</context>
+          <context context-type="linenumber">117</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">287,288</context>
+          <context context-type="linenumber">287</context>
         </context-group>
       </trans-unit>
       <trans-unit id="events" datatype="html">
@@ -235,11 +242,11 @@
         <target state="translated">Events</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">118,119</context>
+          <context context-type="linenumber">118</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">288,289</context>
+          <context context-type="linenumber">288</context>
         </context-group>
       </trans-unit>
       <trans-unit id="news-href" datatype="html">
@@ -247,11 +254,11 @@
         <target state="translated">https://www.rtr.at/TKP/aktuelles/neuigkeiten/Uebersicht.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">121,122</context>
+          <context context-type="linenumber">121</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">294,295</context>
+          <context context-type="linenumber">294</context>
         </context-group>
       </trans-unit>
       <trans-unit id="news" datatype="html">
@@ -259,11 +266,11 @@
         <target state="translated">News</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">122,124</context>
+          <context context-type="linenumber">122</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">295,296</context>
+          <context context-type="linenumber">295</context>
         </context-group>
       </trans-unit>
       <trans-unit id="pressStatements-href" datatype="html">
@@ -271,11 +278,11 @@
         <target state="translated">https://www.rtr.at/TKP/aktuelles/pressemitteilungen/Uebersicht.de.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">125,126</context>
+          <context context-type="linenumber">125</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">301,302</context>
+          <context context-type="linenumber">301</context>
         </context-group>
       </trans-unit>
       <trans-unit id="pressStatements" datatype="html">
@@ -283,11 +290,11 @@
         <target state="translated">Press releases</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">126,128</context>
+          <context context-type="linenumber">126</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">302,303</context>
+          <context context-type="linenumber">302</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aboutOurWork" datatype="html">
@@ -295,11 +302,11 @@
         <target state="translated">About our work</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">138,139</context>
+          <context context-type="linenumber">138</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">309,310</context>
+          <context context-type="linenumber">309</context>
         </context-group>
       </trans-unit>
       <trans-unit id="telecommunications-href" datatype="html">
@@ -307,11 +314,11 @@
         <target state="translated">https://www.rtr.at/TKP/was_wir_tun/telekommunikation/telecommunications.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">144,145</context>
+          <context context-type="linenumber">144</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">317,318</context>
+          <context context-type="linenumber">317</context>
         </context-group>
       </trans-unit>
       <trans-unit id="telecommunications" datatype="html">
@@ -319,11 +326,11 @@
         <target state="translated">Telecommunications</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">145,147</context>
+          <context context-type="linenumber">145</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">318,319</context>
+          <context context-type="linenumber">318</context>
         </context-group>
       </trans-unit>
       <trans-unit id="postal-href" datatype="html">
@@ -331,11 +338,11 @@
         <target state="translated">https://www.rtr.at/TKP/was_wir_tun/post/postal_services.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">147,148</context>
+          <context context-type="linenumber">147</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">323,324</context>
+          <context context-type="linenumber">323</context>
         </context-group>
       </trans-unit>
       <trans-unit id="postal" datatype="html">
@@ -343,11 +350,11 @@
         <target state="translated">Postal services</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">148,150</context>
+          <context context-type="linenumber">148</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">324,325</context>
+          <context context-type="linenumber">324</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trustServices-href" datatype="html">
@@ -355,11 +362,11 @@
         <target state="translated">https://www.rtr.at/TKP/was_wir_tun/vertrauensdienste/startseite.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">151,152</context>
+          <context context-type="linenumber">151</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">330,331</context>
+          <context context-type="linenumber">330</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trustServices" datatype="html">
@@ -367,11 +374,11 @@
         <target state="translated">Trust Services</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">152,154</context>
+          <context context-type="linenumber">152</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">331,332</context>
+          <context context-type="linenumber">331</context>
         </context-group>
       </trans-unit>
       <trans-unit id="international-href" datatype="html">
@@ -379,11 +386,11 @@
         <target state="translated">https://www.rtr.at/TKP/was_wir_tun/internationales/Startseite.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">155,156</context>
+          <context context-type="linenumber">155</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">337,338</context>
+          <context context-type="linenumber">337</context>
         </context-group>
       </trans-unit>
       <trans-unit id="international" datatype="html">
@@ -391,11 +398,11 @@
         <target state="translated">International relations</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">156,157</context>
+          <context context-type="linenumber">156</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">338,339</context>
+          <context context-type="linenumber">338</context>
         </context-group>
       </trans-unit>
       <trans-unit id="aboutus" datatype="html">
@@ -403,11 +410,11 @@
         <target state="translated">About us</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">168,169</context>
+          <context context-type="linenumber">168</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">346,347</context>
+          <context context-type="linenumber">346</context>
         </context-group>
       </trans-unit>
       <trans-unit id="rtrTelecomPost-href" datatype="html">
@@ -415,11 +422,11 @@
         <target state="translated">https://www.rtr.at/TKP/wer_wir_sind/telekommunikation_und_post/startseite.de.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">173,174</context>
+          <context context-type="linenumber">173</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">354,355</context>
+          <context context-type="linenumber">354</context>
         </context-group>
       </trans-unit>
       <trans-unit id="rtrTelecomPost" datatype="html">
@@ -427,11 +434,11 @@
         <target state="translated">RTR.Telekom.Post</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">174,175</context>
+          <context context-type="linenumber">174</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">355,356</context>
+          <context context-type="linenumber">355</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tkk-href" datatype="html">
@@ -451,11 +458,11 @@
         <target state="translated">TKK</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">175,176</context>
+          <context context-type="linenumber">175</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">361,362</context>
+          <context context-type="linenumber">361</context>
         </context-group>
       </trans-unit>
       <trans-unit id="pck-href" datatype="html">
@@ -473,30 +480,30 @@
       <trans-unit id="8189305665659903343" datatype="html">
         <source>PCK</source>
         <target state="translated">PCK</target>
+        <note priority="1" from="description">@pck</note>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">176,177</context>
+          <context context-type="linenumber">176</context>
         </context-group>
-        <note priority="1" from="description">@pck</note>
       </trans-unit>
       <trans-unit id="contact" datatype="html">
         <source>Kontakt</source>
         <target state="translated">Contact</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">187,188</context>
+          <context context-type="linenumber">187</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">378,379</context>
+          <context context-type="linenumber">378</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">474,476</context>
+          <context context-type="linenumber">474</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">518,520</context>
+          <context context-type="linenumber">518</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contactAmtstafel-href" datatype="html">
@@ -504,11 +511,11 @@
         <target state="translated">https://www.rtr.at/TKP/kontakt/Kontakt_und_Amtstafel/Amtstafel.de.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">193,194</context>
+          <context context-type="linenumber">193</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">386,387</context>
+          <context context-type="linenumber">386</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contactAmtstafel" datatype="html">
@@ -516,11 +523,11 @@
         <target state="translated">Contact</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">194,196</context>
+          <context context-type="linenumber">194</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">387,388</context>
+          <context context-type="linenumber">387</context>
         </context-group>
       </trans-unit>
       <trans-unit id="press-href" datatype="html">
@@ -540,19 +547,19 @@
         <target state="translated">Press contact</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">196,198</context>
+          <context context-type="linenumber">196</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">393,394</context>
+          <context context-type="linenumber">393</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">490,492</context>
+          <context context-type="linenumber">490</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">505,507</context>
+          <context context-type="linenumber">505</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ertrContact-href" datatype="html">
@@ -572,19 +579,19 @@
         <target state="translated">eRTR</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">198,200</context>
+          <context context-type="linenumber">198</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">399,400</context>
+          <context context-type="linenumber">399</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">494</context>
+          <context context-type="linenumber">493</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">509</context>
+          <context context-type="linenumber">508</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ourServices-href" datatype="html">
@@ -592,7 +599,7 @@
         <target state="translated">https://www.rtr.at/TKP/service/startseite.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">207,208</context>
+          <context context-type="linenumber">207</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
@@ -604,11 +611,11 @@
         <target state="translated">Our Services</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">208,209</context>
+          <context context-type="linenumber">208</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">409,410</context>
+          <context context-type="linenumber">409</context>
         </context-group>
       </trans-unit>
       <trans-unit id="recent-news" datatype="html">
@@ -616,7 +623,7 @@
         <target state="translated">News</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">257,258</context>
+          <context context-type="linenumber">257</context>
         </context-group>
       </trans-unit>
       <trans-unit id="pck" datatype="html">
@@ -624,15 +631,15 @@
         <target state="translated">PCK</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">367,368</context>
+          <context context-type="linenumber">367</context>
         </context-group>
       </trans-unit>
       <trans-unit id="imprint-address" datatype="html">
-        <source><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b>"/>RUNDFUNK UND TELEKOM<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/>REGULIERUNGS-GMBH<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/>A-1060 Wien, Mariahilfer Straße 77-79<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/>Tel.: +<x id="START_LINK" ctype="x-a" equiv-text="&lt;a target=&quot;_self&quot; href=&quot;tel:+431580580&quot;>"/>43 1 58058-0<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/></source>
-        <target state="translated"><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b>"/>RUNDFUNK UND TELEKOM<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/>REGULIERUNGS-GMBH<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/>Austrian Regulatory Authority for Broadcasting and Telecommunications<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/>Mariahilfer Straße 77-79, 1060 Vienna<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/>tel.: +<x id="START_LINK" ctype="x-a" equiv-text="&lt;a target=&quot;_self&quot; href=&quot;tel:+431580580&quot;>"/>43 1 58058-0<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br>"/></target>
+        <source><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>RUNDFUNK UND TELEKOM<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>REGULIERUNGS-GMBH<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>A-1060 Wien, Mariahilfer Straße 77-79<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Tel.: +<x id="START_LINK" ctype="x-a" equiv-text="&lt;a target=&quot;_self&quot; href=&quot;tel:+431580580&quot;&gt;"/>43 1 58058-0<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/></source>
+        <target state="translated"><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>RUNDFUNK UND TELEKOM<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>REGULIERUNGS-GMBH<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Austrian Regulatory Authority for Broadcasting and Telecommunications<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>Mariahilfer Straße 77-79, 1060 Vienna<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/>tel.: +<x id="START_LINK" ctype="x-a" equiv-text="&lt;a target=&quot;_self&quot; href=&quot;tel:+431580580&quot;&gt;"/>43 1 58058-0<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">452,454</context>
+          <context context-type="linenumber">452</context>
         </context-group>
       </trans-unit>
       <trans-unit id="contact-href" datatype="html">
@@ -664,11 +671,11 @@
         <target state="translated">Imprint</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">477,479</context>
+          <context context-type="linenumber">477</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">521,523</context>
+          <context context-type="linenumber">521</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-href" datatype="html">
@@ -688,11 +695,11 @@
         <target state="translated">Privacy</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">480,482</context>
+          <context context-type="linenumber">480</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">524,526</context>
+          <context context-type="linenumber">524</context>
         </context-group>
       </trans-unit>
       <trans-unit id="accessibility-href" datatype="html">
@@ -712,11 +719,11 @@
         <target state="translated">Accessibility</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">483,485</context>
+          <context context-type="linenumber">483</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">527,529</context>
+          <context context-type="linenumber">527</context>
         </context-group>
       </trans-unit>
       <trans-unit id="pressFoooter-href" datatype="html">
@@ -724,11 +731,11 @@
         <target state="translated">https://www.rtr.at/TKP/presse/Press.en.html</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">490,491</context>
+          <context context-type="linenumber">490</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">505,506</context>
+          <context context-type="linenumber">505</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ertr-href" datatype="html">
@@ -760,11 +767,11 @@
         <target state="translated">Open Data</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">496,498</context>
+          <context context-type="linenumber">496</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">511,513</context>
+          <context context-type="linenumber">511</context>
         </context-group>
       </trans-unit>
       <trans-unit id="faq-href" datatype="html">
@@ -784,11 +791,459 @@
         <target state="translated">Frequently asked questions</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">499,500</context>
+          <context context-type="linenumber">499</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">514,515</context>
+          <context context-type="linenumber">514</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="userInputSuggestionExample" datatype="html">
+        <source> z.B.: „<x id="INTERPOLATION" equiv-text="{{ placeholderPrompt }}"/>“ </source>
+        <target state="new"> z.B.: „<x id="INTERPOLATION" equiv-text="{{ placeholderPrompt }}"/>“ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorTryAgainLater" datatype="html">
+        <source> Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es später erneut. </source>
+        <target state="new"> Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es später erneut. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorDisclaimer" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wichtiger Hinweis:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Antworten von generativen KI-Systemen (zB Chatbots) können systembedingt Fehler enthalten – sie sind oft aber nicht immer richtig. Dieses Service hat demnach zwei Funktionen: Einerseits werden aufgrund Ihrer Eingaben (Prompts) durch ein Sprachmodell (LLM) Auskünfte zum AI-Act generiert, andererseits soll deutlich werden, dass eine Qualitätskontrolle der Ergebnissen von KI-Systemen dieser Art immer notwendig ist. Dazu können Sie sich für fachkundige Unterstützung gerne an das (menschliche) Team der <x id="START_LINK" ctype="x-a" equiv-text="&lt;a style=&quot;white-space: nowrap&quot; href=&quot;https://ki.rtr.at&quot; &gt;"/>KI-Servicestelle<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/> wenden. </source>
+        <target state="new"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wichtiger Hinweis:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Antworten von generativen KI-Systemen (zB Chatbots) können systembedingt Fehler enthalten – sie sind oft aber nicht immer richtig. Dieses Service hat demnach zwei Funktionen: Einerseits werden aufgrund Ihrer Eingaben (Prompts) durch ein Sprachmodell (LLM) Auskünfte zum AI-Act generiert, andererseits soll deutlich werden, dass eine Qualitätskontrolle der Ergebnissen von KI-Systemen dieser Art immer notwendig ist. Dazu können Sie sich für fachkundige Unterstützung gerne an das (menschliche) Team der <x id="START_LINK" ctype="x-a" equiv-text="&lt;a style=&quot;white-space: nowrap&quot; href=&quot;https://ki.rtr.at&quot; &gt;"/>KI-Servicestelle<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/> wenden. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chatbot-details-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html</source>
+        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chatbotFurtherDetailshref" datatype="html">
+        <source>Weitere technische Informationen zum Chatbot</source>
+        <target state="new">Weitere technische Informationen zum Chatbot</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="setHeaderResearch" datatype="html">
+        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;research&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step != &apos;research&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Relevante Quellen erheben <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>etrieve”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target state="new"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;research&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step != &apos;research&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Relevante Quellen erheben <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>R<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>etrieve”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="numSourcesFound" datatype="html">
+        <source><x id="START_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;ng-container&gt;"/><x id="INTERPOLATION" equiv-text="{{ getTotalSources(sources) }}"/><x id="CLOSE_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;/ng-container&gt;"/> möglicherweise relevante Quellen identifiziert</source>
+        <target state="new"><x id="START_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;ng-container&gt;"/><x id="INTERPOLATION" equiv-text="{{ getTotalSources(sources) }}"/><x id="CLOSE_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;/ng-container&gt;"/> möglicherweise relevante Quellen identifiziert</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sourcesInfoText" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Hinweis: <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ getNotSkippedSources(sources) }}"/> in schwarzer Schrift abgebildete Dokumente werden zur Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten das <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann&quot; i18n-uk-tooltip=&quot;@@contextWindowTooltip&quot; &gt;"/>Kontextfenster<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> und bleiben deshalb unberücksichtigt. Die angeführte Prozentzahl beschreibt die semantische Ähnlichkeit des Dokuments zur gestellten Frage. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p *ngIf=&quot;tokensUsedFormatted.length &gt; 0&quot;&gt;"/> Gesamtanzahl der verwendeten <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Kleine Texteinheiten von mehrern Buchstaben&quot; i18n-uk-tooltip=&quot;@@tokenTooltip&quot; &gt;"/>Token<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>: <x id="INTERPOLATION_1" equiv-text="{{ tokensUsedFormatted }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
+        <target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Hinweis: <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ getNotSkippedSources(sources) }}"/> in schwarzer Schrift abgebildete Dokumente werden zur Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten das <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann&quot; i18n-uk-tooltip=&quot;@@contextWindowTooltip&quot; &gt;"/>Kontextfenster<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> und bleiben deshalb unberücksichtigt. Die angeführte Prozentzahl beschreibt die semantische Ähnlichkeit des Dokuments zur gestellten Frage. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p *ngIf=&quot;tokensUsedFormatted.length &gt; 0&quot;&gt;"/> Gesamtanzahl der verwendeten <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Kleine Texteinheiten von mehrern Buchstaben&quot; i18n-uk-tooltip=&quot;@@tokenTooltip&quot; &gt;"/>Token<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>: <x id="INTERPOLATION_1" equiv-text="{{ tokensUsedFormatted }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contextWindowTooltip" datatype="html">
+        <source>Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann</source>
+        <target state="new">Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">132</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tokenTooltip" datatype="html">
+        <source>Kleine Texteinheiten von mehrern Buchstaben</source>
+        <target state="new">Kleine Texteinheiten von mehrern Buchstaben</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="source.duplicate.label" datatype="html">
+        <source> (DUPLICATE)  </source>
+        <target state="new"> (DUPLICATE)  </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">166</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="source.title.fallback" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="{{ source.title || &quot;Source&quot; }}"/>
+        </source>
+        <target state="new">
+          <x id="INTERPOLATION" equiv-text="{{ source.title || &quot;Source&quot; }}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="source.score.label" datatype="html">
+        <source> (<x id="INTERPOLATION" equiv-text="{{ formatScore(source.score) }}"/>) </source>
+        <target state="new"> (<x id="INTERPOLATION" equiv-text="{{ formatScore(source.score) }}"/>) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">172</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="source.tokens.label" datatype="html">
+        <source> (<x id="INTERPOLATION" equiv-text="{{ source.num_tokens }}"/> tokens) </source>
+        <target state="new"> (<x id="INTERPOLATION" equiv-text="{{ source.num_tokens }}"/> tokens) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">175</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chunk.duplicate.label" datatype="html">
+        <source> (DUPLICATE) </source>
+        <target state="new"> (DUPLICATE) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">206</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chunk.title.fallback" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="{{ chunk.title.length &gt; 0 ? chunk.title : chunk.id }}"/>
+        </source>
+        <target state="new">
+          <x id="INTERPOLATION" equiv-text="{{ chunk.title.length &gt; 0 ? chunk.title : chunk.id }}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">209</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chunk.tokens.label" datatype="html">
+        <source> (<x id="INTERPOLATION" equiv-text="{{ chunk.num_tokens }}"/> tokens) </source>
+        <target state="new"> (<x id="INTERPOLATION" equiv-text="{{ chunk.num_tokens }}"/> tokens) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">212</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="linkHowRetrievalWorks-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?</source>
+        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">234</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="linkHowRetrievalWorksLabel" datatype="html">
+        <source>Information: Wie werden relevante Quellen erhoben?</source>
+        <target state="new">Information: Wie werden relevante Quellen erhoben?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">236</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="progress.prompt.creation" datatype="html">
+        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;prompt&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos; || step == &apos;output&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Prompt erstellen <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>A<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>ugment”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target state="new"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;prompt&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos; || step == &apos;output&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Prompt erstellen <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>A<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>ugment”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">245</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="prompt.title" datatype="html">
+        <source>Prompt</source>
+        <target state="new">Prompt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">258</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sourceTip" datatype="html">
+        <source> Basierend auf den gefundenen Quellen wurde ein Prompt erstellt. Dieses setzt sich aus den möglicherweise relevanten Quellen im Volltext, einem System Prompt sowie Ihrer Frage zusammen. Dieses Prompt wird zur Fragenbeantwortung an ein Sprachmodell (<x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Large Language Model&quot; i18n-uk-tooltip=&quot;@@sourceTip.tooltip&quot; &gt;"/>&quot;LLM&quot;<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>) übergeben. </source>
+        <target state="new"> Basierend auf den gefundenen Quellen wurde ein Prompt erstellt. Dieses setzt sich aus den möglicherweise relevanten Quellen im Volltext, einem System Prompt sowie Ihrer Frage zusammen. Dieses Prompt wird zur Fragenbeantwortung an ein Sprachmodell (<x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Large Language Model&quot; i18n-uk-tooltip=&quot;@@sourceTip.tooltip&quot; &gt;"/>&quot;LLM&quot;<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>) übergeben. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">262</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sourceTip.tooltip" datatype="html">
+        <source>Large Language Model</source>
+        <target state="new">Large Language Model</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">266</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="linkHowIsPromptCreated-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?</source>
+        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="linkHowIsPromptCreated" datatype="html">
+        <source>Information: Wie ist ein Prompt aufgebaut?</source>
+        <target state="new">Information: Wie ist ein Prompt aufgebaut?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">282</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="progressAnswer" datatype="html">
+        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;output&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Antwort erstellen <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>G<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>enerate”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target state="new"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;loader loader-small-offset&quot; *ngIf=&quot;step == &apos;output&apos;&quot; &gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span *ngIf=&quot;step == &apos;done&apos;&quot;&gt;"/>✓<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Antwort erstellen <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>(„<x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>G<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>enerate”)<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">291</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aiDisclaimer" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wichtiger Hinweis: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Bitte beachten Sie, dass diese Antwort von einer KI nur auf Grundlage des obigen Prompts (<x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i &gt;"/>„<x id="INTERPOLATION" equiv-text="{{ submittedUserPrompt }}"/>”<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i &gt;"/> - <x id="START_LINK" ctype="x-a" equiv-text="&lt;a &gt;"/><x id="START_TAG_LABEL" ctype="x-label" equiv-text="&lt;label for=&quot;userPrompt&quot; style=&quot;cursor: pointer&quot; &gt;"/>Prompt adaptieren<x id="CLOSE_TAG_LABEL" ctype="x-label" equiv-text="&lt;/label &gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>) erstellt wurde, auf den oben angeführten Quellen basiert und möglicherweise Fehler enthalten kann. Für fachkundige Unterstützung steht Ihnen das (menschliche) Team der <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://ki.rtr.at&quot; target=&quot;_blank&quot;&gt;"/>KI-Servicestelle<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> gerne zur Verfügung. </source>
+        <target state="new"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wichtiger Hinweis: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Bitte beachten Sie, dass diese Antwort von einer KI nur auf Grundlage des obigen Prompts (<x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i &gt;"/>„<x id="INTERPOLATION" equiv-text="{{ submittedUserPrompt }}"/>”<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i &gt;"/> - <x id="START_LINK" ctype="x-a" equiv-text="&lt;a &gt;"/><x id="START_TAG_LABEL" ctype="x-label" equiv-text="&lt;label for=&quot;userPrompt&quot; style=&quot;cursor: pointer&quot; &gt;"/>Prompt adaptieren<x id="CLOSE_TAG_LABEL" ctype="x-label" equiv-text="&lt;/label &gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>) erstellt wurde, auf den oben angeführten Quellen basiert und möglicherweise Fehler enthalten kann. Für fachkundige Unterstützung steht Ihnen das (menschliche) Team der <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://ki.rtr.at&quot; target=&quot;_blank&quot;&gt;"/>KI-Servicestelle<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> gerne zur Verfügung. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">332</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelHowIsAnswerGenerated-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Welche%20Vorteile%20bietet%20ein%20RAG-System%20als%20Auskunftsquelle?</source>
+        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Welche%20Vorteile%20bietet%20ein%20RAG-System%20als%20Auskunftsquelle?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">350</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelHowIsAnswerGenerated" datatype="html">
+        <source>Information: Welche Vorteile bietet ein RAG-System für die Erstellung einer Antwort?</source>
+        <target state="new">Information: Welche Vorteile bietet ein RAG-System für die Erstellung einer Antwort?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">354</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="buttonFeedback" datatype="html">
+        <source> Feedback zu dieser Antwort senden </source>
+        <target state="new"> Feedback zu dieser Antwort senden </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">366</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelEnergyConsumptionIntro" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Energieverbrauch: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Diese Fragenbeantwortung hat einen Stromverbrauch von <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/> <x id="INTERPOLATION" equiv-text="{{ totalProQuery.toFixed(6).replace(&quot;.&quot;, &quot;,&quot;) }}"/> <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Kilowattstunden&quot;&gt;"/>kWh<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> verursacht. Mit dieser Energiemenge kann etwa ein <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Modell mit 2,2 kW Leistung&quot;&gt;"/>Haarföhn<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> für <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_1" equiv-text="{{ (((totalProQuery * 1000) / 2200) * 60 * 60) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> Sekunden <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> betrieben, oder ein <x id="START_TAG_ABBR_2" ctype="x-abbr_2" equiv-text="&lt;abbr uk-tooltip=&quot;5000 mAh Kapazität&quot;&gt;"/>Handyakku<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> um <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_2" equiv-text="{{ (((((totalProQuery * 1000) / 5) * 1000) / 5000) * 0.8 * 100) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> % <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> aufgeladen werden. </source>
+        <target state="new"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Energieverbrauch: <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Diese Fragenbeantwortung hat einen Stromverbrauch von <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/> <x id="INTERPOLATION" equiv-text="{{ totalProQuery.toFixed(6).replace(&quot;.&quot;, &quot;,&quot;) }}"/> <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Kilowattstunden&quot;&gt;"/>kWh<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> verursacht. Mit dieser Energiemenge kann etwa ein <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Modell mit 2,2 kW Leistung&quot;&gt;"/>Haarföhn<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> für <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_1" equiv-text="{{ (((totalProQuery * 1000) / 2200) * 60 * 60) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> Sekunden <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> betrieben, oder ein <x id="START_TAG_ABBR_2" ctype="x-abbr_2" equiv-text="&lt;abbr uk-tooltip=&quot;5000 mAh Kapazität&quot;&gt;"/>Handyakku<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> um <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/> <x id="INTERPOLATION_2" equiv-text="{{ (((((totalProQuery * 1000) / 5) * 1000) / 5000) * 0.8 * 100) .toFixed(2) .replace(&quot;.&quot;, &quot;,&quot;) }}"/> % <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> aufgeladen werden. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">372</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelEnergyDetailsTitle" datatype="html">
+        <source><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Detaillierte Infos zum Energieverbrauch<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></source>
+        <target state="new"><x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Detaillierte Infos zum Energieverbrauch<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">408</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelEnergyConsumption" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span uk-icon=&quot;bolt&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Energieverbrauch </source>
+        <target state="new"><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span uk-icon=&quot;bolt&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Energieverbrauch </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">416</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelCPU" datatype="html">
+        <source> Prozessor (CPU) </source>
+        <target state="new"> Prozessor (CPU) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">419</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelGPU" datatype="html">
+        <source> Grafikkarte (GPU) </source>
+        <target state="new"> Grafikkarte (GPU) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">422</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelRAM" datatype="html">
+        <source> Arbeitsspeicher (RAM) </source>
+        <target state="new"> Arbeitsspeicher (RAM) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">425</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelTotal" datatype="html">
+        <source>Gesamt</source>
+        <target state="new">Gesamt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">427</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelDuration" datatype="html">
+        <source>Dauer</source>
+        <target state="new">Dauer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">428</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelTotalStrong" datatype="html">
+        <source>Gesamt</source>
+        <target state="new">Gesamt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">451</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelEnergyMeasurementInfo" datatype="html">
+        <source> Der Stromverbrauch wurde direkt auf Hardware-Ebene gemessen, die angegebenen Zahlen entsprechen den dort vorliegenden Daten. Der <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Power Usage Effectiveness&quot;&gt;"/>PUE-Wert<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> beträgt zwischen 1,10 und 1,16. Seitens des Rechenzentrums wird ein ausschließlich auf erneuerbare Energien abgestellter Strommix verwendt. Der durchschnittliche CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/>-Ausstoß im Hosting-Land Deutschland lag zuletzt bei rund 425g CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/> pro kWh. </source>
+        <target state="new"> Der Stromverbrauch wurde direkt auf Hardware-Ebene gemessen, die angegebenen Zahlen entsprechen den dort vorliegenden Daten. Der <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Power Usage Effectiveness&quot;&gt;"/>PUE-Wert<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> beträgt zwischen 1,10 und 1,16. Seitens des Rechenzentrums wird ein ausschließlich auf erneuerbare Energien abgestellter Strommix verwendt. Der durchschnittliche CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/>-Ausstoß im Hosting-Land Deutschland lag zuletzt bei rund 425g CO<x id="START_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;sub&gt;"/>2<x id="CLOSE_SUBSTRIPT" ctype="x-sub" equiv-text="&lt;/sub&gt;"/> pro kWh. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">497</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelEnergyCalcInfo-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch</source>
+        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">513</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelEnergyCalcInfo" datatype="html">
+        <source> Information: Wie wird der Stromverbrauch berechnet? </source>
+        <target state="new"> Information: Wie wird der Stromverbrauch berechnet? </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">518</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelBackgroundInfo" datatype="html">
+        <source> Hintergrundinformationen zum AI Act Chatbot </source>
+        <target state="new"> Hintergrundinformationen zum AI Act Chatbot </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">526</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelPrivacyPolicy-href" datatype="html">
+        <source>https://www.rtr.at/rtr/footer/Datenschutz.de.html#AI%20Act%20Chatbot</source>
+        <target state="new">https://www.rtr.at/rtr/footer/Datenschutz.de.html#AI%20Act%20Chatbot</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">531</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelPrivacyPolicy" datatype="html">
+        <source> Datenschutzerklärung </source>
+        <target state="new"> Datenschutzerklärung </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">535</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelAIActAnalysis-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Rechtliche%20Einsch%C3%A4tzung%20nach%20dem%20AI%20Act</source>
+        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Rechtliche%20Einsch%C3%A4tzung%20nach%20dem%20AI%20Act</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">541</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="labelAIActAnalysis" datatype="html">
+        <source> Analyse des AI Act Chatbot nach dem AI Act </source>
+        <target state="new"> Analyse des AI Act Chatbot nach dem AI Act </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">545</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacyPolicyAIChatbot-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Datenschutzrechtliche%20Aspekte%20des%20AIA%20RAG%20der%20KI-Servicestelle</source>
+        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/recht.de.html#Datenschutzrechtliche%20Aspekte%20des%20AIA%20RAG%20der%20KI-Servicestelle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">553</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacyPolicyAIChatbot" datatype="html">
+        <source>Datenschutzrechtliche Aspekte des AI Act Chatbots</source>
+        <target state="new">Datenschutzrechtliche Aspekte des AI Act Chatbots</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">554</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="technicalBackground-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html</source>
+        <target state="new">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">561</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="technicalBackground" datatype="html">
+        <source>Technische Hintergrundinformationen</source>
+        <target state="new">Technische Hintergrundinformationen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">562</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sourceCodeAndLicense-href" datatype="html">
+        <source>https://github.com/rtr-ai/aia-rag</source>
+        <target state="new">https://github.com/rtr-ai/aia-rag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">569</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sourceCodeAndLicense" datatype="html">
+        <source>Source Code und Softwarelizenzen</source>
+        <target state="new">Source Code und Softwarelizenzen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">570</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sourceDataset-href" datatype="html">
+        <source>https://github.com/rtr-ai/aia-rag/blob/main/data/combined.json</source>
+        <target state="new">https://github.com/rtr-ai/aia-rag/blob/main/data/combined.json</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">577</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sourceDataset" datatype="html">
+        <source>Im Chatbot hinterlegte Datenbasis</source>
+        <target state="new">Im Chatbot hinterlegte Datenbasis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">578</context>
         </context-group>
       </trans-unit>
     </body>
