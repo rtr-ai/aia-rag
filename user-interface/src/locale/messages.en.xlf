@@ -39,7 +39,7 @@
         <target state="translated">There is currently 1 request in the queue. Processing time for your request: approx. <x id="estimatedTime" equiv-text="estimatedTime"/> seconds.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="queueMessageMultiple" datatype="html">
@@ -47,7 +47,7 @@
         <target state="translated">There are currently <x id="queueCount" equiv-text="queueCount"/> requests in the queue. Processing time for your request: approx. <x id="estimatedTime" equiv-text="estimatedTime"/> seconds.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">134</context>
+          <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
       <trans-unit id="powerLabelIndex" datatype="html">
@@ -55,7 +55,7 @@
         <target>Indexing of relevant data (once per server start)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="linenumber">144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="powerLabelPrompt" datatype="html">
@@ -63,7 +63,7 @@
         <target>Prompt creation (&quot;Retrieve&quot; and &quot;Augment&quot;)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">140</context>
+          <context context-type="linenumber">145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="powerLabelResponse" datatype="html">
@@ -71,7 +71,7 @@
         <target>Response generation (&quot;Generate&quot;)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">141</context>
+          <context context-type="linenumber">146</context>
         </context-group>
       </trans-unit>
       <trans-unit id="powerLabelTotal" datatype="html">
@@ -79,7 +79,7 @@
         <target>Total energy consumption</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">142</context>
+          <context context-type="linenumber">147</context>
         </context-group>
       </trans-unit>
       <trans-unit id="telecommunicationPostal" datatype="html">
@@ -588,11 +588,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">493</context>
+          <context context-type="linenumber">494</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">508</context>
+          <context context-type="linenumber">509</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ourServices-href" datatype="html">
@@ -857,10 +857,8 @@
       </trans-unit>
       <trans-unit id="sourcesInfoText" datatype="html">
         <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Hinweis: <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ getNotSkippedSources(sources) }}"/> in schwarzer Schrift abgebildete Dokumente werden zur Fragenbeantwortung herangezogen. Grau abgebildete Einträge überschreiten das <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann&quot; i18n-uk-tooltip=&quot;@@contextWindowTooltip&quot; &gt;"/>Kontextfenster<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> und bleiben deshalb unberücksichtigt. Die angeführte Prozentzahl beschreibt die semantische Ähnlichkeit des Dokuments zur gestellten Frage. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p *ngIf=&quot;tokensUsedFormatted.length &gt; 0&quot;&gt;"/> Gesamtanzahl der verwendeten <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Kleine Texteinheiten von mehrern Buchstaben&quot; i18n-uk-tooltip=&quot;@@tokenTooltip&quot; &gt;"/>Token<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/>: <x id="INTERPOLATION_1" equiv-text="{{ tokensUsedFormatted }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
-          <target state="translated">
-            <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Note: <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ getNotSkippedSources(sources) }}"/> Documents displayed in black font are used to answer questions. Entries displayed in grey exceed the <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann&quot; i18n-uk-tooltip=&quot;@@contextWindowTooltip&quot; &gt;"/>Context Window<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> and are therefore not taken into account. The percentage given describes the semantic similarity of the document to the question asked.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p *ngIf=&quot;tokensUsedFormatted.length &gt; 0&quot;&gt;"/>Total number of <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Kleine Texteinheiten von mehrern Buchstaben&quot; i18n-uk-tooltip=&quot;@@tokenTooltip&quot; &gt;"/>tokens<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> used: <x id="INTERPOLATION_1" equiv-text="{{ tokensUsedFormatted }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-          </target>
-          <context-group purpose="location">
+        <target state="translated"> <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Note: <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ getNotSkippedSources(sources) }}"/> Documents displayed in black font are used to answer questions. Entries displayed in grey exceed the <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Die maximal mögliche Länge an Text, die an ein Sprachmodell übergeben werden kann&quot; i18n-uk-tooltip=&quot;@@contextWindowTooltip&quot; &gt;"/>Context Window<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> and are therefore not taken into account. The percentage given describes the semantic similarity of the document to the question asked.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p *ngIf=&quot;tokensUsedFormatted.length &gt; 0&quot;&gt;"/>Total number of <x id="START_TAG_ABBR_1" ctype="x-abbr_1" equiv-text="&lt;abbr uk-tooltip=&quot;Kleine Texteinheiten von mehrern Buchstaben&quot; i18n-uk-tooltip=&quot;@@tokenTooltip&quot; &gt;"/>tokens<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr &gt;"/> used: <x id="INTERPOLATION_1" equiv-text="{{ tokensUsedFormatted }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/> </target>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">128</context>
         </context-group>
@@ -1263,6 +1261,21 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mailtoSubject" datatype="html">
+        <source>Feedback AI Act Chatbot</source>
+          <target state="translated">Feedback AI Act Chatbot</target>
+          <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mailtoBody" datatype="html">
+        <source> Mein Feedback betrifft folgende Anfrage: <x id="PH" equiv-text="this.userPrompt"/> Folgende Antwort hat die KI ausgegeben: <x id="PH_1" equiv-text="this.displayAnswer"/> </source>
+          <target state="translated"> My feedback relates to the following request: <x id="PH" equiv-text="this.userPrompt"/> The AI provided the following response: <x id="PH_1" equiv-text="this.displayAnswer"/> </target>        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">119</context>
         </context-group>
       </trans-unit>
     </body>

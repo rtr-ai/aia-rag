@@ -115,10 +115,15 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   }
   updateMailtoLink() {
     const recipient = "ki@rtr.at";
-    const encodedSubject = encodeURIComponent("Feedback AI Act Chatbot");
-    const encodedBody = encodeURIComponent(
-      `Mein Feedback betrifft folgende Anfrage:\n\n${this.userPrompt}\n\nFolgende Antwort hat die KI ausgegeben:\n\n${this.displayAnswer}\n\n`
-    );
+    const subject = $localize`:@@mailtoSubject:Feedback AI Act Chatbot`;
+    const body = $localize`:@@mailtoBody:
+    Mein Feedback betrifft folgende Anfrage:\n\n${this.userPrompt}\n\n
+    Folgende Antwort hat die KI ausgegeben:\n\n${this.displayAnswer}\n\n
+  `;
+
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+
     this.mailtoLink = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
   }
   private getQueueMessage(

@@ -423,42 +423,42 @@
         <source>Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime" equiv-text="estimatedTime"/> Sekunden.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="queueMessageMultiple" datatype="html">
         <source>Es sind aktuell <x id="queueCount" equiv-text="queueCount"/> Anfragen in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime" equiv-text="estimatedTime"/> Sekunden.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">134</context>
+          <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
       <trans-unit id="powerLabelIndex" datatype="html">
         <source>Indexierung von relevanten Daten (einmalig pro Serverstart)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="linenumber">144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="powerLabelPrompt" datatype="html">
         <source>Erstellung des Prompts („Retrieve&quot; und „Augment&quot;)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">140</context>
+          <context context-type="linenumber">145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="powerLabelResponse" datatype="html">
         <source>Generierung der Antwort („Generate&quot;)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">141</context>
+          <context context-type="linenumber">146</context>
         </context-group>
       </trans-unit>
       <trans-unit id="powerLabelTotal" datatype="html">
         <source>Gesamter Energieverbrauch</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
-          <context context-type="linenumber">142</context>
+          <context context-type="linenumber">147</context>
         </context-group>
       </trans-unit>
       <trans-unit id="telecommunicationPostal" datatype="html">
@@ -924,11 +924,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">493</context>
+          <context context-type="linenumber">494</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">508</context>
+          <context context-type="linenumber">509</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ourServices-href" datatype="html">
@@ -1129,6 +1129,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mailtoBody" datatype="html">
+        <source> Mein Feedback betrifft folgende Anfrage: <x id="PH" equiv-text="this.userPrompt"/> Folgende Antwort hat die KI ausgegeben: <x id="PH_1" equiv-text="this.displayAnswer"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">119</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mailtoSubject" datatype="html">
+        <source>Feedback AI Act Chatbot</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
     </body>
