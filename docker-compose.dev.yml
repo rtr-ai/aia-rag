@@ -1,0 +1,95 @@
+services:
+  annotation-tool-develop:
+    container_name: annotation-tool-develop
+    build:
+      context: ./annotation-tool 
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9081:3000"
+    environment:
+      - HOST=0.0.0.0
+      - PUBLIC_URL=/annotation-tool
+    command: npm start
+    networks:
+      - ollama-docker
+    # depends_on:
+    #   - ollama
+
+  llm-service-develop:
+    container_name: llm-service-develop
+    privileged: true
+    build:
+      context: ./llm-service
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9085:8000"
+    environment:
+      - HOST=0.0.0.0
+      - OLLAMA_HOST=ollama
+      - OLLAMA_EMBEDDING_HOST=ollama-embedding
+      - EMBEDDING_MODELS=snowflake-arctic-embed2
+      - LLM_MODELS=mistral-small,mistral-nemo,granite3.1-dense,phi4,llama3.1:8b-instruct-fp16,mixtral:8x7b-instruct-v0.1-q2_K,gpt-oss
+      - ALLOWED_ORIGINS=http://rag.ki.rtr.at,https://rag.ki.rtr.at,http://chat.ki.rtr.at,https://chat.ki.rtr.at
+      - TEMPERATURE=0.2
+      - CONTEXT_WINDOW=19000
+      - PROMPT_BUFFER=4500
+      - ROOT_PATH=/llm-service
+      - TOP_N_CHUNKS=25
+      - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
+      - MATOMO_TOKEN=${MATOMO_TOKEN}
+      - MATOMO_SITE_ID=${MATOMO_SITE_ID}
+      - ORDER_CHUNKS_FROM_SOURCE=true
+      - CAPTCHA_OVERRIDE_SECRET=${CAPTCHA_OVERRIDE_SECRET}
+      - CAPTCHA_API_KEY=${CAPTCHA_API_KEY}
+      - FRIENDLY_CAPTCHA_SITEKEY=${FRIENDLY_CAPTCHA_SITEKEY}
+      - DATASETS={"ai_act_de":"combined.json","ai_act_en":"combined_en_new.json"}
+      - SYSTEM_PROMPTS_FILE=system_prompts.json
+    volumes:
+      - /app/logs:/app/logs/
+      - ./data/combined.json:/app/data/combined.json
+      - ./data/combined_en_new.json:/app/data/combined_en_new.json
+      - ./data/system_prompts.json:/app/data/system_prompts.json
+      - /sys/class/powercap:/sys/class/powercap:ro
+      - /proc/stat:/proc/stat:ro
+      - /proc/cpuinfo:/proc/cpuinfo:ro
+      - /sys/devices/system/cpu:/sys/devices/system/cpu:ro
+    devices:
+      - /dev/nvidia0:/dev/nvidia0
+      - /dev/nvidiactl:/dev/nvidiactl
+      - /dev/nvidia-modeset:/dev/nvidia-modeset
+      - /dev/nvidia-uvm:/dev/nvidia-uvm
+    networks:
+      - ollama-docker
+    # depends_on:
+    #   - ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+
+  user-interface-develop:
+    container_name: user-interface-develop
+    build:
+      context: ./user-interface
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9090:80"
+    environment:
+      - HOST=0.0.0.0 
+      - LLM_ENDPOINT=/llm-service  
+      - FRIENDLY_CAPTCHA_SITEKEY=${FRIENDLY_CAPTCHA_SITEKEY}
+    networks:
+      - ollama-docker
+    depends_on:
+      - llm-service-develop
+
+networks:
+  ollama-docker:
+    external: false
