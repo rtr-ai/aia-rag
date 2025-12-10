@@ -19,6 +19,7 @@ import { environment } from "../../environments/environment";
 import { NgZone } from "@angular/core";
 import { WidgetInstance } from "friendly-challenge";
 import { EnvService } from "../../services/env.service";
+import { LOCALE_ID, Inject } from "@angular/core";
 @Component({
   selector: "app-aiabot",
   standalone: true,
@@ -32,17 +33,26 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   sources: Source[] = [];
   prompt: string = "";
   multiplier = 1;
-  userPrompts = [
-    "Ich möchte Lebensläufe von Bewerber:innen mit KI filtern. Ist das eine Hochrisiko-KI-Anwendung?",
-    "Ich möchte E-Mails automatisch mit einem LLM beantworten. Muss ich das offenlegen?",
-    "Muss ich bei KI-generierten Bildern kennzeichnen, dass diese mit KI generiert wurden?",
-    "Wie kann ich KI-Kompetenz in meinem Unternehmen umsetzen?",
-    "Ich entwickle KI-Systeme für Märkte außerhalb der EU. Gilt der AI Act für mich?",
-  ];
+  userPromptsPerLocale: Record<string, string[]> = {
+    de: [
+      "Ich möchte Lebensläufe von Bewerber:innen mit KI filtern. Ist das eine Hochrisiko-KI-Anwendung?",
+      "Ich möchte E-Mails automatisch mit einem LLM beantworten. Muss ich das offenlegen?",
+      "Muss ich bei KI-generierten Bildern kennzeichnen, dass diese mit KI generiert wurden?",
+      "Wie kann ich KI-Kompetenz in meinem Unternehmen umsetzen?",
+      "Ich entwickle KI-Systeme für Märkte außerhalb der EU. Gilt der AI Act für mich?",
+    ],
+    en: [
+      "I want to filter applicant CVs with AI. Is this a high-risk AI application?",
+      "I want to automatically answer emails with an LLM. Do I need to disclose this?",
+      "Do I need to label AI-generated images as being created with AI?",
+      "How can I implement AI competency in my company?",
+      "I develop AI systems for markets outside the EU. Does the AI Act apply to me?",
+    ],
+  };
+  userPrompts: string[] = [];
   userPrompt = "";
   submittedUserPrompt = "";
-  placeholderPrompt =
-    this.userPrompts[Math.floor(Math.random() * this.userPrompts.length)];
+  placeholderPrompt = "";
   maxLength: number = 500;
   mailtoLink: string = "mailto:ki@rtr.at?subject=Feedback%20RAG%20EU%20AI-Act";
   inputHeight: number = 70;
@@ -70,8 +80,13 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   captchaContainer!: ElementRef;
   isCaptchaCompleted: boolean = false;
 
-  constructor(private zone: NgZone, private envService: EnvService) {
+  constructor(
+    private zone: NgZone,
+    private envService: EnvService,
+    @Inject(LOCALE_ID) public locale: string
+  ) {
     this.sitekey = this.envService.friendlyCaptchaSitekey;
+    this.initializeLocaleSpecificContent();
   }
   ngOnInit(): void {}
   ngAfterViewInit(): void {
@@ -100,11 +115,37 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   }
   updateMailtoLink() {
     const recipient = "ki@rtr.at";
-    const encodedSubject = encodeURIComponent("Feedback AI Act Chatbot");
-    const encodedBody = encodeURIComponent(
-      `Mein Feedback betrifft folgende Anfrage:\n\n${this.userPrompt}\n\nFolgende Antwort hat die KI ausgegeben:\n\n${this.displayAnswer}\n\n`
-    );
+    const subject = $localize`:@@mailtoSubject:Feedback AI Act Chatbot`;
+    const body = $localize`:@@mailtoBody:
+    Mein Feedback betrifft folgende Anfrage:\n\n${this.userPrompt}\n\n
+    Folgende Antwort hat die KI ausgegeben:\n\n${this.displayAnswer}\n\n
+  `;
+
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+
     this.mailtoLink = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
+  }
+  private getQueueMessage(
+    queuePosition: number,
+    estimatedTime: number
+  ): string {
+    if (queuePosition === 1) {
+      return "";
+    } else if (queuePosition === 2) {
+      return $localize`:@@queueMessageSingle:Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. ${estimatedTime}:estimatedTime: Sekunden.`;
+    } else {
+      const queueCount = queuePosition - 1;
+      return $localize`:@@queueMessageMultiple:Es sind aktuell ${queueCount}:queueCount: Anfragen in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. ${estimatedTime}:estimatedTime: Sekunden.`;
+    }
+  }
+  private initializePowerDataLabels() {
+    return {
+      index: $localize`:@@powerLabelIndex:Indexierung von relevanten Daten (einmalig pro Serverstart)`,
+      prompt: $localize`:@@powerLabelPrompt:Erstellung des Prompts („Retrieve" und „Augment")`,
+      response: $localize`:@@powerLabelResponse:Generierung der Antwort („Generate")`,
+      total: $localize`:@@powerLabelTotal:Gesamter Energieverbrauch`,
+    };
   }
 
   promptLLM = async () => {
@@ -114,41 +155,44 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     if (server.length === 0) {
       throw Error("No LLM endpoint has been configured");
     }
+
+    const datasetsPerLocale: Record<string, string> = {
+      en: "ai_act_en",
+      de: "ai_act_de",
+    };
+    let defaultDataset = datasetsPerLocale["de"];
+    if (this.locale && typeof datasetsPerLocale[this.locale] != "undefined") {
+      defaultDataset = datasetsPerLocale[this.locale];
+    }
     const params = {
       prompt: this.userPrompt,
       frc_captcha_solution: this.captchaSolution,
+      dataset: defaultDataset,
     };
     const updateSources = (sources: Source[]) => {
       this.sources = sources;
       calculateTotalTokens();
     };
+
     const updateSecondsToFirstToken = (queuePosition: number) => {
       const queueCount = Math.max(queuePosition, 1);
       const estimatedTime =
         Math.max(queueCount - 1, 1) * this.avgSecondsPerRequest;
-
-      if (queuePosition === 1) {
-        this.queueMessage = "";
-      } else if (queuePosition === 2) {
-        this.queueMessage = `Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. ${estimatedTime} Sekunden.`;
-      } else {
-        this.queueMessage = `Es sind aktuell ${
-          queuePosition - 1
-        } Anfragen in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. ${estimatedTime} Sekunden.`;
-      }
+      this.queueMessage = this.getQueueMessage(queuePosition, estimatedTime);
     };
 
     const updatePowerData = (data: PowerUsageData, eventType: string) => {
+      const labels = this.initializePowerDataLabels();
       let name = "";
       switch (eventType) {
         case "power_index":
-          name = "Indexierung von relevanten Daten (einmalig pro Serverstart)";
+          name = labels.index;
           break;
         case "power_prompt":
-          name = "Erstellung des Prompts („Retrieve” und „Augment”)";
+          name = labels.prompt;
           break;
         case "power_response":
-          name = "Generierung der Antwort („Generate”)";
+          name = labels.response;
           break;
       }
       this.zone.run(() => {
@@ -354,7 +398,12 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       onErrorHappened();
     }
   };
-
+  private initializeLocaleSpecificContent(): void {
+    this.userPrompts =
+      this.userPromptsPerLocale[this.locale] || this.userPromptsPerLocale["de"];
+    this.placeholderPrompt =
+      this.userPrompts[Math.floor(Math.random() * this.userPrompts.length)];
+  }
   onInput(event: Event): void {
     const textarea = event.target as HTMLTextAreaElement;
     textarea.style.height = "auto";

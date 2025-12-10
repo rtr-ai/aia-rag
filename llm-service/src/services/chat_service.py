@@ -12,6 +12,7 @@ from models.sources import Source, SourceList
 from utils.prompt_utils import generate_prompt
 from services.power_meter_service import PowerMeterService
 from services.matomo_tracking_service import matomo_service
+from services.dataset_configuration import DatasetConfiguration
 import secrets
 
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
@@ -31,7 +32,7 @@ class ChatService:
         self.client = AsyncClient(host=os.getenv("OLLAMA_HOST"))
 
     async def chat(
-        self, request: ChatRequest, queue_position: int
+        self, request: ChatRequest, queue_position: int, config: DatasetConfiguration
     ) -> AsyncGenerator[str, None]:
         data = json.dumps({"content": "", "type": "heartbeat"})
         yield f"data: {data}\n\n"
@@ -56,7 +57,7 @@ class ChatService:
 
             yield f"data: {json.dumps(data)}\n\n"
             chunks, duration = await self.index_service.query_index(
-                "main", query=request.prompt, request_id=request_id
+                dataset_id=request.dataset, query=request.prompt, request_id=request_id
             )
             measurement = meter.stop()
             final_duration = duration if duration else measurement.duration_seconds
@@ -86,7 +87,12 @@ class ChatService:
                 f"[{request_id}]    Power consumption for generating prompt: {data}"
             )
 
-            prompt = generate_prompt(prompt=request.prompt, sources=chunks)
+            prompt = generate_prompt(
+                prompt=request.prompt,
+                sources=chunks,
+                dataset_id=request.dataset,
+                config=config,
+            )
             data = json.dumps({"content": prompt, "type": "user"})
             matomo_service.track_event(
                 action="user", request_id=request_id, value=request.prompt
@@ -140,6 +146,7 @@ class ChatService:
                 action="assistant", request_id=request_id, value=response
             )
             final_log = f"User Prompt: {request.prompt}\n\n\n"
+            final_log += f"Dataset: {request.dataset}"
             final_log += f"LLM Response: {response}\n\n\n"
             LOGGER.debug(f"[{request_id}] {final_log}")
             LOGGER_CHAT.info(f"[{request_id}] {request.prompt}\n\n")

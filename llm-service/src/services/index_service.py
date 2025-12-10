@@ -22,7 +22,7 @@ class IndexService:
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(IndexService, cls).__new__(cls)
+            cls._instance = super().__new__(cls)
             cls._instance._initialized = False
         return cls._instance
 
@@ -34,6 +34,7 @@ class IndexService:
         if self._initialized:
             return
         LOGGER.debug("Creating new instance of IndexService")
+        # Dict mapping dataset_id -> vector data
         self.vector_store: Dict[str, dict] = {}
         self.embedding_service = EmbeddingService()
         self.tokenizer_service = TokenizerService()
@@ -46,25 +47,84 @@ class IndexService:
                 self.vector_store = json.load(f)
         self._initialized = True
 
-    @classmethod
-    async def from_manual_annotations(
-        cls,
-        annotation: ManualIndex,
+    async def create_index_for_dataset(
+        self, dataset_id: str, chunks_path: str, force_recreate: bool = False
     ):
         """
-        Initialize IndexService and create index from manual annotations.
+        Create a vector store index for a specific dataset.
 
         Args:
-            annotation (ManualIndex): ManualIndex object containing index details and chunks.
-
-        Returns:
-            IndexService: An initialized IndexService instance.
+            dataset_id: Unique identifier for the dataset
+            chunks_path: Path to the chunks.json file for this dataset
+            force_recreate: If True, recreate even if index exists
         """
-        LOGGER.debug("Creating manual index")
-        service = cls()
-        await service.clear_index()
-        await service.create_index(annotation)
-        return service
+        LOGGER.debug(f"Creating index for dataset <{dataset_id}> from <{chunks_path}>")
+
+        if dataset_id in self.vector_store and not force_recreate:
+            LOGGER.info(f"Index for dataset <{dataset_id}> already exists, skipping")
+            return
+
+        if not os.path.exists(chunks_path):
+            raise FileNotFoundError(f"Chunks file not found: {chunks_path}")
+
+        with open(chunks_path, "r", encoding="utf-8") as file:
+            manual_index_json = json.load(file)
+            manual_index = ManualIndex.model_validate(manual_index_json)
+            manual_index.id = dataset_id  # Use dataset_id as the index id
+
+        await self._create_index(manual_index)
+        LOGGER.info(f"Successfully created index for dataset <{dataset_id}>")
+
+    async def _create_index(self, manual_index: ManualIndex):
+        """
+        Internal method to create and save an index from a ManualIndex object.
+        """
+        LOGGER.debug(f"Creating index with id <{manual_index.id}>")
+
+        chunk_nodes = [
+            chunk
+            for chunk in manual_index.chunks
+            if isinstance(chunk, ChunkNode) and chunk.content.strip()
+        ]
+
+        LOGGER.debug(f"Generating embeddings for <{len(chunk_nodes)}> chunks")
+        embeddings = await self.embedding_service.generate_embeddings_batch(
+            [chunk.content for chunk in chunk_nodes]
+        )
+
+        valid_chunk_ids = {chunk.id for chunk in chunk_nodes}
+        vector_data = {
+            "id": manual_index.id,
+            "creation_date": manual_index.creation_date,
+            "last_updated": manual_index.last_updated,
+            "chunks": [
+                {
+                    "id": chunk.id,
+                    "title": chunk.title,
+                    "keywords": chunk.keywords,
+                    "content": chunk.content,
+                    "negativeKeywords": chunk.negativeKeywords,
+                    "relevantChunksIds": [
+                        cid for cid in chunk.relevantChunksIds if cid in valid_chunk_ids
+                    ],
+                    "parameters": chunk.parameters,
+                    "vector": embedding,
+                    "position": i,
+                }
+                for i, (chunk, embedding) in enumerate(zip(chunk_nodes, embeddings))
+            ],
+        }
+
+        self.vector_store[manual_index.id] = vector_data
+        self._save_vector_store()
+
+    def list_datasets(self) -> List[str]:
+        """Return list of all indexed dataset IDs."""
+        return list(self.vector_store.keys())
+
+    def has_dataset(self, dataset_id: str) -> bool:
+        """Check if a dataset has been indexed."""
+        return dataset_id in self.vector_store
 
     @staticmethod
     def cosine_similarity(query_vector, vectors):
@@ -76,10 +136,6 @@ class IndexService:
         return np.dot(vectors, query_vector) / (
             np.linalg.norm(vectors, axis=1) * np.linalg.norm(query_vector)
         )
-
-    async def clear_index(self):
-        if os.path.exists(self.vector_store_path):
-            os.remove(self.vector_store_path)
 
     def get_top_chunks(self, query_vector, chunks_vector, top_n=TOP_N_CHUNKS):
         """
@@ -141,88 +197,35 @@ class IndexService:
             for i in top_n_indices
         ]
 
-    async def create_index(self, manual_index: ManualIndex):
-        """
-        Create and save an index from a ManualIndex object.
-
-        Args:
-            manual_index (ManualIndex): Object containing chunk data.
-
-        Raises:
-            ValueError: If the index already exists in the vector store.
-        """
-        LOGGER.debug(f"Creating a new index with id <{manual_index.id}>")
-        if manual_index.id in self.vector_store:
-            LOGGER.error("Index already exists")
-            raise ValueError(f"Index with ID {manual_index.id} already exists.")
-
-        chunk_nodes = [
-            chunk
-            for chunk in manual_index.chunks
-            if isinstance(chunk, ChunkNode) and chunk.content.strip()
-        ]
-
-        LOGGER.debug(f"Generating embedding for <{len(chunk_nodes)}> chunks")
-        embeddings = await self.embedding_service.generate_embeddings_batch(
-            [chunk.content for chunk in chunk_nodes]
-        )
-        valid_chunk_ids = {chunk.id for chunk in chunk_nodes}
-        vector_data = {
-            "id": manual_index.id,
-            "creation_date": manual_index.creation_date,
-            "last_updated": manual_index.last_updated,
-            "chunks": [
-                {
-                    "id": chunk.id,
-                    "title": chunk.title,
-                    "keywords": chunk.keywords,
-                    "content": chunk.content,
-                    "negativeKeywords": chunk.negativeKeywords,
-                    "relevantChunksIds": [
-                        cid for cid in chunk.relevantChunksIds if cid in valid_chunk_ids
-                    ],
-                    "parameters": chunk.parameters,
-                    "vector": embedding,
-                    "position": i,
-                }
-                for i, (chunk, embedding) in enumerate(zip(chunk_nodes, embeddings))
-            ],
-        }
-
-        # Save to vector store
-        self.vector_store[manual_index.id] = vector_data
-        self._save_vector_store()
-
     async def query_index(
-        self, index_id: str, query: str, request_id: str
+        self, dataset_id: str, query: str, request_id: str
     ) -> Tuple[List[Source], float]:
         """
-            Query an index and return all chunks, marking those exceeding token limits.
-            Once context window is reached, all subsequent chunks are skipped.
+        Query a specific dataset's index.
 
-            Args:
-                index_id (str): ID of the index to query.
-                query (str): Query string.
+        Args:
+            dataset_id: ID of the dataset to query
+            query: Query string
+            request_id: Request ID for logging
 
-            Returns:
-        Tuple[List[Source], float]:
-            A tuple where:
-            - The first element is a list of all sources
-            - The second element is the duration (in seconds) of querying the index (for power consuption).
+        Returns:
+            Tuple of (sources list, embedding duration)
         """
-        if index_id not in self.vector_store:
-            LOGGER.debug(f"Unable to find index with id <{index_id}>")
-            raise HTTPException(status_code=404, detail="Index not found")
+        if dataset_id not in self.vector_store:
+            LOGGER.error(f"Dataset <{dataset_id}> not found in vector store")
+            raise HTTPException(
+                status_code=404,
+                detail=f"Dataset '{dataset_id}' not found. Available: {self.list_datasets()}",
+            )
 
         embedding_response = await self.embedding_service.generate_embedding(query)
         duration = 0.0
         if "total_duration" in embedding_response:
-
             duration = embedding_response["total_duration"] / 1_000_000_000
             LOGGER.debug(f"Total duration for embedding from ollama: {str(duration)}")
 
         query_vector = embedding_response.embeddings[0]
-        index_data = self.vector_store[index_id]
+        index_data = self.vector_store[dataset_id]
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
 
         total_tokens = 0

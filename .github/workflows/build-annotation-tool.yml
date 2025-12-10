@@ -5,11 +5,11 @@ name: Annotation Tool CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
     paths:
       - annotation-tool/**
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
     paths:
       - annotation-tool/**
 

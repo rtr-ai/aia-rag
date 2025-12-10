@@ -13,6 +13,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+        "i18n": {
+        "sourceLocale": "de",
+        "locales": {
+          "en": "src/locale/messages.en.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -40,6 +46,7 @@
           },
           "configurations": {
             "production": {
+              "localize": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -82,7 +89,16 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
+          "options": {
+            "buildTarget": "ki-servicestelle-aiabot:build",
+            "format": "xlf",
+            "includeContext": true,
+            "outputPath": "src/locale",
+            "targetFiles": [
+              "messages.en.xlf"
+            ]
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

@@ -1,11 +1,13 @@
 import asyncio
 import inspect
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.responses import StreamingResponse
 from services.chat_service import ChatService
 from models.chat_request import ChatRequest
 from utils.logger import get_logger
 from utils.captcha import verify_captcha
+from services.dataset_configuration import DatasetConfiguration
+from typing import Protocol
 
 router = APIRouter()
 LOGGER = get_logger(__name__)
@@ -35,6 +37,15 @@ class RequestCounter:
 request_counter = RequestCounter()
 
 
+class AppState(Protocol):
+    dataset_config: DatasetConfiguration
+
+
+def get_dataset_config(request: Request) -> DatasetConfiguration:
+    state: AppState = request.app.state
+    return state.dataset_config
+
+
 async def sync_to_async_generator(gen):
     for item in gen:
         yield item
@@ -51,14 +62,22 @@ async def tracked_streaming(stream_gen):
 
 
 @router.post("/chat")
-async def chat(req: ChatRequest):
+async def chat(
+    req: ChatRequest, config: DatasetConfiguration = Depends(get_dataset_config)
+):
     await verify_captcha(req)
+    if not config.dataset_exists(req.dataset):
+        LOGGER.error(f"Dataset not found: {req.dataset}")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Dataset '{req.dataset}' not found.",
+        )
 
     current_count = await request_counter.increment()
     LOGGER.info(f"Starting chat request. Active requests: {current_count}")
 
     try:
-        stream = chat_service.chat(req, current_count)
+        stream = chat_service.chat(req, current_count, config)
         is_async_gen = inspect.isasyncgen(stream) or hasattr(stream, "__aiter__")
 
         if not is_async_gen:
