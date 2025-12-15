@@ -11,8 +11,9 @@ MAX_RETRIES = 10
 TIMEOUT = 90
 MAX_TIME = 480
 
-URL = "https://chat.ki.rtr.at/llm-service/chat"
+URL = "https://rag.ki.rtr.at/llm-service/chat"
 HEADERS = {
+    'Authorization': os.getenv("HTTP_AUTHORIZATION"),
     'Accept': 'text/event-stream',
     'Content-Type': 'application/json'
 }

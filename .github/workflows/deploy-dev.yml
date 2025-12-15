@@ -64,4 +64,4 @@ jobs:
       run: |
         ls -lah &&
         pip install requests &&
-        python ci-test.py 
+        python ci-test-dev.py 
