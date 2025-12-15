@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -25,16 +25,16 @@ jobs:
 
     - name: Deploy to server
       run: |
-        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "mkdir -p /app/trunk.new" 
-        scp -i ~/.ssh/deploy_key -r ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }}:/app/trunk.new
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "mkdir -p /app/develop/trunk.new" 
+        scp -i ~/.ssh/deploy_key -r ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }}:/app/develop/trunk.new
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
-          rm -r /app/trunk.old
-          mv /app/trunk /app/trunk.old && 
-          mv /app/trunk.new /app/trunk &&
-          cd /app/trunk"
-        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.MATOMO_ENV }}" > /app/trunk/.env'
-        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.FRIENDLYCAPTCHA_ENV }}" >> /app/trunk/.env'
-        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "cd /app/trunk && ls -lah"
+          rm -r /app/develop/trunk.old
+          mv /app/develop/trunk /app/develop/trunk.old && 
+          mv /app/develop/trunk.new /app/develop/trunk &&
+          cd /app/develop/trunk"
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.MATOMO_ENV }}" > /app/develop/trunk/.env'
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.FRIENDLYCAPTCHA_ENV }}" >> /app/develop/trunk/.env'
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "cd /app/develop/trunk && ls -lah"
       shell: bash
       env:
         DEPLOY_IP: ${{ secrets.DEPLOY_IP }}
@@ -44,7 +44,7 @@ jobs:
     - name: Run docker
       run: |
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
-        cd /app/trunk &&
+        cd /app/develop/trunk &&
         docker container prune -f &&
         docker compose build &&
         docker compose down &&
