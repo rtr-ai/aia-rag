@@ -404,3 +404,4 @@ Generally, the actual hardware requirements will depend on the chosen model and 
 
 
 The software can also run on a consumer graded PC or Laptop if the VRAM requirements are met, but in such case, the power usage metrics accuracy will depend on the hardware used. In some scenarios, the power usage should be disabled, if device compatibility issue arise. 
+
