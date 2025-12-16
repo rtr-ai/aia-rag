@@ -36,7 +36,7 @@ services:
       - CONTEXT_WINDOW=32000
       - PROMPT_BUFFER=4500
       - ROOT_PATH=/llm-service
-      - TOP_N_CHUNKS=50
+      - TOP_N_CHUNKS=25
       - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
       - MATOMO_TOKEN=${MATOMO_TOKEN}
       - MATOMO_SITE_ID=${MATOMO_SITE_ID}
