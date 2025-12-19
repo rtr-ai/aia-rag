@@ -579,7 +579,7 @@
     },
     {
       "id": "e419d565-51f0-41b6-92b6-c80be68c2956",
-      "title": "AI-Service Desk: Actors, AI value chain",
+      "title": "AI Service Desk: Actors, AI value chain",
       "content": "###Overview: the actors in the AI Act\n\nThe AI Act provides for many roles in the AI value chain. The various players are by no means unknown, and the EU legislator orientated itself in many respects on EU product law standards (see, for example, the Product Safety Regulation and the Medical Devices Regulation).\n\nThe actors in the AI Act include, in accordance with Art. 3 (8):\n\nProvider;\nProduct manufacturer;\nAuthorised representative;\nImporter;\nDistributor;\nDeployer.\nThere are also \"users\" and \"affected persons\", but these are not referred to as actors within the meaning of the AI Act.\n",
       "keywords": [],
       "availableKeywords": [],
@@ -598,7 +598,7 @@
     },
     {
       "id": "0a3fb82e-b170-41b1-bce4-6271864f0212",
-      "title": "AI-Service Desk: Actors, placing on the market",
+      "title": "AI Service Desk: Actors, placing on the market",
       "content": "### Placing on the market, making available, commissioning\n\nThe various players take on different activities in the AI value chain. A distinction is made between \"placing on the market\", \"making available on the market\" and \"putting into service\", which are also legally defined in the AI Act. These terms are not new, as they already exist in EU product law.\n\nAccording to Art. 3(9) of the AIA, \"placing on the market\" means \"the first making available of an AI system or a GPAI modelon the Union market.\" \n\nAccording to the definition, placing on the market also includes \"making available on the market\", which in turn means \"the supply of an AI system or a GPAI model for distribution or use on the Union market in the course of a commercial activity, whether in return for payment or free of charge (Art. 3 (10) AIA).\n\nThe difference between \"placing on the market\" and \"making available\" lies in the fact that placing on the market means making available on the market for the first time. Within the EU, the placing on the market is usually carried out by the manufacturer of the product or, in the case of the AI system/GPAI model the provider; for products or AI systems outside the EU, it is the importer. Once the initial provision has taken place, the further making available (colloquially referred to as \"distribution\") is usually carried out by the distributor, who takes over typical activities such as sales, storage, transport (e.g. in the case of high-risk AI systems integrated into physical products), customer support or maintenance.\n\nThis form of supply chain primarily represents the traditional way of a supply chain, where the product finds its way from the manufacturer via the importer and (intermediate) distributor to the final customer. Distance selling has also led to the development of new forms of distribution. Providers and distributors from third countries can offer their products on the Union market via online interfaces, which also allows providers in particular to exclude certain players (e.g. distributors). This form of sales plays a particularly important role for digital products such as software applications, which can be purchased via a simple download.\n\nThe Union legislator has also reacted to the changes in sales channels in the Market Surveillance Regulation (Recital 15): If a product is offered online or through other means of distance sales, the product should be considered to have been made available on the market if the offer for sale is targeted at end-users in the Union. Whether such an offer for sale is made to end-users is a case-by-case analysis and shall take into account criteria such as the geographical areas to which dispatch is possible, the languages available, used for the offer or order and the means of payment. The mere accessibility of the operator's or the intermediaries' website is not in itself sufficient to presume the making available on the Union market.\n\nAccording to Article 3(11) of the AIA, \"putting into service\" means \"the supply of an AI system for first use directly to the deployer or for own use in the Union for its intended purpose\". In short, \"intended purpose\" means the use for which an AI system is intended or promoted according to the provider (see Art. 3(12) AIA).\n",
       "keywords": [],
       "availableKeywords": [],
@@ -610,7 +610,7 @@
     },
     {
       "id": "18cba04a-f269-4f84-b97c-fbbbe2ef300f",
-      "title": "AI-Service Desk: Actors, individual players",
+      "title": "AI Service Desk: Actors, individual players",
       "content": "### The individual players\n\nDepending on which actor and which AI system or GPAI models is involved, different far-reaching obligations must be complied with. It is therefore of fundamental importance to differentiate between the individual addressees of the obligation. In certain situations, an actor can also fulfil several roles simultaneously. The following explanations and diagram are intended to provide an overview.",
       "keywords": [],
       "availableKeywords": [],
@@ -622,7 +622,7 @@
     },
     {
       "id": "4353602b-f09f-41e8-b609-864a7ea1a448",
-      "title": "AI-Service Desk: Actors, provider",
+      "title": "AI Service Desk: Actors, provider",
       "content": "### Who is the provider?\n\nIn Art. 3 (3) AIA, a provider is defined as follows:\n\na natural or legal person, public authority, agency or other body that develops an AI system or a general-purpose AI model or that has an AI system or a general-purpose AI model developed and places it on the market or puts the AI system into service under its own name or trademark, whether for payment or free of charge\nThe provider is the link in the AI value chain that develops the AI system or GPAI model. Typically, these are persons and institutions involved in the individual development phases - data preparation, model training, evaluation and optimisation - of AI systems or GPAI models.\n\nSince the development of an AI system or GPAI model usually involves several professional disciplines, several specialists such as data scientists, engineers, domain experts and designers often work together. A provider is therefore also considered to be a provider if it has the AI system or a GPAI model developed (in other words, \"commissions\" it) in order to subsequently place it on the market or put it into service under its own name or trademark, whether for a payment or free of charge. Providers may also outsource certain tools, services, components or processes, such as training, retraining, testing and evaluation of models, integration into software or other aspects of model development. However, the obligations in connection with the AI Act apply more broadly to providers.\n\nNote: In order to ensure that the AI Act is also applied in these situations, the obligations must be contractually regulated. In this regard, the AI Office is authorised to draw up and make available model contractual provisions (Art. 25 para. 4 AI Act).\n\nA provider is also referred to when it integrates an AI model into its AI system or GPAI system. It is irrelevant whether the model is provided and vertically integrated by the provider itself or comes from someone else. In this case, the term \"downstream provider\" is used (see Art. 3 para. 68 AIA)\n\nThe rule in Art. 25 para. 1 AIA allows also treats importers, distributors, deployers and other third parties to be treated as providers. They assume this dual role if they:\n\na high-risk AI system that has already been placed on the market or put into operation is labelled with their name or trademark, irrespective of contractual agreements stipulating that the obligations are otherwise allocated. The respective actor thus acts as the provider of an AI system, even though it was not developed by them (\"quasi-manufacturer\"). \nmake a material change to a high-risk AI system that has already been placed on the market or put into operation in such a way that it remains a high-risk AI system within the meaning of Art. 6 AIA.\nA substantial modification is deemed to be made if it changes an AI system after it has been placed on the market or put into service in such a way that this was not provided for or planned in the original conformity assessment and thereby impairs the conformity of the AI system or leads to a change in the intended purpose for which the AI system was assessed, Art. 3 no. 23 AI Act.\nmodification of the intended purpose of an AI System, including a GPAI System that has not been classified as high-risk and has already been placed on the market or put into service, in such a way that the AI System concerned becomes a high-risk AI System within the meaning of Art. 6 AIA.\nTo summarise: When an actor adds its name to an AI system, significantly modifies it or changes its intended purpose after it has already been placed on the market or put into operation, it is considered a quasi-manufacturer and thus a provider with corresponding obligations.\n\nThe application of Art. 25 para. 1 AIA in the case of deployers is summarised in the chart below.\n\n\n",
       "keywords": [],
       "availableKeywords": [],
@@ -636,7 +636,7 @@
     },
     {
       "id": "125e0d9e-7308-4567-a0ec-8a82fa1b0d33",
-      "title": "AI-Service Desk: Actors, product manufacturer",
+      "title": "AI Service Desk: Actors, product manufacturer",
       "content": "### Who is the product manufacturer?\n\nAlthough product manufacturers are listed as actors, there is no corresponding definition in the AI Act. As Annex I of the AI Act refers to EU product law standards, the term product manufacturer in the AI Act refers to the manufacturer of the respective product.\n\nFor example, a manufacturer within the meaning of the Lifts Directive is \"any natural or legal person who manufactures a safety component for lifts or has such a component designed or manufactured, and markets it under his own name or trade mark\" (Article 2(8) of the Lifts Directive).\n\nIf an AI system is built into a product as a safety component, the product manufacturer must fulfil the obligations of a provider of an AI system set out in the AI Act. In these cases, the product manufacturer is treated as a provider.",
       "keywords": [],
       "availableKeywords": [],
@@ -648,7 +648,7 @@
     },
     {
       "id": "aecae742-1970-41a4-aaa5-7d2389209d72",
-      "title": "AI-Service Desk: Actors, authorized representative",
+      "title": "AI Service Desk: Actors, authorized representative",
       "content": "### Who is the authorised representative?\n\nPursuant to Art 3(5) AIA, an authorised representative is defined as follows:\n\na natural or legal person located or established in the Union who has received and accepted a written mandate from a provider of an AI system or a general-purpose AI model to, respectively, perform and carry out on its behalf the obligations and procedures established by this Regulation.\nAn authorised representative is necessary if the provider of the AI system or the GPAI model is not established within the Union. In order to ensure compliance with the requirements of Union law for AI systems or GPAI models, the appointment of an authorised representative is mandatory. The authorised representative ensures compliance with the obligations set out in the AI Act on behalf of the providers of the AI system or GPAI model and also conducts proceedings. This obligation does not apply to providers of exempt open source models and systems within the meaning of Art. 2 para. 12 AIA.",
       "keywords": [],
       "availableKeywords": [],
@@ -661,7 +661,7 @@
     },
     {
       "id": "fe38e634-50f1-4fcd-972e-428ed0b00086",
-      "title": "AI-Service Desk: Actors, importer",
+      "title": "AI Service Desk: Actors, importer",
       "content": "### Who is the importer?\n\nAccording to Art. 3(6) AIA, an importer is defined as follows:\n\na natural or legal person located or established in the Union that places on the market an AI-system that bears the name or trademark of a natural or legal person established in a third country.\nThe importer is the link in the AI value chain that places on the market an AI system from a provider outside the EU. The importer therefore only plays a role for AI systems from third countries. In certain situations, the role of the importer may coincide with that of the distributor, namely when the importer purchases the AI system from the provider and makes it available at the same time.\n\nUnder certain circumstances, the importer may also be treated as a provider (see Art. 25 para. 1 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -674,7 +674,7 @@
     },
     {
       "id": "5258a087-d836-41b0-b6ce-6df5f13bedc9",
-      "title": "AI-Service Desk: Actors, distributor",
+      "title": "AI Service Desk: Actors, distributor",
       "content": "### Who is a distributor?\n\nA distributor is legally defined as follows pursuant to Art. 3(7) AIA:\n\na natural or legal person in the supply chain, other than the provider or the importer, that makes an AI system available on the Union market.\nThe distributor is the person in the AI value chain who makes available an AI system on the Union market. The mere making available comes after the placing on the market in terms of time.\n\nUnder certain circumstances, the distributor may also be treated as a provider (see Art. 25 para. 1 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -687,7 +687,7 @@
     },
     {
       "id": "54902079-8fec-477d-81b8-12abdae3a221",
-      "title": "AI-Service Desk: Actors, deployer",
+      "title": "AI Service Desk: Actors, deployer",
       "content": "### Who is the deployer?\n\nAccording to Art. 3(4) AIA, a deployer is defined as follows:\n\na natural or legal person, public authority, agency or other body using an AI system under its authority, except the AI system is used in the course of a personal non-professional activity.\nThe deployer is the link in the AI value chain that uses an AI system under its own responsibility. The institutions, bodies, authorities and agencies of the Union are mentioned as examples (recital 23). In the AI value chain, they are downstream of the providers; they implement the AI system in practice. The deployer is the person, authority, etc. that decides whether and how an AI system is used and is also responsible for this. The purely private use of AI systems is excluded from the definition of deployer.\n\nUnder certain circumstances, the deployer may also be treated as a provider (see Art. 25 para. 1 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -702,7 +702,7 @@
     },
     {
       "id": "356bb808-a31d-4d14-9273-1da6952a312a",
-      "title": "AI-Service Desk: Actors, user",
+      "title": "AI Service Desk: Actors, user",
       "content": "### Who is a user?\n\nThe term \"user\" appears in the AI Act, but is not legally defined. The term user is mentioned in various places in the AI Act, e.g. in Annex XIII as \"end-users\" and \"business users\" or in various recitals (see recital 16: \"to allow users\"; recital 102: \"software and data, including models [...] that users can freely access, use, modify and redistribute them\", \"if it allows users\"). In the version approved by Parliament , this term was partially equated with the operator.",
       "keywords": [],
       "availableKeywords": [],
@@ -715,7 +715,7 @@
     },
     {
       "id": "7336e729-b4b4-4470-8d51-db20970705cc",
-      "title": "AI-Service Desk: Actors, \"affected\" persons",
+      "title": "AI Service Desk: Actors, \"affected\" persons",
       "content": "###  \"Affected\" persons\n\nDepending on the type of AI system, the use may affect persons other than the operator (recital 13 AIA). This refers to those persons who are the subject to the use of the AI system or who are otherwise affected by the use of an AI system.\n\nExamples of this can also be found in the AI Act, such as the use of a chatbot or generating synthetic audio, image, video or text content such as deepfakes (see Art. 50 para. 1 and 2 AIA), the use of an emotion recognition system or a system for biometric categorisation (see Art. 50 para. 3 AIA), the use of a real-time biometric remote identification system (Art. 5 para. 2 AIA) or the commissioning or use of a high-risk AI system in the workplace (Art. 26 para. 7 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -729,7 +729,7 @@
     },
     {
       "id": "9be93838-5d82-4573-a63f-81a708c77fa7",
-      "title": "AI-Service Desk: Authorities & Bodies, AI-Office",
+      "title": "AI Service Desk: Authorities & Bodies, AI-Office",
       "content": "##  What is the European Artificial Intelligence Office (\"AI Office\") and what does it do?\n\nhe AI Office was established by a Commission decision and is part of the Commission's Directorate-General for Communication Networks, Content and Technologies (DG CNCT).  Through the AI Office, the Commission is supposed to develop the Union's expertise and capabilities in the field of artificial intelligence (Art. 64 AIA). The tasks assigned will be carried out by civil servants already entrusted with these tasks. The tasks assigned to the AI Office can therefore already be performed.\n\nThe AI Office performs a wide range of tasks. These are laid down in the AI Act on the one hand and specified in the Commission decision on the other. In carrying out its tasks, the AI Office must cooperate with relevant stakeholders (science, AI developers, civil society, social partners, etc.), EU and national authorities and bodies.\n\nThe tasks include, among others:\n\nMonitoring the implementation and application of the AI Act in general. This includes in particular the following tasks:\nAssisting the Commission in the preparation of relevant Commission decisions, and implementing and delegated acts; preparing guidance and guidelines to support the practical implementation of the AI Act; preparing standardisation requests, evaluating existing standards and drafting common specifications;\nContributing to the provision of technical support, advice and tools for the establishment and operation of AI regulatory sandboxes;\nConducting evaluations and reviews and preparing reports\ncoordinating the establishment of an effective governance system, including by preparing the set-up of advisory bodies at Union level;\nProviding the Secretariat for the AI Board and its subgroups, as well as providing administrative support to the Advisory Forum and the Scientific Panel;\nEncouraging and facilitating the drawing up of codes of practices and codes of conducts .\n\n \n\nMonitoring the implementation and application of the AI Act in relation to GPAI. This includes in particular the following tasks:\nMarket surveillance authority for GPAI schemes where the model and scheme originate from the same provider (Art 75 AIA);\nDeveloping of tools, methods and benchmarks to assess the capabilities of GPAI, especially for very large GPAI with systemic risks;\nMonitoring the emergence of unforeseen risks stemming from GPAI models, including by responding to alerts from the Scientific Panel;\nCoordinating the supervision and enforcement of legislation for which the Commission has supervisory and enforcement powers (e.g. Digital Services Act or Digital Markets Act);\nSupporting the implementation of the rules on prohibited AI practices and high-risk AI systems in coordination with the relevant bodies responsible under sectoral legislation, including facilitating the exchange of information and collaboration between national authorities, collecting notifications and establishing information platforms and databases, in particular when a GPAI model or system is integrated into a high-risk AI system.\n\n \n\nCooperation with stakeholders, monitoring the implementation and application of the AI Act;\nInternational cooperation with third countries and international organisations to ensure a contribution to a strategic, coherent and effective Union approach to AI in coordination with Member States and in line with Union positions and policies;\nPromoting cross-sectoral cooperation within the Commission;\nSupporting the development, deployment, roll-out and use of trustworthy AI systems and applications that bring societal and economic benefits and contribute to the Union's competitiveness and economic growth. In particular, the promotion of innovation ecosystems through cooperation with relevant public and private stakeholders and the startup community;\nMarket monitoring of AI markets and technologies.",
       "keywords": [],
       "availableKeywords": [],
@@ -742,7 +742,7 @@
     },
     {
       "id": "73b4b412-4437-4a0a-a3de-75077b666509",
-      "title": "AI-Service Desk: Authorities & Bodies, AI-Board",
+      "title": "AI Service Desk: Authorities & Bodies, AI-Board",
       "content": "## What is the European Artificial Intelligence Board (AI Board) and what does it do?\n\nThe AI Board is made up of one representative from each Member State, the European Data Protection Supervisor and the AI Office. The European Data Protection Supervisor is acting as an observer and the AI Office is not participating in votes. Other national and European authorities, bodies or experts may be invited for relevant topics. The meeting is chaired by a representative of a Member State (Art. 65 para. 2 AIA).\n\nRepresentatives are elected by the member states for three years and can be re-elected once. The following criteria must be considered when electing the representative (Art. 65 para. 4 AIA):\n\nThe representative must have the relevant national competences and power to contribute to the tasks of the AI Board;\nThe representative must have the power to facilitate the implementation of this regulation in their Member State, for example by collecting relevant data;\nThe representative must be designated as the single contact point between the Member State and the AI Board; where appropriate, the representative should also serve as a single contact point for stakeholders in their Member State.\n\nThe objectivity and impartiality of the AI Board must be guaranteed.\n\nThe AI Board has according to Art. 66 AIA the following tasks, among others:\n\nContributing to the coordination between the national competent authorities for the application of this Regulation and supporting the market surveillance authorities\nCooperating with other Union institutions, bodies, offices and agencies and competent authorities of third countries and international organisations\nCollecting and exchanging technical and regulatory expertise and best practices among Member States;\nAdvising on the implementation of this Regulation, in particular with regard to the enforcement of the rules on GPAI;\nContributing to the harmonisation of administrative practices (conformity assessment procedures, regulatory sandboxes and real-life testing) in the Member States;\nProviding recommendations and written opinions on all relevant issues related to the implementation and application of this Regulation.\n\nThe AI Board consists of two standing sub-groups to provide cooperation and exchange among market surveillance authorities and the notifying authorities. Further standing or temporary sub-groups may be established to fulfil the tasks.\n\nThe AI Office shall provide the Secretariat for the AI Board.\n\nThe Advisory Forum should not be confused with the AI Advisory Board (often also referred to as the “KI-Beirat”) in Austria!",
       "keywords": [],
       "availableKeywords": [],
@@ -756,7 +756,7 @@
     },
     {
       "id": "e8636770-3900-45b1-a25d-a32616c51a42",
-      "title": "AI-Service Desk: Authorities & Bodies, Advisory Forum",
+      "title": "AI Service Desk: Authorities & Bodies, Advisory Forum",
       "content": "## What is the Advisory Forum and what does it do?\n\nThe Advisory Forum serves according to Art. 67 AIA as an advisory body on technical matters for the Commission and the AI Board and consists of stakeholders from industry, start-ups, the SME sector, academia, think tanks and society. The composition is determined by the Commission, which must ensure a balance between commercial and non-commercial interests. \n\nThe Fundamental Rights Agency, the European Union Agency for Cybersecurity (FRA), the European Union Agency for Cybersecurity (ENISA), the European Committee for Electrotechnical Standardisation (CENELEC) and the European Telecommunications Standards Institute (ETSI) are permanent members of the advisory body.\n\nThe members must have proven expertise in the field of artificial intelligence. The term of office is two years and can be extended by a maximum of four years. It meets at least twice a year and must draw up an annual activity report, which must be published.\n\nThe Advisory Forum is according to Art. 67 para. 8 AIA responsible for the preparation of:\n\nOpinions;\nRecommendations;\nWritten contributions.\n\nStanding or temporary sub-groups may be formed to fulfil these tasks.\n\nThe Advisory Forum should not be confused with the AI Advisory Board (often referred to as “KI-Beirat”) in Austria!",
       "keywords": [],
       "availableKeywords": [],
@@ -769,7 +769,7 @@
     },
     {
       "id": "7f776c36-7b5f-47d2-b5bc-43cf3bc74d3e",
-      "title": "AI-Service Desk: Authorities & Bodies, Scientific Panel",
+      "title": "AI Service Desk: Authorities & Bodies, Scientific Panel",
       "content": "## What is the Scientific Panel of Independent Experts and what does it do?\n\nAccording to Art. 68 para. 1 AIA the Commission shall set up a Scientific Panel of independent experts by means of an implementing act to support the enforcement measures under this Regulation.\n\nThe Commission shall select the members on the basis of up-to-date scientific or technical expertise in the field of artificial intelligence necessary for the tasks assigned to the Scientific Panel. The number of members shall be determined by the Commission in consultation with the AI Board on the basis of the required demand. When making appointments, it takes into account a balanced gender and geographical representation.\n\nExperts must fulfil the following criteria (Art. 68 para. 2 AIA):\n\nParticular expertise and competence as well as scientific or technical expertise in the field of Artificial Intelligence;\nIndependence from any provider of AI systems or GPAI models or systems;\nAbility to carry out the activities diligently, accurately and objectively.\n\nThe Scientific Panel provides the following advisory and support services (Art. 68 para. 3 AIA):\n\nImplementation and enforcement of this Regulation, esp. in relation to GPAI models, including in particular the following activities:\nAlerting the AI Office of possible systemic risks associated with GPAI models at Union level;\nContributing to the development of tools and methodologies to assess the capabilities of GPAI models, including through benchmarks;\nAdvising on the classification of GPAI models with systemic risk;\nAdvice on the classification of different GPAI models and systems;\nContributing to the development of tools and templates.\nSupporting the work of market surveillance authorities at their request;\nSupporting cross-border market surveillance activities;\nSupporting the AI Office in carrying out its duties in the context of the \"safeguard clause procedure\" to Art 81 AIA.\n\nThe members of the Scientific Panel fulfil their tasks independently, impartially, and objectively. They guarantee the confidentiality of the information and data they receive in the performance of their duties and activities. Each member submits a declaration of interests, which is made publicly available.\n\nThe AI Office implements systems and procedures to actively manage and prevent potential conflicts of interest.",
       "keywords": [],
       "availableKeywords": [],
@@ -783,7 +783,7 @@
     },
     {
       "id": "8ce6bcf0-99b5-4801-a15c-e73a5c5355f4",
-      "title": "AI-Service Desk: Provider obligations, generally",
+      "title": "AI Service Desk: Provider obligations, generally",
       "content": "### Die einzelnen Akteure und deren Verpflichtungen\n\nAs already stated in the recitals of the AI Act, given the nature and complexity of the AI value chain and in line with the new legal framework, it is essential to ensure legal certainty and facilitate compliance with this Regulation. Therefore, the roles and specific obligations of the relevant actors along the value chain need to be clarified. The core of the AI Act concerns obligations related to AI systems or AI models according to their risk classification.\n\nIn certain situations, different roles in the AI value chain can coincide in one person or organisation. The following constellations are possible, for example:\n\nA provider of AI models or GPAI models may also be a provider of an AI system (Art. 75 AIA).\nAn importer can also assume the role of a trader (see recital 83)\n",
       "keywords": [],
       "availableKeywords": [],
@@ -799,7 +799,7 @@
     },
     {
       "id": "e1c5a1de-3024-4178-a191-283ad1525b65",
-      "title": "AI-Service Desk: Provider obligations, AI literacy",
+      "title": "AI Service Desk: Provider obligations, AI literacy",
       "content": "### What obligations do providers have?\n\nIn general, providers of AI systems of any kind have a duty to ensure that their staff and other persons entrusted with the AI systems have a sufficient level of AI competence (Art. 4 AIA). This includes the skills, knowledge and understanding that enable providers, considering their respective rights and obligations under the AI Act, to make an informed deployment of AI systems and to be aware of the opportunities and risks of AI and the potential harm it can cause (Art. 3 No. 56 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -815,7 +815,7 @@
     },
     {
       "id": "f707c5a0-6873-4780-802e-51814906b167",
-      "title": "AI-Service Desk: Provider obligations, High risk AI Systems",
+      "title": "AI Service Desk: Provider obligations, High risk AI Systems",
       "content": "#### High-risk AI systems\n\nThese are AI systems that pose a high risk. They are not prohibited, but in some cases far-reaching obligations must be complied with. The obligations of providers of high-risk AI systems are standardised in Art. 16 of the AIA. The obligations include ensuring compliance with the requirements for high-risk AI systems in accordance with Art. 16 letter a in conjunction with Chapter III Section 2:",
       "keywords": [],
       "availableKeywords": [],
@@ -829,7 +829,7 @@
     },
     {
       "id": "0d630708-202b-4ce7-84f0-930e77637a94",
-      "title": "AI-Service Desk: Provider obligations, Risk management system",
+      "title": "AI Service Desk: Provider obligations, Risk management system",
       "content": "-   Risk management system\n    \nA risk management system must be established, implemented, documented and maintained (see Art. 9 para. 1 AIA). Risk management is understood as a continuous iterative, i.e. repetitive, process throughout the entire life cycle. The provider of high-risk AI systems is subject to risk assessment and mitigation obligations.\n\nKnown and reasonably foreseeable risks to health, safety or fundamental rights must be identified, estimated and evaluated. In addition to possible risks in accordance with the intended purpose of the AI system, reasonably foreseeable misuse must also be assessed. Risks that only become apparent after placing on the market, in accordance with Art. 72 AIA, must also be assessed. Based on the risks identified, \"appropriate and targeted\" risk management measures must be taken.\n\nThe risk management system also requires that high-risk AI systems are tested throughout the entire development process (e.g. through tests under real conditions outside of AI real laboratories in accordance with Art. 60 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -845,7 +845,7 @@
     },
     {
       "id": "9cf28dba-9ed8-4cfb-ada5-5eb80160e94e",
-      "title": "AI-Service Desk: Provider obligations, Data and data governance",
+      "title": "AI Service Desk: Provider obligations, Data and data governance",
       "content": "-   Data and data governance\n    \nAI systems are generally based AI models. If the AI models used in high-risk AI systems have been trained with data, training, validation and testing data sets must be developed that meet the quality requirements of Art. 10 para. 2 to 5 AIA (see Art. 10 para. 1 AIA). Among other things, these data sets must be assessed for availability, quantity and suitability, possible distortions must be checked (bias), and data gaps or deficiencies must be identified.\n\nData sets must be sufficiently representative, to the best extent possible error-free and complete and must be used that are typical of the geographical, contextual, behavioural or functional conditions under which the high-risk AI system is intended to be used; e.g. autonomous driving systems - these systems must be strongly prepared for safety-critical decisions and function in a wide range of geographical and contextual situations (e.g. unfavourable weather conditions).",
       "keywords": [],
       "availableKeywords": [],
@@ -864,7 +864,7 @@
     },
     {
       "id": "65ecc4bf-ac73-4860-a566-328ac49a6c41",
-      "title": "AI-Service Desk: Provider obligations, Technical documentation",
+      "title": "AI Service Desk: Provider obligations, Technical documentation",
       "content": "- Technical documentation\n    \n The technical documentation in accordance with Art. 11 AIA must be prepared before placing on the market or commissioning a high-risk AI system. The minimum details for technical documentation are listed in Annex IV. The technical documentation must be prepared in such a way that it provides evidence that the requirements for high-risk AI systems are met. It must enable competent authorities and notified bodies to assess the compliance of the AI-system with those requirements.\n\nSMEs, including start-ups, may provide the elements of technical documentation listed in Annex IV in a simplified manner.\n\nWith regard to devices listed in Annex I Section A of the harmonisation regulations, a single set of technical documentation shall be created that also covers the requirements of the AI Act in addition to the general documentation. For example, the Medical Device Regulation also standardises the obligation for device manufacturers to prepare technical documentation (Art. 10 para. 4 MDR).\n\nTo facilitate compliance with this requirement, TÜV AUSTRIA has published a best practice guideline coordinated with RTR.",
       "keywords": [],
       "availableKeywords": [],
@@ -877,7 +877,7 @@
     },
     {
       "id": "4de289ef-a262-4a5c-a5da-b85a80d53dc7",
-      "title": "AI-Service Desk: Provider obligations, Record-keeping- \"Logging\"",
+      "title": "AI Service Desk: Provider obligations, Record-keeping- \"Logging\"",
       "content": "-   Record-keeping- \"Logging\"\n    \nHigh-risk AI systems must be technically designed and developed in such a way that they allow the automatic recording of events - so-called \"logging\" (see Art. 12 AIA). This logging is used for documentation purposes, in particular to determine whether the high-risk AI system presents a risk within the meaning of Art. 79 para. 1 AIA or whether a \"substantial modification\" has been made.\n\nThe high-risk AI systems (remote biometric identification systems) referred to in Annex III(1)(a) of the AIA must fulfil specific logging functions.",
       "keywords": [],
       "availableKeywords": [],
@@ -892,7 +892,7 @@
     },
     {
       "id": "23225ccc-255f-4ebf-841a-ba906dbf896d",
-      "title": "AI-Service Desk: Provider obligations, Human supervision",
+      "title": "AI Service Desk: Provider obligations, Human supervision",
       "content": "-   Human supervision\n    \nHigh-risk AI systems must be designed and developed in such a way that they can be effectively overseen by natural persons for the duration of their use (see Art. 14 AIA). The purpose of this requirement is to prevent or minimise risks to health, safety and fundamental rights, as it cannot be ruled out that risks may persist despite compliance with all the requirements of Chapter III Section 2.\n\nAppropriate supervisory measures must be taken in accordance with the risks, the degree of autonomy and the context of use of the high-risk AI system. These can be precautions of a technical nature that are built into the high-risk AI system and/or precautions that are to be implemented by the deployer.",
       "keywords": [],
       "availableKeywords": [],
@@ -905,7 +905,7 @@
     },
     {
       "id": "9a15e8cd-db82-492d-8897-c2b4ef6d9039",
-      "title": "AI-Service Desk: Provider obligations, Accuracy, robustness and cyber security",
+      "title": "AI Service Desk: Provider obligations, Accuracy, robustness and cyber security",
       "content": "-   Accuracy, robustness and cyber security\n    \nHigh-risk AI systems must be designed and developed in such a way to achieve an appropriate level of accuracy, robustness and cybersecurity throughout their lifecycle (see Art. 15 AIA).\n\n“Accuracy” refers to the extent to which a model's predictions or classifications match the actual data. It is a measure of how well the model is able to make the correct predictions.\n\n“Robustness” describes the resilience of high-risk AI systems; these must be as resilient as possible to errors, faults, inconsistencies or unexpected situations that may occur within the system or the environment in which the system operates, in particular due to its interaction with natural persons or other systems (Recital 75).\n\n“Cybersecurity” plays a critical role in ensuring that AI systems are resilient to attempts by malicious third parties to exploit the systems' vulnerabilities to alter their use, behaviour, performance or compromise their security features (Recital 76).\n\nThe requirements for accuracy, robustness and cyber security are largely technical aspects, which is why these measurements are to be ensured using benchmarks and measurement methods to be developed. In addition to technical measures, organisational measures must also be taken.\n\nPossible measures include backup or disruption security plans (see Art. 15 para. 4 subpara. 2 AIA), measures to minimise the risk of so-called \"feedback loops\" and measures (see Art. 15 para. 4 subpara. 3 AIA) to prevent attacks that attempt to manipulate the training data set (\"data poisoning\") or pre-trained components used in training (\"model poisoning\"), or to carry out attacks that attempt to manipulate the training data set (\"data poisoning\") or pre-trained components used during training (\"model poisoning\"), input data intended to mislead the AI model into making errors (\"adversarial examples\" or \"model evasions\") (see Art. 17 para. 5 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -923,7 +923,7 @@
     },
     {
       "id": "2ef9a966-cbd1-46a6-b276-cf7bfbbff1df",
-      "title": "AI-Service Desk: Provider obligations, Quality management",
+      "title": "AI Service Desk: Provider obligations, Quality management",
       "content": "-   Quality management\n    \n Providers of high-risk AI systems must set up a quality management system that ensures compliance with this Ordinance. Rules, procedures and instructions must be documented (see Art. 17 AIA). Among other things, this system must contain a concept of how regulatory provisions and conformity assessment procedures are to be complied with.",
       "keywords": [],
       "availableKeywords": [],
@@ -936,7 +936,7 @@
     },
     {
       "id": "acd0edef-f67f-4d8f-9c99-76bc6ebe0092",
-      "title": "AI-Service Desk: Provider obligations, Labelling",
+      "title": "AI Service Desk: Provider obligations, Labelling",
       "content": "-   Labelling\n    \nProviders of high-risk AI systems must indicate their name, registered trade name or trade mark and contact address on the AI system itself or, if this is not possible, on its packaging or accompanying documentation (see Art. 16 letter b AIA)",
       "keywords": [],
       "availableKeywords": [],
@@ -950,7 +950,7 @@
     },
     {
       "id": "4052397b-e75f-463d-8380-06bb7be621a1",
-      "title": "AI-Service Desk: Provider obligations, Retention of certain documents and log events ",
+      "title": "AI Service Desk: Provider obligations, Retention of certain documents and log events ",
       "content": "-   Retention of certain documents and log events \n    \n For a period of ten years from placing on the market or putting into service, keeping of documents such as the technical documentation in accordance with Art. 11 AIA, the documentation within the meaning of Art. 18 AIA, documentation on changes authorised by the notified bodies, any decisions and other documents issued by the notified bodies and the EU Declaration of Conformity in accordance with Art. 47 AIA (see Art. 18 AIA).\n\nThe automatically generated logs must be retained for a period of six months in accordance with Art. 12 para. 1 AIA (see Art. 19 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -966,7 +966,7 @@
     },
     {
       "id": "006419f7-d820-4171-aa0a-bc6e78eff100",
-      "title": "AI-Service Desk: Provider obligations, Registration of the AI system ",
+      "title": "AI Service Desk: Provider obligations, Registration of the AI system ",
       "content": "-   Registration of the AI system \n    \nBefore placing on the market or putting into service high-risk AI systems within the meaning of Annex III (with the exception of point 2: Critical infrastructure), the provider must register the high-risk AI system in the EU database within the meaning of Art. 71 AIA (see Art. 49 para. 1 AIA)",
       "keywords": [],
       "availableKeywords": [],
@@ -980,7 +980,7 @@
     },
     {
       "id": "ee52640d-4f93-446a-9a94-aa8b1225ddb9",
-      "title": "AI-Service Desk: Provider obligations, Co-operation with the competent authorities",
+      "title": "AI Service Desk: Provider obligations, Co-operation with the competent authorities",
       "content": "-   Co-operation with the competent authorities\n    \nUpon reasoned request by a competent authority, providers of high-risk AI systems must provide all information and documentation, including the automatically generated logs, if they have access to them (see Art. 21 AIA)",
       "keywords": [],
       "availableKeywords": [],
@@ -992,7 +992,7 @@
     },
     {
       "id": "be9d0595-f380-4ba4-9b06-207fb395a8e4",
-      "title": "AI-Service Desk: Provider obligations, Conformity assessment, declaration and labelling",
+      "title": "AI Service Desk: Provider obligations, Conformity assessment, declaration and labelling",
       "content": "-   Conformity assessment, declaration and labelling\n    \n The provider of high-risk AI systems must ensure that a conformity assessment procedure is carried out (Art. 43 AIA). Depending on the high-risk AI system in question, this can be carried out on the basis of an internal inspection or with the involvement of a notified body. Furthermore, a declaration of conformity assessment must be issued (Art. 47 AIA) and a CE marking must be affixed to the AI system itself or, if this is not possible, on its packaging or in the accompanying documentation (Art. 48 AIA). ",
       "keywords": [],
       "availableKeywords": [],
@@ -1011,7 +1011,7 @@
     },
     {
       "id": "d44da4c3-33ab-48fa-85e2-f47de3562bb7",
-      "title": "AI-Service Desk: Provider obligations, Obligation to report serious incidents to the competent authorities",
+      "title": "AI Service Desk: Provider obligations, Obligation to report serious incidents to the competent authorities",
       "content": "-   Obligation to report serious incidents to the competent authorities\n    \nIn the event of serious incidents involving high-risk AI systems placed on the market, the provider must notify the national market surveillance authority where the incident occurred. A notification must be made immediately after the causal link or the reasonable likelihood of such a link has been established, but in any case no later than 15 days after becoming aware of the serious incident (see Art. 73 AIA). There are stricter time requirements for this basic rule for certain incidents.\n\nAccording to Article 3(49) of the AIA, a serious incident refers to incidents or malfunctions of an AI system that directly or indirectly results in death of a person or serious harm to a person’s health, serious and irreversible disruption to the management and operation of critical infrastructure, infringements of obligations under Union law intended to protect fundamental rights, or serious harm to property or the environment.",
       "keywords": [],
       "availableKeywords": [],
@@ -1030,7 +1030,7 @@
     },
     {
       "id": "a9c29f95-f8f9-494c-bf52-f6bdc0b0b126",
-      "title": "AI-Service Desk: Provider obligations, Ensuring accessibility requirements are met",
+      "title": "AI Service Desk: Provider obligations, Ensuring accessibility requirements are met",
       "content": "- Ensuring accessibility requirements are met\n    \nSpecifically, the accessibility requirements of Directives (EU) 2016/2102 and (EU) 2019/882 must be met (see Art. 16 letter l AIA). According to Annex I Section I of Directive (EU) 2019/882, this concerns specific requirements for the provision of information, the design of user interfaces and functionality and also support services such as help desks, call centres, etc.).",
       "keywords": [],
       "availableKeywords": [],
@@ -1044,7 +1044,7 @@
     },
     {
       "id": "649ea5ee-b256-46c3-9332-53e42dcce5d1",
-      "title": "AI-Service Desk: Provider obligations, If necessary, appointment of an authorised representative",
+      "title": "AI Service Desk: Provider obligations, If necessary, appointment of an authorised representative",
       "content": "-   If necessary, appointment of an authorised representative\n    \nProviders established in third countries must appoint an authorised representative established in the Union before providing the high-risk AI system in accordance with Art. 22 AIA. Providers are obliged to enable the authorised representative to perform their tasks.",
       "keywords": [],
       "availableKeywords": [],
@@ -1057,7 +1057,7 @@
     },
     {
       "id": "97de0d49-8dfd-445b-becb-01576d557e09",
-      "title": "AI-Service Desk: Provider obligations, If necessary, corrective measures",
+      "title": "AI Service Desk: Provider obligations, If necessary, corrective measures",
       "content": "-   If necessary, corrective measures\n    \nIf a provider of high-risk AI systems considers or has reason to consider that a high-risk AI system that has already been placed on the market or put into service does not comply with the AI Act, corrective action must be taken immediately (see Art. 20). This primarily means establishing compliance, but it can also mean withdrawing, disabling or recalling the AI system. At the same time, downstream actors (deployers, authorised representatives, importers) must also be informed.\n\nIf the high-risk AI-system presents a risk within the meaning of Art. 79 para. 1 of the AIA and the provider becomes aware of this, the provider - together with the deployer, if applicable - shall notify the market surveillance authorities, including the notified body, if applicable. ",
       "keywords": [],
       "availableKeywords": [],
@@ -1075,7 +1075,7 @@
     },
     {
       "id": "020bdcf5-11bc-470e-afb9-6045f8cd50dd",
-      "title": "AI-Service Desk: Provider obligations, AI systems with \"limited\" risk",
+      "title": "AI Service Desk: Provider obligations, AI systems with \"limited\" risk",
       "content": "#### AI systems with \"limited\" risk\n\nIn Art. 50 AIA, the AI Act lists certain AI systems that present a limited risk. The risk can be minimised by means of certain transparency obligations. They can be summarised under the category \"Transparency towards downstream actors\".\n\nThe provider has the following transparency obligations with regard to the following AI systems:",
       "keywords": [],
       "availableKeywords": [],
@@ -1088,7 +1088,7 @@
     },
     {
       "id": "cba8a6f7-4035-4e48-9cde-de0d62edfa78",
-      "title": "AI-Service Desk: Provider obligations, AI systems with direct interaction",
+      "title": "AI Service Desk: Provider obligations, AI systems with direct interaction",
       "content": "##### AI systems that interact directly with natural persons (e.g. chatbots)\n\nSuch AI systems must be designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI system. Exceptions to this are cases where this is obvious from the circumstances and context of use.",
       "keywords": [],
       "availableKeywords": [],
@@ -1101,7 +1101,7 @@
     },
     {
       "id": "4e59e48e-bfc6-4ccc-9979-12ba3220dcec",
-      "title": "AI-Service Desk: Provider obligations, generating of contents with AI Systems",
+      "title": "AI Service Desk: Provider obligations, generating of contents with AI Systems",
       "content": "##### AI systems that generate or manipulate image, audio or video content (e.g. deepfakes)\n\nAI systems (including GPAI systems) that generate synthetic or manipulate image, audio or video content shall be designed and developed in such a way that the outputs can be output in a machine-readable format and recognised as artificially generated or manipulated.",
       "keywords": [],
       "availableKeywords": [],
@@ -1114,7 +1114,7 @@
     },
     {
       "id": "5841b6df-de62-452c-8a19-f2b6391feb5d",
-      "title": "AI-Service Desk: Provider obligations, AI systems with \"minimal\" risk",
+      "title": "AI Service Desk: Provider obligations, AI systems with \"minimal\" risk",
       "content": "##### AI systems with \"minimal\" risk\n\nNo mandatory requirements are standardised for AI systems with minimal risk. Only the obligation for \"AI competence\" pursuant to Art. 4 AIA also applies to such AI systems. Otherwise, compliance with the Code of Practices is encouraged, but this is voluntary. ",
       "keywords": [],
       "availableKeywords": [],
@@ -1131,7 +1131,7 @@
     },
     {
       "id": "74f0a1e0-89f6-47f5-b65e-8fc4327d62d7",
-      "title": "AI-Service Desk: Provider obligations, Technical documentation",
+      "title": "AI Service Desk: Provider obligations, Technical documentation",
       "content": "#### GPAI models\n\nIn the case of GPAI models, providers must fulfil the following obligations in accordance with Art. 53, 54 AIA:\n\n-    Technical documentation\n    \n   Providers of GPAI models shall prepare and update the technical documentation of the model, including its training and testing procedure and the results of its evaluation, containing at least the information listed in Annex XI (Art. 53 para. 1 letter a sentence 1 AIA).\n\nThis obligation does not apply to providers of exempt open source models within the meaning of Art. 2 para. 12 AIA, unless it is a GPAI model with systemic risk.",
       "keywords": [],
       "availableKeywords": [],
@@ -1149,7 +1149,7 @@
     },
     {
       "id": "3960ac09-8d97-4baf-a897-eac5f554a03e",
-      "title": "AI-Service Desk: Provider obligations, Co-operation with the competent authorities",
+      "title": "AI Service Desk: Provider obligations, Co-operation with the competent authorities",
       "content": "-   Co-operation with the competent authorities\n    \n At the request of a competent authority or the AI Office, providers of GPAI models must make the above-mentioned technical documentation available (Art. 53 para. 1 letter a sentence 2 AIA).\n\nIn general, providers of GPAI models must \"cooperate with the competent national authorities, including the Commission where necessary, in the exercise of their responsibilities and powers under this Regulation\" (see Art. 53 para.3 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1166,7 +1166,7 @@
     },
     {
       "id": "00c8f4c7-c9c8-4a8d-8c17-5bb005aeb14b",
-      "title": "AI-Service Desk: Provider obligations, Transparency",
+      "title": "AI Service Desk: Provider obligations, Transparency",
       "content": "-   Transparency and provision of information for providers of AI systems\n\nProviders of GPAI models shall prepare and update certain information and documentation for downstream providers of AI systems that intend to integrate this model into their AI systems and make it available to the providers of AI systems. The technical documentation shall fulfil the minimum requirements set out in Annex XII.\n\nThis information and documentation must enable providers of AI systems to \"have a good understanding\" of the capabilities and limitations of the GPAI model and also enable them to fulfil their obligations under the AI Act (Art. 53 para. 1 letter b AIA)\n\nThis obligation does not apply to providers of exempt open source models within the meaning of Art. 2 para. 12 AIA, unless it is a GPAI model with systemic risk.",
       "keywords": [],
       "availableKeywords": [],
@@ -1184,7 +1184,7 @@
     },
     {
       "id": "92de995d-6ec6-4518-aefe-5e81d76b7db3",
-      "title": "AI-Service Desk: Provider obligations,  compliance with EU copyright law",
+      "title": "AI Service Desk: Provider obligations,  compliance with EU copyright law",
       "content": "-   Policy of compliance with EU copyright law\nProviders of GPAI models must have a policy for complying with EU copyright law and related rights, including through state-of-the-art technologies. This includes, in particular, the identification of and compliance with a reservation of rights asserted under Art. 4 para. 3 of the Copyright Directive (see Art. 53 para 1 letter c of the AIA).\n\nNote: Art. 3 of the Copyright Directive (Directive (EU) 2019/790) standardises that text and data mining (\"TDM\") may be carried out in principle.  However, this right can be restricted by a reservation of the rights holders in accordance with Art. 4 para. 3 Copyright Directive in such a way that only research institutions and cultural heritage institutions are permitted to operate TDM.\n\nTDM is a collective term for various procedures that make it possible to search and analyse large quantities of texts or data from various perspectives. In Austria, this is implemented in Section 42h UrhG. Furthermore, the content used for the training of the GPAI model must be published in accordance with a template provided by the AI Office (see Art. 53 para. 1 letter d AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1205,7 +1205,7 @@
     },
     {
       "id": "8380352c-9c45-4369-b85f-2458cb560103",
-      "title": "AI-Service Desk: Provider obligations, representatives",
+      "title": "AI Service Desk: Provider obligations, representatives",
       "content": "-  Appointment of an authorised representative\n\nIf the provider of a GPAI model is established in a third country, the provider is obliged to appoint an authorised representative within the Union before placing the model on the market (see Art. 54 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1218,7 +1218,7 @@
     },
     {
       "id": "7d2ce9a7-cb03-4c28-aaa2-28e0f63262bf",
-      "title": "AI-Service Desk: Provider obligations, GPAI models with systemic risk",
+      "title": "AI Service Desk: Provider obligations, GPAI models with systemic risk",
       "content": "#### GPAI models with systemic risk\n\nIf the GPAI model is one with systemic risk, providers must fulfil the obligations set out in Art. 55 AIA in addition to those set out in Art. 53 and 54 AIA:\n\n-   Risk management\n\nThe obligations under Art. 55 (1) (a) and (b) can be summarised under the heading \"risk management\". Accordingly, providers of GPAI models must carry out a model evaluation in accordance with standardised protocols and instruments. This also includes the performance and documentation of attack tests in order to identify and minimise systemic risks. In addition, potential systemic risks at Union level - including their sources - that may stem from the development, placing on the market or use of GPAI models with systemic risk must be assessed and mitigated.\n    \n-   Obligation to report serious incidents to the competent authorities\n\nSerious incidents must be documented and reported immediately to the AI Office and, if necessary, to the competent national authorities.\n    \n-   Cybersecurity\n\nGPAI model providers must ensure an \"adequate level\" of cybersecurity and the physical infrastructure of the model (see Art. 55 para. 1 letter d). When protecting cybersecurity in the context of systemic risks associated with malicious use or malicious attacks, due consideration should be given to unintentional model data loss, unauthorised deployment, circumvention of security measures and protection against cyber-attacks, unauthorised access or model theft.\n\nThis protection could be facilitated by securing model weights, algorithms, servers and datasets, e.g. through operational security measures for information security, specific cybersecurity strategies, appropriate technical and established solutions, and physical and cyber access controls appropriate to the circumstances and associated risks (see Recital 115).",
       "keywords": [],
       "availableKeywords": [],
@@ -1240,7 +1240,7 @@
     },
     {
       "id": "856e2b50-28e3-4e59-afb8-e0b942ae265d",
-      "title": "AI-Service Desk: Provider obligations, obligations of product manufacturers",
+      "title": "AI Service Desk: Provider obligations, obligations of product manufacturers",
       "content": "### What obligations do product manufacturers have?\n\nIn the case of high-risk AI systems that are safety components of products covered by the Union harmonisation legislation listed in Annex I Section A, the product manufacturer is deemed to be the provider of the high-risk AI system in accordance with Art. 25 para. 3 of the AIA and is subject to the obligations of a provider in accordance with Art. 16 of the AIA in the two cases below:\n\nThe high-risk AI system is placed on the market together with the product under the name or trade mark of the product manufacturer;\nthe high-risk AI system is put into serivce under the name or trade mark of the product manufacturer after the product has been placed on the market.",
       "keywords": [],
       "availableKeywords": [],
