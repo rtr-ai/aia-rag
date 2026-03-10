@@ -2,35 +2,16 @@ Frequently Asked Questions Data Act
 22 January 2026
 Version 1.4
 The Data Act (Regulation (EU) 2023/2584) establishes harmonised, horizontal rules to ensure fairness in the allocation of value generated from data across market actors, while safeguarding the interests of those who invest in data-generation technologies. For an introduction to the Data Act, we invite you to consult the “Data Act Explained” fact page. This set of more technical Frequently Asked Questions (FAQs), published approximately a year before the entry into application of the Data Act, is designed to assist stakeholders in the implementation of the legal provisions. The FAQs are the product of extensive stakeholder interactions, and this is intended to be a ‘living document’ that will be updated as and when necessary. The version history can be found at the end of the document. This document should not be considered as representative of the European Commission’s official position. The replies to the FAQs do not extend in any way the rights and obligations deriving from applicable legislation nor introduce any additional requirement. The expressed views are not authoritative and cannot prejudge any future actions the European Commission may take, including potential positions before the Court of Justice of the European Union. Please contact us if you have a question that is not covered here and we will try to get back to you as quickly as possible. For any complaints related to the Data Act’s implementation, please consider contacting the data coordinator in your Member State.
-Table {
-  title: """the data coordinator in your Member State."""
-  columns: ['FAQ Version', 'Date']
 
-  Record {
-    FAQ Version: """1.0"""
-    Date: """06/09/2024"""
-  }
+context:
+  title: the data coordinator in your Member State
+faq_versions[5]{version,date}:
+  1.0,06/09/2024
+  1.1,13/09/2024
+  1.2,03/02/2025
+  1.3,12/09/2025
+  1.4,22/01/2026
 
-  Record {
-    FAQ Version: """1.1"""
-    Date: """13/09/2024"""
-  }
-
-  Record {
-    FAQ Version: """1.2"""
-    Date: """03/02/2025"""
-  }
-
-  Record {
-    FAQ Version: """1.3"""
-    Date: """12/09/2025"""
-  }
-
-  Record {
-    FAQ Version: """1.4"""
-    Date: """22/1/2026"""
-  }
-}
 © European Union, 2024 The reuse policy of European Commission documents is implemented by Commission Decision 2011/833/EU of 12 December 2011 on the reuse of Commission documents (OJ L 330, 14.12.2011, p. 39). Unless otherwise noted, the reuse of this document is authorised under a Creative Commons Attribution
 4.0 International (CC BY 4.0) licence (https://creativecommons.org/licenses/by/4.0/). This means that reuse
 is allowed provided appropriate credit is given and any changes are indicated.
@@ -49,46 +30,16 @@ The Data Act is a horizontal piece of legislation that aims to significantly enh
 Section on data in scope
 4. Which data are in scope?
 Several factors determine which data are covered by the data access rights provided for in Articles 3, 4 and 5 of the Data Act. Generally speaking, raw and pre-processed data (simply put, ‘raw but usable’ data) that are readily available to a data holder as a result of the manufacturer’s technical design are subject to mandatory data-sharing obligations that are regulated by Chapter II. Access and use of IoT data – Chapter II of the Data Act
-Table {
-  title: """Access and use of IoT data – Chapter II of the Data Act"""
-  columns: ['Factor', 'Explanation', 'Reference in the legal text']
+context:
+  title: Access and use of IoT data – Chapter II of the Data Act
+factors[6]{factor,explanation,reference}:
+  Product data,"Data obtained, generated, or collected by a connected product and which relates to its performance, use or environment...",Article 2(15) Recital 15
+  Related service data,"Data representing user action, inaction and events related to the connected product during the provision of a related service.",Article 2(16) Recitals 15 and 17
+  Readily available data,"Product data and related service data that a data holder can obtain without disproportionate effort beyond a simple operation.",Article 2(17) Recitals 20 and 21
+  Level of enrichment of the data,"Raw and pre-processed data are in scope while highly enriched or derived data are excluded.",Recital 15
+  Personal vs non-personal data,"Users may access both personal and non-personal data but GDPR rules apply to personal data processing.",Recitals 25 and 35
+  Trade secrets,"The Data Act keeps existing trade secret protection and introduces the trade secrets handbrake mechanism.",Articles 4(6) and 5(9) Recital 31
 
-  Record {
-    Factor: """Product data"""
-    Explanation: """Data obtained, generated, or collected by a connected product and which relates to its performance, use or environment. Purely descriptive data that accompanies the connected product (e.g. in user manuals or on the packaging) is not product data. The only situation in which information ‘about’ the connected product is relevant is the pre-contractual transparency obligation under Article 3."""
-    Reference in the legal text: """Article 2(15), Recital 15"""
-  }
-
-  Record {
-    Factor: """Related service data"""
-    Explanation: """Data representing user action, inaction and events related to the connected product during the provision of a related service."""
-    Reference in the legal text: """Article 2(16), Recitals 15 and 17"""
-  }
-
-  Record {
-    Factor: """Readily available data"""
-    Explanation: """Product data and related service data that a data holder can obtain without disproportionate effort going beyond a simple operation. The definition of 'readily available data' does not include a reference to the time of their generation or collection. Only data generated/collected after the entry into application of the Data Act should be considered as falling within the scope of Chapter II."""
-    Reference in the legal text: """Article 2(17), Recitals 20 and 21"""
-  }
-
-  Record {
-    Factor: """Level of enrichment of the data"""
-    Explanation: """In scope: raw data and pre-processed data, accompanied by the necessary metadata to make it understandable and usable. For example, data collected from a single sensor or a connected group of sensors for the purpose of making the collected data comprehensible for wider use-cases by determining a physical quantity or quality or a change in a physical quantity (e.g. temperature, pressure, flow rate, audio, pH value, liquid level, position, acceleration, or speed). Out of scope: highly enriched data, meaning inferred or derived data or data that result from additional investments (including by way of proprietary, complex algorithms). In addition, content that is often covered by intellectual property rights (e.g. textual, audio, or audiovisual content)."""
-    Reference in the legal text: """Recital 15"""
-  }
-
-  Record {
-    Factor: """Personal vs non-personal data"""
-    Explanation: """Users are entitled to access all data generated by the connected product or related service, whether personal or non-personal. However, personal data processing is governed by GDPR rules, so the user’s rights provided by the Data Act have to be exercised in compliance with the GDPR. Users that are not data subjects or data holders must have a valid legal basis under Article 6 of the GDPR for processing personal data. Question 26 examines in further detail non-personal data access, use and sharing."""
-    Reference in the legal text: """Recitals 25 and 35"""
-  }
-
-  Record {
-    Factor: """Trade secrets"""
-    Explanation: """The Data Act does not modify the relevant legal protections for protection of trade secrets. The 2016 Trade Secrets Directive, for example, continues to apply. The Data Act establishes a new mechanism to protect trade secrets. This mechanism is known as the ‘trade secrets handbrake’ and is explored further in Question 20."""
-    Reference in the legal text: """Articles 4(6) and 5(9), Recital 31"""
-  }
-}
 5. What level of enrichment transforms raw and pre-processed data into inferred or derived data, excluding it from Chapter II?
 Chapter II of the Data Act considers the level of enrichment of the data as one of the key factors in the
 effort to achieve a balanced and fair allocation of data value. Users have the right to receive, use, and port data that they have (co-)generated . This right applies to raw and pre-processed data, as well as accompanying metadata. “Metadata” is relevant to understand the conditions (e.g. time, weather, location) under which the data was collected or generated. At the same time, the Data Act seeks to preserve incentives to invest in data technologies that, for instance, transform the data, give additional insights, or allow processes to take actions autonomously. To distinguish between raw and pre-processed data on the one hand, and derived or inferred data on the other, Recital 15 mentions notions such as “substantial modification”, “substantial investments in cleaning and transforming the data”, and “proprietary and complex algorithms”. As explained in Recital 15, the data in scope – raw and pre-processed data – include measurements of a “physical quantity or quality”. Considering the Data Act’s objective to enable processing of data by a wide array of actors in the data economy, such data should be ‘easily’ usable and understandable by entities other than those who generated it. While all sensor measurements require some level of interpretation before they can be communicated in a digital format, additional investments may be necessary to make the data useable and understandable, such as cleaning, transforming, or reformatting. However, this does not translate into an obligation on the data holder to make substantial investments in these processes. Users, or third parties chosen by the user, are expected to have a reasonable level of technical capability to interpret the data. As explained in question 13, processing that is designed to preserve the privacy of the information such as anonymisation or pseudonymisation or processes of encryption should not be considered sufficient for the data to be excluded from scope of Chapter II.
@@ -317,4 +268,5 @@ Next steps and future actions 72. When will the Commission publish the guidance 
 3. What are the next steps regarding interoperability?
 In support of Article 33 of the Data Act on requirements related to interoperability in data spaces, the Commission has prepared a standardisation request called the “European Trusted Data Framework” (ETDF). The ETDF request covers seven European standards/standardisation deliverables. These are closely aligned with the recommendations of the data interoperability workstream of the High-Level Forum on European Standardisation (published on 11 April 2024). The request reflects input from consultations with the European standardisation organisations (CEN, Cenelec and ETSI), the EU stakeholder organisations representing consumers, environmental interests, trade unions and SMEs in standardisation (SBS, ETUC, ANEC and ECOS), and the European Data Innovation Board. It is expected that the request will be formally adopted by the end of Q2 2025.
 74. What is the state of play of the model contractual terms for data sharing and the standard contractual clauses for cloud computing contracts?
+
 The Commission has published Model Contractual Terms (MCTs) for data access and use and Standard Contractual Clauses (SCCs) for cloud computing contracts, based on a report by an Expert Group set up to assist the Commission with this task. The MCTs cover contracts between data holders and users, data holders and data recipients, users and data recipients and between data sharers and data recipients. The SCCs cover elements related to switching & exit, term & termination, non-dispersion, non-amendment, security & business continuity and to liability. These elements mirror the aspects covered by Chapter VI but also include other aspects that are relevant for fulfilling the objective of Article 41, which is to assist parties in drafting and negotiating contracts with fair, reasonable, and non-discriminatory contractual rights and obligations. The contracts are non-binding and can be adapted by the parties according to their contractual needs.
