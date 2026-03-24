@@ -2,3 +2,4 @@
 *.local.yml
 matomo.env
 answers_auto_test/compare_answers_test.py
+data/chunks/
