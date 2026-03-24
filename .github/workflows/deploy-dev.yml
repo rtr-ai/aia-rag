@@ -1,8 +1,8 @@
-name: Deploy
+name: Deploy-dev
 
 on:
   push:
-    branches: [ develop" ]
+    branches: [ "develop" ]
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -45,6 +45,8 @@ jobs:
       run: |
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
         cd /app/develop/trunk &&
+        mv docker-compose.yml docker-compose.prod.yml &&
+        mv docker-compose.dev.yml docker-compose.yml &&
         docker container prune -f &&
         docker compose build &&
         docker compose down &&
