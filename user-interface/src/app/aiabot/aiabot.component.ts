@@ -21,11 +21,10 @@ import { WidgetInstance } from "friendly-challenge";
 import { EnvService } from "../../services/env.service";
 import { LOCALE_ID, Inject } from "@angular/core";
 @Component({
-  selector: "app-aiabot",
-  standalone: true,
-  imports: [NgIf, NgForOf, NgClass, FormsModule],
-  templateUrl: "./aiabot.component.html",
-  styleUrl: "./aiabot.component.scss",
+    selector: "app-aiabot",
+    imports: [NgIf, NgForOf, NgClass, FormsModule],
+    templateUrl: "./aiabot.component.html",
+    styleUrl: "./aiabot.component.scss"
 })
 export class AiabotComponent implements OnInit, AfterViewInit {
   displayAnswer: string = "";
