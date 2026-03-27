@@ -97,7 +97,9 @@
             "outputPath": "src/locale",
             "targetFiles": [
               "messages.en.xlf"
-            ]
+            ],
+            "prettyNestedTags": true,
+            "sort": "stableAppendNew"
           }
         },
         "test": {
