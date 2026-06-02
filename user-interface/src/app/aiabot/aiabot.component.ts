@@ -158,6 +158,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     const datasetsPerLocale: Record<string, string> = {
       en: "ai_act_en",
       de: "ai_act_de",
+      da: "data_act_de"
     };
     let defaultDataset = datasetsPerLocale["de"];
     if (this.locale && typeof datasetsPerLocale[this.locale] != "undefined") {
