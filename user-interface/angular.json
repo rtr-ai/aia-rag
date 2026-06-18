@@ -97,7 +97,8 @@
             "includeContext": true,
             "outputPath": "src/locale",
             "targetFiles": [
-              "messages.en.xlf"
+              "messages.en.xlf",
+              "messages.da.xlf"
             ],
             "prettyNestedTags": true,
             "sort": "stableAppendNew"
