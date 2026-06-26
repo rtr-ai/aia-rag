@@ -1,0 +1,447 @@
+@import "../scss/variables-theme";
+
+$green: #2f5f00;
+$green-soft: rgba(226, 255, 197, 0.31);
+$blue: #1e87f0;
+
+h3 i {
+  font-weight: normal;
+}
+
+// --- Eingabe (aus dem RAG-UI übernommen) ---
+.user-input {
+  font-size: 14px;
+  line-height: 28px;
+  min-height: 110px;
+}
+.user-input-suggestion {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: gray !important;
+  text-decoration: none;
+  transition: background-color ease 100ms;
+  background-color: #fcfcfc;
+  max-width: 80%;
+}
+.user-input-suggestion:hover {
+  background-color: #f0f0f0 !important;
+}
+.uk-disabled {
+  border: 3px solid gray;
+  background-color: white;
+  color: #333333 !important;
+}
+
+// --- gemeinsame Code-/Roh-Blöcke ---
+code {
+  background: #f3f3f3;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+.raw-block,
+.tool-call-block {
+  background: #f6f8f4;
+  white-space: pre-wrap;
+  padding: 10px 12px;
+  border: 1px solid #e2e8da;
+  border-radius: 4px;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 4px 0 0;
+  overflow-x: auto;
+}
+.tool-call-block {
+  background: #eef7e6;
+  border-color: #cfe3ba;
+  color: $green;
+  font-weight: 600;
+}
+.call-budget {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: $green;
+}
+.tools-table code {
+  white-space: nowrap;
+}
+.defterms {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.defterm {
+  display: inline-block;
+  background: #f0f3ed;
+  border: 1px solid #dde5d3;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.72rem;
+  color: #3a5a1f;
+}
+
+// --- Transcript / Nachrichten-Verlauf ---
+.transcript {
+  margin: 20px 0;
+}
+.msg {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.msg-role {
+  flex: 0 0 76px;
+  text-align: right;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  color: #999;
+  padding-top: 12px;
+}
+.msg-loader {
+  float: none;
+  margin: 0 0 4px auto;
+}
+.msg-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 12px 16px;
+  background: #fff;
+}
+.msg-running .msg-body {
+  box-shadow: 0 0 0 2px rgba(47, 95, 0, 0.15);
+}
+
+// Farbakzente je Rolle
+.msg-system .msg-body {
+  border-left: 4px solid #888;
+  background: #fafafa;
+}
+.msg-user .msg-body {
+  border-left: 4px solid $blue;
+  background: #f6fafe;
+}
+.msg-llm .msg-body {
+  border-left: 4px solid #2c5b9c;
+}
+.msg-tool .msg-body {
+  border-left: 4px solid $green;
+  background: #fcfdfa;
+}
+
+.msg-head {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #888;
+  margin: 12px 0 4px;
+}
+.msg-body > .msg-head:first-child {
+  margin-top: 0;
+}
+.msg-subhead {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+  margin: 12px 0 4px;
+}
+.tl-callindex {
+  margin-left: 6px;
+  color: #aaa;
+  text-transform: none;
+  font-size: 0.92em;
+}
+.rag-pill {
+  display: inline-block;
+  margin-left: 8px;
+  background: #eef7e6;
+  color: $green;
+  border: 1px solid #cfe3ba;
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.user-text {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.reasoning {
+  font-style: italic;
+  color: #333;
+  margin: 0;
+  line-height: 1.55;
+}
+
+// Kontext-Balken vor jedem LLM-Aufruf
+.ctx-bar {
+  font-size: 0.78rem;
+  background: #eef3fb;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-bottom: 4px;
+}
+.ctx-bar [uk-icon] {
+  vertical-align: middle;
+}
+.ctx-toggle {
+  color: #2c5b9c !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  display: inline-block;
+}
+.ctx-hint {
+  color: #7a93b8;
+  margin-left: 6px;
+  font-size: 0.92em;
+}
+.ctx-detail {
+  margin-top: 8px;
+  border-top: 1px dashed #c7d6ea;
+  padding-top: 6px;
+}
+.ctx-msg {
+  padding: 2px 0;
+}
+.ctx-msg-head {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.ctx-msg-head:hover .ctx-text {
+  color: #2c5b9c;
+}
+.ctx-full {
+  margin: 4px 0 6px 72px;
+  background: #f6f8f4;
+  white-space: pre-wrap;
+  padding: 8px 10px;
+  border: 1px solid #e2e8da;
+  border-radius: 4px;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+.ctx-role {
+  flex: 0 0 64px;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 0.68rem;
+  text-align: right;
+  color: #fff;
+  border-radius: 3px;
+  padding: 0 5px;
+}
+.ctx-role-system {
+  background: #888;
+}
+.ctx-role-user {
+  background: $blue;
+}
+.ctx-role-llm {
+  background: #2c5b9c;
+}
+.ctx-role-tool {
+  background: $green;
+}
+.ctx-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: #444;
+  font-size: 0.82rem;
+}
+
+.exec-args {
+  font-size: 0.82rem;
+  color: #666;
+}
+
+// Sub-Timeline (interne Teilschritte eines Werkzeugs)
+.sub-timeline {
+  border: 1px dashed #c9d8b8;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 4px;
+  background: #fafdf6;
+}
+.sub-step {
+  padding: 5px 0;
+  border-bottom: 1px dotted #e0e0e0;
+}
+.sub-step:last-child {
+  border-bottom: none;
+}
+.sub-step-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: $green;
+}
+.sub-step-detail {
+  font-size: 0.84rem;
+  color: #555;
+}
+
+// Reranking-Visualisierung (NICHT Teil des Prompts)
+.raw-toggle {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.84rem;
+  text-decoration: underline !important;
+}
+.rerank-box {
+  margin-top: 8px;
+  border: 1px dashed #d3b9b9;
+  border-radius: 4px;
+  padding: 10px 12px;
+  background: #fdf8f8;
+}
+.rerank-note {
+  font-size: 0.8rem;
+  color: #8a4b4b;
+  margin: 0 0 8px;
+}
+.rerank-note [uk-icon] {
+  vertical-align: middle;
+}
+
+.sources-table {
+  font-size: 0.84rem;
+}
+.src-title {
+  display: block;
+  font-weight: 600;
+}
+.src-snippet {
+  display: block;
+  color: #777;
+  font-size: 0.92em;
+}
+.src-skipped {
+  opacity: 0.55;
+}
+.kind-chip {
+  display: inline-block;
+  font-size: 0.68rem;
+  padding: 1px 7px;
+  border-radius: 9px;
+  white-space: nowrap;
+}
+.kind-ai_act {
+  background: #e6f3da;
+  color: #2f5f00;
+  font-weight: 600;
+}
+.kind-erwaegungsgrund {
+  background: #eef7e6;
+  color: #4a7a1f;
+}
+.kind-ki-servicestelle {
+  background: #eef0f2;
+  color: #555;
+}
+.kind-querverweis {
+  background: #fdf0e3;
+  color: #9a5b12;
+}
+.kind-leitlinie {
+  background: #e7f0fb;
+  color: #2c5b9c;
+}
+.kind-cop {
+  background: #f3e9fb;
+  color: #6a3a9c;
+}
+.rank-move {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.rank-up {
+  color: #2f5f00;
+  font-weight: 700;
+}
+.rank-down {
+  color: #c0392b;
+}
+.rank-same {
+  color: #999;
+}
+.used-yes {
+  color: #2f5f00;
+  font-weight: 700;
+}
+.used-no {
+  color: #b03030;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+// Energie je Aufruf
+.step-energy {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px dotted #e0e0e0;
+  font-size: 0.82rem;
+  color: #555;
+}
+.step-energy [uk-icon] {
+  color: $green;
+}
+
+// Antwort
+.answer {
+  background: $green-soft;
+  border: 1px solid #cfdfbb;
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+.chat-answer {
+  white-space: pre-line;
+  font-size: 17px;
+  line-height: 1.6;
+
+  ul {
+    margin: 8px 0;
+    padding-left: 22px;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+}
+.citations {
+  margin-top: 12px;
+}
+.citation-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+.citation-list li {
+  padding: 3px 0;
+  font-size: 0.9rem;
+}
+
+.energy-table {
+  min-width: 720px;
+}
+.energy-total-row td {
+  border-top: 2px solid #ccc;
+}
+.table-container {
+  overflow-x: auto;
+}

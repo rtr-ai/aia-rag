@@ -1,0 +1,489 @@
+<div class="uk-section-default uk-section">
+  <div class="uk-container">
+    <h2>KI-Servicestelle AI Act Chatbot</h2>
+
+    <!-- Eingabe – steht zu Beginn der Seite -->
+    <form class="uk-form uk-padding-remove uk-margin-top">
+      <div style="position: relative">
+        <textarea
+          class="uk-input user-input"
+          placeholder="Stellen Sie uns Ihre Frage zum AI Act"
+          style="resize: none"
+          [(ngModel)]="userPrompt"
+          name="userPrompt"
+          id="userPrompt"
+          [maxlength]="maxLength"
+          [disabled]="running"
+        ></textarea>
+        <small style="position: absolute; bottom: 5px; right: 10px; color: #888">
+          {{ userPrompt.length }}/{{ maxLength }}
+        </small>
+        @if (userPrompt === "" && !running) {
+          <a class="user-input-suggestion" (click)="loadExample(); run()">
+            z.&nbsp;B.: &ldquo;{{ exampleQuestion }}&rdquo;
+          </a>
+        }
+      </div>
+      <a
+        class="uk-button uk-button-large uk-grid-margin uk-button-primary"
+        [ngClass]="!running && userPrompt !== '' ? '' : 'uk-disabled'"
+        (click)="run()"
+        >Frage stellen</a
+      >
+    </form>
+  </div>
+
+  <!-- Nachrichten-Verlauf / Agentenlauf -->
+  @if (entries.length > 0) {
+    <div id="agentRun" class="uk-container uk-margin-top-50">
+      <h3>
+        @if (running) {
+          <div class="loader loader-small-offset"></div>
+        } @else {
+          <span>&check;</span>
+        }
+        Nachrichten-Verlauf des Agenten
+      </h3>
+      <p class="text-muted">
+        Der Agent arbeitet, indem das LLM mehrfach aufgerufen wird. Bei
+        <strong>jedem</strong> Aufruf wird der <strong>gesamte bisherige
+        Nachrichten-Verlauf</strong> erneut übergeben: System-Prompt (inkl.
+        Tool-Definitionen), die Frage sowie alle bisherigen Tool-Aufrufe und
+        deren Roh-Ergebnisse. Das Modell entscheidet daraufhin, ob es ein
+        weiteres Werkzeug aufruft oder final antwortet.
+      </p>
+
+      <div class="transcript">
+        @for (e of entries; track e.id; let idx = $index) {
+          <div
+            id="entry-{{ e.id }}"
+            class="msg"
+            [ngClass]="'msg-' + e.kind + (e.status === 'running' ? ' msg-running' : '')"
+          >
+            <!-- Rollen-Spalte -->
+            <div class="msg-role">
+              @if (e.status === "running") {
+                <div class="loader loader-small-offset msg-loader"></div>
+              }
+              @if (e.kind === "system") { system }
+              @else if (e.kind === "user") { user }
+              @else if (e.kind === "tool") { tool }
+              @else { assistant }
+            </div>
+
+            <div class="msg-body">
+              <!-- SYSTEM -->
+              @if (e.kind === "system") {
+                <div class="msg-head">System-Prompt</div>
+                <pre class="raw-block">{{ e.systemText }}</pre>
+                <a class="raw-toggle" (click)="showToolDefs = !showToolDefs">
+                  {{ showToolDefs ? "▾" : "▸" }} Mitgeschickte Tool-Definitionen
+                  ({{ tools.length }}) – jeder Aufruf darf max.
+                  {{ model.maxCallsPerTool }}× pro Werkzeug erfolgen
+                </a>
+                @if (showToolDefs) {
+                  <table class="uk-table uk-table-divider uk-table-small tools-table">
+                    <tbody>
+                      @for (tool of tools; track tool.name) {
+                        <tr>
+                          <td><code>{{ tool.signature }}</code></td>
+                          <td>
+                            {{ tool.description }}
+                            @if (tool.name === "definition") {
+                              <a class="raw-toggle" (click)="toggle('defterms')">
+                                Definierte Begriffe ({{ definedTerms.length }}) anzeigen
+                              </a>
+                              <div id="defterms" class="defterms uk-hidden">
+                                @for (t of definedTerms; track t) {
+                                  <span class="defterm">{{ t }}</span>
+                                }
+                              </div>
+                            }
+                          </td>
+                          <td class="uk-text-right">
+                            <span class="call-budget">
+                              {{ toolCallCount(tool.name) }}/{{ model.maxCallsPerTool }}
+                            </span>
+                          </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                }
+              }
+
+              <!-- USER -->
+              @if (e.kind === "user") {
+                <div class="msg-head">Frage</div>
+                <p class="user-text">{{ e.userText }}</p>
+              }
+
+              <!-- LLM-AUFRUF (assistant) -->
+              @if (e.kind === "llm") {
+                <div class="ctx-bar">
+                  <a class="ctx-toggle" (click)="toggle('ctx-' + e.id)">
+                    <span uk-icon="icon: refresh; ratio: 0.8"></span>
+                    Übergebener Prompt-Verlauf:
+                    <strong>{{ e.contextMessages }} Nachrichten</strong>
+                    · ~{{ formatTokens(e.contextTokens) }} Token
+                    <span class="ctx-hint">ausklappen ▾</span>
+                  </a>
+                  <div id="ctx-{{ e.id }}" class="ctx-detail uk-hidden">
+                    @for (c of contextOf(idx); track c.id) {
+                      <div class="ctx-msg">
+                        <a
+                          class="ctx-msg-head"
+                          (click)="toggle('ctxmsg-' + e.id + '-' + c.id)"
+                        >
+                          <span class="ctx-role ctx-role-{{ c.kind }}">{{ roleLabel(c) }}</span>
+                          <span class="ctx-text">{{ entrySummary(c) }}</span>
+                        </a>
+                        <pre
+                          id="ctxmsg-{{ e.id }}-{{ c.id }}"
+                          class="ctx-full uk-hidden"
+                        >{{ entryFullText(c) }}</pre>
+                      </div>
+                    }
+                  </div>
+                </div>
+
+                @if (e.reasoning) {
+                  <div class="msg-head">Reasoning (rohe Chain-of-Thought)</div>
+                  <p class="reasoning">{{ e.reasoning }}</p>
+                }
+
+                @if (e.toolCall && e.reasoningDone) {
+                  <div class="msg-head">Vom Modell emittierter Tool-Call</div>
+                  <pre class="tool-call-block">{{ e.toolCall.name }}({{ e.toolCall.argsJson }})</pre>
+                }
+
+                @if (e.answer !== undefined && !e.toolCall && e.reasoningDone) {
+                  <div class="msg-head">Finale Antwort</div>
+                  <div class="answer agent-answer">
+                    <div class="chat-answer" [innerHTML]="e.answer"></div>
+                  </div>
+                  @if (e.citations && e.citations.length > 0 && e.status === "done") {
+                    <div class="citations">
+                      <span class="msg-head">Quellenbelege</span>
+                      <ul class="citation-list">
+                        @for (c of e.citations; track c.label) {
+                          <li>
+                            <span class="kind-chip" [ngClass]="'kind-' + c.kind">
+                              {{ sourceKindLabel(c.kind) }}
+                            </span>
+                            {{ c.label }}
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  }
+                }
+
+                @if (e.energy) {
+                  <div class="step-energy">
+                    <span uk-icon="bolt"></span> LLM-Aufruf:
+                    {{ formatKWh(e.energy.total_kWh) }}&nbsp;kWh ·
+                    {{ e.energy.duration.toFixed(1).replace(".", ",") }}&nbsp;Sek.
+                  </div>
+                }
+              }
+
+              <!-- TOOL-ERGEBNIS -->
+              @if (e.kind === "tool") {
+                <div class="msg-head">
+                  Ergebnis von <code>{{ e.toolName }}()</code>
+                  <span class="tl-callindex">Aufruf {{ e.callIndex }}/{{ model.maxCallsPerTool }}</span>
+                  @if (e.ragView) { <span class="rag-pill">intern: erweitertes RAG</span> }
+                </div>
+                <div class="exec-args">ausgeführt mit: <code>{{ e.argsJson }}</code></div>
+
+                <!-- Interne Teilschritte (z. B. Retrieve-Pipeline, hybride Suche) -->
+                @if (e.subSteps && e.subSteps.length > 0) {
+                  <div class="sub-timeline">
+                    <span class="msg-subhead">Interne Teilschritte des Werkzeugs</span>
+                    @for (sub of e.subSteps; track sub.label) {
+                      <div class="sub-step">
+                        <span class="sub-step-label">{{ sub.label }}</span>
+                        <span class="sub-step-detail">{{ sub.detail }}</span>
+                      </div>
+                    }
+                  </div>
+                }
+
+                <!-- ===== suche_ai_act: Original-RAG-Visualisierung (Retrieve → Augment → Generate) ===== -->
+                @if (e.ragView) {
+                  <!-- Retrieve (eingeklappt) -->
+                  <a class="raw-toggle" (click)="toggle('retr-' + e.id)">
+                    Retrieve · erhobene Quellen (Kosinus-Ähnlichkeit &amp; Reranking) anzeigen/ausblenden
+                  </a>
+                  <div id="retr-{{ e.id }}" class="rerank-box uk-hidden">
+                    <p class="rerank-note">
+                      <span uk-icon="icon: info; ratio: 0.8"></span>
+                      Ähnlichkeitswerte und Rangänderung dienen der Nachvollziehbarkeit.
+                      In das Prompt fließt nur der Quellentext in der finalen
+                      (gerankten) Reihenfolge – nicht die Zahlen selbst.
+                    </p>
+                    <div class="table-container">
+                    <table class="uk-table uk-table-small uk-table-divider sources-table">
+                      <thead>
+                        <tr>
+                          <th>Quelle</th>
+                          <th class="uk-text-right">Kosinus</th>
+                          <th class="uk-text-center">Rang vor&nbsp;→&nbsp;nach</th>
+                          <th class="uk-text-right">Reranker</th>
+                          <th class="uk-text-center">Im Kontext</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @for (src of e.sources; track src.id) {
+                          <tr [ngClass]="src.used ? '' : 'src-skipped'">
+                            <td>
+                              <span class="src-title">{{ src.title }}</span>
+                              <span class="src-snippet">{{ src.snippet }}</span>
+                            </td>
+                            <td class="uk-text-right">{{ formatScore(src.cosine) }}</td>
+                            <td class="uk-text-center">
+                              @if (src.rankBefore && src.rankAfter) {
+                                <span
+                                  class="rank-move"
+                                  [ngClass]="
+                                    src.rankAfter < src.rankBefore
+                                      ? 'rank-up'
+                                      : src.rankAfter > src.rankBefore
+                                        ? 'rank-down'
+                                        : 'rank-same'
+                                  "
+                                >
+                                  {{ src.rankBefore }} → {{ src.rankAfter }}
+                                  @if (src.rankAfter < src.rankBefore) { ▲ }
+                                  @else if (src.rankAfter > src.rankBefore) { ▼ }
+                                </span>
+                              }
+                            </td>
+                            <td class="uk-text-right">
+                              {{ src.rerankScore !== undefined ? formatScore(src.rerankScore) : "–" }}
+                            </td>
+                            <td class="uk-text-center">
+                              @if (src.used) {
+                                <span class="used-yes">✓</span>
+                              } @else {
+                                <span class="used-no">
+                                  ✕
+                                  {{
+                                    src.skipReason === "duplicate"
+                                      ? "Dublette"
+                                      : src.skipReason === "context_window"
+                                        ? "Kontext voll"
+                                        : "geringe Relevanz"
+                                  }}
+                                </span>
+                              }
+                            </td>
+                          </tr>
+                        }
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+
+                  <!-- Augment (eingeklappt) -->
+                  <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
+                    Augment · Prompt des RAG-Werkzeugs (System-Prompt + Quellen + Suchanfrage) anzeigen/ausblenden
+                  </a>
+                  <pre id="aug-{{ e.id }}" class="raw-block uk-hidden">{{ buildAugmentedPrompt(e) }}</pre>
+
+                  <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
+                  <span class="msg-subhead">
+                    Generate · Rückgabe an den Agenten (LLM-Ausgabe, wird an den Verlauf angehängt)
+                  </span>
+                  <pre class="raw-block">{{ e.resultText }}</pre>
+                } @else if (e.llmGenerates) {
+                  <!-- ===== suche_leitlinien: LLM-Aufruf – Reranking & Prompt über der Rückgabe ===== -->
+                  @if (e.rerankerApplied && e.sources && e.sources.length > 0) {
+                    <a class="raw-toggle" (click)="toggle('rerank-' + e.id)">
+                      Reranking-Visualisierung anzeigen/ausblenden
+                    </a>
+                    <div id="rerank-{{ e.id }}" class="rerank-box uk-hidden">
+                      <p class="rerank-note">
+                        <span uk-icon="icon: info; ratio: 0.8"></span>
+                        Nur zur Veranschaulichung – diese Werte und die Rangänderung
+                        sind <strong>nicht Teil des Prompt-Verlaufs</strong>. Das
+                        Modell erhält ausschließlich den obigen Treffertext in der
+                        finalen Reihenfolge.
+                      </p>
+                      <div class="table-container">
+                        <table class="uk-table uk-table-small uk-table-divider sources-table">
+                          <thead>
+                            <tr>
+                              <th>Quelle</th>
+                              <th class="uk-text-right">Kosinus</th>
+                              <th class="uk-text-center">Rang vor&nbsp;→&nbsp;nach</th>
+                              <th class="uk-text-right">Reranker</th>
+                              <th class="uk-text-center">In Rückgabe</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @for (src of e.sources; track src.id) {
+                              <tr [ngClass]="src.used ? '' : 'src-skipped'">
+                                <td>
+                                  <span class="src-title">{{ src.title }}</span>
+                                  <span class="src-snippet">{{ src.snippet }}</span>
+                                </td>
+                                <td class="uk-text-right">{{ formatScore(src.cosine) }}</td>
+                                <td class="uk-text-center">
+                                  @if (src.rankBefore && src.rankAfter) {
+                                    <span
+                                      class="rank-move"
+                                      [ngClass]="
+                                        src.rankAfter < src.rankBefore
+                                          ? 'rank-up'
+                                          : src.rankAfter > src.rankBefore
+                                            ? 'rank-down'
+                                            : 'rank-same'
+                                      "
+                                    >
+                                      {{ src.rankBefore }} → {{ src.rankAfter }}
+                                      @if (src.rankAfter < src.rankBefore) { ▲ }
+                                      @else if (src.rankAfter > src.rankBefore) { ▼ }
+                                    </span>
+                                  }
+                                </td>
+                                <td class="uk-text-right">
+                                  {{ src.rerankScore !== undefined ? formatScore(src.rerankScore) : "–" }}
+                                </td>
+                                <td class="uk-text-center">
+                                  @if (src.used) {
+                                    <span class="used-yes">✓</span>
+                                  } @else {
+                                    <span class="used-no">
+                                      ✕
+                                      {{
+                                        src.skipReason === "duplicate"
+                                          ? "Dublette"
+                                          : src.skipReason === "context_window"
+                                            ? "Kontext voll"
+                                            : "geringe Relevanz"
+                                      }}
+                                    </span>
+                                  }
+                                </td>
+                              </tr>
+                            }
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  }
+
+                  <!-- Prompt des Werkzeugs (eingeklappt) -->
+                  <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
+                    Prompt des Werkzeugs (System-Prompt + Fundstellen + Frage) anzeigen/ausblenden
+                  </a>
+                  <pre id="aug-{{ e.id }}" class="raw-block uk-hidden">{{ buildAugmentedPrompt(e) }}</pre>
+
+                  <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
+                  <span class="msg-subhead">
+                    Rückgabe an das Modell (LLM-Ausgabe, wird an den Verlauf angehängt)
+                  </span>
+                  <pre class="raw-block">{{ e.resultText }}</pre>
+                } @else {
+                  <!-- ===== übrige Werkzeuge ohne eigenen LLM-Aufruf: Roh-Rückgabe ===== -->
+                  <span class="msg-subhead">
+                    Rückgabe an das Modell (wird unverändert an den Verlauf angehängt)
+                  </span>
+                  <pre class="raw-block">{{ e.resultText }}</pre>
+                }
+
+                @if (e.energy) {
+                  <div class="step-energy">
+                    <span uk-icon="bolt"></span>
+                    @if (e.llmGenerates) { Werkzeug (inkl. eigenem LLM-Aufruf): }
+                    @else { Werkzeug-Ausführung: }
+                    {{ formatKWh(e.energy.total_kWh) }}&nbsp;kWh ·
+                    {{ e.energy.duration.toFixed(1).replace(".", ",") }}&nbsp;Sek.
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Energie-Gesamtbilanz über alle LLM- und Tool-Aufrufe -->
+  @if (done) {
+    <div class="uk-container uk-margin-top-50">
+      <h3><span uk-icon="bolt"></span> Energieverbrauch dieser Anfrage</h3>
+      <p>
+        Die Energietransparenz bleibt im agentischen Modus erhalten – jetzt
+        summiert über <strong>alle LLM- und Werkzeug-Aufrufe</strong> eines
+        Laufs. Diese Anfrage hat insgesamt
+        <strong>{{ formatKWh(totalProQuery) }}&nbsp;kWh</strong> verbraucht. Damit
+        ließe sich ein
+        <abbr uk-tooltip="Modell mit 2,2 kW Leistung">Haarföhn</abbr>
+        rund
+        <i>{{ (((totalProQuery * 1000) / 2200) * 60 * 60).toFixed(1).replace(".", ",") }} Sekunden</i>
+        betreiben.
+      </p>
+      <div class="table-container">
+        <table class="uk-table uk-table-hover uk-table-divider energy-table">
+          <thead>
+            <tr>
+              <th>Aufruf</th>
+              <th class="uk-text-right">CPU</th>
+              <th class="uk-text-right">GPU</th>
+              <th class="uk-text-right">RAM</th>
+              <th class="uk-text-right">Gesamt</th>
+              <th class="uk-text-right">Dauer</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (e of entries; track e.id) {
+              @if (e.energy) {
+                <tr>
+                  <td>
+                    @if (e.kind === "llm") {
+                      LLM-Aufruf
+                      @if (e.toolCall) { → <code>{{ e.toolCall.name }}()</code> }
+                      @else { → finale Antwort }
+                    } @else {
+                      Werkzeug <code>{{ e.toolName }}()</code>
+                    }
+                  </td>
+                  <td class="uk-text-right">{{ formatKWh(e.energy.cpu_kWh) }}&nbsp;kWh</td>
+                  <td class="uk-text-right">{{ formatKWh(e.energy.gpu_kWh) }}&nbsp;kWh</td>
+                  <td class="uk-text-right">{{ formatKWh(e.energy.ram_kWh) }}&nbsp;kWh</td>
+                  <td class="uk-text-right">{{ formatKWh(e.energy.total_kWh) }}&nbsp;kWh</td>
+                  <td class="uk-text-right">{{ e.energy.duration.toFixed(1).replace(".", ",") }}&nbsp;Sek.</td>
+                </tr>
+              }
+            }
+            <tr class="energy-total-row">
+              <td><strong>Gesamt</strong></td>
+              <td class="uk-text-right"><strong>{{ formatKWh(totalEnergy.cpu_kWh) }}&nbsp;kWh</strong></td>
+              <td class="uk-text-right"><strong>{{ formatKWh(totalEnergy.gpu_kWh) }}&nbsp;kWh</strong></td>
+              <td class="uk-text-right"><strong>{{ formatKWh(totalEnergy.ram_kWh) }}&nbsp;kWh</strong></td>
+              <td class="uk-text-right"><strong>{{ formatKWh(totalEnergy.total_kWh) }}&nbsp;kWh</strong></td>
+              <td class="uk-text-right"><strong>{{ totalEnergy.duration.toFixed(1).replace(".", ",") }}&nbsp;Sek.</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted">
+        Der Stromverbrauch wird direkt auf Hardware-Ebene (CPU/GPU/RAM) je Aufruf
+        gemessen. Das Rechenzentrum nutzt einen Strommix aus erneuerbaren
+        Energien; der <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr>
+        liegt zwischen 1,10 und 1,16.
+      </p>
+
+      <p class="uk-margin-top">
+        <strong>Wichtiger Hinweis:</strong> Diese Antwort wurde von einem
+        KI-System erzeugt und kann Fehler enthalten. Für eine fachkundige,
+        rechtssichere Einschätzung wenden Sie sich bitte an das (menschliche)
+        Team der
+        <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a>.
+      </p>
+    </div>
+  }
+</div>
