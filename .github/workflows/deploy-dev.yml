@@ -2,7 +2,7 @@ name: Deploy-dev
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "develop", "bojan-test" ]
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
