@@ -203,6 +203,11 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
       - PROMPT_BUFFER=4000
       - ROOT_PATH=/llm-service
       - TOP_N_CHUNKS=25
+      - RERANK_ENABLED=true
+      - RERANK_TOP_N=25
+      - RERANK_MODEL_PATH=/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
+      - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
+      - RERANK_TIMEOUT_SECONDS=60
       - ORDER_CHUNKS_FROM_SOURCE=true
       - DATASETS={"ai_act_de":"combined.json","ai_act_en":"combined_en_new.json"}
       - SYSTEM_PROMPTS_FILE=system_prompts.json
@@ -210,6 +215,7 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
       - ./data/combined.json:/app/data/combined.json
       - ./data/combined_en_new.json:/app/data/combined_en_new.json
       - ./data/system_prompts.json:/app/data/system_prompts.json
+      - /app/models/reranker:/app/models/reranker:ro
       - /sys/class/powercap:/sys/class/powercap:ro
       - /proc/stat:/proc/stat:ro
       - /proc/cpuinfo:/proc/cpuinfo:ro
@@ -244,6 +250,17 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
 - `DATASETS`  → A JSON containing name (key) and filenames (value) of datasets that should be indexed into the vector database. Please make sure to map the appropriate JSON containing chunks to data volume beforehand and add the appropriate system prompt to the system_prompts.json file, where the key matches the dataset key.
 - `SYSTEM_PROMPTS_FILE`  → Name of the file containing system prompts. The file must contain JSON with the name of the dataset (key) and the system prompt. 
 
+
+##### **Local Reranker Configuration**
+
+When `RERANK_ENABLED=true`, the LLM service uses a local Jina GGUF reranker after vector search. The Docker host must contain these files:
+
+```text
+/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
+/app/models/reranker/projector.safetensors
+```
+
+The folder is mounted read-only into the container as `/app/models/reranker`. If the files or local llama.cpp binaries are missing, reranking is skipped and the service falls back to cosine-similarity retrieval.
 
 ##### **Volumes Mapping**  
 - `./data/combined.json:/app/data/combined.json` → A example dataset which is the output(s) from the annotation-tool  which is used for index creation. For each dataset a seperate JSON file is required and all datasets should be mapped seperately. 

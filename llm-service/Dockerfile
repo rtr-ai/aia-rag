@@ -1,10 +1,34 @@
+FROM python:3.11-slim-bookworm AS llama_cpp_builder
+
+ARG LLAMA_CPP_REPO=https://github.com/hanxiao/llama.cpp.git
+ARG LLAMA_CPP_REF=master
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        cmake \
+        git \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone --depth 1 --branch ${LLAMA_CPP_REF} ${LLAMA_CPP_REPO} /tmp/llama.cpp
+
+RUN cmake -S /tmp/llama.cpp -B /tmp/llama.cpp/build -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF \
+    && cmake --build /tmp/llama.cpp/build --target llama-embedding llama-tokenize -j "$(nproc)"
+
 FROM python:3.11-slim-bookworm
 
-RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 COPY . .
+
+COPY --from=llama_cpp_builder /tmp/llama.cpp/build/bin/llama-embedding /usr/local/bin/llama-embedding
+COPY --from=llama_cpp_builder /tmp/llama.cpp/build/bin/llama-tokenize /usr/local/bin/llama-tokenize
 
 RUN pip install --no-cache-dir -r requirements.txt
 

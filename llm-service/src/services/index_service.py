@@ -1,9 +1,11 @@
 from typing import List, Dict, Tuple
 import json
 import os
+import time
 from fastapi import HTTPException
 import numpy as np
 from services.embedding_service import EmbeddingService
+from services.reranker_service import RerankerService
 from services.tokenizer_service import TokenizerService
 from models.manual_index import ChunkNode, ManualIndex
 from utils.logger import get_logger
@@ -15,6 +17,7 @@ STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 TOP_N_CHUNKS = int(os.getenv("TOP_N_CHUNKS", "15"))
 CONTEXT_WINDOW = int(os.getenv("CONTEXT_WINDOW", "8000"))
 PROMPT_BUFFER = int(os.getenv("PROMPT_BUFFER", "1500"))
+RERANK_TOP_N = int(os.getenv("RERANK_TOP_N", "25"))
 
 
 class IndexService:
@@ -37,6 +40,7 @@ class IndexService:
         # Dict mapping dataset_id -> vector data
         self.vector_store: Dict[str, dict] = {}
         self.embedding_service = EmbeddingService()
+        self.reranker_service = RerankerService()
         self.tokenizer_service = TokenizerService()
         self.storage_path = STORAGE_PATH
         self.vector_store_path = os.path.join(self.storage_path, "vector_store.json")
@@ -197,6 +201,183 @@ class IndexService:
             for i in top_n_indices
         ]
 
+    def _build_rerank_candidates(self, top_chunks: List[dict]) -> List[dict]:
+        candidates = []
+        added_chunk_ids = set()
+
+        def add_candidate(chunk: dict, retrieval_score: float):
+            chunk_id = chunk.get("id")
+            content = chunk.get("content", "")
+            if not chunk_id or chunk_id in added_chunk_ids or not content.strip():
+                return
+
+            added_chunk_ids.add(chunk_id)
+            candidates.append(
+                {
+                    "id": chunk_id,
+                    "title": chunk.get("title") or chunk_id,
+                    "content": content,
+                    "position": chunk.get("position", -1),
+                    "num_tokens": chunk.get("num_tokens")
+                    or self.tokenizer_service.count_tokens(content),
+                    "score": float(retrieval_score),
+                    "retrieval_score": float(retrieval_score),
+                    "relevantChunks": [],
+                }
+            )
+
+        for chunk in top_chunks:
+            retrieval_score = float(chunk.get("score", 0.0))
+            add_candidate(chunk, retrieval_score)
+            for relevant_chunk in chunk.get("relevantChunks", []):
+                add_candidate(relevant_chunk, retrieval_score)
+
+        return candidates
+
+    def _format_rerank_document(self, chunk: dict) -> str:
+        title = chunk.get("title", "")
+        content = chunk.get("content", "")
+        return f"Titel: {title}\n{content}" if title else content
+
+    def _rerank_chunks(
+        self, query: str, top_chunks: List[dict], request_id: str
+    ) -> Tuple[List[dict], float]:
+        if not self.reranker_service.enabled:
+            return top_chunks, 0.0
+
+        start = time.perf_counter()
+        candidates = self._build_rerank_candidates(top_chunks)
+        LOGGER.debug(
+            f"[{request_id}]   Reranker candidate count before deduplication: "
+            f"{sum(1 + len(chunk.get('relevantChunks', [])) for chunk in top_chunks)}"
+        )
+        LOGGER.debug(
+            f"[{request_id}]   Reranker candidate count after deduplication: "
+            f"{len(candidates)}"
+        )
+
+        if not candidates:
+            return top_chunks, 0.0
+
+        try:
+            documents = [self._format_rerank_document(chunk) for chunk in candidates]
+            reranked_results = self.reranker_service.rerank(
+                query=query,
+                documents=documents,
+                top_n=RERANK_TOP_N,
+            )
+            reranked_chunks = []
+            for result in reranked_results:
+                chunk = dict(candidates[result.index])
+                chunk["rerank_score"] = result.relevance_score
+                chunk["score"] = result.relevance_score
+                chunk["relevantChunks"] = []
+                reranked_chunks.append(chunk)
+
+            duration = time.perf_counter() - start
+            LOGGER.debug(
+                f"[{request_id}]   Reranker selected {len(reranked_chunks)} "
+                f"of {len(candidates)} candidates in {duration:.2f}s"
+            )
+            return reranked_chunks, duration
+        except Exception as e:
+            duration = time.perf_counter() - start
+            LOGGER.error(
+                f"[{request_id}]   Reranker failed after {duration:.2f}s, "
+                f"falling back to cosine retrieval: {e}"
+            )
+            return top_chunks, duration
+
+    def _build_sources_from_chunks(self, chunks: List[dict], request_id: str) -> List[Source]:
+        total_tokens = 0
+        token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
+        sources: List[Source] = []
+        added_chunks = set()
+        context_window_reached = False
+
+        for chunk in chunks:
+            chunk_tokens = chunk["num_tokens"]
+
+            if context_window_reached:
+                skip = True
+                skip_reason = "context_window"
+            else:
+                if chunk["id"] in added_chunks:
+                    skip = True
+                    skip_reason = "duplicate"
+                elif total_tokens + chunk_tokens > token_limit:
+                    skip = True
+                    skip_reason = "context_window"
+                    context_window_reached = True
+                else:
+                    skip = False
+                    skip_reason = ""
+
+            new_source = Source(
+                content=chunk["content"],
+                score=float(chunk["score"]),
+                retrieval_score=chunk.get("retrieval_score"),
+                rerank_score=chunk.get("rerank_score"),
+                title=chunk["title"],
+                relevantChunks=[],
+                num_tokens=chunk_tokens,
+                skip=skip,
+                skip_reason=skip_reason,
+                position=chunk["position"],
+            )
+
+            if not skip:
+                total_tokens += chunk_tokens
+                added_chunks.add(chunk["id"])
+
+                for relevant_chunk in chunk.get("relevantChunks", []):
+                    relevant_chunk_tokens = relevant_chunk["num_tokens"]
+
+                    if context_window_reached:
+                        relevant_skipped = True
+                        relevant_skip_reason = "context_window"
+                    else:
+                        if relevant_chunk["id"] in added_chunks:
+                            relevant_skipped = True
+                            relevant_skip_reason = "duplicate"
+                        elif total_tokens + relevant_chunk_tokens > token_limit:
+                            relevant_skipped = True
+                            relevant_skip_reason = "context_window"
+                            context_window_reached = True
+                        else:
+                            relevant_skipped = False
+                            relevant_skip_reason = ""
+
+                    new_relevant_chunk = RelevantChunk(
+                        id=relevant_chunk["id"],
+                        content=relevant_chunk["content"],
+                        title=relevant_chunk.get("title") or relevant_chunk["id"],
+                        num_tokens=relevant_chunk_tokens,
+                        score=relevant_chunk.get("score"),
+                        retrieval_score=relevant_chunk.get("retrieval_score"),
+                        rerank_score=relevant_chunk.get("rerank_score"),
+                        skip=relevant_skipped,
+                        skip_reason=relevant_skip_reason,
+                        position=relevant_chunk["position"],
+                    )
+
+                    if not relevant_skipped:
+                        added_chunks.add(relevant_chunk["id"])
+                        total_tokens += relevant_chunk_tokens
+
+                    new_source.relevantChunks.append(new_relevant_chunk)
+
+            sources.append(new_source)
+
+        log_output_used_sources = f"[{request_id}]   Generated chunks for the query:\n"
+        for source in sources:
+            log_output_used_sources += f"(skip_reason:{source.skip_reason}) {source.title} ({str(source.num_tokens)} Token)\n"
+            for relevant_source in source.relevantChunks:
+                log_output_used_sources += f"_______(skip_reason:${relevant_source.skip_reason}) {relevant_source.title} ({str(relevant_source.num_tokens)} Token)\n"
+
+        LOGGER.debug(log_output_used_sources)
+        return sources
+
     async def query_index(
         self, dataset_id: str, query: str, request_id: str
     ) -> Tuple[List[Source], float]:
@@ -227,93 +408,17 @@ class IndexService:
         query_vector = embedding_response.embeddings[0]
         index_data = self.vector_store[dataset_id]
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
+        top_chunks, rerank_duration = self._rerank_chunks(
+            query=query,
+            top_chunks=top_chunks,
+            request_id=request_id,
+        )
 
-        total_tokens = 0
         LOGGER.debug(
             f"[{request_id}]    Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
         )
-        token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
-        sources: List[Source] = []
-        added_chunks = set()
-        context_window_reached = False
-
-        for chunk in top_chunks:
-            chunk_tokens = chunk["num_tokens"]
-
-            if context_window_reached:
-                skip = True
-                skip_reason = "context_window"
-            else:
-                if chunk["id"] in added_chunks:
-                    skip = True
-                    skip_reason = "duplicate"
-                elif total_tokens + chunk_tokens > token_limit:
-                    skip = True
-                    skip_reason = "context_window"
-                    context_window_reached = True
-                else:
-                    skip = False
-                    skip_reason = ""
-
-            new_source = Source(
-                content=chunk["content"],
-                score=chunk["score"],
-                title=chunk["title"],
-                relevantChunks=[],
-                num_tokens=chunk_tokens,
-                skip=skip,
-                skip_reason=skip_reason,
-                position=chunk["position"],
-            )
-
-            if not skip:
-                total_tokens += chunk_tokens
-                added_chunks.add(chunk["id"])
-
-                for relevant_chunk in chunk["relevantChunks"]:
-                    relevant_chunk_tokens = relevant_chunk["num_tokens"]
-
-                    if context_window_reached:
-                        relevant_skipped = True
-                        relevant_skip_reason = "context_window"
-                    else:
-                        if relevant_chunk["id"] in added_chunks:
-                            relevant_skipped = True
-                            relevant_skip_reason = "duplicate"
-                        elif total_tokens + relevant_chunk_tokens > token_limit:
-                            relevant_skipped = True
-                            relevant_skip_reason = "context_window"
-                            context_window_reached = True
-                        else:
-                            relevant_skipped = False
-                            relevant_skip_reason = ""
-
-                    new_relevant_chunk = RelevantChunk(
-                        id=relevant_chunk["id"],
-                        content=relevant_chunk["content"],
-                        title=relevant_chunk.get("title") or relevant_chunk["id"],
-                        num_tokens=relevant_chunk_tokens,
-                        skip=relevant_skipped,
-                        skip_reason=relevant_skip_reason,
-                        position=relevant_chunk["position"],
-                    )
-
-                    if not relevant_skipped:
-                        added_chunks.add(relevant_chunk["id"])
-                        total_tokens += relevant_chunk_tokens
-
-                    new_source.relevantChunks.append(new_relevant_chunk)
-
-            sources.append(new_source)
-
-        log_output_used_sources = f"[{request_id}]   Generated chunks for the query:\n"
-        for source in sources:
-            log_output_used_sources += f"(skip_reason:{source.skip_reason}) {source.title} ({str(source.num_tokens)} Token)\n"
-            for relevant_source in source.relevantChunks:
-                log_output_used_sources += f"_______(skip_reason:${relevant_source.skip_reason}) {relevant_source.title} ({str(relevant_source.num_tokens)} Token)\n"
-
-        LOGGER.debug(log_output_used_sources)
-        return sources, duration
+        sources = self._build_sources_from_chunks(top_chunks, request_id)
+        return sources, duration + rerank_duration
 
     def _save_vector_store(self):
         """

@@ -37,6 +37,11 @@ services:
       - PROMPT_BUFFER=4500
       - ROOT_PATH=/llm-service
       - TOP_N_CHUNKS=5
+      - RERANK_ENABLED=true
+      - RERANK_TOP_N=25
+      - RERANK_MODEL_PATH=/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
+      - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
+      - RERANK_TIMEOUT_SECONDS=60
       - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
       - MATOMO_TOKEN=${MATOMO_TOKEN}
       - MATOMO_SITE_ID=${MATOMO_SITE_ID}
@@ -52,6 +57,7 @@ services:
       - ./data/combined_en_new.json:/app/data/combined_en_new.json
       - ./data/combined_da.json:/app/data/combined_da.json
       - ./data/system_prompts.json:/app/data/system_prompts.json
+      - /app/models/reranker:/app/models/reranker:ro
       - /sys/class/powercap:/sys/class/powercap:ro
       - /proc/stat:/proc/stat:ro
       - /proc/cpuinfo:/proc/cpuinfo:ro

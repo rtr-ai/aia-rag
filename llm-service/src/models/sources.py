@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, RootModel
 
 
@@ -7,6 +7,9 @@ class RelevantChunk(BaseModel):
     title: str
     content: str
     num_tokens: int
+    score: Optional[float] = None
+    retrieval_score: Optional[float] = None
+    rerank_score: Optional[float] = None
     skip: bool
     position: int
     skip_reason: str = ""
@@ -15,6 +18,8 @@ class RelevantChunk(BaseModel):
 class Source(BaseModel):
     content: str
     score: float
+    retrieval_score: Optional[float] = None
+    rerank_score: Optional[float] = None
     title: str = ""
     relevantChunks: List[RelevantChunk] = []
     num_tokens: int
