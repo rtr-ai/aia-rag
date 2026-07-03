@@ -16,6 +16,9 @@ RUN git clone --depth 1 --branch ${LLAMA_CPP_REF} ${LLAMA_CPP_REPO} /tmp/llama.c
 RUN cmake -S /tmp/llama.cpp -B /tmp/llama.cpp/build -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF \
     && cmake --build /tmp/llama.cpp/build --target llama-embedding llama-tokenize -j "$(nproc)"
 
+RUN mkdir -p /tmp/llama-libs \
+    && find /tmp/llama.cpp/build -name "*.so*" -exec cp -av {} /tmp/llama-libs/ \;
+
 FROM python:3.11-slim-bookworm
 
 RUN apt-get update \
@@ -29,6 +32,9 @@ COPY . .
 
 COPY --from=llama_cpp_builder /tmp/llama.cpp/build/bin/llama-embedding /usr/local/bin/llama-embedding
 COPY --from=llama_cpp_builder /tmp/llama.cpp/build/bin/llama-tokenize /usr/local/bin/llama-tokenize
+COPY --from=llama_cpp_builder /tmp/llama-libs/ /usr/local/lib/
+
+RUN ldconfig
 
 RUN pip install --no-cache-dir -r requirements.txt
 
