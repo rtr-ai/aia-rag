@@ -62,13 +62,21 @@ code {
   color: $green;
   font-weight: 600;
 }
+.scroll-spacer {
+  height: 220px;
+}
 .call-budget {
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   color: $green;
+  white-space: nowrap;
 }
 .tools-table code {
   white-space: nowrap;
+}
+.tools-table td:last-child {
+  white-space: nowrap;
+  width: 3.5rem;
 }
 .defterms {
   margin-top: 6px;

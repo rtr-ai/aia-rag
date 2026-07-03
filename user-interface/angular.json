@@ -73,6 +73,23 @@
                   "with": "src/environments/environment.ts"
                 }
               ]
+            },
+            "prototype": {
+              "localize": false,
+              "baseHref": "/static-rtr/agentic-chatbot/",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kB",
+                  "maximumError": "10kB"
+                }
+              ],
+              "outputHashing": "all"
             }
           },
           "defaultConfiguration": "production"
@@ -85,6 +102,9 @@
             },
             "development": {
               "buildTarget": "ki-servicestelle-aiabot:build:development"
+            },
+            "prototype": {
+              "buildTarget": "ki-servicestelle-aiabot:build:prototype"
             }
           },
           "defaultConfiguration": "development"

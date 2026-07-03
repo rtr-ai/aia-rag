@@ -114,7 +114,25 @@ export class AgentDemoComponent {
 
   showToolDefs = false;
 
-  constructor(private zone: NgZone) {}
+  // Sobald der/die Betrachter:in während eines Laufs selbst scrollt, wird das
+  // automatische Mitscrollen deaktiviert (nur echte Nutzer-Interaktionen zählen,
+  // nicht das programmatische scrollIntoView).
+  private userScrolled = false;
+
+  constructor(private zone: NgZone) {
+    const stop = () => (this.userScrolled = true);
+    window.addEventListener("wheel", stop, { passive: true });
+    window.addEventListener("touchmove", stop, { passive: true });
+    window.addEventListener("keydown", (ev) => {
+      if (
+        [
+          "ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " ",
+        ].includes(ev.key)
+      ) {
+        this.userScrolled = true;
+      }
+    });
+  }
 
   // ---------------------------------------------------------------------------
   // Energie
@@ -219,11 +237,17 @@ export class AgentDemoComponent {
     }
   }
 
-  private scrollToEntry(id: number, block: ScrollLogicalPosition = "nearest") {
+  private scrollToEntry(id: number, _block: ScrollLogicalPosition = "nearest") {
+    if (this.userScrolled) return;
     setTimeout(() => {
-      document
-        .getElementById("entry-" + id)
-        ?.scrollIntoView({ behavior: "smooth", block });
+      if (this.userScrolled) return;
+      const el = document.getElementById("entry-" + id);
+      if (!el) return;
+      // Unterkante des Eintrags 200px über dem Fensterrand halten, damit
+      // nachlaufender (gestreamter) Text nicht am unteren Rand abgeschnitten
+      // wird. Nur nach unten scrollen – nie nach oben zurückspringen.
+      const delta = el.getBoundingClientRect().bottom - (window.innerHeight - 200);
+      if (delta > 0) window.scrollBy({ top: delta, behavior: "smooth" });
     }, 60);
   }
 
@@ -233,7 +257,7 @@ export class AgentDemoComponent {
     entry: Entry,
     set: (v: string) => void,
     full: string,
-    perWord = 26
+    perWord = 40
   ) {
     this.zone.run(() => set(""));
     const words = full.split(" ");
@@ -243,7 +267,7 @@ export class AgentDemoComponent {
       const v = acc;
       this.zone.run(() => set(v));
       if (i % 8 === 0) this.scrollToEntry(entry.id, "end");
-      await this.delay(perWord + Math.random() * 20);
+      await this.delay(perWord + Math.random() * 26);
     }
   }
 
@@ -279,6 +303,7 @@ export class AgentDemoComponent {
     this.entries = [];
     this.done = false;
     this.running = true;
+    this.userScrolled = false;
     this.submittedPrompt = this.userPrompt;
     this.totalEnergy = this.emptyEnergy();
     this.totalProQuery = 0;
@@ -331,7 +356,7 @@ export class AgentDemoComponent {
         // Finale Antwort streamen (nach dem Reasoning, falls kein Tool-Call).
         if (fullAnswer !== undefined) {
           await this.delay(300);
-          await this.streamInto(entry, (v) => (entry.answer = v), fullAnswer, 30);
+          await this.streamInto(entry, (v) => (entry.answer = v), fullAnswer, 44);
         } else if (entry.toolCall) {
           await this.delay(350); // kurze Pause, dann wird der Tool-Call emittiert
         }
