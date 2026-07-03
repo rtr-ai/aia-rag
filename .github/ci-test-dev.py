@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 
 MAX_RETRIES = 10
-TIMEOUT = 90
+TIMEOUT = 300
 MAX_TIME = 480
 
 URL = "https://rag.ki.rtr.at/llm-service/chat"
