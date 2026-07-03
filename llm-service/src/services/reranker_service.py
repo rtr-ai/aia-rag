@@ -66,6 +66,9 @@ class RerankerService:
         self.timeout_seconds = int(os.getenv("RERANK_TIMEOUT_SECONDS", "60"))
         self.context_size = int(os.getenv("RERANK_CONTEXT_SIZE", "8192"))
         self.ubatch_size = int(os.getenv("RERANK_UBATCH_SIZE", "512"))
+        self.document_batch_size = max(
+            1, int(os.getenv("RERANK_DOCUMENT_BATCH_SIZE", "4"))
+        )
         self.gpu_layers = int(os.getenv("RERANK_GPU_LAYERS", "0"))
         self.flash_attention = _env_bool("RERANK_FLASH_ATTENTION")
         self.projector: Optional[MLPProjector] = None
@@ -91,24 +94,44 @@ class RerankerService:
 
         self._ensure_ready()
         start = time.perf_counter()
-        prompt = self._format_prompt(query, documents, instruction)
-        embeddings = self._get_hidden_states(prompt)
-        tokens = self._tokenize(prompt)
-        scores = self._score_embeddings(embeddings, tokens)
+        results = []
+        for batch_start in range(0, len(documents), self.document_batch_size):
+            batch_documents = documents[
+                batch_start : batch_start + self.document_batch_size
+            ]
+            batch_scores = self._score_batch(query, batch_documents, instruction)
+            results.extend(
+                RerankResult(
+                    index=batch_start + batch_index,
+                    relevance_score=float(score),
+                )
+                for batch_index, score in enumerate(batch_scores)
+            )
 
-        results = [
-            RerankResult(index=index, relevance_score=float(score))
-            for index, score in enumerate(scores)
-        ]
         results.sort(key=lambda item: item.relevance_score, reverse=True)
         if top_n is not None:
             results = results[:top_n]
 
         LOGGER.debug(
             f"Reranked {len(documents)} candidate chunks to {len(results)} "
-            f"chunks in {time.perf_counter() - start:.2f}s"
+            f"chunks in {time.perf_counter() - start:.2f}s using "
+            f"document batch size {self.document_batch_size}"
         )
         return results
+
+    def _score_batch(
+        self, query: str, documents: List[str], instruction: Optional[str]
+    ) -> np.ndarray:
+        prompt = self._format_prompt(query, documents, instruction)
+        embeddings = self._get_hidden_states(prompt)
+        tokens = self._tokenize(prompt)
+        scores = self._score_embeddings(embeddings, tokens)
+        if len(scores) != len(documents):
+            raise ValueError(
+                f"Reranker produced {len(scores)} scores for "
+                f"{len(documents)} documents"
+            )
+        return scores
 
     def _ensure_ready(self):
         required_paths = [
