@@ -198,14 +198,7 @@ class RerankerService:
             command.append("--flash-attn")
 
         try:
-            result = subprocess.run(
-                command,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                check=True,
-                timeout=self.timeout_seconds,
-            )
+            result = self._run_command(command)
             output = json.loads(result.stdout)
             return np.array([item["embedding"] for item in output["data"]])
         finally:
@@ -219,19 +212,14 @@ class RerankerService:
             prompt_file_path = prompt_file.name
 
         try:
-            result = subprocess.run(
+            result = self._run_command(
                 [
                     self.llama_tokenize_path,
                     "-m",
                     self.model_path,
                     "-f",
                     prompt_file_path,
-                ],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                check=True,
-                timeout=self.timeout_seconds,
+                ]
             )
             tokens = []
             for line in result.stdout.strip().splitlines():
@@ -240,6 +228,29 @@ class RerankerService:
             return tokens
         finally:
             os.unlink(prompt_file_path)
+
+    def _run_command(self, command: List[str]) -> subprocess.CompletedProcess:
+        try:
+            return subprocess.run(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                check=True,
+                timeout=self.timeout_seconds,
+            )
+        except subprocess.CalledProcessError as error:
+            stderr = (error.stderr or "").strip()
+            stdout = (error.stdout or "").strip()
+            detail = stderr or stdout or "no output"
+            raise RuntimeError(
+                f"Reranker command failed with exit code {error.returncode}: {detail}"
+            ) from error
+        except subprocess.TimeoutExpired as error:
+            raise TimeoutError(
+                f"Reranker command timed out after {self.timeout_seconds}s: "
+                + " ".join(command)
+            ) from error
 
     def _score_embeddings(self, embeddings: np.ndarray, tokens: List[int]) -> np.ndarray:
         if self.projector is None:
