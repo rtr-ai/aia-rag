@@ -208,6 +208,7 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
       - RERANK_MODEL_PATH=/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
       - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=60
+      - RERANK_FLASH_ATTENTION=true
       - ORDER_CHUNKS_FROM_SOURCE=true
       - DATASETS={"ai_act_de":"combined.json","ai_act_en":"combined_en_new.json"}
       - SYSTEM_PROMPTS_FILE=system_prompts.json
