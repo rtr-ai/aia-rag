@@ -240,8 +240,8 @@ class RerankerService:
                 timeout=self.timeout_seconds,
             )
         except subprocess.CalledProcessError as error:
-            stderr = (error.stderr or "").strip()
-            stdout = (error.stdout or "").strip()
+            stderr = self._tail_output(error.stderr)
+            stdout = self._tail_output(error.stdout)
             detail = stderr or stdout or "no output"
             raise RuntimeError(
                 f"Reranker command failed with exit code {error.returncode}: {detail}"
@@ -251,6 +251,14 @@ class RerankerService:
                 f"Reranker command timed out after {self.timeout_seconds}s: "
                 + " ".join(command)
             ) from error
+
+    def _tail_output(self, output: Optional[str], max_chars: int = 4000) -> str:
+        if not output:
+            return ""
+        output = output.strip()
+        if len(output) <= max_chars:
+            return output
+        return "... " + output[-max_chars:]
 
     def _score_embeddings(self, embeddings: np.ndarray, tokens: List[int]) -> np.ndarray:
         if self.projector is None:
