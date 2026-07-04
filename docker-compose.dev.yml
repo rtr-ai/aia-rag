@@ -36,9 +36,9 @@ services:
       - CONTEXT_WINDOW=25000
       - PROMPT_BUFFER=4500
       - ROOT_PATH=/llm-service
-      - TOP_N_CHUNKS=5
+      - TOP_N_CHUNKS=25
       - RERANK_ENABLED=true
-      - RERANK_TOP_N=2
+      - RERANK_TOP_N=10
       - RERANK_MODEL_PATH=/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
       - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=60
