@@ -9,8 +9,8 @@ logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', level=loggin
 logger = logging.getLogger(__name__)
 
 MAX_RETRIES = 10
-TIMEOUT = 300
-MAX_TIME = 480
+TIMEOUT = 1300
+MAX_TIME = 1480
 
 URL = "https://rag.ki.rtr.at/llm-service/chat"
 HEADERS = {
