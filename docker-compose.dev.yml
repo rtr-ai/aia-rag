@@ -43,8 +43,12 @@ services:
       - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=60
       - RERANK_FLASH_ATTENTION=true
+<<<<<<< HEAD
       - RERANK_DOCUMENT_BATCH_SIZE=4
       - RERANK_GPU_LAYERS=999
+=======
+      - RERANK_DOCUMENT_BATCH_SIZE=8
+>>>>>>> 48fb1413660b643caa210a6edacc0161567982f3
       - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
       - MATOMO_TOKEN=${MATOMO_TOKEN}
       - MATOMO_SITE_ID=${MATOMO_SITE_ID}
