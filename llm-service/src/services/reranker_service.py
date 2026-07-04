@@ -64,7 +64,7 @@ class RerankerService:
             "RERANK_LLAMA_TOKENIZE_PATH", "/usr/local/bin/llama-tokenize"
         )
         self.timeout_seconds = int(os.getenv("RERANK_TIMEOUT_SECONDS", "60"))
-        self.context_size = int(os.getenv("RERANK_CONTEXT_SIZE", "8192"))
+        self.context_size = int(os.getenv("RERANK_CONTEXT_SIZE", "20000"))
         self.ubatch_size = int(os.getenv("RERANK_UBATCH_SIZE", "512"))
         self.document_batch_size = max(
             1, int(os.getenv("RERANK_DOCUMENT_BATCH_SIZE", "4"))
