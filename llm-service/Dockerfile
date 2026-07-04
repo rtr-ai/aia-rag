@@ -11,6 +11,12 @@ RUN apt-get update \
         git \
     && rm -rf /var/lib/apt/lists/*
 
+RUN CUDA_STUB_DIR="$(dirname "$(find /usr/local/cuda -path '*/stubs/libcuda.so' -print -quit)")" \
+    && test -n "${CUDA_STUB_DIR}" \
+    && ln -sf "${CUDA_STUB_DIR}/libcuda.so" "${CUDA_STUB_DIR}/libcuda.so.1"
+
+ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs:/usr/local/cuda/targets/x86_64-linux/lib/stubs
+
 RUN git clone --depth 1 --branch ${LLAMA_CPP_REF} ${LLAMA_CPP_REPO} /tmp/llama.cpp
 
 RUN cmake -S /tmp/llama.cpp -B /tmp/llama.cpp/build -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF -DGGML_CUDA=ON \
