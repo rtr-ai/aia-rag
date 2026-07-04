@@ -10,6 +10,9 @@ class RelevantChunk(BaseModel):
     score: Optional[float] = None
     retrieval_score: Optional[float] = None
     rerank_score: Optional[float] = None
+    retrieval_position: Optional[int] = None
+    rerank_position: Optional[int] = None
+    vector_retrieval_position: Optional[int] = None
     skip: bool
     position: int
     skip_reason: str = ""
@@ -20,6 +23,9 @@ class Source(BaseModel):
     score: float
     retrieval_score: Optional[float] = None
     rerank_score: Optional[float] = None
+    retrieval_position: Optional[int] = None
+    rerank_position: Optional[int] = None
+    vector_retrieval_position: Optional[int] = None
     title: str = ""
     relevantChunks: List[RelevantChunk] = []
     num_tokens: int

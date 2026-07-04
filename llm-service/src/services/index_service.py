@@ -157,7 +157,7 @@ class IndexService:
         similarities = self.cosine_similarity(query_vector, vectors)
         top_n_indices = np.argsort(similarities)[-top_n:][::-1]
 
-        def get_related_chunks(chunk):
+        def get_related_chunks(chunk, vector_retrieval_position: int):
             related_ids = chunk.get("relevantChunksIds", [])
             return [
                 {
@@ -183,23 +183,30 @@ class IndexService:
                             "",
                         )
                     ),
+                    "vector_retrieval_position": vector_retrieval_position,
                 }
                 for related_id in related_ids
             ]
 
-        return [
-            {
-                **chunks_vector[i],
-                "score": similarities[i],
-                "id": chunks_vector[i].get("id"),
-                "title": chunks_vector[i].get("title"),
-                "relevantChunks": get_related_chunks(chunks_vector[i]),
-                "num_tokens": self.tokenizer_service.count_tokens(
-                    chunks_vector[i].get("content")
-                ),
-            }
-            for i in top_n_indices
-        ]
+        top_chunks = []
+        for retrieval_position, index in enumerate(top_n_indices, start=1):
+            top_chunks.append(
+                {
+                    **chunks_vector[index],
+                    "score": similarities[index],
+                    "id": chunks_vector[index].get("id"),
+                    "title": chunks_vector[index].get("title"),
+                    "retrieval_position": retrieval_position,
+                    "vector_retrieval_position": retrieval_position,
+                    "relevantChunks": get_related_chunks(
+                        chunks_vector[index], retrieval_position
+                    ),
+                    "num_tokens": self.tokenizer_service.count_tokens(
+                        chunks_vector[index].get("content")
+                    ),
+                }
+            )
+        return top_chunks
 
     def _build_rerank_candidates(self, top_chunks: List[dict]) -> List[dict]:
         candidates = []
@@ -212,6 +219,7 @@ class IndexService:
                 return
 
             added_chunk_ids.add(chunk_id)
+            retrieval_position = len(candidates) + 1
             candidates.append(
                 {
                     "id": chunk_id,
@@ -222,6 +230,10 @@ class IndexService:
                     or self.tokenizer_service.count_tokens(content),
                     "score": float(retrieval_score),
                     "retrieval_score": float(retrieval_score),
+                    "retrieval_position": retrieval_position,
+                    "vector_retrieval_position": chunk.get(
+                        "vector_retrieval_position"
+                    ),
                     "relevantChunks": [],
                 }
             )
@@ -267,9 +279,10 @@ class IndexService:
                 top_n=RERANK_TOP_N,
             )
             reranked_chunks = []
-            for result in reranked_results:
+            for rerank_position, result in enumerate(reranked_results, start=1):
                 chunk = dict(candidates[result.index])
                 chunk["rerank_score"] = result.relevance_score
+                chunk["rerank_position"] = rerank_position
                 chunk["score"] = result.relevance_score
                 chunk["relevantChunks"] = []
                 reranked_chunks.append(chunk)
@@ -318,6 +331,9 @@ class IndexService:
                 score=float(chunk["score"]),
                 retrieval_score=chunk.get("retrieval_score"),
                 rerank_score=chunk.get("rerank_score"),
+                retrieval_position=chunk.get("retrieval_position"),
+                rerank_position=chunk.get("rerank_position"),
+                vector_retrieval_position=chunk.get("vector_retrieval_position"),
                 title=chunk["title"],
                 relevantChunks=[],
                 num_tokens=chunk_tokens,
@@ -356,6 +372,11 @@ class IndexService:
                         score=relevant_chunk.get("score"),
                         retrieval_score=relevant_chunk.get("retrieval_score"),
                         rerank_score=relevant_chunk.get("rerank_score"),
+                        retrieval_position=relevant_chunk.get("retrieval_position"),
+                        rerank_position=relevant_chunk.get("rerank_position"),
+                        vector_retrieval_position=relevant_chunk.get(
+                            "vector_retrieval_position"
+                        ),
                         skip=relevant_skipped,
                         skip_reason=relevant_skip_reason,
                         position=relevant_chunk["position"],

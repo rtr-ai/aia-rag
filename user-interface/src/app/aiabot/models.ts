@@ -16,11 +16,24 @@ interface RelevantSource {
   title: string;
   content: string;
   num_tokens: number;
+  score?: number;
+  retrieval_score?: number;
+  rerank_score?: number;
+  retrieval_position?: number;
+  rerank_position?: number;
+  vector_retrieval_position?: number;
+  position?: number;
   skip: boolean;
   skip_reason: "context_window" | "duplicate";
 }
 export interface Source {
   score: number;
+  retrieval_score?: number;
+  rerank_score?: number;
+  retrieval_position?: number;
+  rerank_position?: number;
+  vector_retrieval_position?: number;
+  position?: number;
   content: string;
   title?: string;
   relevantChunks: RelevantSource[];
