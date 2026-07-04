@@ -13,7 +13,10 @@ RUN apt-get update \
 
 RUN CUDA_STUB_DIR="$(dirname "$(find /usr/local/cuda -path '*/stubs/libcuda.so' -print -quit)")" \
     && test -n "${CUDA_STUB_DIR}" \
-    && ln -sf "${CUDA_STUB_DIR}/libcuda.so" "${CUDA_STUB_DIR}/libcuda.so.1"
+    && ln -sf "${CUDA_STUB_DIR}/libcuda.so" "${CUDA_STUB_DIR}/libcuda.so.1" \
+    && ln -sf "${CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so \
+    && ln -sf "${CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so.1 \
+    && ldconfig
 
 ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs:/usr/local/cuda/targets/x86_64-linux/lib/stubs
 
