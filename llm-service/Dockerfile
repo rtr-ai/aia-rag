@@ -11,18 +11,27 @@ RUN apt-get update \
         git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN CUDA_STUB_DIR="$(dirname "$(find /usr/local/cuda -path '*/stubs/libcuda.so' -print -quit)")" \
-    && test -n "${CUDA_STUB_DIR}" \
-    && ln -sf "${CUDA_STUB_DIR}/libcuda.so" "${CUDA_STUB_DIR}/libcuda.so.1" \
-    && ln -sf "${CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so \
-    && ln -sf "${CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so.1 \
+RUN DISCOVERED_CUDA_STUB_DIR="$(dirname "$(find /usr/local/cuda -path '*/stubs/libcuda.so' -print -quit)")" \
+    && test -n "${DISCOVERED_CUDA_STUB_DIR}" \
+    && mkdir -p /usr/local/cuda/lib64/stubs \
+    && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/local/cuda/lib64/stubs/libcuda.so \
+    && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/local/cuda/lib64/stubs/libcuda.so.1 \
+    && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so \
+    && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so.1 \
     && ldconfig
 
-ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs:/usr/local/cuda/targets/x86_64-linux/lib/stubs
+ENV CUDA_STUB_DIR=/usr/local/cuda/lib64/stubs
+ENV LIBRARY_PATH=${CUDA_STUB_DIR}
+ENV LD_LIBRARY_PATH=${CUDA_STUB_DIR}
 
 RUN git clone --depth 1 --branch ${LLAMA_CPP_REF} ${LLAMA_CPP_REPO} /tmp/llama.cpp
 
-RUN cmake -S /tmp/llama.cpp -B /tmp/llama.cpp/build -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF -DGGML_CUDA=ON \
+RUN cmake -S /tmp/llama.cpp -B /tmp/llama.cpp/build \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DLLAMA_CURL=OFF \
+        -DGGML_CUDA=ON \
+        -DCMAKE_EXE_LINKER_FLAGS="-L${CUDA_STUB_DIR} -Wl,-rpath-link,${CUDA_STUB_DIR}" \
+        -DCMAKE_SHARED_LINKER_FLAGS="-L${CUDA_STUB_DIR} -Wl,-rpath-link,${CUDA_STUB_DIR}" \
     && cmake --build /tmp/llama.cpp/build --target llama-embedding llama-tokenize -j "$(nproc)"
 
 RUN mkdir -p /tmp/llama-libs \
