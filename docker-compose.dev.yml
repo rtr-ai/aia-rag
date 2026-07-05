@@ -43,7 +43,7 @@ services:
       - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
-      - RERANK_DOCUMENT_BATCH_SIZE=8
+      - RERANK_DOCUMENT_BATCH_SIZE=16
       - RERANK_GPU_LAYERS=999
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
