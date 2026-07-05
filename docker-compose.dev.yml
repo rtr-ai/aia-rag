@@ -41,10 +41,12 @@ services:
       - RERANK_TOP_N=10
       - RERANK_MODEL_PATH=/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
       - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
-      - RERANK_TIMEOUT_SECONDS=60
+      - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
       - RERANK_DOCUMENT_BATCH_SIZE=8
       - RERANK_GPU_LAYERS=999
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
       - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
       - MATOMO_TOKEN=${MATOMO_TOKEN}
       - MATOMO_SITE_ID=${MATOMO_SITE_ID}
@@ -70,6 +72,7 @@ services:
       - /dev/nvidiactl:/dev/nvidiactl
       - /dev/nvidia-modeset:/dev/nvidia-modeset
       - /dev/nvidia-uvm:/dev/nvidia-uvm
+    gpus: all
     networks:
       - ollama-docker
     # depends_on:
