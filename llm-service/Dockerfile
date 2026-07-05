@@ -13,16 +13,14 @@ RUN apt-get update \
 
 RUN DISCOVERED_CUDA_STUB_DIR="$(dirname "$(find /usr/local/cuda -path '*/stubs/libcuda.so' -print -quit)")" \
     && test -n "${DISCOVERED_CUDA_STUB_DIR}" \
-    && mkdir -p /usr/local/cuda/lib64/stubs \
-    && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/local/cuda/lib64/stubs/libcuda.so \
-    && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/local/cuda/lib64/stubs/libcuda.so.1 \
+    && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so.1" \
     && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so \
     && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so.1 \
     && ldconfig
 
-ENV CUDA_STUB_DIR=/usr/local/cuda/lib64/stubs
-ENV LIBRARY_PATH=${CUDA_STUB_DIR}
-ENV LD_LIBRARY_PATH=${CUDA_STUB_DIR}
+ENV CUDA_STUB_DIR=/usr/local/cuda/targets/x86_64-linux/lib/stubs
+ENV LIBRARY_PATH=${CUDA_STUB_DIR}:/usr/local/cuda/lib64/stubs
+ENV LD_LIBRARY_PATH=${CUDA_STUB_DIR}:/usr/local/cuda/lib64/stubs
 
 RUN git clone --depth 1 --branch ${LLAMA_CPP_REF} ${LLAMA_CPP_REPO} /tmp/llama.cpp
 
