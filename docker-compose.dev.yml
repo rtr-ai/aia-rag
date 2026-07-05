@@ -41,7 +41,7 @@ services:
       - RERANK_TOP_N=10
       - RERANK_MODEL_PATH=/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
       - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
-      - RERANK_TIMEOUT_SECONDS=300
+      - RERANK_TIMEOUT_SECONDS=10
       - RERANK_FLASH_ATTENTION=true
       - RERANK_DOCUMENT_BATCH_SIZE=16
       - RERANK_GPU_LAYERS=999
