@@ -14,6 +14,7 @@ RUN apt-get update \
 RUN DISCOVERED_CUDA_STUB_DIR="$(dirname "$(find /usr/local/cuda -path '*/stubs/libcuda.so' -print -quit)")" \
     && test -n "${DISCOVERED_CUDA_STUB_DIR}" \
     && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so.1" \
+    && if [ -f /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so ]; then ln -sf /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so.1; fi \
     && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so \
     && ln -sf "${DISCOVERED_CUDA_STUB_DIR}/libcuda.so" /usr/lib/x86_64-linux-gnu/libcuda.so.1 \
     && ldconfig
@@ -28,8 +29,8 @@ RUN cmake -S /tmp/llama.cpp -B /tmp/llama.cpp/build \
         -DCMAKE_BUILD_TYPE=Release \
         -DLLAMA_CURL=OFF \
         -DGGML_CUDA=ON \
-        -DCMAKE_EXE_LINKER_FLAGS="-L${CUDA_STUB_DIR} -Wl,-rpath-link,${CUDA_STUB_DIR}" \
-        -DCMAKE_SHARED_LINKER_FLAGS="-L${CUDA_STUB_DIR} -Wl,-rpath-link,${CUDA_STUB_DIR}" \
+        -DCMAKE_EXE_LINKER_FLAGS="-L${CUDA_STUB_DIR} -Wl,-rpath-link,${CUDA_STUB_DIR} -lcuda" \
+        -DCMAKE_SHARED_LINKER_FLAGS="-L${CUDA_STUB_DIR} -Wl,-rpath-link,${CUDA_STUB_DIR} -lcuda" \
     && cmake --build /tmp/llama.cpp/build --target llama-embedding llama-tokenize -j "$(nproc)"
 
 RUN mkdir -p /tmp/llama-libs \
