@@ -270,7 +270,7 @@
                   }
                 }
 
-                @if (e.energy) {
+                @if (e.energy && e.status === "done") {
                   <div class="step-energy">
                     <span uk-icon="bolt"></span> LLM-Aufruf:
                     {{ formatKWh(e.energy.total_kWh) }}&nbsp;kWh ·
@@ -485,7 +485,7 @@
                   <pre class="raw-block">{{ e.resultText }}</pre>
                 }
 
-                @if (e.energy) {
+                @if (e.energy && e.status === "done") {
                   <div class="step-energy">
                     <span uk-icon="bolt"></span>
                     @if (e.llmGenerates) { Werkzeug (inkl. eigenem LLM-Aufruf): }
