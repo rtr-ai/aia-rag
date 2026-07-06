@@ -18,6 +18,10 @@ def _env_bool(name: str, default: str = "false") -> bool:
     return TypeAdapter(bool).validate_python(os.getenv(name, default))
 
 
+def _env_list(name: str) -> List[str]:
+    return [item.strip() for item in os.getenv(name, "").split(",") if item.strip()]
+
+
 @dataclass
 class RerankResult:
     index: int
@@ -49,10 +53,12 @@ class RerankerService:
             return
 
         self.enabled = _env_bool("RERANK_ENABLED")
-        self.model_path = os.getenv(
-            "RERANK_MODEL_PATH",
-            "/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf",
+        self.model_paths = (
+            _env_list("RERANK_MODEL_PATHS")
+            or _env_list("RERANK_MODEL_PATH")
+            or ["/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf"]
         )
+        self.model_path = self.model_paths[0]
         self.projector_path = os.getenv(
             "RERANK_PROJECTOR_PATH",
             "/app/models/reranker/projector.safetensors",
@@ -92,32 +98,47 @@ class RerankerService:
         if not documents:
             return []
 
-        self._ensure_ready()
         start = time.perf_counter()
-        results = []
-        for batch_start in range(0, len(documents), self.document_batch_size):
-            batch_documents = documents[
-                batch_start : batch_start + self.document_batch_size
-            ]
-            batch_scores = self._score_batch(query, batch_documents, instruction)
-            results.extend(
-                RerankResult(
-                    index=batch_start + batch_index,
-                    relevance_score=float(score),
+        last_error: Optional[Exception] = None
+        for model_path in self.model_paths:
+            try:
+                self.model_path = model_path
+                self._ensure_ready()
+                results = []
+                for batch_start in range(0, len(documents), self.document_batch_size):
+                    batch_documents = documents[
+                        batch_start : batch_start + self.document_batch_size
+                    ]
+                    batch_scores = self._score_batch(
+                        query, batch_documents, instruction
+                    )
+                    results.extend(
+                        RerankResult(
+                            index=batch_start + batch_index,
+                            relevance_score=float(score),
+                        )
+                        for batch_index, score in enumerate(batch_scores)
+                    )
+
+                results.sort(key=lambda item: item.relevance_score, reverse=True)
+                if top_n is not None:
+                    results = results[:top_n]
+
+                LOGGER.debug(
+                    f"Reranked {len(documents)} candidate chunks to {len(results)} "
+                    f"chunks in {time.perf_counter() - start:.2f}s using "
+                    f"model <{model_path}> and document batch size "
+                    f"{self.document_batch_size}"
                 )
-                for batch_index, score in enumerate(batch_scores)
-            )
+                return results
+            except Exception as e:
+                last_error = e
+                LOGGER.error(
+                    f"Reranker model <{model_path}> failed, trying next "
+                    f"configured model if available: {e}"
+                )
 
-        results.sort(key=lambda item: item.relevance_score, reverse=True)
-        if top_n is not None:
-            results = results[:top_n]
-
-        LOGGER.debug(
-            f"Reranked {len(documents)} candidate chunks to {len(results)} "
-            f"chunks in {time.perf_counter() - start:.2f}s using "
-            f"document batch size {self.document_batch_size}"
-        )
-        return results
+        raise RuntimeError("All configured reranker models failed") from last_error
 
     def _score_batch(
         self, query: str, documents: List[str], instruction: Optional[str]
