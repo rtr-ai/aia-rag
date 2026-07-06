@@ -453,3 +453,160 @@ code {
 .table-container {
   overflow-x: auto;
 }
+
+// --- Agent-Loop: Kreislauf-Diagramm ---
+.loop-figure {
+  margin: 12px 0 4px;
+  svg {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+  }
+}
+.loop-node {
+  fill: #fff;
+  stroke: #b9c4ae;
+  stroke-width: 1.5;
+}
+.loop-node.loop-active {
+  stroke: $green;
+  stroke-width: 2.5;
+  animation: loop-pulse 1.2s ease-in-out infinite;
+}
+.loop-node.loop-still {
+  animation: none;
+  fill: #eef7e6;
+}
+@keyframes loop-pulse {
+  0%,
+  100% {
+    fill: #fff;
+  }
+  50% {
+    fill: #eef7e6;
+  }
+}
+.loop-label {
+  font-size: 14px;
+  fill: #333;
+}
+.loop-round {
+  font-size: 13px;
+  font-weight: 700;
+  fill: $green;
+}
+.loop-edge {
+  fill: none;
+  stroke: #9aa5b1;
+  stroke-width: 1.5;
+}
+.loop-edge-active {
+  stroke: $green;
+  stroke-width: 2.5;
+}
+.loop-edge-label {
+  font-size: 12px;
+  fill: #667;
+}
+.loop-arr {
+  fill: #9aa5b1;
+}
+
+// --- Agent-Loop: sticky Verlaufs-Leiste ---
+.loop-chips {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fff;
+  border-bottom: 1px solid #e2e6de;
+  padding: 6px 0;
+  margin-bottom: 14px;
+}
+// Ab @l ist der Seiten-Header sticky (70px hoch) – darunter andocken.
+@media (min-width: 1200px) {
+  .loop-chips {
+    top: 70px;
+  }
+}
+.loop-chips-round {
+  flex: 0 0 auto;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $green;
+  white-space: nowrap;
+  padding-top: 4px;
+}
+.loop-chips-scroll {
+  display: flex;
+  flex-wrap: wrap; // Zeilenumbruch statt horizontalem Scrollen
+  align-items: center;
+  gap: 5px;
+  row-gap: 6px;
+}
+.chip {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 5px 9px;
+  border-radius: 12px;
+  border: 1px solid #d5ddcc;
+  background: #f4f6f1;
+  color: #444;
+  cursor: pointer;
+  &:hover {
+    border-color: $green;
+    color: $green;
+    text-decoration: none;
+  }
+}
+.chip-llm {
+  background: #eef7e6;
+  border-color: #cfe3ba;
+  color: $green;
+  font-weight: 600;
+}
+.chip-final {
+  background: $green;
+  border-color: $green;
+  color: #fff;
+  font-weight: 600;
+  &:hover {
+    color: #fff;
+  }
+}
+.chip-error {
+  background: #fdf2f2;
+  border-color: #e3b8b6;
+  color: #b52b27;
+}
+.chip-running {
+  animation: chip-pulse 1s ease-in-out infinite;
+}
+@keyframes chip-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+.chip-sep {
+  flex: 0 0 auto;
+  color: #9aa5b1;
+  font-size: 0.75rem;
+}
+
+// Sprungziel nicht von der sticky Leiste (und ab @l dem Header) überdecken lassen
+.msg {
+  scroll-margin-top: 80px;
+}
+@media (min-width: 1200px) {
+  .msg {
+    scroll-margin-top: 150px;
+  }
+}

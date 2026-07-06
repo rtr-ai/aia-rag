@@ -237,6 +237,58 @@ export class AgentDemoComponent {
     }
   }
 
+  // ---------------------------------------------------------------------------
+  // Loop-Visualisierung (Kreislauf-Diagramm + sticky Verlaufs-Leiste)
+  // ---------------------------------------------------------------------------
+  // Wievielte Runde des Agenten-Loops läuft gerade (= Anzahl LLM-Aufrufe).
+  get roundCount(): number {
+    return this.entries.filter((e) => e.kind === "llm").length;
+  }
+  // Die Schritte des Laufs als Chips (nur LLM- und Tool-Einträge).
+  get chips(): Entry[] {
+    return this.entries.filter((e) => e.kind === "llm" || e.kind === "tool");
+  }
+  // Welcher Knoten/welche Kante des Kreislauf-Diagramms gerade aktiv ist –
+  // vollständig aus dem Nachrichten-Verlauf abgeleitet.
+  get loopActive(): { node: string; edge: string } {
+    if (this.done) return { node: "antwort", edge: "nein" };
+    const e = this.entries[this.entries.length - 1];
+    if (!e || !this.running || e.status !== "running") return { node: "", edge: "" };
+    if (e.kind === "tool") return { node: "tool", edge: "zurueck" };
+    // System-/User-Nachricht: Der erste LLM-Aufruf wird gerade vorbereitet.
+    if (e.kind !== "llm") return { node: "llm", edge: "" };
+    if (e.reasoningDone) {
+      return e.toolCall
+        ? { node: "llm", edge: "ja" }
+        : { node: "antwort", edge: "nein" };
+    }
+    return { node: "llm", edge: "" };
+  }
+  chipLabel(e: Entry): string {
+    if (e.kind === "llm") return e.toolCall ? "LLM" : "✓ Antwort";
+    const short: Record<string, string> = {
+      suche_leitlinien_praxisleitfaeden: "suche_leitlinien…",
+    };
+    const name = short[e.toolName!] ?? e.toolName;
+    return name + "()" + (e.isError ? " ✗" : "");
+  }
+  chipClass(e: Entry): string {
+    const cls: string[] = [];
+    if (e.kind === "llm") cls.push(e.toolCall ? "chip-llm" : "chip-final");
+    else cls.push("chip-tool");
+    if (e.isError) cls.push("chip-error");
+    if (e.status === "running") cls.push("chip-running");
+    return cls.join(" ");
+  }
+  // Klick auf einen Chip: zum Eintrag springen. Das ist eine bewusste
+  // Navigation – danach kein automatisches Mitscrollen mehr.
+  jumpTo(id: number) {
+    this.userScrolled = true;
+    document
+      .getElementById("entry-" + id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   private scrollToEntry(id: number, _block: ScrollLogicalPosition = "nearest") {
     if (this.userScrolled) return;
     setTimeout(() => {
@@ -365,6 +417,10 @@ export class AgentDemoComponent {
         } else {
           await this.delay(1100); // Ausführungszeit des Werkzeugs
         }
+      } else if (this.roundCount === 1) {
+        // Vor der allerersten LLM-Runde bewusst länger warten, damit
+        // Anwender:innen Zeit haben, das Kreislauf-Diagramm zu lesen.
+        await this.delay(4500);
       } else {
         await this.delay(900); // „Denkzeit“ vor dem Reasoning
       }
@@ -540,6 +596,7 @@ export class AgentDemoComponent {
         kind: "tool",
         toolName: "definition",
         callIndex: 1,
+        isError: true,
         argsJson: '{ "begriff": "Emotionserkennung" }',
         resultText:
           "FEHLER: Für „Emotionserkennung“ ist keine Legaldefinition " +

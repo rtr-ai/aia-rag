@@ -86,6 +86,7 @@ export interface Entry {
   argsJson?: string; // Echo der ausgeführten Argumente
   callIndex?: number; // Wievielter Aufruf dieses Tools (max. 3 erlaubt)
   resultText?: string; // ROH-Ausgabe, exakt so wie sie dem Modell übergeben wird
+  isError?: boolean; // Werkzeug meldet einen Fehler (z. B. unbekannter Begriff)
   sources?: RetrievedSource[]; // strukturierte Trefferliste (für Visualisierung)
   rerankerApplied?: boolean;
   subSteps?: SubStep[];

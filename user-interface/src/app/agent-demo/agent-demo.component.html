@@ -53,6 +53,97 @@
         weiteres Werkzeug aufruft oder final antwortet.
       </p>
 
+      <!-- Kreislauf-Diagramm: das Konzept des Agenten-Loops. Der aktive
+           Knoten pulsiert; alles wird aus dem Nachrichten-Verlauf abgeleitet. -->
+      <div class="loop-figure">
+        <svg viewBox="0 0 760 224" role="img" aria-label="Kreislauf des Agenten: LLM liest den Verlauf, ruft ggf. ein Werkzeug auf, dessen Ergebnis an den Verlauf angehängt wird – bis keine Tool-Calls mehr folgen und die finale Antwort erzeugt wird.">
+          <defs>
+            <marker id="loopArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path class="loop-arr" d="M0,0 L10,5 L0,10 z"></path>
+            </marker>
+          </defs>
+
+          <!-- Rückführung: Ergebnis → Verlauf -->
+          <path
+            class="loop-edge"
+            [class.loop-edge-active]="loopActive.edge === 'zurueck'"
+            d="M620,70 V30 H130 V66"
+            marker-end="url(#loopArr)"
+          ></path>
+          <text class="loop-edge-label" x="375" y="22" text-anchor="middle">
+            Ergebnis wird an den Verlauf angehängt
+          </text>
+
+          <!-- LLM -->
+          <rect
+            class="loop-node"
+            [class.loop-active]="loopActive.node === 'llm'"
+            x="30" y="70" width="200" height="66" rx="8"
+          ></rect>
+          <text class="loop-label" x="130" y="97" text-anchor="middle">LLM liest den</text>
+          <text class="loop-label" x="130" y="117" text-anchor="middle">gesamten Verlauf</text>
+          @if (roundCount > 0) {
+            <text class="loop-round" x="130" y="160" text-anchor="middle">Runde {{ roundCount }}</text>
+          }
+
+          <!-- Entscheidung -->
+          <path class="loop-edge" d="M230,103 H286" marker-end="url(#loopArr)"></path>
+          <rect class="loop-node loop-node-decision" x="290" y="82" width="130" height="42" rx="21"></rect>
+          <text class="loop-label" x="355" y="108" text-anchor="middle">Tool-Call?</text>
+
+          <!-- ja → Werkzeug -->
+          <path
+            class="loop-edge"
+            [class.loop-edge-active]="loopActive.edge === 'ja'"
+            d="M420,103 H516"
+            marker-end="url(#loopArr)"
+          ></path>
+          <text class="loop-edge-label" x="468" y="94" text-anchor="middle">ja</text>
+          <rect
+            class="loop-node"
+            [class.loop-active]="loopActive.node === 'tool'"
+            x="520" y="70" width="200" height="66" rx="8"
+          ></rect>
+          <text class="loop-label" x="620" y="108" text-anchor="middle">⚙ Werkzeug läuft</text>
+
+          <!-- nein → finale Antwort -->
+          <path
+            class="loop-edge"
+            [class.loop-edge-active]="loopActive.edge === 'nein'"
+            d="M355,124 V166"
+            marker-end="url(#loopArr)"
+          ></path>
+          <text class="loop-edge-label" x="363" y="150">nein</text>
+          <rect
+            class="loop-node"
+            [class.loop-active]="loopActive.node === 'antwort'"
+            [class.loop-still]="done"
+            x="262" y="170" width="186" height="40" rx="8"
+          ></rect>
+          <text class="loop-label" x="355" y="195" text-anchor="middle">✓ finale Antwort</text>
+        </svg>
+      </div>
+
+      <!-- Sticky Verlaufs-Leiste: Chips je Schritt, Klick springt zum Eintrag -->
+      @if (running || chips.length > 0) {
+        <div class="loop-chips">
+          <span class="loop-chips-round">
+            @if (running) { Runde {{ roundCount || 1 }} } @else { {{ roundCount }} Runden }
+          </span>
+          <div class="loop-chips-scroll">
+            @for (c of chips; track c.id; let first = $first) {
+              @if (!first) { <span class="chip-sep">→</span> }
+              <span class="chip" [ngClass]="chipClass(c)" (click)="jumpTo(c.id)">{{ chipLabel(c) }}</span>
+            }
+            @if (chips.length === 0) {
+              <!-- Der erste LLM-Aufruf wird gerade vorbereitet -->
+              <span class="chip chip-llm chip-running">LLM</span>
+            }
+            @if (running) { <span class="chip-sep">…</span> }
+          </div>
+        </div>
+      }
+
       <div class="transcript">
         @for (e of entries; track e.id; let idx = $index) {
           <div
