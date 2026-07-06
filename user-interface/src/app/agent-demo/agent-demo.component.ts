@@ -333,6 +333,19 @@ export class AgentDemoComponent {
       if (entry.kind === "llm" && fullReasoning) entry.reasoning = "";
       if (streamAnswer) entry.answer = "";
       if (streamResult) entry.resultText = "";
+      // Plain-Tools (ohne eigenen LLM-Aufruf): Die Rückgabe erscheint erst nach
+      // der Ausführungszeit – nicht schon, während der Loader noch läuft.
+      const plainResult =
+        entry.kind === "tool" && !entry.llmGenerates && !!entry.resultText;
+      const fullPlainResult = plainResult ? entry.resultText : undefined;
+      if (plainResult) entry.resultText = "";
+      // Interne Teilschritte (z. B. Retrieve-Pipeline) werden nacheinander
+      // aufgedeckt, damit die Reihenfolge der Pipeline erlebbar wird.
+      const fullSubSteps =
+        entry.kind === "tool" && entry.subSteps && entry.subSteps.length > 0
+          ? entry.subSteps
+          : undefined;
+      if (fullSubSteps) entry.subSteps = [];
 
       this.zone.run(() => this.entries.push(entry));
       this.scrollToEntry(entry.id);
@@ -340,7 +353,18 @@ export class AgentDemoComponent {
       if (entry.kind === "system" || entry.kind === "user") {
         await this.delay(800);
       } else if (entry.kind === "tool") {
-        await this.delay(1100); // Retrieve/Augment-Phase, bevor das LLM antwortet
+        if (fullSubSteps) {
+          // Pipeline-Teilschritte einzeln aufdecken (Retrieve → … → Reranking).
+          await this.delay(600);
+          for (const sub of fullSubSteps) {
+            this.zone.run(() => entry.subSteps!.push(sub));
+            this.scrollToEntry(entry.id, "end");
+            await this.delay(750);
+          }
+          await this.delay(400);
+        } else {
+          await this.delay(1100); // Ausführungszeit des Werkzeugs
+        }
       } else {
         await this.delay(900); // „Denkzeit“ vor dem Reasoning
       }
@@ -363,6 +387,10 @@ export class AgentDemoComponent {
       } else if (fullResult !== undefined) {
         // Werkzeuge mit eigenem LLM-Aufruf: Rückgabe Token für Token streamen.
         await this.streamInto(entry, (v) => (entry.resultText = v), fullResult);
+      } else if (fullPlainResult !== undefined) {
+        // Kein LLM beteiligt: Die Rückgabe erscheint auf einen Schlag.
+        this.zone.run(() => (entry.resultText = fullPlainResult));
+        this.scrollToEntry(entry.id, "end");
       }
 
       this.zone.run(() => {
@@ -379,9 +407,14 @@ export class AgentDemoComponent {
 
   // ---------------------------------------------------------------------------
   // Fest hinterlegter Nachrichten-Verlauf für die Beispielfrage.
-  // 6 LLM-Aufrufe (5 mit Tool-Call, 1 mit finaler Antwort) + 5 Tool-Ergebnisse.
+  // 8 LLM-Aufrufe (7 mit Tool-Call, 1 mit finaler Antwort) + 7 Tool-Ergebnisse.
+  // Die Energie der LLM-Aufrufe steigt mit dem wachsenden Kontext (Prefill).
   // ---------------------------------------------------------------------------
   private buildScript(): Partial<Entry>[] {
+    // heute() liefert das echte aktuelle Datum – auch im deterministischen Replay.
+    const heuteDatum = new Intl.DateTimeFormat("de-AT", {
+      dateStyle: "full",
+    }).format(new Date());
     return [
       // System-Nachricht (inkl. mitgeschickter Tool-Definitionen)
       {
@@ -421,7 +454,7 @@ export class AgentDemoComponent {
           argsJson:
             '{ "suchbegriff": "Mitarbeiter mit KI über Webcam überwachen Stimmung erkennen Arbeitsplatz" }',
         },
-        energy: this.energy(0.000018, 0.000069, 0.000005, 1.8),
+        energy: this.energy(0.000016, 0.000058, 0.000004, 1.5),
       },
       {
         kind: "tool",
@@ -482,7 +515,8 @@ export class AgentDemoComponent {
         energy: this.energy(0.000071, 0.001034, 0.000021, 6.2),
       },
 
-      // --- LLM-Aufruf 2: erkennt aus den Treffern das Emotions-Thema, holt die Definition ---
+      // --- LLM-Aufruf 2: erkennt aus den Treffern das Emotions-Thema, holt die
+      // Definition – zunächst mit dem umgangssprachlichen (falschen) Begriff ---
       {
         kind: "llm",
         contextMessages: 4,
@@ -490,19 +524,53 @@ export class AgentDemoComponent {
         reasoning:
           "Die Suche bringt es an die Oberfläche: Im Zentrum steht Art. 5 Abs. 1 " +
           "lit. f – das Ableiten von Emotionen am Arbeitsplatz. Mein Vorhaben " +
-          "(die „Laune“ über die Webcam erkennen) klingt nach einem " +
-          "„Emotionserkennungssystem“. Ob es darunter fällt, hängt am genauen " +
-          "Begriff – ich hole die Definition.",
+          "(die „Laune“ über die Webcam erkennen) klingt nach " +
+          "„Emotionserkennung“. Ob es unter das Verbot fällt, hängt am genauen " +
+          "Rechtsbegriff – ich hole die Definition.",
         toolCall: {
           name: "definition",
-          argsJson: '{ "begriff": "Emotionserkennungssystem" }',
+          argsJson: '{ "begriff": "Emotionserkennung" }',
         },
-        energy: this.energy(0.000016, 0.000061, 0.000004, 1.6),
+        energy: this.energy(0.000017, 0.000064, 0.000005, 1.7),
       },
+      // Erster Aufruf schlägt fehl: Der Begriff ist nicht in der Liste. Das
+      // Werkzeug antwortet – wie spezifiziert – mit Fehler + Begriffsliste,
+      // sodass sich das Modell selbst korrigieren kann.
       {
         kind: "tool",
         toolName: "definition",
         callIndex: 1,
+        argsJson: '{ "begriff": "Emotionserkennung" }',
+        resultText:
+          "FEHLER: Für „Emotionserkennung“ ist keine Legaldefinition " +
+          "hinterlegt.\n\nVerfügbare Begriffe (" +
+          this.definedTerms.length +
+          "): " +
+          this.definedTerms.join(", "),
+        energy: this.energy(0.000005, 0.0, 0.000002, 0.2),
+      },
+
+      // --- LLM-Aufruf 3: Selbstkorrektur anhand der Fehlermeldung ---
+      {
+        kind: "llm",
+        contextMessages: 6,
+        contextTokens: 1290,
+        reasoning:
+          "Der Aufruf ist fehlgeschlagen – „Emotionserkennung“ ist nicht in der " +
+          "Begriffsliste. Die Fehlermeldung liefert aber alle definierten " +
+          "Begriffe mit: Der zutreffende Terminus lautet " +
+          "„Emotionserkennungssystem“ (Art. 3). Ich wiederhole den Aufruf mit " +
+          "dem korrekten Begriff.",
+        toolCall: {
+          name: "definition",
+          argsJson: '{ "begriff": "Emotionserkennungssystem" }',
+        },
+        energy: this.energy(0.000019, 0.000073, 0.000005, 1.9),
+      },
+      {
+        kind: "tool",
+        toolName: "definition",
+        callIndex: 2,
         argsJson: '{ "begriff": "Emotionserkennungssystem" }',
         resultText:
           "Art. 3 Nr. 39 KI-VO: „Emotionserkennungssystem“ bezeichnet ein " +
@@ -517,11 +585,11 @@ export class AgentDemoComponent {
         energy: this.energy(0.000009, 0.000005, 0.000002, 0.6),
       },
 
-      // --- LLM-Aufruf 3: liest den genauen Wortlaut von Art. 5 Abs. 1 lit. f nach ---
+      // --- LLM-Aufruf 4: liest den genauen Wortlaut von Art. 5 Abs. 1 lit. f nach ---
       {
         kind: "llm",
-        contextMessages: 6,
-        contextTokens: 1184,
+        contextMessages: 8,
+        contextTokens: 1428,
         reasoning:
           "Die Definition (Art. 3 Nr. 39) bestätigt: Das Ableiten innerer " +
           "Zustände wie „schlechte Laune“ ist erfasst, reines Mimik-Erkennen " +
@@ -531,7 +599,7 @@ export class AgentDemoComponent {
           name: "artikel_nachschlagen",
           argsJson: '{ "artikel_nummer": "5-1" }',
         },
-        energy: this.energy(0.000017, 0.000063, 0.000005, 1.7),
+        energy: this.energy(0.00002, 0.000079, 0.000006, 2.1),
       },
       {
         kind: "tool",
@@ -550,11 +618,11 @@ export class AgentDemoComponent {
         energy: this.energy(0.000006, 0.0, 0.000002, 0.3),
       },
 
-      // --- LLM-Aufruf 4: ruft suche_leitlinien_praxisleitfaeden() auf ---
+      // --- LLM-Aufruf 5: ruft suche_leitlinien_praxisleitfaeden() auf ---
       {
         kind: "llm",
-        contextMessages: 8,
-        contextTokens: 1412,
+        contextMessages: 10,
+        contextTokens: 1641,
         reasoning:
           "Es gibt nur die enge Ausnahme „medizinische Gründe oder " +
           "Sicherheitsgründe“. Wie diese auszulegen ist, klären die Leitlinien " +
@@ -567,7 +635,7 @@ export class AgentDemoComponent {
             'Stimmung von Beschäftigten über eine Webcam am Arbeitsplatz ' +
             'verboten und greift eine Ausnahme?" }',
         },
-        energy: this.energy(0.000019, 0.000071, 0.000005, 1.9),
+        energy: this.energy(0.000022, 0.000086, 0.000006, 2.3),
       },
       {
         kind: "tool",
@@ -623,21 +691,50 @@ export class AgentDemoComponent {
         energy: this.energy(0.000061, 0.000874, 0.000018, 5.4),
       },
 
-      // --- LLM-Aufruf 5: ruft anwendbarkeit() auf ---
+      // --- LLM-Aufruf 6: holt das heutige Datum (LLMs kennen es nicht zuverlässig) ---
       {
         kind: "llm",
-        contextMessages: 10,
-        contextTokens: 1764,
+        contextMessages: 12,
+        contextTokens: 1868,
         reasoning:
           "Die Leitlinien bestätigen: Stimmungs-/Launenüberwachung zur " +
-          "Mitarbeiterkontrolle ist nicht von der Ausnahme gedeckt. Da die " +
-          "Frage „Darf ich das?“ auch die zeitliche Geltung betrifft, prüfe " +
-          "ich die Anwendbarkeit von Art. 5.",
+          "Mitarbeiterkontrolle ist nicht von der Ausnahme gedeckt. Bleibt die " +
+          "zeitliche Geltung – „Darf ich das?“ heißt auch: Gilt das Verbot " +
+          "überhaupt schon? Mein Trainingsstand liegt in der Vergangenheit, " +
+          "das heutige Datum kenne ich nicht zuverlässig – ich rufe heute() auf.",
+        toolCall: {
+          name: "heute",
+          argsJson: "{}",
+        },
+        energy: this.energy(0.000023, 0.000092, 0.000007, 2.4),
+      },
+      // heute() ist ein triviales Werkzeug ohne LLM: Rückgabe instantan,
+      // Energieverbrauch praktisch null.
+      {
+        kind: "tool",
+        toolName: "heute",
+        callIndex: 1,
+        argsJson: "{}",
+        resultText: "Heute ist " + heuteDatum + ".",
+        energy: this.energy(0.000001, 0.0, 0.000001, 0.1),
+      },
+
+      // --- LLM-Aufruf 7: ruft anwendbarkeit() auf ---
+      {
+        kind: "llm",
+        contextMessages: 14,
+        contextTokens: 1926,
+        reasoning:
+          "heute() liefert: " +
+          heuteDatum +
+          ". Jetzt prüfe ich, seit wann das Verbot des Art. 5 gilt – für " +
+          "Fragen zur zeitlichen Geltung nutze ich laut System-Prompt immer " +
+          "anwendbarkeit().",
         toolCall: {
           name: "anwendbarkeit",
           argsJson: '{ "artikel_nummer": "Artikel 5" }',
         },
-        energy: this.energy(0.000018, 0.000066, 0.000005, 1.8),
+        energy: this.energy(0.000024, 0.000096, 0.000007, 2.5),
       },
       {
         kind: "tool",
@@ -655,16 +752,16 @@ export class AgentDemoComponent {
         energy: this.energy(0.000007, 0.0, 0.000002, 0.4),
       },
 
-      // --- LLM-Aufruf 6: finale Antwort (kein Tool-Call mehr) ---
+      // --- LLM-Aufruf 8: finale Antwort (kein Tool-Call mehr) ---
       {
         kind: "llm",
-        contextMessages: 12,
-        contextTokens: 1972,
+        contextMessages: 16,
+        contextTokens: 2134,
         reasoning:
-          "Alle Bausteine liegen vor: Emotionserkennungssystem, am Arbeitsplatz " +
-          "nach Art. 5 Abs. 1 lit. f verboten, keine Ausnahme greift, " +
-          "anwendbar seit 2.2.2025. Ich formuliere die Antwort streng " +
-          "quellengebunden.",
+          "Alle Bausteine liegen vor: Emotionserkennungssystem (Art. 3 Nr. 39), " +
+          "am Arbeitsplatz nach Art. 5 Abs. 1 lit. f verboten, keine Ausnahme " +
+          "greift, anwendbar seit 2.2.2025 – das Verbot gilt heute also " +
+          "längst. Ich formuliere die Antwort streng quellengebunden.",
         answer: this.finalAnswer(),
         citations: [
           { label: "Art. 5 Abs. 1 lit. f KI-VO", kind: "ai_act" },
