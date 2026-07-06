@@ -38,17 +38,12 @@ services:
       - ROOT_PATH=/llm-service
       - TOP_N_CHUNKS=25
       - RERANK_ENABLED=true
-<<<<<<< HEAD
-      - RERANK_TOP_N=10
+      - RERANK_TOP_N=20
       - RERANK_MODEL_PATHS=/app/models/reranker/jina-reranker-v3-BF16.gguf,/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
-=======
-      - RERANK_TOP_N=15
-      - RERANK_MODEL_PATH=/app/models/reranker/jina-reranker-v3-BF16.gguf
->>>>>>> fd89d805f79810c426e94d9ad99fa24826bfa130
       - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
-      - RERANK_DOCUMENT_BATCH_SIZE=8
+      - RERANK_DOCUMENT_BATCH_SIZE=12
       - RERANK_GPU_LAYERS=5
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
