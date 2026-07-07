@@ -28,6 +28,18 @@ class RerankResult:
     relevance_score: float
 
 
+@dataclass
+class RerankerRuntimeConfig:
+    llama_embedding_path: str
+    llama_tokenize_path: str
+    timeout_seconds: int
+    context_size: int
+    ubatch_size: int
+    document_batch_size: int
+    gpu_layers: int
+    flash_attention: bool
+
+
 class MLPProjector:
     def __init__(self, linear1_weight, linear2_weight):
         self.linear1_weight = linear1_weight
@@ -39,44 +51,18 @@ class MLPProjector:
         return value @ self.linear2_weight.T
 
 
-class RerankerService:
-    _instance = None
+class JinaGgufRerankerAdapter:
+    backend_name = "jina_gguf"
 
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super().__new__(cls)
-            cls._instance._initialized = False
-        return cls._instance
-
-    def __init__(self):
-        if self._initialized:
-            return
-
-        self.enabled = _env_bool("RERANK_ENABLED")
-        self.model_paths = (
-            _env_list("RERANK_MODEL_PATHS")
-            or _env_list("RERANK_MODEL_PATH")
-            or ["/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf"]
-        )
-        self.model_path = self.model_paths[0]
-        self.projector_path = os.getenv(
-            "RERANK_PROJECTOR_PATH",
-            "/app/models/reranker/projector.safetensors",
-        )
-        self.llama_embedding_path = os.getenv(
-            "RERANK_LLAMA_EMBEDDING_PATH", "/usr/local/bin/llama-embedding"
-        )
-        self.llama_tokenize_path = os.getenv(
-            "RERANK_LLAMA_TOKENIZE_PATH", "/usr/local/bin/llama-tokenize"
-        )
-        self.timeout_seconds = int(os.getenv("RERANK_TIMEOUT_SECONDS", "60"))
-        self.context_size = int(os.getenv("RERANK_CONTEXT_SIZE", "20000"))
-        self.ubatch_size = int(os.getenv("RERANK_UBATCH_SIZE", "512"))
-        self.document_batch_size = max(
-            1, int(os.getenv("RERANK_DOCUMENT_BATCH_SIZE", "4"))
-        )
-        self.gpu_layers = int(os.getenv("RERANK_GPU_LAYERS", "0"))
-        self.flash_attention = _env_bool("RERANK_FLASH_ATTENTION")
+    def __init__(
+        self,
+        model_path: str,
+        projector_path: str,
+        config: RerankerRuntimeConfig,
+    ):
+        self.model_path = model_path
+        self.projector_path = projector_path
+        self.config = config
         self.projector: Optional[MLPProjector] = None
         self.special_tokens = {
             "query_embed_token": "<|rerank_token|>",
@@ -84,7 +70,6 @@ class RerankerService:
         }
         self.query_embed_token_id = 151671
         self.doc_embed_token_id = 151670
-        self._initialized = True
 
     def rerank(
         self,
@@ -93,52 +78,33 @@ class RerankerService:
         top_n: Optional[int] = None,
         instruction: Optional[str] = None,
     ) -> List[RerankResult]:
-        if not self.enabled:
-            return []
-        if not documents:
-            return []
-
+        self._ensure_ready()
         start = time.perf_counter()
-        last_error: Optional[Exception] = None
-        for model_path in self.model_paths:
-            try:
-                self.model_path = model_path
-                self._ensure_ready()
-                results = []
-                for batch_start in range(0, len(documents), self.document_batch_size):
-                    batch_documents = documents[
-                        batch_start : batch_start + self.document_batch_size
-                    ]
-                    batch_scores = self._score_batch(
-                        query, batch_documents, instruction
-                    )
-                    results.extend(
-                        RerankResult(
-                            index=batch_start + batch_index,
-                            relevance_score=float(score),
-                        )
-                        for batch_index, score in enumerate(batch_scores)
-                    )
-
-                results.sort(key=lambda item: item.relevance_score, reverse=True)
-                if top_n is not None:
-                    results = results[:top_n]
-
-                LOGGER.debug(
-                    f"Reranked {len(documents)} candidate chunks to {len(results)} "
-                    f"chunks in {time.perf_counter() - start:.2f}s using "
-                    f"model <{model_path}> and document batch size "
-                    f"{self.document_batch_size}"
+        results = []
+        for batch_start in range(0, len(documents), self.config.document_batch_size):
+            batch_documents = documents[
+                batch_start : batch_start + self.config.document_batch_size
+            ]
+            batch_scores = self._score_batch(query, batch_documents, instruction)
+            results.extend(
+                RerankResult(
+                    index=batch_start + batch_index,
+                    relevance_score=float(score),
                 )
-                return results
-            except Exception as e:
-                last_error = e
-                LOGGER.error(
-                    f"Reranker model <{model_path}> failed, trying next "
-                    f"configured model if available: {e}"
-                )
+                for batch_index, score in enumerate(batch_scores)
+            )
 
-        raise RuntimeError("All configured reranker models failed") from last_error
+        results.sort(key=lambda item: item.relevance_score, reverse=True)
+        if top_n is not None:
+            results = results[:top_n]
+
+        LOGGER.debug(
+            f"Reranked {len(documents)} candidate chunks to {len(results)} chunks "
+            f"in {time.perf_counter() - start:.2f}s using backend "
+            f"<{self.backend_name}> model <{self.model_path}> and document batch "
+            f"size {self.config.document_batch_size}"
+        )
+        return results
 
     def _score_batch(
         self, query: str, documents: List[str], instruction: Optional[str]
@@ -158,13 +124,14 @@ class RerankerService:
         required_paths = [
             self.model_path,
             self.projector_path,
-            self.llama_embedding_path,
-            self.llama_tokenize_path,
+            self.config.llama_embedding_path,
+            self.config.llama_tokenize_path,
         ]
         missing_paths = [item for item in required_paths if not os.path.exists(item)]
         if missing_paths:
             raise FileNotFoundError(
-                "Reranker required files are missing: " + ", ".join(missing_paths)
+                "Jina GGUF reranker required files are missing: "
+                + ", ".join(missing_paths)
             )
         if self.projector is None:
             self.projector = self._load_projector()
@@ -218,7 +185,7 @@ class RerankerService:
             prompt_file_path = prompt_file.name
 
         command = [
-            self.llama_embedding_path,
+            self.config.llama_embedding_path,
             "-m",
             self.model_path,
             "-f",
@@ -232,13 +199,13 @@ class RerankerService:
             "--embd-output-format",
             "json",
             "--ubatch-size",
-            str(self.ubatch_size),
+            str(self.config.ubatch_size),
             "--ctx-size",
-            str(self.context_size),
+            str(self.config.context_size),
             "-ngl",
-            str(self.gpu_layers),
+            str(self.config.gpu_layers),
         ]
-        if self.flash_attention:
+        if self.config.flash_attention:
             command.append("--flash-attn")
 
         try:
@@ -258,7 +225,7 @@ class RerankerService:
         try:
             result = self._run_command(
                 [
-                    self.llama_tokenize_path,
+                    self.config.llama_tokenize_path,
                     "-m",
                     self.model_path,
                     "-f",
@@ -281,7 +248,7 @@ class RerankerService:
                 stderr=subprocess.PIPE,
                 text=True,
                 check=True,
-                timeout=self.timeout_seconds,
+                timeout=self.config.timeout_seconds,
             )
         except subprocess.CalledProcessError as error:
             stderr = self._tail_output(error.stderr)
@@ -292,7 +259,7 @@ class RerankerService:
             ) from error
         except subprocess.TimeoutExpired as error:
             raise TimeoutError(
-                f"Reranker command timed out after {self.timeout_seconds}s: "
+                f"Reranker command timed out after {self.config.timeout_seconds}s: "
                 + " ".join(command)
             ) from error
 
@@ -326,3 +293,198 @@ class RerankerService:
         doc_norm = np.sqrt(np.sum(doc_embeddings * doc_embeddings, axis=-1))
         query_norm = np.sqrt(np.sum(query_embeddings * query_embeddings, axis=-1))
         return dot_product / (doc_norm * query_norm)
+
+
+class QwenCrossEncoderRerankerAdapter:
+    backend_name = "qwen_cross_encoder"
+
+    def __init__(self, model_path: str, config: RerankerRuntimeConfig):
+        self.model_path = model_path
+        self.config = config
+        self.model = None
+
+    def rerank(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> List[RerankResult]:
+        self._ensure_ready(instruction)
+        start = time.perf_counter()
+        pairs = [(query, document) for document in documents]
+        scores = self.model.predict(
+            pairs,
+            batch_size=self.config.document_batch_size,
+            show_progress_bar=False,
+        )
+        results = [
+            RerankResult(index=index, relevance_score=float(score))
+            for index, score in enumerate(scores)
+        ]
+        results.sort(key=lambda item: item.relevance_score, reverse=True)
+        if top_n is not None:
+            results = results[:top_n]
+
+        LOGGER.debug(
+            f"Reranked {len(documents)} candidate chunks to {len(results)} chunks "
+            f"in {time.perf_counter() - start:.2f}s using backend "
+            f"<{self.backend_name}> model <{self.model_path}> and document batch "
+            f"size {self.config.document_batch_size}"
+        )
+        return results
+
+    def _ensure_ready(self, instruction: Optional[str]):
+        if self.model is not None:
+            return
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(
+                f"Qwen reranker model path does not exist: {self.model_path}"
+            )
+
+        try:
+            from sentence_transformers import CrossEncoder
+        except ImportError as e:
+            raise RuntimeError(
+                "Qwen reranker requires the sentence-transformers package"
+            ) from e
+
+        kwargs = {}
+        try:
+            import torch
+
+            if torch.cuda.is_available():
+                kwargs["device"] = "cuda"
+        except ImportError:
+            pass
+
+        if instruction:
+            kwargs["prompts"] = {"rerank": instruction}
+            kwargs["default_prompt_name"] = "rerank"
+
+        self.model = CrossEncoder(self.model_path, **kwargs)
+
+
+def _infer_model_type(model_path: str) -> str:
+    if model_path.lower().endswith(".gguf"):
+        return "jina_gguf"
+    return "qwen_cross_encoder"
+
+
+class RerankerService:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super().__new__(cls)
+            cls._instance._initialized = False
+        return cls._instance
+
+    def __init__(self):
+        if self._initialized:
+            return
+
+        self.enabled = _env_bool("RERANK_ENABLED")
+        self.model_paths = (
+            _env_list("RERANK_MODEL_PATHS")
+            or _env_list("RERANK_MODEL_PATH")
+            or ["/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf"]
+        )
+        self.model_types = _env_list("RERANK_MODEL_TYPES")
+        self.projector_paths = (
+            _env_list("RERANK_PROJECTOR_PATHS")
+            or _env_list("RERANK_PROJECTOR_PATH")
+            or ["/app/models/reranker/projector.safetensors"]
+        )
+        self.config = RerankerRuntimeConfig(
+            llama_embedding_path=os.getenv(
+                "RERANK_LLAMA_EMBEDDING_PATH", "/usr/local/bin/llama-embedding"
+            ),
+            llama_tokenize_path=os.getenv(
+                "RERANK_LLAMA_TOKENIZE_PATH", "/usr/local/bin/llama-tokenize"
+            ),
+            timeout_seconds=int(os.getenv("RERANK_TIMEOUT_SECONDS", "60")),
+            context_size=int(os.getenv("RERANK_CONTEXT_SIZE", "20000")),
+            ubatch_size=int(os.getenv("RERANK_UBATCH_SIZE", "512")),
+            document_batch_size=max(
+                1, int(os.getenv("RERANK_DOCUMENT_BATCH_SIZE", "4"))
+            ),
+            gpu_layers=int(os.getenv("RERANK_GPU_LAYERS", "0")),
+            flash_attention=_env_bool("RERANK_FLASH_ATTENTION"),
+        )
+        self.adapters = self._build_adapters()
+        self._initialized = True
+
+    def rerank(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> List[RerankResult]:
+        if not self.enabled:
+            return []
+        if not documents:
+            return []
+        if not self.adapters:
+            raise RuntimeError("No reranker models are configured")
+
+        last_error: Optional[Exception] = None
+        for adapter in self.adapters:
+            try:
+                return adapter.rerank(
+                    query=query,
+                    documents=documents,
+                    top_n=top_n,
+                    instruction=instruction,
+                )
+            except Exception as e:
+                last_error = e
+                LOGGER.error(
+                    f"Reranker backend <{adapter.backend_name}> model "
+                    f"<{adapter.model_path}> failed, trying next configured "
+                    f"model if available: {e}"
+                )
+
+        raise RuntimeError("All configured reranker models failed") from last_error
+
+    def _build_adapters(self):
+        adapters = []
+        jina_model_index = 0
+        for model_index, model_path in enumerate(self.model_paths):
+            model_type = self._get_model_type(model_index, model_path)
+            if model_type == "jina_gguf":
+                projector_path = self._get_projector_path(jina_model_index)
+                adapters.append(
+                    JinaGgufRerankerAdapter(
+                        model_path=model_path,
+                        projector_path=projector_path,
+                        config=self.config,
+                    )
+                )
+                jina_model_index += 1
+            elif model_type == "qwen_cross_encoder":
+                adapters.append(
+                    QwenCrossEncoderRerankerAdapter(
+                        model_path=model_path,
+                        config=self.config,
+                    )
+                )
+            else:
+                LOGGER.error(
+                    f"Unsupported reranker model type <{model_type}> for "
+                    f"model <{model_path}>. Skipping this model."
+                )
+        return adapters
+
+    def _get_model_type(self, model_index: int, model_path: str) -> str:
+        if model_index < len(self.model_types):
+            return self.model_types[model_index]
+        return _infer_model_type(model_path)
+
+    def _get_projector_path(self, jina_model_index: int) -> str:
+        if len(self.projector_paths) == 1:
+            return self.projector_paths[0]
+        if jina_model_index < len(self.projector_paths):
+            return self.projector_paths[jina_model_index]
+        return self.projector_paths[-1]

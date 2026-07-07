@@ -8,3 +8,5 @@ tiktoken
 psutil
 pynvml
 safetensors
+transformers>=4.51.0
+sentence-transformers>=5.0.0

@@ -206,7 +206,8 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
       - RERANK_ENABLED=true
       - RERANK_TOP_N=25
       - RERANK_MODEL_PATHS=/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
-      - RERANK_PROJECTOR_PATH=/app/models/reranker/projector.safetensors
+      - RERANK_MODEL_TYPES=jina_gguf
+      - RERANK_PROJECTOR_PATHS=/app/models/reranker/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=60
       - RERANK_FLASH_ATTENTION=true
       - RERANK_DOCUMENT_BATCH_SIZE=4
@@ -262,7 +263,21 @@ When `RERANK_ENABLED=true`, the LLM service uses a local Jina GGUF reranker afte
 /app/models/reranker/projector.safetensors
 ```
 
-The folder is mounted read-only into the container as `/app/models/reranker`. `RERANK_MODEL_PATHS` accepts a comma-separated list; the first available working model is used, and later models act as fallbacks. `RERANK_MODEL_PATH` is still supported for a single model. If all configured files or local llama.cpp binaries are missing or fail, reranking is skipped and the service falls back to cosine-similarity retrieval.
+To test Qwen locally, download the full Hugging Face model directory and mount it under the same model root, for example:
+
+```text
+/app/models/reranker/qwen/Qwen3-Reranker-0.6B
+```
+
+Then add it after the stable Jina entries:
+
+```yaml
+RERANK_MODEL_PATHS=/app/models/reranker/jina/jina-reranker-v3-BF16.gguf,/app/models/reranker/jina/jina-reranker-v3-Q4_K_M.gguf,/app/models/reranker/qwen/Qwen3-Reranker-0.6B
+RERANK_MODEL_TYPES=jina_gguf,jina_gguf,qwen_cross_encoder
+RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
+```
+
+The folder is mounted read-only into the container as `/app/models/reranker`. `RERANK_MODEL_PATHS` accepts a comma-separated list; the first available working model is used, and later models act as fallbacks. `RERANK_MODEL_TYPES` can be used to choose the backend for each path (`jina_gguf` for GGUF files, `qwen_cross_encoder` for local Hugging Face Qwen directories). `RERANK_PROJECTOR_PATHS` accepts one or more Jina projector files; a single projector is reused for all Jina GGUF models. `RERANK_MODEL_PATH` and `RERANK_PROJECTOR_PATH` are still supported for single-model deployments. If all configured rerankers fail, the service falls back to cosine-similarity retrieval.
 
 ##### **Volumes Mapping**  
 - `./data/combined.json:/app/data/combined.json` → A example dataset which is the output(s) from the annotation-tool  which is used for index creation. For each dataset a seperate JSON file is required and all datasets should be mapped seperately. 
