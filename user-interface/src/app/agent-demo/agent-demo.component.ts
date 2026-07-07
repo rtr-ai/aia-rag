@@ -112,8 +112,6 @@ export class AgentDemoComponent {
     },
   ];
 
-  showToolDefs = false;
-
   // Sobald der/die Betrachter:in während eines Laufs selbst scrollt, wird das
   // automatische Mitscrollen deaktiviert (nur echte Nutzer-Interaktionen zählen,
   // nicht das programmatische scrollIntoView).
@@ -426,8 +424,10 @@ export class AgentDemoComponent {
       }
 
       if (entry.kind === "llm") {
-        // Reasoning ist LLM-Ausgabe → Token für Token streamen.
+        // Reasoning ist LLM-Ausgabe → Token für Token streamen
+        // (mit kurzer Pause davor: „Time to first token“).
         if (fullReasoning) {
+          await this.delay(700);
           await this.streamInto(entry, (v) => (entry.reasoning = v), fullReasoning);
         }
         this.zone.run(() => (entry.reasoningDone = true));

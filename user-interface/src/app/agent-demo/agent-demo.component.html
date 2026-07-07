@@ -122,6 +122,13 @@
           ></rect>
           <text class="loop-label" x="355" y="195" text-anchor="middle">✓ finale Antwort</text>
         </svg>
+        <p class="info-link">
+          <a
+            href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20KI-Agent?"
+            target="_blank"
+            >Information: Wie funktioniert ein KI-Agent?</a
+          >
+        </p>
       </div>
 
       <!-- Sticky Verlaufs-Leiste: Chips je Schritt, Klick springt zum Eintrag -->
@@ -165,14 +172,25 @@
             <div class="msg-body">
               <!-- SYSTEM -->
               @if (e.kind === "system") {
-                <div class="msg-head">System-Prompt</div>
-                <pre class="raw-block">{{ e.systemText }}</pre>
-                <a class="raw-toggle" (click)="showToolDefs = !showToolDefs">
-                  {{ showToolDefs ? "▾" : "▸" }} Mitgeschickte Tool-Definitionen
-                  ({{ tools.length }}) – jeder Aufruf darf max.
-                  {{ model.maxCallsPerTool }}× pro Werkzeug erfolgen
-                </a>
-                @if (showToolDefs) {
+                <div class="ctx-bar">
+                  <a class="ctx-toggle" (click)="toggle('sys-' + e.id)">
+                    System-Prompt und Tool-Definitionen anzeigen/ausblenden
+                    <span class="ctx-hint">▾</span>
+                  </a>
+                  <div id="sys-{{ e.id }}" class="ctx-detail uk-hidden">
+                    <pre class="raw-block">{{ e.systemText }}</pre>
+                    <p class="info-link">
+                      <a
+                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20System-Prompt?"
+                        target="_blank"
+                        >Information: Was ist ein System-Prompt?</a
+                      >
+                    </p>
+                    <div class="msg-head">
+                      Mitgeschickte Tool-Definitionen ({{ tools.length }}) – jeder
+                      Aufruf darf max. {{ model.maxCallsPerTool }}× pro Werkzeug
+                      erfolgen
+                    </div>
                   <table class="uk-table uk-table-divider uk-table-small tools-table">
                     <tbody>
                       @for (tool of tools; track tool.name) {
@@ -200,13 +218,28 @@
                       }
                     </tbody>
                   </table>
-                }
+                    <p class="info-link">
+                      <a
+                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Werkzeuge%20(Tools)%20und%20Tool-Calls"
+                        target="_blank"
+                        >Information: Was sind Werkzeuge (Tools) und Tool-Calls?</a
+                      >
+                    </p>
+                  </div>
+                </div>
               }
 
               <!-- USER -->
               @if (e.kind === "user") {
-                <div class="msg-head">Frage</div>
-                <p class="user-text">{{ e.userText }}</p>
+                <div class="ctx-bar">
+                  <a class="ctx-toggle" (click)="toggle('usr-' + e.id)">
+                    User-Prompt anzeigen/ausblenden
+                    <span class="ctx-hint">▾</span>
+                  </a>
+                  <div id="usr-{{ e.id }}" class="ctx-detail uk-hidden">
+                    <p class="user-text">{{ e.userText }}</p>
+                  </div>
+                </div>
               }
 
               <!-- LLM-AUFRUF (assistant) -->
@@ -235,12 +268,28 @@
                         >{{ entryFullText(c) }}</pre>
                       </div>
                     }
+                    <p class="info-link">
+                      <a
+                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Der%20Nachrichten-Verlauf"
+                        target="_blank"
+                        >Information: Warum wird bei jedem Aufruf der gesamte Verlauf übergeben?</a
+                      >
+                    </p>
                   </div>
                 </div>
 
                 @if (e.reasoning) {
                   <div class="msg-head">Reasoning (rohe Chain-of-Thought)</div>
                   <p class="reasoning">{{ e.reasoning }}</p>
+                  @if (idx === 2 && e.reasoningDone) {
+                    <p class="info-link">
+                      <a
+                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reasoning"
+                        target="_blank"
+                        >Information: Wie „denkt“ das Modell? (Reasoning)</a
+                      >
+                    </p>
+                  }
                 }
 
                 @if (e.toolCall && e.reasoningDone) {
@@ -307,6 +356,7 @@
                   <a class="raw-toggle" (click)="toggle('retr-' + e.id)">
                     Retrieve · erhobene Quellen (Kosinus-Ähnlichkeit &amp; Reranking) anzeigen/ausblenden
                   </a>
+                  <span class="toggle-sep">·</span>
                   <div id="retr-{{ e.id }}" class="rerank-box uk-hidden">
                     <p class="rerank-note">
                       <span uk-icon="icon: info; ratio: 0.8"></span>
@@ -375,13 +425,35 @@
                       </tbody>
                     </table>
                     </div>
+                    <p class="info-link">
+                      <a
+                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?"
+                        target="_blank"
+                        >Information: Wie werden relevante Quellen erhoben?</a
+                      >
+                      ·
+                      <a
+                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reranking%20und%20hybride%20Suche"
+                        target="_blank"
+                        >Information: Wie funktioniert das Reranking?</a
+                      >
+                    </p>
                   </div>
 
                   <!-- Augment (eingeklappt) -->
                   <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
                     Augment · Prompt des RAG-Werkzeugs (System-Prompt + Quellen + Suchanfrage) anzeigen/ausblenden
                   </a>
-                  <pre id="aug-{{ e.id }}" class="raw-block uk-hidden">{{ buildAugmentedPrompt(e) }}</pre>
+                  <div id="aug-{{ e.id }}" class="uk-hidden">
+                    <pre class="raw-block">{{ buildAugmentedPrompt(e) }}</pre>
+                    <p class="info-link">
+                      <a
+                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
+                        target="_blank"
+                        >Information: Wie ist ein Prompt aufgebaut?</a
+                      >
+                    </p>
+                  </div>
 
                   <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
                   <span class="msg-subhead">
@@ -394,6 +466,7 @@
                     <a class="raw-toggle" (click)="toggle('rerank-' + e.id)">
                       Reranking-Visualisierung anzeigen/ausblenden
                     </a>
+                    <span class="toggle-sep">·</span>
                     <div id="rerank-{{ e.id }}" class="rerank-box uk-hidden">
                       <p class="rerank-note">
                         <span uk-icon="icon: info; ratio: 0.8"></span>
@@ -463,6 +536,13 @@
                           </tbody>
                         </table>
                       </div>
+                      <p class="info-link">
+                        <a
+                          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reranking%20und%20hybride%20Suche"
+                          target="_blank"
+                          >Information: Wie funktionieren hybride Suche und Reranking?</a
+                        >
+                      </p>
                     </div>
                   }
 
@@ -470,7 +550,16 @@
                   <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
                     Prompt des Werkzeugs (System-Prompt + Fundstellen + Frage) anzeigen/ausblenden
                   </a>
-                  <pre id="aug-{{ e.id }}" class="raw-block uk-hidden">{{ buildAugmentedPrompt(e) }}</pre>
+                  <div id="aug-{{ e.id }}" class="uk-hidden">
+                    <pre class="raw-block">{{ buildAugmentedPrompt(e) }}</pre>
+                    <p class="info-link">
+                      <a
+                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
+                        target="_blank"
+                        >Information: Wie ist ein Prompt aufgebaut?</a
+                      >
+                    </p>
+                  </div>
 
                   <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
                   <span class="msg-subhead">
@@ -569,6 +658,13 @@
         gemessen. Das Rechenzentrum nutzt einen Strommix aus erneuerbaren
         Energien; der <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr>
         liegt zwischen 1,10 und 1,16.
+      </p>
+      <p class="info-link">
+        <a
+          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch"
+          target="_blank"
+          >Information: Wie wird der Stromverbrauch berechnet?</a
+        >
       </p>
 
       <p class="uk-margin-top">

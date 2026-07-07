@@ -211,6 +211,15 @@ code {
   cursor: pointer;
   display: inline-block;
 }
+// Das Theme legt bei .uk-section-default a:hover einen grünen Hintergrund –
+// bei Links mit fixer (per !important gesetzter) Schriftfarbe wird der Text
+// dadurch unlesbar. Hier deshalb ohne Hintergrund.
+// Nur den Link selbst entfärben – die Rollen-Kästchen (system/user/…) behalten
+// ihre eigene Hintergrundfarbe.
+.ctx-toggle:hover,
+.ctx-msg-head:hover {
+  background: transparent !important;
+}
 .ctx-hint {
   color: #7a93b8;
   margin-left: 6px;
@@ -311,6 +320,10 @@ code {
   margin-top: 8px;
   font-size: 0.84rem;
   text-decoration: underline !important;
+}
+.toggle-sep {
+  margin: 0 6px;
+  color: #888;
 }
 .rerank-box {
   margin-top: 8px;
@@ -452,6 +465,13 @@ code {
 }
 .table-container {
   overflow-x: auto;
+}
+
+// Verweise auf die menschenlesbaren Erklärungen (technik.de.html)
+.info-link {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 6px 0 2px;
 }
 
 // --- Agent-Loop: Kreislauf-Diagramm ---
