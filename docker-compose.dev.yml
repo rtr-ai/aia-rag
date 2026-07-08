@@ -39,13 +39,13 @@ services:
       - TOP_N_CHUNKS=25
       - RERANK_ENABLED=true
       - RERANK_TOP_N=20
-      - RERANK_MODEL_PATHS=/app/models/reranker/qwen/Qwen3-Reranker-4B,/app/models/reranker/qwen/Qwen3-Reranker-0.6B,/app/models/reranker/jina/jina-reranker-v3-BF16.gguf,/app/models/reranker/jina/jina-reranker-v3-Q4_K_M.gguf
-      - RERANK_MODEL_TYPES=qwen_cross_encoder,qwen_cross_encoder,jina_gguf,jina_gguf
+      - RERANK_MODEL_PATHS=/app/models/reranker/qwen/Qwen3-Reranker-0.6B,/app/models/reranker/jina/jina-reranker-v3-BF16.gguf,/app/models/reranker/jina/jina-reranker-v3-Q4_K_M.gguf
+      - RERANK_MODEL_TYPES=qwen_cross_encoder,jina_gguf,jina_gguf
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
-      - RERANK_DOCUMENT_BATCH_SIZE=4
-      - RERANK_GPU_LAYERS=1
+      - RERANK_DOCUMENT_BATCH_SIZE=32
+      - RERANK_GPU_LAYERS=5
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
       - MATOMO_ENDPOINT=${MATOMO_ENDPOINT}
