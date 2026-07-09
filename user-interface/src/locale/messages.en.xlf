@@ -43,8 +43,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id='rerankToggleLabel' datatype='html'>
-        <source>Quellen neu bewerten</source>
-        <target state='translated'>Re-rank sources</target>
+        <source>Rerank activate</source>
+        <target state='translated'>Rerank activate</target>
         <context-group purpose='location'>
           <context context-type='sourcefile'>src/app/aiabot/aiabot.component.html</context>
           <context context-type='linenumber'>88</context>
