@@ -55,20 +55,40 @@
             }
           </div>
           <!-- <div #captchaContainer class="frc-captcha uk-grid-margin"></div>-->
-          <a
-            i18n="@@askQuestion"
-            class="uk-button uk-button-large uk-grid-margin uk-button-primary"
-          [ngClass]="
-            (step == 'initial' || step == 'done') &&
-            isCaptchaCompleted &&
-            userPrompt != '' &&
-            backendAvailable
-              ? ''
-              : 'uk-disabled'
-          "
-            (click)="answerQuery()"
-            >Frage stellen</a
+          <div class="query-controls uk-grid-margin">
+            <a
+              i18n="@@askQuestion"
+              class="uk-button uk-button-large uk-button-primary query-submit-button"
+              [ngClass]="
+                (step == 'initial' || step == 'done') &&
+                isCaptchaCompleted &&
+                userPrompt != '' &&
+                backendAvailable
+                  ? ''
+                  : 'uk-disabled'
+              "
+              (click)="answerQuery()"
+              >Frage stellen</a
             >
+            <label
+              class="rerank-toggle"
+              [class.rerank-toggle-disabled]="step != 'done' && step != 'initial'"
+              uk-tooltip="Sortiert die gefundenen Quellen mit einem zusätzlichen Reranking-Modell neu."
+              i18n-uk-tooltip="@@rerankToggleTooltip"
+            >
+              <input
+                class="rerank-toggle-input"
+                type="checkbox"
+                name="useRerank"
+                [(ngModel)]="useRerank"
+                [disabled]="step != 'done' && step != 'initial'"
+              />
+              <span class="rerank-toggle-switch" aria-hidden="true"></span>
+              <span class="rerank-toggle-label" i18n="@@rerankToggleLabel"
+                >Quellen neu bewerten</span
+              >
+            </label>
+          </div>
 
             @if (!backendAvailable) {
               <div class="uk-alert-danger" uk-alert>

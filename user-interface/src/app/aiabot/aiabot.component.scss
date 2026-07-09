@@ -46,6 +46,79 @@ h3 i {
   background-color: #f0f0f0 !important;
 }
 
+.query-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.query-submit-button {
+  margin: 0;
+}
+
+.rerank-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  min-height: 44px;
+  margin: 0;
+  color: #333333;
+}
+
+.rerank-toggle-disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.rerank-toggle-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rerank-toggle-switch {
+  position: relative;
+  width: 62px;
+  height: 32px;
+  border: 2px solid #777777;
+  border-radius: 999px;
+  background-color: #ffffff;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.rerank-toggle-switch::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #777777;
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.rerank-toggle-input:checked + .rerank-toggle-switch {
+  border-color: #2F5F00;
+  background-color: rgba(47, 95, 0, 0.16);
+}
+
+.rerank-toggle-input:checked + .rerank-toggle-switch::before {
+  transform: translateX(30px);
+  background-color: #2F5F00;
+}
+
+.rerank-toggle-input:focus-visible + .rerank-toggle-switch {
+  outline: 2px solid #2F5F00;
+  outline-offset: 3px;
+}
+
+.rerank-toggle-label {
+  font-weight: 600;
+}
+
 .uk-disabled {
   border: 3px solid gray;
   background-color: white;

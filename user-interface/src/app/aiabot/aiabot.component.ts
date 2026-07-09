@@ -50,6 +50,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   };
   userPrompts: string[] = [];
   userPrompt = "";
+  useRerank = false;
   submittedUserPrompt = "";
   placeholderPrompt = "";
   maxLength: number = 500;
@@ -168,6 +169,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       prompt: this.userPrompt,
       frc_captcha_solution: this.captchaSolution,
       dataset: defaultDataset,
+      use_rerank: this.useRerank,
     };
     const updateSources = (sources: Source[]) => {
       this.sources = sources;

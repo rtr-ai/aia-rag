@@ -252,9 +252,13 @@ class IndexService:
         return f"Titel: {title}\n{content}" if title else content
 
     def _rerank_chunks(
-        self, query: str, top_chunks: List[dict], request_id: str
+        self,
+        query: str,
+        top_chunks: List[dict],
+        request_id: str,
+        use_rerank: bool,
     ) -> Tuple[List[dict], float]:
-        if not self.reranker_service.enabled:
+        if not use_rerank or not self.reranker_service.enabled:
             return top_chunks, 0.0
 
         start = time.perf_counter()
@@ -400,7 +404,7 @@ class IndexService:
         return sources
 
     async def query_index(
-        self, dataset_id: str, query: str, request_id: str
+        self, dataset_id: str, query: str, request_id: str, use_rerank: bool = False
     ) -> Tuple[List[Source], float]:
         """
         Query a specific dataset's index.
@@ -433,6 +437,7 @@ class IndexService:
             query=query,
             top_chunks=top_chunks,
             request_id=request_id,
+            use_rerank=use_rerank,
         )
 
         LOGGER.debug(

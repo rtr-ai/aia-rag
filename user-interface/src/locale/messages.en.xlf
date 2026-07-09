@@ -34,6 +34,22 @@
           <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
+      <trans-unit id='rerankToggleTooltip' datatype='html'>
+        <source>Sortiert die gefundenen Quellen mit einem zusätzlichen Reranking-Modell neu.</source>
+        <target state='translated'>Reorders the found sources with an additional reranking model.</target>
+        <context-group purpose='location'>
+          <context context-type='sourcefile'>src/app/aiabot/aiabot.component.html</context>
+          <context context-type='linenumber'>76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id='rerankToggleLabel' datatype='html'>
+        <source>Quellen neu bewerten</source>
+        <target state='translated'>Re-rank sources</target>
+        <context-group purpose='location'>
+          <context context-type='sourcefile'>src/app/aiabot/aiabot.component.html</context>
+          <context context-type='linenumber'>88</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="queueMessageSingle" datatype="html">
         <source>Es ist aktuell 1 Anfrage in der Warteschlange. Dauer bis zur Bearbeitung Ihrer Anfrage: ca. <x id="estimatedTime" equiv-text="estimatedTime"/> Sekunden.</source>
         <target state="translated">There is currently 1 request in the queue. Estimated time until your request is processed: approximately <x id="estimatedTime" equiv-text="estimatedTime"/> seconds.</target>

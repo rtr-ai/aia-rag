@@ -37,6 +37,20 @@
           <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
+      <trans-unit id='rerankToggleTooltip' datatype='html'>
+        <source>Sortiert die gefundenen Quellen mit einem zusätzlichen Reranking-Modell neu.</source>
+        <context-group purpose='location'>
+          <context context-type='sourcefile'>src/app/aiabot/aiabot.component.html</context>
+          <context context-type='linenumber'>76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id='rerankToggleLabel' datatype='html'>
+        <source>Quellen neu bewerten</source>
+        <context-group purpose='location'>
+          <context context-type='sourcefile'>src/app/aiabot/aiabot.component.html</context>
+          <context context-type='linenumber'>88</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="errorTryAgainLater" datatype="html">
         <source> Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es später erneut. </source>
         <context-group purpose="location">

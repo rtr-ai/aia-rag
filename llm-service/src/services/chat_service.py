@@ -57,7 +57,10 @@ class ChatService:
 
             yield f"data: {json.dumps(data)}\n\n"
             chunks, duration = await self.index_service.query_index(
-                dataset_id=request.dataset, query=request.prompt, request_id=request_id
+                dataset_id=request.dataset,
+                query=request.prompt,
+                request_id=request_id,
+                use_rerank=request.use_rerank,
             )
             measurement = meter.stop()
             final_duration = duration if duration else measurement.duration_seconds
