@@ -43,7 +43,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id='rerankToggleLabel' datatype='html'>
-        <source>Rerank activate</source>
+        <source>Rerank aktivieren</source>
         <target state='translated'>Rerank activate</target>
         <context-group purpose='location'>
           <context context-type='sourcefile'>src/app/aiabot/aiabot.component.html</context>
