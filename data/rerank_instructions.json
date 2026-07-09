@@ -1,0 +1,5 @@
+{
+  "ai_act_de": "Bewerte, ob der Textabschnitt die Nutzerfrage zum EU AI Act direkt beantwortet. Bevorzuge Abschnitte mit konkreten Artikeln, Definitionen, Pflichten, Ausnahmen, Risikokategorien, Fristen oder rechtlichen Anforderungen.",
+  "data_act_de": "Bewerte, ob der Textabschnitt die Nutzerfrage zu regulatorischen Daten- oder KI-Anforderungen direkt beantwortet. Bevorzuge Abschnitte mit konkreten Artikeln, Definitionen, Pflichten, Ausnahmen, Fristen oder Umsetzungsvorgaben.",
+  "ai_act_en": "Given a user question about the EU AI Act, rank passages by how directly they answer the question. Prefer passages with exact article references, definitions, obligations, exceptions, risk categories, deadlines, or implementation requirements."
+}

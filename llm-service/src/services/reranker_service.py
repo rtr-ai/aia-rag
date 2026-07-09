@@ -4,7 +4,8 @@ import subprocess
 import tempfile
 import time
 from dataclasses import dataclass
-from typing import List, Optional
+from pathlib import Path
+from typing import Dict, List, Optional
 
 import numpy as np
 from pydantic import TypeAdapter
@@ -302,6 +303,7 @@ class QwenCrossEncoderRerankerAdapter:
         self.model_path = model_path
         self.config = config
         self.model = None
+        self.loaded_instruction: Optional[str] = None
 
     def rerank(
         self,
@@ -335,7 +337,8 @@ class QwenCrossEncoderRerankerAdapter:
         return results
 
     def _ensure_ready(self, instruction: Optional[str]):
-        if self.model is not None:
+        normalized_instruction = instruction.strip() if instruction else None
+        if self.model is not None and self.loaded_instruction == normalized_instruction:
             return
         if not os.path.exists(self.model_path):
             raise FileNotFoundError(
@@ -358,11 +361,12 @@ class QwenCrossEncoderRerankerAdapter:
         except ImportError:
             pass
 
-        if instruction:
-            kwargs["prompts"] = {"rerank": instruction}
+        if normalized_instruction:
+            kwargs["prompts"] = {"rerank": normalized_instruction}
             kwargs["default_prompt_name"] = "rerank"
 
         self.model = CrossEncoder(self.model_path, **kwargs)
+        self.loaded_instruction = normalized_instruction
 
 
 def _infer_model_type(model_path: str) -> str:
@@ -396,6 +400,7 @@ class RerankerService:
             or _env_list("RERANK_PROJECTOR_PATH")
             or ["/app/models/reranker/projector.safetensors"]
         )
+        self.rerank_instructions = self._load_rerank_instructions()
         self.config = RerankerRuntimeConfig(
             llama_embedding_path=os.getenv(
                 "RERANK_LLAMA_EMBEDDING_PATH", "/usr/local/bin/llama-embedding"
@@ -432,11 +437,19 @@ class RerankerService:
         last_error: Optional[Exception] = None
         for adapter in self.adapters:
             try:
+                adapter_instruction = (
+                    instruction if adapter.backend_name == "qwen_cross_encoder" else None
+                )
+                if adapter_instruction:
+                    LOGGER.debug(
+                        "Using configured reranker instruction for backend %s model %s"
+                        % (adapter.backend_name, adapter.model_path)
+                    )
                 return adapter.rerank(
                     query=query,
                     documents=documents,
                     top_n=top_n,
-                    instruction=instruction,
+                    instruction=adapter_instruction,
                 )
             except Exception as e:
                 last_error = e
@@ -447,6 +460,43 @@ class RerankerService:
                 )
 
         raise RuntimeError("All configured reranker models failed") from last_error
+
+    def get_instruction(self, dataset_id: str) -> Optional[str]:
+        return self.rerank_instructions.get(dataset_id)
+
+    def _load_rerank_instructions(self) -> Dict[str, str]:
+        instructions_file = os.getenv("RERANK_INSTRUCTIONS_FILE")
+        if not instructions_file:
+            return {}
+
+        file_path = Path("/app/data") / instructions_file
+        if not file_path.exists():
+            raise FileNotFoundError(
+                f"Reranker instructions file does not exist: {file_path}"
+            )
+
+        try:
+            with open(file_path, "r", encoding="utf-8") as file:
+                data = json.load(file)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON in reranker instructions file: {e}") from e
+
+        if not isinstance(data, dict):
+            raise ValueError("Reranker instructions file must be a JSON object.")
+
+        instructions = {}
+        for key, value in data.items():
+            if not isinstance(key, str):
+                raise ValueError(f"Invalid reranker instruction key: {key}")
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"Invalid reranker instruction text for {key}.")
+            instructions[key] = value.strip()
+
+        LOGGER.info(
+            "Loaded reranker instructions for datasets: "
+            + ", ".join(sorted(instructions.keys()))
+        )
+        return instructions
 
     def _build_adapters(self):
         adapters = []

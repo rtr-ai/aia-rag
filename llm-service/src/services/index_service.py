@@ -257,6 +257,7 @@ class IndexService:
         top_chunks: List[dict],
         request_id: str,
         use_rerank: bool,
+        dataset_id: str,
     ) -> Tuple[List[dict], float]:
         if not use_rerank or not self.reranker_service.enabled:
             return top_chunks, 0.0
@@ -277,10 +278,17 @@ class IndexService:
 
         try:
             documents = [self._format_rerank_document(chunk) for chunk in candidates]
+            instruction = self.reranker_service.get_instruction(dataset_id)
+            if instruction:
+                LOGGER.debug(
+                    "[%s]   Using reranker instruction for dataset %s"
+                    % (request_id, dataset_id)
+                )
             reranked_results = self.reranker_service.rerank(
                 query=query,
                 documents=documents,
                 top_n=RERANK_TOP_N,
+                instruction=instruction,
             )
             reranked_chunks = []
             for rerank_position, result in enumerate(reranked_results, start=1):
@@ -438,6 +446,7 @@ class IndexService:
             top_chunks=top_chunks,
             request_id=request_id,
             use_rerank=use_rerank,
+            dataset_id=dataset_id,
         )
 
         LOGGER.debug(
