@@ -437,9 +437,7 @@ class RerankerService:
         last_error: Optional[Exception] = None
         for adapter in self.adapters:
             try:
-                adapter_instruction = (
-                    instruction if adapter.backend_name == "qwen_cross_encoder" else None
-                )
+                adapter_instruction = instruction
                 if adapter_instruction:
                     LOGGER.debug(
                         "Using configured reranker instruction for backend %s model %s"
