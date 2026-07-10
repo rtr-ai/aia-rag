@@ -44,7 +44,7 @@ services:
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
-      - RERANK_DOCUMENT_BATCH_SIZE=32
+      - RERANK_DOCUMENT_BATCH_SIZE=16
       - RERANK_GPU_LAYERS=10
       - RERANK_INSTRUCTIONS_FILE=rerank_instructions.json
       - NVIDIA_VISIBLE_DEVICES=all
