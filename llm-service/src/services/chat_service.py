@@ -183,6 +183,10 @@ class ChatService:
         except HTTPException as e:
             data = json.dumps({"content": f"{e.detail}", "type": "error"})
             yield f"data: {data}\n\n"
+        except Exception as e:
+            LOGGER.exception(f"[{request_id}]   Chat stream failed: {e}")
+            data = json.dumps({"content": "Backend error while generating the answer.", "type": "error"})
+            yield f"data: {data}\n\n"
 
     async def prompt_ollama(self, prompt: str):
         message = {"role": "user", "content": prompt}

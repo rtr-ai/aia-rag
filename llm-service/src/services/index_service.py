@@ -284,21 +284,21 @@ class IndexService:
             return normal_sources, 0.0
 
         start = time.perf_counter()
-        candidates = self._build_rerank_candidates(normal_sources)
-        LOGGER.debug(
-            f"[{request_id}]   Reranker candidate count from non-skipped "
-            f"context chunks before deduplication: "
-            f"{sum(1 + sum(1 for chunk in source.relevantChunks if not chunk.skip) for source in normal_sources if not source.skip)}"
-        )
-        LOGGER.debug(
-            f"[{request_id}]   Reranker candidate count after deduplication: "
-            f"{len(candidates)}"
-        )
-
-        if not candidates:
-            return normal_sources, 0.0
-
         try:
+            candidates = self._build_rerank_candidates(normal_sources)
+            LOGGER.debug(
+                f"[{request_id}]   Reranker candidate count from non-skipped "
+                f"context chunks before deduplication: "
+                f"{sum(1 + sum(1 for chunk in source.relevantChunks if not chunk.skip) for source in normal_sources if not source.skip)}"
+            )
+            LOGGER.debug(
+                f"[{request_id}]   Reranker candidate count after deduplication: "
+                f"{len(candidates)}"
+            )
+
+            if not candidates:
+                return normal_sources, 0.0
+
             documents = [self._format_rerank_document(chunk) for chunk in candidates]
             instruction = self.reranker_service.get_instruction(dataset_id)
             if instruction:
