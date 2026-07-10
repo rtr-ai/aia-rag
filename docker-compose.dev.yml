@@ -39,8 +39,8 @@ services:
       - TOP_N_CHUNKS=25
       - RERANK_ENABLED=true
       - RERANK_TOP_N=20
-      - RERANK_MODEL_PATHS=/app/models/reranker/jina/jina-reranker-v3-BF16.gguf,/app/models/reranker/jina/jina-reranker-v3-Q4_K_M.gguf,/app/models/reranker/qwen/Quen3-Reranker-0.6B,/app/models/reranker/qwen/Qwen3-Reranker-4B,/app/models/reranker/mixedbread,/app/models/reranker/bge,/app/models/reranker/cross-encoder,/app/models/reranker/nvidia
-      - RERANK_MODEL_TYPES=jina_gguf,jina_gguf,qwen_cross_encoder,qwen_cross_encoder,sentence_transformers_cross_encoder,bge_cross_encoder,sentence_transformers_cross_encoder,nvidia_cross_encoder
+      - RERANK_MODEL_PATHS=/app/models/reranker/qwen/Quen3-Reranker-0.6B,/app/models/reranker/qwen/Qwen3-Reranker-4B,/app/models/reranker/mixedbread,/app/models/reranker/bge,/app/models/reranker/cross-encoder,/app/models/reranker/nvidia,/app/models/reranker/jina/jina-reranker-v3-BF16.gguf,/app/models/reranker/jina/jina-reranker-v3-Q4_K_M.gguf
+      - RERANK_MODEL_TYPES=qwen_cross_encoder,qwen_cross_encoder,sentence_transformers_cross_encoder,bge_cross_encoder,sentence_transformers_cross_encoder,nvidia_cross_encoder,jina_gguf,jina_gguf
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
