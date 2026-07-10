@@ -296,8 +296,9 @@ class JinaGgufRerankerAdapter:
         return dot_product / (doc_norm * query_norm)
 
 
-class QwenCrossEncoderRerankerAdapter:
-    backend_name = "qwen_cross_encoder"
+class SentenceTransformersCrossEncoderRerankerAdapter:
+    backend_name = "sentence_transformers_cross_encoder"
+    supports_instruction = False
 
     def __init__(self, model_path: str, config: RerankerRuntimeConfig):
         self.model_path = model_path
@@ -329,30 +330,40 @@ class QwenCrossEncoderRerankerAdapter:
             results = results[:top_n]
 
         LOGGER.debug(
-            f"Reranked {len(documents)} candidate chunks to {len(results)} chunks "
-            f"in {time.perf_counter() - start:.2f}s using backend "
-            f"<{self.backend_name}> model <{self.model_path}> and document batch "
-            f"size {self.config.document_batch_size}"
+            "Reranked %s candidate chunks to %s chunks in %.2fs using backend %s "
+            "model %s and document batch size %s"
+            % (
+                len(documents),
+                len(results),
+                time.perf_counter() - start,
+                self.backend_name,
+                self.model_path,
+                self.config.document_batch_size,
+            )
         )
         return results
 
     def _ensure_ready(self, instruction: Optional[str]):
-        normalized_instruction = instruction.strip() if instruction else None
+        normalized_instruction = (
+            instruction.strip() if instruction and self.supports_instruction else None
+        )
         if self.model is not None and self.loaded_instruction == normalized_instruction:
             return
         if not os.path.exists(self.model_path):
             raise FileNotFoundError(
-                f"Qwen reranker model path does not exist: {self.model_path}"
+                f"Reranker model path does not exist: {self.model_path}"
             )
 
         try:
             from sentence_transformers import CrossEncoder
         except ImportError as e:
             raise RuntimeError(
-                "Qwen reranker requires the sentence-transformers package"
+                "SentenceTransformers reranker requires the sentence-transformers package"
             ) from e
 
         kwargs = {}
+        if _env_bool("RERANK_TRUST_REMOTE_CODE"):
+            kwargs["trust_remote_code"] = True
         try:
             import torch
 
@@ -369,10 +380,136 @@ class QwenCrossEncoderRerankerAdapter:
         self.loaded_instruction = normalized_instruction
 
 
+class QwenCrossEncoderRerankerAdapter(SentenceTransformersCrossEncoderRerankerAdapter):
+    backend_name = "qwen_cross_encoder"
+    supports_instruction = True
+
+
+class TransformersSequenceClassificationRerankerAdapter:
+    backend_name = "transformers_sequence_classification"
+
+    def __init__(
+        self,
+        model_path: str,
+        config: RerankerRuntimeConfig,
+        trust_remote_code: bool = False,
+        single_text_template: Optional[str] = None,
+    ):
+        self.model_path = model_path
+        self.config = config
+        self.trust_remote_code = trust_remote_code
+        self.single_text_template = single_text_template
+        self.model = None
+        self.tokenizer = None
+        self.torch = None
+        self.device = None
+
+    def rerank(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> List[RerankResult]:
+        self._ensure_ready()
+        start = time.perf_counter()
+        scores = []
+        for batch_start in range(0, len(documents), self.config.document_batch_size):
+            batch_documents = documents[
+                batch_start : batch_start + self.config.document_batch_size
+            ]
+            scores.extend(self._score_batch(query, batch_documents))
+
+        results = [
+            RerankResult(index=index, relevance_score=float(score))
+            for index, score in enumerate(scores)
+        ]
+        results.sort(key=lambda item: item.relevance_score, reverse=True)
+        if top_n is not None:
+            results = results[:top_n]
+
+        LOGGER.debug(
+            "Reranked %s candidate chunks to %s chunks in %.2fs using backend %s "
+            "model %s and document batch size %s"
+            % (
+                len(documents),
+                len(results),
+                time.perf_counter() - start,
+                self.backend_name,
+                self.model_path,
+                self.config.document_batch_size,
+            )
+        )
+        return results
+
+    def _ensure_ready(self):
+        if self.model is not None:
+            return
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(
+                f"Reranker model path does not exist: {self.model_path}"
+            )
+
+        try:
+            import torch
+            from transformers import AutoModelForSequenceClassification, AutoTokenizer
+        except ImportError as e:
+            raise RuntimeError(
+                "Transformers reranker requires the transformers and torch packages"
+            ) from e
+
+        self.torch = torch
+        kwargs = {"trust_remote_code": self.trust_remote_code}
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_path, **kwargs)
+        self.model = AutoModelForSequenceClassification.from_pretrained(
+            self.model_path, **kwargs
+        ).eval()
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.model.to(self.device)
+
+    def _score_batch(self, query: str, documents: List[str]) -> List[float]:
+        if self.model is None or self.tokenizer is None or self.torch is None:
+            raise RuntimeError("Transformers reranker model is not loaded")
+
+        if self.single_text_template:
+            inputs = [
+                self.single_text_template.format(query=query, document=document)
+                for document in documents
+            ]
+            encoded = self.tokenizer(
+                inputs,
+                padding=True,
+                truncation=True,
+                return_tensors="pt",
+            )
+        else:
+            encoded = self.tokenizer(
+                [query] * len(documents),
+                documents,
+                padding=True,
+                truncation=True,
+                return_tensors="pt",
+            )
+
+        for key in encoded:
+            encoded[key] = encoded[key].to(self.device)
+
+        with self.torch.no_grad():
+            outputs = self.model(**encoded)
+            return outputs.logits.view(-1).float().detach().cpu().tolist()
+
+
 def _infer_model_type(model_path: str) -> str:
-    if model_path.lower().endswith(".gguf"):
+    lowered_path = model_path.lower()
+    if lowered_path.endswith(".gguf"):
         return "jina_gguf"
-    return "qwen_cross_encoder"
+    if "qwen" in lowered_path or "quen3" in lowered_path:
+        return "qwen_cross_encoder"
+    if "bge" in lowered_path:
+        return "bge_cross_encoder"
+    if "nvidia" in lowered_path:
+        return "nvidia_cross_encoder"
+    return "sentence_transformers_cross_encoder"
 
 
 class RerankerService:
@@ -516,6 +653,29 @@ class RerankerService:
                     QwenCrossEncoderRerankerAdapter(
                         model_path=model_path,
                         config=self.config,
+                    )
+                )
+            elif model_type == "sentence_transformers_cross_encoder":
+                adapters.append(
+                    SentenceTransformersCrossEncoderRerankerAdapter(
+                        model_path=model_path,
+                        config=self.config,
+                    )
+                )
+            elif model_type == "bge_cross_encoder":
+                adapters.append(
+                    TransformersSequenceClassificationRerankerAdapter(
+                        model_path=model_path,
+                        config=self.config,
+                    )
+                )
+            elif model_type == "nvidia_cross_encoder":
+                adapters.append(
+                    TransformersSequenceClassificationRerankerAdapter(
+                        model_path=model_path,
+                        config=self.config,
+                        trust_remote_code=True,
+                        single_text_template="question:{query} \n\n passage:{document}",
                     )
                 )
             else:

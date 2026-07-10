@@ -208,41 +208,62 @@ class IndexService:
             )
         return top_chunks
 
-    def _build_rerank_candidates(self, top_chunks: List[dict]) -> List[dict]:
+    def _build_rerank_candidate(
+        self,
+        chunk,
+        fallback_score: float,
+        fallback_retrieval_score: float,
+        retrieval_position: int,
+    ) -> dict:
+        score = chunk.score if chunk.score is not None else fallback_score
+        retrieval_score = (
+            chunk.retrieval_score
+            if chunk.retrieval_score is not None
+            else fallback_retrieval_score
+        )
+        return {
+            "id": chunk.id,
+            "title": chunk.title or chunk.id,
+            "content": chunk.content,
+            "position": chunk.position,
+            "num_tokens": chunk.num_tokens,
+            "score": float(score),
+            "retrieval_score": float(retrieval_score),
+            "retrieval_position": retrieval_position,
+            "vector_retrieval_position": chunk.vector_retrieval_position,
+            "relevantChunks": [],
+        }
+
+    def _build_rerank_candidates(self, sources: List[Source]) -> List[dict]:
         candidates = []
         added_chunk_ids = set()
 
-        def add_candidate(chunk: dict, retrieval_score: float):
-            chunk_id = chunk.get("id")
-            content = chunk.get("content", "")
-            if not chunk_id or chunk_id in added_chunk_ids or not content.strip():
+        def add_candidate(chunk, fallback_score: float, fallback_retrieval_score: float):
+            if chunk.skip or chunk.id in added_chunk_ids or not chunk.content.strip():
                 return
 
-            added_chunk_ids.add(chunk_id)
-            retrieval_position = len(candidates) + 1
+            added_chunk_ids.add(chunk.id)
             candidates.append(
-                {
-                    "id": chunk_id,
-                    "title": chunk.get("title") or chunk_id,
-                    "content": content,
-                    "position": chunk.get("position", -1),
-                    "num_tokens": chunk.get("num_tokens")
-                    or self.tokenizer_service.count_tokens(content),
-                    "score": float(retrieval_score),
-                    "retrieval_score": float(retrieval_score),
-                    "retrieval_position": retrieval_position,
-                    "vector_retrieval_position": chunk.get(
-                        "vector_retrieval_position"
-                    ),
-                    "relevantChunks": [],
-                }
+                self._build_rerank_candidate(
+                    chunk=chunk,
+                    fallback_score=fallback_score,
+                    fallback_retrieval_score=fallback_retrieval_score,
+                    retrieval_position=len(candidates) + 1,
+                )
             )
 
-        for chunk in top_chunks:
-            retrieval_score = float(chunk.get("score", 0.0))
-            add_candidate(chunk, retrieval_score)
-            for relevant_chunk in chunk.get("relevantChunks", []):
-                add_candidate(relevant_chunk, retrieval_score)
+        for source in sources:
+            if source.skip:
+                continue
+            fallback_score = float(source.score)
+            fallback_retrieval_score = float(source.retrieval_score or source.score)
+            add_candidate(source, fallback_score, fallback_retrieval_score)
+            for relevant_chunk in source.relevantChunks:
+                add_candidate(
+                    relevant_chunk,
+                    fallback_score,
+                    fallback_retrieval_score,
+                )
 
         return candidates
 
@@ -254,19 +275,20 @@ class IndexService:
     def _rerank_chunks(
         self,
         query: str,
-        top_chunks: List[dict],
+        normal_sources: List[Source],
         request_id: str,
         use_rerank: bool,
         dataset_id: str,
-    ) -> Tuple[List[dict], float]:
+    ) -> Tuple[List[Source], float]:
         if not use_rerank or not self.reranker_service.enabled:
-            return top_chunks, 0.0
+            return normal_sources, 0.0
 
         start = time.perf_counter()
-        candidates = self._build_rerank_candidates(top_chunks)
+        candidates = self._build_rerank_candidates(normal_sources)
         LOGGER.debug(
-            f"[{request_id}]   Reranker candidate count before deduplication: "
-            f"{sum(1 + len(chunk.get('relevantChunks', [])) for chunk in top_chunks)}"
+            f"[{request_id}]   Reranker candidate count from non-skipped "
+            f"context chunks before deduplication: "
+            f"{sum(1 + sum(1 for chunk in source.relevantChunks if not chunk.skip) for source in normal_sources if not source.skip)}"
         )
         LOGGER.debug(
             f"[{request_id}]   Reranker candidate count after deduplication: "
@@ -274,7 +296,7 @@ class IndexService:
         )
 
         if not candidates:
-            return top_chunks, 0.0
+            return normal_sources, 0.0
 
         try:
             documents = [self._format_rerank_document(chunk) for chunk in candidates]
@@ -304,14 +326,14 @@ class IndexService:
                 f"[{request_id}]   Reranker selected {len(reranked_chunks)} "
                 f"of {len(candidates)} candidates in {duration:.2f}s"
             )
-            return reranked_chunks, duration
+            return self._build_sources_from_chunks(reranked_chunks, request_id), duration
         except Exception as e:
             duration = time.perf_counter() - start
             LOGGER.error(
                 f"[{request_id}]   Reranker failed after {duration:.2f}s, "
                 f"falling back to cosine retrieval: {e}"
             )
-            return top_chunks, duration
+            return normal_sources, duration
 
     def _build_sources_from_chunks(self, chunks: List[dict], request_id: str) -> List[Source]:
         total_tokens = 0
@@ -339,6 +361,7 @@ class IndexService:
                     skip_reason = ""
 
             new_source = Source(
+                id=chunk["id"],
                 content=chunk["content"],
                 score=float(chunk["score"]),
                 retrieval_score=chunk.get("retrieval_score"),
@@ -441,18 +464,18 @@ class IndexService:
         query_vector = embedding_response.embeddings[0]
         index_data = self.vector_store[dataset_id]
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
-        top_chunks, rerank_duration = self._rerank_chunks(
-            query=query,
-            top_chunks=top_chunks,
-            request_id=request_id,
-            use_rerank=use_rerank,
-            dataset_id=dataset_id,
-        )
 
         LOGGER.debug(
             f"[{request_id}]    Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
         )
-        sources = self._build_sources_from_chunks(top_chunks, request_id)
+        normal_sources = self._build_sources_from_chunks(top_chunks, request_id)
+        sources, rerank_duration = self._rerank_chunks(
+            query=query,
+            normal_sources=normal_sources,
+            request_id=request_id,
+            use_rerank=use_rerank,
+            dataset_id=dataset_id,
+        )
         return sources, duration + rerank_duration
 
     def _save_vector_store(self):

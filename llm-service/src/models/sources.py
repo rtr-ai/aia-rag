@@ -19,6 +19,7 @@ class RelevantChunk(BaseModel):
 
 
 class Source(BaseModel):
+    id: str
     content: str
     score: float
     retrieval_score: Optional[float] = None
