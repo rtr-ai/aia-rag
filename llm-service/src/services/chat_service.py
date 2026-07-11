@@ -56,7 +56,7 @@ class ChatService:
             data = {"type": "power_index", "content": index_power_usage}
 
             yield f"data: {json.dumps(data)}\n\n"
-            chunks, duration = await self.index_service.query_index(
+            chunks, duration, rerank_metadata = await self.index_service.query_index(
                 dataset_id=request.dataset,
                 query=request.prompt,
                 request_id=request_id,
@@ -64,6 +64,17 @@ class ChatService:
             )
             measurement = meter.stop()
             final_duration = duration if duration else measurement.duration_seconds
+
+            metadata = {
+                "request_id": request_id, "dataset": request.dataset,
+                "llm_model": self.model, "embedding_model": self.embedding_service.model,
+                "context_window": CONTEXT_WINDOW,
+                "prompt_buffer": int(os.getenv("PROMPT_BUFFER", "1500")),
+                "top_n_chunks": int(os.getenv("TOP_N_CHUNKS", "15")),
+                "rerank_top_n": int(os.getenv("RERANK_TOP_N", "25")),
+                "rerank": rerank_metadata,
+            }
+            yield f"data: {json.dumps({'type': 'metadata', 'content': metadata})}\n\n"
 
             async for part in self.__yield_sources__(
                 sources=chunks, request_id=request_id

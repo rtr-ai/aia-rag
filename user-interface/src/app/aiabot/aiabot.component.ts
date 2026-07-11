@@ -373,6 +373,9 @@ export class AiabotComponent implements OnInit, AfterViewInit {
               case "power_response":
                 updatePowerData(data.content as any, data.type);
                 break;
+              case "metadata":
+                console.info("Chat model metadata:", data.content);
+                break;
               case "queue_position":
                 console.log(
                   `Current queue position: ${(data.content as any).position}`

@@ -30,6 +30,13 @@ class RerankResult:
 
 
 @dataclass
+class RerankExecution:
+    results: List[RerankResult]
+    backend_name: str
+    model_path: str
+
+
+@dataclass
 class RerankerRuntimeConfig:
     llama_embedding_path: str
     llama_tokenize_path: str
@@ -564,10 +571,14 @@ class RerankerService:
         top_n: Optional[int] = None,
         instruction: Optional[str] = None,
     ) -> List[RerankResult]:
-        if not self.enabled:
-            return []
-        if not documents:
-            return []
+        return self.rerank_with_metadata(query, documents, top_n, instruction).results
+
+    def rerank_with_metadata(
+        self, query: str, documents: List[str], top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> RerankExecution:
+        if not self.enabled or not documents:
+            return RerankExecution([], "", "")
         if not self.adapters:
             raise RuntimeError("No reranker models are configured")
 
@@ -580,11 +591,10 @@ class RerankerService:
                         "Using configured reranker instruction for backend %s model %s"
                         % (adapter.backend_name, adapter.model_path)
                     )
-                return adapter.rerank(
-                    query=query,
-                    documents=documents,
-                    top_n=top_n,
-                    instruction=adapter_instruction,
+                return RerankExecution(
+                    results=adapter.rerank(query=query, documents=documents, top_n=top_n, instruction=adapter_instruction),
+                    backend_name=adapter.backend_name,
+                    model_path=adapter.model_path,
                 )
             except Exception as e:
                 last_error = e

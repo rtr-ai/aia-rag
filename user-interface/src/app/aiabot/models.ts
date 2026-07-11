@@ -8,7 +8,8 @@ export interface LLMMessageParams {
     | "power_prompt"
     | "power_index"
     | "power_response"
-    | "queue_position";
+    | "queue_position"
+    | "metadata";
 }
 
 interface RelevantSource {

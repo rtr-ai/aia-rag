@@ -279,9 +279,10 @@ class IndexService:
         request_id: str,
         use_rerank: bool,
         dataset_id: str,
-    ) -> Tuple[List[Source], float]:
+    ) -> Tuple[List[Source], float, dict]:
+        metadata = {"requested": use_rerank, "enabled": self.reranker_service.enabled, "applied": False, "backend": None, "model": None}
         if not use_rerank or not self.reranker_service.enabled:
-            return normal_sources, 0.0
+            return normal_sources, 0.0, metadata
 
         start = time.perf_counter()
         try:
@@ -297,7 +298,7 @@ class IndexService:
             )
 
             if not candidates:
-                return normal_sources, 0.0
+                return normal_sources, 0.0, metadata
 
             documents = [self._format_rerank_document(chunk) for chunk in candidates]
             instruction = self.reranker_service.get_instruction(dataset_id)
@@ -306,12 +307,10 @@ class IndexService:
                     "[%s]   Using reranker instruction for dataset %s"
                     % (request_id, dataset_id)
                 )
-            reranked_results = self.reranker_service.rerank(
-                query=query,
-                documents=documents,
-                top_n=RERANK_TOP_N,
-                instruction=instruction,
+            rerank_execution = self.reranker_service.rerank_with_metadata(
+                query=query, documents=documents, top_n=RERANK_TOP_N, instruction=instruction
             )
+            reranked_results = rerank_execution.results
             reranked_chunks = []
             for rerank_position, result in enumerate(reranked_results, start=1):
                 chunk = dict(candidates[result.index])
@@ -326,14 +325,16 @@ class IndexService:
                 f"[{request_id}]   Reranker selected {len(reranked_chunks)} "
                 f"of {len(candidates)} candidates in {duration:.2f}s"
             )
-            return self._build_sources_from_chunks(reranked_chunks, request_id), duration
+            metadata.update({"applied": True, "backend": rerank_execution.backend_name, "model": rerank_execution.model_path})
+            return self._build_sources_from_chunks(reranked_chunks, request_id), duration, metadata
         except Exception as e:
             duration = time.perf_counter() - start
             LOGGER.error(
                 f"[{request_id}]   Reranker failed after {duration:.2f}s, "
                 f"falling back to cosine retrieval: {e}"
             )
-            return normal_sources, duration
+            metadata["fallback"] = "vector_similarity"
+            return normal_sources, duration, metadata
 
     def _build_sources_from_chunks(self, chunks: List[dict], request_id: str) -> List[Source]:
         total_tokens = 0
@@ -469,14 +470,14 @@ class IndexService:
             f"[{request_id}]    Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
         )
         normal_sources = self._build_sources_from_chunks(top_chunks, request_id)
-        sources, rerank_duration = self._rerank_chunks(
+        sources, rerank_duration, rerank_metadata = self._rerank_chunks(
             query=query,
             normal_sources=normal_sources,
             request_id=request_id,
             use_rerank=use_rerank,
             dataset_id=dataset_id,
         )
-        return sources, duration + rerank_duration
+        return sources, duration + rerank_duration, rerank_metadata
 
     def _save_vector_store(self):
         """

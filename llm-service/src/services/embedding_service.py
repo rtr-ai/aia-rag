@@ -11,6 +11,7 @@ LOGGER = get_logger(__name__)
 class EmbeddingService:
     def __init__(self):
         self.indices = {}
+        self.model = DEFAULT_MODEL
         self.client = AsyncClient(host=os.getenv("OLLAMA_EMBEDDING_HOST"))
 
     async def generate_embedding(self, input: str) -> EmbedResponse:
