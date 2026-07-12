@@ -45,7 +45,7 @@ services:
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
       - RERANK_DOCUMENT_BATCH_SIZE=4
-      - RERANK_GPU_LAYERS=5
+      - RERANK_GPU_LAYERS=10
       - RERANK_INSTRUCTIONS_FILE=rerank_instructions.json
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
