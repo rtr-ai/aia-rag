@@ -348,25 +348,22 @@ class IndexService:
         token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
         sources: List[Source] = []
         added_chunks = set()
-        context_window_reached = False
+        included_count = 0
+        oversized_count = 0
 
         for chunk in chunks:
             chunk_tokens = chunk["num_tokens"]
 
-            if context_window_reached:
+            if chunk["id"] in added_chunks:
+                skip = True
+                skip_reason = "duplicate"
+            elif total_tokens + chunk_tokens > token_limit:
                 skip = True
                 skip_reason = "context_window"
+                oversized_count += 1
             else:
-                if chunk["id"] in added_chunks:
-                    skip = True
-                    skip_reason = "duplicate"
-                elif total_tokens + chunk_tokens > token_limit:
-                    skip = True
-                    skip_reason = "context_window"
-                    context_window_reached = True
-                else:
-                    skip = False
-                    skip_reason = ""
+                skip = False
+                skip_reason = ""
 
             new_source = Source(
                 id=chunk["id"],
@@ -389,23 +386,20 @@ class IndexService:
                 total_tokens += chunk_tokens
                 added_chunks.add(chunk["id"])
 
+                included_count += 1
                 for relevant_chunk in chunk.get("relevantChunks", []):
                     relevant_chunk_tokens = relevant_chunk["num_tokens"]
 
-                    if context_window_reached:
+                    if relevant_chunk["id"] in added_chunks:
+                        relevant_skipped = True
+                        relevant_skip_reason = "duplicate"
+                    elif total_tokens + relevant_chunk_tokens > token_limit:
                         relevant_skipped = True
                         relevant_skip_reason = "context_window"
+                        oversized_count += 1
                     else:
-                        if relevant_chunk["id"] in added_chunks:
-                            relevant_skipped = True
-                            relevant_skip_reason = "duplicate"
-                        elif total_tokens + relevant_chunk_tokens > token_limit:
-                            relevant_skipped = True
-                            relevant_skip_reason = "context_window"
-                            context_window_reached = True
-                        else:
-                            relevant_skipped = False
-                            relevant_skip_reason = ""
+                        relevant_skipped = False
+                        relevant_skip_reason = ""
 
                     new_relevant_chunk = RelevantChunk(
                         id=relevant_chunk["id"],
@@ -428,10 +422,18 @@ class IndexService:
                     if not relevant_skipped:
                         added_chunks.add(relevant_chunk["id"])
                         total_tokens += relevant_chunk_tokens
+                        included_count += 1
 
                     new_source.relevantChunks.append(new_relevant_chunk)
 
             sources.append(new_source)
+
+        LOGGER.debug(
+            f"[{request_id}]   Context packing summary: token limit "
+            f"{token_limit}, used tokens {total_tokens}, unused tokens "
+            f"{max(0, token_limit - total_tokens)}, included chunks "
+            f"{included_count}, oversized chunks {oversized_count}"
+        )
 
         log_output_used_sources = f"[{request_id}]   Generated chunks for the query:\n"
         for source in sources:
