@@ -42,9 +42,9 @@ services:
       - RERANK_MODEL_PATHS=/app/models/reranker/qwen/Quen3-Reranker-0.6B
       - RERANK_MODEL_TYPES=qwen_cross_encoder
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
-      - RERANK_TIMEOUT_SECONDS=30
+      - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
-      - RERANK_DOCUMENT_BATCH_SIZE=0.2
+      - RERANK_DOCUMENT_BATCH_SIZE=4
       - RERANK_GPU_LAYERS=5
       - RERANK_INSTRUCTIONS_FILE=rerank_instructions.json
       - NVIDIA_VISIBLE_DEVICES=all
