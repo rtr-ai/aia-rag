@@ -65,6 +65,16 @@ The service is configured with several important environment variables:
 
 The Qwen model is loaded lazily on the first reranked request and then reused, including when the dataset instruction changes. The first request can therefore be slower than later requests. The chat `metadata` event reports the actual Qwen device, dtype, attention implementation, maximum length, and batch size.
 
+- **`RERANK_BGE_MAX_LENGTH`**: Maximum number of tokens in each combined BGE query-document pair. Default is `8192`.
+
+- **`RERANK_BGE_DTYPE`**: BGE inference precision. `auto` selects BF16 on supported GPUs, FP16 on other CUDA GPUs, and FP32 on CPU. Explicit values are `bfloat16`, `float16`, and `float32`.
+
+- **`RERANK_BGE_ATTENTION`**: Attention implementation for BGE. Default is `sdpa`; `eager` and `flash_attention_2` are also accepted, but FlashAttention requires compatible additional dependencies.
+
+- **`RERANK_BGE_BATCH_SIZE`**: Initial BGE scoring batch size. Default is `2`. If CUDA runs out of memory, BGE retries all candidates with progressively smaller batches down to `1`.
+
+The multilingual BGE model is loaded lazily and reused for German and English requests. Candidate pairs are sorted by token length before batching to reduce padding, while result indexes are restored before ranking. The chat `metadata` event reports the actual device, dtype, attention implementation, maximum length, configured batch size, and effective batch size.
+
 Verify the container runtime with:
 
 ```bash

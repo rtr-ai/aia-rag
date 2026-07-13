@@ -50,6 +50,10 @@ class RerankerRuntimeConfig:
     qwen_max_length: int
     qwen_dtype: str
     qwen_attention: str
+    bge_max_length: int
+    bge_dtype: str
+    bge_attention: str
+    bge_batch_size: int
 
 
 class MLPProjector:
@@ -648,6 +652,209 @@ class TransformersSequenceClassificationRerankerAdapter:
             return outputs.logits.view(-1).float().detach().cpu().tolist()
 
 
+class BgeCrossEncoderRerankerAdapter(
+    TransformersSequenceClassificationRerankerAdapter
+):
+    backend_name = "bge_cross_encoder"
+
+    def __init__(self, model_path: str, config: RerankerRuntimeConfig):
+        super().__init__(model_path=model_path, config=config)
+        self.runtime_metadata: Dict[str, object] = {}
+
+    def rerank(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> List[RerankResult]:
+        self._ensure_ready()
+        start = time.perf_counter()
+        encoded_documents = self._tokenize_documents(query, documents)
+        effective_batch_size = self.config.bge_batch_size
+
+        while True:
+            try:
+                scores = self._score_encoded_documents(
+                    encoded_documents, effective_batch_size
+                )
+                break
+            except RuntimeError as error:
+                if not self._is_cuda_oom(error) or effective_batch_size == 1:
+                    raise
+                effective_batch_size = max(1, effective_batch_size // 2)
+                empty_cache = getattr(self.torch.cuda, "empty_cache", None)
+                if empty_cache:
+                    empty_cache()
+                LOGGER.warning(
+                    "BGE reranker ran out of GPU memory; retrying all candidate "
+                    "chunks with batch size %s" % effective_batch_size
+                )
+
+        self.runtime_metadata["effective_batch_size"] = effective_batch_size
+        results = [
+            RerankResult(index=index, relevance_score=float(scores[index]))
+            for index in range(len(documents))
+        ]
+        results.sort(key=lambda item: item.relevance_score, reverse=True)
+        if top_n is not None:
+            results = results[:top_n]
+
+        LOGGER.info(
+            "Reranked %s candidate chunks to %s chunks in %.2fs using backend %s "
+            "model %s, device %s, dtype %s, attention %s, max length %s, and "
+            "effective batch size %s"
+            % (
+                len(documents),
+                len(results),
+                time.perf_counter() - start,
+                self.backend_name,
+                self.model_path,
+                self.runtime_metadata["device"],
+                self.runtime_metadata["dtype"],
+                self.runtime_metadata["attention"],
+                self.runtime_metadata["max_length"],
+                effective_batch_size,
+            )
+        )
+        return results
+
+    def _ensure_ready(self):
+        if self.model is not None:
+            return
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(
+                f"Reranker model path does not exist: {self.model_path}"
+            )
+
+        try:
+            import torch
+            from transformers import AutoModelForSequenceClassification, AutoTokenizer
+        except ImportError as error:
+            raise RuntimeError(
+                "BGE reranker requires the transformers and torch packages"
+            ) from error
+
+        self.torch = torch
+        device, dtype, dtype_name = self._resolve_torch_runtime(torch)
+        attention = self.config.bge_attention.strip().lower()
+        if attention not in {"eager", "sdpa", "flash_attention_2"}:
+            raise ValueError(
+                "RERANK_BGE_ATTENTION must be eager, sdpa, or flash_attention_2"
+            )
+
+        start = time.perf_counter()
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_path)
+        self.model = AutoModelForSequenceClassification.from_pretrained(
+            self.model_path,
+            torch_dtype=dtype,
+            attn_implementation=attention,
+        ).eval()
+        self.model.to(device)
+        load_duration = time.perf_counter() - start
+        self.device, dtype_name = self._loaded_runtime(device, dtype_name)
+        self.runtime_metadata = {
+            "backend": self.backend_name,
+            "device": self.device,
+            "dtype": dtype_name,
+            "attention": attention,
+            "max_length": self.config.bge_max_length,
+            "configured_batch_size": self.config.bge_batch_size,
+            "effective_batch_size": self.config.bge_batch_size,
+        }
+        LOGGER.info(
+            "Loaded BGE reranker model %s in %.2fs on %s with dtype %s, "
+            "attention %s, max length %s, and configured batch size %s"
+            % (
+                self.model_path,
+                load_duration,
+                self.device,
+                dtype_name,
+                attention,
+                self.config.bge_max_length,
+                self.config.bge_batch_size,
+            )
+        )
+
+    def _tokenize_documents(self, query: str, documents: List[str]):
+        encoded = self.tokenizer(
+            [query] * len(documents),
+            documents,
+            padding=False,
+            truncation="only_second",
+            max_length=self.config.bge_max_length,
+        )
+        encoded_documents = []
+        for index in range(len(documents)):
+            item = {key: values[index] for key, values in encoded.items()}
+            encoded_documents.append((index, item))
+        encoded_documents.sort(
+            key=lambda indexed_item: len(indexed_item[1]["input_ids"]),
+            reverse=True,
+        )
+        return encoded_documents
+
+    def _score_encoded_documents(self, encoded_documents, batch_size: int):
+        scores: Dict[int, float] = {}
+        for batch_start in range(0, len(encoded_documents), batch_size):
+            batch = encoded_documents[batch_start : batch_start + batch_size]
+            padded = self.tokenizer.pad(
+                [item for _, item in batch],
+                padding=True,
+                pad_to_multiple_of=8,
+                return_tensors="pt",
+            )
+            padded = {key: value.to(self.device) for key, value in padded.items()}
+            with self.torch.inference_mode():
+                logits = self.model(**padded, return_dict=True).logits
+                batch_scores = logits.view(-1).float().detach().cpu().tolist()
+            for (original_index, _), score in zip(batch, batch_scores):
+                scores[original_index] = float(score)
+        return scores
+
+    def _resolve_torch_runtime(self, torch):
+        requested_dtype = self.config.bge_dtype.strip().lower()
+        if requested_dtype not in {"auto", "bfloat16", "float16", "float32"}:
+            raise ValueError(
+                "RERANK_BGE_DTYPE must be auto, bfloat16, float16, or float32"
+            )
+
+        if not torch.cuda.is_available():
+            return "cpu", torch.float32, "float32"
+
+        device = "cuda:0"
+        bf16_supported = getattr(
+            torch.cuda, "is_bf16_supported", lambda: False
+        )()
+        if requested_dtype == "auto":
+            if bf16_supported:
+                return device, torch.bfloat16, "bfloat16"
+            return device, torch.float16, "float16"
+        if requested_dtype == "bfloat16":
+            if not bf16_supported:
+                raise RuntimeError("The configured GPU does not support bfloat16")
+            return device, torch.bfloat16, "bfloat16"
+        if requested_dtype == "float16":
+            return device, torch.float16, "float16"
+        return device, torch.float32, "float32"
+
+    def _loaded_runtime(self, default_device: str, default_dtype: str):
+        try:
+            parameter = next(self.model.parameters())
+        except (AttributeError, StopIteration):
+            return default_device, default_dtype
+        dtype = str(parameter.dtype).removeprefix("torch.")
+        return str(parameter.device), dtype
+
+    def _is_cuda_oom(self, error: RuntimeError) -> bool:
+        if not str(self.device).startswith("cuda"):
+            return False
+        oom_error = getattr(self.torch.cuda, "OutOfMemoryError", None)
+        return (oom_error is not None and isinstance(error, oom_error)) or (
+            "out of memory" in str(error).lower()
+        )
+
+
 def _infer_model_type(model_path: str) -> str:
     lowered_path = model_path.lower()
     if lowered_path.endswith(".gguf"):
@@ -707,6 +914,14 @@ class RerankerService:
             ),
             qwen_dtype=os.getenv("RERANK_QWEN_DTYPE", "auto"),
             qwen_attention=os.getenv("RERANK_QWEN_ATTENTION", "sdpa"),
+            bge_max_length=max(
+                1, int(os.getenv("RERANK_BGE_MAX_LENGTH", "8192"))
+            ),
+            bge_dtype=os.getenv("RERANK_BGE_DTYPE", "auto"),
+            bge_attention=os.getenv("RERANK_BGE_ATTENTION", "sdpa"),
+            bge_batch_size=max(
+                1, int(os.getenv("RERANK_BGE_BATCH_SIZE", "2"))
+            ),
         )
         self.adapters = self._build_adapters()
         self._initialized = True
@@ -830,7 +1045,7 @@ class RerankerService:
                 )
             elif model_type == "bge_cross_encoder":
                 adapters.append(
-                    TransformersSequenceClassificationRerankerAdapter(
+                    BgeCrossEncoderRerankerAdapter(
                         model_path=model_path,
                         config=self.config,
                     )
