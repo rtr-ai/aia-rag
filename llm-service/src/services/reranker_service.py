@@ -58,6 +58,10 @@ class RerankerRuntimeConfig:
     mixedbread_dtype: str
     mixedbread_attention: str
     mixedbread_batch_size: int
+    nvidia_max_length: int
+    nvidia_dtype: str
+    nvidia_attention: str
+    nvidia_batch_size: int
 
 
 class MLPProjector:
@@ -1084,6 +1088,245 @@ class MixedbreadCrossEncoderRerankerAdapter(
         )
 
 
+class NvidiaCrossEncoderRerankerAdapter(
+    TransformersSequenceClassificationRerankerAdapter
+):
+    backend_name = "nvidia_cross_encoder"
+
+    def __init__(self, model_path: str, config: RerankerRuntimeConfig):
+        super().__init__(
+            model_path=model_path,
+            config=config,
+            trust_remote_code=True,
+            single_text_template="question:{query} \n \n passage:{document}",
+        )
+        self.runtime_metadata: Dict[str, object] = {}
+
+    def rerank(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> List[RerankResult]:
+        self._ensure_ready()
+        start = time.perf_counter()
+        encoded_documents = self._tokenize_documents(query, documents)
+        effective_batch_size = self.config.nvidia_batch_size
+
+        while True:
+            try:
+                scores = self._score_encoded_documents(
+                    encoded_documents, effective_batch_size
+                )
+                break
+            except RuntimeError as error:
+                if not self._is_cuda_oom(error) or effective_batch_size == 1:
+                    raise
+                effective_batch_size = max(1, effective_batch_size // 2)
+                empty_cache = getattr(self.torch.cuda, "empty_cache", None)
+                if empty_cache:
+                    empty_cache()
+                LOGGER.warning(
+                    "NVIDIA reranker ran out of GPU memory; retrying all "
+                    "candidate chunks with batch size %s" % effective_batch_size
+                )
+
+        self.runtime_metadata["effective_batch_size"] = effective_batch_size
+        self.runtime_metadata["document_count"] = len(documents)
+        results = [
+            RerankResult(index=index, relevance_score=float(scores[index]))
+            for index in range(len(documents))
+        ]
+        results.sort(key=lambda item: item.relevance_score, reverse=True)
+        if top_n is not None:
+            results = results[:top_n]
+
+        LOGGER.info(
+            "Reranked %s candidate chunks to %s chunks in %.2fs using backend %s "
+            "model %s, device %s, dtype %s, attention %s, max length %s, "
+            "effective batch size %s, and use cache %s"
+            % (
+                len(documents),
+                len(results),
+                time.perf_counter() - start,
+                self.backend_name,
+                self.model_path,
+                self.runtime_metadata["device"],
+                self.runtime_metadata["dtype"],
+                self.runtime_metadata["attention"],
+                self.runtime_metadata["max_length"],
+                effective_batch_size,
+                self.runtime_metadata["use_cache"],
+            )
+        )
+        return results
+
+    def _ensure_ready(self):
+        if self.model is not None:
+            return
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(
+                f"Reranker model path does not exist: {self.model_path}"
+            )
+
+        try:
+            import torch
+            from transformers import AutoModelForSequenceClassification, AutoTokenizer
+        except ImportError as error:
+            raise RuntimeError(
+                "NVIDIA reranker requires transformers and torch"
+            ) from error
+
+        self.torch = torch
+        device, dtype, dtype_name = self._resolve_torch_runtime(torch)
+        attention = self.config.nvidia_attention.strip().lower()
+        if attention not in {"eager", "sdpa", "flash_attention_2"}:
+            raise ValueError(
+                "RERANK_NVIDIA_ATTENTION must be eager, sdpa, or "
+                "flash_attention_2"
+            )
+
+        start = time.perf_counter()
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            self.model_path,
+            trust_remote_code=True,
+            padding_side="left",
+        )
+        self.tokenizer.padding_side = "left"
+        if self.tokenizer.pad_token is None:
+            if self.tokenizer.eos_token is None:
+                raise RuntimeError(
+                    "NVIDIA reranker tokenizer has neither a pad token nor an "
+                    "EOS token"
+                )
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+
+        self.model = AutoModelForSequenceClassification.from_pretrained(
+            self.model_path,
+            trust_remote_code=True,
+            torch_dtype=dtype,
+            attn_implementation=attention,
+        ).eval()
+        if self.model.config.pad_token_id is None:
+            self.model.config.pad_token_id = self.tokenizer.eos_token_id
+        self.model.config.use_cache = False
+        self.model.to(device)
+        load_duration = time.perf_counter() - start
+
+        self.device, dtype_name = self._loaded_runtime(device, dtype_name)
+        self.runtime_metadata = {
+            "backend": self.backend_name,
+            "device": self.device,
+            "dtype": dtype_name,
+            "attention": attention,
+            "max_length": self.config.nvidia_max_length,
+            "configured_batch_size": self.config.nvidia_batch_size,
+            "effective_batch_size": self.config.nvidia_batch_size,
+            "use_cache": False,
+            "document_count": 0,
+        }
+        LOGGER.info(
+            "Loaded NVIDIA reranker model %s in %.2fs on %s with dtype %s, "
+            "attention %s, max length %s, configured batch size %s, and no "
+            "KV cache"
+            % (
+                self.model_path,
+                load_duration,
+                self.device,
+                dtype_name,
+                attention,
+                self.config.nvidia_max_length,
+                self.config.nvidia_batch_size,
+            )
+        )
+
+    def _format_input(self, query: str, document: str) -> str:
+        return self.single_text_template.format(query=query, document=document)
+
+    def _tokenize_documents(self, query: str, documents: List[str]):
+        texts = [self._format_input(query, document) for document in documents]
+        encoded = self.tokenizer(
+            texts,
+            padding=False,
+            truncation=True,
+            max_length=self.config.nvidia_max_length,
+        )
+        encoded_documents = []
+        for index in range(len(documents)):
+            item = {key: values[index] for key, values in encoded.items()}
+            encoded_documents.append((index, item))
+        encoded_documents.sort(
+            key=lambda indexed_item: len(indexed_item[1]["input_ids"]),
+            reverse=True,
+        )
+        return encoded_documents
+
+    def _score_encoded_documents(self, encoded_documents, batch_size: int):
+        scores: Dict[int, float] = {}
+        for batch_start in range(0, len(encoded_documents), batch_size):
+            batch = encoded_documents[batch_start : batch_start + batch_size]
+            padded = self.tokenizer.pad(
+                [item for _, item in batch],
+                padding=True,
+                pad_to_multiple_of=8,
+                return_tensors="pt",
+            )
+            padded = {key: value.to(self.device) for key, value in padded.items()}
+            with self.torch.inference_mode():
+                logits = self.model(
+                    **padded,
+                    use_cache=False,
+                    return_dict=True,
+                ).logits
+                batch_scores = logits.view(-1).float().detach().cpu().tolist()
+            for (original_index, _), score in zip(batch, batch_scores):
+                scores[original_index] = float(score)
+        return scores
+
+    def _resolve_torch_runtime(self, torch):
+        requested_dtype = self.config.nvidia_dtype.strip().lower()
+        if requested_dtype not in {"auto", "bfloat16", "float16", "float32"}:
+            raise ValueError(
+                "RERANK_NVIDIA_DTYPE must be auto, bfloat16, float16, or float32"
+            )
+
+        if not torch.cuda.is_available():
+            return "cpu", torch.float32, "float32"
+
+        device = "cuda:0"
+        bf16_supported = getattr(
+            torch.cuda, "is_bf16_supported", lambda: False
+        )()
+        if requested_dtype == "auto":
+            if bf16_supported:
+                return device, torch.bfloat16, "bfloat16"
+            return device, torch.float16, "float16"
+        if requested_dtype == "bfloat16":
+            if not bf16_supported:
+                raise RuntimeError("The configured GPU does not support bfloat16")
+            return device, torch.bfloat16, "bfloat16"
+        if requested_dtype == "float16":
+            return device, torch.float16, "float16"
+        return device, torch.float32, "float32"
+
+    def _loaded_runtime(self, default_device: str, default_dtype: str):
+        try:
+            parameter = next(self.model.parameters())
+        except (AttributeError, StopIteration):
+            return default_device, default_dtype
+        dtype = str(parameter.dtype).removeprefix("torch.")
+        return str(parameter.device), dtype
+
+    def _is_cuda_oom(self, error: RuntimeError) -> bool:
+        if not str(self.device).startswith("cuda"):
+            return False
+        oom_error = getattr(self.torch.cuda, "OutOfMemoryError", None)
+        return (oom_error is not None and isinstance(error, oom_error)) or (
+            "out of memory" in str(error).lower()
+        )
+
+
 def _infer_model_type(model_path: str) -> str:
     lowered_path = model_path.lower()
     if lowered_path.endswith(".gguf"):
@@ -1163,6 +1406,16 @@ class RerankerService:
             mixedbread_batch_size=max(
                 1, int(os.getenv("RERANK_MIXEDBREAD_BATCH_SIZE", "2"))
             ),
+            nvidia_max_length=max(
+                1, int(os.getenv("RERANK_NVIDIA_MAX_LENGTH", "8192"))
+            ),
+            nvidia_dtype=os.getenv("RERANK_NVIDIA_DTYPE", "auto"),
+            nvidia_attention=os.getenv(
+                "RERANK_NVIDIA_ATTENTION", "sdpa"
+            ),
+            nvidia_batch_size=max(
+                1, int(os.getenv("RERANK_NVIDIA_BATCH_SIZE", "1"))
+            ),
         )
         self.adapters = self._build_adapters()
         self._initialized = True
@@ -1191,7 +1444,11 @@ class RerankerService:
         last_error: Optional[Exception] = None
         for adapter in self.adapters:
             try:
-                adapter_instruction = instruction
+                adapter_instruction = (
+                    None
+                    if adapter.backend_name == "nvidia_cross_encoder"
+                    else instruction
+                )
                 if adapter_instruction:
                     LOGGER.debug(
                         "Using configured reranker instruction for backend %s model %s"
@@ -1300,11 +1557,9 @@ class RerankerService:
                 )
             elif model_type == "nvidia_cross_encoder":
                 adapters.append(
-                    TransformersSequenceClassificationRerankerAdapter(
+                    NvidiaCrossEncoderRerankerAdapter(
                         model_path=model_path,
                         config=self.config,
-                        trust_remote_code=True,
-                        single_text_template="question:{query} \n\n passage:{document}",
                     )
                 )
             else:

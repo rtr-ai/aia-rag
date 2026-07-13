@@ -11,6 +11,7 @@ sys.path.insert(0, str(SRC_PATH))
 from services.reranker_service import (
     BgeCrossEncoderRerankerAdapter,
     MixedbreadCrossEncoderRerankerAdapter,
+    NvidiaCrossEncoderRerankerAdapter,
     QwenCrossEncoderRerankerAdapter,
     RerankResult,
     RerankerRuntimeConfig,
@@ -61,6 +62,10 @@ def runtime_config(dtype="auto"):
         mixedbread_dtype=dtype,
         mixedbread_attention="sdpa",
         mixedbread_batch_size=2,
+        nvidia_max_length=8192,
+        nvidia_dtype=dtype,
+        nvidia_attention="sdpa",
+        nvidia_batch_size=1,
     )
 
 
@@ -488,7 +493,276 @@ class MixedbreadCrossEncoderRerankerAdapterTest(unittest.TestCase):
         return adapter
 
 
+class FakeNvidiaTokenizer:
+    lengths = {"long": 5, "short": 1, "medium": 3}
+    score_tokens = {"long": 2, "short": 9, "medium": 5}
+
+    def __init__(self):
+        self.padding_side = "right"
+        self.pad_token = None
+        self.eos_token = "<eos>"
+        self.eos_token_id = 17
+        self.call_kwargs = []
+        self.texts = []
+        self.padded_batches = []
+
+    def __call__(self, texts, **kwargs):
+        self.call_kwargs.append(kwargs)
+        self.texts.extend(texts)
+        input_ids = []
+        for text in texts:
+            document = text.split("passage:", 1)[1]
+            length = self.lengths[document]
+            input_ids.append(
+                [self.score_tokens[document]] + [0] * (length - 1)
+            )
+        return {
+            "input_ids": input_ids,
+            "attention_mask": [[1] * len(ids) for ids in input_ids],
+        }
+
+    def pad(self, items, **kwargs):
+        score_tokens = [item["input_ids"][0] for item in items]
+        self.padded_batches.append((score_tokens, kwargs))
+        return {
+            "input_ids": FakeTensor(score_tokens),
+            "attention_mask": FakeTensor([1] * len(items)),
+        }
+
+
+class FakeNvidiaModel:
+    def __init__(self, oom_error=None):
+        self.config = types.SimpleNamespace(
+            pad_token_id=None,
+            use_cache=True,
+        )
+        self.oom_error = oom_error
+        self.batch_sizes = []
+        self.call_kwargs = []
+        self.device = None
+
+    def eval(self):
+        return self
+
+    def to(self, device):
+        self.device = device
+        return self
+
+    def parameters(self):
+        return iter(())
+
+    def __call__(self, input_ids, **kwargs):
+        self.batch_sizes.append(len(input_ids.values))
+        self.call_kwargs.append(kwargs)
+        if self.oom_error and len(input_ids.values) > 1:
+            raise self.oom_error("CUDA out of memory")
+        return types.SimpleNamespace(
+            logits=FakeTensor([value / 10 for value in input_ids.values])
+        )
+
+
+class NvidiaCrossEncoderRerankerAdapterTest(unittest.TestCase):
+    def test_model_is_loaded_once_with_optimized_runtime(self):
+        tokenizer = FakeNvidiaTokenizer()
+        model = FakeNvidiaModel()
+        tokenizer_loads = []
+        model_loads = []
+
+        class FakeAutoTokenizer:
+            @staticmethod
+            def from_pretrained(model_path, **kwargs):
+                tokenizer_loads.append((model_path, kwargs))
+                return tokenizer
+
+        class FakeAutoModel:
+            @staticmethod
+            def from_pretrained(model_path, **kwargs):
+                model_loads.append((model_path, kwargs))
+                return model
+
+        transformers = types.ModuleType("transformers")
+        transformers.AutoTokenizer = FakeAutoTokenizer
+        transformers.AutoModelForSequenceClassification = FakeAutoModel
+        torch = fake_torch()
+        adapter = NvidiaCrossEncoderRerankerAdapter(
+            "nvidia-model", runtime_config()
+        )
+
+        with patch(
+            "services.reranker_service.os.path.exists", return_value=True
+        ), patch.dict(
+            sys.modules, {"transformers": transformers, "torch": torch}
+        ):
+            adapter._ensure_ready()
+            adapter._ensure_ready()
+
+        self.assertEqual(len(tokenizer_loads), 1)
+        self.assertEqual(tokenizer_loads[0][1]["padding_side"], "left")
+        self.assertTrue(tokenizer_loads[0][1]["trust_remote_code"])
+        self.assertEqual(len(model_loads), 1)
+        self.assertTrue(model_loads[0][1]["trust_remote_code"])
+        self.assertIs(model_loads[0][1]["torch_dtype"], torch.bfloat16)
+        self.assertEqual(model_loads[0][1]["attn_implementation"], "sdpa")
+        self.assertEqual(tokenizer.padding_side, "left")
+        self.assertEqual(tokenizer.pad_token, tokenizer.eos_token)
+        self.assertEqual(model.config.pad_token_id, tokenizer.eos_token_id)
+        self.assertFalse(model.config.use_cache)
+        self.assertEqual(adapter.runtime_metadata["device"], "cuda:0")
+        self.assertEqual(adapter.runtime_metadata["dtype"], "bfloat16")
+        self.assertEqual(adapter.runtime_metadata["max_length"], 8192)
+        self.assertFalse(adapter.runtime_metadata["use_cache"])
+
+    def test_template_sorting_scores_and_cache_setting(self):
+        adapter = self._ready_adapter()
+        results = adapter.rerank(
+            "query",
+            ["long", "short", "medium"],
+            instruction="must not be added",
+        )
+
+        self.assertEqual([result.index for result in results], [1, 2, 0])
+        self.assertEqual(
+            adapter.tokenizer.texts,
+            [
+                "question:query \n \n passage:long",
+                "question:query \n \n passage:short",
+                "question:query \n \n passage:medium",
+            ],
+        )
+        self.assertNotIn("must not be added", "".join(adapter.tokenizer.texts))
+        self.assertEqual(
+            adapter.tokenizer.call_kwargs[0]["max_length"], 8192
+        )
+        self.assertEqual(
+            [batch[0] for batch in adapter.tokenizer.padded_batches],
+            [[2], [5], [9]],
+        )
+        self.assertTrue(
+            all(
+                batch[1]["pad_to_multiple_of"] == 8
+                for batch in adapter.tokenizer.padded_batches
+            )
+        )
+        self.assertTrue(
+            all(call["use_cache"] is False for call in adapter.model.call_kwargs)
+        )
+        self.assertEqual(adapter.runtime_metadata["document_count"], 3)
+
+    def test_configured_batch_two_retries_with_batch_one_after_cuda_oom(self):
+        class FakeCudaOom(RuntimeError):
+            pass
+
+        empty_cache_calls = []
+        torch = fake_torch()
+        torch.cuda.OutOfMemoryError = FakeCudaOom
+        torch.cuda.empty_cache = lambda: empty_cache_calls.append(True)
+        config = runtime_config()
+        config.nvidia_batch_size = 2
+        model = FakeNvidiaModel(FakeCudaOom)
+        adapter = self._ready_adapter(config=config, torch=torch, model=model)
+
+        adapter.rerank("query", ["long", "short", "medium"])
+
+        self.assertEqual(model.batch_sizes, [2, 1, 1, 1])
+        self.assertEqual(empty_cache_calls, [True])
+        self.assertEqual(
+            adapter.runtime_metadata["effective_batch_size"], 1
+        )
+
+    def test_auto_dtype_falls_back_to_float16_and_cpu_float32(self):
+        adapter = NvidiaCrossEncoderRerankerAdapter(
+            "nvidia-model", runtime_config()
+        )
+        gpu_torch = fake_torch(bf16_supported=False)
+        cpu_torch = fake_torch(available=False)
+
+        gpu_device, gpu_dtype, gpu_name = adapter._resolve_torch_runtime(
+            gpu_torch
+        )
+        cpu_device, cpu_dtype, cpu_name = adapter._resolve_torch_runtime(
+            cpu_torch
+        )
+
+        self.assertEqual((gpu_device, gpu_name), ("cuda:0", "float16"))
+        self.assertIs(gpu_dtype, gpu_torch.float16)
+        self.assertEqual((cpu_device, cpu_name), ("cpu", "float32"))
+        self.assertIs(cpu_dtype, cpu_torch.float32)
+
+    def test_service_does_not_forward_dataset_instruction(self):
+        received_instructions = []
+
+        class RecordingAdapter:
+            backend_name = "nvidia_cross_encoder"
+            model_path = "nvidia"
+            runtime_metadata = {}
+
+            def rerank(self, **kwargs):
+                received_instructions.append(kwargs["instruction"])
+                return [RerankResult(index=0, relevance_score=0.9)]
+
+        service = object.__new__(RerankerService)
+        service.enabled = True
+        service.adapters = [RecordingAdapter()]
+
+        service.rerank_with_metadata(
+            "query", ["document"], instruction="dataset instruction"
+        )
+
+        self.assertEqual(received_instructions, [None])
+
+
+    def _ready_adapter(self, config=None, torch=None, model=None):
+        adapter = NvidiaCrossEncoderRerankerAdapter(
+            "nvidia-model", config or runtime_config()
+        )
+        adapter.tokenizer = FakeNvidiaTokenizer()
+        adapter.model = model or FakeNvidiaModel()
+        adapter.torch = torch or fake_torch()
+        adapter.device = "cuda:0"
+        adapter.runtime_metadata = {
+            "backend": "nvidia_cross_encoder",
+            "device": "cuda:0",
+            "dtype": "bfloat16",
+            "attention": "sdpa",
+            "max_length": 8192,
+            "configured_batch_size": adapter.config.nvidia_batch_size,
+            "effective_batch_size": adapter.config.nvidia_batch_size,
+            "use_cache": False,
+            "document_count": 0,
+        }
+        return adapter
+
+
 class RerankerFallbackTest(unittest.TestCase):
+    def test_failed_nvidia_advances_to_mixedbread(self):
+        class FailingAdapter:
+            backend_name = "nvidia_cross_encoder"
+            model_path = "nvidia"
+
+            def rerank(self, **kwargs):
+                raise RuntimeError("NVIDIA failed")
+
+        class WorkingAdapter:
+            backend_name = "mixedbread_cross_encoder"
+            model_path = "mixedbread"
+            runtime_metadata = {"device": "cuda:0"}
+
+            def rerank(self, **kwargs):
+                return [RerankResult(index=0, relevance_score=0.9)]
+
+        service = object.__new__(RerankerService)
+        service.enabled = True
+        service.adapters = [FailingAdapter(), WorkingAdapter()]
+
+        execution = service.rerank_with_metadata(
+            "query", ["document"], instruction="instruction"
+        )
+
+        self.assertEqual(execution.backend_name, "mixedbread_cross_encoder")
+        self.assertEqual(execution.model_path, "mixedbread")
+        self.assertEqual(execution.runtime, {"device": "cuda:0"})
+
+
     def test_failed_mixedbread_advances_to_bge(self):
         class FailingAdapter:
             backend_name = "mixedbread_cross_encoder"

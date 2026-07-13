@@ -39,8 +39,8 @@ services:
       - TOP_N_CHUNKS=25
       - RERANK_ENABLED=true
       - RERANK_TOP_N=20
-      - RERANK_MODEL_PATHS=/app/models/reranker/mixedbread,/app/models/reranker/bge,/app/models/reranker/qwen/Quen3-Reranker-0.6B
-      - RERANK_MODEL_TYPES=mixedbread_cross_encoder,bge_cross_encoder,qwen_cross_encoder
+      - RERANK_MODEL_PATHS=/app/models/reranker/nvidia,/app/models/reranker/mixedbread,/app/models/reranker/bge,/app/models/reranker/qwen/Quen3-Reranker-0.6B
+      - RERANK_MODEL_TYPES=nvidia_cross_encoder,mixedbread_cross_encoder,bge_cross_encoder,qwen_cross_encoder
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
@@ -57,6 +57,10 @@ services:
       - RERANK_MIXEDBREAD_DTYPE=auto
       - RERANK_MIXEDBREAD_ATTENTION=sdpa
       - RERANK_MIXEDBREAD_BATCH_SIZE=4
+      - RERANK_NVIDIA_MAX_LENGTH=8192
+      - RERANK_NVIDIA_DTYPE=auto
+      - RERANK_NVIDIA_ATTENTION=sdpa
+      - RERANK_NVIDIA_BATCH_SIZE=1
       - RERANK_INSTRUCTIONS_FILE=rerank_instructions.json
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility

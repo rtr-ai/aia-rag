@@ -85,6 +85,17 @@ The multilingual BGE model is loaded lazily and reused for German and English re
 
 The multilingual Mixedbread model is loaded lazily and reused for German and English requests. Dataset instructions are passed per request without reloading the model. Candidate pairs are sorted by token length to reduce padding, and original indexes are restored before ranking. The chat `metadata` event reports the actual device, dtype, attention implementation, maximum length, configured and effective batch sizes, document count, and whether an instruction was used. The first reranked request can be slower while the model is loaded; later requests reuse it.
 
+- **`RERANK_NVIDIA_MAX_LENGTH`**: Maximum combined token length of each formatted NVIDIA query-document pair. Default is `8192`.
+
+- **`RERANK_NVIDIA_DTYPE`**: NVIDIA inference precision. `auto` selects BF16 on supported GPUs, FP16 on other CUDA GPUs, and FP32 on CPU. Explicit values are `bfloat16`, `float16`, and `float32`.
+
+- **`RERANK_NVIDIA_ATTENTION`**: Attention implementation for NVIDIA Nemotron. Default is `sdpa`; `eager` and `flash_attention_2` are also accepted, but FlashAttention requires compatible additional dependencies.
+
+- **`RERANK_NVIDIA_BATCH_SIZE`**: Initial NVIDIA scoring batch size. Default is `1` because bidirectional attention at long sequence lengths has substantial GPU memory cost. Configured values above `1` automatically retry with smaller batches after CUDA OOM.
+
+The NVIDIA model is loaded lazily with its local custom bidirectional model code and reused for German and English requests. It uses the model's fixed `question:... passage:...` format, left padding, length-aware batches, raw relevance logits, and no KV cache. Dataset-specific reranker instructions are intentionally not applied. The chat `metadata` event reports the actual device, dtype, attention implementation, maximum length, cache setting, document count, and configured and effective batch sizes.
+
+
 Verify the container runtime with:
 
 ```bash
