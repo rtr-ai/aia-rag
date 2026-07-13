@@ -44,7 +44,7 @@ services:
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
-      - RERANK_DOCUMENT_BATCH_SIZE=4
+      - RERANK_DOCUMENT_BATCH_SIZE=8
       - RERANK_GPU_LAYERS=5
       - RERANK_QWEN_MAX_LENGTH=8192
       - RERANK_QWEN_DTYPE=auto
