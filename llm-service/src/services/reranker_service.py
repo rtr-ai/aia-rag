@@ -54,6 +54,10 @@ class RerankerRuntimeConfig:
     bge_dtype: str
     bge_attention: str
     bge_batch_size: int
+    mixedbread_max_length: int
+    mixedbread_dtype: str
+    mixedbread_attention: str
+    mixedbread_batch_size: int
 
 
 class MLPProjector:
@@ -855,6 +859,231 @@ class BgeCrossEncoderRerankerAdapter(
         )
 
 
+class MixedbreadCrossEncoderRerankerAdapter(
+    SentenceTransformersCrossEncoderRerankerAdapter
+):
+    backend_name = "mixedbread_cross_encoder"
+    supports_instruction = True
+
+    def __init__(self, model_path: str, config: RerankerRuntimeConfig):
+        super().__init__(model_path=model_path, config=config)
+        self.torch = None
+        self.device = None
+        self.runtime_metadata: Dict[str, object] = {}
+
+    def rerank(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> List[RerankResult]:
+        self._ensure_ready()
+        start = time.perf_counter()
+        indexed_pairs = self._length_sorted_pairs(query, documents)
+        effective_batch_size = self.config.mixedbread_batch_size
+        normalized_instruction = instruction.strip() if instruction else None
+
+        while True:
+            try:
+                scores = self._score_pairs(
+                    indexed_pairs,
+                    effective_batch_size,
+                    normalized_instruction,
+                )
+                break
+            except RuntimeError as error:
+                if not self._is_cuda_oom(error) or effective_batch_size == 1:
+                    raise
+                effective_batch_size = max(1, effective_batch_size // 2)
+                empty_cache = getattr(self.torch.cuda, "empty_cache", None)
+                if empty_cache:
+                    empty_cache()
+                LOGGER.warning(
+                    "Mixedbread reranker ran out of GPU memory; retrying all "
+                    "candidate chunks with batch size %s" % effective_batch_size
+                )
+
+        self.runtime_metadata["effective_batch_size"] = effective_batch_size
+        self.runtime_metadata["document_count"] = len(documents)
+        self.runtime_metadata["instruction_used"] = bool(normalized_instruction)
+        results = [
+            RerankResult(index=index, relevance_score=float(scores[index]))
+            for index in range(len(documents))
+        ]
+        results.sort(key=lambda item: item.relevance_score, reverse=True)
+        if top_n is not None:
+            results = results[:top_n]
+
+        LOGGER.info(
+            "Reranked %s candidate chunks to %s chunks in %.2fs using backend %s "
+            "model %s, device %s, dtype %s, attention %s, max length %s, "
+            "effective batch size %s, and instruction %s"
+            % (
+                len(documents),
+                len(results),
+                time.perf_counter() - start,
+                self.backend_name,
+                self.model_path,
+                self.runtime_metadata["device"],
+                self.runtime_metadata["dtype"],
+                self.runtime_metadata["attention"],
+                self.runtime_metadata["max_length"],
+                effective_batch_size,
+                "enabled" if normalized_instruction else "disabled",
+            )
+        )
+        return results
+
+    def _ensure_ready(self):
+        if self.model is not None:
+            return
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(
+                f"Reranker model path does not exist: {self.model_path}"
+            )
+
+        try:
+            import torch
+            from sentence_transformers import CrossEncoder
+        except ImportError as error:
+            raise RuntimeError(
+                "Mixedbread reranker requires sentence-transformers and torch"
+            ) from error
+
+        self.torch = torch
+        device, dtype, dtype_name = self._resolve_torch_runtime(torch)
+        attention = self.config.mixedbread_attention.strip().lower()
+        if attention not in {"eager", "sdpa", "flash_attention_2"}:
+            raise ValueError(
+                "RERANK_MIXEDBREAD_ATTENTION must be eager, sdpa, or "
+                "flash_attention_2"
+            )
+
+        start = time.perf_counter()
+        self.model = CrossEncoder(
+            self.model_path,
+            device=device,
+            max_length=self.config.mixedbread_max_length,
+            model_kwargs={
+                "torch_dtype": dtype,
+                "attn_implementation": attention,
+            },
+        )
+        load_duration = time.perf_counter() - start
+        self.device, dtype_name = self._loaded_runtime(device, dtype_name)
+        self.runtime_metadata = {
+            "backend": self.backend_name,
+            "device": self.device,
+            "dtype": dtype_name,
+            "attention": attention,
+            "max_length": self.config.mixedbread_max_length,
+            "configured_batch_size": self.config.mixedbread_batch_size,
+            "effective_batch_size": self.config.mixedbread_batch_size,
+            "document_count": 0,
+            "instruction_used": False,
+        }
+        LOGGER.info(
+            "Loaded Mixedbread reranker model %s in %.2fs on %s with dtype %s, "
+            "attention %s, max length %s, and configured batch size %s"
+            % (
+                self.model_path,
+                load_duration,
+                self.device,
+                dtype_name,
+                attention,
+                self.config.mixedbread_max_length,
+                self.config.mixedbread_batch_size,
+            )
+        )
+
+    def _length_sorted_pairs(self, query: str, documents: List[str]):
+        pairs = [(query, document) for document in documents]
+        tokenizer = getattr(self.model, "tokenizer", None)
+        if tokenizer is None or not documents:
+            return list(enumerate(pairs))
+
+        encoded = tokenizer(
+            [query] * len(documents),
+            documents,
+            padding=False,
+            truncation=True,
+            max_length=self.config.mixedbread_max_length,
+        )
+        indexed_pairs = list(enumerate(pairs))
+        indexed_pairs.sort(
+            key=lambda item: len(encoded["input_ids"][item[0]]),
+            reverse=True,
+        )
+        return indexed_pairs
+
+    def _score_pairs(
+        self,
+        indexed_pairs,
+        batch_size: int,
+        instruction: Optional[str],
+    ) -> Dict[int, float]:
+        scores: Dict[int, float] = {}
+        for batch_start in range(0, len(indexed_pairs), batch_size):
+            batch = indexed_pairs[batch_start : batch_start + batch_size]
+            predict_kwargs: Dict[str, object] = {
+                "batch_size": batch_size,
+                "show_progress_bar": False,
+            }
+            if instruction:
+                predict_kwargs["prompt"] = instruction
+            batch_scores = self.model.predict(
+                [pair for _, pair in batch],
+                **predict_kwargs,
+            )
+            for (original_index, _), score in zip(batch, batch_scores):
+                scores[original_index] = float(score)
+        return scores
+
+    def _resolve_torch_runtime(self, torch):
+        requested_dtype = self.config.mixedbread_dtype.strip().lower()
+        if requested_dtype not in {"auto", "bfloat16", "float16", "float32"}:
+            raise ValueError(
+                "RERANK_MIXEDBREAD_DTYPE must be auto, bfloat16, float16, "
+                "or float32"
+            )
+
+        if not torch.cuda.is_available():
+            return "cpu", torch.float32, "float32"
+
+        device = "cuda:0"
+        bf16_supported = getattr(
+            torch.cuda, "is_bf16_supported", lambda: False
+        )()
+        if requested_dtype == "auto":
+            if bf16_supported:
+                return device, torch.bfloat16, "bfloat16"
+            return device, torch.float16, "float16"
+        if requested_dtype == "bfloat16":
+            if not bf16_supported:
+                raise RuntimeError("The configured GPU does not support bfloat16")
+            return device, torch.bfloat16, "bfloat16"
+        if requested_dtype == "float16":
+            return device, torch.float16, "float16"
+        return device, torch.float32, "float32"
+
+    def _loaded_runtime(self, default_device: str, default_dtype: str):
+        try:
+            parameter = next(self.model.model.parameters())
+        except (AttributeError, StopIteration):
+            return default_device, default_dtype
+        dtype = str(parameter.dtype).removeprefix("torch.")
+        return str(parameter.device), dtype
+
+    def _is_cuda_oom(self, error: RuntimeError) -> bool:
+        if not str(self.device).startswith("cuda"):
+            return False
+        oom_error = getattr(self.torch.cuda, "OutOfMemoryError", None)
+        return (oom_error is not None and isinstance(error, oom_error)) or (
+            "out of memory" in str(error).lower()
+        )
+
+
 def _infer_model_type(model_path: str) -> str:
     lowered_path = model_path.lower()
     if lowered_path.endswith(".gguf"):
@@ -863,6 +1092,8 @@ def _infer_model_type(model_path: str) -> str:
         return "qwen_cross_encoder"
     if "bge" in lowered_path:
         return "bge_cross_encoder"
+    if "mixedbread" in lowered_path or "mxbai-rerank" in lowered_path:
+        return "mixedbread_cross_encoder"
     if "nvidia" in lowered_path:
         return "nvidia_cross_encoder"
     return "sentence_transformers_cross_encoder"
@@ -921,6 +1152,16 @@ class RerankerService:
             bge_attention=os.getenv("RERANK_BGE_ATTENTION", "sdpa"),
             bge_batch_size=max(
                 1, int(os.getenv("RERANK_BGE_BATCH_SIZE", "2"))
+            ),
+            mixedbread_max_length=max(
+                1, int(os.getenv("RERANK_MIXEDBREAD_MAX_LENGTH", "8192"))
+            ),
+            mixedbread_dtype=os.getenv("RERANK_MIXEDBREAD_DTYPE", "auto"),
+            mixedbread_attention=os.getenv(
+                "RERANK_MIXEDBREAD_ATTENTION", "sdpa"
+            ),
+            mixedbread_batch_size=max(
+                1, int(os.getenv("RERANK_MIXEDBREAD_BATCH_SIZE", "2"))
             ),
         )
         self.adapters = self._build_adapters()
@@ -1046,6 +1287,13 @@ class RerankerService:
             elif model_type == "bge_cross_encoder":
                 adapters.append(
                     BgeCrossEncoderRerankerAdapter(
+                        model_path=model_path,
+                        config=self.config,
+                    )
+                )
+            elif model_type == "mixedbread_cross_encoder":
+                adapters.append(
+                    MixedbreadCrossEncoderRerankerAdapter(
                         model_path=model_path,
                         config=self.config,
                     )

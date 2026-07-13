@@ -10,6 +10,7 @@ sys.path.insert(0, str(SRC_PATH))
 
 from services.reranker_service import (
     BgeCrossEncoderRerankerAdapter,
+    MixedbreadCrossEncoderRerankerAdapter,
     QwenCrossEncoderRerankerAdapter,
     RerankResult,
     RerankerRuntimeConfig,
@@ -56,6 +57,10 @@ def runtime_config(dtype="auto"):
         bge_dtype=dtype,
         bge_attention="sdpa",
         bge_batch_size=2,
+        mixedbread_max_length=8192,
+        mixedbread_dtype=dtype,
+        mixedbread_attention="sdpa",
+        mixedbread_batch_size=2,
     )
 
 
@@ -334,7 +339,185 @@ class BgeCrossEncoderRerankerAdapterTest(unittest.TestCase):
         return adapter
 
 
+class FakeMixedbreadCrossEncoder:
+    def __init__(self, oom_error=None):
+        self.tokenizer = FakeBgeTokenizer()
+        self.model = types.SimpleNamespace(parameters=lambda: iter(()))
+        self.oom_error = oom_error
+        self.predict_calls = []
+
+    def predict(self, pairs, **kwargs):
+        self.predict_calls.append((pairs, kwargs))
+        if self.oom_error and len(pairs) > 1:
+            raise self.oom_error("CUDA out of memory")
+        return [
+            FakeBgeTokenizer.score_tokens[document] / 10
+            for _, document in pairs
+        ]
+
+
+class MixedbreadCrossEncoderRerankerAdapterTest(unittest.TestCase):
+    def test_model_is_reused_and_instruction_is_passed_per_call(self):
+        constructed = []
+
+        class FakeCrossEncoder(FakeMixedbreadCrossEncoder):
+            def __init__(self, model_path, **kwargs):
+                super().__init__()
+                self.model_path = model_path
+                self.kwargs = kwargs
+                constructed.append(self)
+
+        sentence_transformers = types.ModuleType("sentence_transformers")
+        sentence_transformers.CrossEncoder = FakeCrossEncoder
+        torch = fake_torch()
+        adapter = MixedbreadCrossEncoderRerankerAdapter(
+            "mixedbread-model", runtime_config()
+        )
+
+        with patch(
+            "services.reranker_service.os.path.exists", return_value=True
+        ), patch.dict(
+            sys.modules,
+            {"sentence_transformers": sentence_transformers, "torch": torch},
+        ):
+            adapter.rerank(
+                "query", ["long", "short"], instruction="German instruction"
+            )
+            adapter.rerank(
+                "query", ["long", "short"], instruction="English instruction"
+            )
+
+        self.assertEqual(len(constructed), 1)
+        self.assertIs(
+            constructed[0].kwargs["model_kwargs"]["torch_dtype"], torch.bfloat16
+        )
+        self.assertEqual(
+            constructed[0].kwargs["model_kwargs"]["attn_implementation"],
+            "sdpa",
+        )
+        self.assertEqual(constructed[0].kwargs["max_length"], 8192)
+        self.assertEqual(
+            constructed[0].predict_calls[0][1]["prompt"], "German instruction"
+        )
+        self.assertEqual(
+            constructed[0].predict_calls[1][1]["prompt"], "English instruction"
+        )
+        self.assertEqual(adapter.runtime_metadata["device"], "cuda:0")
+        self.assertEqual(adapter.runtime_metadata["dtype"], "bfloat16")
+        self.assertTrue(adapter.runtime_metadata["instruction_used"])
+
+    def test_auto_dtype_falls_back_to_float16_and_cpu_float32(self):
+        adapter = MixedbreadCrossEncoderRerankerAdapter(
+            "mixedbread-model", runtime_config()
+        )
+        gpu_torch = fake_torch(bf16_supported=False)
+        cpu_torch = fake_torch(available=False)
+
+        gpu_device, gpu_dtype, gpu_name = adapter._resolve_torch_runtime(
+            gpu_torch
+        )
+        cpu_device, cpu_dtype, cpu_name = adapter._resolve_torch_runtime(
+            cpu_torch
+        )
+
+        self.assertEqual((gpu_device, gpu_name), ("cuda:0", "float16"))
+        self.assertIs(gpu_dtype, gpu_torch.float16)
+        self.assertEqual((cpu_device, cpu_name), ("cpu", "float32"))
+        self.assertIs(cpu_dtype, cpu_torch.float32)
+
+    def test_length_sorting_restores_original_document_indexes(self):
+        adapter = self._ready_adapter()
+        results = adapter.rerank(
+            "query",
+            ["long", "short", "medium"],
+            instruction="instruction",
+        )
+
+        self.assertEqual([result.index for result in results], [1, 2, 0])
+        scored_documents = [
+            document
+            for pairs, _ in adapter.model.predict_calls
+            for _, document in pairs
+        ]
+        self.assertEqual(scored_documents, ["long", "medium", "short"])
+        self.assertEqual(
+            adapter.model.tokenizer.call_kwargs[0]["max_length"], 8192
+        )
+        self.assertEqual(adapter.runtime_metadata["document_count"], 3)
+
+    def test_cuda_oom_retries_all_documents_with_batch_size_one(self):
+        class FakeCudaOom(RuntimeError):
+            pass
+
+        empty_cache_calls = []
+        torch = fake_torch()
+        torch.cuda.OutOfMemoryError = FakeCudaOom
+        torch.cuda.empty_cache = lambda: empty_cache_calls.append(True)
+        model = FakeMixedbreadCrossEncoder(FakeCudaOom)
+        adapter = self._ready_adapter(torch=torch, model=model)
+
+        adapter.rerank("query", ["long", "short", "medium"])
+
+        self.assertEqual(
+            [len(pairs) for pairs, _ in model.predict_calls],
+            [2, 1, 1, 1],
+        )
+        self.assertEqual(empty_cache_calls, [True])
+        self.assertEqual(
+            adapter.runtime_metadata["effective_batch_size"], 1
+        )
+
+    def _ready_adapter(self, torch=None, model=None):
+        adapter = MixedbreadCrossEncoderRerankerAdapter(
+            "mixedbread-model", runtime_config()
+        )
+        adapter.model = model or FakeMixedbreadCrossEncoder()
+        adapter.torch = torch or fake_torch()
+        adapter.device = "cuda:0"
+        adapter.runtime_metadata = {
+            "backend": "mixedbread_cross_encoder",
+            "device": "cuda:0",
+            "dtype": "bfloat16",
+            "attention": "sdpa",
+            "max_length": 8192,
+            "configured_batch_size": 2,
+            "effective_batch_size": 2,
+            "document_count": 0,
+            "instruction_used": False,
+        }
+        return adapter
+
+
 class RerankerFallbackTest(unittest.TestCase):
+    def test_failed_mixedbread_advances_to_bge(self):
+        class FailingAdapter:
+            backend_name = "mixedbread_cross_encoder"
+            model_path = "mixedbread"
+
+            def rerank(self, **kwargs):
+                raise RuntimeError("Mixedbread failed")
+
+        class WorkingAdapter:
+            backend_name = "bge_cross_encoder"
+            model_path = "bge"
+            runtime_metadata = {"device": "cuda:0"}
+
+            def rerank(self, **kwargs):
+                return [RerankResult(index=0, relevance_score=0.85)]
+
+        service = object.__new__(RerankerService)
+        service.enabled = True
+        service.adapters = [FailingAdapter(), WorkingAdapter()]
+
+        execution = service.rerank_with_metadata(
+            "query", ["document"], instruction="instruction"
+        )
+
+        self.assertEqual(execution.backend_name, "bge_cross_encoder")
+        self.assertEqual(execution.model_path, "bge")
+        self.assertEqual(execution.runtime, {"device": "cuda:0"})
+
+
     def test_failed_bge_advances_to_qwen(self):
         class FailingAdapter:
             backend_name = "bge_cross_encoder"

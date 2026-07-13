@@ -75,6 +75,16 @@ The Qwen model is loaded lazily on the first reranked request and then reused, i
 
 The multilingual BGE model is loaded lazily and reused for German and English requests. Candidate pairs are sorted by token length before batching to reduce padding, while result indexes are restored before ranking. The chat `metadata` event reports the actual device, dtype, attention implementation, maximum length, configured batch size, and effective batch size.
 
+- **`RERANK_MIXEDBREAD_MAX_LENGTH`**: Maximum number of tokens in each Mixedbread query-document pair. Default is `8192`.
+
+- **`RERANK_MIXEDBREAD_DTYPE`**: Mixedbread inference precision. `auto` selects BF16 on supported GPUs, FP16 on other CUDA GPUs, and FP32 on CPU. Explicit values are `bfloat16`, `float16`, and `float32`.
+
+- **`RERANK_MIXEDBREAD_ATTENTION`**: Attention implementation for Mixedbread. Default is `sdpa`; `eager` and `flash_attention_2` are also accepted, but FlashAttention requires compatible additional dependencies.
+
+- **`RERANK_MIXEDBREAD_BATCH_SIZE`**: Initial Mixedbread scoring batch size. Default is `2`. If CUDA runs out of memory, Mixedbread retries all candidates with progressively smaller batches down to `1`.
+
+The multilingual Mixedbread model is loaded lazily and reused for German and English requests. Dataset instructions are passed per request without reloading the model. Candidate pairs are sorted by token length to reduce padding, and original indexes are restored before ranking. The chat `metadata` event reports the actual device, dtype, attention implementation, maximum length, configured and effective batch sizes, document count, and whether an instruction was used. The first reranked request can be slower while the model is loaded; later requests reuse it.
+
 Verify the container runtime with:
 
 ```bash
