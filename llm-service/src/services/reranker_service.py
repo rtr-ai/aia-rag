@@ -3,7 +3,7 @@ import os
 import subprocess
 import tempfile
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -34,6 +34,7 @@ class RerankExecution:
     results: List[RerankResult]
     backend_name: str
     model_path: str
+    runtime: Dict[str, object] = field(default_factory=dict)
 
 
 @dataclass
@@ -46,6 +47,9 @@ class RerankerRuntimeConfig:
     document_batch_size: int
     gpu_layers: int
     flash_attention: bool
+    qwen_max_length: int
+    qwen_dtype: str
+    qwen_attention: str
 
 
 class MLPProjector:
@@ -391,6 +395,144 @@ class QwenCrossEncoderRerankerAdapter(SentenceTransformersCrossEncoderRerankerAd
     backend_name = "qwen_cross_encoder"
     supports_instruction = True
 
+    def __init__(self, model_path: str, config: RerankerRuntimeConfig):
+        super().__init__(model_path, config)
+        self.runtime_metadata: Dict[str, object] = {}
+
+    def rerank(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> List[RerankResult]:
+        self._ensure_ready()
+        start = time.perf_counter()
+        pairs = [(query, document) for document in documents]
+        predict_kwargs: Dict[str, object] = {
+            "batch_size": self.config.document_batch_size,
+            "show_progress_bar": False,
+        }
+        if instruction and instruction.strip():
+            predict_kwargs["prompt"] = instruction.strip()
+
+        scores = self.model.predict(pairs, **predict_kwargs)
+        results = [
+            RerankResult(index=index, relevance_score=float(score))
+            for index, score in enumerate(scores)
+        ]
+        results.sort(key=lambda item: item.relevance_score, reverse=True)
+        if top_n is not None:
+            results = results[:top_n]
+
+        LOGGER.info(
+            "Reranked %s candidate chunks to %s chunks in %.2fs using backend %s "
+            "model %s, device %s, dtype %s, attention %s, max length %s, and "
+            "document batch size %s"
+            % (
+                len(documents),
+                len(results),
+                time.perf_counter() - start,
+                self.backend_name,
+                self.model_path,
+                self.runtime_metadata["device"],
+                self.runtime_metadata["dtype"],
+                self.runtime_metadata["attention"],
+                self.runtime_metadata["max_length"],
+                self.runtime_metadata["batch_size"],
+            )
+        )
+        return results
+
+    def _ensure_ready(self):
+        if self.model is not None:
+            return
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(
+                f"Reranker model path does not exist: {self.model_path}"
+            )
+
+        try:
+            import torch
+            from sentence_transformers import CrossEncoder
+        except ImportError as e:
+            raise RuntimeError(
+                "Qwen reranker requires sentence-transformers and torch"
+            ) from e
+
+        device, dtype, dtype_name = self._resolve_torch_runtime(torch)
+        attention = self.config.qwen_attention.strip().lower()
+        if attention not in {"eager", "sdpa", "flash_attention_2"}:
+            raise ValueError(
+                "RERANK_QWEN_ATTENTION must be eager, sdpa, or flash_attention_2"
+            )
+
+        start = time.perf_counter()
+        self.model = CrossEncoder(
+            self.model_path,
+            device=device,
+            max_length=self.config.qwen_max_length,
+            model_kwargs={
+                "torch_dtype": dtype,
+                "attn_implementation": attention,
+            },
+        )
+        load_duration = time.perf_counter() - start
+        device, dtype_name = self._loaded_runtime(device, dtype_name)
+        self.runtime_metadata = {
+            "device": device,
+            "dtype": dtype_name,
+            "attention": attention,
+            "max_length": self.config.qwen_max_length,
+            "batch_size": self.config.document_batch_size,
+        }
+        LOGGER.info(
+            "Loaded Qwen reranker model %s in %.2fs on %s with dtype %s, "
+            "attention %s, and max length %s"
+            % (
+                self.model_path,
+                load_duration,
+                device,
+                dtype_name,
+                attention,
+                self.config.qwen_max_length,
+            )
+        )
+
+    def _resolve_torch_runtime(self, torch):
+        requested_dtype = self.config.qwen_dtype.strip().lower()
+        if requested_dtype not in {"auto", "bfloat16", "float16", "float32"}:
+            raise ValueError(
+                "RERANK_QWEN_DTYPE must be auto, bfloat16, float16, or float32"
+            )
+
+        if not torch.cuda.is_available():
+            return "cpu", torch.float32, "float32"
+
+        device = "cuda:0"
+        bf16_supported = getattr(
+            torch.cuda, "is_bf16_supported", lambda: False
+        )()
+        if requested_dtype == "auto":
+            if bf16_supported:
+                return device, torch.bfloat16, "bfloat16"
+            return device, torch.float16, "float16"
+        if requested_dtype == "bfloat16":
+            if not bf16_supported:
+                raise RuntimeError("The configured GPU does not support bfloat16")
+            return device, torch.bfloat16, "bfloat16"
+        if requested_dtype == "float16":
+            return device, torch.float16, "float16"
+        return device, torch.float32, "float32"
+
+    def _loaded_runtime(self, default_device: str, default_dtype: str):
+        try:
+            parameter = next(self.model.model.parameters())
+        except (AttributeError, StopIteration):
+            return default_device, default_dtype
+        dtype = str(parameter.dtype).removeprefix("torch.")
+        return str(parameter.device), dtype
+
 
 class TransformersSequenceClassificationRerankerAdapter:
     backend_name = "transformers_sequence_classification"
@@ -560,6 +702,11 @@ class RerankerService:
             ),
             gpu_layers=int(os.getenv("RERANK_GPU_LAYERS", "0")),
             flash_attention=_env_bool("RERANK_FLASH_ATTENTION"),
+            qwen_max_length=max(
+                1, int(os.getenv("RERANK_QWEN_MAX_LENGTH", "8192"))
+            ),
+            qwen_dtype=os.getenv("RERANK_QWEN_DTYPE", "auto"),
+            qwen_attention=os.getenv("RERANK_QWEN_ATTENTION", "sdpa"),
         )
         self.adapters = self._build_adapters()
         self._initialized = True
@@ -574,7 +721,10 @@ class RerankerService:
         return self.rerank_with_metadata(query, documents, top_n, instruction).results
 
     def rerank_with_metadata(
-        self, query: str, documents: List[str], top_n: Optional[int] = None,
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
         instruction: Optional[str] = None,
     ) -> RerankExecution:
         if not self.enabled or not documents:
@@ -592,9 +742,15 @@ class RerankerService:
                         % (adapter.backend_name, adapter.model_path)
                     )
                 return RerankExecution(
-                    results=adapter.rerank(query=query, documents=documents, top_n=top_n, instruction=adapter_instruction),
+                    results=adapter.rerank(
+                        query=query,
+                        documents=documents,
+                        top_n=top_n,
+                        instruction=adapter_instruction,
+                    ),
                     backend_name=adapter.backend_name,
                     model_path=adapter.model_path,
+                    runtime=dict(getattr(adapter, "runtime_metadata", {})),
                 )
             except Exception as e:
                 last_error = e

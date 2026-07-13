@@ -46,6 +46,9 @@ services:
       - RERANK_FLASH_ATTENTION=true
       - RERANK_DOCUMENT_BATCH_SIZE=4
       - RERANK_GPU_LAYERS=5
+      - RERANK_QWEN_MAX_LENGTH=8192
+      - RERANK_QWEN_DTYPE=auto
+      - RERANK_QWEN_ATTENTION=sdpa
       - RERANK_INSTRUCTIONS_FILE=rerank_instructions.json
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility

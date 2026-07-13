@@ -57,6 +57,21 @@ The service is configured with several important environment variables:
 
 - **`ALLOWED_ORIGINS`**: A comma-separated list of allowed origins for Cross-Origin Resource Sharing (CORS).
 
+- **`RERANK_QWEN_MAX_LENGTH`**: Maximum number of tokens in each Qwen query-document pair. Default is `8192`.
+
+- **`RERANK_QWEN_DTYPE`**: Qwen inference precision. `auto` selects BF16 on supported GPUs, FP16 on other CUDA GPUs, and FP32 on CPU. Explicit values are `bfloat16`, `float16`, and `float32`.
+
+- **`RERANK_QWEN_ATTENTION`**: Attention implementation for Qwen. Default is `sdpa`; `eager` and `flash_attention_2` are also accepted, but FlashAttention requires compatible additional dependencies.
+
+The Qwen model is loaded lazily on the first reranked request and then reused, including when the dataset instruction changes. The first request can therefore be slower than later requests. The chat `metadata` event reports the actual Qwen device, dtype, attention implementation, maximum length, and batch size.
+
+Verify the container runtime with:
+
+```bash
+docker exec llm-service-develop python -c "import torch, sentence_transformers; print(sentence_transformers.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
+```
+
+
 ### Volumes
 
 - **`./data/aia_chunks_index.json:/app/data/chunks.json`**: This volume mounts a local file (`aia_chunks_index.json`) from the host machine to the container at `/app/data/chunks.json`. This file is used to generate vectore store index from manually annotated chunks.

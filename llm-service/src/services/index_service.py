@@ -325,7 +325,14 @@ class IndexService:
                 f"[{request_id}]   Reranker selected {len(reranked_chunks)} "
                 f"of {len(candidates)} candidates in {duration:.2f}s"
             )
-            metadata.update({"applied": True, "backend": rerank_execution.backend_name, "model": rerank_execution.model_path})
+            metadata.update(
+                {
+                    "applied": True,
+                    "backend": rerank_execution.backend_name,
+                    "model": rerank_execution.model_path,
+                    "runtime": rerank_execution.runtime,
+                }
+            )
             return self._build_sources_from_chunks(reranked_chunks, request_id), duration, metadata
         except Exception as e:
             duration = time.perf_counter() - start
