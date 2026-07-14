@@ -1,4 +1,4 @@
-import { Component, NgZone } from "@angular/core";
+import { Component, ElementRef, NgZone, ViewChild } from "@angular/core";
 import { NgClass } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { EnergyData, Entry, RetrievedSource, ToolSpec } from "./agent-models";
@@ -112,24 +112,25 @@ export class AgentDemoComponent {
     },
   ];
 
-  // Sobald der/die Betrachter:in während eines Laufs selbst scrollt, wird das
-  // automatische Mitscrollen deaktiviert (nur echte Nutzer-Interaktionen zählen,
-  // nicht das programmatische scrollIntoView).
+  // Das Chat-Fenster scrollt intern (feste Höhe) – nicht die ganze Seite.
+  @ViewChild("chatWindow") chatWindowRef?: ElementRef<HTMLDivElement>;
+
+  // Sobald der/die Betrachter:in IM Chat-Fenster selbst scrollt (Mausrad/
+  // Touch), pausiert das automatische Mitscrollen. Scrollt man wieder ganz
+  // nach unten, folgt die Ansicht automatisch weiter (übliches Chat-Verhalten).
   private userScrolled = false;
 
-  constructor(private zone: NgZone) {
-    const stop = () => (this.userScrolled = true);
-    window.addEventListener("wheel", stop, { passive: true });
-    window.addEventListener("touchmove", stop, { passive: true });
-    window.addEventListener("keydown", (ev) => {
-      if (
-        [
-          "ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " ",
-        ].includes(ev.key)
-      ) {
-        this.userScrolled = true;
-      }
-    });
+  constructor(private zone: NgZone) {}
+
+  stopFollow() {
+    this.userScrolled = true;
+  }
+  onChatScroll() {
+    const box = this.chatWindowRef?.nativeElement;
+    if (!box) return;
+    if (box.scrollTop + box.clientHeight >= box.scrollHeight - 48) {
+      this.userScrolled = false;
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -189,49 +190,67 @@ export class AgentDemoComponent {
     this.userPrompt = this.exampleQuestion;
   }
 
-  // Der Verlauf, der einem LLM-Aufruf übergeben wird = alle vorherigen Einträge.
-  contextOf(idx: number): Entry[] {
-    return this.entries.slice(0, idx);
-  }
-  roleLabel(e: Entry): string {
-    if (e.kind === "system") return "system";
-    if (e.kind === "user") return "user";
-    if (e.kind === "tool") return "tool";
-    return "assistant";
-  }
-  private truncate(s: string, n = 90): string {
-    const t = s.replace(/\s+/g, " ").trim();
-    return t.length > n ? t.slice(0, n) + " …" : t;
-  }
-  entrySummary(e: Entry): string {
-    switch (e.kind) {
-      case "system":
-        return "System-Prompt (+ Tool-Definitionen)";
-      case "user":
-        return this.truncate(e.userText || "");
-      case "tool":
-        return `${e.toolName}() → ${this.truncate(e.resultText || "", 80)}`;
-      default:
-        return e.toolCall
-          ? `${this.truncate(e.reasoning || "", 64)} → ${e.toolCall.name}(…)`
-          : "finale Antwort";
+  // Symbol je Werkzeug – macht die Tool-Karten auf einen Blick unterscheidbar.
+  toolIcon(name?: string): string {
+    switch (name) {
+      case "heute": return "📅";
+      case "definition": return "📖";
+      case "anwendbarkeit": return "⏳";
+      case "artikel_nachschlagen": return "📜";
+      case "suche_ai_act": return "🔍";
+      case "suche_leitlinien_praxisleitfaeden": return "🧭";
+      default: return "⚙️";
     }
   }
-  // Vollständiger Inhalt einer Nachricht (für das Ausklappen im Verlauf).
-  entryFullText(e: Entry): string {
-    switch (e.kind) {
-      case "system":
-        return e.systemText || "";
-      case "user":
-        return e.userText || "";
-      case "tool":
-        return e.resultText || "";
-      default: {
-        const tail = e.toolCall
-          ? `\n\n→ tool_call: ${e.toolCall.name}(${e.toolCall.argsJson})`
-          : "\n\n→ finale Antwort";
-        return (e.reasoning || "") + tail;
-      }
+  // Sprechender Anzeigename je Werkzeug – der technische Funktionsname
+  // (z. B. suche_ai_act()) erscheint nur noch klein als Meta-Information.
+  toolDisplayName(name?: string): string {
+    switch (name) {
+      case "heute": return "Heutiges Datum";
+      case "definition": return "Begriffs-Definition";
+      case "anwendbarkeit": return "Zeitliche Anwendbarkeit";
+      case "artikel_nachschlagen": return "Artikel nachschlagen";
+      case "suche_ai_act": return "AI Act Suche";
+      case "suche_leitlinien_praxisleitfaeden": return "Leitlinien-Suche";
+      default: return name || "Werkzeug";
+    }
+  }
+  // Beschriftung des zentralen Arguments im Karten-Kopf.
+  toolArgLabel(name?: string): string {
+    switch (name) {
+      case "definition": return "Begriff";
+      case "anwendbarkeit": return "Artikel";
+      case "artikel_nachschlagen": return "Artikel";
+      case "suche_ai_act": return "Suchbegriff";
+      case "suche_leitlinien_praxisleitfaeden": return "Suchanfrage";
+      default: return "Argument";
+    }
+  }
+  // Amtliche Überschriften zu Artikel-Nummern – damit im Karten-Kopf nicht
+  // nur „5-1“ steht, sondern der sprechende Titel des Artikels.
+  private readonly articleTitles: Record<string, string> = {
+    "5-1": "Art. 5 Abs. 1 KI-VO – Folgende Praktiken im KI-Bereich sind verboten",
+    "Artikel 5": "Artikel 5 KI-VO – Verbotene Praktiken im KI-Bereich",
+  };
+  private articleTitle(nr: string): string {
+    return this.articleTitles[nr] ?? nr;
+  }
+  // Das zentrale Argument eines Tool-Aufrufs (Suchbegriff, Begriff, Artikel …)
+  // für die prominente Anzeige im Karten-Kopf. Artikel-Nummern werden um ihre
+  // amtliche Überschrift ergänzt; mehrere Argumente werden mit „·“ verbunden;
+  // bei ungültigem JSON wird der Roh-String gezeigt.
+  toolArg(e: Entry): string {
+    if (!e.argsJson) return "";
+    try {
+      const args = JSON.parse(e.argsJson);
+      return Object.entries(args)
+        .filter(([, v]) => v !== null && v !== undefined && v !== "")
+        .map(([k, v]) =>
+          k === "artikel_nummer" ? this.articleTitle(String(v)) : String(v)
+        )
+        .join(" · ");
+    } catch {
+      return e.argsJson;
     }
   }
 
@@ -264,11 +283,7 @@ export class AgentDemoComponent {
   }
   chipLabel(e: Entry): string {
     if (e.kind === "llm") return e.toolCall ? "LLM" : "✓ Antwort";
-    const short: Record<string, string> = {
-      suche_leitlinien_praxisleitfaeden: "suche_leitlinien…",
-    };
-    const name = short[e.toolName!] ?? e.toolName;
-    return name + "()" + (e.isError ? " ✗" : "");
+    return this.toolDisplayName(e.toolName) + (e.isError ? " ✗" : "");
   }
   chipClass(e: Entry): string {
     const cls: string[] = [];
@@ -278,26 +293,32 @@ export class AgentDemoComponent {
     if (e.status === "running") cls.push("chip-running");
     return cls.join(" ");
   }
-  // Klick auf einen Chip: zum Eintrag springen. Das ist eine bewusste
-  // Navigation – danach kein automatisches Mitscrollen mehr.
+  // Klick auf einen Chip: im Chat-Fenster zum Eintrag springen. Das ist eine
+  // bewusste Navigation – danach kein automatisches Mitscrollen mehr.
   jumpTo(id: number) {
     this.userScrolled = true;
-    document
-      .getElementById("entry-" + id)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const box = this.chatWindowRef?.nativeElement;
+    const el = document.getElementById("entry-" + id);
+    if (!box || !el) return;
+    const delta =
+      el.getBoundingClientRect().top - box.getBoundingClientRect().top - 8;
+    box.scrollBy({ top: delta, behavior: "smooth" });
   }
 
   private scrollToEntry(id: number, _block: ScrollLogicalPosition = "nearest") {
     if (this.userScrolled) return;
     setTimeout(() => {
       if (this.userScrolled) return;
+      const box = this.chatWindowRef?.nativeElement;
       const el = document.getElementById("entry-" + id);
-      if (!el) return;
-      // Unterkante des Eintrags 200px über dem Fensterrand halten, damit
-      // nachlaufender (gestreamter) Text nicht am unteren Rand abgeschnitten
+      if (!box || !el) return;
+      // Unterkante des Eintrags ~90px über dem unteren Rand des Chat-Fensters
+      // halten, damit nachlaufender (gestreamter) Text nicht abgeschnitten
       // wird. Nur nach unten scrollen – nie nach oben zurückspringen.
-      const delta = el.getBoundingClientRect().bottom - (window.innerHeight - 200);
-      if (delta > 0) window.scrollBy({ top: delta, behavior: "smooth" });
+      const delta =
+        el.getBoundingClientRect().bottom -
+        (box.getBoundingClientRect().bottom - 90);
+      if (delta > 0) box.scrollBy({ top: delta, behavior: "smooth" });
     }, 60);
   }
 
@@ -699,7 +720,9 @@ export class AgentDemoComponent {
         toolName: "suche_leitlinien_praxisleitfaeden",
         callIndex: 1,
         argsJson:
-          '{ "bezugsartikel": "Artikel 5", "frage": "…Stimmung über Webcam am Arbeitsplatz…" }',
+          '{ "bezugsartikel": "Artikel 5", "frage": "Ist das Ableiten der ' +
+          'Stimmung von Beschäftigten über eine Webcam am Arbeitsplatz ' +
+          'verboten und greift eine Ausnahme?" }',
         rerankerApplied: true,
         llmGenerates: true,
         ragUserPrompt:

@@ -43,8 +43,7 @@ code {
   border-radius: 3px;
   font-size: 0.85em;
 }
-.raw-block,
-.tool-call-block {
+.raw-block {
   background: #f6f8f4;
   white-space: pre-wrap;
   padding: 10px 12px;
@@ -56,14 +55,8 @@ code {
   margin: 4px 0 0;
   overflow-x: auto;
 }
-.tool-call-block {
-  background: #eef7e6;
-  border-color: #cfe3ba;
-  color: $green;
-  font-weight: 600;
-}
 .scroll-spacer {
-  height: 220px;
+  height: 140px;
 }
 .call-budget {
   font-variant-numeric: tabular-nums;
@@ -94,55 +87,187 @@ code {
   color: #3a5a1f;
 }
 
-// --- Transcript / Nachrichten-Verlauf ---
-.transcript {
-  margin: 20px 0;
-}
-.msg {
+// ============================================================================
+// Zwei-Spalten-Layout: Kreislauf-Diagramm links (sticky) · Chat-Fenster rechts
+// ============================================================================
+.agent-layout {
   display: flex;
-  gap: 14px;
-  margin-bottom: 14px;
+  gap: 28px;
+  align-items: flex-start;
+  margin-top: 16px;
 }
-.msg-role {
-  flex: 0 0 76px;
-  text-align: right;
-  font-family: "Menlo", "Consolas", monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.5px;
-  color: #999;
-  padding-top: 12px;
+.agent-side {
+  flex: 0 0 320px;
+  position: sticky;
+  top: 16px;
+  // Etwas tiefer ansetzen, damit das Diagramm auf Höhe des Chat-Fensters
+  // (unterhalb der Chip-Leiste) beginnt.
+  padding-top: 46px;
 }
-.msg-loader {
-  float: none;
-  margin: 0 0 4px auto;
+// Ab @l ist der Seiten-Header sticky (70px hoch) – darunter andocken.
+@media (min-width: 1200px) {
+  .agent-side {
+    top: 90px;
+  }
 }
-.msg-body {
+.agent-chat {
   flex: 1 1 auto;
   min-width: 0;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  padding: 12px 16px;
-  background: #fff;
 }
-.msg-running .msg-body {
+// Schmale Viewports: untereinander, Diagramm zentriert und nicht sticky.
+@media (max-width: 959px) {
+  .agent-layout {
+    display: block;
+  }
+  .agent-side {
+    position: static;
+    max-width: 340px;
+    margin: 0 auto 20px;
+    padding-top: 0;
+  }
+}
+
+.side-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.side-round {
+  color: $green;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 1rem;
+}
+
+// Das Chat-Fenster: feste Höhe, scrollt intern – nicht die ganze Seite.
+.chat-window {
+  height: clamp(460px, 68vh, 820px);
+  overflow-y: auto;
+  border: 1px solid #dfe5d8;
+  border-radius: 8px;
+  background: #fbfcfa;
+  padding: 14px 16px;
+}
+
+// --- Transcript / Nachrichten-Verlauf ---
+.transcript {
+  margin: 0;
+}
+
+// Eine Nachricht = eine Karte mit Kopfzeile (Icon + Rolle) und Inhalt.
+.msg {
+  border: 1px solid #e3e6df;
+  border-radius: 8px;
+  background: #fff;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.msg-running {
   box-shadow: 0 0 0 2px rgba(47, 95, 0, 0.15);
 }
 
+.msg-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 1px solid #eef0ea;
+  background: #f7f8f5;
+}
+.msg-title code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.9em;
+}
+a.msg-title-toggle {
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #333 !important;
+}
+a.msg-title-toggle:hover {
+  background: #f0f2ec !important;
+}
+.msg-icon {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+.msg-meta {
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 0.74rem;
+  color: #8a94a0;
+  white-space: nowrap;
+}
+.msg-loader {
+  float: none;
+  margin: 0 0 0 6px;
+}
+.msg-content {
+  padding: 10px 14px 12px;
+}
+
+// Zentrales Argument eines Tool-Aufrufs (Suchbegriff, Begriff, Artikel …) –
+// Teil des Karten-Kopfes (gleiche Hintergrundfarbe wie die Titelzeile).
+.msg-arg {
+  padding: 8px 16px 12px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #34432b;
+  border-bottom: 1px solid #eef0ea;
+  strong {
+    font-style: italic;
+  }
+}
+.msg-tool .msg-title {
+  border-bottom: none;
+}
+.msg-tool .msg-header {
+  background: #eef7e6;
+  border-bottom: 1px solid #e3ecd8;
+}
+.msg-tool .msg-arg {
+  border-bottom: none;
+}
+
 // Farbakzente je Rolle
-.msg-system .msg-body {
+.msg-system {
   border-left: 4px solid #888;
-  background: #fafafa;
+  .msg-title {
+    background: #f2f2f2;
+  }
 }
-.msg-user .msg-body {
+.msg-user {
   border-left: 4px solid $blue;
-  background: #f6fafe;
+  .msg-title {
+    background: #eaf4fd;
+  }
 }
-.msg-llm .msg-body {
+.msg-llm {
   border-left: 4px solid #2c5b9c;
+  .msg-title {
+    background: #e9eff8;
+  }
 }
-.msg-tool .msg-body {
+.msg-tool {
   border-left: 4px solid $green;
-  background: #fcfdfa;
+  .msg-title {
+    background: #eef7e6;
+  }
+}
+.msg-error {
+  border-left-color: #b03030;
+  .msg-title {
+    background: #fdf2f2;
+  }
 }
 
 .msg-head {
@@ -152,7 +277,7 @@ code {
   color: #888;
   margin: 12px 0 4px;
 }
-.msg-body > .msg-head:first-child {
+.msg-content > .msg-head:first-child {
   margin-top: 0;
 }
 .msg-subhead {
@@ -163,16 +288,31 @@ code {
   color: #999;
   margin: 12px 0 4px;
 }
-.tl-callindex {
-  margin-left: 6px;
-  color: #aaa;
-  text-transform: none;
-  font-size: 0.92em;
+
+// Klar hervorgehobene Ergebnis-Überschrift eines Tool-Aufrufs
+.result-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 14px 0 4px;
+  padding-left: 8px;
+  border-left: 4px solid $green;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $green;
+}
+.result-hint {
+  font-weight: 400;
+  font-size: 0.74rem;
+  color: #999;
+}
+.result-block {
+  border-color: #cfe3ba;
 }
 .rag-pill {
   display: inline-block;
-  margin-left: 8px;
-  background: #eef7e6;
+  background: #fff;
   color: $green;
   border: 1px solid #cfe3ba;
   font-size: 0.62rem;
@@ -194,98 +334,18 @@ code {
   line-height: 1.55;
 }
 
-// Kontext-Balken vor jedem LLM-Aufruf
-.ctx-bar {
-  font-size: 0.78rem;
-  background: #eef3fb;
-  border-radius: 4px;
-  padding: 5px 10px;
-  margin-bottom: 4px;
-}
-.ctx-bar [uk-icon] {
-  vertical-align: middle;
-}
-.ctx-toggle {
-  color: #2c5b9c !important;
-  text-decoration: none !important;
-  cursor: pointer;
-  display: inline-block;
-}
-// Das Theme legt bei .uk-section-default a:hover einen grünen Hintergrund –
-// bei Links mit fixer (per !important gesetzter) Schriftfarbe wird der Text
-// dadurch unlesbar. Hier deshalb ohne Hintergrund.
-// Nur den Link selbst entfärben – die Rollen-Kästchen (system/user/…) behalten
-// ihre eigene Hintergrundfarbe.
-.ctx-toggle:hover,
-.ctx-msg-head:hover {
-  background: transparent !important;
-}
-.ctx-hint {
-  color: #7a93b8;
-  margin-left: 6px;
-  font-size: 0.92em;
-}
-.ctx-detail {
-  margin-top: 8px;
-  border-top: 1px dashed #c7d6ea;
-  padding-top: 6px;
-}
-.ctx-msg {
-  padding: 2px 0;
-}
-.ctx-msg-head {
-  display: flex;
-  gap: 8px;
-  align-items: baseline;
-  text-decoration: none !important;
-  cursor: pointer;
-}
-.ctx-msg-head:hover .ctx-text {
-  color: #2c5b9c;
-}
-.ctx-full {
-  margin: 4px 0 6px 72px;
-  background: #f6f8f4;
-  white-space: pre-wrap;
-  padding: 8px 10px;
-  border: 1px solid #e2e8da;
-  border-radius: 4px;
-  font-family: "Menlo", "Consolas", monospace;
-  font-size: 0.76rem;
-  line-height: 1.5;
-  overflow-x: auto;
-}
-.ctx-role {
-  flex: 0 0 64px;
-  font-family: "Menlo", "Consolas", monospace;
-  font-size: 0.68rem;
-  text-align: right;
-  color: #fff;
-  border-radius: 3px;
-  padding: 0 5px;
-}
-.ctx-role-system {
-  background: #888;
-}
-.ctx-role-user {
-  background: $blue;
-}
-.ctx-role-llm {
-  background: #2c5b9c;
-}
-.ctx-role-tool {
-  background: $green;
-}
-.ctx-text {
-  flex: 1 1 auto;
-  min-width: 0;
-  color: #444;
-  font-size: 0.82rem;
-}
-
-.exec-args {
-  font-size: 0.82rem;
-  color: #666;
+// Entscheidung des Modells: Tool-Call – die Details (Argumente) stehen im
+// folgenden Werkzeug-Eintrag und werden hier bewusst nicht wiederholt.
+.llm-action {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $green;
+  code {
+    background: #eef7e6;
+    border: 1px solid #cfe3ba;
+    color: $green;
+  }
 }
 
 // Sub-Timeline (interne Teilschritte eines Werkzeugs)
@@ -412,18 +472,6 @@ code {
   white-space: nowrap;
 }
 
-// Energie je Aufruf
-.step-energy {
-  margin-top: 12px;
-  padding-top: 8px;
-  border-top: 1px dotted #e0e0e0;
-  font-size: 0.82rem;
-  color: #555;
-}
-.step-energy [uk-icon] {
-  color: $green;
-}
-
 // Antwort
 .answer {
   background: $green-soft;
@@ -474,13 +522,12 @@ code {
   margin: 6px 0 2px;
 }
 
-// --- Agent-Loop: Kreislauf-Diagramm ---
+// --- Agent-Loop: Kreislauf-Diagramm (vertikal, linke Spalte) ---
 .loop-figure {
-  margin: 12px 0 4px;
+  margin: 0;
   svg {
     display: block;
     width: 100%;
-    max-width: 760px;
     height: auto;
   }
 }
@@ -508,13 +555,8 @@ code {
   }
 }
 .loop-label {
-  font-size: 14px;
+  font-size: 17px;
   fill: #333;
-}
-.loop-round {
-  font-size: 13px;
-  font-weight: 700;
-  fill: $green;
 }
 .loop-edge {
   fill: none;
@@ -526,39 +568,19 @@ code {
   stroke-width: 2.5;
 }
 .loop-edge-label {
-  font-size: 12px;
+  font-size: 14px;
   fill: #667;
 }
 .loop-arr {
   fill: #9aa5b1;
 }
 
-// --- Agent-Loop: sticky Verlaufs-Leiste ---
+// --- Agent-Loop: Verlaufs-Leiste über dem Chat-Fenster ---
 .loop-chips {
-  position: sticky;
-  top: 0;
-  z-index: 20;
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  background: #fff;
-  border-bottom: 1px solid #e2e6de;
-  padding: 6px 0;
-  margin-bottom: 14px;
-}
-// Ab @l ist der Seiten-Header sticky (70px hoch) – darunter andocken.
-@media (min-width: 1200px) {
-  .loop-chips {
-    top: 70px;
-  }
-}
-.loop-chips-round {
-  flex: 0 0 auto;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: $green;
-  white-space: nowrap;
-  padding-top: 4px;
+  padding: 0 2px 8px;
 }
 .loop-chips-scroll {
   display: flex;
@@ -619,14 +641,4 @@ code {
   flex: 0 0 auto;
   color: #9aa5b1;
   font-size: 0.75rem;
-}
-
-// Sprungziel nicht von der sticky Leiste (und ab @l dem Header) überdecken lassen
-.msg {
-  scroll-margin-top: 80px;
-}
-@media (min-width: 1200px) {
-  .msg {
-    scroll-margin-top: 150px;
-  }
 }

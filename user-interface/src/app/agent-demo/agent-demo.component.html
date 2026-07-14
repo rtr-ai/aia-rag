@@ -35,7 +35,7 @@
 
   <!-- Nachrichten-Verlauf / Agentenlauf -->
   @if (entries.length > 0) {
-    <div id="agentRun" class="uk-container uk-margin-top-50">
+    <div id="agentRun" class="uk-container uk-container-large uk-margin-top-50">
       <h3>
         @if (running) {
           <div class="loader loader-small-offset"></div>
@@ -53,544 +53,536 @@
         weiteres Werkzeug aufruft oder final antwortet.
       </p>
 
-      <!-- Kreislauf-Diagramm: das Konzept des Agenten-Loops. Der aktive
-           Knoten pulsiert; alles wird aus dem Nachrichten-Verlauf abgeleitet. -->
-      <div class="loop-figure">
-        <svg viewBox="0 0 760 224" role="img" aria-label="Kreislauf des Agenten: LLM liest den Verlauf, ruft ggf. ein Werkzeug auf, dessen Ergebnis an den Verlauf angehängt wird – bis keine Tool-Calls mehr folgen und die finale Antwort erzeugt wird.">
-          <defs>
-            <marker id="loopArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path class="loop-arr" d="M0,0 L10,5 L0,10 z"></path>
-            </marker>
-          </defs>
+      <div class="agent-layout">
+        <!-- ===== Linke Spalte: Kreislauf-Diagramm (sticky) ===== -->
+        <aside class="agent-side">
+          <div class="side-title">
+            <span>Agenten-Kreislauf</span>
+            @if (roundCount > 0) {
+              <span class="side-round">Runde {{ roundCount }}</span>
+            }
+          </div>
 
-          <!-- Rückführung: Ergebnis → Verlauf -->
-          <path
-            class="loop-edge"
-            [class.loop-edge-active]="loopActive.edge === 'zurueck'"
-            d="M620,70 V30 H130 V66"
-            marker-end="url(#loopArr)"
-          ></path>
-          <text class="loop-edge-label" x="375" y="22" text-anchor="middle">
-            Ergebnis wird an den Verlauf angehängt
-          </text>
+          <!-- Kreislauf-Diagramm: das Konzept des Agenten-Loops. Der aktive
+               Knoten pulsiert; alles wird aus dem Nachrichten-Verlauf abgeleitet. -->
+          <div class="loop-figure">
+            <svg viewBox="0 0 330 372" role="img" aria-label="Kreislauf des Agenten: LLM liest den Verlauf, ruft ggf. ein Werkzeug auf, dessen Ergebnis an den Verlauf angehängt wird – bis keine Tool-Calls mehr folgen und die finale Antwort erzeugt wird.">
+              <defs>
+                <marker id="loopArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path class="loop-arr" d="M0,0 L10,5 L0,10 z"></path>
+                </marker>
+              </defs>
 
-          <!-- LLM -->
-          <rect
-            class="loop-node"
-            [class.loop-active]="loopActive.node === 'llm'"
-            x="30" y="70" width="200" height="66" rx="8"
-          ></rect>
-          <text class="loop-label" x="130" y="97" text-anchor="middle">LLM liest den</text>
-          <text class="loop-label" x="130" y="117" text-anchor="middle">gesamten Verlauf</text>
-          @if (roundCount > 0) {
-            <text class="loop-round" x="130" y="160" text-anchor="middle">Runde {{ roundCount }}</text>
+              <!-- LLM -->
+              <rect
+                class="loop-node"
+                [class.loop-active]="loopActive.node === 'llm'"
+                x="70" y="14" width="200" height="58" rx="8"
+              ></rect>
+              <text class="loop-label" x="170" y="38" text-anchor="middle">LLM liest den</text>
+              <text class="loop-label" x="170" y="58" text-anchor="middle">gesamten Verlauf</text>
+
+              <!-- LLM → Entscheidung -->
+              <path class="loop-edge" d="M170,72 V106" marker-end="url(#loopArr)"></path>
+              <rect class="loop-node loop-node-decision" x="105" y="110" width="130" height="42" rx="21"></rect>
+              <text class="loop-label" x="170" y="136" text-anchor="middle">Tool-Call?</text>
+
+              <!-- ja → Werkzeug -->
+              <path
+                class="loop-edge"
+                [class.loop-edge-active]="loopActive.edge === 'ja'"
+                d="M170,152 V186"
+                marker-end="url(#loopArr)"
+              ></path>
+              <text class="loop-edge-label" x="182" y="174">ja</text>
+              <rect
+                class="loop-node"
+                [class.loop-active]="loopActive.node === 'tool'"
+                x="70" y="190" width="200" height="58" rx="8"
+              ></rect>
+              <text class="loop-label" x="170" y="224" text-anchor="middle">⚙ Werkzeug läuft</text>
+
+              <!-- Rückführung: Ergebnis → Verlauf (linke Seite) -->
+              <path
+                class="loop-edge"
+                [class.loop-edge-active]="loopActive.edge === 'zurueck'"
+                d="M70,219 H28 V43 H64"
+                marker-end="url(#loopArr)"
+              ></path>
+              <text
+                class="loop-edge-label"
+                transform="rotate(-90 16 131)"
+                x="16" y="131" text-anchor="middle"
+              >Ergebnis → an den Verlauf</text>
+
+              <!-- nein → finale Antwort (rechte Seite) -->
+              <path
+                class="loop-edge"
+                [class.loop-edge-active]="loopActive.edge === 'nein'"
+                d="M235,131 H302 V316 H276"
+                marker-end="url(#loopArr)"
+              ></path>
+              <text class="loop-edge-label" x="244" y="123">nein</text>
+              <rect
+                class="loop-node"
+                [class.loop-active]="loopActive.node === 'antwort'"
+                [class.loop-still]="done"
+                x="70" y="292" width="200" height="48" rx="8"
+              ></rect>
+              <text class="loop-label" x="170" y="321" text-anchor="middle">✓ finale Antwort</text>
+            </svg>
+          </div>
+          <p class="info-link">
+            <a
+              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20KI-Agent?"
+              target="_blank"
+              >Information: Wie funktioniert ein KI-Agent?</a
+            >
+          </p>
+        </aside>
+
+        <!-- ===== Rechte Spalte: Chat-Fenster ===== -->
+        <div class="agent-chat">
+          <!-- Verlaufs-Leiste: Chips je Schritt, Klick springt zum Eintrag -->
+          @if (running || chips.length > 0) {
+            <div class="loop-chips">
+              <div class="loop-chips-scroll">
+                @for (c of chips; track c.id; let first = $first) {
+                  @if (!first) { <span class="chip-sep">→</span> }
+                  <span class="chip" [ngClass]="chipClass(c)" (click)="jumpTo(c.id)">{{ chipLabel(c) }}</span>
+                }
+                @if (chips.length === 0) {
+                  <!-- Der erste LLM-Aufruf wird gerade vorbereitet -->
+                  <span class="chip chip-llm chip-running">LLM</span>
+                }
+                @if (running) { <span class="chip-sep">…</span> }
+              </div>
+            </div>
           }
 
-          <!-- Entscheidung -->
-          <path class="loop-edge" d="M230,103 H286" marker-end="url(#loopArr)"></path>
-          <rect class="loop-node loop-node-decision" x="290" y="82" width="130" height="42" rx="21"></rect>
-          <text class="loop-label" x="355" y="108" text-anchor="middle">Tool-Call?</text>
-
-          <!-- ja → Werkzeug -->
-          <path
-            class="loop-edge"
-            [class.loop-edge-active]="loopActive.edge === 'ja'"
-            d="M420,103 H516"
-            marker-end="url(#loopArr)"
-          ></path>
-          <text class="loop-edge-label" x="468" y="94" text-anchor="middle">ja</text>
-          <rect
-            class="loop-node"
-            [class.loop-active]="loopActive.node === 'tool'"
-            x="520" y="70" width="200" height="66" rx="8"
-          ></rect>
-          <text class="loop-label" x="620" y="108" text-anchor="middle">⚙ Werkzeug läuft</text>
-
-          <!-- nein → finale Antwort -->
-          <path
-            class="loop-edge"
-            [class.loop-edge-active]="loopActive.edge === 'nein'"
-            d="M355,124 V166"
-            marker-end="url(#loopArr)"
-          ></path>
-          <text class="loop-edge-label" x="363" y="150">nein</text>
-          <rect
-            class="loop-node"
-            [class.loop-active]="loopActive.node === 'antwort'"
-            [class.loop-still]="done"
-            x="262" y="170" width="186" height="40" rx="8"
-          ></rect>
-          <text class="loop-label" x="355" y="195" text-anchor="middle">✓ finale Antwort</text>
-        </svg>
-        <p class="info-link">
-          <a
-            href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20KI-Agent?"
-            target="_blank"
-            >Information: Wie funktioniert ein KI-Agent?</a
-          >
-        </p>
-      </div>
-
-      <!-- Sticky Verlaufs-Leiste: Chips je Schritt, Klick springt zum Eintrag -->
-      @if (running || chips.length > 0) {
-        <div class="loop-chips">
-          <span class="loop-chips-round">
-            @if (running) { Runde {{ roundCount || 1 }} } @else { {{ roundCount }} Runden }
-          </span>
-          <div class="loop-chips-scroll">
-            @for (c of chips; track c.id; let first = $first) {
-              @if (!first) { <span class="chip-sep">→</span> }
-              <span class="chip" [ngClass]="chipClass(c)" (click)="jumpTo(c.id)">{{ chipLabel(c) }}</span>
-            }
-            @if (chips.length === 0) {
-              <!-- Der erste LLM-Aufruf wird gerade vorbereitet -->
-              <span class="chip chip-llm chip-running">LLM</span>
-            }
-            @if (running) { <span class="chip-sep">…</span> }
-          </div>
-        </div>
-      }
-
-      <div class="transcript">
-        @for (e of entries; track e.id; let idx = $index) {
           <div
-            id="entry-{{ e.id }}"
-            class="msg"
-            [ngClass]="'msg-' + e.kind + (e.status === 'running' ? ' msg-running' : '')"
+            class="chat-window"
+            #chatWindow
+            (wheel)="stopFollow()"
+            (touchmove)="stopFollow()"
+            (scroll)="onChatScroll()"
           >
-            <!-- Rollen-Spalte -->
-            <div class="msg-role">
-              @if (e.status === "running") {
-                <div class="loader loader-small-offset msg-loader"></div>
-              }
-              @if (e.kind === "system") { system }
-              @else if (e.kind === "user") { user }
-              @else if (e.kind === "tool") { tool }
-              @else { assistant }
-            </div>
-
-            <div class="msg-body">
-              <!-- SYSTEM -->
-              @if (e.kind === "system") {
-                <div class="ctx-bar">
-                  <a class="ctx-toggle" (click)="toggle('sys-' + e.id)">
-                    System-Prompt und Tool-Definitionen anzeigen/ausblenden
-                    <span class="ctx-hint">▾</span>
-                  </a>
-                  <div id="sys-{{ e.id }}" class="ctx-detail uk-hidden">
-                    <pre class="raw-block">{{ e.systemText }}</pre>
-                    <p class="info-link">
-                      <a
-                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20System-Prompt?"
-                        target="_blank"
-                        >Information: Was ist ein System-Prompt?</a
-                      >
-                    </p>
-                    <div class="msg-head">
-                      Mitgeschickte Tool-Definitionen ({{ tools.length }}) – jeder
-                      Aufruf darf max. {{ model.maxCallsPerTool }}× pro Werkzeug
-                      erfolgen
-                    </div>
-                  <table class="uk-table uk-table-divider uk-table-small tools-table">
-                    <tbody>
-                      @for (tool of tools; track tool.name) {
-                        <tr>
-                          <td><code>{{ tool.signature }}</code></td>
-                          <td>
-                            {{ tool.description }}
-                            @if (tool.name === "definition") {
-                              <a class="raw-toggle" (click)="toggle('defterms')">
-                                Definierte Begriffe ({{ definedTerms.length }}) anzeigen
-                              </a>
-                              <div id="defterms" class="defterms uk-hidden">
-                                @for (t of definedTerms; track t) {
-                                  <span class="defterm">{{ t }}</span>
-                                }
-                              </div>
-                            }
-                          </td>
-                          <td class="uk-text-right">
-                            <span class="call-budget">
-                              {{ toolCallCount(tool.name) }}/{{ model.maxCallsPerTool }}
-                            </span>
-                          </td>
-                        </tr>
-                      }
-                    </tbody>
-                  </table>
-                    <p class="info-link">
-                      <a
-                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Werkzeuge%20(Tools)%20und%20Tool-Calls"
-                        target="_blank"
-                        >Information: Was sind Werkzeuge (Tools) und Tool-Calls?</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              }
-
-              <!-- USER -->
-              @if (e.kind === "user") {
-                <div class="ctx-bar">
-                  <a class="ctx-toggle" (click)="toggle('usr-' + e.id)">
-                    User-Prompt anzeigen/ausblenden
-                    <span class="ctx-hint">▾</span>
-                  </a>
-                  <div id="usr-{{ e.id }}" class="ctx-detail uk-hidden">
-                    <p class="user-text">{{ e.userText }}</p>
-                  </div>
-                </div>
-              }
-
-              <!-- LLM-AUFRUF (assistant) -->
-              @if (e.kind === "llm") {
-                <div class="ctx-bar">
-                  <a class="ctx-toggle" (click)="toggle('ctx-' + e.id)">
-                    <span uk-icon="icon: refresh; ratio: 0.8"></span>
-                    Übergebener Prompt-Verlauf:
-                    <strong>{{ e.contextMessages }} Nachrichten</strong>
-                    · ~{{ formatTokens(e.contextTokens) }} Token
-                    <span class="ctx-hint">ausklappen ▾</span>
-                  </a>
-                  <div id="ctx-{{ e.id }}" class="ctx-detail uk-hidden">
-                    @for (c of contextOf(idx); track c.id) {
-                      <div class="ctx-msg">
-                        <a
-                          class="ctx-msg-head"
-                          (click)="toggle('ctxmsg-' + e.id + '-' + c.id)"
-                        >
-                          <span class="ctx-role ctx-role-{{ c.kind }}">{{ roleLabel(c) }}</span>
-                          <span class="ctx-text">{{ entrySummary(c) }}</span>
-                        </a>
-                        <pre
-                          id="ctxmsg-{{ e.id }}-{{ c.id }}"
-                          class="ctx-full uk-hidden"
-                        >{{ entryFullText(c) }}</pre>
-                      </div>
-                    }
-                    <p class="info-link">
-                      <a
-                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Der%20Nachrichten-Verlauf"
-                        target="_blank"
-                        >Information: Warum wird bei jedem Aufruf der gesamte Verlauf übergeben?</a
-                      >
-                    </p>
-                  </div>
-                </div>
-
-                @if (e.reasoning) {
-                  <div class="msg-head">Reasoning (rohe Chain-of-Thought)</div>
-                  <p class="reasoning">{{ e.reasoning }}</p>
-                  @if (idx === 2 && e.reasoningDone) {
-                    <p class="info-link">
-                      <a
-                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reasoning"
-                        target="_blank"
-                        >Information: Wie „denkt“ das Modell? (Reasoning)</a
-                      >
-                    </p>
-                  }
-                }
-
-                @if (e.toolCall && e.reasoningDone) {
-                  <div class="msg-head">Vom Modell emittierter Tool-Call</div>
-                  <pre class="tool-call-block">{{ e.toolCall.name }}({{ e.toolCall.argsJson }})</pre>
-                }
-
-                @if (e.answer !== undefined && !e.toolCall && e.reasoningDone) {
-                  <div class="msg-head">Finale Antwort</div>
-                  <div class="answer agent-answer">
-                    <div class="chat-answer" [innerHTML]="e.answer"></div>
-                  </div>
-                  @if (e.citations && e.citations.length > 0 && e.status === "done") {
-                    <div class="citations">
-                      <span class="msg-head">Quellenbelege</span>
-                      <ul class="citation-list">
-                        @for (c of e.citations; track c.label) {
-                          <li>
-                            <span class="kind-chip" [ngClass]="'kind-' + c.kind">
-                              {{ sourceKindLabel(c.kind) }}
-                            </span>
-                            {{ c.label }}
-                          </li>
-                        }
-                      </ul>
-                    </div>
-                  }
-                }
-
-                @if (e.energy && e.status === "done") {
-                  <div class="step-energy">
-                    <span uk-icon="bolt"></span> LLM-Aufruf:
-                    {{ formatKWh(e.energy.total_kWh) }}&nbsp;kWh ·
-                    {{ e.energy.duration.toFixed(1).replace(".", ",") }}&nbsp;Sek.
-                  </div>
-                }
-              }
-
-              <!-- TOOL-ERGEBNIS -->
-              @if (e.kind === "tool") {
-                <div class="msg-head">
-                  Ergebnis von <code>{{ e.toolName }}()</code>
-                  <span class="tl-callindex">Aufruf {{ e.callIndex }}/{{ model.maxCallsPerTool }}</span>
-                  @if (e.ragView) { <span class="rag-pill">intern: erweitertes RAG</span> }
-                </div>
-                <div class="exec-args">ausgeführt mit: <code>{{ e.argsJson }}</code></div>
-
-                <!-- Interne Teilschritte (z. B. Retrieve-Pipeline, hybride Suche) -->
-                @if (e.subSteps && e.subSteps.length > 0) {
-                  <div class="sub-timeline">
-                    <span class="msg-subhead">Interne Teilschritte des Werkzeugs</span>
-                    @for (sub of e.subSteps; track sub.label) {
-                      <div class="sub-step">
-                        <span class="sub-step-label">{{ sub.label }}</span>
-                        <span class="sub-step-detail">{{ sub.detail }}</span>
-                      </div>
-                    }
-                  </div>
-                }
-
-                <!-- ===== suche_ai_act: Original-RAG-Visualisierung (Retrieve → Augment → Generate) ===== -->
-                @if (e.ragView) {
-                  <!-- Retrieve (eingeklappt) -->
-                  <a class="raw-toggle" (click)="toggle('retr-' + e.id)">
-                    Retrieve · erhobene Quellen (Kosinus-Ähnlichkeit &amp; Reranking) anzeigen/ausblenden
-                  </a>
-                  <span class="toggle-sep">·</span>
-                  <div id="retr-{{ e.id }}" class="rerank-box uk-hidden">
-                    <p class="rerank-note">
-                      <span uk-icon="icon: info; ratio: 0.8"></span>
-                      Ähnlichkeitswerte und Rangänderung dienen der Nachvollziehbarkeit.
-                      In das Prompt fließt nur der Quellentext in der finalen
-                      (gerankten) Reihenfolge – nicht die Zahlen selbst.
-                    </p>
-                    <div class="table-container">
-                    <table class="uk-table uk-table-small uk-table-divider sources-table">
-                      <thead>
-                        <tr>
-                          <th>Quelle</th>
-                          <th class="uk-text-right">Kosinus</th>
-                          <th class="uk-text-center">Rang vor&nbsp;→&nbsp;nach</th>
-                          <th class="uk-text-right">Reranker</th>
-                          <th class="uk-text-center">Im Kontext</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @for (src of e.sources; track src.id) {
-                          <tr [ngClass]="src.used ? '' : 'src-skipped'">
-                            <td>
-                              <span class="src-title">{{ src.title }}</span>
-                              <span class="src-snippet">{{ src.snippet }}</span>
-                            </td>
-                            <td class="uk-text-right">{{ formatScore(src.cosine) }}</td>
-                            <td class="uk-text-center">
-                              @if (src.rankBefore && src.rankAfter) {
-                                <span
-                                  class="rank-move"
-                                  [ngClass]="
-                                    src.rankAfter < src.rankBefore
-                                      ? 'rank-up'
-                                      : src.rankAfter > src.rankBefore
-                                        ? 'rank-down'
-                                        : 'rank-same'
-                                  "
-                                >
-                                  {{ src.rankBefore }} → {{ src.rankAfter }}
-                                  @if (src.rankAfter < src.rankBefore) { ▲ }
-                                  @else if (src.rankAfter > src.rankBefore) { ▼ }
-                                </span>
-                              }
-                            </td>
-                            <td class="uk-text-right">
-                              {{ src.rerankScore !== undefined ? formatScore(src.rerankScore) : "–" }}
-                            </td>
-                            <td class="uk-text-center">
-                              @if (src.used) {
-                                <span class="used-yes">✓</span>
-                              } @else {
-                                <span class="used-no">
-                                  ✕
-                                  {{
-                                    src.skipReason === "duplicate"
-                                      ? "Dublette"
-                                      : src.skipReason === "context_window"
-                                        ? "Kontext voll"
-                                        : "geringe Relevanz"
-                                  }}
-                                </span>
-                              }
-                            </td>
-                          </tr>
-                        }
-                      </tbody>
-                    </table>
-                    </div>
-                    <p class="info-link">
-                      <a
-                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?"
-                        target="_blank"
-                        >Information: Wie werden relevante Quellen erhoben?</a
-                      >
-                      ·
-                      <a
-                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reranking%20und%20hybride%20Suche"
-                        target="_blank"
-                        >Information: Wie funktioniert das Reranking?</a
-                      >
-                    </p>
-                  </div>
-
-                  <!-- Augment (eingeklappt) -->
-                  <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
-                    Augment · Prompt des RAG-Werkzeugs (System-Prompt + Quellen + Suchanfrage) anzeigen/ausblenden
-                  </a>
-                  <div id="aug-{{ e.id }}" class="uk-hidden">
-                    <pre class="raw-block">{{ buildAugmentedPrompt(e) }}</pre>
-                    <p class="info-link">
-                      <a
-                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
-                        target="_blank"
-                        >Information: Wie ist ein Prompt aufgebaut?</a
-                      >
-                    </p>
-                  </div>
-
-                  <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
-                  <span class="msg-subhead">
-                    Generate · Rückgabe an den Agenten (LLM-Ausgabe, wird an den Verlauf angehängt)
-                  </span>
-                  <pre class="raw-block">{{ e.resultText }}</pre>
-                } @else if (e.llmGenerates) {
-                  <!-- ===== suche_leitlinien: LLM-Aufruf – Reranking & Prompt über der Rückgabe ===== -->
-                  @if (e.rerankerApplied && e.sources && e.sources.length > 0) {
-                    <a class="raw-toggle" (click)="toggle('rerank-' + e.id)">
-                      Reranking-Visualisierung anzeigen/ausblenden
+            <div class="transcript">
+              @for (e of entries; track e.id; let idx = $index) {
+                <div
+                  id="entry-{{ e.id }}"
+                  class="msg"
+                  [ngClass]="
+                    'msg-' + e.kind +
+                    (e.status === 'running' ? ' msg-running' : '') +
+                    (e.isError ? ' msg-error' : '')
+                  "
+                >
+                  <!-- SYSTEM -->
+                  @if (e.kind === "system") {
+                    <a class="msg-title msg-title-toggle" (click)="toggle('sys-' + e.id)">
+                      <span class="msg-icon">🛠️</span>
+                      <span class="msg-name">System-Prompt &amp; Werkzeuge</span>
+                      @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
+                      <span class="msg-meta">{{ tools.length }} Tools · anzeigen ▾</span>
                     </a>
-                    <span class="toggle-sep">·</span>
-                    <div id="rerank-{{ e.id }}" class="rerank-box uk-hidden">
-                      <p class="rerank-note">
-                        <span uk-icon="icon: info; ratio: 0.8"></span>
-                        Nur zur Veranschaulichung – diese Werte und die Rangänderung
-                        sind <strong>nicht Teil des Prompt-Verlaufs</strong>. Das
-                        Modell erhält ausschließlich den obigen Treffertext in der
-                        finalen Reihenfolge.
-                      </p>
-                      <div class="table-container">
-                        <table class="uk-table uk-table-small uk-table-divider sources-table">
-                          <thead>
-                            <tr>
-                              <th>Quelle</th>
-                              <th class="uk-text-right">Kosinus</th>
-                              <th class="uk-text-center">Rang vor&nbsp;→&nbsp;nach</th>
-                              <th class="uk-text-right">Reranker</th>
-                              <th class="uk-text-center">In Rückgabe</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            @for (src of e.sources; track src.id) {
-                              <tr [ngClass]="src.used ? '' : 'src-skipped'">
-                                <td>
-                                  <span class="src-title">{{ src.title }}</span>
-                                  <span class="src-snippet">{{ src.snippet }}</span>
-                                </td>
-                                <td class="uk-text-right">{{ formatScore(src.cosine) }}</td>
-                                <td class="uk-text-center">
-                                  @if (src.rankBefore && src.rankAfter) {
-                                    <span
-                                      class="rank-move"
-                                      [ngClass]="
-                                        src.rankAfter < src.rankBefore
-                                          ? 'rank-up'
-                                          : src.rankAfter > src.rankBefore
-                                            ? 'rank-down'
-                                            : 'rank-same'
-                                      "
-                                    >
-                                      {{ src.rankBefore }} → {{ src.rankAfter }}
-                                      @if (src.rankAfter < src.rankBefore) { ▲ }
-                                      @else if (src.rankAfter > src.rankBefore) { ▼ }
-                                    </span>
-                                  }
-                                </td>
-                                <td class="uk-text-right">
-                                  {{ src.rerankScore !== undefined ? formatScore(src.rerankScore) : "–" }}
-                                </td>
-                                <td class="uk-text-center">
-                                  @if (src.used) {
-                                    <span class="used-yes">✓</span>
-                                  } @else {
-                                    <span class="used-no">
-                                      ✕
-                                      {{
-                                        src.skipReason === "duplicate"
-                                          ? "Dublette"
-                                          : src.skipReason === "context_window"
-                                            ? "Kontext voll"
-                                            : "geringe Relevanz"
-                                      }}
-                                    </span>
-                                  }
-                                </td>
-                              </tr>
-                            }
-                          </tbody>
-                        </table>
-                      </div>
+                    <div id="sys-{{ e.id }}" class="msg-content uk-hidden">
+                      <pre class="raw-block">{{ e.systemText }}</pre>
                       <p class="info-link">
                         <a
-                          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reranking%20und%20hybride%20Suche"
+                          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20System-Prompt?"
                           target="_blank"
-                          >Information: Wie funktionieren hybride Suche und Reranking?</a
+                          >Information: Was ist ein System-Prompt?</a
+                        >
+                      </p>
+                      <div class="msg-head">
+                        Mitgeschickte Tool-Definitionen ({{ tools.length }}) – jeder
+                        Aufruf darf max. {{ model.maxCallsPerTool }}× pro Werkzeug
+                        erfolgen
+                      </div>
+                      <table class="uk-table uk-table-divider uk-table-small tools-table">
+                        <tbody>
+                          @for (tool of tools; track tool.name) {
+                            <tr>
+                              <td><code>{{ tool.signature }}</code></td>
+                              <td>
+                                {{ tool.description }}
+                                @if (tool.name === "definition") {
+                                  <a class="raw-toggle" (click)="toggle('defterms')">
+                                    Definierte Begriffe ({{ definedTerms.length }}) anzeigen
+                                  </a>
+                                  <div id="defterms" class="defterms uk-hidden">
+                                    @for (t of definedTerms; track t) {
+                                      <span class="defterm">{{ t }}</span>
+                                    }
+                                  </div>
+                                }
+                              </td>
+                              <td class="uk-text-right">
+                                <span class="call-budget">
+                                  {{ toolCallCount(tool.name) }}/{{ model.maxCallsPerTool }}
+                                </span>
+                              </td>
+                            </tr>
+                          }
+                        </tbody>
+                      </table>
+                      <p class="info-link">
+                        <a
+                          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Werkzeuge%20(Tools)%20und%20Tool-Calls"
+                          target="_blank"
+                          >Information: Was sind Werkzeuge (Tools) und Tool-Calls?</a
                         >
                       </p>
                     </div>
                   }
 
-                  <!-- Prompt des Werkzeugs (eingeklappt) -->
-                  <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
-                    Prompt des Werkzeugs (System-Prompt + Fundstellen + Frage) anzeigen/ausblenden
-                  </a>
-                  <div id="aug-{{ e.id }}" class="uk-hidden">
-                    <pre class="raw-block">{{ buildAugmentedPrompt(e) }}</pre>
-                    <p class="info-link">
-                      <a
-                        href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
-                        target="_blank"
-                        >Information: Wie ist ein Prompt aufgebaut?</a
+                  <!-- USER -->
+                  @if (e.kind === "user") {
+                    <div class="msg-title">
+                      <span class="msg-icon">👤</span>
+                      <span class="msg-name">Ihre Frage</span>
+                      @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
+                    </div>
+                    <div class="msg-content">
+                      <p class="user-text">{{ e.userText }}</p>
+                    </div>
+                  }
+
+                  <!-- LLM-AUFRUF (Assistent) -->
+                  @if (e.kind === "llm") {
+                    <div class="msg-title">
+                      <span class="msg-icon">🤖</span>
+                      <span class="msg-name">Assistent</span>
+                      @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
+                      <span
+                        class="msg-meta"
+                        title="Bei jedem LLM-Aufruf wird der gesamte bisherige Nachrichten-Verlauf erneut übergeben."
                       >
-                    </p>
-                  </div>
+                        liest {{ e.contextMessages }} Nachrichten · ~{{ formatTokens(e.contextTokens) }} Token
+                      </span>
+                    </div>
+                    <div class="msg-content">
+                      @if (e.reasoning) {
+                        <p class="reasoning">{{ e.reasoning }}</p>
+                        @if (idx === 2 && e.reasoningDone) {
+                          <p class="info-link">
+                            <a
+                              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reasoning"
+                              target="_blank"
+                              >Information: Wie „denkt“ das Modell? (Reasoning)</a
+                            >
+                          </p>
+                        }
+                      }
 
-                  <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
-                  <span class="msg-subhead">
-                    Rückgabe an das Modell (LLM-Ausgabe, wird an den Verlauf angehängt)
-                  </span>
-                  <pre class="raw-block">{{ e.resultText }}</pre>
-                } @else {
-                  <!-- ===== übrige Werkzeuge ohne eigenen LLM-Aufruf: Roh-Rückgabe ===== -->
-                  <span class="msg-subhead">
-                    Rückgabe an das Modell (wird unverändert an den Verlauf angehängt)
-                  </span>
-                  <pre class="raw-block">{{ e.resultText }}</pre>
-                }
+                      <!-- Entscheidung des Modells: Tool-Call (Details stehen im
+                           folgenden Werkzeug-Eintrag – nicht doppelt anzeigen) -->
+                      @if (e.toolCall && e.reasoningDone) {
+                        <div class="llm-action">
+                          → ruft Tool
+                          <strong>{{ toolIcon(e.toolCall.name) }} {{ toolDisplayName(e.toolCall.name) }}</strong>
+                          auf
+                        </div>
+                      }
 
-                @if (e.energy && e.status === "done") {
-                  <div class="step-energy">
-                    <span uk-icon="bolt"></span>
-                    @if (e.llmGenerates) { Werkzeug (inkl. eigenem LLM-Aufruf): }
-                    @else { Werkzeug-Ausführung: }
-                    {{ formatKWh(e.energy.total_kWh) }}&nbsp;kWh ·
-                    {{ e.energy.duration.toFixed(1).replace(".", ",") }}&nbsp;Sek.
-                  </div>
-                }
+                      @if (e.answer !== undefined && !e.toolCall && e.reasoningDone) {
+                        <div class="result-head">Finale Antwort</div>
+                        <div class="answer agent-answer">
+                          <div class="chat-answer" [innerHTML]="e.answer"></div>
+                        </div>
+                        @if (e.citations && e.citations.length > 0 && e.status === "done") {
+                          <div class="citations">
+                            <span class="msg-head">Quellenbelege</span>
+                            <ul class="citation-list">
+                              @for (c of e.citations; track c.label) {
+                                <li>
+                                  <span class="kind-chip" [ngClass]="'kind-' + c.kind">
+                                    {{ sourceKindLabel(c.kind) }}
+                                  </span>
+                                  {{ c.label }}
+                                </li>
+                              }
+                            </ul>
+                          </div>
+                        }
+                      }
+                    </div>
+                  }
+
+                  <!-- TOOL-ERGEBNIS -->
+                  @if (e.kind === "tool") {
+                    <div class="msg-header">
+                      <div class="msg-title">
+                        <span class="msg-icon">{{ toolIcon(e.toolName) }}</span>
+                        <span class="msg-name">Tool: {{ toolDisplayName(e.toolName) }}</span>
+                        @if (e.ragView) { <span class="rag-pill">intern: erweitertes RAG</span> }
+                        @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
+                        <span class="msg-meta">
+                          <code>{{ e.toolName }}()</code> · Aufruf {{ e.callIndex }}/{{ model.maxCallsPerTool }}
+                        </span>
+                      </div>
+
+                      <!-- Das zentrale Argument (Suchbegriff, Begriff, Artikel …) -->
+                      @if (toolArg(e)) {
+                        <div class="msg-arg">
+                          {{ toolArgLabel(e.toolName) }}:
+                          <strong>„{{ toolArg(e) }}“</strong>
+                        </div>
+                      }
+                    </div>
+
+                    <div class="msg-content">
+                      <!-- Interne Teilschritte (z. B. Retrieve-Pipeline, hybride Suche) -->
+                      @if (e.subSteps && e.subSteps.length > 0) {
+                        <div class="sub-timeline">
+                          <span class="msg-subhead">Interne Teilschritte des Werkzeugs</span>
+                          @for (sub of e.subSteps; track sub.label) {
+                            <div class="sub-step">
+                              <span class="sub-step-label">{{ sub.label }}</span>
+                              <span class="sub-step-detail">{{ sub.detail }}</span>
+                            </div>
+                          }
+                        </div>
+                      }
+
+                      <!-- ===== suche_ai_act: Original-RAG-Visualisierung (Retrieve → Augment → Generate) ===== -->
+                      @if (e.ragView) {
+                        <!-- Retrieve (eingeklappt) -->
+                        <a class="raw-toggle" (click)="toggle('retr-' + e.id)">
+                          Retrieve · erhobene Quellen (Kosinus-Ähnlichkeit &amp; Reranking) anzeigen/ausblenden
+                        </a>
+                        <span class="toggle-sep">·</span>
+                        <div id="retr-{{ e.id }}" class="rerank-box uk-hidden">
+                          <p class="rerank-note">
+                            <span uk-icon="icon: info; ratio: 0.8"></span>
+                            Ähnlichkeitswerte und Rangänderung dienen der Nachvollziehbarkeit.
+                            In das Prompt fließt nur der Quellentext in der finalen
+                            (gerankten) Reihenfolge – nicht die Zahlen selbst.
+                          </p>
+                          <div class="table-container">
+                          <table class="uk-table uk-table-small uk-table-divider sources-table">
+                            <thead>
+                              <tr>
+                                <th>Quelle</th>
+                                <th class="uk-text-right">Kosinus</th>
+                                <th class="uk-text-center">Rang vor&nbsp;→&nbsp;nach</th>
+                                <th class="uk-text-right">Reranker</th>
+                                <th class="uk-text-center">Im Kontext</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @for (src of e.sources; track src.id) {
+                                <tr [ngClass]="src.used ? '' : 'src-skipped'">
+                                  <td>
+                                    <span class="src-title">{{ src.title }}</span>
+                                    <span class="src-snippet">{{ src.snippet }}</span>
+                                  </td>
+                                  <td class="uk-text-right">{{ formatScore(src.cosine) }}</td>
+                                  <td class="uk-text-center">
+                                    @if (src.rankBefore && src.rankAfter) {
+                                      <span
+                                        class="rank-move"
+                                        [ngClass]="
+                                          src.rankAfter < src.rankBefore
+                                            ? 'rank-up'
+                                            : src.rankAfter > src.rankBefore
+                                              ? 'rank-down'
+                                              : 'rank-same'
+                                        "
+                                      >
+                                        {{ src.rankBefore }} → {{ src.rankAfter }}
+                                        @if (src.rankAfter < src.rankBefore) { ▲ }
+                                        @else if (src.rankAfter > src.rankBefore) { ▼ }
+                                      </span>
+                                    }
+                                  </td>
+                                  <td class="uk-text-right">
+                                    {{ src.rerankScore !== undefined ? formatScore(src.rerankScore) : "–" }}
+                                  </td>
+                                  <td class="uk-text-center">
+                                    @if (src.used) {
+                                      <span class="used-yes">✓</span>
+                                    } @else {
+                                      <span class="used-no">
+                                        ✕
+                                        {{
+                                          src.skipReason === "duplicate"
+                                            ? "Dublette"
+                                            : src.skipReason === "context_window"
+                                              ? "Kontext voll"
+                                              : "geringe Relevanz"
+                                        }}
+                                      </span>
+                                    }
+                                  </td>
+                                </tr>
+                              }
+                            </tbody>
+                          </table>
+                          </div>
+                          <p class="info-link">
+                            <a
+                              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?"
+                              target="_blank"
+                              >Information: Wie werden relevante Quellen erhoben?</a
+                            >
+                            ·
+                            <a
+                              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reranking%20und%20hybride%20Suche"
+                              target="_blank"
+                              >Information: Wie funktioniert das Reranking?</a
+                            >
+                          </p>
+                        </div>
+
+                        <!-- Augment (eingeklappt) -->
+                        <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
+                          Augment · Prompt des RAG-Werkzeugs (System-Prompt + Quellen + Suchanfrage) anzeigen/ausblenden
+                        </a>
+                        <div id="aug-{{ e.id }}" class="uk-hidden">
+                          <pre class="raw-block">{{ buildAugmentedPrompt(e) }}</pre>
+                          <p class="info-link">
+                            <a
+                              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
+                              target="_blank"
+                              >Information: Wie ist ein Prompt aufgebaut?</a
+                            >
+                          </p>
+                        </div>
+
+                        <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
+                        <div class="result-head">
+                          Ergebnis
+                          <span class="result-hint">Generate · LLM-Ausgabe – wird an den Verlauf angehängt</span>
+                        </div>
+                        <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                      } @else if (e.llmGenerates) {
+                        <!-- ===== suche_leitlinien: LLM-Aufruf – Reranking & Prompt über der Rückgabe ===== -->
+                        @if (e.rerankerApplied && e.sources && e.sources.length > 0) {
+                          <a class="raw-toggle" (click)="toggle('rerank-' + e.id)">
+                            Reranking-Visualisierung anzeigen/ausblenden
+                          </a>
+                          <span class="toggle-sep">·</span>
+                          <div id="rerank-{{ e.id }}" class="rerank-box uk-hidden">
+                            <p class="rerank-note">
+                              <span uk-icon="icon: info; ratio: 0.8"></span>
+                              Nur zur Veranschaulichung – diese Werte und die Rangänderung
+                              sind <strong>nicht Teil des Prompt-Verlaufs</strong>. Das
+                              Modell erhält ausschließlich den obigen Treffertext in der
+                              finalen Reihenfolge.
+                            </p>
+                            <div class="table-container">
+                              <table class="uk-table uk-table-small uk-table-divider sources-table">
+                                <thead>
+                                  <tr>
+                                    <th>Quelle</th>
+                                    <th class="uk-text-right">Kosinus</th>
+                                    <th class="uk-text-center">Rang vor&nbsp;→&nbsp;nach</th>
+                                    <th class="uk-text-right">Reranker</th>
+                                    <th class="uk-text-center">In Rückgabe</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  @for (src of e.sources; track src.id) {
+                                    <tr [ngClass]="src.used ? '' : 'src-skipped'">
+                                      <td>
+                                        <span class="src-title">{{ src.title }}</span>
+                                        <span class="src-snippet">{{ src.snippet }}</span>
+                                      </td>
+                                      <td class="uk-text-right">{{ formatScore(src.cosine) }}</td>
+                                      <td class="uk-text-center">
+                                        @if (src.rankBefore && src.rankAfter) {
+                                          <span
+                                            class="rank-move"
+                                            [ngClass]="
+                                              src.rankAfter < src.rankBefore
+                                                ? 'rank-up'
+                                                : src.rankAfter > src.rankBefore
+                                                  ? 'rank-down'
+                                                  : 'rank-same'
+                                            "
+                                          >
+                                            {{ src.rankBefore }} → {{ src.rankAfter }}
+                                            @if (src.rankAfter < src.rankBefore) { ▲ }
+                                            @else if (src.rankAfter > src.rankBefore) { ▼ }
+                                          </span>
+                                        }
+                                      </td>
+                                      <td class="uk-text-right">
+                                        {{ src.rerankScore !== undefined ? formatScore(src.rerankScore) : "–" }}
+                                      </td>
+                                      <td class="uk-text-center">
+                                        @if (src.used) {
+                                          <span class="used-yes">✓</span>
+                                        } @else {
+                                          <span class="used-no">
+                                            ✕
+                                            {{
+                                              src.skipReason === "duplicate"
+                                                ? "Dublette"
+                                                : src.skipReason === "context_window"
+                                                  ? "Kontext voll"
+                                                  : "geringe Relevanz"
+                                            }}
+                                          </span>
+                                        }
+                                      </td>
+                                    </tr>
+                                  }
+                                </tbody>
+                              </table>
+                            </div>
+                            <p class="info-link">
+                              <a
+                                href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reranking%20und%20hybride%20Suche"
+                                target="_blank"
+                                >Information: Wie funktionieren hybride Suche und Reranking?</a
+                              >
+                            </p>
+                          </div>
+                        }
+
+                        <!-- Prompt des Werkzeugs (eingeklappt) -->
+                        <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
+                          Prompt des Werkzeugs (System-Prompt + Fundstellen + Frage) anzeigen/ausblenden
+                        </a>
+                        <div id="aug-{{ e.id }}" class="uk-hidden">
+                          <pre class="raw-block">{{ buildAugmentedPrompt(e) }}</pre>
+                          <p class="info-link">
+                            <a
+                              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
+                              target="_blank"
+                              >Information: Wie ist ein Prompt aufgebaut?</a
+                            >
+                          </p>
+                        </div>
+
+                        <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
+                        <div class="result-head">
+                          Ergebnis
+                          <span class="result-hint">LLM-Ausgabe – wird an den Verlauf angehängt</span>
+                        </div>
+                        <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                      } @else {
+                        <!-- ===== übrige Werkzeuge ohne eigenen LLM-Aufruf: Roh-Rückgabe ===== -->
+                        <div class="result-head">
+                          Ergebnis
+                          <span class="result-hint">wird unverändert an den Verlauf angehängt</span>
+                        </div>
+                        <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                      }
+                    </div>
+                  }
+                </div>
               }
             </div>
+            @if (running) {
+              <div class="scroll-spacer"></div>
+            }
           </div>
-        }
+        </div>
       </div>
-      @if (running) {
-        <div class="scroll-spacer"></div>
-      }
     </div>
   }
 
