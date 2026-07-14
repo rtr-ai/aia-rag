@@ -63,7 +63,7 @@ The service is configured with several important environment variables:
 
 - **`RERANK_QWEN_ATTENTION`**: Attention implementation for Qwen. Default is `sdpa`; `eager` and `flash_attention_2` are also accepted, but FlashAttention requires compatible additional dependencies.
 
-The Qwen model is loaded lazily on the first reranked request and then reused, including when the dataset instruction changes. The first request can therefore be slower than later requests. The chat `metadata` event reports the actual Qwen device, dtype, attention implementation, maximum length, and batch size.
+The Qwen model is loaded lazily on the first reranked request and then reused, including when the dataset instruction changes. The first request can therefore be slower than later requests. The chat `metadata` event reports the actual Qwen device, dtype, attention implementation, maximum length, configured batch size, and effective batch size. Qwen currently does not reduce its batch size automatically, so both batch-size values are normally identical.
 
 - **`RERANK_BGE_MAX_LENGTH`**: Maximum number of tokens in each combined BGE query-document pair. Default is `8192`.
 

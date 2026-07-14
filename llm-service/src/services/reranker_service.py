@@ -520,6 +520,8 @@ class QwenCrossEncoderRerankerAdapter(SentenceTransformersCrossEncoderRerankerAd
             "attention": attention,
             "max_length": self.config.qwen_max_length,
             "batch_size": self.config.document_batch_size,
+            "configured_batch_size": self.config.document_batch_size,
+            "effective_batch_size": self.config.document_batch_size,
         }
         LOGGER.info(
             "Loaded Qwen reranker model %s in %.2fs on %s with dtype %s, "

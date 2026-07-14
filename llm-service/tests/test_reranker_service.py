@@ -123,6 +123,10 @@ class QwenCrossEncoderRerankerAdapterTest(unittest.TestCase):
         )
         self.assertEqual(adapter.runtime_metadata["device"], "cuda:0")
         self.assertEqual(adapter.runtime_metadata["dtype"], "bfloat16")
+        self.assertEqual(
+            adapter.runtime_metadata["configured_batch_size"], 4
+        )
+        self.assertEqual(adapter.runtime_metadata["effective_batch_size"], 4)
 
     def test_auto_dtype_uses_float16_when_bfloat16_is_unavailable(self):
         adapter = QwenCrossEncoderRerankerAdapter("model", runtime_config())
