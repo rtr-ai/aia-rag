@@ -1,4 +1,5 @@
-FROM nvidia/cuda:12.4.1-devel-ubuntu22.04 AS llama_cpp_builder
+ARG CUDA_VERSION=12.8.1
+FROM nvidia/cuda:${CUDA_VERSION}-devel-ubuntu22.04 AS llama_cpp_builder
 
 ARG LLAMA_CPP_REPO=https://github.com/hanxiao/llama.cpp.git
 ARG LLAMA_CPP_REF=master
@@ -43,6 +44,9 @@ RUN mkdir -p /tmp/cuda-libs \
 
 FROM python:3.11-slim-bookworm
 
+ARG PYTORCH_VERSION=2.11.0
+ARG PYTORCH_INDEX_URL=https://download.pytorch.org/whl/cu128
+
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends libgomp1 \
@@ -61,7 +65,12 @@ RUN ldconfig
 
 ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib
 
+RUN pip install --no-cache-dir "torch==${PYTORCH_VERSION}" \
+        --index-url "${PYTORCH_INDEX_URL}"
+
 RUN pip install --no-cache-dir -r requirements.txt
+
+RUN python -c "import torch; assert torch.__version__.startswith('${PYTORCH_VERSION}+cu128'), torch.__version__; assert torch.version.cuda == '12.8', torch.version.cuda"
 
 EXPOSE 8000
 

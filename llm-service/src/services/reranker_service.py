@@ -15,6 +15,28 @@ from utils.logger import get_logger
 LOGGER = get_logger(__name__)
 
 
+def _torch_runtime_details(
+    torch, device: str, backend: str
+) -> Dict[str, object]:
+    torch_version = str(getattr(torch, "__version__", "unknown"))
+    torch_cuda_version = getattr(
+        getattr(torch, "version", None), "cuda", None
+    )
+    cuda_available = str(device).startswith("cuda")
+    details: Dict[str, object] = {
+        "torch_version": torch_version,
+        "torch_cuda_version": torch_cuda_version,
+        "cuda_available": cuda_available,
+    }
+    if not cuda_available:
+        LOGGER.warning(
+            "CUDA is unavailable for %s; using CPU. PyTorch version: %s, "
+            "compiled CUDA version: %s"
+            % (backend, torch_version, torch_cuda_version or "none")
+        )
+    return details
+
+
 def _env_bool(name: str, default: str = "false") -> bool:
     return TypeAdapter(bool).validate_python(os.getenv(name, default))
 
@@ -492,6 +514,7 @@ class QwenCrossEncoderRerankerAdapter(SentenceTransformersCrossEncoderRerankerAd
         load_duration = time.perf_counter() - start
         device, dtype_name = self._loaded_runtime(device, dtype_name)
         self.runtime_metadata = {
+            **_torch_runtime_details(torch, device, self.backend_name),
             "device": device,
             "dtype": dtype_name,
             "attention": attention,
@@ -762,6 +785,7 @@ class BgeCrossEncoderRerankerAdapter(
         load_duration = time.perf_counter() - start
         self.device, dtype_name = self._loaded_runtime(device, dtype_name)
         self.runtime_metadata = {
+            **_torch_runtime_details(torch, self.device, self.backend_name),
             "backend": self.backend_name,
             "device": self.device,
             "dtype": dtype_name,
@@ -977,6 +1001,7 @@ class MixedbreadCrossEncoderRerankerAdapter(
         load_duration = time.perf_counter() - start
         self.device, dtype_name = self._loaded_runtime(device, dtype_name)
         self.runtime_metadata = {
+            **_torch_runtime_details(torch, self.device, self.backend_name),
             "backend": self.backend_name,
             "device": self.device,
             "dtype": dtype_name,
@@ -1216,6 +1241,7 @@ class NvidiaCrossEncoderRerankerAdapter(
 
         self.device, dtype_name = self._loaded_runtime(device, dtype_name)
         self.runtime_metadata = {
+            **_torch_runtime_details(torch, self.device, self.backend_name),
             "backend": self.backend_name,
             "device": self.device,
             "dtype": dtype_name,

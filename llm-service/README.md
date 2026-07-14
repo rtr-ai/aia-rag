@@ -95,11 +95,17 @@ The multilingual Mixedbread model is loaded lazily and reused for German and Eng
 
 The NVIDIA model is loaded lazily with its local custom bidirectional model code and reused for German and English requests. It uses the model's fixed `question:... passage:...` format, left padding, length-aware batches, raw relevance logits, and no KV cache. Dataset-specific reranker instructions are intentionally not applied. The chat `metadata` event reports the actual device, dtype, attention implementation, maximum length, cache setting, document count, and configured and effective batch sizes.
 
+### CUDA runtime
+
+The service image pins PyTorch `2.11.0+cu128` and builds the bundled llama.cpp tools against CUDA `12.8.1`. This combination is compatible with the development server's NVIDIA `575.57.08` driver and RTX 4000 SFF Ada GPU. A newer host CUDA toolkit is not required because the container supplies its CUDA runtime; the host must provide a compatible NVIDIA driver.
+
+`nvidia-smi` shows the newest CUDA version supported by the host driver. It does not show which CUDA runtime PyTorch uses inside the container. Use `torch.version.cuda` for the compiled PyTorch CUDA version. Reranker metadata also reports `torch_version`, `torch_cuda_version`, and `cuda_available`. When CUDA initialization fails, the service logs these values before continuing on CPU.
+
 
 Verify the container runtime with:
 
 ```bash
-docker exec llm-service-develop python -c "import torch, sentence_transformers; print(sentence_transformers.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
+docker exec llm-service-develop python -c "import torch, sentence_transformers; print('SentenceTransformers:', sentence_transformers.__version__); print('PyTorch:', torch.__version__); print('PyTorch CUDA:', torch.version.cuda); print('CUDA available:', torch.cuda.is_available()); print('GPU:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'); print('Capability:', torch.cuda.get_device_capability(0) if torch.cuda.is_available() else 'n/a'); print('BF16:', torch.cuda.is_bf16_supported() if torch.cuda.is_available() else False)"
 ```
 
 

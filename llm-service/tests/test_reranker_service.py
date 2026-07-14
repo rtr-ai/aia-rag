@@ -16,6 +16,7 @@ from services.reranker_service import (
     RerankResult,
     RerankerRuntimeConfig,
     RerankerService,
+    _torch_runtime_details,
 )
 
 
@@ -33,6 +34,8 @@ class FakeCuda:
 
 def fake_torch(available=True, bf16_supported=True):
     return types.SimpleNamespace(
+        __version__="2.11.0+cu128",
+        version=types.SimpleNamespace(cuda="12.8"),
         cuda=FakeCuda(available, bf16_supported),
         bfloat16=object(),
         float16=object(),
@@ -608,9 +611,30 @@ class NvidiaCrossEncoderRerankerAdapterTest(unittest.TestCase):
         self.assertEqual(model.config.pad_token_id, tokenizer.eos_token_id)
         self.assertFalse(model.config.use_cache)
         self.assertEqual(adapter.runtime_metadata["device"], "cuda:0")
+        self.assertEqual(
+            adapter.runtime_metadata["torch_version"], "2.11.0+cu128"
+        )
+        self.assertEqual(
+            adapter.runtime_metadata["torch_cuda_version"], "12.8"
+        )
+        self.assertTrue(adapter.runtime_metadata["cuda_available"])
         self.assertEqual(adapter.runtime_metadata["dtype"], "bfloat16")
         self.assertEqual(adapter.runtime_metadata["max_length"], 8192)
         self.assertFalse(adapter.runtime_metadata["use_cache"])
+
+    def test_cpu_fallback_reports_runtime_and_logs_warning(self):
+        torch = fake_torch(available=False)
+
+        with patch("services.reranker_service.LOGGER.warning") as warning:
+            details = _torch_runtime_details(
+                torch, "cpu", "nvidia_cross_encoder"
+            )
+
+        self.assertEqual(details["torch_version"], "2.11.0+cu128")
+        self.assertEqual(details["torch_cuda_version"], "12.8")
+        self.assertFalse(details["cuda_available"])
+        warning.assert_called_once()
+        self.assertIn("using CPU", warning.call_args.args[0])
 
     def test_template_sorting_scores_and_cache_setting(self):
         adapter = self._ready_adapter()
