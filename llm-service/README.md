@@ -81,6 +81,8 @@ huggingface-cli download jinaai/jina-reranker-v3 \
 
 The existing `jina_gguf` backend remains available for comparison and fallback. Its Hanxiao llama.cpp build is pinned to a fixed commit for reproducible images. The native and GGUF distributions use the Jina model's CC BY-NC 4.0 license; confirm appropriate permission for commercial on-premises use.
 
+When a Transformer reranker fails, the service releases its model and tokenizer, clears exception frames and the PyTorch CUDA cache, and only then tries the next configured backend. The complete fallback chain is serialized so concurrent requests cannot unload each other's active model. Only one Transformer reranker remains GPU-resident; a successful fallback is evicted before the primary model is retried on the next request. Cleanup cannot release VRAM owned by Ollama or another process.
+
 - **`RERANK_QWEN_MAX_LENGTH`**: Maximum number of tokens in each Qwen query-document pair. Default is `8192`.
 
 - **`RERANK_QWEN_DTYPE`**: Qwen inference precision. `auto` selects BF16 on supported GPUs, FP16 on other CUDA GPUs, and FP32 on CPU. Explicit values are `bfloat16`, `float16`, and `float32`.

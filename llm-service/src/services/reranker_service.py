@@ -1,9 +1,11 @@
+import gc
 import json
 import os
 import subprocess
 import tempfile
 import threading
 import time
+import traceback
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -44,6 +46,27 @@ def _env_bool(name: str, default: str = "false") -> bool:
 
 def _env_list(name: str) -> List[str]:
     return [item.strip() for item in os.getenv(name, "").split(",") if item.strip()]
+
+
+def _cuda_memory_snapshot() -> Optional[Dict[str, float]]:
+    try:
+        import torch
+    except ImportError:
+        return None
+    try:
+        if not torch.cuda.is_available():
+            return None
+        memory_info = getattr(torch.cuda, "mem_get_info", None)
+        if memory_info is None:
+            return None
+        free_bytes, total_bytes = memory_info()
+        divisor = 1024 * 1024
+        return {
+            "free_mib": round(free_bytes / divisor, 2),
+            "total_mib": round(total_bytes / divisor, 2),
+        }
+    except Exception:
+        return None
 
 
 @dataclass
@@ -348,7 +371,39 @@ class JinaGgufRerankerAdapter:
         return dot_product / (doc_norm * query_norm)
 
 
-class JinaTransformersRerankerAdapter:
+class TorchRerankerAdapterMixin:
+    def release(self):
+        torch_module = getattr(self, "torch", None)
+        self.model = None
+        if hasattr(self, "tokenizer"):
+            self.tokenizer = None
+        if hasattr(self, "loaded_instruction"):
+            self.loaded_instruction = None
+        if hasattr(self, "device"):
+            self.device = None
+        if hasattr(self, "runtime_metadata"):
+            self.runtime_metadata = {}
+
+        gc.collect()
+        if torch_module is None:
+            try:
+                import torch as torch_module
+            except ImportError:
+                return
+        try:
+            if not torch_module.cuda.is_available():
+                return
+            empty_cache = getattr(torch_module.cuda, "empty_cache", None)
+            if empty_cache:
+                empty_cache()
+        except Exception as error:
+            LOGGER.warning(
+                "Could not clear CUDA cache after releasing reranker %s: %s"
+                % (getattr(self, "backend_name", "unknown"), error)
+            )
+
+
+class JinaTransformersRerankerAdapter(TorchRerankerAdapterMixin):
     backend_name = "jina_transformers"
 
     def __init__(self, model_path: str, config: RerankerRuntimeConfig):
@@ -613,13 +668,17 @@ class JinaTransformersRerankerAdapter:
         return str(parameter.device), dtype
 
 
-class SentenceTransformersCrossEncoderRerankerAdapter:
+class SentenceTransformersCrossEncoderRerankerAdapter(
+    TorchRerankerAdapterMixin
+):
     backend_name = "sentence_transformers_cross_encoder"
     supports_instruction = False
 
     def __init__(self, model_path: str, config: RerankerRuntimeConfig):
         self.model_path = model_path
         self.config = config
+        self.torch = None
+        self.device = None
         self.model = None
         self.loaded_instruction: Optional[str] = None
 
@@ -672,22 +731,22 @@ class SentenceTransformersCrossEncoderRerankerAdapter:
             )
 
         try:
+            import torch
             from sentence_transformers import CrossEncoder
         except ImportError as e:
             raise RuntimeError(
                 "SentenceTransformers reranker requires the sentence-transformers package"
             ) from e
+        self.torch = torch
 
         kwargs = {}
         if _env_bool("RERANK_TRUST_REMOTE_CODE"):
             kwargs["trust_remote_code"] = True
-        try:
-            import torch
-
-            if torch.cuda.is_available():
-                kwargs["device"] = "cuda"
-        except ImportError:
-            pass
+        if torch.cuda.is_available():
+            kwargs["device"] = "cuda"
+            self.device = "cuda"
+        else:
+            self.device = "cpu"
 
         if normalized_instruction:
             kwargs["prompts"] = {"rerank": normalized_instruction}
@@ -765,8 +824,10 @@ class QwenCrossEncoderRerankerAdapter(SentenceTransformersCrossEncoderRerankerAd
             raise RuntimeError(
                 "Qwen reranker requires sentence-transformers and torch"
             ) from e
+        self.torch = torch
 
         device, dtype, dtype_name = self._resolve_torch_runtime(torch)
+        self.device = device
         attention = self.config.qwen_attention.strip().lower()
         if attention not in {"eager", "sdpa", "flash_attention_2"}:
             raise ValueError(
@@ -843,7 +904,9 @@ class QwenCrossEncoderRerankerAdapter(SentenceTransformersCrossEncoderRerankerAd
         return str(parameter.device), dtype
 
 
-class TransformersSequenceClassificationRerankerAdapter:
+class TransformersSequenceClassificationRerankerAdapter(
+    TorchRerankerAdapterMixin
+):
     backend_name = "transformers_sequence_classification"
 
     def __init__(
@@ -1734,6 +1797,7 @@ class RerankerService:
             ),
         )
         self.adapters = self._build_adapters()
+        self._rerank_lock = threading.Lock()
         self._initialized = True
 
     def rerank(
@@ -1752,6 +1816,25 @@ class RerankerService:
         top_n: Optional[int] = None,
         instruction: Optional[str] = None,
     ) -> RerankExecution:
+        lock = getattr(self, "_rerank_lock", None)
+        if lock is None:
+            lock = threading.Lock()
+            self._rerank_lock = lock
+        with lock:
+            return self._rerank_with_metadata_locked(
+                query,
+                documents,
+                top_n,
+                instruction,
+            )
+
+    def _rerank_with_metadata_locked(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> RerankExecution:
         if not self.enabled or not documents:
             return RerankExecution([], "", "")
         if not self.adapters:
@@ -1759,6 +1842,7 @@ class RerankerService:
 
         last_error: Optional[Exception] = None
         for adapter in self.adapters:
+            self._release_other_adapters(adapter)
             try:
                 adapter_instruction = (
                     None
@@ -1781,15 +1865,55 @@ class RerankerService:
                     model_path=adapter.model_path,
                     runtime=dict(getattr(adapter, "runtime_metadata", {})),
                 )
-            except Exception as e:
-                last_error = e
+            except Exception as error:
+                error_message = str(error)
+                error_type = type(error).__name__
                 LOGGER.error(
                     f"Reranker backend <{adapter.backend_name}> model "
                     f"<{adapter.model_path}> failed, trying next configured "
-                    f"model if available: {e}"
+                    f"model if available: {error_message}"
+                )
+                error_traceback = error.__traceback__
+                if error_traceback is not None:
+                    traceback.clear_frames(error_traceback)
+                error.__traceback__ = None
+                self._release_adapter(adapter, reason="failure")
+                last_error = RuntimeError(
+                    f"{error_type}: {error_message}"
                 )
 
         raise RuntimeError("All configured reranker models failed") from last_error
+
+    def _release_other_adapters(self, active_adapter):
+        for adapter in self.adapters:
+            if adapter is active_adapter:
+                continue
+            if getattr(adapter, "model", None) is None:
+                continue
+            self._release_adapter(
+                adapter,
+                reason="before trying %s" % active_adapter.backend_name,
+            )
+
+    def _release_adapter(self, adapter, reason: str):
+        release = getattr(adapter, "release", None)
+        if release is None:
+            return
+
+        before = _cuda_memory_snapshot()
+        release()
+        after = _cuda_memory_snapshot()
+        LOGGER.info(
+            "Released reranker backend <%s> model <%s> after %s; "
+            "GPU memory before=%s after=%s"
+            % (
+                adapter.backend_name,
+                adapter.model_path,
+                reason,
+                before or "unavailable",
+                after or "unavailable",
+            )
+        )
 
     def get_instruction(self, dataset_id: str) -> Optional[str]:
         return self.rerank_instructions.get(dataset_id)

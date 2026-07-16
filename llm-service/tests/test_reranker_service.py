@@ -1,4 +1,6 @@
 import sys
+import threading
+import time
 import types
 import unittest
 from contextlib import nullcontext
@@ -196,6 +198,32 @@ class JinaTransformersRerankerAdapterTest(unittest.TestCase):
         ):
             with self.assertRaisesRegex(RuntimeError, "requires CUDA"):
                 adapter._ensure_ready()
+
+    def test_release_drops_model_state_and_clears_cuda_cache(self):
+        empty_cache_calls = []
+        torch = fake_torch()
+        torch.cuda.empty_cache = lambda: empty_cache_calls.append(True)
+        adapter = JinaTransformersRerankerAdapter(
+            "jina-native", runtime_config()
+        )
+        adapter.model = object()
+        adapter.tokenizer = object()
+        adapter.torch = torch
+        adapter.device = "cuda:0"
+        adapter.runtime_metadata = {"device": "cuda:0"}
+
+        adapter.release()
+
+        self.assertIsNone(adapter.model)
+        self.assertIsNone(adapter.tokenizer)
+        self.assertIsNone(adapter.device)
+        self.assertEqual(adapter.runtime_metadata, {})
+        self.assertEqual(empty_cache_calls, [True])
+
+        torch.cuda.available = False
+        adapter.model = object()
+        adapter.release()
+        self.assertEqual(empty_cache_calls, [True])
 
 
 class QwenCrossEncoderRerankerAdapterTest(unittest.TestCase):
@@ -1029,6 +1057,173 @@ class RerankerFallbackTest(unittest.TestCase):
         self.assertEqual(execution.model_path, "jina")
         self.assertEqual(execution.runtime, {"device": "cuda:0"})
 
+    def test_failed_adapter_is_released_before_next_fallback(self):
+        events = []
+
+        class FailingAdapter:
+            backend_name = "jina_transformers"
+            model_path = "jina-native"
+            runtime_metadata = {}
+            model = object()
+
+            def rerank(self, **kwargs):
+                events.append("failed")
+                raise RuntimeError("CUDA out of memory")
+
+            def release(self):
+                events.append("released")
+                self.model = None
+
+        failing = FailingAdapter()
+
+        class WorkingAdapter:
+            backend_name = "jina_gguf"
+            model_path = "jina.gguf"
+            runtime_metadata = {}
+            model = None
+
+            def rerank(self, **kwargs):
+                self.assert_failed_model_released()
+                events.append("fallback")
+                return [RerankResult(index=0, relevance_score=0.8)]
+
+            def assert_failed_model_released(self):
+                if failing.model is not None:
+                    raise AssertionError("failed model was not released")
+
+        service = object.__new__(RerankerService)
+        service.enabled = True
+        service.adapters = [failing, WorkingAdapter()]
+
+        with patch(
+            "services.reranker_service._cuda_memory_snapshot",
+            return_value={"free_mib": 100.0, "total_mib": 200.0},
+        ), patch(
+            "services.reranker_service.traceback.clear_frames"
+        ) as clear_frames:
+            execution = service.rerank_with_metadata("query", ["document"])
+
+        self.assertEqual(execution.backend_name, "jina_gguf")
+        self.assertEqual(events, ["failed", "released", "fallback"])
+        clear_frames.assert_called_once()
+
+    def test_loaded_fallback_is_evicted_before_primary_is_retried(self):
+        events = []
+
+        class PrimaryAdapter:
+            backend_name = "jina_transformers"
+            model_path = "primary"
+            runtime_metadata = {}
+            model = object()
+
+            def rerank(self, **kwargs):
+                events.append("primary")
+                return [RerankResult(index=0, relevance_score=0.9)]
+
+            def release(self):
+                events.append("primary-released")
+                self.model = None
+
+        class FallbackAdapter:
+            backend_name = "mixedbread_cross_encoder"
+            model_path = "fallback"
+            runtime_metadata = {}
+            model = object()
+
+            def rerank(self, **kwargs):
+                raise AssertionError("fallback should not run")
+
+            def release(self):
+                events.append("fallback-released")
+                self.model = None
+
+        primary = PrimaryAdapter()
+        fallback = FallbackAdapter()
+        service = object.__new__(RerankerService)
+        service.enabled = True
+        service.adapters = [primary, fallback]
+
+        with patch(
+            "services.reranker_service._cuda_memory_snapshot",
+            return_value=None,
+        ):
+            execution = service.rerank_with_metadata("query", ["document"])
+
+        self.assertEqual(execution.backend_name, "jina_transformers")
+        self.assertEqual(events, ["fallback-released", "primary"])
+        self.assertIsNotNone(primary.model)
+        self.assertIsNone(fallback.model)
+
+    def test_successful_primary_remains_loaded(self):
+        release_calls = []
+
+        class PrimaryAdapter:
+            backend_name = "jina_transformers"
+            model_path = "primary"
+            runtime_metadata = {}
+            model = object()
+
+            def rerank(self, **kwargs):
+                return [RerankResult(index=0, relevance_score=0.9)]
+
+            def release(self):
+                release_calls.append(True)
+                self.model = None
+
+        primary = PrimaryAdapter()
+        service = object.__new__(RerankerService)
+        service.enabled = True
+        service.adapters = [primary]
+
+        service.rerank_with_metadata("query", ["document"])
+
+        self.assertEqual(release_calls, [])
+        self.assertIsNotNone(primary.model)
+
+    def test_complete_fallback_chain_is_serialized(self):
+        state_lock = threading.Lock()
+        active = 0
+        max_active = 0
+
+        class SlowAdapter:
+            backend_name = "jina_transformers"
+            model_path = "primary"
+            runtime_metadata = {}
+            model = object()
+
+            def rerank(self, **kwargs):
+                nonlocal active, max_active
+                with state_lock:
+                    active += 1
+                    max_active = max(max_active, active)
+                time.sleep(0.03)
+                with state_lock:
+                    active -= 1
+                return [RerankResult(index=0, relevance_score=0.9)]
+
+            def release(self):
+                self.model = None
+
+        service = object.__new__(RerankerService)
+        service.enabled = True
+        service.adapters = [SlowAdapter()]
+        service._rerank_lock = threading.Lock()
+        errors = []
+
+        def run_request():
+            try:
+                service.rerank_with_metadata("query", ["document"])
+            except Exception as error:
+                errors.append(error)
+
+        threads = [threading.Thread(target=run_request) for _ in range(2)]
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join()
+
+        self.assertEqual(errors, [])
+        self.assertEqual(max_active, 1)
 
 if __name__ == "__main__":
     unittest.main()
