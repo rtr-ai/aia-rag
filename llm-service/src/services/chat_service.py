@@ -68,6 +68,8 @@ class ChatService:
             metadata = {
                 "request_id": request_id, "dataset": request.dataset,
                 "llm_model": self.model, "embedding_model": self.embedding_service.model,
+                "generate_answer": request.generate_answer,
+                "llm_used": request.generate_answer,
                 "context_window": CONTEXT_WINDOW,
                 "prompt_buffer": int(os.getenv("PROMPT_BUFFER", "1500")),
                 "top_n_chunks": int(os.getenv("TOP_N_CHUNKS", "15")),
@@ -80,6 +82,13 @@ class ChatService:
                 sources=chunks, request_id=request_id
             ):
                 yield part
+            if not request.generate_answer:
+                LOGGER.info(
+                    f"[{request_id}]   Retrieval-only request completed without "
+                    "calling the LLM"
+                )
+                return
+
 
             data = {
                 "type": "power_prompt",

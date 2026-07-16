@@ -10,3 +10,4 @@ class ChatRequest(BaseModel):
     dataset: str = Field(min_length=1, max_length=500, default="ai_act_de")
     frc_captcha_solution: Optional[str] = None
     use_rerank: bool = False
+    generate_answer: bool = True
