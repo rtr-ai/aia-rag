@@ -160,13 +160,7 @@
             </div>
           }
 
-          <div
-            class="chat-window"
-            #chatWindow
-            (wheel)="stopFollow()"
-            (touchmove)="stopFollow()"
-            (scroll)="onChatScroll()"
-          >
+          <div class="chat-window">
             <div class="transcript">
               @for (e of entries; track e.id; let idx = $index) {
                 <div
@@ -255,14 +249,40 @@
                       <span class="msg-icon">🤖</span>
                       <span class="msg-name">Assistent</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
-                      <span
-                        class="msg-meta"
-                        title="Bei jedem LLM-Aufruf wird der gesamte bisherige Nachrichten-Verlauf erneut übergeben."
+                      <a
+                        class="msg-meta msg-meta-toggle"
+                        (click)="toggle('ctx-' + e.id)"
+                        title="Bei jedem LLM-Aufruf wird der gesamte bisherige Nachrichten-Verlauf erneut übergeben. Klicken zum Aufklappen."
                       >
-                        liest {{ e.contextMessages }} Nachrichten · ~{{ formatTokens(e.contextTokens) }} Token
-                      </span>
+                        liest {{ e.contextMessages }} Nachrichten · ~{{ formatTokens(e.contextTokens) }} Token ▾
+                      </a>
                     </div>
                     <div class="msg-content">
+                      <!-- Übergebener Prompt-Verlauf (eingeklappt) -->
+                      <div id="ctx-{{ e.id }}" class="ctx-detail uk-hidden">
+                        @for (c of contextOf(idx); track c.id) {
+                          <div class="ctx-msg">
+                            <a
+                              class="ctx-msg-head"
+                              (click)="toggle('ctxmsg-' + e.id + '-' + c.id)"
+                            >
+                              <span class="ctx-role ctx-role-{{ c.kind }}">{{ roleLabel(c) }}</span>
+                              <span class="ctx-text">{{ entrySummary(c) }}</span>
+                            </a>
+                            <pre
+                              id="ctxmsg-{{ e.id }}-{{ c.id }}"
+                              class="ctx-full uk-hidden"
+                            >{{ entryFullText(c) }}</pre>
+                          </div>
+                        }
+                        <p class="info-link">
+                          <a
+                            href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Der%20Nachrichten-Verlauf"
+                            target="_blank"
+                            >Information: Warum wird bei jedem Aufruf der gesamte Verlauf übergeben?</a
+                          >
+                        </p>
+                      </div>
                       @if (e.reasoning) {
                         <p class="reasoning">{{ e.reasoning }}</p>
                         @if (idx === 2 && e.reasoningDone) {
@@ -564,6 +584,46 @@
                           <span class="result-hint">LLM-Ausgabe – wird an den Verlauf angehängt</span>
                         </div>
                         <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                      } @else if (e.toolName === "rueckfrage_nutzer") {
+                        <!-- ===== rueckfrage_nutzer: echte Interaktion – der Lauf pausiert ===== -->
+                        <div class="ask-box">
+                          <p class="ask-question">{{ e.askQuestion }}</p>
+                          @if (e.awaitingUser) {
+                            <div class="ask-options">
+                              @for (opt of e.askOptions; track opt) {
+                                <span class="ask-option" (click)="answerRueckfrage(opt)">{{ opt }}</span>
+                              }
+                            </div>
+                            <div class="ask-free">
+                              <input
+                                class="uk-input ask-input"
+                                type="text"
+                                placeholder="… oder eigene Antwort eingeben"
+                                [maxlength]="200"
+                                [(ngModel)]="rueckfrageInput"
+                                name="rueckfrageInput"
+                                (keydown.enter)="answerRueckfrage(rueckfrageInput)"
+                              />
+                              <span
+                                class="ask-option ask-send"
+                                [ngClass]="rueckfrageInput.trim() === '' ? 'ask-send-disabled' : ''"
+                                (click)="answerRueckfrage(rueckfrageInput)"
+                                >Antworten</span
+                              >
+                            </div>
+                            <p class="ask-note">
+                              Der Agent pausiert, bis Sie antworten – Ihre Antwort
+                              wird als Tool-Rückgabe an den Verlauf angehängt.
+                            </p>
+                          }
+                        </div>
+                        @if (e.resultText) {
+                          <div class="result-head">
+                            Ergebnis
+                            <span class="result-hint">Ihre Antwort – wird unverändert an den Verlauf angehängt</span>
+                          </div>
+                          <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                        }
                       } @else {
                         <!-- ===== übrige Werkzeuge ohne eigenen LLM-Aufruf: Roh-Rückgabe ===== -->
                         <div class="result-head">

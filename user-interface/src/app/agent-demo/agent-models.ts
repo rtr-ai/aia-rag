@@ -12,7 +12,8 @@ export type ToolName =
   | "anwendbarkeit"
   | "artikel_nachschlagen"
   | "suche_ai_act"
-  | "suche_leitlinien_praxisleitfaeden";
+  | "suche_leitlinien_praxisleitfaeden"
+  | "rueckfrage_nutzer";
 
 export interface EnergyData {
   cpu_kWh: number;
@@ -87,6 +88,13 @@ export interface Entry {
   callIndex?: number; // Wievielter Aufruf dieses Tools (max. 3 erlaubt)
   resultText?: string; // ROH-Ausgabe, exakt so wie sie dem Modell übergeben wird
   isError?: boolean; // Werkzeug meldet einen Fehler (z. B. unbekannter Begriff)
+
+  // rueckfrage_nutzer: Das Werkzeug pausiert den Lauf und wartet auf eine
+  // echte Eingabe. Die Antwort (gewählter Vorschlag oder Freitext) wird
+  // unverändert zu resultText.
+  askQuestion?: string;
+  askOptions?: string[];
+  awaitingUser?: boolean;
   sources?: RetrievedSource[]; // strukturierte Trefferliste (für Visualisierung)
   rerankerApplied?: boolean;
   subSteps?: SubStep[];

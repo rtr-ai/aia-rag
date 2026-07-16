@@ -1,4 +1,4 @@
-import { Component, ElementRef, NgZone, ViewChild } from "@angular/core";
+import { Component, NgZone } from "@angular/core";
 import { NgClass } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { EnergyData, Entry, RetrievedSource, ToolSpec } from "./agent-models";
@@ -110,27 +110,64 @@ export class AgentDemoComponent {
         "Hybride (lexikalisch + semantische) Suche in den Leitlinien und " +
         "Praxisleitfäden der EU-Kommission zu einem Bezugsartikel.",
     },
+    {
+      name: "rueckfrage_nutzer",
+      signature: "rueckfrage_nutzer(frage: string, antwortvorschlaege?: string[])",
+      description:
+        "Stellt der Nutzer:in eine Rückfrage und pausiert den Lauf. Optional " +
+        "können Antwortvorschläge mitgegeben werden; die Nutzer:in wählt einen " +
+        "aus oder tippt eine eigene Antwort. Rückgabe ist die gewählte bzw. " +
+        "frei eingegebene Antwort als String.",
+    },
   ];
 
-  // Das Chat-Fenster scrollt intern (feste Höhe) – nicht die ganze Seite.
-  @ViewChild("chatWindow") chatWindowRef?: ElementRef<HTMLDivElement>;
-
-  // Sobald der/die Betrachter:in IM Chat-Fenster selbst scrollt (Mausrad/
-  // Touch), pausiert das automatische Mitscrollen. Scrollt man wieder ganz
-  // nach unten, folgt die Ansicht automatisch weiter (übliches Chat-Verhalten).
+  // Die Seite scrollt als Ganzes (nur EIN Scrollbalken). Sobald der/die
+  // Betrachter:in selbst scrollt, pausiert das automatische Mitscrollen.
+  // Scrollt man wieder ganz nach unten, folgt die Ansicht automatisch weiter
+  // (übliches Chat-Verhalten).
   private userScrolled = false;
 
-  constructor(private zone: NgZone) {}
+  // --- rueckfrage_nutzer(): echte Interaktion mitten im Replay ---
+  // Das Werkzeug pausiert den Lauf, bis answerRueckfrage() das Promise auflöst.
+  rueckfrageInput = "";
+  private rueckfrageResolve: ((reply: string) => void) | null = null;
+  private rueckfrageReply = "";
 
-  stopFollow() {
-    this.userScrolled = true;
+  answerRueckfrage(reply: string) {
+    const r = reply.trim();
+    if (!r || !this.rueckfrageResolve) return;
+    this.rueckfrageResolve(r);
+    this.rueckfrageResolve = null;
+    this.rueckfrageInput = "";
   }
-  onChatScroll() {
-    const box = this.chatWindowRef?.nativeElement;
-    if (!box) return;
-    if (box.scrollTop + box.clientHeight >= box.scrollHeight - 48) {
-      this.userScrolled = false;
-    }
+
+  constructor(private zone: NgZone) {
+    // Nur echte Nutzer-Interaktionen zählen als „selbst gescrollt“ – das
+    // programmatische scrollBy/scrollIntoView löst wheel/touchmove/keydown
+    // nicht aus.
+    const stop = () => (this.userScrolled = true);
+    window.addEventListener("wheel", stop, { passive: true });
+    window.addEventListener("touchmove", stop, { passive: true });
+    window.addEventListener("keydown", (ev) => {
+      if (
+        ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(ev.key)
+      ) {
+        this.userScrolled = true;
+      }
+    });
+    // Wieder ganz unten angekommen → weiter automatisch mitscrollen.
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 60
+        ) {
+          this.userScrolled = false;
+        }
+      },
+      { passive: true }
+    );
   }
 
   // ---------------------------------------------------------------------------
@@ -199,6 +236,7 @@ export class AgentDemoComponent {
       case "artikel_nachschlagen": return "📜";
       case "suche_ai_act": return "🔍";
       case "suche_leitlinien_praxisleitfaeden": return "🧭";
+      case "rueckfrage_nutzer": return "💬";
       default: return "⚙️";
     }
   }
@@ -212,6 +250,7 @@ export class AgentDemoComponent {
       case "artikel_nachschlagen": return "Artikel nachschlagen";
       case "suche_ai_act": return "AI Act Suche";
       case "suche_leitlinien_praxisleitfaeden": return "Leitlinien-Suche";
+      case "rueckfrage_nutzer": return "Rückfrage an Sie";
       default: return name || "Werkzeug";
     }
   }
@@ -226,11 +265,11 @@ export class AgentDemoComponent {
       default: return "Argument";
     }
   }
-  // Amtliche Überschriften zu Artikel-Nummern – damit im Karten-Kopf nicht
-  // nur „5-1“ steht, sondern der sprechende Titel des Artikels.
+  // Kurze amtliche Bezeichnung zu Artikel-Nummern – damit im Karten-Kopf
+  // nicht nur „5-1“ steht. Bewusst knapp (kein Titel-Satz als „Argument“).
   private readonly articleTitles: Record<string, string> = {
-    "5-1": "Art. 5 Abs. 1 KI-VO – Folgende Praktiken im KI-Bereich sind verboten",
-    "Artikel 5": "Artikel 5 KI-VO – Verbotene Praktiken im KI-Bereich",
+    "5-1": "Art. 5 Abs. 1 KI-VO",
+    "Artikel 5": "Art. 5 KI-VO",
   };
   private articleTitle(nr: string): string {
     return this.articleTitles[nr] ?? nr;
@@ -238,9 +277,10 @@ export class AgentDemoComponent {
   // Das zentrale Argument eines Tool-Aufrufs (Suchbegriff, Begriff, Artikel …)
   // für die prominente Anzeige im Karten-Kopf. Artikel-Nummern werden um ihre
   // amtliche Überschrift ergänzt; mehrere Argumente werden mit „·“ verbunden;
-  // bei ungültigem JSON wird der Roh-String gezeigt.
+  // bei ungültigem JSON wird der Roh-String gezeigt. rueckfrage_nutzer zeigt
+  // seine Frage prominent in der interaktiven Box – nicht doppelt im Kopf.
   toolArg(e: Entry): string {
-    if (!e.argsJson) return "";
+    if (!e.argsJson || e.toolName === "rueckfrage_nutzer") return "";
     try {
       const args = JSON.parse(e.argsJson);
       return Object.entries(args)
@@ -251,6 +291,55 @@ export class AgentDemoComponent {
         .join(" · ");
     } catch {
       return e.argsJson;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Übergebener Prompt-Verlauf (aufklappbar bei jedem LLM-Aufruf)
+  // ---------------------------------------------------------------------------
+  // Der Verlauf, der einem LLM-Aufruf übergeben wird = alle vorherigen Einträge.
+  contextOf(idx: number): Entry[] {
+    return this.entries.slice(0, idx);
+  }
+  roleLabel(e: Entry): string {
+    if (e.kind === "system") return "system";
+    if (e.kind === "user") return "user";
+    if (e.kind === "tool") return "tool";
+    return "assistant";
+  }
+  private truncate(s: string, n = 90): string {
+    const t = s.replace(/\s+/g, " ").trim();
+    return t.length > n ? t.slice(0, n) + " …" : t;
+  }
+  entrySummary(e: Entry): string {
+    switch (e.kind) {
+      case "system":
+        return "System-Prompt (+ Tool-Definitionen)";
+      case "user":
+        return this.truncate(e.userText || "");
+      case "tool":
+        return `${e.toolName}() → ${this.truncate(e.resultText || "", 80)}`;
+      default:
+        return e.toolCall
+          ? `${this.truncate(e.reasoning || "", 64)} → ${e.toolCall.name}(…)`
+          : "finale Antwort";
+    }
+  }
+  // Vollständiger Inhalt einer Nachricht (für das Ausklappen im Verlauf).
+  entryFullText(e: Entry): string {
+    switch (e.kind) {
+      case "system":
+        return e.systemText || "";
+      case "user":
+        return e.userText || "";
+      case "tool":
+        return e.resultText || "";
+      default: {
+        const tail = e.toolCall
+          ? `\n\n→ tool_call: ${e.toolCall.name}(${e.toolCall.argsJson})`
+          : "\n\n→ finale Antwort";
+        return (e.reasoning || "") + tail;
+      }
     }
   }
 
@@ -293,32 +382,26 @@ export class AgentDemoComponent {
     if (e.status === "running") cls.push("chip-running");
     return cls.join(" ");
   }
-  // Klick auf einen Chip: im Chat-Fenster zum Eintrag springen. Das ist eine
-  // bewusste Navigation – danach kein automatisches Mitscrollen mehr.
+  // Klick auf einen Chip: zum Eintrag springen. Das ist eine bewusste
+  // Navigation – danach kein automatisches Mitscrollen mehr.
   jumpTo(id: number) {
     this.userScrolled = true;
-    const box = this.chatWindowRef?.nativeElement;
-    const el = document.getElementById("entry-" + id);
-    if (!box || !el) return;
-    const delta =
-      el.getBoundingClientRect().top - box.getBoundingClientRect().top - 8;
-    box.scrollBy({ top: delta, behavior: "smooth" });
+    document
+      .getElementById("entry-" + id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   private scrollToEntry(id: number, _block: ScrollLogicalPosition = "nearest") {
     if (this.userScrolled) return;
     setTimeout(() => {
       if (this.userScrolled) return;
-      const box = this.chatWindowRef?.nativeElement;
       const el = document.getElementById("entry-" + id);
-      if (!box || !el) return;
-      // Unterkante des Eintrags ~90px über dem unteren Rand des Chat-Fensters
-      // halten, damit nachlaufender (gestreamter) Text nicht abgeschnitten
-      // wird. Nur nach unten scrollen – nie nach oben zurückspringen.
-      const delta =
-        el.getBoundingClientRect().bottom -
-        (box.getBoundingClientRect().bottom - 90);
-      if (delta > 0) box.scrollBy({ top: delta, behavior: "smooth" });
+      if (!el) return;
+      // Unterkante des Eintrags ~200px über dem Fensterrand halten, damit
+      // nachlaufender (gestreamter) Text nicht abgeschnitten wird. Nur nach
+      // unten scrollen – nie nach oben zurückspringen.
+      const delta = el.getBoundingClientRect().bottom - (window.innerHeight - 200);
+      if (delta > 0) window.scrollBy({ top: delta, behavior: "smooth" });
     }, 60);
   }
 
@@ -375,6 +458,9 @@ export class AgentDemoComponent {
     this.done = false;
     this.running = true;
     this.userScrolled = false;
+    this.rueckfrageReply = "";
+    this.rueckfrageInput = "";
+    this.rueckfrageResolve = null;
     this.submittedPrompt = this.userPrompt;
     this.totalEnergy = this.emptyEnergy();
     this.totalProQuery = 0;
@@ -394,8 +480,12 @@ export class AgentDemoComponent {
       const entry: Entry = { id: nextId++, status: "running", ...partial } as Entry;
 
       // Zu streamende (LLM-)Felder vorab merken und leeren, damit während der
-      // „Denkzeit“ nicht kurz der volle Text aufblitzt.
-      const fullReasoning = entry.reasoning;
+      // „Denkzeit“ nicht kurz der volle Text aufblitzt. Die echte Antwort auf
+      // die Rückfrage ist erst zur Laufzeit bekannt und wird hier eingesetzt.
+      const fullReasoning = entry.reasoning?.replace(
+        "%NUTZERANTWORT%",
+        this.rueckfrageReply
+      );
       const streamAnswer = entry.kind === "llm" && !entry.toolCall && !!entry.answer;
       const fullAnswer = streamAnswer ? entry.answer : undefined;
       const streamResult =
@@ -423,6 +513,27 @@ export class AgentDemoComponent {
 
       if (entry.kind === "system" || entry.kind === "user") {
         await this.delay(800);
+      } else if (entry.kind === "tool" && entry.toolName === "rueckfrage_nutzer") {
+        // Der Lauf pausiert, bis die Nutzer:in wirklich antwortet – die Dauer
+        // des „Werkzeugs“ ist die echte Wartezeit auf den Menschen.
+        await this.delay(500);
+        const waitStart = Date.now();
+        this.zone.run(() => (entry.awaitingUser = true));
+        this.scrollToEntry(entry.id, "end");
+        const reply = await new Promise<string>(
+          (resolve) => (this.rueckfrageResolve = resolve)
+        );
+        this.rueckfrageReply = reply;
+        this.zone.run(() => {
+          entry.awaitingUser = false;
+          entry.resultText = reply;
+          if (entry.energy) {
+            entry.energy.duration =
+              Math.round((Date.now() - waitStart) / 100) / 10;
+          }
+        });
+        this.scrollToEntry(entry.id, "end");
+        await this.delay(600);
       } else if (entry.kind === "tool") {
         if (fullSubSteps) {
           // Pipeline-Teilschritte einzeln aufdecken (Retrieve → … → Reranking).
@@ -484,8 +595,11 @@ export class AgentDemoComponent {
 
   // ---------------------------------------------------------------------------
   // Fest hinterlegter Nachrichten-Verlauf für die Beispielfrage.
-  // 8 LLM-Aufrufe (7 mit Tool-Call, 1 mit finaler Antwort) + 7 Tool-Ergebnisse.
+  // 9 LLM-Aufrufe (8 mit Tool-Call, 1 mit finaler Antwort) + 8 Tool-Ergebnisse.
   // Die Energie der LLM-Aufrufe steigt mit dem wachsenden Kontext (Prefill).
+  // rueckfrage_nutzer() ist der einzige nicht-deterministische Schritt: Der
+  // Lauf pausiert dort auf eine echte Eingabe; die Antwort wird über den
+  // Platzhalter %NUTZERANTWORT% in die folgenden Reasoning-Texte eingesetzt.
   // ---------------------------------------------------------------------------
   private buildScript(): Partial<Entry>[] {
     // heute() liefert das echte aktuelle Datum – auch im deterministischen Replay.
@@ -508,7 +622,10 @@ export class AgentDemoComponent {
           "3. Verbindliche Bestimmungen (AI Act) haben Vorrang; Leitlinien/" +
           "Praxisleitfäden dürfen nur ergänzen.\n" +
           "4. Bei Fragen zur zeitlichen Geltung verwende immer anwendbarkeit().\n" +
-          "5. Lege deine Überlegungen offen und nenne am Ende alle Quellen.",
+          "5. Fehlt eine für die Antwort erhebliche Information, stelle genau " +
+          "eine Rückfrage mit rueckfrage_nutzer() – möglichst mit " +
+          "Antwortvorschlägen.\n" +
+          "6. Lege deine Überlegungen offen und nenne am Ende alle Quellen.",
       },
 
       // Nutzerfrage
@@ -771,7 +888,7 @@ export class AgentDemoComponent {
         energy: this.energy(0.000061, 0.000874, 0.000018, 5.4),
       },
 
-      // --- LLM-Aufruf 6: holt das heutige Datum (LLMs kennen es nicht zuverlässig) ---
+      // --- LLM-Aufruf 6: stellt eine echte Rückfrage an die Nutzer:in ---
       {
         kind: "llm",
         contextMessages: 12,
@@ -779,14 +896,53 @@ export class AgentDemoComponent {
         reasoning:
           "Die Leitlinien bestätigen: Stimmungs-/Launenüberwachung zur " +
           "Mitarbeiterkontrolle ist nicht von der Ausnahme gedeckt. Bleibt die " +
-          "zeitliche Geltung – „Darf ich das?“ heißt auch: Gilt das Verbot " +
-          "überhaupt schon? Mein Trainingsstand liegt in der Vergangenheit, " +
-          "das heutige Datum kenne ich nicht zuverlässig – ich rufe heute() auf.",
+          "zeitliche Geltung – und dafür ist relevant, ob das System bereits " +
+          "läuft oder erst eingeführt werden soll (Stichwort Übergangs-/" +
+          "Bestandsschutzregeln). Das steht nicht in der Frage. Laut " +
+          "System-Prompt darf ich fehlende, erhebliche Informationen mit " +
+          "rueckfrage_nutzer() erfragen – ich gebe zwei Antwortvorschläge mit.",
+        toolCall: {
+          name: "rueckfrage_nutzer",
+          argsJson:
+            '{ "frage": "Ist das KI-System bereits im Einsatz oder planen Sie ' +
+            'erst die Einführung?", "antwortvorschlaege": ["Bereits im ' +
+            'Einsatz", "Einführung erst geplant"] }',
+        },
+        energy: this.energy(0.000023, 0.00009, 0.000007, 2.4),
+      },
+      // rueckfrage_nutzer() pausiert den Lauf: Die Rückgabe (resultText) ist
+      // die echte Antwort der Nutzer:in, die Dauer die echte Wartezeit.
+      {
+        kind: "tool",
+        toolName: "rueckfrage_nutzer",
+        callIndex: 1,
+        argsJson:
+          '{ "frage": "Ist das KI-System bereits im Einsatz oder planen Sie ' +
+          'erst die Einführung?", "antwortvorschlaege": ["Bereits im ' +
+          'Einsatz", "Einführung erst geplant"] }',
+        askQuestion:
+          "Ist das KI-System bereits im Einsatz oder planen Sie erst die " +
+          "Einführung?",
+        askOptions: ["Bereits im Einsatz", "Einführung erst geplant"],
+        energy: this.energy(0.000001, 0.0, 0.000001, 0),
+      },
+
+      // --- LLM-Aufruf 7: holt das heutige Datum (LLMs kennen es nicht zuverlässig) ---
+      {
+        kind: "llm",
+        contextMessages: 14,
+        contextTokens: 1943,
+        reasoning:
+          "Die Nutzer:in antwortet: „%NUTZERANTWORT%“. Ich prüfe nun die " +
+          "zeitliche Geltung des Verbots – einschließlich der Frage, ob es " +
+          "für bereits laufende Systeme Übergangsregeln gibt. Zuerst brauche " +
+          "ich das heutige Datum: Mein Trainingsstand liegt in der " +
+          "Vergangenheit, ich kenne es nicht zuverlässig – ich rufe heute() auf.",
         toolCall: {
           name: "heute",
           argsJson: "{}",
         },
-        energy: this.energy(0.000023, 0.000092, 0.000007, 2.4),
+        energy: this.energy(0.000024, 0.000092, 0.000007, 2.5),
       },
       // heute() ist ein triviales Werkzeug ohne LLM: Rückgabe instantan,
       // Energieverbrauch praktisch null.
@@ -799,11 +955,11 @@ export class AgentDemoComponent {
         energy: this.energy(0.000001, 0.0, 0.000001, 0.1),
       },
 
-      // --- LLM-Aufruf 7: ruft anwendbarkeit() auf ---
+      // --- LLM-Aufruf 8: ruft anwendbarkeit() auf ---
       {
         kind: "llm",
-        contextMessages: 14,
-        contextTokens: 1926,
+        contextMessages: 16,
+        contextTokens: 2001,
         reasoning:
           "heute() liefert: " +
           heuteDatum +
@@ -814,7 +970,7 @@ export class AgentDemoComponent {
           name: "anwendbarkeit",
           argsJson: '{ "artikel_nummer": "Artikel 5" }',
         },
-        energy: this.energy(0.000024, 0.000096, 0.000007, 2.5),
+        energy: this.energy(0.000025, 0.000096, 0.000007, 2.6),
       },
       {
         kind: "tool",
@@ -832,16 +988,18 @@ export class AgentDemoComponent {
         energy: this.energy(0.000007, 0.0, 0.000002, 0.4),
       },
 
-      // --- LLM-Aufruf 8: finale Antwort (kein Tool-Call mehr) ---
+      // --- LLM-Aufruf 9: finale Antwort (kein Tool-Call mehr) ---
       {
         kind: "llm",
-        contextMessages: 16,
-        contextTokens: 2134,
+        contextMessages: 18,
+        contextTokens: 2209,
         reasoning:
           "Alle Bausteine liegen vor: Emotionserkennungssystem (Art. 3 Nr. 39), " +
           "am Arbeitsplatz nach Art. 5 Abs. 1 lit. f verboten, keine Ausnahme " +
-          "greift, anwendbar seit 2.2.2025 – das Verbot gilt heute also " +
-          "längst. Ich formuliere die Antwort streng quellengebunden.",
+          "greift, anwendbar seit 2.2.2025 ohne Bestandsschutz – auf die " +
+          "Antwort der Rückfrage („%NUTZERANTWORT%“) kommt es im Ergebnis " +
+          "also nicht an: Das Verbot gilt heute in beiden Fällen. Ich " +
+          "formuliere die Antwort streng quellengebunden.",
         answer: this.finalAnswer(),
         citations: [
           { label: "Art. 5 Abs. 1 lit. f KI-VO", kind: "ai_act" },

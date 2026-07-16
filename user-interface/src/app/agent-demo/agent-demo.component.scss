@@ -56,7 +56,7 @@ code {
   overflow-x: auto;
 }
 .scroll-spacer {
-  height: 140px;
+  height: 220px;
 }
 .call-budget {
   font-variant-numeric: tabular-nums;
@@ -145,10 +145,9 @@ code {
   font-size: 1rem;
 }
 
-// Das Chat-Fenster: feste Höhe, scrollt intern – nicht die ganze Seite.
+// Das Chat-Fenster wächst mit dem Inhalt – es scrollt NUR die Seite selbst
+// (ein einziger Scrollbalken).
 .chat-window {
-  height: clamp(460px, 68vh, 820px);
-  overflow-y: auto;
   border: 1px solid #dfe5d8;
   border-radius: 8px;
   background: #fbfcfa;
@@ -575,12 +574,25 @@ a.msg-title-toggle:hover {
   fill: #9aa5b1;
 }
 
-// --- Agent-Loop: Verlaufs-Leiste über dem Chat-Fenster ---
+// --- Agent-Loop: Verlaufs-Leiste über dem Chat-Fenster (sticky, damit die
+// Orientierung beim Seiten-Scrollen erhalten bleibt) ---
 .loop-chips {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 0 2px 8px;
+  background: #fff;
+  border-bottom: 1px solid #e2e6de;
+  padding: 6px 2px 8px;
+  margin-bottom: 8px;
+}
+// Ab @l ist der Seiten-Header sticky (70px hoch) – darunter andocken.
+@media (min-width: 1200px) {
+  .loop-chips {
+    top: 70px;
+  }
 }
 .loop-chips-scroll {
   display: flex;
@@ -641,4 +653,152 @@ a.msg-title-toggle:hover {
   flex: 0 0 auto;
   color: #9aa5b1;
   font-size: 0.75rem;
+}
+
+// Sprungziel nicht von der sticky Leiste (und ab @l dem Header) überdecken lassen
+.msg {
+  scroll-margin-top: 60px;
+}
+@media (min-width: 1200px) {
+  .msg {
+    scroll-margin-top: 130px;
+  }
+}
+
+// --- Übergebener Prompt-Verlauf (aufklappbar beim „liest XX Nachrichten“) ---
+a.msg-meta-toggle {
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #8a94a0 !important;
+}
+// Das Theme legt bei .uk-section-default a:hover einen grünen Hintergrund –
+// bei Links mit fixer Schriftfarbe wird der Text dadurch unlesbar.
+a.msg-meta-toggle:hover {
+  background: transparent !important;
+  color: #2c5b9c !important;
+}
+.ctx-detail {
+  border: 1px dashed #c7d6ea;
+  border-radius: 4px;
+  background: #f6f9fd;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+.ctx-msg {
+  padding: 2px 0;
+}
+.ctx-msg-head {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+// Nur den Link selbst entfärben – die Rollen-Kästchen (system/user/…)
+// behalten ihre eigene Hintergrundfarbe.
+.ctx-msg-head:hover {
+  background: transparent !important;
+}
+.ctx-msg-head:hover .ctx-text {
+  color: #2c5b9c;
+}
+.ctx-full {
+  margin: 4px 0 6px 72px;
+  background: #f6f8f4;
+  white-space: pre-wrap;
+  padding: 8px 10px;
+  border: 1px solid #e2e8da;
+  border-radius: 4px;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+.ctx-role {
+  flex: 0 0 64px;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 0.68rem;
+  text-align: right;
+  color: #fff;
+  border-radius: 3px;
+  padding: 0 5px;
+}
+.ctx-role-system {
+  background: #888;
+}
+.ctx-role-user {
+  background: $blue;
+}
+.ctx-role-llm {
+  background: #2c5b9c;
+}
+.ctx-role-tool {
+  background: $green;
+}
+.ctx-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: #444;
+  font-size: 0.82rem;
+}
+
+// --- Rückfrage an die Nutzer:in (rueckfrage_nutzer) – der Lauf pausiert hier.
+// Antwortvorschläge als <span> statt <a>/<button>, damit die globalen
+// Link-Hover-Regeln des Themes nicht hineinfunken.
+.ask-box {
+  margin-top: 4px;
+  border: 1px solid #cfe3ba;
+  border-radius: 4px;
+  padding: 12px 14px;
+  background: #f7fbf2;
+}
+.ask-question {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+.ask-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.ask-option {
+  display: inline-block;
+  border: 1px solid $green;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: $green;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background: $green;
+    color: #fff;
+  }
+}
+.ask-free {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  align-items: center;
+}
+.ask-input {
+  flex: 1 1 auto;
+  max-width: 420px;
+  height: 34px;
+  font-size: 0.88rem;
+}
+.ask-send-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.ask-note {
+  margin: 10px 0 0;
+  font-size: 0.76rem;
+  font-style: italic;
+  color: #7a8a6a;
 }
