@@ -39,8 +39,8 @@ services:
       - TOP_N_CHUNKS=25
       - RERANK_ENABLED=true
       - RERANK_TOP_N=20
-      - RERANK_MODEL_PATHS=/app/models/reranker/jina/native,/app/models/reranker/nvidia,/app/models/reranker/qwen/Quen3-Reranker-0.6B,/app/models/reranker/bge,/app/models/reranker/mixedbread
-      - RERANK_MODEL_TYPES=jina_transformers,nvidia_cross_encoder,qwen_cross_encoder,bge_cross_encoder,mixedbread_cross_encoder
+      - RERANK_MODEL_PATHS=/app/models/reranker/nvidia,/app/models/reranker/jina/native,/app/models/reranker/qwen/Quen3-Reranker-0.6B,/app/models/reranker/bge,/app/models/reranker/mixedbread
+      - RERANK_MODEL_TYPES=nvidia_cross_encoder,jina_transformers,qwen_cross_encoder,bge_cross_encoder,mixedbread_cross_encoder
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
@@ -63,9 +63,9 @@ services:
       - RERANK_MIXEDBREAD_DTYPE=auto
       - RERANK_MIXEDBREAD_ATTENTION=sdpa
       - RERANK_MIXEDBREAD_BATCH_SIZE=4
-      - RERANK_NVIDIA_MAX_LENGTH=2048
-      - RERANK_NVIDIA_DTYPE=float16
-      - RERANK_NVIDIA_ATTENTION=eager
+      - RERANK_NVIDIA_MAX_LENGTH=4096
+      - RERANK_NVIDIA_DTYPE=auto
+      - RERANK_NVIDIA_ATTENTION=sdpa
       - RERANK_NVIDIA_BATCH_SIZE=1
       - RERANK_INSTRUCTIONS_FILE=rerank_instructions.json
       - NVIDIA_VISIBLE_DEVICES=all
