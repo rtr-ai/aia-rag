@@ -57,6 +57,30 @@ The service is configured with several important environment variables:
 
 - **`ALLOWED_ORIGINS`**: A comma-separated list of allowed origins for Cross-Origin Resource Sharing (CORS).
 
+- **`RERANK_JINA_CONTEXT_SIZE`**: Maximum token budget for each native Jina listwise group. Default is `20000`.
+
+- **`RERANK_JINA_MAX_QUERY_LENGTH`**: Maximum query length before native Jina scoring. Default is `512`.
+
+- **`RERANK_JINA_MAX_DOC_LENGTH`**: Maximum length of each complete candidate passed to native Jina. Default is `2048`.
+
+- **`RERANK_JINA_DTYPE`**: Native Jina inference precision. `auto` selects BF16 on supported GPUs, FP16 on other CUDA GPUs, and FP32 on CPU.
+
+- **`RERANK_JINA_ATTENTION`**: Attention implementation for native Jina. Default is `sdpa`.
+
+- **`RERANK_JINA_REQUIRE_CUDA`**: When `true` (the development default), native Jina fails fast when CUDA is unavailable so the configured fallback runs instead of slow CPU inference.
+
+The `jina_transformers` backend loads the local Hugging Face model lazily and keeps it on the GPU for the lifetime of the service. It preserves Jina's listwise scoring and applies the selected dataset instruction per request without reloading. The metadata event reports the device, dtype, attention, token limits, group count, loading and scoring durations, and whether the model was reused.
+
+Download the pinned model files on the server before starting the service:
+
+```bash
+huggingface-cli download jinaai/jina-reranker-v3 \
+  --revision 10fb694fc21f7a710a563ff1eb977a460f3868e4 \
+  --local-dir /app/models/reranker/jina/native
+```
+
+The existing `jina_gguf` backend remains available for comparison and fallback. Its Hanxiao llama.cpp build is pinned to a fixed commit for reproducible images. The native and GGUF distributions use the Jina model's CC BY-NC 4.0 license; confirm appropriate permission for commercial on-premises use.
+
 - **`RERANK_QWEN_MAX_LENGTH`**: Maximum number of tokens in each Qwen query-document pair. Default is `8192`.
 
 - **`RERANK_QWEN_DTYPE`**: Qwen inference precision. `auto` selects BF16 on supported GPUs, FP16 on other CUDA GPUs, and FP32 on CPU. Explicit values are `bfloat16`, `float16`, and `float32`.

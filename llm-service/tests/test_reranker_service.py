@@ -5,11 +5,14 @@ from contextlib import nullcontext
 from pathlib import Path
 from unittest.mock import patch
 
+import numpy as np
+
 SRC_PATH = Path(__file__).resolve().parents[1] / "src"
 sys.path.insert(0, str(SRC_PATH))
 
 from services.reranker_service import (
     BgeCrossEncoderRerankerAdapter,
+    JinaTransformersRerankerAdapter,
     MixedbreadCrossEncoderRerankerAdapter,
     NvidiaCrossEncoderRerankerAdapter,
     QwenCrossEncoderRerankerAdapter,
@@ -54,6 +57,12 @@ def runtime_config(dtype="auto"):
         document_batch_size=4,
         gpu_layers=5,
         flash_attention=True,
+        jina_context_size=20000,
+        jina_max_query_length=512,
+        jina_max_doc_length=2048,
+        jina_dtype=dtype,
+        jina_attention="sdpa",
+        jina_require_cuda=True,
         qwen_max_length=8192,
         qwen_dtype=dtype,
         qwen_attention="sdpa",
@@ -70,6 +79,123 @@ def runtime_config(dtype="auto"):
         nvidia_attention="sdpa",
         nvidia_batch_size=1,
     )
+
+
+class FakeJinaNativeModel:
+    def __init__(self):
+        self.device = None
+        self.compute_calls = []
+        self._tokenizer = lambda text: {"input_ids": text.split()}
+
+    def eval(self):
+        return self
+
+    def to(self, device):
+        self.device = device
+        return self
+
+    def parameters(self):
+        return iter(())
+
+    def _truncate_texts(
+        self, query, documents, max_query_length, max_doc_length
+    ):
+        return query, documents, [100] * len(documents), 10
+
+    def _compute_single_batch(self, query, documents, instruction=None):
+        self.compute_calls.append((query, list(documents), instruction))
+        document_embeddings = np.asarray(
+            [
+                [1.0, 0.0] if document == "first" else [0.0, 1.0]
+                for document in documents
+            ]
+        )
+        scores = np.asarray(
+            [0.1 if document == "first" else 0.9 for document in documents]
+        )
+        return types.SimpleNamespace(
+            doc_embeds=np.asarray([document_embeddings]),
+            query_embeds=np.asarray([[[0.0, 1.0]]]),
+            scores=scores,
+        )
+
+
+class JinaTransformersRerankerAdapterTest(unittest.TestCase):
+    def test_model_is_loaded_once_and_instruction_changes_per_request(self):
+        model = FakeJinaNativeModel()
+        loads = []
+
+        class FakeAutoModel:
+            @staticmethod
+            def from_pretrained(model_path, **kwargs):
+                loads.append((model_path, kwargs))
+                return model
+
+        transformers = types.ModuleType("transformers")
+        transformers.AutoModel = FakeAutoModel
+        torch = fake_torch()
+        adapter = JinaTransformersRerankerAdapter(
+            "jina-native", runtime_config()
+        )
+
+        with patch(
+            "services.reranker_service.os.path.isdir", return_value=True
+        ), patch.dict(
+            sys.modules, {"transformers": transformers, "torch": torch}
+        ):
+            german = adapter.rerank(
+                "query", ["first", "second"], instruction="German instruction"
+            )
+            self.assertFalse(adapter.runtime_metadata["model_reused"])
+            english = adapter.rerank(
+                "query", ["first", "second"], instruction="English instruction"
+            )
+
+        self.assertEqual(len(loads), 1)
+        self.assertTrue(loads[0][1]["trust_remote_code"])
+        self.assertTrue(loads[0][1]["local_files_only"])
+        self.assertIs(loads[0][1]["torch_dtype"], torch.bfloat16)
+        self.assertEqual(loads[0][1]["attn_implementation"], "sdpa")
+        self.assertEqual([item.index for item in german], [1, 0])
+        self.assertEqual([item.index for item in english], [1, 0])
+        self.assertEqual(
+            [call[2] for call in model.compute_calls],
+            ["German instruction", "English instruction"],
+        )
+        self.assertTrue(adapter.runtime_metadata["model_reused"])
+        self.assertTrue(adapter.runtime_metadata["instruction_used"])
+        self.assertEqual(adapter.runtime_metadata["device"], "cuda:0")
+        self.assertEqual(adapter.runtime_metadata["dtype"], "bfloat16")
+
+    def test_token_budget_creates_multiple_listwise_groups(self):
+        config = runtime_config()
+        config.jina_context_size = 600
+        adapter = JinaTransformersRerankerAdapter("jina-native", config)
+        adapter.model = FakeJinaNativeModel()
+
+        groups = adapter._group_documents(
+            [200, 200, 50],
+            query_length=10,
+            instruction=None,
+        )
+
+        self.assertEqual(groups, [[0], [1, 2]])
+
+    def test_cuda_is_required_by_default(self):
+        transformers = types.ModuleType("transformers")
+        transformers.AutoModel = object()
+        torch = fake_torch(available=False)
+        adapter = JinaTransformersRerankerAdapter(
+            "jina-native", runtime_config()
+        )
+
+        with patch(
+            "services.reranker_service.os.path.isdir", return_value=True
+        ), patch.dict(
+            sys.modules, {"transformers": transformers, "torch": torch}
+        ):
+            with self.assertRaisesRegex(RuntimeError, "requires CUDA"):
+                adapter._ensure_ready()
 
 
 class QwenCrossEncoderRerankerAdapterTest(unittest.TestCase):
@@ -762,6 +888,34 @@ class NvidiaCrossEncoderRerankerAdapterTest(unittest.TestCase):
 
 
 class RerankerFallbackTest(unittest.TestCase):
+    def test_failed_native_jina_advances_to_gguf(self):
+        class FailingAdapter:
+            backend_name = "jina_transformers"
+            model_path = "jina-native"
+
+            def rerank(self, **kwargs):
+                raise RuntimeError("Native Jina failed")
+
+        class WorkingAdapter:
+            backend_name = "jina_gguf"
+            model_path = "jina.gguf"
+            runtime_metadata = {"gpu_layers": 10}
+
+            def rerank(self, **kwargs):
+                return [RerankResult(index=0, relevance_score=0.9)]
+
+        service = object.__new__(RerankerService)
+        service.enabled = True
+        service.adapters = [FailingAdapter(), WorkingAdapter()]
+
+        execution = service.rerank_with_metadata(
+            "query", ["document"], instruction="instruction"
+        )
+
+        self.assertEqual(execution.backend_name, "jina_gguf")
+        self.assertEqual(execution.model_path, "jina.gguf")
+        self.assertEqual(execution.runtime, {"gpu_layers": 10})
+
     def test_failed_nvidia_advances_to_mixedbread(self):
         class FailingAdapter:
             backend_name = "nvidia_cross_encoder"

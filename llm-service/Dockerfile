@@ -2,7 +2,7 @@ ARG CUDA_VERSION=12.8.1
 FROM nvidia/cuda:${CUDA_VERSION}-devel-ubuntu22.04 AS llama_cpp_builder
 
 ARG LLAMA_CPP_REPO=https://github.com/hanxiao/llama.cpp.git
-ARG LLAMA_CPP_REF=master
+ARG LLAMA_CPP_REF=96d58cc68ee4d59804b17ceeb3c46541e2d2a05e
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -24,7 +24,10 @@ ENV CUDA_STUB_DIR=/usr/local/cuda/targets/x86_64-linux/lib/stubs
 ENV LIBRARY_PATH=${CUDA_STUB_DIR}:/usr/local/cuda/lib64/stubs
 ENV LD_LIBRARY_PATH=${CUDA_STUB_DIR}:/usr/local/cuda/lib64/stubs
 
-RUN git clone --depth 1 --branch ${LLAMA_CPP_REF} ${LLAMA_CPP_REPO} /tmp/llama.cpp
+RUN git init /tmp/llama.cpp \
+    && git -C /tmp/llama.cpp remote add origin ${LLAMA_CPP_REPO} \
+    && git -C /tmp/llama.cpp fetch --depth 1 origin ${LLAMA_CPP_REF} \
+    && git -C /tmp/llama.cpp checkout --detach FETCH_HEAD
 
 RUN cmake -S /tmp/llama.cpp -B /tmp/llama.cpp/build \
         -DCMAKE_BUILD_TYPE=Release \

@@ -2,6 +2,7 @@ import json
 import os
 import subprocess
 import tempfile
+import threading
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -69,6 +70,12 @@ class RerankerRuntimeConfig:
     document_batch_size: int
     gpu_layers: int
     flash_attention: bool
+    jina_context_size: int
+    jina_max_query_length: int
+    jina_max_doc_length: int
+    jina_dtype: str
+    jina_attention: str
+    jina_require_cuda: bool
     qwen_max_length: int
     qwen_dtype: str
     qwen_attention: str
@@ -339,6 +346,271 @@ class JinaGgufRerankerAdapter:
         doc_norm = np.sqrt(np.sum(doc_embeddings * doc_embeddings, axis=-1))
         query_norm = np.sqrt(np.sum(query_embeddings * query_embeddings, axis=-1))
         return dot_product / (doc_norm * query_norm)
+
+
+class JinaTransformersRerankerAdapter:
+    backend_name = "jina_transformers"
+
+    def __init__(self, model_path: str, config: RerankerRuntimeConfig):
+        self.model_path = model_path
+        self.config = config
+        self.model = None
+        self.torch = None
+        self.device = None
+        self._load_lock = threading.Lock()
+        self._inference_lock = threading.Lock()
+        self._load_duration = 0.0
+        self.runtime_metadata: Dict[str, object] = {}
+
+    def rerank(
+        self,
+        query: str,
+        documents: List[str],
+        top_n: Optional[int] = None,
+        instruction: Optional[str] = None,
+    ) -> List[RerankResult]:
+        model_reused = self.model is not None
+        self._ensure_ready()
+        start = time.perf_counter()
+        with self._inference_lock, self.torch.inference_mode():
+            scores, group_count = self._score_documents(
+                query,
+                documents,
+                instruction.strip() if instruction else None,
+            )
+        scoring_duration = time.perf_counter() - start
+
+        results = [
+            RerankResult(index=index, relevance_score=float(score))
+            for index, score in enumerate(scores)
+        ]
+        results.sort(key=lambda item: item.relevance_score, reverse=True)
+        if top_n is not None:
+            results = results[:top_n]
+
+        self.runtime_metadata.update(
+            {
+                "document_count": len(documents),
+                "group_count": group_count,
+                "instruction_used": bool(instruction and instruction.strip()),
+                "model_reused": model_reused,
+                "load_seconds": round(self._load_duration, 3),
+                "scoring_seconds": round(scoring_duration, 3),
+            }
+        )
+        LOGGER.info(
+            "Reranked %s candidate chunks to %s chunks in %.2fs using backend "
+            "%s model %s across %s listwise groups on %s with dtype %s"
+            % (
+                len(documents),
+                len(results),
+                scoring_duration,
+                self.backend_name,
+                self.model_path,
+                group_count,
+                self.runtime_metadata["device"],
+                self.runtime_metadata["dtype"],
+            )
+        )
+        return results
+
+    def _ensure_ready(self):
+        if self.model is not None:
+            return
+        with self._load_lock:
+            if self.model is not None:
+                return
+            if not os.path.isdir(self.model_path):
+                raise FileNotFoundError(
+                    f"Native Jina reranker model path does not exist: {self.model_path}"
+                )
+
+            try:
+                import torch
+                from transformers import AutoModel
+            except ImportError as error:
+                raise RuntimeError(
+                    "Native Jina reranker requires transformers and torch"
+                ) from error
+
+            self.torch = torch
+            device, dtype, dtype_name = self._resolve_torch_runtime(torch)
+            if self.config.jina_require_cuda and device == "cpu":
+                raise RuntimeError(
+                    "Native Jina reranker requires CUDA, but CUDA is unavailable"
+                )
+            attention = self.config.jina_attention.strip().lower()
+            if attention not in {"eager", "sdpa", "flash_attention_2"}:
+                raise ValueError(
+                    "RERANK_JINA_ATTENTION must be eager, sdpa, or flash_attention_2"
+                )
+
+            start = time.perf_counter()
+            model = AutoModel.from_pretrained(
+                self.model_path,
+                trust_remote_code=True,
+                local_files_only=True,
+                torch_dtype=dtype,
+                attn_implementation=attention,
+            ).eval()
+            model.to(device)
+            self._load_duration = time.perf_counter() - start
+            self.model = model
+            self.device, dtype_name = self._loaded_runtime(device, dtype_name)
+            self.runtime_metadata = {
+                **_torch_runtime_details(torch, self.device, self.backend_name),
+                "backend": self.backend_name,
+                "device": self.device,
+                "dtype": dtype_name,
+                "attention": attention,
+                "context_size": self.config.jina_context_size,
+                "max_query_length": self.config.jina_max_query_length,
+                "max_doc_length": self.config.jina_max_doc_length,
+                "require_cuda": self.config.jina_require_cuda,
+            }
+            LOGGER.info(
+                "Loaded native Jina reranker model %s in %.2fs on %s with "
+                "dtype %s, attention %s, and context size %s"
+                % (
+                    self.model_path,
+                    self._load_duration,
+                    self.device,
+                    dtype_name,
+                    attention,
+                    self.config.jina_context_size,
+                )
+            )
+
+    def _score_documents(
+        self,
+        query: str,
+        documents: List[str],
+        instruction: Optional[str],
+    ):
+        if self.model is None:
+            raise RuntimeError("Native Jina reranker model is not loaded")
+
+        query, truncated_documents, document_lengths, query_length = (
+            self.model._truncate_texts(
+                query,
+                documents,
+                self.config.jina_max_query_length,
+                self.config.jina_max_doc_length,
+            )
+        )
+        groups = self._group_documents(
+            document_lengths,
+            query_length,
+            instruction,
+        )
+        document_embeddings = []
+        query_embeddings = []
+        group_weights = []
+        for group in groups:
+            outputs = self.model._compute_single_batch(
+                query,
+                [truncated_documents[index] for index in group],
+                instruction=instruction,
+            )
+            document_embeddings.extend(self._to_numpy(outputs.doc_embeds[0]))
+            query_embeddings.append(self._to_numpy(outputs.query_embeds[0]))
+            group_scores = self._to_numpy(outputs.scores).reshape(-1)
+            group_weights.append(float(((1.0 + group_scores) / 2.0).max()))
+
+        averaged_query = np.average(
+            np.asarray(query_embeddings), axis=0, weights=group_weights
+        )
+        scores = self._cosine_scores(
+            averaged_query,
+            np.asarray(document_embeddings),
+        )
+        return scores, len(groups)
+
+    def _group_documents(
+        self,
+        document_lengths: List[int],
+        query_length: int,
+        instruction: Optional[str],
+    ) -> List[List[int]]:
+        instruction_tokens = 0
+        tokenizer = getattr(self.model, "_tokenizer", None)
+        if instruction and tokenizer is not None:
+            instruction_tokens = len(tokenizer(instruction)["input_ids"])
+        fixed_tokens = (2 * query_length) + instruction_tokens + 256
+        capacity = self.config.jina_context_size - fixed_tokens
+        if capacity <= 0:
+            raise ValueError(
+                "RERANK_JINA_CONTEXT_SIZE is too small for the query and prompt"
+            )
+
+        groups: List[List[int]] = []
+        current_group: List[int] = []
+        remaining = capacity
+        for index, length in enumerate(document_lengths):
+            required = length + 16
+            if required > capacity:
+                raise ValueError(
+                    "A Jina document does not fit after configured truncation; "
+                    "increase RERANK_JINA_CONTEXT_SIZE or reduce "
+                    "RERANK_JINA_MAX_DOC_LENGTH"
+                )
+            if current_group and required > remaining:
+                groups.append(current_group)
+                current_group = []
+                remaining = capacity
+            current_group.append(index)
+            remaining -= required
+        if current_group:
+            groups.append(current_group)
+        return groups
+
+    def _to_numpy(self, value) -> np.ndarray:
+        if isinstance(value, np.ndarray):
+            return value
+        return value.detach().float().cpu().numpy()
+
+    def _cosine_scores(
+        self, query_embedding: np.ndarray, document_embeddings: np.ndarray
+    ) -> np.ndarray:
+        query = np.asarray(query_embedding).reshape(-1)
+        dots = document_embeddings @ query
+        denominator = np.linalg.norm(document_embeddings, axis=1) * np.linalg.norm(
+            query
+        )
+        return dots / denominator
+
+    def _resolve_torch_runtime(self, torch):
+        requested_dtype = self.config.jina_dtype.strip().lower()
+        if requested_dtype not in {"auto", "bfloat16", "float16", "float32"}:
+            raise ValueError(
+                "RERANK_JINA_DTYPE must be auto, bfloat16, float16, or float32"
+            )
+        if not torch.cuda.is_available():
+            return "cpu", torch.float32, "float32"
+
+        device = "cuda:0"
+        bf16_supported = getattr(
+            torch.cuda, "is_bf16_supported", lambda: False
+        )()
+        if requested_dtype == "auto":
+            if bf16_supported:
+                return device, torch.bfloat16, "bfloat16"
+            return device, torch.float16, "float16"
+        if requested_dtype == "bfloat16":
+            if not bf16_supported:
+                raise RuntimeError("The configured GPU does not support bfloat16")
+            return device, torch.bfloat16, "bfloat16"
+        if requested_dtype == "float16":
+            return device, torch.float16, "float16"
+        return device, torch.float32, "float32"
+
+    def _loaded_runtime(self, default_device: str, default_dtype: str):
+        try:
+            parameter = next(self.model.parameters())
+        except (AttributeError, StopIteration):
+            return default_device, default_dtype
+        dtype = str(parameter.dtype).removeprefix("torch.")
+        return str(parameter.device), dtype
 
 
 class SentenceTransformersCrossEncoderRerankerAdapter:
@@ -1359,6 +1631,8 @@ def _infer_model_type(model_path: str) -> str:
     lowered_path = model_path.lower()
     if lowered_path.endswith(".gguf"):
         return "jina_gguf"
+    if "jina" in lowered_path and os.path.isdir(model_path):
+        return "jina_transformers"
     if "qwen" in lowered_path or "quen3" in lowered_path:
         return "qwen_cross_encoder"
     if "bge" in lowered_path:
@@ -1411,6 +1685,20 @@ class RerankerService:
             ),
             gpu_layers=int(os.getenv("RERANK_GPU_LAYERS", "0")),
             flash_attention=_env_bool("RERANK_FLASH_ATTENTION"),
+            jina_context_size=max(
+                1, int(os.getenv("RERANK_JINA_CONTEXT_SIZE", "20000"))
+            ),
+            jina_max_query_length=max(
+                1, int(os.getenv("RERANK_JINA_MAX_QUERY_LENGTH", "512"))
+            ),
+            jina_max_doc_length=max(
+                1, int(os.getenv("RERANK_JINA_MAX_DOC_LENGTH", "2048"))
+            ),
+            jina_dtype=os.getenv("RERANK_JINA_DTYPE", "auto"),
+            jina_attention=os.getenv("RERANK_JINA_ATTENTION", "sdpa"),
+            jina_require_cuda=_env_bool(
+                "RERANK_JINA_REQUIRE_CUDA", "true"
+            ),
             qwen_max_length=max(
                 1, int(os.getenv("RERANK_QWEN_MAX_LENGTH", "8192"))
             ),
@@ -1555,6 +1843,13 @@ class RerankerService:
                     )
                 )
                 jina_model_index += 1
+            elif model_type == "jina_transformers":
+                adapters.append(
+                    JinaTransformersRerankerAdapter(
+                        model_path=model_path,
+                        config=self.config,
+                    )
+                )
             elif model_type == "qwen_cross_encoder":
                 adapters.append(
                     QwenCrossEncoderRerankerAdapter(
