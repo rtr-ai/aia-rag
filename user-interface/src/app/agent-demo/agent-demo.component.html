@@ -100,7 +100,7 @@
                 [class.loop-active]="loopActive.node === 'tool'"
                 x="70" y="190" width="200" height="58" rx="8"
               ></rect>
-              <text class="loop-label" x="170" y="224" text-anchor="middle">⚙ Werkzeug läuft</text>
+              <text class="loop-label" x="170" y="224" text-anchor="middle">Werkzeug läuft</text>
 
               <!-- Rückführung: Ergebnis → Verlauf (linke Seite) -->
               <path
@@ -175,7 +175,7 @@
                   <!-- SYSTEM -->
                   @if (e.kind === "system") {
                     <a class="msg-title msg-title-toggle" (click)="toggle('sys-' + e.id)">
-                      <span class="msg-icon">🛠️</span>
+                      <i class="bi bi-sliders msg-icon"></i>
                       <span class="msg-name">System-Prompt &amp; Werkzeuge</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
                       <span class="msg-meta">{{ tools.length }} Tools · anzeigen ▾</span>
@@ -234,7 +234,7 @@
                   <!-- USER -->
                   @if (e.kind === "user") {
                     <div class="msg-title">
-                      <span class="msg-icon">👤</span>
+                      <i class="bi bi-person msg-icon"></i>
                       <span class="msg-name">Ihre Frage</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
                     </div>
@@ -246,7 +246,7 @@
                   <!-- LLM-AUFRUF (Assistent) -->
                   @if (e.kind === "llm") {
                     <div class="msg-title">
-                      <span class="msg-icon">🤖</span>
+                      <i class="bi bi-robot msg-icon"></i>
                       <span class="msg-name">Assistent</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
                       <a
@@ -301,7 +301,7 @@
                       @if (e.toolCall && e.reasoningDone) {
                         <div class="llm-action">
                           → ruft Tool
-                          <strong>{{ toolIcon(e.toolCall.name) }} {{ toolDisplayName(e.toolCall.name) }}</strong>
+                          <strong><i class="bi {{ toolIcon(e.toolCall.name) }}"></i> {{ toolDisplayName(e.toolCall.name) }}</strong>
                           auf
                         </div>
                       }
@@ -334,7 +334,7 @@
                   @if (e.kind === "tool") {
                     <div class="msg-header">
                       <div class="msg-title">
-                        <span class="msg-icon">{{ toolIcon(e.toolName) }}</span>
+                        <i class="bi {{ toolIcon(e.toolName) }} msg-icon"></i>
                         <span class="msg-name">Tool: {{ toolDisplayName(e.toolName) }}</span>
                         @if (e.ragView) { <span class="rag-pill">intern: erweitertes RAG</span> }
                         @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }

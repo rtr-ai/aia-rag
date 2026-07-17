@@ -227,17 +227,18 @@ export class AgentDemoComponent {
     this.userPrompt = this.exampleQuestion;
   }
 
-  // Symbol je Werkzeug – macht die Tool-Karten auf einen Blick unterscheidbar.
+  // Symbol je Werkzeug (Bootstrap-Icons-Klasse, einfärbig) – macht die
+  // Tool-Karten auf einen Blick unterscheidbar.
   toolIcon(name?: string): string {
     switch (name) {
-      case "heute": return "📅";
-      case "definition": return "📖";
-      case "anwendbarkeit": return "⏳";
-      case "artikel_nachschlagen": return "📜";
-      case "suche_ai_act": return "🔍";
-      case "suche_leitlinien_praxisleitfaeden": return "🧭";
-      case "rueckfrage_nutzer": return "💬";
-      default: return "⚙️";
+      case "heute": return "bi-calendar3";
+      case "definition": return "bi-book";
+      case "anwendbarkeit": return "bi-hourglass-split";
+      case "artikel_nachschlagen": return "bi-journal-text";
+      case "suche_ai_act": return "bi-search";
+      case "suche_leitlinien_praxisleitfaeden": return "bi-compass";
+      case "rueckfrage_nutzer": return "bi-chat-dots";
+      default: return "bi-gear";
     }
   }
   // Sprechender Anzeigename je Werkzeug – der technische Funktionsname
