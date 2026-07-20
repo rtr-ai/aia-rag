@@ -233,30 +233,40 @@
 
                   <!-- USER -->
                   @if (e.kind === "user") {
-                    <div class="msg-title">
+                    <div class="msg-title msg-title-click" (click)="toggleCollapse(e)">
                       <i class="bi bi-person msg-icon"></i>
                       <span class="msg-name">Ihre Frage</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
+                      <i class="bi msg-fold msg-fold-right" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
                     </div>
-                    <div class="msg-content">
-                      <p class="user-text">{{ e.userText }}</p>
+                    <div class="msg-collapsible" [class.msg-collapsed]="e.collapsed">
+                      <div class="msg-collapsible-inner">
+                        <div class="msg-content">
+                          <p class="user-text">{{ e.userText }}</p>
+                        </div>
+                      </div>
                     </div>
                   }
 
                   <!-- LLM-AUFRUF (Assistent) -->
                   @if (e.kind === "llm") {
-                    <div class="msg-title">
+                    <div class="msg-title" [class.msg-title-click]="!isFinal(e)" (click)="toggleCollapse(e)">
                       <i class="bi bi-robot msg-icon"></i>
                       <span class="msg-name">Assistent</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
                       <a
                         class="msg-meta msg-meta-toggle"
-                        (click)="toggle('ctx-' + e.id)"
+                        (click)="openCtx(e); $event.stopPropagation()"
                         title="Bei jedem LLM-Aufruf wird der gesamte bisherige Nachrichten-Verlauf erneut übergeben. Klicken zum Aufklappen."
                       >
                         liest {{ e.contextMessages }} Nachrichten · ~{{ formatTokens(e.contextTokens) }} Token ▾
                       </a>
+                      @if (!isFinal(e)) {
+                        <i class="bi msg-fold" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
+                      }
                     </div>
+                    <div class="msg-collapsible" [class.msg-collapsed]="e.collapsed && !isFinal(e)">
+                      <div class="msg-collapsible-inner">
                     <div class="msg-content">
                       <!-- Übergebener Prompt-Verlauf (eingeklappt) -->
                       <div id="ctx-{{ e.id }}" class="ctx-detail uk-hidden">
@@ -328,12 +338,14 @@
                         }
                       }
                     </div>
+                      </div>
+                    </div>
                   }
 
                   <!-- TOOL-ERGEBNIS -->
                   @if (e.kind === "tool") {
                     <div class="msg-header">
-                      <div class="msg-title">
+                      <div class="msg-title msg-title-click" (click)="toggleCollapse(e)">
                         <i class="bi {{ toolIcon(e.toolName) }} msg-icon"></i>
                         <span class="msg-name">Tool: {{ toolDisplayName(e.toolName) }}</span>
                         @if (e.ragView) { <span class="rag-pill">intern: erweitertes RAG</span> }
@@ -341,29 +353,46 @@
                         <span class="msg-meta">
                           <code>{{ e.toolName }}()</code> · Aufruf {{ e.callIndex }}/{{ model.maxCallsPerTool }}
                         </span>
+                        <i class="bi msg-fold" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
                       </div>
 
-                      <!-- Das zentrale Argument (Suchbegriff, Begriff, Artikel …) -->
-                      @if (toolArg(e)) {
-                        <div class="msg-arg">
-                          {{ toolArgLabel(e.toolName) }}:
-                          <strong>„{{ toolArg(e) }}“</strong>
-                        </div>
-                      }
-                    </div>
-
+                      <div class="msg-collapsible" [class.msg-collapsed]="e.collapsed">
+                        <div class="msg-collapsible-inner">
+                          <!-- Das zentrale Argument (Suchbegriff, Begriff, Artikel …) -->
+                          @if (toolArg(e)) {
+                            <div class="msg-arg">
+                              {{ toolArgLabel(e.toolName) }}:
+                              <strong>„{{ toolArg(e) }}“</strong>
+                            </div>
+                          }
                     <div class="msg-content">
                       <!-- Interne Teilschritte (z. B. Retrieve-Pipeline, hybride Suche) -->
                       @if (e.subSteps && e.subSteps.length > 0) {
-                        <div class="sub-timeline">
-                          <span class="msg-subhead">Interne Teilschritte des Werkzeugs</span>
-                          @for (sub of e.subSteps; track sub.label) {
-                            <div class="sub-step">
-                              <span class="sub-step-label">{{ sub.label }}</span>
-                              <span class="sub-step-detail">{{ sub.detail }}</span>
-                            </div>
-                          }
-                        </div>
+                        @if (e.status !== "done") {
+                          <!-- Während der Ausführung: Teilschritte live miterleben -->
+                          <div class="sub-timeline">
+                            <span class="msg-subhead">Interne Teilschritte des Werkzeugs</span>
+                            @for (sub of e.subSteps; track sub.label) {
+                              <div class="sub-step">
+                                <span class="sub-step-label">{{ sub.label }}</span>
+                                <span class="sub-step-detail">{{ sub.detail }}</span>
+                              </div>
+                            }
+                          </div>
+                        } @else {
+                          <!-- Nach Abschluss: auf eine Zeile reduziert -->
+                          <a class="raw-toggle" (click)="toggle('subs-' + e.id)">
+                            {{ e.subSteps.length }} interne Teilschritte anzeigen/ausblenden
+                          </a>
+                          <div id="subs-{{ e.id }}" class="sub-timeline uk-hidden">
+                            @for (sub of e.subSteps; track sub.label) {
+                              <div class="sub-step">
+                                <span class="sub-step-label">{{ sub.label }}</span>
+                                <span class="sub-step-detail">{{ sub.detail }}</span>
+                              </div>
+                            }
+                          </div>
+                        }
                       }
 
                       <!-- ===== suche_ai_act: Original-RAG-Visualisierung (Retrieve → Augment → Generate) ===== -->
@@ -630,8 +659,20 @@
                           Ergebnis
                           <span class="result-hint">wird unverändert an den Verlauf angehängt</span>
                         </div>
-                        <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                        @if (resultClipped(e)) {
+                          <!-- Lange Fehlermeldung (z. B. alle 67 Begriffe): gekürzt darstellen -->
+                          <pre class="raw-block result-block">{{ resultPreview(e) }}</pre>
+                          <a class="raw-toggle" (click)="toggle('full-' + e.id)">
+                            vollständige Rückgabe anzeigen/ausblenden
+                          </a>
+                          <pre id="full-{{ e.id }}" class="raw-block result-block uk-hidden">{{ e.resultText }}</pre>
+                        } @else {
+                          <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                        }
                       }
+                    </div>
+                        </div>
+                      </div>
                     </div>
                   }
                 </div>

@@ -66,6 +66,9 @@ export interface Entry {
   id: number;
   kind: "system" | "user" | "llm" | "tool";
   status: "pending" | "running" | "done";
+  // UI-Zustand: Abgeschlossene Karten werden automatisch auf ihre Kopfzeile
+  // reduziert, sobald der nächste Schritt beginnt (per Klick wieder öffenbar).
+  collapsed?: boolean;
 
   // kind === "system"
   systemText?: string;

@@ -223,6 +223,40 @@ export class AgentDemoComponent {
     const el = document.getElementById(id);
     if (el) el.classList.toggle("uk-hidden");
   }
+
+  // Die finale Antwort-Kachel (LLM-Aufruf ohne weiteren Tool-Call) bleibt
+  // dauerhaft offen und ist nicht ein-/ausklappbar.
+  isFinal(e: Entry): boolean {
+    return e.kind === "llm" && !e.toolCall;
+  }
+  toggleCollapse(e: Entry) {
+    if (!this.isFinal(e)) e.collapsed = !e.collapsed;
+  }
+
+  // Klick auf „liest XX Nachrichten“: Verlauf öffnen – bei eingeklappter Karte
+  // zuerst die Karte aufklappen (das Ziel-Element existiert erst nach dem Rendern).
+  openCtx(e: Entry) {
+    const wasCollapsed = e.collapsed;
+    e.collapsed = false;
+    if (wasCollapsed) {
+      setTimeout(() =>
+        document.getElementById("ctx-" + e.id)?.classList.remove("uk-hidden")
+      );
+    } else {
+      this.toggle("ctx-" + e.id);
+    }
+  }
+
+  // Lange Fehler-Rückgaben (definition() mit allen 67 Begriffen) werden in der
+  // Karte beschnitten dargestellt – an das Modell geht unverändert der
+  // vollständige Text (siehe aufklappbarer Prompt-Verlauf).
+  resultClipped(e: Entry): boolean {
+    return !!e.isError && (e.resultText || "").length > 300;
+  }
+  resultPreview(e: Entry): string {
+    const t = e.resultText || "";
+    return this.resultClipped(e) ? t.slice(0, 260) + " …" : t;
+  }
   loadExample() {
     this.userPrompt = this.exampleQuestion;
   }
@@ -334,7 +368,8 @@ export class AgentDemoComponent {
       case "user":
         return e.userText || "";
       case "tool":
-        return e.resultText || "";
+        // Auch die Aufrufparameter zeigen, mit denen das Werkzeug lief.
+        return `→ aufgerufen mit: ${e.toolName}(${e.argsJson || ""})\n\n${e.resultText || ""}`;
       default: {
         const tail = e.toolCall
           ? `\n\n→ tool_call: ${e.toolCall.name}(${e.toolCall.argsJson})`
@@ -383,10 +418,12 @@ export class AgentDemoComponent {
     if (e.status === "running") cls.push("chip-running");
     return cls.join(" ");
   }
-  // Klick auf einen Chip: zum Eintrag springen. Das ist eine bewusste
-  // Navigation – danach kein automatisches Mitscrollen mehr.
+  // Klick auf einen Chip: zum Eintrag springen und ihn aufklappen. Das ist
+  // eine bewusste Navigation – danach kein automatisches Mitscrollen mehr.
   jumpTo(id: number) {
     this.userScrolled = true;
+    const entry = this.entries.find((e) => e.id === id);
+    if (entry) entry.collapsed = false;
     document
       .getElementById("entry-" + id)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -584,6 +621,15 @@ export class AgentDemoComponent {
 
       this.zone.run(() => {
         entry.status = "done";
+        // Ruhigeres Scrollverhalten: Karten werden nicht sofort nach ihrem
+        // eigenen Abschluss reduziert, sondern erst, wenn der NÄCHSTE
+        // Assistent-Schritt abgeschlossen ist. (Der System-Prompt hat seinen
+        // eigenen Toggle; der zuletzt fertige Assistent-Schritt bleibt offen.)
+        if (entry.kind === "llm") {
+          for (const p of this.entries) {
+            if (p.id < entry.id && p.kind !== "system") p.collapsed = true;
+          }
+        }
         this.accumulateEnergy();
       });
     }

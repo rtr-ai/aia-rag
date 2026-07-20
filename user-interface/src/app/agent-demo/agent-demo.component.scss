@@ -200,6 +200,23 @@ a.msg-title-toggle:hover {
   line-height: 1;
   color: #555;
 }
+// Klickbare Kopfzeile: Karte ein-/ausklappen (fertige Schritte werden
+// automatisch auf diese Zeile reduziert).
+.msg-title-click {
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    filter: brightness(0.97);
+  }
+}
+.msg-fold {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: #8a94a0;
+}
+.msg-fold-right {
+  margin-left: auto;
+}
 .msg-meta {
   margin-left: auto;
   font-weight: 400;
@@ -215,8 +232,24 @@ a.msg-title-toggle:hover {
   padding: 10px 14px 12px;
 }
 
+// Einklappbarer Bereich: per CSS-Grid von 1fr → 0fr animiert („slideUp“),
+// damit fertige Karten weich zusammenfahren statt zu springen. Der Inhalt
+// bleibt im DOM, wird beim Kollabieren nur clippend ausgeblendet.
+.msg-collapsible {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.28s ease;
+}
+.msg-collapsible.msg-collapsed {
+  grid-template-rows: 0fr;
+}
+.msg-collapsible-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
 // Zentrales Argument eines Tool-Aufrufs (Suchbegriff, Begriff, Artikel …) –
-// Teil des Karten-Kopfes (gleiche Hintergrundfarbe wie die Titelzeile).
+// optische Fortsetzung des Karten-Kopfes (gleiche Hintergrundfarbe).
 .msg-arg {
   padding: 8px 16px 12px;
   text-align: center;
@@ -230,12 +263,15 @@ a.msg-title-toggle:hover {
 .msg-tool .msg-title {
   border-bottom: none;
 }
+// Der Kopf-Wrapper trägt keine Fläche mehr – Titel und Argument bringen ihre
+// grüne Färbung selbst mit, der Inhalt bleibt auf der weißen Kartenfläche.
 .msg-tool .msg-header {
-  background: #eef7e6;
-  border-bottom: 1px solid #e3ecd8;
+  background: transparent;
+  border-bottom: none;
 }
 .msg-tool .msg-arg {
-  border-bottom: none;
+  background: #eef7e6;
+  border-bottom: 1px solid #e3ecd8;
 }
 
 // Farbakzente je Rolle
