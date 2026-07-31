@@ -547,7 +547,7 @@
     {
       "id": "a9f296a9-f363-42d0-a4a2-540958409e4a",
       "title": "KI-Servicestelle FAQ: Welche Pflichten muss ich als Unternehmer beachten, wenn ich ein KI-System entwickle und weiterverkaufe, dass synthetische Audio-, Bild-, Video- oder Textinhalte erzeugt? ",
-      "content": "# Welche Pflichten muss ich als Unternehmer beachten, wenn ich ein KI-System entwickle und weiterverkaufe, dass synthetische Audio-, Bild-, Video- oder Textinhalte erzeugt? \n\nAnbieter von KI-Systemen (einschließlich GPAI-Modells), die synthetische Inhalte (Audio, Bild, Video oder Text) erzeugen, müssen sicherstellen, dass die Ausgaben der KI in einem maschinenlesbaren Format gekennzeichnet und als künstlich erzeugt oder manipuliert erkennbar sind. Ausgenommen von dieser Kennzeichnungspflicht sind KI-Systeme, die lediglich eine unterstützende Funktion haben, die bereitgestellte Eingabedaten oder deren Semantik nicht verändern und die für die Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftraten gesetzlich zugelassen sind.",
+      "content": "# Welche Pflichten muss ich als Unternehmer beachten, wenn ich ein KI-System entwickle und weiterverkaufe, dass synthetische Audio-, Bild-, Video- oder Textinhalte erzeugt? \n\nAnbieter von KI-Systemen (einschließlich GPAI-Modells), die synthetische Inhalte (Audio, Bild, Video oder Text) erzeugen, müssen sicherstellen, dass die Ausgaben der KI in einem maschinenlesbaren Format gekennzeichnet und als künstlich erzeugt oder manipuliert erkennbar sind. Ausgenommen von dieser Kennzeichnungspflicht sind KI-Systeme, die lediglich eine unterstützende Funktion haben, die bereitgestellte Eingabedaten oder deren Semantik nicht verändern und die für die Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftraten gesetzlich zugelassen sind.\n\n\n",
       "keywords": [],
       "availableKeywords": [],
       "negativeKeywords": [],
@@ -557,14 +557,196 @@
       "parameters": []
     },
     {
-      "id": "80e3c1a0-4654-47b1-a100-aa83bfd8ac58",
-      "title": "KI-Servicestelle: FAQ - Welche Pflichten muss ich als Unternehmer beachten, wenn ich synthetische Audio-, Bild-, Video- oder Textinhalte von einer KI generieren lasse? ",
+      "id": "f85b29bf-3bb8-4e6d-9052-63429afd157c",
+      "title": "KI-Servicestelle FAQ: Welche Pflichten muss ich als Unternehmer beachten, wenn ich synthetische Audio-, Bild-, Video- oder Textinhalte von einer KI generieren lasse? ",
       "content": "# Welche Pflichten muss ich als Unternehmer beachten, wenn ich synthetische Audio-, Bild-, Video- oder Textinhalte von einer KI generieren lasse? \n\nDie Betreiber eines KI-Systems, das Textinhalte erzeugt oder manipuliert oder/und Bild-, Ton- oder Videoinhalte erzeugt oder manipuliert, die ein Deep-Fake sind, gemäß Art 50 Abs 4 AI Act offenlegen, dass die Inhalte künstlich erzeugt oder manipuliert wurden. Ausgenommen ist die Verwendung der obengenannten Ausgaben zur Aufdeckung, Verhütung, Ermittlung und Verfolgung von Straftaten.\n\nEin „Deep Fake“ im Sinne des AI Acts ist ein durch ein KI erzeugter oder manipulierter Bild-, Ton- oder Videoinhalt, der wirklichen Personen, Gegenständen, Orten, Einrichtungen oder Ereignissen ähnelt und einer Person fälschlicherweise als echt oder wahrheitsgemäß erscheinen würde (siehe Art. 3 Ziffer 60 AIA).\n\nIst offensichtlich, dass der künstlich erzeugte oder manipulierte Bild-, Ton- oder Videoinhalt Teil eines künstlerischen, kreativen, satirischen, fiktionalen oder analogen Werks oder Programms ist, beschränkt sich die Transparenzpflicht darauf, das Vorhandensein von künstlich erzeugten und manipulierten Inhalten derart offenzulegen, dass die Darstellung oder der Genuss des Werkes nicht beeinträchtigt wird.\n\nHinsichtlich der Textausgaben ist anzumerken, dass die obengenannten Transparenzpflicht nur dann einzuhalten ist, wenn der erzeugte oder manipulierte Text (Ausgabe des KI-Systems) dafür dient, um die Öffentlichkeit über Angelegenheiten vom öffentlichen Interesse zu informieren bzw keiner menschlichen Überprüfung oder redaktionellen Kontrolle unterzogen wurden.",
       "keywords": [],
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
         "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "9ef07ab7-1358-4c83-9c11-defcee8e4de4",
+      "title": "KI-Servicestelle FAQ: Was versteht die Europäische Kommission unter einem \"Deep Fake\"? Was sind Beispiele für Deep Fakes?",
+      "content": "# Was versteht die Europäische Kommission unter einem \"Deep Fake\"? Was sind Beispiele für Deep Fakes?\n\nEin \"Deep Fake\" ist ein durch KI erzeugter oder manipulierter Bild-, Ton- oder Videoinhalt, der wirklichen Personen, Gegenständen, Orten, Einrichtungen oder Ereignissen ähnelt und einer Person fälschlicherweise als echt oder wahrheitsgemäß erscheinen würde (Art. 3 Z 60 AIA). Die Europäische Kommission konkretisiert diese Definition anhand von vier Elementen (Rz. 113 LL Art 50): Erstens muss das Bild dem dargestellten Motiv merklich ähneln; es muss ihm aber nicht gleichen. Zweitens muss das Motiv \"wirklich\" sein – es genügt, dass es so existieren könnte oder existiert haben könnte. Erkennbar unrealistische Darstellungen, die etwa den Naturgesetzen widersprechen, sind daher keine Deep Fakes. Drittens muss eine Person, ein Gegenstand, ein Ort, eine Einrichtung oder ein Ereignis dargestellt sein. Der Begriff \"Einrichtung\" in der deutschsprachigen Fassung des AI Act entspricht dem Begriff \"entity\" in der englischsprachigen Fassung. Nach den Leitlinien der Europäischen Kommission erfasst dieser Begriff realistische, nichtmenschliche, aber belebte Wesen, einschließlich Tieren und sonstiger biologischer Lebensformen. Viertens muss das Bild fälschlicherweise als echt oder wahr erscheinen können; auf eine Täuschungsabsicht kommt es nicht an, wohl aber auf die mögliche Zusammensetzung des Publikums, z. B. Kinder oder ältere Personen (Rz. 114 LL Art 50).\n\nBeispiele für Deep Fakes sind ein KI-manipuliertes Bild zweier Fußballprofis vor einem Stadion, das KI-generierte Video einer Person, die einem Politiker ähnelt und eine Rede hält, eine Radiosendung, bei der die Nachrichten durch eine menschliche KI-Stimme gesprochen wird oder die KI-generierte Darstellung einer prominenten Person in einem Werbespot.\n\nKeine Deep Fakes sind dagegen erkennbar unrealistische oder stilisierte Inhalte – z. B. eine Sphinx, die über den Eiffelturm fliegt, sprechende Mäuse in einer Käsewerbung oder ein KI-generierter Cartoon – sowie bloß geringfügige technische Anpassungen bestehender Inhalte wie Farbkorrektur, Rauschunterdrückung oder Hintergrunderweiterungen in Produktanzeigen.\n\nEbenso stellen KI-gestützte Manipulationen geringfügiger technischer Aspekte bereits bestehender Inhalte grundsätzlich keine Deepfakes dar. Nach den Leitlinien der Europäischen Kommission sind Änderungen, die für die Beurteilung der Authentizität oder des Wahrheitsgehalts eines Inhalts nur von untergeordneter Bedeutung sind, nicht geeignet, den betreffenden Inhalt als Deepfake einzuordnen. Hierzu zählen beispielweise die Bearbeitung von Hintergrunddetails, Anpassungen der Beleuchtung oder von Audioparametern, Farbkorrekturen, Rauschunterdrückung, Maßnahmen zur Verbesserung der Barrierefreiheit sowie Dateikomprimierungen (Rz. 116 LL Art 50).",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "476a4140-a68a-4a14-8f72-59af72cf7b6e",
+      "title": "KI-Servicestelle FAQ: Muss ich Inhalte als KI-generiert kennzeichnen, wenn sie vor dem 2.8.2026 erstellt wurden?",
+      "content": "# Muss ich Inhalte als KI-generiert kennzeichnen, wenn sie vor dem 2.8.2026 erstellt wurden?\n\nDie Transparenzpflichten nach Art. 50 AIA gelten grundsätzlich ab dem 2. August 2026 (Art. 113 AIA). Der Digital Omnibus on AI sieht jedoch eine Übergangsregelung vor. Danach haben Anbieter von KI-Systemen, einschließlich General-Purpose-KI-Systemen, die synthetische Audio-, Bild-, Video- oder Textinhalte erzeugen und bereits vor dem 2. August 2026 in Verkehr gebracht wurden, die erforderlichen Maßnahmen zu ergreifen, um die Anforderungen des Art. 50 Abs. 2 AIA spätestens bis zum 2. Dezember 2026 zu erfüllen. Nach Art. 50 Abs. 2 AIA sind Anbieter verpflichtet, von ihren KI-Systemen erzeugte oder manipulierte Inhalte mittels einer technischen Lösung als künstlich erzeugt oder manipuliert zu kennzeichnen und sicherzustellen, dass diese Kennzeichnung wirksam, interoperabel, maschinenlesbar und als solche erkennbar ist.\n\nFür die Inhalte selbst gilt: Inhalte, die vor dem 2. August 2026 erzeugt und bereits verfügbar gemacht (etwa veröffentlicht) wurden, müssen nicht rückwirkend gekennzeichnet werden; wer solche Alt-Inhalte besitzt oder verbreitet, wird aber zur freiwilligen Kennzeichnung angehalten (Rz. 154 LL Art 50).\n\nDer Erstellungszeitpunkt allein befreit somit nicht von der Kennzeichnungspflicht: Wird ein vor dem Stichtag erzeugter Inhalt erst ab dem 2. August 2026 veröffentlicht oder erstmals verwendet, greifen die Transparenzpflichten – etwa die Offenlegungspflicht für Deep Fakes (Art. 50 Abs. 4 AIA). Es empfiehlt sich daher, Erzeugungs- und Veröffentlichungszeitpunkt von KI-Inhalten zu dokumentieren.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "273fe60b-4ab8-4d87-baf4-03e8ec97813e",
+      "title": "KI-Servicestelle FAQ:  Ich beziehe unbearbeitete und veröffentlichte Fotos von Stock-Photo-Plattformen. Muss ich in diese Fotos eine Kennzeichnung einfügen?",
+      "content": "# Ich beziehe unbearbeitete und veröffentlichte Fotos von Stock-Photo-Plattformen. Muss ich in diese Fotos eine Kennzeichnung einfügen?\n\nNein, in dieser Konstellation trifft Sie nach den Leitlinien der Europäischen Kommission keine eigene Kennzeichnungspflicht: Wer lediglich von Dritten erzeugte KI-Inhalte verbreitet oder verwendet, ohne selbst Verfügungsgewalt über das erzeugende KI-System zu haben, ist kein „Betreiber” im Sinne des AI Act und unterliegt daher nicht der Offenlegungspflicht für Deep Fakes (Rz. 16 LL Art 50).\n\nSie sind aber angehalten, vorhandene Kennzeichnungen und maschinenlesbare Markierungen (z. B. Metadaten oder Wasserzeichen) zu erhalten und nicht zu entfernen (Rz. 16 LL Art 50). Die maschinenlesbare Markierung selbst ist Pflicht des Anbieters des erzeugenden KI-Systems, nicht Ihre (Art. 50 Abs. 2 AIA).\n\nAnders liegt der Fall, wenn Sie die bezogenen Fotos selbst mit einem KI-System bearbeiten oder verändern. Sofern dies nicht ausschließlich im Rahmen einer persönlichen, nicht beruflichen Tätigkeit erfolgt, verwenden Sie ein KI-System unter eigener Verantwortung und müssen Bilder, die ein Deep Fake sind, als künstlich erzeugt oder manipuliert offenlegen (Art. 50 Abs. 4 AIA). Unabhängig vom AI Act kann eine freiwillige Kennzeichnung sinnvoll sein, um Irreführungen zu vermeiden.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "4560de92-1cb0-49d1-8c1f-77314aa56565",
+      "title": "KI-Servicestelle FAQ: Welche Kennzeichnung muss ich bei Chatbots oder sonstigen KI-Systemen zur direkten Interaktion mit natürlichen Personen vornehmen?",
+      "content": "# Welche Kennzeichnung muss ich bei Chatbots oder sonstigen KI-Systemen zur direkten Interaktion mit natürlichen Personen vornehmen?\n\nChatbots und sonstigen KI-Systemen zur direkten Interaktion mit natürlichen Personen müssen so konzipiert und entwickelt werden, dass die Nutzer:innen informiert werden, dass sie mit einem KI-System interagieren (Art. 50 Abs. 1 AIA). Diese Gestaltungspflicht trifft den Anbieter des Chatbots; setzen Sie einen zugekauften Chatbot lediglich als Betreiber ein, sollten Sie darauf achten, dass die vom Anbieter vorgesehene Information im Einsatz auch tatsächlich wahrnehmbar bleibt. Die Information ist spätestens bei der ersten Interaktion in klarer und eindeutiger Weise sowie barrierefrei bereitzustellen (Art. 50 Abs. 5 AIA).\n\nGeeignet sind z. B. ein deutlicher Hinweis zu Gesprächsbeginn („Sie interagieren mit einem KI-System”), ein dauerhaft sichtbares Label oder Banner nahe dem Eingabefeld oder bei Sprachassistenten eine gesprochene Ansage zu Beginn (Rz. 37 f LL Art 50). Nicht ausreichend sind Hinweise nur in AGB oder Dokumentation, rein maschinenlesbare Markierungen, unklare Bezeichnungen wie „Assistent” oder menschenähnliche Darstellungen, die täuschen können (Rz. 38 LL Art 50).\n\nDie Pflicht entfällt, wenn die KI-Interaktion aus Sicht einer angemessen informierten, aufmerksamen und verständigen Person aufgrund der Umstände offensichtlich ist – etwa bei Code-Assistenten, die nur professionellen Entwickler:innen zur Verfügung stehen. Bei Chatbots für die breite Öffentlichkeit, z. B. im Kundenservice, ist diese Ausnahme regelmäßig nicht erfüllt.\n\nBei längeren oder sensiblen Interaktionen – etwa mit sogenannten AI Companions oder Systemen zur emotionalen Unterstützung – kann eine einmalige Offenlegung unzureichend sein. In solchen Fällen empfehlen die Kommissionsleitlinien wiederkehrende oder situationsabhängige Hinweise.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "548563a4-a121-4caa-b80a-518d2a71d57f",
+      "title": "KI-Servicestelle FAQ: Muss ich KI-generierte Texte als KI-generiert kennzeichnen?",
+      "content": "# Muss ich KI-generierte Texte als KI-generiert kennzeichnen?\n\nAls Betreiber müssen Sie KI-erzeugte oder -manipulierte Texte nur dann offenlegen, wenn sie veröffentlicht werden, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren (Art. 50 Abs. 4 UAbs. 2 AIA). \"Veröffentlicht\" heißt, dass der Text einer unbestimmten, größeren Zahl von Personen zugänglich ist; unternehmensinterne Dokumente oder private Korrespondenz sind nicht erfasst (Rz. 131 LL Art 50). Angelegenheiten von öffentlichem Interesse sind etwa Politik und demokratische Prozesse, öffentliche Verwaltung und öffentliche Dienstleistungen, Justiz und Strafverfolgung, der Schutz der Grundrechte, die öffentliche Sicherheit, die öffentliche Gesundheit, der Umweltschutz, die Verbrauchersicherheit sowie wirtschaftliche, finanzielle, politische, wissenschaftliche oder kulturelle Entwicklungen, die Gegenstand einer öffentlichen Debatte sein können (Rz. 131 LL Art 50). Keine Offenlegungspflicht besteht daher z. B. für KI-generierte Romane oder gewöhnliche Werbetexte ohne solche Aussagen.\n\nDie Pflicht entfällt außerdem, wenn der Text einer menschlichen Überprüfung oder redaktionellen Kontrolle unterzogen wurde und eine natürliche oder juristische Person die redaktionelle Verantwortung für die Veröffentlichung trägt (Art. 50 Abs. 4 UAbs. 2 AIA). Eine bloß oberflächliche Rechtschreib- oder Grammatikprüfung oder eine pauschale Freigabe ohne inhaltliche Auseinandersetzung genügt dafür nicht (Rz. 135 f LL Art 50).\n\nUnabhängig davon muss der Anbieter des KI-Systems sicherstellen, dass Textausgaben maschinenlesbar als künstlich erzeugt markiert sind (Art. 50 Abs. 2 AIA) – das betrifft Sie als Betreiber jedoch nicht unmittelbar.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "c2d32e90-c56d-4c8b-abf0-7f6611495965",
+      "title": "KI-Servicestelle FAQ: Wie kann ich Deepfakes als \"KI-generiert\" oder \"KI-modifiziert\" kennzeichnen?",
+      "content": "# Wie kann ich Deepfakes als \"KI-generiert\" oder \"KI-modifiziert\" kennzeichnen?\n\nDie Kennzeichnung muss für Betrachter:innen klar und wahrnehmbar sein, ohne dass sie aktiv werden oder technische Hilfsmittel einsetzen müssen, und spätestens beim ersten Kontakt mit dem Bild erfolgen (Art. 50 Abs. 5 AIA; Rz. 117 LL Art 50). Ein bestimmtes Kennzeichnungsformat schreibt der AI Act jedoch nicht vor.\n\nDer freiwillige Code of Practice on Transparency enthält insoweit praktische Empfehlungen zur Umsetzung der Transparenzpflichten.\n\nSoweit eine visuelle Kennzeichnung möglich ist, stellt der Code of Practice ein frei verwendbares EU-Icon bereit: das großgeschriebene Kürzel \"AI\", ergänzt um den Zusatz \"GENERATED\" für vollständig KI-generierte bzw. \"MODIFIED\" für KI-manipulierte Inhalte (Maßnahme 1.1 und Anhang 1 CoP Transparenz). Alternativ kann ein gleichwertiges Symbol oder Label verwendet werden, das den Design-Vorgaben entspricht.\n\nNach dem Code of Practice on Transparency soll das Icon bzw. Label direkt in den Deepfake eingebettet oder als gleichwertiges Overlay angebracht werden – an gut sichtbarer Stelle ohne überlagernde Elemente, z. B. in der rechten oberen Bildecke – und muss ausreichend lange sichtbar sein, um unter normalen Betrachtungsbedingungen wahrgenommen zu werden (Sub-Maßnahmen 1.2.1 und 1.2.2 CoP Transparenz). Bei der Weitergabe des Deepfakes soll die Kennzeichnung nach Möglichkeit über die gesamte Verbreitungskette erhalten bleiben.\n\nIst eine visuelle Kennzeichnung nicht möglich, etwa bei reinen Audioinhalten, empfiehlt der Code of Practice einen kurzen, zu Beginn des Audio-Deepfakes wiedergegebenen akustischen Hinweis in klarer und einfacher Sprache. Dieser soll den künstlichen Ursprung des Inhalts in wahrnehmbarer Weise offenlegen und entweder in derselben Sprache wie der Inhalt oder in englischer Sprache erfolgen.\n\nIst der Inhalt Teil eines offensichtlich künstlerischen, kreativen, satirischen oder fiktionalen Werks, genügt eine Offenlegung in geeigneter Weise, die die Darstellung oder den Genuss des Werks nicht beeinträchtigt – etwa in Begleitinformationen oder angrenzenden Interface-Elementen (Art. 50 Abs. 4 AIA; Commitment 3 CoP Transparenz).",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "6285defe-f958-418e-b9a4-2e6bdd3a8148",
+      "title": "KI-Servicestelle FAQ: Wenn ich das \"KI\"-Symbol bei Bildern verwende, gibt es eine Mindestgröße?",
+      "content": "# Wenn ich das \"KI\"-Symbol bei Bildern verwende, gibt es eine Mindestgröße?\n\nNein, eine fixe Mindestgröße ist nicht vorgegeben. Das Icon darf je nach Kontext in unterschiedlichen Größen und Stilen (Kontrast, Farbe, Typografie) erscheinen, solange die Kennzeichnung klar, zugänglich und unterscheidbar – d. h. lesbar und erkennbar – bleibt (Maßnahme 1.1 CoP Transparenz). Die Buchstaben des \"AI\"-Kürzels müssen dieselbe vertikale Dimension haben; bei Größenänderungen sind die Proportionen beizubehalten (Maßnahme 1.1 CoP Transparenz).\n\nMaßgeblich ist die Wirkung: Das Symbol muss ohne Zutun der Betrachter:innen sofort erkennbar sein, sich von Hintergrund und anderen Elementen abheben und ausreichend lange sichtbar bleiben (Art. 50 Abs. 5 AIA). Ein Symbol, das so klein oder kontrastarm ist, dass es unter normalen Betrachtungsbedingungen übersehen wird, erfüllt die Kennzeichnungspflicht daher nicht.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "cf42bb6c-e69b-44f1-9f99-ed40a52f0807",
+      "title": "KI-Servicestelle FAQ: Wie kann ich Texte als „KI-generiert” kennzeichnen?",
+      "content": "# Wie kann ich Texte als „KI-generiert” kennzeichnen?\n\nFür kennzeichnungspflichtige Texte (siehe die Frage zu KI-generierten Texten) sieht der Code of Practice vor, das \"AI\"-Icon oder ein gleichwertiges Label z. B. über dem Text, am Textbeginn, bei der Überschrift oder am Anfang des Textes zu platzieren – klar, konsistent und unterscheidbar (Sub-Maßnahme 1.2.2 CoP Transparenz). Ist nur ein Teil des Textes KI-generiert oder -manipuliert, kann sich die Kennzeichnung auf diesen Teil beschränken.\n\nBei sehr kurzen Texten (einzelne Wörter oder kurze Phrasen), deren Lesbarkeit durch ein Label leiden würde, genügt ein kontextbezogener Hinweis in der Benutzeroberfläche, etwa ein Indikator neben der Ausgabe oder eine Offenlegung zu Beginn der Nutzung (Sub-Maßnahme 1.2.2 CoP Transparenz).\n\nIn allen Fällen gilt: Die Information muss spätestens bei der ersten Aussetzung wahrnehmbar sein – eine Offenlegung erst am Ende des Textes oder versteckt in Menüebenen genügt nicht (Art. 50 Abs. 5 AIA; Rz. 141 f LL Art 50).",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "06598d10-ab5e-4f9f-b125-74180c923bf8",
+      "title": "KI-Servicestelle FAQ: Muss ich als Privatperson KI-Bilder kennzeichnen?",
+      "content": "# Muss ich als Privatperson KI-Bilder kennzeichnen?\n\nIn der Regel nicht: Der AI Act gilt nicht für natürliche Personen, die KI-Systeme im Rahmen einer ausschließlich persönlichen und nicht beruflichen Tätigkeit verwenden (Art. 2 Abs. 10 AIA). Erstellen Sie z. B. KI-Bilder mit Deep-Fake-Charakter für eine private Weihnachtskarte an Ihre Familie, müssen Sie diese nicht kennzeichnen (Rz. 19 LL Art 50).\n\nDie Ausnahme ist aber eng auszulegen. Beruflich ist jede Tätigkeit, mit der regelmäßig ein wirtschaftlicher Vorteil erzielt wird (Rz. 19 LL Art 50) – das kann auch monetarisierte Social-Media-Aktivität umfassen.\n\nDer Anbieter des KI-Systems bleibt von dieser Ausnahme unberührt: Er muss die Ausgaben auch bei rein privater Nutzung maschinenlesbar markieren (Art. 50 Abs. 2 AIA; Rz. 20 LL Art 50).",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869",
+        "55e8665d-afb5-46d1-b258-64f964b08d09"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "3ea9fbd0-a8e5-4e53-a177-181ec3f170ed",
+      "title": "KI-Servicestelle FAQ: Was ist der EU Code of Practice zur Transparenz von KI-generierten Inhalten?",
+      "content": "# Was ist der EU Code of Practice zur Transparenz von KI-generierten Inhalten?\n\nDer EU Code of Practice on Transparency for AI-generated Content ist ein freiwilliger Verhaltenskodex, der Anbieter und Betreiber generativer KI-Systeme bei der Umsetzung der Transparenzpflichten nach Art. 50 Abs. 2, 4 und 5 der KI-Verordnung (AI Act) unterstützt.\n\nDer Code wurde von unabhängigen Sachverständigen im Rahmen eines vom AI Office koordinierten Multi-Stakeholder-Prozesses erarbeitet. Seine Anwendung ist freiwillig; die Transparenzpflichten des Art. 50 AI Act bleiben jedoch verbindliche gesetzliche Anforderungen.\n\nNach Auffassung der Europäischen Kommission und des AI Board stellt der Code ein geeignetes Instrument dar, um die Einhaltung dieser Transparenzpflichten nachzuweisen. Anbieter und Betreiber, die den Code anwenden, können sich grundsätzlich auf die dort vorgesehenen Maßnahmen stützen, um die Anforderungen des AI Act zur Kennzeichnung und Erkennbarkeit KI-generierter oder KI-manipulierter Inhalte zu erfüllen.\n\nDer Code besteht aus zwei Teilen:\n\n* Teil 1: Vorgaben für Anbieter zur Kennzeichnung und Erkennbarkeit KI-generierter und KI-manipulierter Inhalte;\n* Teil 2: Vorgaben für Betreiber zur Kennzeichnung von Deepfakes sowie KI-generierten oder KI-manipulierten Texten.\n\nDarüber hinaus enthält der Code praktische Umsetzungshilfen, insbesondere standardisierte EU-Icons und Empfehlungen zur technischen Ausgestaltung der Kennzeichnung.\n\nDie Anwendung des Codes kann Anbietern und Betreibern eine Orientierung bei der Umsetzung der Transparenzpflichten des AI Act bieten. Nach Auffassung der Europäischen Kommission und des AI Board können die im Code vorgesehenen Maßnahmen grundsätzlich als geeigneter Nachweis für die Einhaltung dieser Pflichten gegenüber den zuständigen Marktüberwachungsbehörden herangezogen werden. Entscheiden sich Anbieter oder Betreiber hingegen für andere Maßnahmen, müssen sie im Einzelfall darlegen können, dass diese die Anforderungen des Art. 50 AI Act in gleicher Weise erfüllen.\n\nAnbieter und Betreiber generativer KI-Systeme können den Code freiwillig unterzeichnen. Die Europäische Kommission stellt hierfür ein Unterzeichnungsformular sowie weitere Informationen zum Beitrittsverfahren zur Verfügung.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "986b540c-851f-4387-b2d1-e9b5d9bed869"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "99ec9db1-30b4-4f96-b457-e4fd2ff779f5",
+      "title": "KI-Servicestelle FAQ: Verschieben sich durch den \"Digitalen Omnibus\" die Fristen im AI Act?",
+      "content": "# Verschieben sich durch den \"Digitalen Omnibus\" die Fristen im AI Act?\n\nDurch den \"Digitale Omnibus\" verschieben sich folgende Fristen im AI Act:\n\n* Die Verpflichtungen für Hochrisiko-KI-Systeme gemäß Art. 6 Abs. 2 iVm Anhang I AI Act gelten  erst ab dem 2. August 2028 (statt ab dem 2. August 2027).\n* Die Transparenzpflichten gemäß Art. 50 Abs. 2 AI Act für KI-generierte oder KI-manipulierte Inhalte (Kennzeichnung der KI generierten Inhalte in maschinenlesbarem Format) gelten für jene Systeme, die bereits vor dem 2. August 2026 auf den Markt gebracht wurde, erst ab dem 2. Dezember 2026 (statt ab dem 2. August 2026).\n* Die Verpflichtung der Mitgliedstaaten zur Einrichtung von KI-Reallaboren (AI Sandboxes) gilt erst ab dem 2. August 2027 (statt ab dem 2. August 2026).\n* Das neue Verbot nach Art. 5 AI Act betreffend KI-generierte oder KI-manipulierte sexualisierte Inhalte ohne Einwilligung der betroffenen Person gilt ab dem 2. Dezember 2026 gelten.\n\nIm Gegensatz zum ursprünglichen Kommissionsvorschlag ist die Verschiebung der genannten Fristen nicht mehr an einen Beschluss der Europäischen Kommission über das Vorliegen geeigneter Unterstützungsmaßnahmen geknüpft. Stattdessen werden die jeweiligen Anwendungszeitpunkte unmittelbar und verbindlich im Verordnungstext festgelegt.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "e0ff4862-edad-42af-8c72-7ac7ab5c25b7"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "75a52d5d-3201-4bb6-9fc8-d208771c71ea",
+      "title": "KI-Servicestelle FAQ: Was sind Small Mid-Caps und was ändert sich für sie durch den \"Digitalen Omnibus\"?",
+      "content": "# Was sind Small Mid-Caps und was ändert sich für sie durch den \"Digitalen Omnibus\"?\n\nFür die Definition von Small Mid-Caps (\"kleine Midcap-Unternehmen\") verweist der Digitale Omnibus auf die Empfehlung (EU) 2025/1099 der Europäischen Kommission. Danach sind Small Mid-Caps Unternehmen, die\n\n* keine kleinen oder mittleren Unternehmen (KMU) im Sinne der Empfehlung 2003/361/EG der Kommission sind,\n* weniger als 750 Personen beschäftigen und\n* entweder einen Jahresumsatz von höchstens 150 Mio. EUR erzielen oder deren Jahresbilanzsumme höchstens 129 Mio. EUR beträgt.\n\nDer AI Act sieht für KMU bereits bestimmte Erleichterungen vor, insbesondere in Form von vereinfachten Dokumentationspflichten, angepassten Anforderungen an Qualitätsmanagementsysteme sowie eines potenziell erleichterten Zugangs zu regulatorischen Sandboxes.\n\nDiese Erleichterungen gelten mit Beschluss des Omnibus nicht nur für KMU, sondern auch für Small Mid-Caps gelten.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "b195c384-0fee-4a48-9990-762d1e64e220"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "59e9e7ac-990d-448f-987b-2b7e9c12dd19",
+      "title": "KI-Servicestelle FAQ: Was ändert der \"Digitale Omnibus\" im Bereich der KI-Kompetenz?",
+      "content": "# Was ändert der \"Digitale Omnibus\" im Bereich der KI-Kompetenz?\n\nNach der ursprünglichen Fassung des Art. 4 AI Act sind Anbieter und Betreiber von KI-Systemen verpflichtet, Maßnahmen zu ergreifen, um ein ausreichendes Maß an KI-Kompetenz bei ihrem Personal sowie bei sonstigen in ihrem Auftrag handelnden Personen sicherzustellen. Dabei sind insbesondere die technischen Kenntnisse, die praktische Erfahrung, Aus- und Weiterbildungsmaßnahmen sowie der jeweilige Einsatzkontext des KI-Systems zu berücksichtigen.\n\nDer \"Digitale Omnibus\" hält an einer Verpflichtung von Anbietern und Betreibern fest, modifiziert deren Inhalt jedoch in wesentlichen Punkten. Während die ursprüngliche Fassung des Art. 4 AI Act verlangt, Maßnahmen zu ergreifen, um ein ausreichendes Maß an KI-Kompetenz \"sicherzustellen\" (\"ensure2), sollen Anbieter und Betreiber künftig Maßnahmen zur Förderung der Entwicklung von KI-Kompetenz (\"support the development of AI literacy\") ergreifen.\n\nZudem wird ausdrücklich klargestellt, dass diese Verpflichtung nicht verlangt, ein bestimmtes Maß an KI-Kompetenz einzelner Personen zu gewährleisten oder zu garantieren. Dies impliziert, dass der Erwerb bestimmter Zertifikate oder die Teilnahme an externen Schulungen weder gesetzlich vorgeschrieben ist noch für sich genommen die Einhaltung des Art. 4 AI Act sicherstellt. Externe Schulungs- und Weiterbildungsmaßnahmen können im Einzelfall ein geeignetes Mittel zur Förderung von KI-Kompetenz darstellen, ihre Durchführung begründet jedoch keine Vermutung der Compliance und ist auch nicht generell erforderlich.\n\nDarüber hinaus werden die Europäische Kommission und die Mitgliedstaaten verpflichtet, Anbieter und Betreiber – insbesondere kleine und mittlere Unternehmen – bei der Erfüllung ihrer Verpflichtungen zu unterstützen. Zu diesem Zweck soll die Europäische Kommission auf einer zentralen Informationsplattform nach Art. 62 Abs. 3 lit. b AI Act praktische Beispiele für die Erfüllung der Anforderungen veröffentlichen.\n\nFerner soll das AI Board Empfehlungen zur Förderung der KI-Kompetenz ausarbeiten und dabei insbesondere europäische Kompetenzrahmen sowie gemeinsame Zielsetzungen berücksichtigen.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "4bcfeee1-40c1-4537-8365-ec069e10e97c",
+        "e7c6dc07-9957-4a1b-a587-73b7fc48f3b3"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "319563bc-e6d9-4aa9-8234-e4916370f616",
+      "title": "KI-Servicestelle FAQ: Welches neue Verbot für sexualisierte KI-generierte Inhalte sieht der \"Digitale Omnibus\" vor?",
+      "content": "#  Welches neue Verbot für sexualisierte KI-generierte Inhalte sieht der \"Digitale Omnibus\" vor?\n\nDer \"Digitale Omnibus\" ergänzt die Liste der verbotenen KI-Praktiken in Art. 5 AI Act um ein neues Verbot im Zusammenhang mit nicht einvernehmlichen sexualisierten KI-generierten oder KI-manipulierten Inhalten.\n\nVerboten sein sollen das Inverkehrbringen, die Inbetriebnahme oder die Verwendung von KI-Systemen, die realistische Bilder, Videos, Audiodateien oder vergleichbare Inhalte erzeugen oder manipulieren, welche die intimen Körperteile einer identifizierbaren natürlichen Person oder eine identifizierbare natürliche Person bei sexuell expliziten Handlungen darstellen, sofern hierfür keine freiwillig erteilte, spezifische, informierte, unmissverständliche und ausdrückliche Einwilligung der betroffenen Person vorliegt.\n\nDie Erwägungsgründe stellen zugleich klar, dass das Verbot nicht die Entwicklung generativer KI-Systeme als solche verhindern soll. Erfasst werden vielmehr KI-Systeme, die gezielt für die Erstellung entsprechender Inhalte bestimmt sind oder bei denen die Erstellung solcher Inhalte eine vernünftigerweise vorhersehbare und reproduzierbare Folge darstellt, ohne dass angemessene technische Sicherheitsmaßnahmen und sonstige Schutzvorkehrungen vorgesehen sind.\n\nDer Begriff der \"intimen Körperteile\" wird ebenso wie die Anforderungen an die Realitätsnähe der Darstellung in den Erwägungsgründen des Digitalen Omnibus näher konkretisiert.\n\nNicht vom Verbot erfasst sind insbesondere:\n\n* Anwendungen, bei denen eine wirksame Einwilligung der betroffenen Person vorliegt;\n* Anwendungen zu medizinischen oder diagnostischen Zwecken;\n* KI-Systeme, die zwar zur Bild-, Video- oder Audiogenerierung bzw. -bearbeitung eingesetzt werden können, jedoch über angemessene technische Sicherheitsmaßnahmen und sonstige Schutzvorkehrungen verfügen, um die Erstellung derartiger Inhalte zuverlässig zu verhindern oder jedenfalls erheblich zu reduzieren. Hierzu können insbesondere Data Cleaning, Refusal Training, sichere Prompt-Gestaltung, Output-Kontrollen, Prompt-Guardrails zur Laufzeit, Inhaltsklassifizierung und -filterung, Nutzungsbeschränkungen, Mechanismen zur Missbrauchserkennung sowie Notice-and-Action-Verfahren zählen;\n* cartoonartige, stilisierte oder sonstige offensichtlich unrealistische Darstellungen.\n\nFür die Beurteilung, ob ein Inhalt „realistisch“ ist, kommt es darauf an, ob Gesicht, Stimme oder Körper einer Person in einer Weise dargestellt werden, die für Dritte glaubwürdig und realitätsnah erscheint. Auf den Hintergrund oder den konkreten Kontext der Darstellung kommt es dabei grundsätzlich nicht an.\n\nDaneben enthält der Digitale Omnibus weitere Regelungen zur Bekämpfung von Darstellungen sexuellen Kindesmissbrauchs.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "23cd1ed8-afb0-470a-a3bc-94a62c876bee"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "42ebf64d-d84b-4a37-bfd2-4c32dff58543",
+      "title": "KI-Servicestelle FAQ: Ab wann gilt das Verbot von KI-Systemen zur Generierung sexualisierter Deepfakes?",
+      "content": "# Ab wann gilt das Verbot von KI-Systemen zur Generierung sexualisierter Deepfakes?\n\nDie Vorschriften für sexualisierte Deepfakes treten mit 02.12.2026 in Kraft. Die Regelungen verbieten insbesondere die Erzeugung KI-generierter Darstellungen iZm sexuellen Kindesmissbrauchs und KI-generierte sexuelle oder intime Inhalte, die nicht einvernehmlich erzeugt wurden.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
+        "23cd1ed8-afb0-470a-a3bc-94a62c876bee"
       ],
       "parameters": []
     },
