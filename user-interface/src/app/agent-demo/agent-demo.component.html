@@ -1,13 +1,13 @@
 <div class="uk-section-default uk-section">
   <div class="uk-container">
-    <h2>KI-Servicestelle AI Act Chatbot</h2>
+    <h2>AI Service Desk – AI Act Chatbot</h2>
 
-    <!-- Eingabe – steht zu Beginn der Seite -->
+    <!-- Input – sits at the top of the page -->
     <form class="uk-form uk-padding-remove uk-margin-top">
       <div style="position: relative">
         <textarea
           class="uk-input user-input"
-          placeholder="Stellen Sie uns Ihre Frage zum AI Act"
+          placeholder="Ask us your question about the AI Act"
           style="resize: none"
           [(ngModel)]="userPrompt"
           name="userPrompt"
@@ -20,7 +20,7 @@
         </small>
         @if (userPrompt === "" && !running) {
           <a class="user-input-suggestion" (click)="loadExample(); run()">
-            z.&nbsp;B.: &ldquo;{{ exampleQuestion }}&rdquo;
+            e.&nbsp;g.: &ldquo;{{ exampleQuestion }}&rdquo;
           </a>
         }
       </div>
@@ -28,12 +28,12 @@
         class="uk-button uk-button-large uk-grid-margin uk-button-primary"
         [ngClass]="!running && userPrompt !== '' ? '' : 'uk-disabled'"
         (click)="run()"
-        >Frage stellen</a
+        >Ask question</a
       >
     </form>
   </div>
 
-  <!-- Nachrichten-Verlauf / Agentenlauf -->
+  <!-- Message history / agent run -->
   @if (entries.length > 0) {
     <div id="agentRun" class="uk-container uk-container-large uk-margin-top-50">
       <h3>
@@ -42,31 +42,31 @@
         } @else {
           <span>&check;</span>
         }
-        Nachrichten-Verlauf des Agenten
+        Message history of the agent
       </h3>
       <p class="text-muted">
-        Der Agent arbeitet, indem das LLM mehrfach aufgerufen wird. Bei
-        <strong>jedem</strong> Aufruf wird der <strong>gesamte bisherige
-        Nachrichten-Verlauf</strong> erneut übergeben: System-Prompt (inkl.
-        Tool-Definitionen), die Frage sowie alle bisherigen Tool-Aufrufe und
-        deren Roh-Ergebnisse. Das Modell entscheidet daraufhin, ob es ein
-        weiteres Werkzeug aufruft oder final antwortet.
+        The agent works by calling the LLM repeatedly. On
+        <strong>every</strong> call the <strong>entire message history so
+        far</strong> is passed again: the system prompt (including the tool
+        definitions), the question as well as all previous tool calls and their
+        raw results. The model then decides whether to call another tool or to
+        give its final answer.
       </p>
 
       <div class="agent-layout">
-        <!-- ===== Linke Spalte: Kreislauf-Diagramm (sticky) ===== -->
+        <!-- ===== Left column: loop diagram (sticky) ===== -->
         <aside class="agent-side">
           <div class="side-title">
-            <span>Agenten-Kreislauf</span>
+            <span>Agent loop</span>
             @if (roundCount > 0) {
-              <span class="side-round">Runde {{ roundCount }}</span>
+              <span class="side-round">Round {{ roundCount }}</span>
             }
           </div>
 
-          <!-- Kreislauf-Diagramm: das Konzept des Agenten-Loops. Der aktive
-               Knoten pulsiert; alles wird aus dem Nachrichten-Verlauf abgeleitet. -->
+          <!-- Loop diagram: the concept of the agent loop. The active node
+               pulses; everything is derived from the message history. -->
           <div class="loop-figure">
-            <svg viewBox="0 0 330 372" role="img" aria-label="Kreislauf des Agenten: LLM liest den Verlauf, ruft ggf. ein Werkzeug auf, dessen Ergebnis an den Verlauf angehängt wird – bis keine Tool-Calls mehr folgen und die finale Antwort erzeugt wird.">
+            <svg viewBox="0 0 330 372" role="img" aria-label="The agent loop: the LLM reads the history, optionally calls a tool whose result is appended to the history – until no further tool calls follow and the final answer is produced.">
               <defs>
                 <marker id="loopArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                   <path class="loop-arr" d="M0,0 L10,5 L0,10 z"></path>
@@ -79,30 +79,30 @@
                 [class.loop-active]="loopActive.node === 'llm'"
                 x="70" y="14" width="200" height="58" rx="8"
               ></rect>
-              <text class="loop-label" x="170" y="38" text-anchor="middle">LLM liest den</text>
-              <text class="loop-label" x="170" y="58" text-anchor="middle">gesamten Verlauf</text>
+              <text class="loop-label" x="170" y="38" text-anchor="middle">LLM reads the</text>
+              <text class="loop-label" x="170" y="58" text-anchor="middle">entire history</text>
 
-              <!-- LLM → Entscheidung -->
+              <!-- LLM → decision -->
               <path class="loop-edge" d="M170,72 V106" marker-end="url(#loopArr)"></path>
               <rect class="loop-node loop-node-decision" x="105" y="110" width="130" height="42" rx="21"></rect>
-              <text class="loop-label" x="170" y="136" text-anchor="middle">Tool-Call?</text>
+              <text class="loop-label" x="170" y="136" text-anchor="middle">Tool call?</text>
 
-              <!-- ja → Werkzeug -->
+              <!-- yes → tool -->
               <path
                 class="loop-edge"
                 [class.loop-edge-active]="loopActive.edge === 'ja'"
                 d="M170,152 V186"
                 marker-end="url(#loopArr)"
               ></path>
-              <text class="loop-edge-label" x="182" y="174">ja</text>
+              <text class="loop-edge-label" x="182" y="174">yes</text>
               <rect
                 class="loop-node"
                 [class.loop-active]="loopActive.node === 'tool'"
                 x="70" y="190" width="200" height="58" rx="8"
               ></rect>
-              <text class="loop-label" x="170" y="224" text-anchor="middle">Werkzeug läuft</text>
+              <text class="loop-label" x="170" y="224" text-anchor="middle">Tool runs</text>
 
-              <!-- Rückführung: Ergebnis → Verlauf (linke Seite) -->
+              <!-- feedback: result → history (left-hand side) -->
               <path
                 class="loop-edge"
                 [class.loop-edge-active]="loopActive.edge === 'zurueck'"
@@ -113,37 +113,37 @@
                 class="loop-edge-label"
                 transform="rotate(-90 16 131)"
                 x="16" y="131" text-anchor="middle"
-              >Ergebnis → an den Verlauf</text>
+              >Result → into the history</text>
 
-              <!-- nein → finale Antwort (rechte Seite) -->
+              <!-- no → final answer (right-hand side) -->
               <path
                 class="loop-edge"
                 [class.loop-edge-active]="loopActive.edge === 'nein'"
                 d="M235,131 H302 V316 H276"
                 marker-end="url(#loopArr)"
               ></path>
-              <text class="loop-edge-label" x="244" y="123">nein</text>
+              <text class="loop-edge-label" x="244" y="123">no</text>
               <rect
                 class="loop-node"
                 [class.loop-active]="loopActive.node === 'antwort'"
                 [class.loop-still]="done"
                 x="70" y="292" width="200" height="48" rx="8"
               ></rect>
-              <text class="loop-label" x="170" y="321" text-anchor="middle">✓ finale Antwort</text>
+              <text class="loop-label" x="170" y="321" text-anchor="middle">✓ final answer</text>
             </svg>
           </div>
           <p class="info-link">
             <a
               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20KI-Agent?"
               target="_blank"
-              >Information: Wie funktioniert ein KI-Agent?</a
+              >Information: How does an AI agent work?</a
             >
           </p>
         </aside>
 
-        <!-- ===== Rechte Spalte: Chat-Fenster ===== -->
+        <!-- ===== Right column: chat window ===== -->
         <div class="agent-chat">
-          <!-- Verlaufs-Leiste: Chips je Schritt, Klick springt zum Eintrag -->
+          <!-- History bar: one chip per step, click jumps to the entry -->
           @if (running || chips.length > 0) {
             <div class="loop-chips">
               <div class="loop-chips-scroll">
@@ -152,7 +152,7 @@
                   <span class="chip" [ngClass]="chipClass(c)" (click)="jumpTo(c.id)">{{ chipLabel(c) }}</span>
                 }
                 @if (chips.length === 0) {
-                  <!-- Der erste LLM-Aufruf wird gerade vorbereitet -->
+                  <!-- The first LLM call is currently being prepared -->
                   <span class="chip chip-llm chip-running">LLM</span>
                 }
                 @if (running) { <span class="chip-sep">…</span> }
@@ -176,9 +176,9 @@
                   @if (e.kind === "system") {
                     <a class="msg-title msg-title-toggle" (click)="toggle('sys-' + e.id)">
                       <i class="bi bi-sliders msg-icon"></i>
-                      <span class="msg-name">System-Prompt &amp; Werkzeuge</span>
+                      <span class="msg-name">System prompt &amp; tools</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
-                      <span class="msg-meta">{{ tools.length }} Tools · anzeigen ▾</span>
+                      <span class="msg-meta">{{ tools.length }} tools · show ▾</span>
                     </a>
                     <div id="sys-{{ e.id }}" class="msg-content uk-hidden">
                       <pre class="raw-block">{{ e.systemText }}</pre>
@@ -186,13 +186,13 @@
                         <a
                           href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20System-Prompt?"
                           target="_blank"
-                          >Information: Was ist ein System-Prompt?</a
+                          >Information: What is a system prompt?</a
                         >
                       </p>
                       <div class="msg-head">
-                        Mitgeschickte Tool-Definitionen ({{ tools.length }}) – jeder
-                        Aufruf darf max. {{ model.maxCallsPerTool }}× pro Werkzeug
-                        erfolgen
+                        Tool definitions passed along ({{ tools.length }}) – each
+                        tool may be called at most {{ model.maxCallsPerTool }}×
+                        per run
                       </div>
                       <table class="uk-table uk-table-divider uk-table-small tools-table">
                         <tbody>
@@ -203,7 +203,7 @@
                                 {{ tool.description }}
                                 @if (tool.name === "definition") {
                                   <a class="raw-toggle" (click)="toggle('defterms')">
-                                    Definierte Begriffe ({{ definedTerms.length }}) anzeigen
+                                    Show defined terms ({{ definedTerms.length }})
                                   </a>
                                   <div id="defterms" class="defterms uk-hidden">
                                     @for (t of definedTerms; track t) {
@@ -225,7 +225,7 @@
                         <a
                           href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Werkzeuge%20(Tools)%20und%20Tool-Calls"
                           target="_blank"
-                          >Information: Was sind Werkzeuge (Tools) und Tool-Calls?</a
+                          >Information: What are tools and tool calls?</a
                         >
                       </p>
                     </div>
@@ -235,7 +235,7 @@
                   @if (e.kind === "user") {
                     <div class="msg-title msg-title-click" (click)="toggleCollapse(e)">
                       <i class="bi bi-person msg-icon"></i>
-                      <span class="msg-name">Ihre Frage</span>
+                      <span class="msg-name">Your question</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
                       <i class="bi msg-fold msg-fold-right" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
                     </div>
@@ -248,18 +248,18 @@
                     </div>
                   }
 
-                  <!-- LLM-AUFRUF (Assistent) -->
+                  <!-- LLM CALL (assistant) -->
                   @if (e.kind === "llm") {
                     <div class="msg-title" [class.msg-title-click]="!isFinal(e)" (click)="toggleCollapse(e)">
                       <i class="bi bi-robot msg-icon"></i>
-                      <span class="msg-name">Assistent</span>
+                      <span class="msg-name">Assistant</span>
                       @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
                       <a
                         class="msg-meta msg-meta-toggle"
                         (click)="openCtx(e); $event.stopPropagation()"
-                        title="Bei jedem LLM-Aufruf wird der gesamte bisherige Nachrichten-Verlauf erneut übergeben. Klicken zum Aufklappen."
+                        title="On every LLM call the entire message history so far is passed again. Click to expand."
                       >
-                        liest {{ e.contextMessages }} Nachrichten · ~{{ formatTokens(e.contextTokens) }} Token ▾
+                        reads {{ e.contextMessages }} messages · ~{{ formatTokens(e.contextTokens) }} tokens ▾
                       </a>
                       @if (!isFinal(e)) {
                         <i class="bi msg-fold" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
@@ -268,7 +268,7 @@
                     <div class="msg-collapsible" [class.msg-collapsed]="e.collapsed && !isFinal(e)">
                       <div class="msg-collapsible-inner">
                     <div class="msg-content">
-                      <!-- Übergebener Prompt-Verlauf (eingeklappt) -->
+                      <!-- Prompt history passed along (collapsed) -->
                       <div id="ctx-{{ e.id }}" class="ctx-detail uk-hidden">
                         @for (c of contextOf(idx); track c.id) {
                           <div class="ctx-msg">
@@ -289,7 +289,7 @@
                           <a
                             href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Der%20Nachrichten-Verlauf"
                             target="_blank"
-                            >Information: Warum wird bei jedem Aufruf der gesamte Verlauf übergeben?</a
+                            >Information: Why is the entire history passed on every call?</a
                           >
                         </p>
                       </div>
@@ -300,30 +300,29 @@
                             <a
                               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reasoning"
                               target="_blank"
-                              >Information: Wie „denkt“ das Modell? (Reasoning)</a
+                              >Information: How does the model “think”? (Reasoning)</a
                             >
                           </p>
                         }
                       }
 
-                      <!-- Entscheidung des Modells: Tool-Call (Details stehen im
-                           folgenden Werkzeug-Eintrag – nicht doppelt anzeigen) -->
+                      <!-- The model's decision: a tool call (the details appear in
+                           the following tool entry – do not show them twice) -->
                       @if (e.toolCall && e.reasoningDone) {
                         <div class="llm-action">
-                          → ruft Tool
+                          → calls tool
                           <strong><i class="bi {{ toolIcon(e.toolCall.name) }}"></i> {{ toolDisplayName(e.toolCall.name) }}</strong>
-                          auf
                         </div>
                       }
 
                       @if (e.answer !== undefined && !e.toolCall && e.reasoningDone) {
-                        <div class="result-head">Finale Antwort</div>
+                        <div class="result-head">Final answer</div>
                         <div class="answer agent-answer">
                           <div class="chat-answer" [innerHTML]="e.answer"></div>
                         </div>
                         @if (e.citations && e.citations.length > 0 && e.status === "done") {
                           <div class="citations">
-                            <span class="msg-head">Quellenbelege</span>
+                            <span class="msg-head">Sources cited</span>
                             <ul class="citation-list">
                               @for (c of e.citations; track c.label) {
                                 <li>
@@ -342,36 +341,36 @@
                     </div>
                   }
 
-                  <!-- TOOL-ERGEBNIS -->
+                  <!-- TOOL RESULT -->
                   @if (e.kind === "tool") {
                     <div class="msg-header">
                       <div class="msg-title msg-title-click" (click)="toggleCollapse(e)">
                         <i class="bi {{ toolIcon(e.toolName) }} msg-icon"></i>
                         <span class="msg-name">Tool: {{ toolDisplayName(e.toolName) }}</span>
-                        @if (e.ragView) { <span class="rag-pill">intern: erweitertes RAG</span> }
+                        @if (e.ragView) { <span class="rag-pill">internal: extended RAG</span> }
                         @if (e.status === "running") { <div class="loader loader-small-offset msg-loader"></div> }
                         <span class="msg-meta">
-                          <code>{{ e.toolName }}()</code> · Aufruf {{ e.callIndex }}/{{ model.maxCallsPerTool }}
+                          <code>{{ e.toolName }}()</code> · call {{ e.callIndex }}/{{ model.maxCallsPerTool }}
                         </span>
                         <i class="bi msg-fold" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
                       </div>
 
                       <div class="msg-collapsible" [class.msg-collapsed]="e.collapsed">
                         <div class="msg-collapsible-inner">
-                          <!-- Das zentrale Argument (Suchbegriff, Begriff, Artikel …) -->
+                          <!-- The central argument (search term, term, article …) -->
                           @if (toolArg(e)) {
                             <div class="msg-arg">
                               {{ toolArgLabel(e.toolName) }}:
-                              <strong>„{{ toolArg(e) }}“</strong>
+                              <strong>“{{ toolArg(e) }}”</strong>
                             </div>
                           }
                     <div class="msg-content">
-                      <!-- Interne Teilschritte (z. B. Retrieve-Pipeline, hybride Suche) -->
+                      <!-- Internal sub-steps (e.g. retrieve pipeline, hybrid search) -->
                       @if (e.subSteps && e.subSteps.length > 0) {
                         @if (e.status !== "done") {
-                          <!-- Während der Ausführung: Teilschritte live miterleben -->
+                          <!-- While running: follow the sub-steps live -->
                           <div class="sub-timeline">
-                            <span class="msg-subhead">Interne Teilschritte des Werkzeugs</span>
+                            <span class="msg-subhead">Internal sub-steps of the tool</span>
                             @for (sub of e.subSteps; track sub.label) {
                               <div class="sub-step">
                                 <span class="sub-step-label">{{ sub.label }}</span>
@@ -380,9 +379,9 @@
                             }
                           </div>
                         } @else {
-                          <!-- Nach Abschluss: auf eine Zeile reduziert -->
+                          <!-- Once finished: reduced to a single line -->
                           <a class="raw-toggle" (click)="toggle('subs-' + e.id)">
-                            {{ e.subSteps.length }} interne Teilschritte anzeigen/ausblenden
+                            show/hide {{ e.subSteps.length }} internal sub-steps
                           </a>
                           <div id="subs-{{ e.id }}" class="sub-timeline uk-hidden">
                             @for (sub of e.subSteps; track sub.label) {
@@ -395,29 +394,30 @@
                         }
                       }
 
-                      <!-- ===== suche_ai_act: Original-RAG-Visualisierung (Retrieve → Augment → Generate) ===== -->
+                      <!-- ===== suche_ai_act: original RAG visualisation (retrieve → augment → generate) ===== -->
                       @if (e.ragView) {
-                        <!-- Retrieve (eingeklappt) -->
+                        <!-- Retrieve (collapsed) -->
                         <a class="raw-toggle" (click)="toggle('retr-' + e.id)">
-                          Retrieve · erhobene Quellen (Kosinus-Ähnlichkeit &amp; Reranking) anzeigen/ausblenden
+                          Retrieve · show/hide the retrieved sources (cosine similarity &amp; reranking)
                         </a>
                         <span class="toggle-sep">·</span>
                         <div id="retr-{{ e.id }}" class="rerank-box uk-hidden">
                           <p class="rerank-note">
                             <span uk-icon="icon: info; ratio: 0.8"></span>
-                            Ähnlichkeitswerte und Rangänderung dienen der Nachvollziehbarkeit.
-                            In das Prompt fließt nur der Quellentext in der finalen
-                            (gerankten) Reihenfolge – nicht die Zahlen selbst.
+                            Similarity scores and rank changes are shown for
+                            transparency only. Only the source text in its final
+                            (ranked) order goes into the prompt – not the numbers
+                            themselves.
                           </p>
                           <div class="table-container">
                           <table class="uk-table uk-table-small uk-table-divider sources-table">
                             <thead>
                               <tr>
-                                <th>Quelle</th>
-                                <th class="uk-text-right">Kosinus</th>
-                                <th class="uk-text-center">Rang vor&nbsp;→&nbsp;nach</th>
+                                <th>Source</th>
+                                <th class="uk-text-right">Cosine</th>
+                                <th class="uk-text-center">Rank before&nbsp;→&nbsp;after</th>
                                 <th class="uk-text-right">Reranker</th>
-                                <th class="uk-text-center">Im Kontext</th>
+                                <th class="uk-text-center">In context</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -457,10 +457,10 @@
                                         ✕
                                         {{
                                           src.skipReason === "duplicate"
-                                            ? "Dublette"
+                                            ? "duplicate"
                                             : src.skipReason === "context_window"
-                                              ? "Kontext voll"
-                                              : "geringe Relevanz"
+                                              ? "context full"
+                                              : "low relevance"
                                         }}
                                       </span>
                                     }
@@ -474,20 +474,20 @@
                             <a
                               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?"
                               target="_blank"
-                              >Information: Wie werden relevante Quellen erhoben?</a
+                              >Information: How are relevant sources retrieved?</a
                             >
                             ·
                             <a
                               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reranking%20und%20hybride%20Suche"
                               target="_blank"
-                              >Information: Wie funktioniert das Reranking?</a
+                              >Information: How does reranking work?</a
                             >
                           </p>
                         </div>
 
-                        <!-- Augment (eingeklappt) -->
+                        <!-- Augment (collapsed) -->
                         <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
-                          Augment · Prompt des RAG-Werkzeugs (System-Prompt + Quellen + Suchanfrage) anzeigen/ausblenden
+                          Augment · show/hide the prompt of the RAG tool (system prompt + sources + search query)
                         </a>
                         <div id="aug-{{ e.id }}" class="uk-hidden">
                           <pre class="raw-block">{{ buildAugmentedPrompt(e) }}</pre>
@@ -495,41 +495,41 @@
                             <a
                               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
                               target="_blank"
-                              >Information: Wie ist ein Prompt aufgebaut?</a
+                              >Information: How is a prompt put together?</a
                             >
                           </p>
                         </div>
 
-                        <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
+                        <!-- Generate / result (LLM output, animated) -->
                         <div class="result-head">
-                          Ergebnis
-                          <span class="result-hint">Generate · LLM-Ausgabe – wird an den Verlauf angehängt</span>
+                          Result
+                          <span class="result-hint">Generate · LLM output – is appended to the history</span>
                         </div>
                         <pre class="raw-block result-block">{{ e.resultText }}</pre>
                       } @else if (e.llmGenerates) {
-                        <!-- ===== suche_leitlinien: LLM-Aufruf – Reranking & Prompt über der Rückgabe ===== -->
+                        <!-- ===== suche_leitlinien: LLM call – reranking & prompt above the result ===== -->
                         @if (e.rerankerApplied && e.sources && e.sources.length > 0) {
                           <a class="raw-toggle" (click)="toggle('rerank-' + e.id)">
-                            Reranking-Visualisierung anzeigen/ausblenden
+                            show/hide reranking visualisation
                           </a>
                           <span class="toggle-sep">·</span>
                           <div id="rerank-{{ e.id }}" class="rerank-box uk-hidden">
                             <p class="rerank-note">
                               <span uk-icon="icon: info; ratio: 0.8"></span>
-                              Nur zur Veranschaulichung – diese Werte und die Rangänderung
-                              sind <strong>nicht Teil des Prompt-Verlaufs</strong>. Das
-                              Modell erhält ausschließlich den obigen Treffertext in der
-                              finalen Reihenfolge.
+                              For illustration only – these scores and the rank
+                              changes are <strong>not part of the prompt
+                              history</strong>. The model only receives the
+                              matching text above, in its final order.
                             </p>
                             <div class="table-container">
                               <table class="uk-table uk-table-small uk-table-divider sources-table">
                                 <thead>
                                   <tr>
-                                    <th>Quelle</th>
-                                    <th class="uk-text-right">Kosinus</th>
-                                    <th class="uk-text-center">Rang vor&nbsp;→&nbsp;nach</th>
+                                    <th>Source</th>
+                                    <th class="uk-text-right">Cosine</th>
+                                    <th class="uk-text-center">Rank before&nbsp;→&nbsp;after</th>
                                     <th class="uk-text-right">Reranker</th>
-                                    <th class="uk-text-center">In Rückgabe</th>
+                                    <th class="uk-text-center">In result</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -569,10 +569,10 @@
                                             ✕
                                             {{
                                               src.skipReason === "duplicate"
-                                                ? "Dublette"
+                                                ? "duplicate"
                                                 : src.skipReason === "context_window"
-                                                  ? "Kontext voll"
-                                                  : "geringe Relevanz"
+                                                  ? "context full"
+                                                  : "low relevance"
                                             }}
                                           </span>
                                         }
@@ -586,15 +586,15 @@
                               <a
                                 href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reranking%20und%20hybride%20Suche"
                                 target="_blank"
-                                >Information: Wie funktionieren hybride Suche und Reranking?</a
+                                >Information: How do hybrid search and reranking work?</a
                               >
                             </p>
                           </div>
                         }
 
-                        <!-- Prompt des Werkzeugs (eingeklappt) -->
+                        <!-- Prompt of the tool (collapsed) -->
                         <a class="raw-toggle" (click)="toggle('aug-' + e.id)">
-                          Prompt des Werkzeugs (System-Prompt + Fundstellen + Frage) anzeigen/ausblenden
+                          show/hide the prompt of the tool (system prompt + matches + question)
                         </a>
                         <div id="aug-{{ e.id }}" class="uk-hidden">
                           <pre class="raw-block">{{ buildAugmentedPrompt(e) }}</pre>
@@ -602,19 +602,19 @@
                             <a
                               href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
                               target="_blank"
-                              >Information: Wie ist ein Prompt aufgebaut?</a
+                              >Information: How is a prompt put together?</a
                             >
                           </p>
                         </div>
 
-                        <!-- Generate / Rückgabe (LLM-Ausgabe, animiert) -->
+                        <!-- Generate / result (LLM output, animated) -->
                         <div class="result-head">
-                          Ergebnis
-                          <span class="result-hint">LLM-Ausgabe – wird an den Verlauf angehängt</span>
+                          Result
+                          <span class="result-hint">LLM output – is appended to the history</span>
                         </div>
                         <pre class="raw-block result-block">{{ e.resultText }}</pre>
-                      } @else if (e.toolName === "rueckfrage_nutzer") {
-                        <!-- ===== rueckfrage_nutzer: echte Interaktion – der Lauf pausiert ===== -->
+                      } @else if (e.toolName === "ask_user") {
+                        <!-- ===== ask_user: real interaction – the run pauses ===== -->
                         <div class="ask-box">
                           <p class="ask-question">{{ e.askQuestion }}</p>
                           @if (e.awaitingUser) {
@@ -627,7 +627,7 @@
                               <input
                                 class="uk-input ask-input"
                                 type="text"
-                                placeholder="… oder eigene Antwort eingeben"
+                                placeholder="… or type your own answer"
                                 [maxlength]="200"
                                 [(ngModel)]="rueckfrageInput"
                                 name="rueckfrageInput"
@@ -637,33 +637,33 @@
                                 class="ask-option ask-send"
                                 [ngClass]="rueckfrageInput.trim() === '' ? 'ask-send-disabled' : ''"
                                 (click)="answerRueckfrage(rueckfrageInput)"
-                                >Antworten</span
+                                >Reply</span
                               >
                             </div>
                             <p class="ask-note">
-                              Der Agent pausiert, bis Sie antworten – Ihre Antwort
-                              wird als Tool-Rückgabe an den Verlauf angehängt.
+                              The agent pauses until you reply – your answer is
+                              appended to the history as the tool's result.
                             </p>
                           }
                         </div>
                         @if (e.resultText) {
                           <div class="result-head">
-                            Ergebnis
-                            <span class="result-hint">Ihre Antwort – wird unverändert an den Verlauf angehängt</span>
+                            Result
+                            <span class="result-hint">Your answer – is appended to the history unchanged</span>
                           </div>
                           <pre class="raw-block result-block">{{ e.resultText }}</pre>
                         }
                       } @else {
-                        <!-- ===== übrige Werkzeuge ohne eigenen LLM-Aufruf: Roh-Rückgabe ===== -->
+                        <!-- ===== remaining tools without their own LLM call: raw result ===== -->
                         <div class="result-head">
-                          Ergebnis
-                          <span class="result-hint">wird unverändert an den Verlauf angehängt</span>
+                          Result
+                          <span class="result-hint">is appended to the history unchanged</span>
                         </div>
                         @if (resultClipped(e)) {
-                          <!-- Lange Fehlermeldung (z. B. alle 67 Begriffe): gekürzt darstellen -->
+                          <!-- Long error message (e.g. all 67 terms): show it shortened -->
                           <pre class="raw-block result-block">{{ resultPreview(e) }}</pre>
                           <a class="raw-toggle" (click)="toggle('full-' + e.id)">
-                            vollständige Rückgabe anzeigen/ausblenden
+                            show/hide the full result
                           </a>
                           <pre id="full-{{ e.id }}" class="raw-block result-block uk-hidden">{{ e.resultText }}</pre>
                         } @else {
@@ -687,31 +687,30 @@
     </div>
   }
 
-  <!-- Energie-Gesamtbilanz über alle LLM- und Tool-Aufrufe -->
+  <!-- Overall energy balance across all LLM and tool calls -->
   @if (done) {
     <div class="uk-container uk-margin-top-50">
-      <h3><span uk-icon="bolt"></span> Energieverbrauch dieser Anfrage</h3>
+      <h3><span uk-icon="bolt"></span> Energy consumption of this query</h3>
       <p>
-        Die Energietransparenz bleibt im agentischen Modus erhalten – jetzt
-        summiert über <strong>alle LLM- und Werkzeug-Aufrufe</strong> eines
-        Laufs. Diese Anfrage hat insgesamt
-        <strong>{{ formatKWh(totalProQuery) }}&nbsp;kWh</strong> verbraucht. Damit
-        ließe sich ein
-        <abbr uk-tooltip="Modell mit 2,2 kW Leistung">Haarföhn</abbr>
-        rund
-        <i>{{ (((totalProQuery * 1000) / 2200) * 60 * 60).toFixed(1).replace(".", ",") }} Sekunden</i>
-        betreiben.
+        Energy transparency is retained in agentic mode – now totalled across
+        <strong>all LLM and tool calls</strong> of a single run. This query
+        consumed a total of
+        <strong>{{ formatKWh(totalProQuery) }}&nbsp;kWh</strong>. That is enough
+        to run a
+        <abbr uk-tooltip="Model rated at 2.2 kW">hair dryer</abbr>
+        for roughly
+        <i>{{ (((totalProQuery * 1000) / 2200) * 60 * 60).toFixed(1) }} seconds</i>.
       </p>
       <div class="table-container">
         <table class="uk-table uk-table-hover uk-table-divider energy-table">
           <thead>
             <tr>
-              <th>Aufruf</th>
+              <th>Call</th>
               <th class="uk-text-right">CPU</th>
               <th class="uk-text-right">GPU</th>
               <th class="uk-text-right">RAM</th>
-              <th class="uk-text-right">Gesamt</th>
-              <th class="uk-text-right">Dauer</th>
+              <th class="uk-text-right">Total</th>
+              <th class="uk-text-right">Duration</th>
             </tr>
           </thead>
           <tbody>
@@ -720,52 +719,52 @@
                 <tr>
                   <td>
                     @if (e.kind === "llm") {
-                      LLM-Aufruf
+                      LLM call
                       @if (e.toolCall) { → <code>{{ e.toolCall.name }}()</code> }
-                      @else { → finale Antwort }
+                      @else { → final answer }
                     } @else {
-                      Werkzeug <code>{{ e.toolName }}()</code>
+                      Tool <code>{{ e.toolName }}()</code>
                     }
                   </td>
                   <td class="uk-text-right">{{ formatKWh(e.energy.cpu_kWh) }}&nbsp;kWh</td>
                   <td class="uk-text-right">{{ formatKWh(e.energy.gpu_kWh) }}&nbsp;kWh</td>
                   <td class="uk-text-right">{{ formatKWh(e.energy.ram_kWh) }}&nbsp;kWh</td>
                   <td class="uk-text-right">{{ formatKWh(e.energy.total_kWh) }}&nbsp;kWh</td>
-                  <td class="uk-text-right">{{ e.energy.duration.toFixed(1).replace(".", ",") }}&nbsp;Sek.</td>
+                  <td class="uk-text-right">{{ e.energy.duration.toFixed(1) }}&nbsp;sec.</td>
                 </tr>
               }
             }
             <tr class="energy-total-row">
-              <td><strong>Gesamt</strong></td>
+              <td><strong>Total</strong></td>
               <td class="uk-text-right"><strong>{{ formatKWh(totalEnergy.cpu_kWh) }}&nbsp;kWh</strong></td>
               <td class="uk-text-right"><strong>{{ formatKWh(totalEnergy.gpu_kWh) }}&nbsp;kWh</strong></td>
               <td class="uk-text-right"><strong>{{ formatKWh(totalEnergy.ram_kWh) }}&nbsp;kWh</strong></td>
               <td class="uk-text-right"><strong>{{ formatKWh(totalEnergy.total_kWh) }}&nbsp;kWh</strong></td>
-              <td class="uk-text-right"><strong>{{ totalEnergy.duration.toFixed(1).replace(".", ",") }}&nbsp;Sek.</strong></td>
+              <td class="uk-text-right"><strong>{{ totalEnergy.duration.toFixed(1) }}&nbsp;sec.</strong></td>
             </tr>
           </tbody>
         </table>
       </div>
       <p class="text-muted">
-        Der Stromverbrauch wird direkt auf Hardware-Ebene (CPU/GPU/RAM) je Aufruf
-        gemessen. Das Rechenzentrum nutzt einen Strommix aus erneuerbaren
-        Energien; der <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr>
-        liegt zwischen 1,10 und 1,16.
+        Power consumption is measured directly at hardware level (CPU/GPU/RAM)
+        for each call. The data centre uses an electricity mix based on
+        renewable energies; the
+        <abbr uk-tooltip="Power Usage Effectiveness">PUE value</abbr>
+        ranges between 1.10 and 1.16.
       </p>
       <p class="info-link">
         <a
           href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch"
           target="_blank"
-          >Information: Wie wird der Stromverbrauch berechnet?</a
+          >Information: How is power consumption calculated?</a
         >
       </p>
 
       <p class="uk-margin-top">
-        <strong>Wichtiger Hinweis:</strong> Diese Antwort wurde von einem
-        KI-System erzeugt und kann Fehler enthalten. Für eine fachkundige,
-        rechtssichere Einschätzung wenden Sie sich bitte an das (menschliche)
-        Team der
-        <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a>.
+        <strong>Important note:</strong> This answer was generated by an AI
+        system and may contain errors. For an expert, legally sound assessment
+        please contact the (human) team of the
+        <a href="https://ki.rtr.at" target="_blank">AI Service Desk</a>.
       </p>
     </div>
   }
