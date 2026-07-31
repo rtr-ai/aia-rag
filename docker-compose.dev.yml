@@ -38,7 +38,7 @@ services:
       - ROOT_PATH=/llm-service
       - TOP_N_CHUNKS=25
       - RERANK_ENABLED=true
-      - RERANK_TOP_N=15
+      - RERANK_TOP_N=20
       - RERANK_MODEL_PATHS=/app/models/reranker/jina/ai-act-finetuned,/app/models/reranker/jina/native,/app/models/reranker/nvidia,/app/models/reranker/qwen/Quen3-Reranker-0.6B,/app/models/reranker/bge,/app/models/reranker/mixedbread
       - RERANK_MODEL_TYPES=jina_transformers,jina_transformers,nvidia_cross_encoder,qwen_cross_encoder,bge_cross_encoder,mixedbread_cross_encoder
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
