@@ -4476,7 +4476,7 @@
     },
     {
       "id": "1d78d2f5-6bcc-41dc-9df9-80342afe9a47",
-f      "title": "Art 3: Z29-Z33 Training von KI",
+      "title": "Art 3: Z29-Z33 Training von KI",
       "content": "### Artikel 3: Begriffsbestimmungen\nFür die Zwecke dieser Verordnung bezeichnet der Ausdruck\n[...]\n29. „Trainingsdaten“ Daten, die zum Trainieren eines KI-Systems verwendet\nwerden, wobei dessen lernbare Parameter angepasst werden;\n30. „Validierungsdaten“ Daten, die zur Evaluation des trainierten KI-Systems und\nzur Einstellung seiner nicht erlernbaren Parameter und seines Lernprozesses\nverwendet werden, um unter anderem eine Unter- oder Überanpassung zu vermeiden;\n31. „Validierungsdatensatz“ einen separaten Datensatz oder einen Teil des\nTrainingsdatensatzes mit fester oder variabler Aufteilung;\n32. „Testdaten“ Daten, die für eine unabhängige Bewertung des KI-Systems\nverwendet werden, um die erwartete Leistung dieses Systems vor dessen\nInverkehrbringen oder Inbetriebnahme zu bestätigen;\n33. „Eingabedaten“ die in ein KI-System eingespeisten oder von diesem direkt\nerfassten Daten, auf deren Grundlage das System eine Ausgabe hervorbringt;",
       "keywords": [],
       "availableKeywords": [],
