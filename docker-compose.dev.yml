@@ -40,7 +40,7 @@ services:
       - RERANK_ENABLED=true
       - RERANK_TOP_N=20
       - RERANK_MODEL_PATHS=app/models/reranker/nvidia/ai-act-finetuned,/app/models/reranker/jina/ai-act-finetuned,/app/models/reranker/jina/native,/app/models/reranker/nvidia,/app/models/reranker/qwen/Quen3-Reranker-0.6B,/app/models/reranker/bge,/app/models/reranker/mixedbread
-      -RERANK_MODEL_TYPES=nvidia_cross_encoder,jina_transformers,jina_transformers,nvidia_cross_encoder,qwen_cross_encoder,bge_cross_encoder,mixedbread_cross_encoder
+      - RERANK_MODEL_TYPES=nvidia_cross_encoder,jina_transformers,jina_transformers,nvidia_cross_encoder,qwen_cross_encoder,bge_cross_encoder,mixedbread_cross_encoder
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
