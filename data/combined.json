@@ -1322,7 +1322,7 @@
     },
     {
       "id": "74f0a1e0-89f6-47f5-b65e-8fc4327d62d7",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen, technische Dokumentation",
+      "title": "KI-Servicestelle: GPAI-Anbieterverpflichtungen, technische Dokumentation",
       "content": "-   Technische Dokumentation\n    \n    Anbieter von GPAI-Modellen erstellen und aktualisieren die technische Dokumentation des Modells, einschließlich seines Trainings- und Testverfahrens und der Ergebnisse seiner Bewertung, die mindestens die in Anhang XI aufgeführten Informationen enthält (Art. 53 Abs. 1 Buchstabe a Satz 1 AIA).\n    \n    Diese Verpflichtung gilt nicht für Anbieter von ausgenommenen Open-Source-Modellen im Sinne des Art. 2 Abs. 12 AIA, ausgenommen es handelt sich um ein GPAI-Modell mit systemischem Risiko.",
       "keywords": [],
       "availableKeywords": [],
@@ -1340,7 +1340,7 @@
     },
     {
       "id": "3960ac09-8d97-4baf-a897-eac5f554a03e",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen, Zusammenarbeit mit Behörden",
+      "title": "KI-Servicestelle: GPAI-Anbieterverpflichtungen, Zusammenarbeit mit Behörden",
       "content": "-   Zusammenarbeit mit den zuständigen Behörden\n    \n    Auf Anfrage einer zuständigen Behörde bzw. des AI Office haben Anbieter von GPAI-Modellen die oben bezeichnete technische Dokumentation zur Verfügung zu stellen (Art. 53 Abs. 1 Buchstabe a Satz 2 AIA).\n    \n    Ganz allgemein gilt, dass Anbieter von GPAI-Modellen „bei der Ausübung ihrer Zuständigkeiten und Befugnisse gemäß dieser Verordnung“ mit den zuständigen nationalen Behörden, erforderlichenfalls auch mit der Kommission, zusammenzuarbeiten haben (siehe Art. 53 Abs. 3 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1357,7 +1357,7 @@
     },
     {
       "id": "00c8f4c7-c9c8-4a8d-8c17-5bb005aeb14b",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen, Transparenz",
+      "title": "KI-Servicestelle: GPAI-Anbieterverpflichtungen, Transparenz",
       "content": "-   Transparenz und Bereitstellung von Information für Anbieter von KI-Systemen\n    \n    Anbieter von GPAI-Modellen haben für nachgelagerte Anbieter von KI-Systemen, die beabsichtigen dieses Modell in ihre KI-Systeme zu integrieren, bestimmte Informationen und Dokumentationen zu erstellen und aktualisieren sowie den Anbietern von KI-Systemen zur Verfügung stellen. Die technische Dokumentation hat die in Anhang XII genannten Mindestangaben zu erfüllen.\n    \n    Diese Informationen und Dokumentation muss Anbieter von KI-Systemen in die Lage versetzen, die Fähigkeiten und die Grenzen des GPAI-Modells „gut zu verstehen“ und sie auch befähigen, dass sie ihren Pflichten des AI Act nachkommen können (Art. 53 Abs. 1 Buchstabe b AIA)\n    \n    Diese Verpflichtung gilt nicht für Anbieter von ausgenommenen Open-Source-Modellen im Sinne des Art. 2 Abs. 12 AIA, ausgenommen es handelt sich um ein GPAI-Modell mit systemischem Risiko.",
       "keywords": [],
       "availableKeywords": [],
@@ -1375,7 +1375,7 @@
     },
     {
       "id": "92de995d-6ec6-4518-aefe-5e81d76b7db3",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen, Strategie Urheberrecht",
+      "title": "KI-Servicestelle: GPAI-Anbieterverpflichtungen, Strategie Urheberrecht",
       "content": "-   Strategie zur Einhaltung des EU-Urheberrechts\n    \n    Anbieter von GPAI-Modellen haben eine Strategie zur Einhaltung des EU-Urheberrechts samt damit zusammenhängender Rechte auch durch modernste Technologien vorzubringen. Das schließt im Besonderen die Ermittlung und Einhaltung eines gemäß Art. 4 Abs. 3 Urheberrechterichtlinie geltend gemachten Rechtsvorbehalts ein (siehe Art. 53 Abs. 1 Buchstabe c AIA).\n    \n    Anmerkung: Mit Art. 3 Urheberrechterichtlinie ([Richtlinie (EU) 2019/790](https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32019L0790 \"Link zur Urheberrechterichtlinie\")) wird normiert, dass Text- und Data Mining („TDM“) grundsätzlich betrieben werden darf. Dieses Recht kann durch einen Vorbehalt der Rechteinhaber gemäß Art. 4 Abs. 3 Urheberrechterichtlinie aber derart eingeschränkt werden, sodass nur mehr Forschungseinrichtungen und Einrichtungen des Kulturerbes TDM zulässig betreiben können.\n    \n    Bei TDM handelt es sich um einen Sammelbegriff für verschiedene Verfahren, die es ermöglichen, große Mengen von Texten oder Daten unter verschiedenen Aspekten zu durchsuchen und auszuwerten. In Österreich ist dies in [§ 42h UrhG](https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001848 \"Link zum österreichischen Urheberrechtsgesetz\") umgesetzt. Ferner sind die für das Training des GPAI-Modells verwendeten Inhalte nach einer vom AI Office bereitgestellten Vorlage zur veröffentlichen (siehe Art. 53 Abs. 1 Buchstabe d AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1396,7 +1396,7 @@
     },
     {
       "id": "8380352c-9c45-4369-b85f-2458cb560103",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen, Benennung des Bevollmächtigten",
+      "title": "KI-Servicestelle: GPAI-Anbieterverpflichtungen, Benennung des Bevollmächtigten",
       "content": "-   Benennung eines Bevollmächtigten\n    \n    Ist der Anbieter eines GPAI-Modells in einem Drittstaat niedergelassen, ist der Anbieter verpflichtet, vor Inverkehrbringen des Modells einen Bevollmächtigten innerhalb der Union zu benennen (siehe Art. 54 AIA).",
       "keywords": [],
       "availableKeywords": [],
@@ -1409,7 +1409,7 @@
     },
     {
       "id": "7d2ce9a7-cb03-4c28-aaa2-28e0f63262bf",
-      "title": "KI-Servicestelle: Anbieterverpflichtungen, GPAI-Modelle mit system. Risiko",
+      "title": "KI-Servicestelle: GPAI-Anbieterverpflichtungen, GPAI-Modelle mit system. Risiko",
       "content": "#### GPAI-Modelle mit systemischem Risiko\n\nHandelt es sich beim GPAI-Modell um ein solches mit systemischem Risiko haben Anbieter zusätzlich zu den in Art. 53 und 54 AIA genannten Pflichten auch jene des Art. 55 AIA zu erfüllen:\n\n-   Risikomanagement\n    \n    Unter dem Titel „Risikomanagement“ können die Pflichten gemäß Art. 55 Abs. 1 Buchstabe a und b zusammengefasst werden. Demnach haben Anbieter von GPAI-Modellen eine Modellevaluierung nach standardisierten Protokollen und Instrumenten vorzunehmen. Dies umfasst auch die Durchführung und Dokumentation von Angriffstest, um systemische Risiken zu ermitteln und zu mindern. Darüber hinaus sind ganz generell mögliche systemische Risiken auf Unionsebene – einschließlich ihrer Ursachen –, die sich aus der Entwicklung, dem Inverkehrbringen oder der Verwendung von GPAI-Modellen mit systemischem Risiko ergeben können, zu bewerten und zu mindern.\n    \n-   Meldepflicht gegenüber zuständigen Behörden bei schwerwiegenden Vorfällen\n    \n    Schwerwiegende Vorfälle sind zu dokumentieren und unverzüglich ans AI Office und gegebenenfalls an die zuständigen nationalen Behörden zu melden.\n    \n-   Cybersicherheit\n    \n    Anbieter von GPAI-Modellen haben ein „angemessenes Maß“ an Cybersicherheit und die physische Infrastruktur des Modells zu gewährleisten (siehe Art. 55 Abs. 1 Buchstabe d AIA). Beim Schutz der Cybersicherheit im Zusammenhang mit systemischen Risiken, die mit böswilliger Nutzung oder böswilligen Angriffen verbunden sind, sollte der unbeabsichtigte Modelldatenverlust, die unerlaubte Bereitstellung, die Umgehung von Sicherheitsmaßnahmen und der Schutz vor Cyberangriffen, unbefugtem Zugriff oder Modelldiebstahl gebührend beachtet werden.\n    \n    Dieser Schutz könnte durch die Sicherung von Modellgewichten, Algorithmen, Servern und Datensätzen erleichtert werden, z. B. durch Betriebssicherheitsmaßnahmen für die Informationssicherheit, spezifische Cybersicherheitsstrategien, geeignete technische und etablierte Lösungen sowie Kontrollen des physischen Zugangs und des Cyberzugangs, die den jeweiligen Umständen und den damit verbundenen Risiken angemessen sind (siehe Erwägungsgründe 115).",
       "keywords": [],
       "availableKeywords": [],
