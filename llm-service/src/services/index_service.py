@@ -65,8 +65,15 @@ class IndexService:
         LOGGER.debug(f"Creating index for dataset <{dataset_id}> from <{chunks_path}>")
 
         if dataset_id in self.vector_store and not force_recreate:
-            LOGGER.info(f"Index for dataset <{dataset_id}> already exists, skipping")
-            return
+            configured_model = self.embedding_service.model_for_dataset(dataset_id)
+            indexed_model = self.vector_store[dataset_id].get("embedding_model")
+            if indexed_model == configured_model:
+                LOGGER.info(f"Index for dataset <{dataset_id}> already exists, skipping")
+                return
+            LOGGER.info(
+                f"Recreating dataset <{dataset_id}> because embedding model changed "
+                f"from <{indexed_model}> to <{configured_model}>"
+            )
 
         if not os.path.exists(chunks_path):
             raise FileNotFoundError(f"Chunks file not found: {chunks_path}")
@@ -91,9 +98,15 @@ class IndexService:
             if isinstance(chunk, ChunkNode) and chunk.content.strip()
         ]
 
-        LOGGER.debug(f"Generating embeddings for <{len(chunk_nodes)}> chunks")
+        embedding_model = self.embedding_service.model_for_dataset(manual_index.id)
+        LOGGER.debug(
+            f"Generating embeddings for <{len(chunk_nodes)}> chunks with "
+            f"model <{embedding_model}>"
+        )
         embeddings = await self.embedding_service.generate_embeddings_batch(
-            [chunk.content for chunk in chunk_nodes]
+            [chunk.content for chunk in chunk_nodes],
+            dataset_id=manual_index.id,
+            model=embedding_model,
         )
 
         valid_chunk_ids = {chunk.id for chunk in chunk_nodes}
@@ -101,6 +114,7 @@ class IndexService:
             "id": manual_index.id,
             "creation_date": manual_index.creation_date,
             "last_updated": manual_index.last_updated,
+            "embedding_model": embedding_model,
             "chunks": [
                 {
                     "id": chunk.id,
@@ -465,14 +479,24 @@ class IndexService:
                 detail=f"Dataset '{dataset_id}' not found. Available: {self.list_datasets()}",
             )
 
-        embedding_response = await self.embedding_service.generate_embedding(query)
+        embedding_model = self.embedding_service.model_for_dataset(dataset_id)
+        index_data = self.vector_store[dataset_id]
+        indexed_model = index_data.get("embedding_model")
+        if indexed_model != embedding_model:
+            raise RuntimeError(
+                f"Dataset '{dataset_id}' was indexed with embedding model "
+                f"'{indexed_model}', but query model '{embedding_model}' is configured. "
+                "Restart the service to rebuild the vector index."
+            )
+        embedding_response = await self.embedding_service.generate_embedding(
+            query, dataset_id=dataset_id, model=embedding_model
+        )
         duration = 0.0
         if "total_duration" in embedding_response:
             duration = embedding_response["total_duration"] / 1_000_000_000
             LOGGER.debug(f"Total duration for embedding from ollama: {str(duration)}")
 
         query_vector = embedding_response.embeddings[0]
-        index_data = self.vector_store[dataset_id]
         top_chunks = self.get_top_chunks(query_vector, index_data["chunks"])
 
         LOGGER.debug(
