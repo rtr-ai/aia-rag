@@ -67,7 +67,7 @@ class ChatService:
 
             metadata = {
                 "request_id": request_id, "dataset": request.dataset,
-                "llm_model": self.model, "embedding_model": self.embedding_service.model,
+                "llm_model": self.model, "embedding_model": self.index_service.embedding_service.model_for_dataset(request.dataset),
                 "generate_answer": request.generate_answer,
                 "llm_used": request.generate_answer,
                 "context_window": CONTEXT_WINDOW,
