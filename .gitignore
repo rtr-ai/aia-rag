@@ -1,8 +1,10 @@
 *.local
 *.local.yml
 matomo.env
+# Ignore the local Ollama publishing notes file
 answers_auto_test/compare_answers_test.py
 data/chunks/
 models/
 *.gguf
 *.safetensors
+how to publish model to ollama.md

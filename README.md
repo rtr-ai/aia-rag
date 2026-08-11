@@ -204,8 +204,7 @@ When retrieving chunks for a specific user prompt, the LLM Service checks the fo
       - ROOT_PATH=/llm-service
       - TOP_N_CHUNKS=25
       - RERANK_ENABLED=true
-      - RERANK_TOP_N=25
-      - RERANK_MODEL_PATHS=/app/models/reranker/jina-reranker-v3-Q4_K_M.gguf
+      - RERANK_TOP_N=25-Q4_K_M.gguf
       - RERANK_MODEL_TYPES=jina_gguf
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=60
