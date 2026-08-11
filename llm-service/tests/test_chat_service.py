@@ -97,6 +97,23 @@ class ChatServiceRetrievalOnlyTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertTrue(request.generate_answer)
 
+    def test_skip_retrieval_requires_final_prompt(self):
+        with self.assertRaisesRegex(ValueError, "final_prompt is required"):
+            ChatRequest(prompt="Question", skip_retrieval=True)
+
+    def test_skip_retrieval_requires_answer_generation(self):
+        with self.assertRaisesRegex(ValueError, "generate_answer must be true"):
+            ChatRequest(
+                prompt="Question",
+                final_prompt="Complete prompt",
+                skip_retrieval=True,
+                generate_answer=False,
+            )
+
+    def test_final_prompt_requires_skip_retrieval(self):
+        with self.assertRaisesRegex(ValueError, "skip_retrieval must be true"):
+            ChatRequest(prompt="Question", final_prompt="Complete prompt")
+
     async def test_retrieval_only_emits_sources_and_skips_llm(self):
         service = self.build_service()
         request = ChatRequest(
@@ -163,6 +180,56 @@ class ChatServiceRetrievalOnlyTest(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(metadata["llm_used"])
         self.assertIn("assistant", [event["type"] for event in events])
         generate_prompt.assert_called_once()
+
+    async def test_final_prompt_mode_skips_retrieval_and_prompt_construction(self):
+        service = self.build_service()
+        received_prompts = []
+
+        async def ollama_response(prompt):
+            received_prompts.append(prompt)
+            yield {"message": {"content": "Approved-context answer"}}
+
+        service.prompt_ollama = ollama_response
+        request = ChatRequest(
+            prompt="Question",
+            final_prompt="Exact complete prompt",
+            skip_retrieval=True,
+        )
+
+        with patch(
+            "services.chat_service.PowerMeterService", FakePowerMeter
+        ), patch(
+            "services.chat_service.generate_prompt"
+        ) as generate_prompt, patch.object(
+            sys.modules["services.chat_service"].matomo_service,
+            "track_event",
+        ):
+            events = await collect_events(service, request)
+
+        event_types = [event["type"] for event in events]
+        self.assertEqual(
+            event_types,
+            [
+                "heartbeat",
+                "queue_position",
+                "metadata",
+                "sources",
+                "user",
+                "assistant",
+                "power_response",
+            ],
+        )
+        metadata = next(
+            event["content"] for event in events if event["type"] == "metadata"
+        )
+        self.assertTrue(metadata["retrieval_skipped"])
+        self.assertIsNone(metadata["embedding_model"])
+        self.assertEqual(metadata["rerank"]["reason"], "retrieval_skipped")
+        self.assertEqual(service.index_service.calls, [])
+        generate_prompt.assert_not_called()
+        self.assertEqual(received_prompts, ["Exact complete prompt"])
+        user_event = next(event for event in events if event["type"] == "user")
+        self.assertEqual(user_event["content"], "Exact complete prompt")
 
 
 if __name__ == "__main__":

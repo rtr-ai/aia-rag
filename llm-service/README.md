@@ -14,9 +14,27 @@ This endpoint allows Promting an LLM, where a user can send a prompt and receive
 ```json
 {
   "prompt": "string",
-  "model": "string"  // Optional: Specify a model if different from the default
+  "dataset": "ai_act_de",
+  "use_rerank": false,
+  "generate_answer": true
 }
 ```
+
+Internal evaluation tools can bypass retrieval and provide the complete prompt:
+
+```json
+{
+  "prompt": "Original question",
+  "final_prompt": "System prompt + approved sources + question",
+  "skip_retrieval": true,
+  "generate_answer": true
+}
+```
+
+In this mode the service does not call embeddings, retrieval, reranking, related
+chunk expansion, or normal prompt construction. Metadata contains
+`"retrieval_skipped": true`. `final_prompt` is accepted only together with
+`skip_retrieval=true`, and skip-retrieval mode always requires answer generation.
 
 **Response**:  
 Streams a series of events, each in the following format:
