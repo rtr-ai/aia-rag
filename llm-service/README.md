@@ -135,6 +135,22 @@ docker exec llm-service-develop python -c "import torch, sentence_transformers; 
 ```
 
 
+### Dataset-specific embedding models
+
+EMBEDDING_MODELS_BY_DATASET maps each dataset to the Ollama embedding model
+used for both indexing and query embedding. EMBEDDING_MODELS remains the
+fallback list and should include every model that startup must verify.
+
+EMBEDDING_QUERY_PREFIXES and EMBEDDING_PASSAGE_PREFIXES are JSON maps keyed
+by model name. For the fine-tuned Snowflake model, configure query: only as
+the query prefix; passage text remains unchanged. Prefixes are added exactly once.
+
+Each vector index records its embedding model. Startup recreates an index when
+the configured dataset model differs from the stored model, and /chat metadata
+reports the selected embedding model. Activating the fine-tuned ai_act_de
+model therefore requires its Ollama model to be registered before startup.
+
+
 ### Volumes
 
 - **`./data/aia_chunks_index.json:/app/data/chunks.json`**: This volume mounts a local file (`aia_chunks_index.json`) from the host machine to the container at `/app/data/chunks.json`. This file is used to generate vectore store index from manually annotated chunks.

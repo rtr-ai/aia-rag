@@ -6,12 +6,13 @@ from utils.logger import get_logger
 from contextlib import asynccontextmanager
 from api.router import router as api_router
 from services.index_service import IndexService
+from services.embedding_service import configured_embedding_models
 from fastapi.middleware.cors import CORSMiddleware
 from services.dataset_configuration import DatasetConfiguration
 
 LOGGER = get_logger(__name__)
 
-EMBEDDING_MODELS = os.getenv("EMBEDDING_MODELS", "").split(",")
+EMBEDDING_MODELS = configured_embedding_models()
 LLM_MODELS = os.getenv("LLM_MODELS", "").split(",")
 ROOT_PATH = os.getenv("ROOT_PATH", "")
 DATA_DIR = "/app/data"

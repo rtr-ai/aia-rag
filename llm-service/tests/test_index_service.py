@@ -162,6 +162,28 @@ class ContextWindowPackingTest(unittest.TestCase):
         )
 
 
+class EmbeddingModelIdentityTest(unittest.IsolatedAsyncioTestCase):
+    async def test_query_rejects_index_created_by_different_model(self):
+        service = object.__new__(IndexService)
+        service.vector_store = {
+            "ai_act_de": {
+                "embedding_model": "old-model",
+                "chunks": [],
+            }
+        }
+        service.embedding_service = type(
+            "EmbeddingSelector",
+            (),
+            {"model_for_dataset": lambda self, dataset_id: "new-model"},
+        )()
+
+        with self.assertRaisesRegex(RuntimeError, "Restart the service"):
+            await service.query_index(
+                dataset_id="ai_act_de",
+                query="Question",
+                request_id="request",
+            )
+
+
 if __name__ == "__main__":
     unittest.main()
-

@@ -62,6 +62,9 @@ class FakePowerMeter:
 class FakeIndexService:
     def __init__(self):
         self.calls = []
+        self.embedding_service = types.SimpleNamespace(
+            model_for_dataset=lambda dataset_id: "dataset-embedding"
+        )
 
     async def query_index(self, **kwargs):
         self.calls.append(kwargs)
@@ -129,6 +132,7 @@ class ChatServiceRetrievalOnlyTest(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(metadata["generate_answer"])
         self.assertFalse(metadata["llm_used"])
         self.assertTrue(metadata["rerank"]["requested"])
+        self.assertEqual(metadata["embedding_model"], "dataset-embedding")
         self.assertTrue(service.index_service.calls[0]["use_rerank"])
         generate_prompt.assert_not_called()
         service.prompt_ollama.assert_not_called()

@@ -28,9 +28,10 @@ STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "power")
 
 class PowerMeterService:
     def __init__(self):
+        self.gpu_available = False
+        self.handle = None
         self.logger = get_logger(__name__)
-        if not os.path.exists(STORAGE_PATH):
-            os.makedirs(STORAGE_PATH)
+        os.makedirs(STORAGE_PATH, exist_ok=True)
         self.storage_path = os.path.join(STORAGE_PATH, "index_power_consumption.json")
 
         try:
@@ -39,7 +40,6 @@ class PowerMeterService:
             self.handle = nvml.nvmlDeviceGetHandleByIndex(0)
         except Exception as e:
             self.logger.warning(f"GPU monitoring not available: {e}")
-            self.gpu_available = False
 
         self._start_time: Optional[float] = None
         self._start_cpu_energy = None
@@ -202,8 +202,8 @@ class PowerMeterService:
         )
 
     def __del__(self):
-        if self.gpu_available:
+        if getattr(self, "gpu_available", False):
             try:
                 nvml.nvmlShutdown()
-            except:
+            except Exception:
                 pass
