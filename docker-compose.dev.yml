@@ -34,7 +34,7 @@ services:
       - 'EMBEDDING_QUERY_PREFIXES={"snowflake-arctic-embed2-ai-act-cc":"query: "}'
       - LLM_MODELS=mistral-small,mistral-nemo,granite3.1-dense,phi4,llama3.1:8b-instruct-fp16,mixtral:8x7b-instruct-v0.1-q2_K,gpt-oss
       - ALLOWED_ORIGINS=http://rag.ki.rtr.at,https://rag.ki.rtr.at,http://chat.ki.rtr.at,https://chat.ki.rtr.at
-      - TEMPERATURE=0.1
+      - TEMPERATURE=0.0
       - CONTEXT_WINDOW=25000
       - PROMPT_BUFFER=4500
       - ROOT_PATH=/llm-service
