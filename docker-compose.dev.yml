@@ -34,13 +34,13 @@ services:
       - 'EMBEDDING_QUERY_PREFIXES={"snowflake-arctic-embed2-ai-act-cc":"query: "}'
       - LLM_MODELS=mistral-small,mistral-nemo,granite3.1-dense,phi4,llama3.1:8b-instruct-fp16,mixtral:8x7b-instruct-v0.1-q2_K,gpt-oss
       - ALLOWED_ORIGINS=http://rag.ki.rtr.at,https://rag.ki.rtr.at,http://chat.ki.rtr.at,https://chat.ki.rtr.at
-      - TEMPERATURE=0.4
+      - TEMPERATURE=0.2
       - CONTEXT_WINDOW=25000
       - PROMPT_BUFFER=4500
       - ROOT_PATH=/llm-service
       - TOP_N_CHUNKS=30
       - RERANK_ENABLED=true
-      - RERANK_TOP_N=15
+      - RERANK_TOP_N=13
       - RERANK_MODEL_PATHS=/app/models/reranker/qwen/qwen-reranker-ai-act-1e-8pn-138q
       - RERANK_MODEL_TYPES=qwen_cross_encoder
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
