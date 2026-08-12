@@ -223,6 +223,10 @@ class ChatServiceRetrievalOnlyTest(unittest.IsolatedAsyncioTestCase):
             event["content"] for event in events if event["type"] == "metadata"
         )
         self.assertTrue(metadata["retrieval_skipped"])
+        self.assertEqual(
+            metadata["temperature"],
+            sys.modules["services.chat_service"].TEMPERATURE,
+        )
         self.assertIsNone(metadata["embedding_model"])
         self.assertEqual(metadata["rerank"]["reason"], "retrieval_skipped")
         self.assertEqual(service.index_service.calls, [])

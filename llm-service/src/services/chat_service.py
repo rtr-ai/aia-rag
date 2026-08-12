@@ -93,6 +93,7 @@ class ChatService:
                 "generate_answer": request.generate_answer,
                 "llm_used": request.generate_answer,
                 "retrieval_skipped": request.skip_retrieval,
+                "temperature": TEMPERATURE,
                 "context_window": CONTEXT_WINDOW,
                 "prompt_buffer": int(os.getenv("PROMPT_BUFFER", "1500")),
                 "top_n_chunks": int(os.getenv("TOP_N_CHUNKS", "15")),
