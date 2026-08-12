@@ -47,7 +47,7 @@ services:
       - DATASETS={"ai_act_de":"combined.json","ai_act_en":"combined_en_new.json", "data_act_de":"combined_da.json"}
       - SYSTEM_PROMPTS_FILE=system_prompts.json
     volumes:
-      - /app/logs:/app/logs/
+      - /app/logs-develop:/app/logs/
       - ./data/combined.json:/app/data/combined.json
       - ./data/combined_en_new.json:/app/data/combined_en_new.json
       - ./data/combined_da.json:/app/data/combined_da.json
