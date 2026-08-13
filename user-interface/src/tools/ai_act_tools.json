@@ -1,0 +1,210 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "ai_act_durchsuchen",
+      "description": "Semantische Suche über den vollständigen AI Act (konsolidierte Fassung einschließlich der Omnibus-Änderungen), die Erwägungsgründe sowie das RTR-Informationsmaterial. Die EU-Leitlinien sind NICHT in diesem Korpus enthalten – dafür 'leitlinien_durchsuchen' verwenden. Dieses Tool sollte in fast allen Fällen ZUERST aufgerufen werden, bevor andere Tools genutzt werden. Rückgabe: eine generierte Antwort, die die relevanten gefundenen Informationen zur Suchanfrage zusammenfasst, stets mit präzisen Quellenangaben (z. B. 'Art. 5 Abs. 1 lit. a AI Act', 'EG 12', 'RTR-Informationsmaterial: <Titel>').",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "suchanfrage": {
+            "type": "string",
+            "description": "Die Suchanfrage in natürlicher Sprache. Sollte die Nutzerfrage präzise und mit relevanten Fachbegriffen wiedergeben, z. B. 'Transparenzpflichten für Chatbots gegenüber natürlichen Personen'."
+          }
+        },
+        "required": ["suchanfrage"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "leitlinien_durchsuchen",
+      "description": "Semantische Suche über die von der EU-Kommission veröffentlichten Leitlinien zum AI Act. Dies ist NICHT der Rechtstext selbst, sondern erläuternde Dokumente der Kommission, die bestimmte Aspekte des AI Act näher erklären. Geeignet für Detail- und Auslegungsfragen, nachdem 'ai_act_durchsuchen' bereits aufgerufen wurde. Verfügbare Leitlinien (Kürzel: Inhalt):\n- KI-DEF – Leitlinien zur Definition eines KI-Systems: Erklärt, wann Software als 'KI-System' im Sinne des AI Act gilt und wann nicht.\n- VERBOTE – Leitlinien zu verbotenen KI-Praktiken: Erläutert die Verbote aus Art. 5, etwa Manipulation, Social Scoring, biometrische Kategorisierung und bestimmte Gesichtserkennung.\n- GPAI-PFLICHTEN – Leitlinien zum Umfang der Pflichten für Anbieter von General-Purpose-AI-Modellen: Klärt, was ein GPAI-Modell ist, wer als Anbieter gilt und welche Pflichten beziehungsweise Ausnahmen greifen.\n- TRANSPARENZ-50 – Entwurf der Leitlinien zur Umsetzung der Transparenzpflichten nach Art. 50: Erklärt Kennzeichnungs-, Offenlegungs- und Informationspflichten für Chatbots, KI-Inhalte, Deepfakes und bestimmte Texte.\n- HOCHRISIKO – Entwurf der Leitlinien zur Einstufung von Hochrisiko-KI-Systemen: Erklärt die Hochrisiko-Einstufung nach Art. 6 und den Anhängen I und III anhand zahlreicher Beispiele.\n- GPAI-COP – General-Purpose AI Code of Practice: Freiwilliger Compliance-Rahmen für GPAI-Anbieter mit Kapiteln zu Transparenz, Urheberrecht sowie Sicherheit und systemischen Risiken.\n- CONTENT-COP – Code of Practice on Transparency of AI-Generated Content: Praktische Regeln zur maschinenlesbaren Markierung von KI-Inhalten sowie zur Kennzeichnung von Deepfakes und bestimmten KI-Texten.\nRückgabe: eine generierte Antwort auf Basis der gefundenen Textstellen, stets mit Angabe der jeweiligen Leitlinie als Quelle. Bei TRANSPARENZ-50 und HOCHRISIKO wird der Entwurfsstatus in der Antwort gekennzeichnet.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "suchanfrage": {
+            "type": "string",
+            "description": "Die Suchanfrage in natürlicher Sprache."
+          },
+          "leitlinien": {
+            "type": "array",
+            "description": "Optional: Kürzel der Leitlinien, auf die die Suche eingeschränkt werden soll. Wird der Parameter weggelassen, wird der gesamte Leitlinien-Korpus durchsucht.",
+            "items": {
+              "type": "string",
+              "enum": ["KI-DEF", "VERBOTE", "GPAI-PFLICHTEN", "TRANSPARENZ-50", "HOCHRISIKO", "GPAI-COP", "CONTENT-COP"]
+            }
+          }
+        },
+        "required": ["suchanfrage"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "artikel_nachschlagen",
+      "description": "Lädt den vollständigen Text einzelner Artikel, Erwägungsgründe oder Anhänge des AI Act (konsolidierte Fassung einschließlich der Omnibus-Änderungen). Verwenden, wenn eine konkrete Fundstelle bereits bekannt ist und im Wortlaut benötigt wird – etwa nachdem 'ai_act_durchsuchen' auf einen Artikel verwiesen hat. Referenzformat (exakt einhalten):\n- Artikel: 'Art. <Nummer>' – z. B. 'Art. 6', 'Art. 4a', 'Art. 75b'\n- Erwägungsgrund: 'EG <Nummer>' – z. B. 'EG 12'\n- Anhang: 'Anhang <römische Zahl>' – z. B. 'Anhang III'\nEs werden immer ganze Artikel/Erwägungsgründe/Anhänge zurückgegeben, keine einzelnen Absätze. Rückgabe: der Wortlaut bzw. eine darauf gestützte Antwort mit Quellenangabe je Fundstelle.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "referenzen": {
+            "type": "array",
+            "description": "Liste der nachzuschlagenden Fundstellen im angegebenen Format, z. B. [\"Art. 6\", \"Anhang III\", \"EG 12\"].",
+            "items": {
+              "type": "string",
+              "pattern": "^(Art\\. \\d+[a-z]?|EG \\d+|Anhang [IVXLC]+)$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": ["referenzen"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "definition_nachschlagen",
+      "description": "Schlägt die offiziellen Begriffsbestimmungen des AI Act (Art. 3) für einen oder mehrere Begriffe nach. Nur die im Schema aufgeführten Begriffe sind definiert; für verwandte oder nicht gelistete Begriffe stattdessen 'ai_act_durchsuchen' verwenden. Rückgabe: die Definition(en) im Wortlaut mit Quellenangabe (Art. 3 Nr. <x> AI Act).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "begriffe": {
+            "type": "array",
+            "description": "Ein oder mehrere nachzuschlagende Begriffe.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "KI-System",
+                "Risiko",
+                "Anbieter",
+                "Betreiber",
+                "Bevollmächtigter",
+                "Einführer",
+                "Händler",
+                "Akteur",
+                "Inverkehrbringen",
+                "Bereitstellung auf dem Markt",
+                "Inbetriebnahme",
+                "Zweckbestimmung",
+                "vernünftigerweise vorhersehbare Fehlanwendung",
+                "Sicherheitsbauteil",
+                "Betriebsanleitungen",
+                "Rückruf eines KI-Systems",
+                "Rücknahme eines KI-Systems",
+                "Leistung eines KI-Systems",
+                "notifizierende Behörde",
+                "Konformitätsbewertung",
+                "Konformitätsbewertungsstelle",
+                "notifizierte Stelle",
+                "wesentliche Veränderung",
+                "CE-Kennzeichnung",
+                "System zur Beobachtung nach dem Inverkehrbringen",
+                "Marktüberwachungsbehörde",
+                "harmonisierte Norm",
+                "gemeinsame Spezifikation",
+                "Trainingsdaten",
+                "Validierungsdaten",
+                "Validierungsdatensatz",
+                "Testdaten",
+                "Eingabedaten",
+                "biometrische Daten",
+                "biometrische Identifizierung",
+                "biometrische Verifizierung",
+                "besondere Kategorien personenbezogener Daten",
+                "sensible operative Daten",
+                "Emotionserkennungssystem",
+                "System zur biometrischen Kategorisierung",
+                "biometrisches Fernidentifizierungssystem",
+                "biometrisches Echtzeit-Fernidentifizierungssystem",
+                "System zur nachträglichen biometrischen Fernidentifizierung",
+                "öffentlich zugänglicher Raum",
+                "Strafverfolgungsbehörde",
+                "Strafverfolgung",
+                "Büro für Künstliche Intelligenz",
+                "zuständige nationale Behörde",
+                "schwerwiegender Vorfall",
+                "personenbezogene Daten",
+                "nicht personenbezogene Daten",
+                "Profiling",
+                "Plan für einen Test unter Realbedingungen",
+                "Plan für das Reallabor",
+                "KI-Reallabor",
+                "KI-Kompetenz",
+                "Test unter Realbedingungen",
+                "Testteilnehmer",
+                "informierte Einwilligung",
+                "Deepfake",
+                "weitverbreiteter Verstoß",
+                "kritische Infrastrukturen",
+                "KI-Modell mit allgemeinem Verwendungszweck",
+                "Fähigkeiten mit hoher Wirkkraft",
+                "systemisches Risiko",
+                "KI-System mit allgemeinem Verwendungszweck",
+                "Gleitkommaoperation",
+                "nachgelagerter Anbieter"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": ["begriffe"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "anwendbarkeit_pruefen",
+      "description": "Prüft, ab wann Vorschriften des AI Act gelten (zeitliche Anwendbarkeit nach Art. 113 einschließlich der Omnibus-Änderungen). Verwenden bei Fragen wie 'Gilt Art. X schon?' oder 'Ab wann muss Pflicht Y erfüllt werden?'. Referenzformat:\n- Ganzer Artikel: 'Art. <Nummer>' – z. B. 'Art. 6'\n- Einzelner Absatz: 'Art. <Nummer> Abs. <Nummer>' – z. B. 'Art. 6 Abs. 5'\n- Buchstabe: 'Art. <Nummer> Abs. <Nummer> lit. <Buchstabe>' – z. B. 'Art. 5 Abs. 1 lit. ba'\nDie Absatz-Ebene ist relevant, weil einzelne Absätze abweichende Geltungsbeginne haben können (z. B. gilt Art. 6 Abs. 5 früher als der Rest von Art. 6). Wird ein ganzer Artikel übergeben, nennt die Antwort auch alle Absätze mit abweichendem Geltungsbeginn. Rückgabe: je Referenz der Geltungsbeginn, ob die Vorschrift zum Stichtag bereits anwendbar ist, und die Rechtsgrundlage des Geltungsbeginns als Quelle.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "referenzen": {
+            "type": "array",
+            "description": "Liste der zu prüfenden Vorschriften im angegebenen Format, z. B. [\"Art. 6 Abs. 5\", \"Art. 50\"].",
+            "items": {
+              "type": "string",
+              "pattern": "^Art\\. \\d+[a-z]?( Abs\\. \\d+[a-z]?)?( lit\\. [a-z]+)?$"
+            },
+            "minItems": 1
+          },
+          "stichtag": {
+            "type": "string",
+            "description": "Optional: Stichtag im Format JJJJ-MM-TT, zu dem die Anwendbarkeit bewertet wird. Wird der Parameter weggelassen, gilt das heutige Datum.",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
+        },
+        "required": ["referenzen"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "rueckfrage_nutzer",
+      "description": "Stellt dem Nutzer EINE gezielte Rückfrage, um eine für die Beantwortung entscheidende Information zu klären, die aus der ursprünglichen Frage nicht eindeutig hervorgeht (z. B. ob eine Person Anbieter oder Betreiber ist, in welchem Kontext ein KI-System eingesetzt wird, oder welche konkrete Praktik gemeint ist). Nur verwenden, wenn die fehlende Angabe die Antwort maßgeblich verändern würde und sich NICHT durch die anderen Tools klären lässt – nicht für Nebensächlichkeiten oder um bloß Zustimmung einzuholen. Dieses Tool darf pro Anfrage HÖCHSTENS EINMAL aufgerufen werden; danach ist die Frage mit den dann vorliegenden Informationen bestmöglich zu beantworten (bei fortbestehender Unklarheit die getroffene Annahme offenlegen). Wenn möglich zuerst 'ai_act_durchsuchen' nutzen, um zu prüfen, ob die Rückfrage überhaupt nötig ist. Rückgabe: die vom Nutzer gewählte Antwort; der Agentenlauf pausiert bis zur Nutzereingabe.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "frage": {
+            "type": "string",
+            "description": "Die konkrete, für den Nutzer verständlich formulierte Rückfrage. Kurz und auf die eine entscheidende Unklarheit fokussiert, z. B. 'Setzen Sie das KI-System selbst ein oder bieten Sie es anderen an?'."
+          },
+          "antwortmoeglichkeiten": {
+            "type": "array",
+            "description": "Zwei bis fünf vorgegebene, sich gegenseitig ausschließende Antwortoptionen, aus denen der Nutzer auswählt. Jede Option kurz und eindeutig formulieren, z. B. ['Ich setze es selbst ein (Betreiber)', 'Ich biete es anderen an (Anbieter)', 'Beides']. Muss die aus Sicht des AI Act relevanten Fälle abdecken.",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "maxItems": 5
+          }
+        },
+        "required": ["frage", "antwortmoeglichkeiten"]
+      }
+    }
+  }
+]
