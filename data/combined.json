@@ -43,7 +43,6 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09",
         "f9b21785-6f87-4438-8810-147304eb4d7e",
         "a010e5cb-6b93-499f-ad13-0a86a4c6239a"
       ],
@@ -480,7 +479,6 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09",
         "38517ea5-282c-498e-8559-1df8a9f2efdb"
       ],
       "parameters": []
@@ -837,7 +835,6 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09",
         "ba7d5b49-ef13-4d72-8b07-4524ff3dc1e6"
       ],
       "parameters": []
@@ -1368,8 +1365,7 @@
         "b908b1fb-c1a0-41d0-85cd-96d3d195d360",
         "0a6d98df-01bf-4a5c-b316-f87ecb2b8f17",
         "b5f38203-47bc-4aba-a5fb-0270a939ad11",
-        "867f6662-88e1-490c-9191-9ba91afbd52d",
-        "55e8665d-afb5-46d1-b258-64f964b08d09"
+        "867f6662-88e1-490c-9191-9ba91afbd52d"
       ],
       "parameters": []
     },
@@ -2279,7 +2275,6 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "be26e0cd-4d28-42f6-8560-20e6911c4c4f",
-        "55e8665d-afb5-46d1-b258-64f964b08d09",
         "e7a7f354-d2ea-480e-80eb-6f29beca4569"
       ],
       "parameters": []
@@ -2290,9 +2285,7 @@
       "content": "(10) Das Grundrecht auf Schutz personenbezogener Daten wird insbesondere durch die Verordnungen (EU) 2016/679 (Fußnote 11) und (EU) 2018/1725 (Fußnote 12) des Europäischen Parlaments und des Rates und die Richtlinie (EU) 2016/680 des Europäischen Parlaments und des Rates (Fußnote 13) gewahrt. Die Richtlinie 2002/58/EG des Europäischen Parlaments und des Rates (Fußnote 14) schützt darüber hinaus die Privatsphäre und die Vertraulichkeit der Kommunikation, auch durch Bedingungen für die Speicherung personenbezogener und nicht personenbezogener Daten auf Endgeräten und den Zugang dazu. Diese Rechtsakte der Union bieten die Grundlage für eine nachhaltige und verantwortungsvolle Datenverarbeitung, auch wenn Datensätze eine Mischung aus personenbezogenen und nicht-personenbezogenen Daten enthalten. Diese Verordnung soll die Anwendung des bestehenden Unionsrechts zur Verarbeitung personenbezogener Daten, einschließlich der Aufgaben und Befugnisse der unabhängigen Aufsichtsbehörden, die für die Überwachung der Einhaltung dieser Instrumente zuständig sind, nicht berühren. Sie lässt ferner die Pflichten der Anbieter und Betreiber von KI-Systemen in ihrer Rolle als Verantwortliche oder Auftragsverarbeiter, die sich aus dem Unionsrecht oder dem nationalen Recht über den Schutz personenbezogener Daten ergeben, unberührt, soweit die Konzeption, die Entwicklung oder die Verwendung von KI-Systemen die Verarbeitung personenbezogener Daten umfasst. Ferner sollte klargestellt werden, dass betroffene Personen weiterhin über alle Rechte und Garantien verfügen, die ihnen durch dieses Unionsrecht gewährt werden, einschließlich der Rechte im Zusammenhang mit der ausschließlich automatisierten Entscheidungsfindung im Einzelfall und dem Profiling. Harmonisierte Vorschriften für das Inverkehrbringen, die Inbetriebnahme und die Verwendung von KI-Systemen, die im Rahmen dieser Verordnung festgelegt werden, sollten die wirksame Durchführung erleichtern und die Ausübung der Rechte betroffener Personen und anderer Rechtsbehelfe, die im Unionsrecht über den Schutz personenbezogener Daten und anderer Grundrechte garantiert sind, ermöglichen. Fußnote 11: Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates vom 27. April 2016 zum Schutz natürlicher Personen bei der Verarbeitung personenbezogener Daten, zum freien Datenverkehr und zur Aufhebung der Richtlinie 95/46/EG (Datenschutz-Grundverordnung) (ABl. L 119 vom 4.5.2016, S. 1)., Fußnote 12: Verordnung (EU) 2018/1725 des Europäischen Parlaments und des Rates vom 23. Oktober 2018 zum Schutz natürlicher Personen bei der Verarbeitung personenbezogener Daten durch die Organe, Einrichtungen und sonstigen Stellen der Union, zum freien Datenverkehr und zur Aufhebung der Verordnung (EG) Nr. 45/2001 und des Beschlusses Nr. 1247/2002/EG (ABl. L 295 vom 21.11.2018, S. 39)., Fußnote 13: Richtlinie (EU) 2016/680 des Europäischen Parlaments und des Rates vom 27. April 2016 zum Schutz natürlicher Personen bei der Verarbeitung personenbezogener Daten durch die zuständigen Behörden zum Zwecke der Verhütung, Ermittlung, Aufdeckung oder Verfolgung von Straftaten oder der Strafvollstreckung sowie zum freien Datenverkehr und zur Aufhebung des Rahmenbeschlusses 2008/977/JI des Rates (ABl. L 119 vom 4.5.2016, S. 89)., Fußnote 14: Richtlinie 2002/58/EG des Europäischen Parlaments und des Rates vom 12. Juli 2002 über die Verarbeitung personenbezogener Daten und den Schutz der Privatsphäre in der elektronischen Kommunikation (Datenschutzrichtlinie für elektronische Kommunikation) (ABl. L 201 vom 31.7.2002, S. 37).",
       "keywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09"
-      ],
+      "relevantChunksIds": [],
       "parameters": []
     },
     {
@@ -2301,9 +2294,7 @@
       "content": "(11) Diese Verordnung sollte die Bestimmungen über die Verantwortlichkeit der Anbieter von Vermittlungsdiensten gemäß der Verordnung (EU) 2022/2065 des Europäischen Parlaments und des Rates (Fußnote 15) unberührt lassen. Fußnote 15: Verordnung (EU) 2022/2065 des Europäischen Parlaments und des Rates vom 19. Oktober 2022 über einen Binnenmarkt für digitale Dienste und zur Änderung der Richtlinie 2000/31/EG (Gesetz über digitale Dienste) (ABl. L 277 vom 27.10.2022, S. 1).",
       "keywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09"
-      ],
+      "relevantChunksIds": [],
       "parameters": []
     },
     {
@@ -2424,7 +2415,6 @@
       "keywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09",
         "4bcfeee1-40c1-4537-8365-ec069e10e97c"
       ],
       "parameters": []
@@ -2435,9 +2425,7 @@
       "content": "(22) Angesichts ihres digitalen Charakters sollten bestimmte KI-Systeme in den Anwendungsbereich dieser Verordnung fallen, selbst wenn sie in der Union weder in Verkehr gebracht noch in Betrieb genommen oder verwendet werden. Dies ist beispielsweise der Fall, wenn ein in der Union niedergelassener Akteur bestimmte Dienstleistungen an einen in einem Drittland niedergelassenen Akteur im Zusammenhang mit einer Tätigkeit vergibt, die von einem KI-System ausgeübt werden soll, das als hochriskant einzustufen wäre. Unter diesen Umständen könnte das von dem Akteur in einem Drittland betriebene KI-System Daten verarbeiten, die rechtmäßig in der Union erhoben und aus der Union übertragen wurden, und dem vertraglichen Akteur in der Union die aus dieser Verarbeitung resultierende Ausgabe dieses KI-Systems liefern, ohne dass dieses KI-System dabei in der Union in Verkehr gebracht, in Betrieb genommen oder verwendet würde. Um die Umgehung dieser Verordnung zu verhindern und einen wirksamen Schutz in der Union ansässiger natürlicher Personen zu gewährleisten, sollte diese Verordnung auch für Anbieter und Betreiber von KI-Systemen gelten, die in einem Drittland niedergelassen sind, soweit beabsichtigt wird, die von diesem System erzeugte Ausgabe in der Union zu verwenden. Um jedoch bestehenden Vereinbarungen und besonderen Erfordernissen für die künftige Zusammenarbeit mit ausländischen Partnern, mit denen Informationen und Beweismittel ausgetauscht werden, Rechnung zu tragen, sollte diese Verordnung nicht für Behörden eines Drittlands und internationale Organisationen gelten, wenn sie im Rahmen der Zusammenarbeit oder internationaler Übereinkünfte tätig werden, die auf Unionsebene oder nationaler Ebene für die Zusammenarbeit mit der Union oder den Mitgliedstaaten im Bereich der Strafverfolgung und der justiziellen Zusammenarbeit geschlossen wurden, vorausgesetzt dass dieses Drittland oder diese internationale Organisationen angemessene Garantien in Bezug auf den Schutz der Grundrechte und -freiheiten von Einzelpersonen bieten. Dies kann gegebenenfalls Tätigkeiten von Einrichtungen umfassen, die von Drittländern mit der Wahrnehmung bestimmter Aufgaben zur Unterstützung dieser Zusammenarbeit im Bereich der Strafverfolgung und der justiziellen Zusammenarbeit betraut wurden. Ein solcher Rahmen für die Zusammenarbeit oder für Übereinkünfte wurde bilateral zwischen Mitgliedstaaten und Drittländern oder zwischen der Europäischen Union, Europol und anderen Agenturen der Union und Drittländern und internationalen Organisationen erarbeitet. Die Behörden, die nach dieser Verordnung für die Aufsicht über die Strafverfolgungs- und Justizbehörden zuständig sind, sollten prüfen, ob diese Rahmen für die Zusammenarbeit oder internationale Übereinkünfte angemessene Garantien in Bezug auf den Schutz der Grundrechte und -freiheiten von Einzelpersonen enthalten. Empfangende nationale Behörden und Organe, Einrichtungen sowie sonstige Stellen der Union, die diese Ausgaben in der Union verwenden, sind weiterhin dafür verantwortlich, sicherzustellen, dass ihre Verwendung mit Unionsrecht vereinbar ist. Wenn diese internationalen Übereinkünfte überarbeitet oder wenn künftig neue Übereinkünfte geschlossen werden, sollten die Vertragsparteien größtmögliche Anstrengungen unternehmen, um diese Übereinkünfte an die Anforderungen dieser Verordnung anzugleichen.",
       "keywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09"
-      ],
+      "relevantChunksIds": [],
       "parameters": []
     },
     {
@@ -2446,9 +2434,7 @@
       "content": "(23) Diese Verordnung sollte auch für Organe, Einrichtungen und sonstige Stellen der Union gelten, wenn sie als Anbieter oder Betreiber eines KI-Systems auftreten.",
       "keywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09"
-      ],
+      "relevantChunksIds": [],
       "parameters": []
     },
     {
@@ -2457,9 +2443,7 @@
       "content": "(24) Wenn und soweit KI-Systeme mit oder ohne Änderungen für Zwecke in den Bereichen Militär, Verteidigung oder nationale Sicherheit in Verkehr gebracht, in Betrieb genommen oder verwendet werden, sollten sie vom Anwendungsbereich dieser Verordnung ausgenommen werden, unabhängig von der Art der Einrichtung, die diese Tätigkeiten ausübt, etwa ob es sich um eine öffentliche oder private Einrichtung handelt. In Bezug auf die Zwecke in den Bereichen Militär und Verteidigung gründet sich die Ausnahme sowohl auf Artikel 4 Absatz 2 EUV als auch auf die Besonderheiten der Verteidigungspolitik der Mitgliedstaaten und der in Titel V Kapitel 2 EUV abgedeckten gemeinsamen Verteidigungspolitik der Union, die dem Völkerrecht unterliegen, was daher den geeigneteren Rechtsrahmen für die Regulierung von KI-Systemen im Zusammenhang mit der Anwendung tödlicher Gewalt und sonstigen KI-Systemen im Zusammenhang mit Militär- oder Verteidigungstätigkeiten darstellt. In Bezug auf die Zwecke im Bereich nationale Sicherheit gründet sich die Ausnahme sowohl auf die Tatsache, dass die nationale Sicherheit gemäß Artikel 4 Absatz 2 EUV weiterhin in die alleinige Verantwortung der Mitgliedstaaten fällt, als auch auf die besondere Art und die operativen Bedürfnisse der Tätigkeiten im Bereich der nationalen Sicherheit und der spezifischen nationalen Vorschriften für diese Tätigkeiten. Wird ein KI-System, das für Zwecke in den Bereichen Militär, Verteidigung oder nationale Sicherheit entwickelt, in Verkehr gebracht, in Betrieb genommen oder verwendet wird, jedoch vorübergehend oder ständig für andere Zwecke verwendet, etwa für zivile oder humanitäre Zwecke oder für Zwecke der Strafverfolgung oder öffentlichen Sicherheit, so würde dieses System in den Anwendungsbereich dieser Verordnung fallen. In diesem Fall sollte die Einrichtung, die das KI-System für andere Zwecke als Zwecke in den Bereichen Militär, Verteidigung oder nationale Sicherheit verwendet, die Konformität des KI-Systems mit dieser Verordnung sicherstellen, es sei denn, das System entspricht bereits dieser Verordnung. KI-Systeme, die für einen ausgeschlossenen Zweck, nämlich Militär, Verteidigung oder nationale Sicherheit, und für einen oder mehrere nicht ausgeschlossene Zwecke, etwa zivile Zwecke oder Strafverfolgungszwecke, in Verkehr gebracht oder in Betrieb genommen werden, fallen in den Anwendungsbereich dieser Verordnung, und Anbieter dieser Systeme sollten die Einhaltung dieser Verordnung sicherstellen. In diesen Fällen sollte sich die Tatsache, dass ein KI-System in den Anwendungsbereich dieser Verordnung fällt, nicht darauf auswirken, dass Einrichtungen, die Tätigkeiten in den Bereichen nationale Sicherheit, Verteidigung oder Militär ausüben, KI-Systeme für Zwecke in den Bereichen nationale Sicherheit, Militär und Verteidigung verwenden können, unabhängig von der Art der Einrichtung, die diese Tätigkeiten ausübt, wobei die Verwendung vom Anwendungsbereich dieser Verordnung ausgenommen ist. Ein KI-System, das für zivile Zwecke oder Strafverfolgungszwecke in Verkehr gebracht wurde und mit oder ohne Änderungen für Zwecke in den Bereichen Militär, Verteidigung oder nationale Sicherheit verwendet wird, sollte nicht in den Anwendungsbereich dieser Verordnung fallen, unabhängig von der Art der Einrichtung, die diese Tätigkeiten ausübt.",
       "keywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09"
-      ],
+      "relevantChunksIds": [],
       "parameters": []
     },
     {
@@ -2468,9 +2452,7 @@
       "content": "(25) Diese Verordnung sollte die Innovation fördern, die Freiheit der Wissenschaft achten und Forschungs- und Entwicklungstätigkeiten nicht untergraben. Daher müssen KI-Systeme und -Modelle, die eigens für den alleinigen Zweck der wissenschaftlichen Forschung und Entwicklung entwickelt und in Betrieb genommen werden, vom Anwendungsbereich der Verordnung ausgenommen werden. Ferner muss sichergestellt werden, dass sich die Verordnung nicht anderweitig auf Forschungs- und Entwicklungstätigkeiten zu KI-Systemen und -Modellen auswirkt, bevor diese in Verkehr gebracht oder in Betrieb genommen werden. Hinsichtlich produktorientierter Forschungs-, Test- und Entwicklungstätigkeiten in Bezug auf KI-Systeme oder -Modelle sollten die Bestimmungen dieser Verordnung auch nicht vor der Inbetriebnahme oder dem Inverkehrbringen dieser Systeme und Modelle gelten. Diese Ausnahme berührt weder die Pflicht zur Einhaltung dieser Verordnung, wenn ein KI-System, das in den Anwendungsbereich dieser Verordnung fällt, infolge solcher Forschungs- und Entwicklungstätigkeiten in Verkehr gebracht oder in Betrieb genommen wird, noch die Anwendung der Bestimmungen zu KI-Reallaboren und zu Tests unter Realbedingungen. Darüber hinaus sollte unbeschadet der Ausnahme in Bezug auf KI-Systeme, die eigens für den alleinigen Zweck der wissenschaftlichen Forschung und Entwicklung entwickelt und in Betrieb genommen werden, jedes andere KI-System, das für die Durchführung von Forschungs- und Entwicklungstätigkeiten verwendet werden könnte, den Bestimmungen dieser Verordnung unterliegen. In jedem Fall sollten jegliche Forschungs- und Entwicklungstätigkeiten gemäß anerkannten ethischen und professionellen Grundsätzen für die wissenschaftliche Forschung und unter Wahrung des geltenden Unionsrechts ausgeführt werden.",
       "keywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09"
-      ],
+      "relevantChunksIds": [],
       "parameters": []
     },
     {
@@ -4329,10 +4311,11 @@
       "parameters": []
     },
     {
-      "id": "55e8665d-afb5-46d1-b258-64f964b08d09",
-      "title": "Art 2",
-      "content": "### Artikel 2: Anwendungsbereich\n(1) Diese Verordnung gilt für\na) Anbieter, die in der Union KI-Systeme in Verkehr bringen oder in Betrieb nehmen oder KI-Modelle mit allgemeinem Verwendungszweck in Verkehr bringen, unabhängig davon, ob diese Anbieter in der Union oder in einem Drittland niedergelassen sind;\nb) Betreiber von KI-Systemen, die ihren Sitz in der Union haben oder in der Union befinden;\nc) Anbieter und Betreiber von KI-Systemen, die ihren Sitz in einem Drittland haben oder sich in einem Drittland befinden, wenn die vom KI-System hervorgebrachte Ausgabe in der Union verwendet wird;\nd) Einführer und Händler von KI-Systemen;\ne) Produkthersteller, die KI-Systeme zusammen mit ihrem Produkt unter ihrem eigenen Namen oder ihrer Handelsmarke in Verkehr bringen oder in Betrieb nehmen;\nf) Bevollmächtigte von Anbietern, die nicht in der Union niedergelassen sind;\ng) betroffene Personen, die sich in der Union befinden.\n(2) Für KI-Systeme, die als Hochrisiko-KI-Systeme gemäß Artikel 6 Absatz 1 eingestuft sind und im Zusammenhang mit Produkten stehen, die unter die in Anhang I Abschnitt B aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, gelten nur Artikel 6 Absatz 1, Artikel 60a und Artikel 102 bis 112. Die Artikel 57, 58 und 59 gelten nur, soweit die Anforderungen an Hochrisiko-KI-Systeme gemäß dieser Verordnung im Rahmen der genannten Harmonisierungsrechtsvorschriften der Union übernommen wurden.\n(3) Diese Verordnung gilt nur in den unter das Unionsrecht fallenden Bereichen und berührt keinesfalls die Zuständigkeiten der Mitgliedstaaten in Bezug auf die nationale Sicherheit, unabhängig von der Art der Einrichtung, die von den Mitgliedstaaten mit der Wahrnehmung von Aufgaben im Zusammenhang mit diesen Zuständigkeiten betraut wurde.\nDiese Verordnung gilt nicht für KI-Systeme, wenn und soweit sie ausschließlich für militärische Zwecke, Verteidigungszwecke oder Zwecke der nationalen Sicherheit in Verkehr gebracht, in Betrieb genommen oder, mit oder ohne Änderungen, verwendet werden, unabhängig von der Art der Einrichtung, die diese Tätigkeiten ausübt.\nDiese Verordnung gilt nicht für KI-Systeme, die nicht in der Union in Verkehr gebracht oder in Betrieb genommen werden, wenn die Ausgaben in der Union ausschließlich für militärische Zwecke, Verteidigungszwecke oder Zwecke der nationalen Sicherheit verwendet werden, unabhängig von der Art der Einrichtung, die diese Tätigkeiten ausübt.\n(4) Diese Verordnung gilt weder für Behörden in Drittländern noch für internationale Organisationen, die gemäß Absatz 1 in den Anwendungsbereich dieser Verordnung fallen, soweit diese Behörden oder Organisationen KI-Systeme im Rahmen der internationalen Zusammenarbeit oder internationaler Übereinkünfte im Bereich der Strafverfolgung und justiziellen Zusammenarbeit mit der Union oder mit einem oder mehreren Mitgliedstaaten verwenden und sofern ein solches Drittland oder eine solche internationale Organisation angemessene Garantien hinsichtlich des Schutz der Privatsphäre, der Grundrechte und der Grundfreiheiten von Personen bietet.\n(5) Die Anwendung der Bestimmungen über die Haftung der Anbieter von Vermittlungsdiensten in Kapitel II der Verordnung 2022/2065 bleibt von dieser Verordnung unberührt.\n(6) Diese Verordnung gilt nicht für KI-Systeme oder KI-Modelle, einschließlich ihrer Ausgabe, die eigens für den alleinigen Zweck der wissenschaftlichen Forschung und Entwicklung entwickelt und in Betrieb genommen werden.\n(7) Die Rechtsvorschriften der Union zum Schutz personenbezogener Daten, der Privatsphäre und der Vertraulichkeit der Kommunikation gelten für die Verarbeitung personenbezogener Daten im Zusammenhang mit den in dieser Verordnung festgelegten Rechten und Pflichten. Unbeschadet der Artikel 4a und 59 der vorliegenden Verordnung, berührt diese Verordnung nicht die Verordnung (EU) 2016/679 bzw. (EU) 2018/1725 oder die Richtlinie 2002/58/EG bzw. (EU) 2016/680.\n(8) Diese Verordnung gilt nicht für Forschungs-, Test- und Entwicklungstätigkeiten zu KI-Systemen oder KI-Modellen, bevor diese in Verkehr gebracht oder in Betrieb genommen werden. Solche Tätigkeiten werden im Einklang mit dem geltenden Unionsrecht durchgeführt. Tests unter Realbedingungen fallen nicht unter diesen Ausschluss.\n(9) Diese Verordnung berührt nicht die Vorschriften anderer Rechtsakte der Union zum Verbraucherschutz und zur Produktsicherheit.\n(10) Diese Verordnung gilt nicht für die Pflichten von Betreibern, die natürliche Personen sind und KI-Systeme im Rahmen einer ausschließlich persönlichen und nicht beruflichen Tätigkeit verwenden.\n(11) Diese Verordnung hindert die Union oder die Mitgliedstaaten nicht daran, Rechts- oder Verwaltungsvorschriften beizubehalten oder einzuführen, die für die Arbeitnehmer im Hinblick auf den Schutz ihrer Rechte bei der Verwendung von KI-Systemen durch die Arbeitgeber vorteilhafter sind, oder die Anwendung von Kollektivvereinbarungen zu fördern oder zuzulassen, die für die Arbeitnehmer vorteilhafter sind.\n(12) Diese Verordnung gilt nicht für KI-Systeme, die unter freien und quelloffenen Lizenzen bereitgestellt werden, es sei denn, sie werden als Hochrisiko-KI-Systeme oder als ein KI-System, das unter Artikel 5 oder 50 fällt, in Verkehr gebracht oder in Betrieb genommen.\n(13) Für die in Artikel 6 Absatz 1 genannten Hochrisiko-KI-Systeme kann die Anwendung der in den Artikeln 9 bis 15 sowie 17 bis 25 festgelegten spezifischen Anforderungen oder Pflichten beschränkt werden, sofern und soweit\n a) in den in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union Anforderungen oder bzw. Pflichten vorgesehen sind, die in Bezug auf Gesundheit, Sicherheit oder Grundrechte ein gleichwertiges oder höheres Schutzniveau bieten als die betreffende Anforderung bzw. Pflicht, und\n(b) eine solche Beschränkung nicht zu einer Verringerung des in dieser Verordnung vorgesehenen allgemeinen Schutzniveaus führt.\nDie Kommission erlässt bis zum 2. August 2027 delegierte Rechtsakte gemäß Artikel 97 zur Ergänzung dieser Verordnung zu erlassen, um die betreffenden Hochrisiko-KI-Systeme, die Anforderungen oder Pflichten, die beschränkt werden können, die Bedingungen, unter denen eine solche Beschränkung gilt, und den Umfang der Beschränkung festzulegen.",
+      "id": "1ea40072-1ffb-4c5f-aa63-f36bb78d3958",
+      "title": "Art 2: Abs 1, Abs 3-13 Anwendungsbereich, Allgemein",
+      "content": "### Artikel 2: Anwendungsbereich\n(1) Diese Verordnung gilt für\na) Anbieter, die in der Union KI-Systeme in Verkehr bringen oder in Betrieb nehmen oder KI-Modelle mit allgemeinem Verwendungszweck in Verkehr bringen, unabhängig davon, ob diese Anbieter in der Union oder in einem Drittland niedergelassen sind;\nb) Betreiber von KI-Systemen, die ihren Sitz in der Union haben oder in der Union befinden;\nc) Anbieter und Betreiber von KI-Systemen, die ihren Sitz in einem Drittland haben oder sich in einem Drittland befinden, wenn die vom KI-System hervorgebrachte Ausgabe in der Union verwendet wird;\nd) Einführer und Händler von KI-Systemen;\ne) Produkthersteller, die KI-Systeme zusammen mit ihrem Produkt unter ihrem eigenen Namen oder ihrer Handelsmarke in Verkehr bringen oder in Betrieb nehmen;\nf) Bevollmächtigte von Anbietern, die nicht in der Union niedergelassen sind;\ng) betroffene Personen, die sich in der Union befinden.\n[...]\n(3) Diese Verordnung gilt nur in den unter das Unionsrecht fallenden Bereichen und berührt keinesfalls die Zuständigkeiten der Mitgliedstaaten in Bezug auf die nationale Sicherheit, unabhängig von der Art der Einrichtung, die von den Mitgliedstaaten mit der Wahrnehmung von Aufgaben im Zusammenhang mit diesen Zuständigkeiten betraut wurde.\nDiese Verordnung gilt nicht für KI-Systeme, wenn und soweit sie ausschließlich für militärische Zwecke, Verteidigungszwecke oder Zwecke der nationalen Sicherheit in Verkehr gebracht, in Betrieb genommen oder, mit oder ohne Änderungen, verwendet werden, unabhängig von der Art der Einrichtung, die diese Tätigkeiten ausübt.\nDiese Verordnung gilt nicht für KI-Systeme, die nicht in der Union in Verkehr gebracht oder in Betrieb genommen werden, wenn die Ausgaben in der Union ausschließlich für militärische Zwecke, Verteidigungszwecke oder Zwecke der nationalen Sicherheit verwendet werden, unabhängig von der Art der Einrichtung, die diese Tätigkeiten ausübt.\n(4) Diese Verordnung gilt weder für Behörden in Drittländern noch für internationale Organisationen, die gemäß Absatz 1 in den Anwendungsbereich dieser Verordnung fallen, soweit diese Behörden oder Organisationen KI-Systeme im Rahmen der internationalen Zusammenarbeit oder internationaler Übereinkünfte im Bereich der Strafverfolgung und justiziellen Zusammenarbeit mit der Union oder mit einem oder mehreren Mitgliedstaaten verwenden und sofern ein solches Drittland oder eine solche internationale Organisation angemessene Garantien hinsichtlich des Schutz der Privatsphäre, der Grundrechte und der Grundfreiheiten von Personen bietet.\n(5) Die Anwendung der Bestimmungen über die Haftung der Anbieter von Vermittlungsdiensten in Kapitel II der Verordnung 2022/2065 bleibt von dieser Verordnung unberührt.\n(6) Diese Verordnung gilt nicht für KI-Systeme oder KI-Modelle, einschließlich ihrer Ausgabe, die eigens für den alleinigen Zweck der wissenschaftlichen Forschung und Entwicklung entwickelt und in Betrieb genommen werden.\n(7) Die Rechtsvorschriften der Union zum Schutz personenbezogener Daten, der Privatsphäre und der Vertraulichkeit der Kommunikation gelten für die Verarbeitung personenbezogener Daten im Zusammenhang mit den in dieser Verordnung festgelegten Rechten und Pflichten. Unbeschadet der Artikel 4a und 59 der vorliegenden Verordnung, berührt diese Verordnung nicht die Verordnung (EU) 2016/679 bzw. (EU) 2018/1725 oder die Richtlinie 2002/58/EG bzw. (EU) 2016/680.\n(8) Diese Verordnung gilt nicht für Forschungs-, Test- und Entwicklungstätigkeiten zu KI-Systemen oder KI-Modellen, bevor diese in Verkehr gebracht oder in Betrieb genommen werden. Solche Tätigkeiten werden im Einklang mit dem geltenden Unionsrecht durchgeführt. Tests unter Realbedingungen fallen nicht unter diesen Ausschluss.\n(9) Diese Verordnung berührt nicht die Vorschriften anderer Rechtsakte der Union zum Verbraucherschutz und zur Produktsicherheit.\n(10) Diese Verordnung gilt nicht für die Pflichten von Betreibern, die natürliche Personen sind und KI-Systeme im Rahmen einer ausschließlich persönlichen und nicht beruflichen Tätigkeit verwenden.\n(11) Diese Verordnung hindert die Union oder die Mitgliedstaaten nicht daran, Rechts- oder Verwaltungsvorschriften beizubehalten oder einzuführen, die für die Arbeitnehmer im Hinblick auf den Schutz ihrer Rechte bei der Verwendung von KI-Systemen durch die Arbeitgeber vorteilhafter sind, oder die Anwendung von Kollektivvereinbarungen zu fördern oder zuzulassen, die für die Arbeitnehmer vorteilhafter sind.\n(12) Diese Verordnung gilt nicht für KI-Systeme, die unter freien und quelloffenen Lizenzen bereitgestellt werden, es sei denn, sie werden als Hochrisiko-KI-Systeme oder als ein KI-System, das unter Artikel 5 oder 50 fällt, in Verkehr gebracht oder in Betrieb genommen.\n(13) Für die in Artikel 6 Absatz 1 genannten Hochrisiko-KI-Systeme kann die Anwendung der in den Artikeln 9 bis 15 sowie 17 bis 25 festgelegten spezifischen Anforderungen oder Pflichten beschränkt werden, sofern und soweit\n a) in den in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union Anforderungen oder bzw. Pflichten vorgesehen sind, die in Bezug auf Gesundheit, Sicherheit oder Grundrechte ein gleichwertiges oder höheres Schutzniveau bieten als die betreffende Anforderung bzw. Pflicht, und\n(b) eine solche Beschränkung nicht zu einer Verringerung des in dieser Verordnung vorgesehenen allgemeinen Schutzniveaus führt.\nDie Kommission erlässt bis zum 2. August 2027 delegierte Rechtsakte gemäß Artikel 97 zur Ergänzung dieser Verordnung zu erlassen, um die betreffenden Hochrisiko-KI-Systeme, die Anforderungen oder Pflichten, die beschränkt werden können, die Bedingungen, unter denen eine solche Beschränkung gilt, und den Umfang der Beschränkung festzulegen.",
       "keywords": [],
+      "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
         "53f9c5fc-d089-4233-9a15-16964e40e3c5",
@@ -4342,8 +4325,31 @@
         "a010e5cb-6b93-499f-ad13-0a86a4c6239a",
         "a035c99d-ea59-4c78-87db-94e1b89e1980",
         "51f69443-5b55-4fb2-b1d5-31137a66e681",
-        "59e64fd2-e26e-426d-be65-48f42d265850",
+        "63f69c82-a393-43d5-bf47-0ea7b61acc5f",
+        "e419d565-51f0-41b6-92b6-c80be68c2956",
+        "aecae742-1970-41a4-aaa5-7d2389209d72",
+        "fe38e634-50f1-4fcd-972e-428ed0b00086",
+        "5258a087-d836-41b0-b6ce-6df5f13bedc9",
+        "4353602b-f09f-41e8-b609-864a7ea1a448",
+        "54902079-8fec-477d-81b8-12abdae3a221",
+        "7336e729-b4b4-4470-8d51-db20970705cc",
+        "125e0d9e-7308-4567-a0ec-8a82fa1b0d33"
+      ],
+      "parameters": []
+    },
+    {
+      "id": "f5caf88d-0887-4c94-a5f4-0004eccfcd8f",
+      "title": "Art 2: Abs 2 Anwendungsbereich, Hochrisiko-KI-Systeme",
+      "content": "### Artikel 2: Anwendungsbereich\n[...]\n(2) Für KI-Systeme, die als Hochrisiko-KI-Systeme gemäß Artikel 6 Absatz 1 eingestuft sind und im Zusammenhang mit Produkten stehen, die unter die in Anhang I Abschnitt B aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, gelten nur Artikel 6 Absatz 1, Artikel 60a und Artikel 102 bis 112. Die Artikel 57, 58 und 59 gelten nur, soweit die Anforderungen an Hochrisiko-KI-Systeme gemäß dieser Verordnung im Rahmen der genannten Harmonisierungsrechtsvorschriften der Union übernommen wurden.",
+      "keywords": [],
+      "availableKeywords": [],
+      "negativeKeywords": [],
+      "relevantChunksIds": [
         "6b073c5f-3422-4b34-b139-b8645e89b463",
+        "e7a7f354-d2ea-480e-80eb-6f29beca4569",
+        "6ad1abec-e75e-499f-9eb0-9839e8ff38cc",
+        "8c75b44d-51ac-48e9-b7d7-45c0362eaefb",
+        "4095ee13-aa11-4440-bbb9-b3bd17715a47",
         "ebc94828-7968-4986-86e5-e56a8a190012",
         "78ec7e62-bc3c-4239-afad-86ca34ac4746",
         "1b724be9-cb85-4ad6-97f8-2e4f22c482d3",
@@ -4356,27 +4362,10 @@
         "b26862b2-50cc-4243-b8a6-00c623811356",
         "5a35c644-0096-47c7-88ed-c793b728774e",
         "6f871e54-e731-4009-a4cd-39bbd19b543e",
-        "1d1f418c-443a-4e77-b70a-5415bad671e6",
-        "8c75b44d-51ac-48e9-b7d7-45c0362eaefb",
-        "6ad1abec-e75e-499f-9eb0-9839e8ff38cc",
-        "4095ee13-aa11-4440-bbb9-b3bd17715a47",
-        "e7a7f354-d2ea-480e-80eb-6f29beca4569",
         "814206ed-2f5c-4c1c-91fd-616f0a128cd3",
-        "6d7d2b9c-9224-4f54-ad18-671918597d0c",
-        "69b883ca-3e2d-46ed-b797-e2c62832a376",
-        "355be535-f654-47e6-9608-95369e856b37",
-        "40622ac2-1630-4d8b-a8a6-0aadd9c20248",
-        "e36b6aab-d7e1-44ce-8d20-d6bee82bff7d",
-        "67156c3d-d006-41f0-87e3-725cd933dbdb",
-        "91bb9b2c-b571-4042-8143-f399e538ffe2",
-        "9cd5b042-8095-49be-8ad3-51f2fb94e473",
-        "45c3bd82-bba0-434b-96d1-a4036c68969c",
-        "d74611d3-9a18-4ee9-86e8-953a959a7350",
-        "ff73c457-0b7d-4690-9417-d68464a484ea",
-        "19b32d95-81d7-4097-8ca6-ca2c6c0358df",
-        "9d898b6d-782d-4626-8838-1296950b5b7c",
-        "984b9ce1-d58b-474f-8062-48d47f385b5d",
-        "63f69c82-a393-43d5-bf47-0ea7b61acc5f"
+        "32ec33e4-0b93-498d-bf92-8f561ac77fbd",
+        "16a9d0b7-8c8e-49b4-a108-6f5c9dde3bfa",
+        "59e64fd2-e26e-426d-be65-48f42d265850"
       ],
       "parameters": []
     },
@@ -4596,7 +4585,6 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "55e8665d-afb5-46d1-b258-64f964b08d09",
         "b0915418-675d-443d-b84d-dc7b0ebb7b5b"
       ],
       "parameters": []
