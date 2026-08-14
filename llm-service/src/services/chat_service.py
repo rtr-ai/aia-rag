@@ -79,7 +79,6 @@ class ChatService:
                 final_duration = (
                     duration if duration else measurement.duration_seconds
                 )
-
             embedding_model = None
             embedding_query_prefix = None
             embedding_query_text = None
