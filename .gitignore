@@ -8,3 +8,9 @@ models/
 *.gguf
 *.safetensors
 how to publish model to ollama.md
+# Local backend tests
+/llm-service/tests/
+
+# Python-generated files
+__pycache__/
+*.py[cod]

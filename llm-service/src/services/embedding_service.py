@@ -59,6 +59,9 @@ class EmbeddingService:
             return self.query_prefixes[model]
         return "query: " if "multilingual-e5" in model else ""
 
+    def query_input_for_model(self, text: str, model: str) -> str:
+        return _with_prefix(text, self.query_prefix_for_model(model))
+
     def passage_prefix_for_model(self, model: str) -> str:
         if model in self.passage_prefixes:
             return self.passage_prefixes[model]
@@ -68,8 +71,7 @@ class EmbeddingService:
         self, input: str, dataset_id: str | None = None, model: str | None = None
     ) -> EmbedResponse:
         selected_model = model or self.model_for_dataset(dataset_id)
-        query_prefix = self.query_prefix_for_model(selected_model)
-        query_input = _with_prefix(input, query_prefix)
+        query_input = self.query_input_for_model(input, selected_model)
         response = await self.client.embed(
             model=selected_model, input=query_input
         )

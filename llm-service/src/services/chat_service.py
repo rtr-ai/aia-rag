@@ -79,20 +79,29 @@ class ChatService:
                 final_duration = (
                     duration if duration else measurement.duration_seconds
                 )
+            embedding_model = None
+            embedding_query_prefix = None
+            embedding_query_text = None
+            if not request.skip_retrieval:
+                embedding_service = self.index_service.embedding_service
+                embedding_model = embedding_service.model_for_dataset(request.dataset)
+                embedding_query_prefix = embedding_service.query_prefix_for_model(
+                    embedding_model
+                )
+                embedding_query_text = embedding_service.query_input_for_model(
+                    request.prompt, embedding_model
+                )
 
             metadata = {
                 "request_id": request_id, "dataset": request.dataset,
                 "llm_model": self.model,
-                "embedding_model": (
-                    None
-                    if request.skip_retrieval
-                    else self.index_service.embedding_service.model_for_dataset(
-                        request.dataset
-                    )
-                ),
+                "embedding_model": embedding_model,
+                "embedding_query_prefix": embedding_query_prefix,
+                "embedding_query_text": embedding_query_text,
                 "generate_answer": request.generate_answer,
                 "llm_used": request.generate_answer,
                 "retrieval_skipped": request.skip_retrieval,
+                "temperature": TEMPERATURE,
                 "context_window": CONTEXT_WINDOW,
                 "prompt_buffer": int(os.getenv("PROMPT_BUFFER", "1500")),
                 "top_n_chunks": int(os.getenv("TOP_N_CHUNKS", "15")),
