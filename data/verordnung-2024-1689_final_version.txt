@@ -1772,45 +1772,46 @@ d) die Ein- und Ausgabemodalitäten des Modells, wie Text-Text (Große Sprachmod
 e) die Benchmarks und Beurteilungen der Fähigkeiten des Modells, einschließlich unter Berücksichtigung der Zahl der Aufgaben ohne zusätzliches Training, der Anpassungsfähigkeit zum Erlernen neuer, unterschiedlicher Aufgaben, des Grades an Autonomie und Skalierbarkeit sowie der Instrumente, zu denen es Zugang hat;
 f) ob es aufgrund seiner Reichweite große Auswirkungen auf den Binnenmarkt hat — davon wird ausgegangen, wenn es mindestens 10 000 in der Union niedergelassenen registrierten gewerblichen Nutzern zur Verfügung gestellt wurde;
 g) die Zahl der registrierten Endnutzer.
-annexXIV:
-  title: "Verzeichnis der Codes, Kategorien und entsprechenden Arten von KI-Systemen für die Zwecke des Notifizierungsverfahrens gemäß Artikel 30 mit Angabe des Geltungsbereichs der Benennung als notifizierte Stellen"
-  annexI:
-    title: "KI-Systeme, die unter Anhang I fallen"
-    systems[11]{code,systemType}:
-      AIP 0102,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 2 fallen"
-      AIP 0103,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 3 fallen"
-      AIP 0104,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 4 fallen"
-      AIP 0105,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 5 fallen"
-      AIP 0106,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 6 fallen"
-      AIP 0107,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 7 fallen"
-      AIP 0108,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 8 fallen"
-      AIP 0109,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 9 fallen"
-      AIP 0110,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 10 fallen"
-      AIP 0111,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 11 fallen"
-      AIP 0112,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 12 fallen"
-  annexIII1:
-    title: "KI-Systeme, die unter Anhang III Nummer 1 fallen"
-    systems[3]{code,systemType}:
-      AIB 0201,"Biometrische Fernidentifizierungssysteme"
-      AIB 0202,"KI-Systeme zur biometrischen Kategorisierung"
-      AIB 0203,"KI-Systeme zur Emotionserkennung"
-  symbolicAi:
-    title: "Symbolische KI und Expertensysteme"
-    systems[1]{code,systemType}:
-      AIH 0101,"KI-Systeme, die auf symbolischer KI, Experten- und wissensgestützten Systemen beruhen, und KI-Systeme, die auf Suche und Optimierung beruhen"
-  machineLearning:
-    title: "Maschinelles Lernen, mit Ausnahme von generativer KI und von KI mit allgemeinem Verwendungszweck"
-    systems[5]{code,systemType}:
-      AIH 0201,"KI-Systeme, die strukturierte Daten verarbeiten"
-      AIH 0202,"KI-Systeme, die Signal- und Audiodaten verarbeiten"
-      AIH 0203,"KI-Systeme, die Textdaten verarbeiten"
-      AIH 0204,"KI-Systeme, die Bild- und Videodaten verarbeiten"
-      AIH 0205,"KI-Systeme, die von ihrer Umgebung lernen, mit Ausnahme von KI-Systemen, die unter AIH 0401 fallen"
-  generalPurposeOrGenerativeAi:
-    title: "KI- Systeme, die auf KI-Modellen mit allgemeinem Verwendungszweck oder generativer KI beruhen"
-    systems[1]{code,systemType}:
-      AIH 0301,"generative KI-Systeme, einschließlich KI-Systemen, die auf KI-Modellen mit allgemeinem Verwendungszweck beruhen"
-  emergingAi:
-    title: "Neue KI-Technologien"
-    systems[1]{code,systemType}:
-      AIH 0401,"KI-Systeme, die auf anderen neuen KI-Technologien beruhen, die nicht unter andere Codes fallen, einschließlich agentischer KI"
+ANHANG XIV
+Verzeichnis der Codes, Kategorien und entsprechenden Arten von KI-Systemen für die Zwecke des Notifizierungsverfahrens gemäß Artikel 30 mit Angabe des Geltungsbereichs der Benennung als notifizierte Stellen"
+1. Einleitung
+Die Konformitätsbewertung von Hochrisiko-KI-Systemen gemäß dieser Verordnung kann die Einbeziehung von Konformitätsbewertungsstellen erfordern. Nur Konformitätsbewertungsstellen, die gemäß dieser Verordnung benannt wurden, dürfen Konformitätsbewertungen durchführen, und dies nur für die Tätigkeiten in Bezug auf die betreffenden Arten von KI-Systemen. In dem Verzeichnis der Codes, Kategorien und entsprechenden Arten von KI-Systemen wird der Geltungsbereich der Benennung der gemäß Artikel 30 notifizierten Konformitätsbewertungsstellen festgelegt.
+2. Liste der Codes, Kategorien und entsprechenden Arten von KI-Systemen"
+    annexI:
+  title: "a) KI-Systeme, die unter Anhang I fallen"
+  systems[11]{code,systemType}:
+    AIP 0102,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 2 fallen"
+    AIP 0103,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 3 fallen"
+    AIP 0104,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 4 fallen"
+    AIP 0105,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 5 fallen"
+    AIP 0106,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 6 fallen"
+    AIP 0107,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 7 fallen"
+    AIP 0108,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 8 fallen"
+    AIP 0109,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 9 fallen"
+    AIP 0110,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 10 fallen"
+    AIP 0111,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 11 fallen"
+    AIP 0112,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 12 fallen"
+  title: "b) KI-Systeme, die unter Anhang III Nummer 1 fallen"
+  systems[3]{code,systemType}:
+    AIB 0201,"Biometrische Fernidentifizierungssysteme"
+    AIB 0202,"KI-Systeme zur biometrischen Kategorisierung"
+    AIB 0203,"KI-Systeme zur Emotionserkennung"
+3. KI-technologiespezifische Codes"
+  title: "a) Symbolische KI und Expertensysteme"
+  systems[1]{code,systemType}:
+    AIH 0101,"KI-Systeme, die auf symbolischer KI, Experten- und wissensgestützten Systemen beruhen, und KI-Systeme, die auf Suche und Optimierung beruhen"
+  title: "b) Maschinelles Lernen, mit Ausnahme von generativer KI und von KI mit allgemeinem Verwendungszweck"
+  systems[5]{code,systemType}:
+    AIH 0201,"KI-Systeme, die strukturierte Daten verarbeiten"
+    AIH 0202,"KI-Systeme, die Signal- und Audiodaten verarbeiten"
+    AIH 0203,"KI-Systeme, die Textdaten verarbeiten"
+    AIH 0204,"KI-Systeme, die Bild- und Videodaten verarbeiten"
+    AIH 0205,"KI-Systeme, die von ihrer Umgebung lernen, mit Ausnahme von KI-Systemen, die unter AIH 0401 fallen"
+  title: "c) KI- Systeme, die auf KI-Modellen mit allgemeinem Verwendungszweck oder generativer KI beruhen"
+  systems[1]{code,systemType}:
+    AIH 0301,"generative KI-Systeme, einschließlich KI-Systemen, die auf KI-Modellen mit allgemeinem Verwendungszweck beruhen"
+  title: "d) Neue KI-Technologien"
+  systems[1]{code,systemType}:
+    AIH 0401,"KI-Systeme, die auf anderen neuen KI-Technologien beruhen, die nicht unter andere Codes fallen, einschließlich agentischer KI"
+4. Antrag auf Benennung
+Konformitätsbewertungsstellen verwenden das Verzeichnis der Codes, Kategorien und entsprechenden Arten von KI-Systemen aus diesem Anhang, wenn sie die Arten von KI-Systemen in dem in Artikel 29 genannten Antrag auf Benennung angeben.
