@@ -1791,7 +1791,6 @@ Verzeichnis der Codes, Kategorien und entsprechenden Arten von KI-Systemen für 
 1. Einleitung
 Die Konformitätsbewertung von Hochrisiko-KI-Systemen gemäß dieser Verordnung kann die Einbeziehung von Konformitätsbewertungsstellen erfordern. Nur Konformitätsbewertungsstellen, die gemäß dieser Verordnung benannt wurden, dürfen Konformitätsbewertungen durchführen, und dies nur für die Tätigkeiten in Bezug auf die betreffenden Arten von KI-Systemen. In dem Verzeichnis der Codes, Kategorien und entsprechenden Arten von KI-Systemen wird der Geltungsbereich der Benennung der gemäß Artikel 30 notifizierten Konformitätsbewertungsstellen festgelegt.
 2. Liste der Codes, Kategorien und entsprechenden Arten von KI-Systemen"
-    annexI:
   title: "a) KI-Systeme, die unter Anhang I fallen"
   systems[11]{code,systemType}:
     AIP 0102,"KI-Systeme, die unter Anhang I Abschnitt A Nummer 2 fallen"
