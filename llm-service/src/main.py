@@ -2,6 +2,7 @@ import asyncio
 import os
 from fastapi import FastAPI
 from httpx import AsyncClient
+from agent.llm_provider import LLM_BASE_URL, LLM_PROVIDER, create_llm_client
 from utils.logger import get_logger
 from contextlib import asynccontextmanager
 from api.router import router as api_router
@@ -61,18 +62,21 @@ async def create_vector_stores(
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    ollama_host = os.getenv("OLLAMA_HOST")
     ollama_embedding_host = os.getenv("OLLAMA_EMBEDDING_HOST")
 
-    if not ollama_host:
-        LOGGER.error("OLLAMA_HOST environment variable is required")
-        raise RuntimeError("OLLAMA_HOST environment variable is required")
+    if not LLM_BASE_URL:
+        LOGGER.error(
+            "LLM_BASE_URL (or OLLAMA_HOST for LLM_PROVIDER=ollama) is required"
+        )
+        raise RuntimeError(
+            "LLM_BASE_URL (or OLLAMA_HOST for LLM_PROVIDER=ollama) is required"
+        )
 
     if not ollama_embedding_host:
         LOGGER.error("OLLAMA_EMBEDDING_HOST environment variable is required")
         raise RuntimeError("OLLAMA_EMBEDDING_HOST environment variable is required")
 
-    LOGGER.debug(f"Ollama host: {ollama_host}")
+    LOGGER.debug(f"LLM provider: {LLM_PROVIDER}, base URL: {LLM_BASE_URL}")
     LOGGER.debug(f"Ollama embedding host: {ollama_embedding_host}")
 
     # Load dataset configuration
@@ -86,7 +90,7 @@ async def lifespan(app: FastAPI):
     index_service = IndexService()
     app.state.index_service = index_service
 
-    client = AsyncClient(base_url=f"http://{ollama_host}:11434/api")
+    llm_client = create_llm_client()
     embedding_client = AsyncClient(base_url=f"http://{ollama_embedding_host}:11434/api")
 
     if not EMBEDDING_MODELS or EMBEDDING_MODELS == [""]:
@@ -103,18 +107,13 @@ async def lifespan(app: FastAPI):
                 LOGGER.debug(f"Embedding Model {model} not found. Pulling...")
                 await pull_model(embedding_client, model)
                 LOGGER.debug(f"Embedding Model {model} pulled successfully.")
-        LOGGER.debug("Checking models...")
-        for model in LLM_MODELS:
-            if not await is_model_available(client, model):
-                LOGGER.debug(f"Model {model} not found. Pulling...")
-                await pull_model(client, model)
-                LOGGER.debug(f"Model {model} pulled successfully.")
+        LOGGER.debug(f"Checking LLM model {llm_client.model}...")
+        await llm_client.ensure_model_available()
         LOGGER.debug("All models are ready.")
 
         await create_vector_stores(index_service, dataset_config)
         yield
     finally:
-        await client.aclose()
         await embedding_client.aclose()
 
 

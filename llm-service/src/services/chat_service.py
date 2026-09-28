@@ -2,7 +2,8 @@ import json
 import os
 from typing import AsyncGenerator, List
 from fastapi import HTTPException
-from ollama import AsyncClient
+from agent.llm_client import ContentChunk, Message, Timings, TurnResult
+from agent.llm_provider import create_llm_client
 from services.embedding_service import EmbeddingService
 from utils import path_utils
 from services.index_service import IndexService
@@ -18,18 +19,14 @@ import secrets
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "indices")
 LOGGER = get_logger(__name__)
 LOGGER_CHAT = get_logger("chat", "chat.txt")
-DEFAULT_MODEL = os.getenv("LLM_MODELS", "llama3.1:8b-instruct-fp16").split(",")[0]
-TEMPERATURE = float(os.getenv("TEMPERATURE", "0.1"))
-CONTEXT_WINDOW = int(os.getenv("CONTEXT_WINDOW", "8000"))
 
 
 class ChatService:
     def __init__(self):
         self.indices = {}
-        self.model = DEFAULT_MODEL
         self.embedding_service = EmbeddingService()
         self.index_service = IndexService()
-        self.client = AsyncClient(host=os.getenv("OLLAMA_HOST"))
+        self.llm_client = create_llm_client()
 
     async def chat(
         self, request: ChatRequest, queue_position: int, config: DatasetConfiguration
@@ -45,7 +42,6 @@ class ChatService:
         try:
 
             LOGGER.debug(f"[{request_id}]   Prompting: <{request.prompt}>")
-            self.model = DEFAULT_MODEL
             meter = PowerMeterService()
             meter.start()
 
@@ -98,49 +94,31 @@ class ChatService:
                 action="user", request_id=request_id, value=request.prompt
             )
             yield f"data: {data}\n\n"
-            LOGGER.debug(f"[{request_id}]   Prompting Ollama")
+            LOGGER.debug(f"[{request_id}]   Prompting LLM")
             response = ""
             meter.start()
             power_samples = []
-            ollama_duration = 0.0
+            timings = Timings()
 
-            async for part in self.prompt_ollama(prompt):
+            async for delta in self.llm_client.stream_turn(
+                [Message(role="user", content=prompt)], []
+            ):
                 power_samples.append(meter.sample_power())
-                # LOGGER.debug(f"Ollama part: {part}")
-                ollama_duration = (
-                    sum(
-                        getattr(part, attr)
-                        for attr in [
-                            "load_duration",
-                            "eval_duration",
-                            "prompt_eval_duration",
-                        ]
-                    )
-                    / 1_000_000_000
-                    if all(
-                        getattr(part, attr, None) is not None
-                        for attr in [
-                            "load_duration",
-                            "eval_duration",
-                            "prompt_eval_duration",
-                        ]
-                    )
-                    else None
-                )
-                if ollama_duration:
-                    LOGGER.debug(
-                        f"""Total completion duration from Ollama {ollama_duration}"""
-                    )
-
-                if "message" in part:
-                    message_part = part["message"]["content"]
-                    response += message_part
-                    data = json.dumps({"content": message_part, "type": "assistant"})
+                if isinstance(delta, ContentChunk):
+                    response += delta.text
+                    data = json.dumps({"content": delta.text, "type": "assistant"})
                     yield f"data: {data}\n\n"
-            final_duration = (
-                ollama_duration if ollama_duration else measurement.duration_seconds
-            )
+                elif isinstance(delta, TurnResult):
+                    timings = delta.timings
             measurement = meter.stop()
+            provider_durations = [
+                timings.load_duration,
+                timings.prompt_eval_duration,
+                timings.eval_duration,
+            ]
+            known = [d for d in provider_durations if d is not None]
+            provider_duration = sum(known) if len(known) == len(provider_durations) else 0.0
+            final_duration = provider_duration or measurement.duration_seconds
             median_measurement = meter.get_median_power(power_samples)
             matomo_service.track_event(
                 action="assistant", request_id=request_id, value=response
@@ -180,16 +158,6 @@ class ChatService:
         except HTTPException as e:
             data = json.dumps({"content": f"{e.detail}", "type": "error"})
             yield f"data: {data}\n\n"
-
-    async def prompt_ollama(self, prompt: str):
-        message = {"role": "user", "content": prompt}
-        async for part in await self.client.chat(
-            model=self.model,
-            messages=[message],
-            options={"temperature": TEMPERATURE, "num_ctx": CONTEXT_WINDOW},
-            stream=True,
-        ):
-            yield part
 
     async def __yield_sources__(self, sources: List[Source], request_id: str):
         sources_json = SourceList(root=sources).model_dump_json()
