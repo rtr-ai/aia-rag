@@ -34,6 +34,8 @@ jobs:
           cd /app/develop/trunk"
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.MATOMO_ENV }}" > /app/develop/trunk/.env'
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.FRIENDLYCAPTCHA_ENV }}" >> /app/develop/trunk/.env'
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "\n${{ secrets.LLM_BASE_URL_ENV }}\n" >> /app/develop/trunk/.env'
+        ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} 'printf "${{ secrets.LLM_API_KEY_ENV }}\n" >> /app/develop/trunk/.env'
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "cd /app/develop/trunk && ls -lah"
       shell: bash
       env:
@@ -41,6 +43,8 @@ jobs:
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
         MATOMO_ENV: ${{ secrets.MATOMO_ENV }}
         FRIENDLYCAPTCHA_ENV: ${{ secrets.FRIENDLYCAPTCHA_ENV }}
+        LLM_BASE_URL_ENV: ${{ secrets.LLM_BASE_URL_ENV }}
+        LLM_API_KEY_ENV: ${{ secrets.LLM_API_KEY_ENV }}
     - name: Run docker
       run: |
         ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_IP }} "
