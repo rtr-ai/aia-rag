@@ -1,0 +1,18 @@
+{
+  "current_date": {
+    "de": {
+      "display_name": "Aktuelles Datum",
+      "description": "Liefert das heutige Datum (ISO 8601) und den Wochentag. Verwende dieses Werkzeug, wenn sich eine Frage auf \"heute\" oder den aktuellen Zeitpunkt bezieht, etwa um zu beurteilen, ob der Geltungsbeginn einer Vorschrift bereits erreicht ist.",
+      "parameters": {
+        "timezone": "Optional: IANA-Zeitzone, z. B. „Europe/Vienna“. Ohne Angabe gilt die voreingestellte Zeitzone."
+      }
+    },
+    "en": {
+      "display_name": "Current date",
+      "description": "Returns today's date (ISO 8601) and the weekday. Use this tool when a question refers to \"today\" or the current point in time, e.g. to judge whether a date of application has already been reached.",
+      "parameters": {
+        "timezone": "Optional: IANA time zone, e.g. \"Europe/Vienna\". If omitted, the preset time zone is used."
+      }
+    }
+  }
+}
