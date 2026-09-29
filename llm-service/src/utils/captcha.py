@@ -2,7 +2,6 @@ import httpx
 import os
 from fastapi import Form, HTTPException, Depends
 from typing import Optional
-from models.chat_request import ChatRequest
 from utils.logger import get_logger
 
 
@@ -12,7 +11,7 @@ CAPTCHA_SITEKEY = os.getenv("FRIENDLY_CAPTCHA_SITEKEY")
 LOGGER = get_logger("Friendly Captcha")
 
 
-async def verify_captcha(req: ChatRequest) -> bool:
+async def verify_captcha(frc_captcha_solution: Optional[str]) -> bool:
     """
     Verify a Friendly CAPTCHA solution with an option to bypass for automated testing.
 
@@ -35,18 +34,18 @@ async def verify_captcha(req: ChatRequest) -> bool:
         return True
     # Mechanism to allow API tests when sending pre-set CAPTCHA_OVERRIDE_SECRET
     if (
-        req.frc_captcha_solution
+        frc_captcha_solution
         and CAPTCHA_OVERRIDE_SECRET
-        and CAPTCHA_OVERRIDE_SECRET == req.frc_captcha_solution
+        and CAPTCHA_OVERRIDE_SECRET == frc_captcha_solution
     ):
         LOGGER.debug("CAPTCHA override secret, skipping verification")
         return True
 
-    if not req.frc_captcha_solution:
+    if not frc_captcha_solution:
         LOGGER.error("No CAPTCHA solution provided. Denying request")
         raise HTTPException(status_code=400, detail="CAPTCHA solution required")
 
-    payload = {"solution": req.frc_captcha_solution, "secret": CAPTCHA_API_KEY}
+    payload = {"solution": frc_captcha_solution, "secret": CAPTCHA_API_KEY}
 
     if CAPTCHA_SITEKEY:
         payload["sitekey"] = CAPTCHA_SITEKEY

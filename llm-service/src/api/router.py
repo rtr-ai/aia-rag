@@ -7,7 +7,12 @@ from models.chat_request import ChatRequest
 from utils.logger import get_logger
 from utils.captcha import verify_captcha
 from services.dataset_configuration import DatasetConfiguration
-from typing import Protocol
+from agent.agent_prompts import AgentPrompts
+from agent.llm_client import LlmClient
+from agent.loop import AgentRun
+from agent.registry import ToolRegistry
+from models.agent_request import AgentRequest
+from typing import Dict, Protocol
 
 router = APIRouter()
 LOGGER = get_logger(__name__)
@@ -39,6 +44,9 @@ request_counter = RequestCounter()
 
 class AppState(Protocol):
     dataset_config: DatasetConfiguration
+    llm_client: LlmClient
+    tool_registry: ToolRegistry
+    agent_prompts: Dict[str, AgentPrompts]
 
 
 def get_dataset_config(request: Request) -> DatasetConfiguration:
@@ -65,7 +73,7 @@ async def tracked_streaming(stream_gen):
 async def chat(
     req: ChatRequest, config: DatasetConfiguration = Depends(get_dataset_config)
 ):
-    await verify_captcha(req)
+    await verify_captcha(req.frc_captcha_solution)
     if not config.dataset_exists(req.dataset):
         LOGGER.error(f"Dataset not found: {req.dataset}")
         raise HTTPException(
@@ -94,3 +102,28 @@ async def chat(
         await request_counter.decrement()
         LOGGER.error(f"An error occurred: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+@router.post("/agent")
+async def agent(
+    req: AgentRequest,
+    request: Request,
+    config: DatasetConfiguration = Depends(get_dataset_config),
+):
+    await verify_captcha(req.frc_captcha_solution)
+    if not config.dataset_exists(req.dataset):
+        LOGGER.error(f"Dataset not found: {req.dataset}")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Dataset '{req.dataset}' not found.",
+        )
+
+    state: AppState = request.app.state
+    run = AgentRun(
+        llm_client=state.llm_client,
+        registry=state.tool_registry,
+        prompts=state.agent_prompts,
+        dataset=req.dataset,
+        prompt=req.prompt,
+    )
+    return StreamingResponse(run.run(), media_type="text/event-stream")

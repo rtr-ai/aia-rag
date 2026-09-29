@@ -3,6 +3,9 @@ import os
 from fastapi import FastAPI
 from httpx import AsyncClient
 from agent.llm_provider import LLM_BASE_URL, LLM_PROVIDER, create_llm_client
+from agent.agent_prompts import load_agent_prompts
+from agent.registry import ToolRegistry, language_for_dataset
+from agent.tools.current_date import CurrentDateTool
 from utils.logger import get_logger
 from contextlib import asynccontextmanager
 from api.router import router as api_router
@@ -87,10 +90,21 @@ async def lifespan(app: FastAPI):
         LOGGER.error(f"Unable to load configuration: {e}")
         raise RuntimeError(f"Unable to load configuration: {e}")
 
+    try:
+        languages = sorted({language_for_dataset(d) for d in dataset_config.datasets})
+        tool_registry = ToolRegistry(languages)
+        tool_registry.register(CurrentDateTool())
+        app.state.tool_registry = tool_registry
+        app.state.agent_prompts = load_agent_prompts(languages)
+    except Exception as e:
+        LOGGER.error(f"Unable to load agent configuration: {e}")
+        raise RuntimeError(f"Unable to load agent configuration: {e}")
+
     index_service = IndexService()
     app.state.index_service = index_service
 
     llm_client = create_llm_client()
+    app.state.llm_client = llm_client
     embedding_client = AsyncClient(base_url=f"http://{ollama_embedding_host}:11434/api")
 
     if not EMBEDDING_MODELS or EMBEDDING_MODELS == [""]:
