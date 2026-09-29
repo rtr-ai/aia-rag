@@ -1,0 +1,1 @@
+Du hast die maximale Anzahl an Arbeitsschritten erreicht. Es stehen keine Werkzeuge mehr zur Verfügung. Beantworte die ursprüngliche Frage jetzt so gut wie möglich mit den bisher gesammelten Informationen und weise auf offene Punkte hin.

@@ -4,6 +4,7 @@ from typing import AsyncGenerator, List
 from fastapi import HTTPException
 from agent.llm_client import ContentChunk, Message, Timings, TurnResult
 from agent.llm_provider import create_llm_client
+from agent import llm_calls
 from services.embedding_service import EmbeddingService
 from utils import path_utils
 from services.index_service import IndexService
@@ -100,16 +101,17 @@ class ChatService:
             power_samples = []
             timings = Timings()
 
-            async for delta in self.llm_client.stream_turn(
-                [Message(role="user", content=prompt)], []
-            ):
-                power_samples.append(meter.sample_power())
-                if isinstance(delta, ContentChunk):
-                    response += delta.text
-                    data = json.dumps({"content": delta.text, "type": "assistant"})
-                    yield f"data: {data}\n\n"
-                elif isinstance(delta, TurnResult):
-                    timings = delta.timings
+            with llm_calls.track():
+                async for delta in self.llm_client.stream_turn(
+                    [Message(role="user", content=prompt)], []
+                ):
+                    power_samples.append(meter.sample_power())
+                    if isinstance(delta, ContentChunk):
+                        response += delta.text
+                        data = json.dumps({"content": delta.text, "type": "assistant"})
+                        yield f"data: {data}\n\n"
+                    elif isinstance(delta, TurnResult):
+                        timings = delta.timings
             measurement = meter.stop()
             provider_durations = [
                 timings.load_duration,
