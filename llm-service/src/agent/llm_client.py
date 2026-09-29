@@ -28,6 +28,7 @@ class ToolCall(BaseModel):
 class Message(BaseModel):
     role: Literal["system", "user", "assistant", "tool"]
     content: str = ""
+    reasoning: Optional[str] = None
     tool_calls: List[ToolCall] = []
     tool_call_id: Optional[str] = None
     tool_name: Optional[str] = None

@@ -159,6 +159,8 @@ class OllamaLlmClient:
     @staticmethod
     def _convert_message(message: Message) -> Dict[str, Any]:
         converted: Dict[str, Any] = {"role": message.role, "content": message.content}
+        if message.role == "assistant" and message.reasoning:
+            converted["thinking"] = message.reasoning
         if message.role == "assistant" and message.tool_calls:
             converted["tool_calls"] = [
                 {

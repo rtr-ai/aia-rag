@@ -211,6 +211,8 @@ class OpenAiLlmClient:
                 "role": "assistant",
                 "content": message.content,
             }
+            if message.reasoning:
+                converted["reasoning"] = message.reasoning
             if message.tool_calls:
                 converted["tool_calls"] = [
                     {
