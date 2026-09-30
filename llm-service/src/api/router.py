@@ -10,7 +10,7 @@ from services.dataset_configuration import DatasetConfiguration
 from agent.agent_prompts import AgentPrompts
 from agent.llm_client import LlmClient
 from agent.loop import AgentRun
-from agent.registry import ToolRegistry
+from agent.registry import ToolRegistry, language_for_dataset
 from models.agent_request import AgentRequest
 from typing import Dict, Protocol
 
@@ -111,11 +111,15 @@ async def agent(
     config: DatasetConfiguration = Depends(get_dataset_config),
 ):
     await verify_captcha(req.frc_captcha_solution)
-    if not config.dataset_exists(req.dataset):
-        LOGGER.error(f"Dataset not found: {req.dataset}")
+    datasets = config.get_all_datasets()
+    dataset = next(
+        (d for d in datasets if language_for_dataset(d) == req.language), None
+    )
+    if dataset is None:
+        LOGGER.error(f"No dataset for language: {req.language}")
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Dataset '{req.dataset}' not found.",
+            detail=f"No dataset for language '{req.language}'.",
         )
 
     state: AppState = request.app.state
@@ -123,7 +127,7 @@ async def agent(
         llm_client=state.llm_client,
         registry=state.tool_registry,
         prompts=state.agent_prompts,
-        dataset=req.dataset,
+        dataset=dataset,
         prompt=req.prompt,
     )
     return StreamingResponse(run.run(), media_type="text/event-stream")
