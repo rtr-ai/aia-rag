@@ -40,8 +40,8 @@ services:
       - ROOT_PATH=/llm-service
       - TOP_N_CHUNKS=30
       - RERANK_ENABLED=true
-      - RERANK_TOP_N=20
-      - RERANK_MODEL_PATHS=/app/models/reranker/nvidia/nvidia-reranker-ai-act_3e_6pn,/app/models/reranker/qwen/qwen-reranker-ai-act-1e-8pn-138q
+      - RERANK_TOP_N=2
+      - RERANK_MODEL_PATHS=/app/models/reranker/nvidia/ai-act-finetuned,/app/models/reranker/qwen/qwen-reranker-ai-act-1e-8pn-138q
       - RERANK_MODEL_TYPES=nvidia_cross_encoder,qwen_cross_encoder
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
