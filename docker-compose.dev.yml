@@ -50,7 +50,7 @@ services:
       - /app/logs-develop:/app/logs/
       - ./data/combined.json:/app/data/combined.json
       - ./data/combined_en_new.json:/app/data/combined_en_new.json
-      - ./data/combined_da.json:/app/data/combined_da.json
+      - ./da_data/combined_da.json:/app/data/combined_da.json
       - ./data/system_prompts.json:/app/data/system_prompts.json
       - /sys/class/powercap:/sys/class/powercap:ro
       - /proc/stat:/proc/stat:ro
