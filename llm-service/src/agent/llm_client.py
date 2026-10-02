@@ -61,6 +61,7 @@ class TurnResult(BaseModel):
     finish_reason: Literal["stop", "tool_calls", "length"]
     usage: Usage
     timings: Timings
+    time_to_first_token: Optional[float] = None
 
 
 TurnDelta = Union[ReasoningChunk, ContentChunk, TurnResult]

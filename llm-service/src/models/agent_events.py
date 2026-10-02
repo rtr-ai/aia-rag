@@ -130,6 +130,9 @@ class LlmFinished(BaseModel):
     reasoning: Optional[str] = None
     usage: Usage
     timings: Timings
+    duration: float
+    time_to_first_token: Optional[float] = None
+    generation_duration: Optional[float] = None
     energy: Optional[Energy] = None
 
 

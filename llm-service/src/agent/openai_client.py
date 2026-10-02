@@ -1,6 +1,7 @@
 import contextlib
 import json
 import secrets
+import time
 from typing import Any, AsyncIterator, Dict, Generator, List, Optional
 
 import httpx
@@ -154,6 +155,8 @@ class OpenAiLlmClient:
         usage = Usage()
         finish_reason: Optional[str] = None
         with _translate_errors("chunk"):
+            started = time.monotonic()
+            first_output: Optional[float] = None
             async with self._client.stream(
                 "POST", "/chat/completions", json=body
             ) as response:
@@ -164,6 +167,14 @@ class OpenAiLlmClient:
                     if not choices:
                         continue
                     delta = choices[0].get("delta") or {}
+                    if (
+                        delta.get("reasoning_content")
+                        or delta.get("reasoning")
+                        or delta.get("content")
+                        or delta.get("tool_calls")
+                    ):
+                        if first_output is None:
+                            first_output = time.monotonic() - started
                     reasoning = delta.get("reasoning_content") or delta.get("reasoning")
                     if reasoning:
                         reasoning_fragments.append(reasoning)
@@ -192,6 +203,7 @@ class OpenAiLlmClient:
             finish_reason=finish,
             usage=usage,
             timings=Timings(),
+            time_to_first_token=first_output,
         )
 
     async def ensure_model_available(self) -> None:

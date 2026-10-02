@@ -1,6 +1,7 @@
 import contextlib
 import json
 import secrets
+import time
 from typing import Any, AsyncIterator, Dict, Generator, List, Optional
 
 import httpx
@@ -87,6 +88,8 @@ class OllamaLlmClient:
         tool_calls: List[ToolCall] = []
         done: Optional[ChatResponse] = None
         with _translate_errors():
+            started = time.monotonic()
+            first_output: Optional[float] = None
             stream = await self._client.chat(
                 model=self.model,
                 messages=request_messages,
@@ -98,6 +101,13 @@ class OllamaLlmClient:
                 stream=True,
             )
             async for part in stream:
+                if (
+                    part.message.thinking
+                    or part.message.content
+                    or part.message.tool_calls
+                ):
+                    if first_output is None:
+                        first_output = time.monotonic() - started
                 if part.message.thinking:
                     reasoning_fragments.append(part.message.thinking)
                     yield ReasoningChunk(text=part.message.thinking)
@@ -135,6 +145,7 @@ class OllamaLlmClient:
                 eval_duration=_to_seconds(done.eval_duration),
                 total_duration=_to_seconds(done.total_duration),
             ),
+            time_to_first_token=first_output,
         )
 
     async def _model_exists(self) -> bool:

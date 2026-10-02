@@ -161,6 +161,7 @@ class AgentRun:
             )
 
             result: Optional[TurnResult] = None
+            started = time.monotonic()
             with llm_calls.track():
                 async for delta in self._llm_client.stream_turn(
                     self._messages, turn_tools
@@ -173,6 +174,7 @@ class AgentRun:
                         yield self._events.emit(ContentDelta(text=delta.text), step_id)
                     elif isinstance(delta, TurnResult):
                         result = delta
+            duration = time.monotonic() - started
             if result is None:
                 raise LlmBadResponse("LLM stream ended without a turn result")
 
@@ -197,6 +199,13 @@ class AgentRun:
                     reasoning=result.reasoning,
                     usage=result.usage.model_dump(),
                     timings=result.timings.model_dump(),
+                    duration=duration,
+                    time_to_first_token=result.time_to_first_token,
+                    generation_duration=(
+                        duration - result.time_to_first_token
+                        if result.time_to_first_token is not None
+                        else None
+                    ),
                 ),
                 step_id,
             )
