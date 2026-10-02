@@ -6,10 +6,12 @@ from agent.llm_provider import LLM_BASE_URL, LLM_PROVIDER, create_llm_client
 from agent.agent_prompts import load_agent_prompts
 from agent.registry import ToolRegistry, language_for_dataset
 from agent.tools.current_date import CurrentDateTool
+from agent.tools.search_ai_act import SearchAiActTool
 from utils.logger import get_logger
 from contextlib import asynccontextmanager
 from api.router import router as api_router
 from services.index_service import IndexService
+from services.rag_pipeline import RagPipeline
 from fastapi.middleware.cors import CORSMiddleware
 from services.dataset_configuration import DatasetConfiguration
 
@@ -91,21 +93,32 @@ async def lifespan(app: FastAPI):
         LOGGER.error(f"Unable to load configuration: {e}")
         raise RuntimeError(f"Unable to load configuration: {e}")
 
-    try:
-        languages = sorted({language_for_dataset(d) for d in dataset_config.datasets})
-        tool_registry = ToolRegistry(languages)
-        tool_registry.register(CurrentDateTool())
-        app.state.tool_registry = tool_registry
-        app.state.agent_prompts = load_agent_prompts(languages)
-    except Exception as e:
-        LOGGER.error(f"Unable to load agent configuration: {e}")
-        raise RuntimeError(f"Unable to load agent configuration: {e}")
-
     index_service = IndexService()
     app.state.index_service = index_service
 
     llm_client = create_llm_client()
     app.state.llm_client = llm_client
+
+    try:
+        languages = sorted({language_for_dataset(d) for d in dataset_config.datasets})
+        tool_registry = ToolRegistry(languages)
+        agent_prompts = load_agent_prompts(languages)
+        tool_registry.register(CurrentDateTool())
+        tool_registry.register(
+            SearchAiActTool(
+                RagPipeline(index_service, llm_client),
+                {
+                    language: prompt.search_ai_act
+                    for language, prompt in agent_prompts.items()
+                },
+            )
+        )
+        app.state.tool_registry = tool_registry
+        app.state.agent_prompts = agent_prompts
+    except Exception as e:
+        LOGGER.error(f"Unable to load agent configuration: {e}")
+        raise RuntimeError(f"Unable to load agent configuration: {e}")
+
     embedding_client = AsyncClient(base_url=f"http://{ollama_embedding_host}:11434/api")
 
     if not EMBEDDING_MODELS or EMBEDDING_MODELS == [""]:

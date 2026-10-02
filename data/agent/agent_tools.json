@@ -14,5 +14,21 @@
         "timezone": "Optional: IANA time zone, e.g. \"Europe/Vienna\". If omitted, the preset time zone is used."
       }
     }
+  },
+  "search_ai_act": {
+    "de": {
+      "display_name": "AI Act durchsuchen",
+      "description": "Durchsucht den AI Act (Artikel, Erwägungsgründe, Anhänge) und die Erläuterungen der KI-Servicestelle und liefert eine vorläufige Antwort, die ausschließlich auf den gefundenen Passagen beruht, samt den Titeln der verwendeten Passagen. Verwende dieses Werkzeug bei Fragen zum Inhalt des AI Act. Formuliere die Suchanfrage als präzise, eigenständige Frage oder Suchphrase in der Sprache des Nutzers.",
+      "parameters": {
+        "query": "Die Suchanfrage, z. B. „Welche Praktiken verbietet Art. 5 AI Act?“."
+      }
+    },
+    "en": {
+      "display_name": "Search the AI Act",
+      "description": "Searches the AI Act (articles, recitals, annexes) and the explanations of the AI Service Desk and returns a preliminary answer based only on the retrieved passages, together with the titles of the passages used. Use this tool for questions about the content of the AI Act. Formulate the query as a precise, standalone question or search phrase in the language of the user.",
+      "parameters": {
+        "query": "The search query, e.g. \"Which practices does Art. 5 AI Act prohibit?\"."
+      }
+    }
   }
 }

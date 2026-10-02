@@ -59,6 +59,8 @@ services:
       - ./data/agent/agent_prompt_en.md:/app/data/agent_prompt_en.md
       - ./data/agent/agent_max_turns_de.md:/app/data/agent_max_turns_de.md
       - ./data/agent/agent_max_turns_en.md:/app/data/agent_max_turns_en.md
+      - ./data/agent/search_ai_act_prompt_de.md:/app/data/search_ai_act_prompt_de.md
+      - ./data/agent/search_ai_act_prompt_en.md:/app/data/search_ai_act_prompt_en.md
       - /sys/class/powercap:/sys/class/powercap:ro
       - /proc/stat:/proc/stat:ro
       - /proc/cpuinfo:/proc/cpuinfo:ro

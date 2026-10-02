@@ -8,11 +8,15 @@ from services.dataset_configuration import ConfigError
 
 AGENT_PROMPT_PREFIX = os.getenv("AGENT_PROMPT_PREFIX", "agent_prompt")
 AGENT_MAX_TURNS_PREFIX = os.getenv("AGENT_MAX_TURNS_PREFIX", "agent_max_turns")
+AGENT_SEARCH_AI_ACT_PREFIX = os.getenv(
+    "AGENT_SEARCH_AI_ACT_PREFIX", "search_ai_act_prompt"
+)
 
 
 class AgentPrompts(BaseModel):
     system: str
     max_turns_reached: str
+    search_ai_act: str
 
 
 def _read_prompt(prefix: str, language: str) -> str:
@@ -30,6 +34,7 @@ def load_agent_prompts(languages: List[str]) -> Dict[str, AgentPrompts]:
         language: AgentPrompts(
             system=_read_prompt(AGENT_PROMPT_PREFIX, language),
             max_turns_reached=_read_prompt(AGENT_MAX_TURNS_PREFIX, language),
+            search_ai_act=_read_prompt(AGENT_SEARCH_AI_ACT_PREFIX, language),
         )
         for language in languages
     }
