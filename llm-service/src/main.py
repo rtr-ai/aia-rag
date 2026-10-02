@@ -19,6 +19,7 @@ EMBEDDING_MODELS = os.getenv("EMBEDDING_MODELS", "").split(",")
 LLM_MODELS = os.getenv("LLM_MODELS", "").split(",")
 ROOT_PATH = os.getenv("ROOT_PATH", "")
 DATA_DIR = "/app/data"
+REINDEX_ON_STARTUP = os.getenv("REINDEX_ON_STARTUP", "true").lower() == "true"
 
 
 async def is_model_available(client: AsyncClient, model_name: str) -> bool:
@@ -48,7 +49,7 @@ async def create_vector_stores(
             await index_service.create_index_for_dataset(
                 dataset_id=dataset_id,
                 chunks_path=chunks_path,
-                force_recreate=True,
+                force_recreate=REINDEX_ON_STARTUP,
             )
         except FileNotFoundError as e:
             LOGGER.error(f"Failed to index dataset <{dataset_id}>: {e}")
