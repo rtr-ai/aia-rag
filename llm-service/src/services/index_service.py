@@ -1,4 +1,4 @@
-from typing import List, Dict, Tuple
+from typing import List, Dict, Optional, Tuple
 import hashlib
 import json
 import os
@@ -137,6 +137,9 @@ class IndexService:
         """Check if a dataset has been indexed."""
         return dataset_id in self.vector_store
 
+    def chunk_count(self, dataset_id: str) -> int:
+        return len(self.vector_store[dataset_id]["chunks"])
+
     @staticmethod
     def cosine_similarity(query_vector, vectors):
         """
@@ -209,7 +212,11 @@ class IndexService:
         ]
 
     async def query_index(
-        self, dataset_id: str, query: str, request_id: str
+        self,
+        dataset_id: str,
+        query: str,
+        request_id: str,
+        token_limit: Optional[int] = None,
     ) -> Tuple[List[Source], float]:
         """
         Query a specific dataset's index.
@@ -243,7 +250,8 @@ class IndexService:
         LOGGER.debug(
             f"[{request_id}]    Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
         )
-        token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
+        if token_limit is None:
+            token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
         sources: List[Source] = []
         added_chunks = set()
         context_window_reached = False
