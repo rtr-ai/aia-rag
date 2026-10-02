@@ -20,6 +20,9 @@ from agent.llm_client import (
     TurnResult,
     Usage,
 )
+from utils.logger import get_logger
+
+LOGGER = get_logger(__name__)
 
 
 def _parse_arguments(raw: str) -> Optional[Dict[str, Any]]:
@@ -209,6 +212,13 @@ class OpenAiLlmClient:
     async def ensure_model_available(self) -> None:
         with _translate_errors("model list"):
             response = await self._client.get("/models")
+            if response.status_code in (401, 403):
+                LOGGER.warning(
+                    f"OpenAI-compatible endpoint: listing models not permitted "
+                    f"(status {response.status_code}), skipping availability check "
+                    f"for {self.model}"
+                )
+                return
             await _raise_for_status(response)
             ids = [item["id"] for item in response.json()["data"]]
         if self.model not in ids:
