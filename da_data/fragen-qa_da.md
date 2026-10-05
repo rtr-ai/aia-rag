@@ -181,7 +181,7 @@ Nein, das Recht auf unentgeltlichen Wechsel von Datenverarbeitungsdiensten gemä
 
 Quellen:
 [1] Art 1
-[2] Art 29 EU Data Act
+[2] Art 29
 
 
 # 17. Gelte ich als Passagierin auf einem Flug rechtlich als Nutzerin eines vernetzten Produkts
