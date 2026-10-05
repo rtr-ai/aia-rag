@@ -41,8 +41,8 @@ services:
       - TOP_N_CHUNKS=40
       - RERANK_ENABLED=true
       - RERANK_TOP_N=20
-      - RERANK_MODEL_PATHS=/app/models/reranker/nvidia/ai-act-finetuned,/app/models/reranker/qwen/qwen-reranker-ai-act-1e-8pn-138q
-      - RERANK_MODEL_TYPES=nvidia_cross_encoder,qwen_cross_encoder
+      - RERANK_MODEL_PATHS=/app/models/reranker/gwen/qwen3-reranker-0.6b-1e-04-6pn-4g-64lor-128lora,/app/models/reranker/nvidia/ai-act-finetuned,/app/models/reranker/qwen/qwen-reranker-ai-act-1e-8pn-138q
+      - RERANK_MODEL_TYPES=qwen_cross_encoder,nvidia_cross_encoder,qwen_cross_encoder
       - RERANK_PROJECTOR_PATHS=/app/models/reranker/jina/projector.safetensors
       - RERANK_TIMEOUT_SECONDS=300
       - RERANK_FLASH_ATTENTION=true
