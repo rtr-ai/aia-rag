@@ -1,13 +1,11 @@
 ﻿# 1. Ich bin Kunde eines Cloud-Speicherdienstes. Darf ich gratis zu einem anderen Anbieter wechseln?
 
 Antwort:
-Ob ein Wechsel zu einem anderen Cloud-Anbieter für Sie gratis ist, hängt maßgeblich vom Zeitpunkt des Wechsels ab. Bis zum 11. Januar 2027 ist der Wechsel nicht zwingend kostenlos. Anbieter dürfen in diesem Übergangszeitraum sogenannte „ermäßigte Wechselentgelte“ verlangen, die allerdings die direkten Kosten nicht übersteigen dürfen, die dem Anbieter unmittelbar durch den Wechselvorgang entstehen [1], [2]. Ab dem 12. Januar 2027 dürfen Anbieter keinerlei Wechselentgelte mehr erheben, der Wechsel muss dann für Sie als Kunden vollständig unentgeltlich sein [3], [4].
+Ob ein Wechsel zu einem anderen Cloud-Anbieter für Sie gratis ist, hängt maßgeblich vom Zeitpunkt des Wechsels ab. Bis zum 11. Januar 2027 ist der Wechsel nicht zwingend kostenlos. Anbieter dürfen in diesem Übergangszeitraum sogenannte „ermäßigte Wechselentgelte“ verlangen, die allerdings die direkten Kosten nicht übersteigen dürfen, die dem Anbieter unmittelbar durch den Wechselvorgang entstehen [1], [2]. Ab dem 12. Januar 2027 dürfen Anbieter keinerlei Wechselentgelte mehr erheben, der Wechsel muss dann für Sie als Kunden vollständig unentgeltlich sein [1], [2].
 
 Quellen:
-[1] Art 29 Abs 2 EU Data Act
-[2] Art 29 Abs 3 EU Data Act
-[3] Art 29 Abs 1 EU Data Act
-[4] FAQs EC: 54. What is the deadline for providers to reduce switching charges so that they are limited to the costs they incur?
+[1] Art 29
+[2] FAQs EC: 54. What is the deadline for providers to reduce switching charges so that they are limited to the costs they incur?
 
 
 # 2. Ich bin Anbieter eines gratis Cloud-Speicherdienstes. Treffen mich Verpflichtungen aus dem Data Act?
