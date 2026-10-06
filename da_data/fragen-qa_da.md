@@ -26,7 +26,7 @@ Antwort:
 Betroffen sind alle „Datenverarbeitungsdienste“, die einen bedarfsgesteuerten Netzzugang zu einem Pool skalierbarer Rechenressourcen ermöglichen [1], [2]. Dazu gehören insbesondere Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS) und Software-as-a-Service (SaaS), wie etwa Cloud-Datenbanken oder Bürosoftware. Auch technologische Innovationen wie Edge-Computing-Dienste, bei denen Daten näher am Entstehungsort verarbeitet werden, sind grundsätzlich vom Anwendungsbereich umfasst [1], [2], [3], [4].
 
 Quellen:
-[1] Art 2: Z 8 Datenverarbeitungsdienst
+[1] Art 2: Z8 Datenverarbeitungsdienst
 [2] ErwGr 80
 [3] ErwGr 81
 [4] FAQs EC: 58a. Do the Data Act provisions on data processing services also apply to PaaS and SaaS?
@@ -38,7 +38,7 @@ Antwort:
 Bei IaaS-Diensten muss der ursprüngliche Anbieter sicherstellen, dass der Kunde nach dem Wechsel in der neuen Umgebung ein materiell vergleichbares Ergebnis bei gleicher Eingabe erzielt; hierzu ist der Anbieter verpflichtet, angemessene Informationen, Dokumentationen und technische Unterstützung bereitzustellen [1], [2]. Das bedeutet beispielsweise, dass eine virtuelle Maschine nach der Migration auf der neuen Infrastruktur mit der gleichen Leistung wie zuvor laufen muss, wobei der Anbieter jedoch nicht die Umgebung des Konkurrenten neu aufbauen muss [3], [4].
 
 Quellen:
-[1] Art 2: Z 37 Funktionsäquivalenz
+[1] Art 2: Z37 Funktionsäquivalenz
 [2] Art 30
 [3] ErwGr 92
 [4] FAQs EC: 58b. Is the source provider responsible for assisting the customer in rebuilding their service in the ecosystem of the destination provider?
@@ -62,8 +62,8 @@ Neben den eigentlichen Eingabe- und Ausgabedaten müssen auch „digitale Vermö
 Quellen:
 [1] ErwGr 82
 [2] ErwGr 83
-[3] Art 2: Z 32 digitale Vermögenswerte
-[4] Art 2: Z 38 exportierbare Daten
+[3] Art 2: Z32 digitale Vermögenswerte
+[4] Art 2: Z38 exportierbare Daten
 [5] Art 25
 
 
@@ -94,7 +94,7 @@ Antwort:
 Ein Nutzer ist jede natürliche oder juristische Person, die Eigentümer eines vernetzten Produkts ist oder der zeitweilige Nutzungsrechte übertragen wurden, etwa durch Miete oder Leasing. Dies umfasst Unternehmen ebenso wie Verbraucher, die die Risiken und Vorteile der Nutzung tragen [1], [2], [3].
 
 Quellen:
-[1] Art 2: Z 12 Nutzer
+[1] Art 2: Z12 Nutzer
 [2] ErwGr 18
 [3] FAQs EC: 14. What are ‘users’?
 
@@ -140,7 +140,7 @@ Nein, öffentliche Stellen dürfen Daten nicht nach eigenem Ermessen abfragen, s
 Quellen:
 [1] Art 14
 [2] ErwGr 63
-[3] Art 2: Z 29 öffentlicher Notstand
+[3] Art 2: Z29 öffentlicher Notstand
 [4] Art 15
 
 
@@ -190,7 +190,7 @@ Antwort:
 Nein. Als „Nutzer“ im Sinne des Data Act gilt nur eine natürliche oder juristische Person, die Eigentümerin eines vernetzten Produkts ist oder der durch Vertrag (wie Miete oder Leasing) zeitweilige Nutzungsrechte am Produkt selbst übertragen wurden [1], [2]. Ein Beförderungsvertrag (Flugticket) gewährt einer Passagierin lediglich die Inanspruchnahme einer Transportdienstleistung, überträgt jedoch keine eigentümerähnlichen Rechte am Flugzeug selbst. Passagiere sind daher rechtlich keine Nutzer des Flugzeugs als vernetztes Produkt [3].
 
 Quellen:
-[1] Art 2: Z 12 Nutzer
+[1] Art 2: Z12 Nutzer
 [2] ErwGr 18
 [3] FAQs EC: 14. What are ‘users’?
 
@@ -249,8 +249,8 @@ Antwort:
 „Exportierbare Daten“ umfassen alle Eingabe- und Ausgabedaten einschließlich der dazugehörigen Metadaten, die durch die Nutzung des Cloud-Dienstes durch den Kunden direkt oder indirekt erzeugt werden. Ausgenommen sind urheberrechtlich geschützte Daten oder Geschäftsgeheimnisse des Anbieters oder Dritter [1], [3]. Digitale Vermögenswerte (digital assets) bezeichnen hingegen die technischen und funktionalen Komponenten in digitaler Form, an denen der Kunde ein vom konkreten Cloud-Vertrag unabhängiges Nutzungsrecht besitzt; dazu zählen insbesondere eigene Anwendungen, Skripte, Virtualisierungstechnologien (wie virtuelle Maschinen und Container) sowie Metadaten zur Konfiguration von Einstellungen, Sicherheit und Zugriffsrechten [2], [4]. Sie bilden die notwendige Voraussetzung dafür, dass der Kunde seine exportierten Daten beim neuen Zielanbieter oder auf einer eigenen IKT-Infrastruktur wieder effektiv betreiben und nutzen kann [5].
 
 Quellen:
-[1] Art 2: Z 38 exportierbare Daten
-[2] Art 2: Z 32 digitale Vermögenswerte
+[1] Art 2: Z38 exportierbare Daten
+[2] Art 2: Z32 digitale Vermögenswerte
 [3] ErwGr 82
 [4] ErwGr 83
 [5] FAQs EC: 53. What is the difference between exportable data and digital assets? What do these concepts mean?
