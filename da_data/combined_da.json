@@ -5,7 +5,10 @@
   "chunks": [
     {
       "id": "c12d315f-79cd-4e2c-ae94-03c4bdd195fc",
-      "content": "The Data Act (Regulation (EU) 2023/2584) establishes harmonised, horizontal rules to ensure fairness in the allocation of value generated from data across market actors, while safeguarding the interests of those who invest in data-generation technologies.  \nFor an introduction to the Data Act, we invite you to consult the “Data Act Explained” fact page. \nThis set of more technical Frequently Asked Questions (FAQs), published approximately a year before the entry into application of the Data Act, is designed to assist stakeholders in the implementation of the legal provisions. The FAQs are the product of extensive stakeholder interactions, and this is intended to be a ‘living document’ that will be updated as and when necessary. The version history can be found at the end of the document. \nThis document should not be considered as representative of the European Commission’s official position. The replies to the FAQs do not extend in any way the rights and obligations deriving from applicable legislation nor introduce any additional requirement. The expressed views are not authoritative and cannot prejudge any future actions the European Commission may take, including potential positions before the Court of Justice of the European Union. \nPlease contact us if you have a question that is not covered here and we will try to get back to you as quickly as possible. For any complaints related to the Data Act’s implementation, please consider contacting the data coordinator in your Member State. \n \nFAQ Version \nDate \n1.0 \n06/09/2024 \n1.1 \n13/09/2024 \n1.2 \n03/02/2025 \n1.3 \n12/09/2025 \n1.4 \n22/1/2026 \n \n© European Union, 2024 \n \nThe reuse policy of European Commission documents is implemented by Commission Decision 2011/833/EU of 12 December 2011 on the reuse of Commission documents (OJ L 330, 14.12.2011, p. 39). Unless otherwise noted, the reuse of this document is authorised under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence (https://creativecommons.org/licenses/by/4.0/). This means that reuse is allowed provided appropriate credit is given and any changes are indicated.\n \n \nContents \n \nInteraction with other EU law\t4 \nAccess to and use of data in the Internet-of-Things context\t5 \nSection on data in scope\t6 \nSection on users\t13 \nSection on data holders\t17 \nSection on third parties\t28 \nFair, reasonable, and non-discriminatory (FRAND) conditions, compensation and dispute resolution\t29 \nUnfairness in business-to-business data-sharing contracts\t30 \nBusiness-to-government data access\t33 \nSwitching between data processing services\t36 \nUnlawful access to and transfer of non-personal data held in the EU by third country authorities\t41 \nInteroperability\t43 \nEnforcement\t44 \nNext steps and future actions\t46 \n\n \n \n \n\nInteraction with other EU law"
+      "content": "The Data Act (Regulation (EU) 2023/2584) establishes harmonised, horizontal rules to ensure fairness in the allocation of value generated from data across market actors, while safeguarding the interests of those who invest in data-generation technologies.  \nFor an introduction to the Data Act, we invite you to consult the “Data Act Explained” fact page. \nThis set of more technical Frequently Asked Questions (FAQs), published approximately a year before the entry into application of the Data Act, is designed to assist stakeholders in the implementation of the legal provisions. The FAQs are the product of extensive stakeholder interactions, and this is intended to be a ‘living document’ that will be updated as and when necessary. The version history can be found at the end of the document. \nThis document should not be considered as representative of the European Commission’s official position. The replies to the FAQs do not extend in any way the rights and obligations deriving from applicable legislation nor introduce any additional requirement. The expressed views are not authoritative and cannot prejudge any future actions the European Commission may take, including potential positions before the Court of Justice of the European Union. \nPlease contact us if you have a question that is not covered here and we will try to get back to you as quickly as possible. For any complaints related to the Data Act’s implementation, please consider contacting the data coordinator in your Member State. \n \nFAQ Version \nDate \n1.0 \n06/09/2024 \n1.1 \n13/09/2024 \n1.2 \n03/02/2025 \n1.3 \n12/09/2025 \n1.4 \n22/1/2026 \n \n© European Union, 2024 \n \nThe reuse policy of European Commission documents is implemented by Commission Decision 2011/833/EU of 12 December 2011 on the reuse of Commission documents (OJ L 330, 14.12.2011, p. 39). Unless otherwise noted, the reuse of this document is authorised under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence (https://creativecommons.org/licenses/by/4.0/). This means that reuse is allowed provided appropriate credit is given and any changes are indicated.\n \n \nContents \n \nInteraction with other EU law\t4 \nAccess to and use of data in the Internet-of-Things context\t5 \nSection on data in scope\t6 \nSection on users\t13 \nSection on data holders\t17 \nSection on third parties\t28 \nFair, reasonable, and non-discriminatory (FRAND) conditions, compensation and dispute resolution\t29 \nUnfairness in business-to-business data-sharing contracts\t30 \nBusiness-to-government data access\t33 \nSwitching between data processing services\t36 \nUnlawful access to and transfer of non-personal data held in the EU by third country authorities\t41 \nInteroperability\t43 \nEnforcement\t44 \nNext steps and future actions\t46 \n\n \n \n \n\nInteraction with other EU law",
+      "content_length": 2800,
+      "content_plus_length": 2800,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "17b12266-4bea-4719-a6c6-ab5240ad57a8",
@@ -18,7 +21,10 @@
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
         "aa0e82a8-2b89-45c2-9c4d-ee0ec397c669"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 800,
+      "content_plus_length": 12244,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "1a777c62-e08b-4804-9fc5-d95544571894",
@@ -33,7 +39,10 @@
         "aa0e82a8-2b89-45c2-9c4d-ee0ec397c669",
         "23772255-986f-4d3a-8a2c-c6d43ecf4578"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1852,
+      "content_plus_length": 26238,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "c19383b5-f49d-4496-8948-0052f580ceef",
@@ -46,7 +55,10 @@
         "6cccf0fb-fe5e-4cae-af92-5d269833d1ec",
         "69beea6c-fa95-4324-b004-8776aa1a6c7c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1875,
+      "content_plus_length": 4280,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "3c01b3db-7b01-4b95-b454-0285065191fc",
@@ -70,7 +82,10 @@
         "ca394ef9-e41e-4e50-ac15-0eaad829083e",
         "3608eeca-c013-4647-a985-400335459f06"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3339,
+      "content_plus_length": 48893,
+      "relevantChunksIdsNum": 13
     },
     {
       "id": "a10ba605-f443-44ae-85f0-4d36dd31f545",
@@ -85,7 +100,10 @@
         "2826669b-e7a6-493d-baae-eb4e0c6bbe12",
         "f60ea608-3527-469c-a8ed-262527698dc5"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2205,
+      "content_plus_length": 9105,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "d081948c-9164-42d4-b776-edcc6acc7a77",
@@ -101,7 +119,10 @@
         "af338277-3804-48aa-86d5-e19297d7f367",
         "d9279b80-63b8-460d-b14f-03c000eec6e4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2668,
+      "content_plus_length": 14877,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "3952b544-2c3a-49c5-b74e-0184c8054ea8",
@@ -114,7 +135,10 @@
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
         "edd6dbae-6f9c-4f0d-971a-370075c604a5"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1926,
+      "content_plus_length": 10830,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "f1d51ad9-51bf-460a-bc9e-6e07652ab2f0",
@@ -127,7 +151,10 @@
         "9b90d116-d792-49ef-9f21-88266767f202",
         "e53094fa-4499-475b-84c3-d754c1ffad7d"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1931,
+      "content_plus_length": 3781,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "82c9a4cb-7df9-42a2-bd08-442f045ec802",
@@ -141,7 +168,10 @@
         "fdacb2d4-6aac-4032-9499-3b3b1835692b",
         "e53094fa-4499-475b-84c3-d754c1ffad7d"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1628,
+      "content_plus_length": 3477,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "a07c4b3e-91b7-457d-adc5-fae7cfdb4555",
@@ -157,7 +187,10 @@
         "fdacb2d4-6aac-4032-9499-3b3b1835692b",
         "e53094fa-4499-475b-84c3-d754c1ffad7d"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1081,
+      "content_plus_length": 12209,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "bb58af36-2a43-4ab8-8e65-a3193487ff1c",
@@ -171,7 +204,10 @@
         "f60ea608-3527-469c-a8ed-262527698dc5",
         "2d38b2f1-0f66-420c-81a0-d64ca2146088"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1845,
+      "content_plus_length": 9779,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "2180777f-4ec0-40a7-aed0-5a3c8da076e0",
@@ -184,7 +220,10 @@
         "895b8651-1727-4246-8973-cd50c3c83b3b",
         "d9279b80-63b8-460d-b14f-03c000eec6e4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 709,
+      "content_plus_length": 7738,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "054bdd2e-50ee-4142-a2e7-6cab4945afd9",
@@ -194,7 +233,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 737,
+      "content_plus_length": 737,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "973a635a-6bbe-4c21-99a5-a8e01fe24123",
@@ -209,7 +251,10 @@
         "e87d718c-baec-43d6-919e-255e0208db4d",
         "f60ea608-3527-469c-a8ed-262527698dc5"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1115,
+      "content_plus_length": 22582,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "b53d9f65-98b6-4691-b3e3-6fdcf208a185",
@@ -226,7 +271,10 @@
         "2a836ef4-2f6a-4692-b73f-975793b0ce3b",
         "d9279b80-63b8-460d-b14f-03c000eec6e4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1216,
+      "content_plus_length": 27323,
+      "relevantChunksIdsNum": 6
     },
     {
       "id": "1a2a699b-346b-4fd4-932a-35f3ed246b0f",
@@ -239,7 +287,10 @@
         "8338961c-6736-40f7-a813-a6785cdb8c20",
         "0ab2f81e-6d8c-4de0-aef7-44a738a71756"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 828,
+      "content_plus_length": 2733,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "fa8232ae-13ea-44df-b637-9bfc71d17891",
@@ -251,7 +302,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 217,
+      "content_plus_length": 7570,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "af081cd3-1a0b-4e76-9d97-ef769b438503",
@@ -265,7 +319,10 @@
         "8338961c-6736-40f7-a813-a6785cdb8c20",
         "c23e9fe5-d3d4-418a-86f8-a60d63e90015"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2254,
+      "content_plus_length": 5791,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "58e1131b-0357-4162-a77b-92dbfc4f3596",
@@ -281,7 +338,10 @@
         "af338277-3804-48aa-86d5-e19297d7f367",
         "3608eeca-c013-4647-a985-400335459f06"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1845,
+      "content_plus_length": 21016,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "e3666ca3-e570-49c1-95b9-f93254172bb1",
@@ -294,7 +354,10 @@
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
         "3608eeca-c013-4647-a985-400335459f06"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1128,
+      "content_plus_length": 11695,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "f853e051-e1b4-4063-9bdb-1f63ff95d6e3",
@@ -307,7 +370,10 @@
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "41f389aa-a2c3-4251-97c5-34424ff8c214"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 488,
+      "content_plus_length": 11706,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "0b565f91-b7dd-4566-8670-2d00c3c4a947",
@@ -324,7 +390,10 @@
         "9483b6a0-cfdf-42ae-8922-da7670e5c332",
         "107ff269-5e42-4cb3-8c77-6025cac04725"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1310,
+      "content_plus_length": 24799,
+      "relevantChunksIdsNum": 6
     },
     {
       "id": "5cfa9da1-6f8d-4982-a1d2-20eb26df49ee",
@@ -337,7 +406,10 @@
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
         "3608eeca-c013-4647-a985-400335459f06"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3084,
+      "content_plus_length": 13651,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "6eaeeec1-f771-4796-be82-d8682af9b91a",
@@ -352,7 +424,10 @@
         "af338277-3804-48aa-86d5-e19297d7f367",
         "3608eeca-c013-4647-a985-400335459f06"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2867,
+      "content_plus_length": 19598,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "a773f5de-05f4-44b4-aaa2-f21228e3a941",
@@ -369,7 +444,10 @@
         "f34fa63c-6cdf-419c-ade6-d808609b01a7",
         "3608eeca-c013-4647-a985-400335459f06"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3279,
+      "content_plus_length": 29795,
+      "relevantChunksIdsNum": 6
     },
     {
       "id": "bf6e8230-0d8d-4693-b168-2d8d786670b1",
@@ -384,7 +462,10 @@
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
         "ca394ef9-e41e-4e50-ac15-0eaad829083e"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3378,
+      "content_plus_length": 24354,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "d74a1031-ed7c-4c1f-9a76-69350259496b",
@@ -402,7 +483,10 @@
         "87679876-8960-4698-9c9b-3adf78cb2106",
         "af338277-3804-48aa-86d5-e19297d7f367"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1545,
+      "content_plus_length": 27703,
+      "relevantChunksIdsNum": 7
     },
     {
       "id": "57633227-3bc3-4bbc-8578-4a36bec95d22",
@@ -415,7 +499,10 @@
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "233e2b2c-ff31-4556-9437-7392fe53b2f3"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 995,
+      "content_plus_length": 10701,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "dc52a8aa-c545-49d2-b546-b0f202a46590",
@@ -428,7 +515,10 @@
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
         "aa0e82a8-2b89-45c2-9c4d-ee0ec397c669"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1751,
+      "content_plus_length": 13195,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "f6ae4c82-cab4-4119-9565-75dcbb8798ec",
@@ -442,7 +532,10 @@
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
         "63a87d30-d9e8-4f71-a2ce-664c302679b8"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 389,
+      "content_plus_length": 18713,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "040e112b-f65d-4ba2-96b4-22c6e2a92608",
@@ -456,7 +549,10 @@
         "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
         "7ee64b38-af27-4ee5-8ad7-d74919aee1e2"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 812,
+      "content_plus_length": 14107,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "fb0fb4f4-3da5-4901-b2f6-54bfc632a4f4",
@@ -472,7 +568,10 @@
         "7ee64b38-af27-4ee5-8ad7-d74919aee1e2",
         "ca394ef9-e41e-4e50-ac15-0eaad829083e"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 850,
+      "content_plus_length": 28546,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "01e3441e-1825-41ef-be3a-bf1e92b1effc",
@@ -485,7 +584,10 @@
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
         "e53094fa-4499-475b-84c3-d754c1ffad7d"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 724,
+      "content_plus_length": 9424,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "f129753e-efc6-4e81-9ab9-52d98692c140",
@@ -498,7 +600,10 @@
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "41f389aa-a2c3-4251-97c5-34424ff8c214"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1288,
+      "content_plus_length": 12506,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "7e2d8702-5668-4914-8045-fe5eb15e1b7f",
@@ -513,7 +618,10 @@
         "743b5926-0ec6-40bc-ba2b-b7390c6bf229",
         "63a87d30-d9e8-4f71-a2ce-664c302679b8"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2724,
+      "content_plus_length": 16554,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "49271460-fa8c-47de-964a-6c1c30e2f79b",
@@ -527,7 +635,10 @@
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
         "3608eeca-c013-4647-a985-400335459f06"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 350,
+      "content_plus_length": 14910,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "ff2770af-fabb-479d-8887-56676dbc3eb9",
@@ -539,7 +650,10 @@
       "relevantChunksIds": [
         "d9279b80-63b8-460d-b14f-03c000eec6e4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 759,
+      "content_plus_length": 3769,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "aa7fe423-a6f1-4989-8fd6-940d3059f56a",
@@ -554,7 +668,10 @@
         "c23e9fe5-d3d4-418a-86f8-a60d63e90015",
         "d9279b80-63b8-460d-b14f-03c000eec6e4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1328,
+      "content_plus_length": 11556,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "647cd01b-5910-423b-b71c-be0f37dca981",
@@ -568,7 +685,10 @@
         "663fcc3b-2af5-4546-ba36-dfa77ca6dcc9",
         "63a87d30-d9e8-4f71-a2ce-664c302679b8"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 851,
+      "content_plus_length": 4364,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "284bb583-f90a-4eca-b411-cecfbea65979",
@@ -581,7 +701,10 @@
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "41f389aa-a2c3-4251-97c5-34424ff8c214"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1768,
+      "content_plus_length": 12986,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "83036d85-10e3-4846-a2f7-dd06eea66741",
@@ -596,7 +719,10 @@
         "d109d1b1-0832-4c83-a5aa-5e72e81f4713",
         "54c9b77d-70f8-4787-842d-561f635355f4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 442,
+      "content_plus_length": 7411,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "603dc874-8cee-4272-b8fe-716f2e65dcf6",
@@ -610,7 +736,10 @@
         "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
         "8df1db2d-c730-42ad-b60d-67283b5caf9a"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 989,
+      "content_plus_length": 14850,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "d078e6b8-7b36-4934-b1f6-257beb4a249f",
@@ -624,7 +753,10 @@
         "64dd8b4f-1df2-43fa-8f57-fbca735ddbb0",
         "2b9add6a-77f6-413f-bd6e-17ab819227da"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 638,
+      "content_plus_length": 10642,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "748faade-7670-4df9-8d3b-7831a00dce25",
@@ -637,7 +769,10 @@
         "03793326-09b1-4dd0-9dc8-e57c0be5d420",
         "845da571-c338-4481-8655-4900bbd8b0fb"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 274,
+      "content_plus_length": 3795,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "528202a2-4686-4688-a500-ebe6a764657b",
@@ -652,7 +787,10 @@
         "1a284d1e-ae62-4aef-ac3f-e86be550c237",
         "37c04f17-c845-4fa0-816f-098d50d1b3f3"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 406,
+      "content_plus_length": 6780,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "f41213b8-f927-447d-bee2-6146df9e6818",
@@ -670,7 +808,10 @@
         "671f7dcd-cd72-485a-a4f7-0a0f9a385e24",
         "53672aca-8d1b-4b89-8012-f96b4d271566"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2035,
+      "content_plus_length": 16016,
+      "relevantChunksIdsNum": 7
     },
     {
       "id": "8e7c62f8-6213-4ba5-b034-e8e2e8d8bd50",
@@ -686,7 +827,10 @@
         "34bd9e19-8626-470f-b9ed-af200577067b",
         "60c4d0aa-cc0f-462c-8382-9b8ad3a6c389"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 881,
+      "content_plus_length": 10440,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "a0f47709-4421-452d-97d5-0574174d5051",
@@ -701,7 +845,10 @@
         "b4b86155-fc40-46f5-9b2a-ac5d4757f6c7",
         "19735899-e0ba-48c7-afbf-e471627b27f3"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1670,
+      "content_plus_length": 10467,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "d19c95a5-232c-4e07-bdeb-82e9573c93b7",
@@ -714,7 +861,10 @@
         "380102d4-a842-47e5-bf7c-9ad84b9abec0",
         "bfc5e4d0-4689-4049-b548-123eba7b81f2"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2666,
+      "content_plus_length": 8935,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "bf896074-c31c-4172-b41a-b4a699a71804",
@@ -728,7 +878,10 @@
         "2048f360-be6d-426f-a381-3e6e692927a7",
         "d9eaf714-12b4-457f-a051-0dfbedcc9cab"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 609,
+      "content_plus_length": 7774,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "04749c7a-c4d8-4e1b-8a8a-0a143f3b5156",
@@ -741,7 +894,10 @@
         "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6",
         "d57b4a38-db8d-466c-9660-2d5f187cbaf5"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 640,
+      "content_plus_length": 4092,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "1ce49b6e-93e3-4277-9480-f13fd7228566",
@@ -754,7 +910,10 @@
         "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6",
         "d57b4a38-db8d-466c-9660-2d5f187cbaf5"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 379,
+      "content_plus_length": 3831,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "25ee9b47-4903-4704-8788-19df1866bfed",
@@ -767,7 +926,10 @@
         "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6",
         "42f68706-2d68-4c41-964b-578c3a120c70"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 683,
+      "content_plus_length": 4595,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "bbcbf900-1005-4fec-a20a-a5e856585ed7",
@@ -780,7 +942,10 @@
         "7c898d4a-c8f2-4c59-be17-60fc5b82a4d2",
         "4877eb24-55db-40a3-9330-236f7351aeb7"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1111,
+      "content_plus_length": 10156,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "6fd293de-6663-4167-84ac-35f7cf9d7b0b",
@@ -794,7 +959,10 @@
         "bdeecfdc-d474-4a75-b08f-1bca1f82a579",
         "9644881c-f288-413d-9eb2-8ceed257e08a"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 747,
+      "content_plus_length": 10973,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "ed9c8c36-2454-43e4-9f90-a9d9155cf64a",
@@ -810,7 +978,10 @@
         "6a62ce09-454e-411c-809e-faff87a38a0d",
         "157ef922-508b-47f4-bef8-8439dc2fd1ab"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1183,
+      "content_plus_length": 16075,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "1ca09304-39cd-410c-bd11-5c32cba50768",
@@ -824,7 +995,10 @@
         "c4aa0ae7-83a1-4194-b9c1-39f79f47fc50",
         "967b9b96-89ab-40c2-9e4d-f8c02c1820a8"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 541,
+      "content_plus_length": 8040,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "40771382-6ec3-4d1b-bc74-f122c6e1fa8f",
@@ -841,7 +1015,10 @@
         "c2a00592-294e-4a26-ad51-5e69cb679ff1",
         "f187c6ed-3c25-46e9-8544-9a2a71cfad6a"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 732,
+      "content_plus_length": 17671,
+      "relevantChunksIdsNum": 6
     },
     {
       "id": "5820dcef-71a1-4a6c-bf60-7404cc7593d5",
@@ -854,7 +1031,10 @@
         "8338961c-6736-40f7-a813-a6785cdb8c20",
         "0ab2f81e-6d8c-4de0-aef7-44a738a71756"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 154,
+      "content_plus_length": 2059,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "9a170090-69df-4110-a26e-dcfe155409af",
@@ -871,7 +1051,10 @@
         "76dd3e33-c018-463e-8a38-176af43c4961",
         "cac24c47-039a-4178-bfe2-8c37d7c37335"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 994,
+      "content_plus_length": 9985,
+      "relevantChunksIdsNum": 6
     },
     {
       "id": "c981f560-213b-4cf5-8766-07cef9eaed19",
@@ -886,7 +1069,10 @@
         "ed06ee81-6bf0-4ab2-ae4f-76343881492a",
         "3439d97d-a297-4dea-82ef-3634a0aacc28"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1168,
+      "content_plus_length": 4646,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "9afefa7a-1b30-4fea-8f63-1cb180353af9",
@@ -899,7 +1085,10 @@
         "bddb8ab1-ea34-4e88-ad1e-49cfd52d2e96",
         "c5ba8ebb-daca-45ac-ad16-fcedeade7c77"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 908,
+      "content_plus_length": 4358,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "70a4b2e6-d19e-4e71-be95-0e9537d08bcb",
@@ -912,7 +1101,10 @@
         "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
         "dd02403d-29d9-4925-a141-26618891b608"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 388,
+      "content_plus_length": 3045,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "7dfa0e66-839a-4112-b482-ca247220f173",
@@ -925,7 +1117,10 @@
         "04ca002d-4327-4a86-a815-c621dd42a342",
         "9fee844d-a126-4019-bf23-90b16b39bb40"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 958,
+      "content_plus_length": 7596,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "5a5337d5-053c-4ac4-997a-b4ff2a42dd43",
@@ -938,7 +1133,10 @@
         "b899fcf3-e2b5-427d-81b9-ad9ddac67185",
         "8a4b23fd-b3f8-4bd7-bcd4-848bf7e50939"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1291,
+      "content_plus_length": 8562,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "7aa4ef9f-4985-4c11-97af-32780695a7f4",
@@ -952,7 +1150,10 @@
         "294e8aac-238b-4357-aa56-8e141957ce3a",
         "60c4d0aa-cc0f-462c-8382-9b8ad3a6c389"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1086,
+      "content_plus_length": 3710,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "7f104853-f41e-4fcf-ad56-d803fc68a204",
@@ -970,7 +1171,10 @@
         "76dd3e33-c018-463e-8a38-176af43c4961",
         "cf2464ab-73b2-48b8-8d4f-e06bc865f17f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3796,
+      "content_plus_length": 20158,
+      "relevantChunksIdsNum": 7
     },
     {
       "id": "3d135924-2eb9-4520-bd96-fcbab99a82fa",
@@ -984,7 +1188,10 @@
         "9890e82e-f919-4e05-ab3b-3cb4c400d798",
         "cf2464ab-73b2-48b8-8d4f-e06bc865f17f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2660,
+      "content_plus_length": 8038,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "899312c4-2730-4255-a8d1-387a39a7a87f",
@@ -997,7 +1204,10 @@
         "bb879f68-5523-4a44-87b4-9f7b0a13d774",
         "c5fb392f-e267-45e9-a288-41863894f903"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 367,
+      "content_plus_length": 8492,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "4bcc9dee-d99b-4e11-aae5-f8fe749cc97c",
@@ -1012,7 +1222,10 @@
         "c5fb392f-e267-45e9-a288-41863894f903",
         "af678179-31f8-4c90-b2ac-f33a8cf132c4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1492,
+      "content_plus_length": 11704,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "05873ac9-4237-4e1c-9298-3b19db480509",
@@ -1025,7 +1238,10 @@
         "bb879f68-5523-4a44-87b4-9f7b0a13d774",
         "c5fb392f-e267-45e9-a288-41863894f903"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 576,
+      "content_plus_length": 8701,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "8e5d9e36-dd80-4356-9763-e3c0b3311790",
@@ -1038,7 +1254,10 @@
         "bb879f68-5523-4a44-87b4-9f7b0a13d774",
         "af678179-31f8-4c90-b2ac-f33a8cf132c4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 657,
+      "content_plus_length": 6988,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "8099fd91-a372-4fdc-83e8-27df5cf982e2",
@@ -1051,7 +1270,10 @@
         "bb879f68-5523-4a44-87b4-9f7b0a13d774",
         "f40bd8ba-b1bc-4934-a855-aab5af0097dd"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 681,
+      "content_plus_length": 16130,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "b255724a-39b3-4820-b9e7-da2b96b82228",
@@ -1067,7 +1289,10 @@
         "8a4b23fd-b3f8-4bd7-bcd4-848bf7e50939",
         "961b6446-b48c-4bd8-a5b1-250dd649a922"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1530,
+      "content_plus_length": 20726,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "66d4b900-c52a-414c-bdc8-5f2bc3effe5e",
@@ -1081,7 +1306,10 @@
         "6cccf0fb-fe5e-4cae-af92-5d269833d1ec",
         "69beea6c-fa95-4324-b004-8776aa1a6c7c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 334,
+      "content_plus_length": 10121,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "96623084-5a6e-4263-8c1f-12232ecf49bb",
@@ -1095,7 +1323,10 @@
         "a6694e36-c56a-42a2-9e39-9b3ee4856d63",
         "12c3e265-d4b3-4226-8fd3-55e69a40ab54"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 271,
+      "content_plus_length": 9489,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "e80525cf-29e6-4262-a66f-f36ca0931deb",
@@ -1108,7 +1339,10 @@
         "f40bd8ba-b1bc-4934-a855-aab5af0097dd",
         "23772255-986f-4d3a-8a2c-c6d43ecf4578"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1562,
+      "content_plus_length": 14504,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "be3a5814-e971-4888-b2b9-332afb992796",
@@ -1123,7 +1357,10 @@
         "23772255-986f-4d3a-8a2c-c6d43ecf4578",
         "107ff269-5e42-4cb3-8c77-6025cac04725"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1015,
+      "content_plus_length": 16682,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "078ed5ff-9158-4d75-87ca-72ee2604827f",
@@ -1139,7 +1376,10 @@
         "8edea2d8-29ab-4819-ab11-16be222b731e",
         "60c4d0aa-cc0f-462c-8382-9b8ad3a6c389"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 783,
+      "content_plus_length": 15851,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "8e3e028d-64fe-4600-ba2a-77fbc415ae1c",
@@ -1154,7 +1394,10 @@
         "a894c803-25bf-49b2-9f13-8002826f079a",
         "8edea2d8-29ab-4819-ab11-16be222b731e"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 669,
+      "content_plus_length": 8020,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "9599f7bb-28d3-410c-92d4-6be02e8d0e30",
@@ -1166,7 +1409,10 @@
       "relevantChunksIds": [
         "f40bd8ba-b1bc-4934-a855-aab5af0097dd"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 764,
+      "content_plus_length": 10873,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "02a6eda9-f634-461a-919d-f9a758f69c05",
@@ -1178,7 +1424,10 @@
       "relevantChunksIds": [
         "47514aa9-da69-4ea2-9227-0f9d14afa896"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 258,
+      "content_plus_length": 2215,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "257cbe59-f339-4ae6-abe0-e83336f5b5ab",
@@ -1190,7 +1439,10 @@
       "relevantChunksIds": [
         "374e44f3-2592-48a0-9edd-bfc8db73f304"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 855,
+      "content_plus_length": 8237,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "49314c51-0b7d-4626-ab92-213321d7adeb",
@@ -1203,15 +1455,24 @@
         "b8fe84a1-bd79-4920-b108-ee9a4e9b58a2",
         "60c4d0aa-cc0f-462c-8382-9b8ad3a6c389"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 958,
+      "content_plus_length": 2367,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "f92df885-fef9-4ee7-a22c-9d7c275353d6",
-      "content": "4 \n \n\n4 \n \n\n4"
+      "content": "4 \n \n\n4 \n \n\n4",
+      "content_length": 13,
+      "content_plus_length": 13,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "8192371b-761f-45d2-8605-8a58ddf3f0bb",
-      "content": "VERORDNUNG (EU) 2023/2854 DES EUROPÄISCHEN PARLAMENTS UND DES RATES\nvom 13. Dezember 2023\nüber harmonisierte Vorschriften für einen fairen Datenzugang und eine faire Datennutzung sowie zur Änderung der Verordnung (EU) 2017/2394 und der Richtlinie (EU) 2020/1828 (Datenverordnung) (Text von Bedeutung für den EWR)\nDAS EUROPÄISCHE PARLAMENT UND DER RAT DER EUROPÄISCHEN UNION —\ngestützt auf den Vertrag über die Arbeitsweise der Europäischen Union, insbesondere auf Artikel 114,\nauf Vorschlag der Europäischen Kommission,\nnach Zuleitung des Entwurfs des Gesetzgebungsakts an die nationalen Parlamente,\nnach Stellungnahme der Europäischen Zentralbank (1),\nnach Stellungnahme des Europäischen Wirtschafts- und Sozialausschusses (2),\nnach Stellungnahme des Ausschusses der Regionen (3),\ngemäß dem ordentlichen Gesetzgebungsverfahren (4),\nin Erwägung nachstehender Gründe:"
+      "content": "VERORDNUNG (EU) 2023/2854 DES EUROPÄISCHEN PARLAMENTS UND DES RATES\nvom 13. Dezember 2023\nüber harmonisierte Vorschriften für einen fairen Datenzugang und eine faire Datennutzung sowie zur Änderung der Verordnung (EU) 2017/2394 und der Richtlinie (EU) 2020/1828 (Datenverordnung) (Text von Bedeutung für den EWR)\nDAS EUROPÄISCHE PARLAMENT UND DER RAT DER EUROPÄISCHEN UNION —\ngestützt auf den Vertrag über die Arbeitsweise der Europäischen Union, insbesondere auf Artikel 114,\nauf Vorschlag der Europäischen Kommission,\nnach Zuleitung des Entwurfs des Gesetzgebungsakts an die nationalen Parlamente,\nnach Stellungnahme der Europäischen Zentralbank (1),\nnach Stellungnahme des Europäischen Wirtschafts- und Sozialausschusses (2),\nnach Stellungnahme des Ausschusses der Regionen (3),\ngemäß dem ordentlichen Gesetzgebungsverfahren (4),\nin Erwägung nachstehender Gründe:",
+      "content_length": 866,
+      "content_plus_length": 866,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "782d8e6a-fac4-44a9-a1e4-26623b9bccd7",
@@ -1223,7 +1484,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 637,
+      "content_plus_length": 7990,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "a5f5d1c9-1698-48f4-bd8b-fe0e64fe0794",
@@ -1235,7 +1499,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 775,
+      "content_plus_length": 8128,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "deee21e0-f82d-47b7-859a-fa0fbf11c304",
@@ -1247,7 +1514,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 687,
+      "content_plus_length": 8040,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "7f48905f-e260-46ce-a888-b7d3f90d8e25",
@@ -1259,7 +1529,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 896,
+      "content_plus_length": 8249,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "116a7ee7-3b6d-40af-abda-443bd91f3ea3",
@@ -1271,7 +1544,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1754,
+      "content_plus_length": 9107,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "9e5d4a52-54ac-4244-ac7e-72c5f878b4bc",
@@ -1283,7 +1559,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1166,
+      "content_plus_length": 8519,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "aa0e82a8-2b89-45c2-9c4d-ee0ec397c669",
@@ -1297,9 +1576,15 @@
         "7d0c4731-4411-4e6b-a9d2-3598d06f2e1a",
         "046e2ba7-b1b2-4488-b794-27d40c743f5e",
         "70545263-6754-4f91-be4c-4a217853e91a",
-        "e8f893de-1c4d-43fe-94b3-1a89a90fbc9f"
+        "e8f893de-1c4d-43fe-94b3-1a89a90fbc9f",
+        "17b12266-4bea-4719-a6c6-ab5240ad57a8",
+        "dc52a8aa-c545-49d2-b546-b0f202a46590",
+        "1a777c62-e08b-4804-9fc5-d95544571894"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 4091,
+      "content_plus_length": 12630,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "e87d718c-baec-43d6-919e-255e0208db4d",
@@ -1309,9 +1594,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
+        "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
+        "973a635a-6bbe-4c21-99a5-a8e01fe24123"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 907,
+      "content_plus_length": 8260,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "9483b6a0-cfdf-42ae-8922-da7670e5c332",
@@ -1321,9 +1610,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
+        "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
+        "0b565f91-b7dd-4566-8670-2d00c3c4a947"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1772,
+      "content_plus_length": 9125,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "b07edbe0-7e44-4d34-98e2-885a6ef19c14",
@@ -1336,7 +1629,10 @@
         "1fc0b631-1ab7-4dba-b5db-726cdb91e714",
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3570,
+      "content_plus_length": 11998,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "e55c92a6-c074-4fc1-8972-eb1ac9c82fe5",
@@ -1348,7 +1644,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 302,
+      "content_plus_length": 7655,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "c463f587-20bb-4df9-8f1d-03f51d5c52d3",
@@ -1360,7 +1659,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 468,
+      "content_plus_length": 7821,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "85ea99d6-dfb5-4573-9ae7-9f2ffc23ef7c",
@@ -1372,7 +1674,10 @@
       "relevantChunksIds": [
         "3a68e18c-0ceb-4482-a82a-bd4443ad5f91"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 979,
+      "content_plus_length": 8332,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "e53094fa-4499-475b-84c3-d754c1ffad7d",
@@ -1384,9 +1689,16 @@
       "relevantChunksIds": [
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "9b90d116-d792-49ef-9f21-88266767f202",
-        "895b8651-1727-4246-8973-cd50c3c83b3b"
+        "895b8651-1727-4246-8973-cd50c3c83b3b",
+        "f1d51ad9-51bf-460a-bc9e-6e07652ab2f0",
+        "82c9a4cb-7df9-42a2-bd08-442f045ec802",
+        "a07c4b3e-91b7-457d-adc5-fae7cfdb4555",
+        "01e3441e-1825-41ef-be3a-bf1e92b1effc"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1347,
+      "content_plus_length": 14210,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "f60ea608-3527-469c-a8ed-262527698dc5",
@@ -1400,9 +1712,18 @@
         "68c58f6f-8a7e-4c7c-9a54-adc956d1dce3",
         "2826669b-e7a6-493d-baae-eb4e0c6bbe12",
         "0f2ae91a-3ad6-49b9-af15-131604a6e970",
-        "895b8651-1727-4246-8973-cd50c3c83b3b"
+        "895b8651-1727-4246-8973-cd50c3c83b3b",
+        "fb0fb4f4-3da5-4901-b2f6-54bfc632a4f4",
+        "3c01b3db-7b01-4b95-b454-0285065191fc",
+        "5cfa9da1-6f8d-4982-a1d2-20eb26df49ee",
+        "bb58af36-2a43-4ab8-8e65-a3193487ff1c",
+        "a10ba605-f443-44ae-85f0-4d36dd31f545",
+        "973a635a-6bbe-4c21-99a5-a8e01fe24123"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 4892,
+      "content_plus_length": 18759,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "edd6dbae-6f9c-4f0d-971a-370075c604a5",
@@ -1412,9 +1733,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "895b8651-1727-4246-8973-cd50c3c83b3b"
+        "895b8651-1727-4246-8973-cd50c3c83b3b",
+        "3952b544-2c3a-49c5-b74e-0184c8054ea8"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1551,
+      "content_plus_length": 5570,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "2d38b2f1-0f66-420c-81a0-d64ca2146088",
@@ -1425,9 +1750,15 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "895b8651-1727-4246-8973-cd50c3c83b3b",
-        "0f2ae91a-3ad6-49b9-af15-131604a6e970"
+        "0f2ae91a-3ad6-49b9-af15-131604a6e970",
+        "bb58af36-2a43-4ab8-8e65-a3193487ff1c",
+        "5cfa9da1-6f8d-4982-a1d2-20eb26df49ee",
+        "3c01b3db-7b01-4b95-b454-0285065191fc"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2428,
+      "content_plus_length": 7061,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "0ab2f81e-6d8c-4de0-aef7-44a738a71756",
@@ -1438,9 +1769,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "8338961c-6736-40f7-a813-a6785cdb8c20",
-        "895b8651-1727-4246-8973-cd50c3c83b3b"
+        "895b8651-1727-4246-8973-cd50c3c83b3b",
+        "1a2a699b-346b-4fd4-932a-35f3ed246b0f",
+        "5820dcef-71a1-4a6c-bf60-7404cc7593d5"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1572,
+      "content_plus_length": 5924,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "4e6f5396-335c-45c8-8be2-eb120ad22fa1",
@@ -1450,7 +1786,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1271,
+      "content_plus_length": 1271,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "2a836ef4-2f6a-4692-b73f-975793b0ce3b",
@@ -1462,9 +1801,15 @@
       "relevantChunksIds": [
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "895b8651-1727-4246-8973-cd50c3c83b3b",
-        "5a36928e-fd32-487d-bae7-1a27f8cbffcd"
+        "5a36928e-fd32-487d-bae7-1a27f8cbffcd",
+        "b53d9f65-98b6-4691-b3e3-6fdcf208a185",
+        "d081948c-9164-42d4-b776-edcc6acc7a77",
+        "3c01b3db-7b01-4b95-b454-0285065191fc"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3646,
+      "content_plus_length": 16383,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "c23e9fe5-d3d4-418a-86f8-a60d63e90015",
@@ -1475,9 +1820,18 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
-        "895b8651-1727-4246-8973-cd50c3c83b3b"
+        "895b8651-1727-4246-8973-cd50c3c83b3b",
+        "af081cd3-1a0b-4e76-9d97-ef769b438503",
+        "a773f5de-05f4-44b4-aaa2-f21228e3a941",
+        "7e2d8702-5668-4914-8045-fe5eb15e1b7f",
+        "aa7fe423-a6f1-4989-8fd6-940d3059f56a",
+        "58e1131b-0357-4162-a77b-92dbfc4f3596",
+        "3c01b3db-7b01-4b95-b454-0285065191fc"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2440,
+      "content_plus_length": 14800,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "af338277-3804-48aa-86d5-e19297d7f367",
@@ -1487,9 +1841,16 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "895b8651-1727-4246-8973-cd50c3c83b3b"
+        "895b8651-1727-4246-8973-cd50c3c83b3b",
+        "d74a1031-ed7c-4c1f-9a76-69350259496b",
+        "6eaeeec1-f771-4796-be82-d8682af9b91a",
+        "58e1131b-0357-4162-a77b-92dbfc4f3596",
+        "d081948c-9164-42d4-b776-edcc6acc7a77"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1157,
+      "content_plus_length": 5176,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "76db3c36-1bec-4e53-9458-c7b68ebbedea",
@@ -1502,7 +1863,10 @@
         "195a85f2-e925-419c-bdb0-337753cf51db",
         "895b8651-1727-4246-8973-cd50c3c83b3b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1662,
+      "content_plus_length": 6107,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "d9279b80-63b8-460d-b14f-03c000eec6e4",
@@ -1512,9 +1876,17 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "895b8651-1727-4246-8973-cd50c3c83b3b"
+        "895b8651-1727-4246-8973-cd50c3c83b3b",
+        "2180777f-4ec0-40a7-aed0-5a3c8da076e0",
+        "ff2770af-fabb-479d-8887-56676dbc3eb9",
+        "aa7fe423-a6f1-4989-8fd6-940d3059f56a",
+        "b53d9f65-98b6-4691-b3e3-6fdcf208a185",
+        "d081948c-9164-42d4-b776-edcc6acc7a77"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3010,
+      "content_plus_length": 7029,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "41f389aa-a2c3-4251-97c5-34424ff8c214",
@@ -1524,9 +1896,16 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "020e9258-2b22-4749-88c6-b2b01625f2b6"
+        "020e9258-2b22-4749-88c6-b2b01625f2b6",
+        "f853e051-e1b4-4063-9bdb-1f63ff95d6e3",
+        "f129753e-efc6-4e81-9ab9-52d98692c140",
+        "284bb583-f90a-4eca-b411-cecfbea65979",
+        "3c01b3db-7b01-4b95-b454-0285065191fc"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2877,
+      "content_plus_length": 11218,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "04207ea5-3e62-4bf3-ae58-17a2df7ef3cd",
@@ -1538,7 +1917,10 @@
       "relevantChunksIds": [
         "6760e95b-2d80-4ae3-b2bd-135514f1397b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2932,
+      "content_plus_length": 10259,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "3b2f76c1-d27a-4a1c-869b-791b3894769e",
@@ -1551,7 +1933,10 @@
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "6760e95b-2d80-4ae3-b2bd-135514f1397b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2418,
+      "content_plus_length": 18086,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "d023ce9b-9625-4047-94db-0160d0b5090d",
@@ -1561,7 +1946,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 510,
+      "content_plus_length": 510,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "743b5926-0ec6-40bc-ba2b-b7390c6bf229",
@@ -1571,9 +1959,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "020e9258-2b22-4749-88c6-b2b01625f2b6"
+        "020e9258-2b22-4749-88c6-b2b01625f2b6",
+        "7e2d8702-5668-4914-8045-fe5eb15e1b7f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 393,
+      "content_plus_length": 8734,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "f34fa63c-6cdf-419c-ade6-d808609b01a7",
@@ -1585,9 +1977,13 @@
       "relevantChunksIds": [
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
-        "9654aa9e-28bb-4e44-a0e4-b43cea22ca28"
+        "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
+        "a773f5de-05f4-44b4-aaa2-f21228e3a941"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1175,
+      "content_plus_length": 19761,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "ca394ef9-e41e-4e50-ac15-0eaad829083e",
@@ -1600,9 +1996,15 @@
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
         "df1e5e49-8743-4da4-86f3-57d46437ae86",
-        "a5707a74-a5c5-44e9-9f33-23f375ff111c"
+        "a5707a74-a5c5-44e9-9f33-23f375ff111c",
+        "bf6e8230-0d8d-4693-b168-2d8d786670b1",
+        "3c01b3db-7b01-4b95-b454-0285065191fc",
+        "fb0fb4f4-3da5-4901-b2f6-54bfc632a4f4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 5100,
+      "content_plus_length": 21218,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "7ee64b38-af27-4ee5-8ad7-d74919aee1e2",
@@ -1614,9 +2016,14 @@
       "relevantChunksIds": [
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
-        "9654aa9e-28bb-4e44-a0e4-b43cea22ca28"
+        "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
+        "040e112b-f65d-4ba2-96b4-22c6e2a92608",
+        "fb0fb4f4-3da5-4901-b2f6-54bfc632a4f4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2036,
+      "content_plus_length": 20622,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "34bc4243-a37f-43db-840c-9571ad46686a",
@@ -1628,7 +2035,10 @@
       "relevantChunksIds": [
         "6760e95b-2d80-4ae3-b2bd-135514f1397b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1977,
+      "content_plus_length": 9304,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "63a87d30-d9e8-4f71-a2ce-664c302679b8",
@@ -1641,9 +2051,15 @@
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
         "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
-        "7d0c4731-4411-4e6b-a9d2-3598d06f2e1a"
+        "7d0c4731-4411-4e6b-a9d2-3598d06f2e1a",
+        "f6ae4c82-cab4-4119-9565-75dcbb8798ec",
+        "647cd01b-5910-423b-b71c-be0f37dca981",
+        "7e2d8702-5668-4914-8045-fe5eb15e1b7f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2656,
+      "content_plus_length": 21442,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "3608eeca-c013-4647-a985-400335459f06",
@@ -1654,9 +2070,19 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
-        "6760e95b-2d80-4ae3-b2bd-135514f1397b"
+        "6760e95b-2d80-4ae3-b2bd-135514f1397b",
+        "e3666ca3-e570-49c1-95b9-f93254172bb1",
+        "49271460-fa8c-47de-964a-6c1c30e2f79b",
+        "6eaeeec1-f771-4796-be82-d8682af9b91a",
+        "a773f5de-05f4-44b4-aaa2-f21228e3a941",
+        "58e1131b-0357-4162-a77b-92dbfc4f3596",
+        "3c01b3db-7b01-4b95-b454-0285065191fc",
+        "2d38b2f1-0f66-420c-81a0-d64ca2146088"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3214,
+      "content_plus_length": 18882,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "2c720e34-8f12-47e8-bf96-4bbead4b735f",
@@ -1666,7 +2092,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 778,
+      "content_plus_length": 778,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "8e3f7af8-f90b-4b4b-b903-7823896e9e4d",
@@ -1676,9 +2105,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "9654aa9e-28bb-4e44-a0e4-b43cea22ca28"
+        "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
+        "83036d85-10e3-4846-a2f7-dd06eea66741"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 321,
+      "content_plus_length": 3239,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "d109d1b1-0832-4c83-a5aa-5e72e81f4713",
@@ -1690,9 +2123,13 @@
       "relevantChunksIds": [
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
-        "9654aa9e-28bb-4e44-a0e4-b43cea22ca28"
+        "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
+        "83036d85-10e3-4846-a2f7-dd06eea66741"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2718,
+      "content_plus_length": 21304,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "54c9b77d-70f8-4787-842d-561f635355f4",
@@ -1704,9 +2141,13 @@
       "relevantChunksIds": [
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
         "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
-        "9fbf2fb8-c8e6-445e-ae5c-8d84b1f9fb82"
+        "9fbf2fb8-c8e6-445e-ae5c-8d84b1f9fb82",
+        "83036d85-10e3-4846-a2f7-dd06eea66741"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1012,
+      "content_plus_length": 11444,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "8df1db2d-c730-42ad-b60d-67283b5caf9a",
@@ -1718,9 +2159,13 @@
       "relevantChunksIds": [
         "6760e95b-2d80-4ae3-b2bd-135514f1397b",
         "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
-        "87679876-8960-4698-9c9b-3adf78cb2106"
+        "87679876-8960-4698-9c9b-3adf78cb2106",
+        "603dc874-8cee-4272-b8fe-716f2e65dcf6"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3616,
+      "content_plus_length": 15429,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "44ff024e-7632-43a8-90b9-5cb099c3df5b",
@@ -1732,7 +2177,10 @@
       "relevantChunksIds": [
         "87679876-8960-4698-9c9b-3adf78cb2106"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1994,
+      "content_plus_length": 3562,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "2b9add6a-77f6-413f-bd6e-17ab819227da",
@@ -1742,9 +2190,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "03793326-09b1-4dd0-9dc8-e57c0be5d420"
+        "03793326-09b1-4dd0-9dc8-e57c0be5d420",
+        "d078e6b8-7b36-4934-b1f6-257beb4a249f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1988,
+      "content_plus_length": 4571,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "7920e3ae-9851-4b54-a379-d456b8660a72",
@@ -1756,7 +2208,10 @@
       "relevantChunksIds": [
         "03793326-09b1-4dd0-9dc8-e57c0be5d420"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 412,
+      "content_plus_length": 2995,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "8bfe1504-8db4-42f3-8f3d-78e2f76dcda6",
@@ -1768,7 +2223,10 @@
       "relevantChunksIds": [
         "03793326-09b1-4dd0-9dc8-e57c0be5d420"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 264,
+      "content_plus_length": 2847,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "845da571-c338-4481-8655-4900bbd8b0fb",
@@ -1778,9 +2236,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "03793326-09b1-4dd0-9dc8-e57c0be5d420"
+        "03793326-09b1-4dd0-9dc8-e57c0be5d420",
+        "748faade-7670-4df9-8d3b-7831a00dce25"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 938,
+      "content_plus_length": 3521,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "0abba5bd-465d-49e1-af65-75e1920adeda",
@@ -1790,9 +2252,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "47514aa9-da69-4ea2-9227-0f9d14afa896"
+        "47514aa9-da69-4ea2-9227-0f9d14afa896",
+        "528202a2-4686-4688-a500-ebe6a764657b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 874,
+      "content_plus_length": 2831,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "1a284d1e-ae62-4aef-ac3f-e86be550c237",
@@ -1802,9 +2268,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "47514aa9-da69-4ea2-9227-0f9d14afa896"
+        "47514aa9-da69-4ea2-9227-0f9d14afa896",
+        "528202a2-4686-4688-a500-ebe6a764657b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2825,
+      "content_plus_length": 4782,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "5dfead0c-cab6-462f-918b-18e6dcf49fa2",
@@ -1816,7 +2286,10 @@
       "relevantChunksIds": [
         "47514aa9-da69-4ea2-9227-0f9d14afa896"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 411,
+      "content_plus_length": 2368,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "37c04f17-c845-4fa0-816f-098d50d1b3f3",
@@ -1826,9 +2299,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "47514aa9-da69-4ea2-9227-0f9d14afa896"
+        "47514aa9-da69-4ea2-9227-0f9d14afa896",
+        "528202a2-4686-4688-a500-ebe6a764657b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 718,
+      "content_plus_length": 2675,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "4fee9872-cc75-466f-adc7-1c3c50e3bfd5",
@@ -1840,7 +2317,10 @@
       "relevantChunksIds": [
         "47514aa9-da69-4ea2-9227-0f9d14afa896"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 383,
+      "content_plus_length": 2340,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "2ac954ed-9c9e-4e3c-bf0f-0d87c8275ee2",
@@ -1853,7 +2333,10 @@
         "03793326-09b1-4dd0-9dc8-e57c0be5d420",
         "47514aa9-da69-4ea2-9227-0f9d14afa896"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 686,
+      "content_plus_length": 5226,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "617ee502-8aac-49e9-b201-66a8ed5cdc0c",
@@ -1863,9 +2346,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "709a408f-4bb5-456b-a3dd-68cca9cf3137"
+        "709a408f-4bb5-456b-a3dd-68cca9cf3137",
+        "f41213b8-f927-447d-bee2-6146df9e6818"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1014,
+      "content_plus_length": 5911,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "671f7dcd-cd72-485a-a4f7-0a0f9a385e24",
@@ -1875,9 +2362,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "709a408f-4bb5-456b-a3dd-68cca9cf3137"
+        "709a408f-4bb5-456b-a3dd-68cca9cf3137",
+        "f41213b8-f927-447d-bee2-6146df9e6818"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 431,
+      "content_plus_length": 5328,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "53672aca-8d1b-4b89-8012-f96b4d271566",
@@ -1887,9 +2378,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "709a408f-4bb5-456b-a3dd-68cca9cf3137"
+        "709a408f-4bb5-456b-a3dd-68cca9cf3137",
+        "f41213b8-f927-447d-bee2-6146df9e6818"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 378,
+      "content_plus_length": 5275,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "887a6fb4-b5b6-4cc3-88af-4eb36ac889a4",
@@ -1901,7 +2396,10 @@
       "relevantChunksIds": [
         "709a408f-4bb5-456b-a3dd-68cca9cf3137"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 401,
+      "content_plus_length": 5298,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "303b9883-63ec-437e-88e8-11f77d812a92",
@@ -1913,7 +2411,10 @@
       "relevantChunksIds": [
         "709a408f-4bb5-456b-a3dd-68cca9cf3137"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 467,
+      "content_plus_length": 5364,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "233e2b2c-ff31-4556-9437-7392fe53b2f3",
@@ -1923,9 +2424,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "e36e0e8d-1047-4ba3-8f78-5a60a9e217fd"
+        "e36e0e8d-1047-4ba3-8f78-5a60a9e217fd",
+        "57633227-3bc3-4bbc-8578-4a36bec95d22"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1365,
+      "content_plus_length": 5314,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "34bd9e19-8626-470f-b9ed-af200577067b",
@@ -1935,9 +2440,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "380102d4-a842-47e5-bf7c-9ad84b9abec0"
+        "380102d4-a842-47e5-bf7c-9ad84b9abec0",
+        "a0f47709-4421-452d-97d5-0574174d5051",
+        "8e7c62f8-6213-4ba5-b034-e8e2e8d8bd50"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 882,
+      "content_plus_length": 6620,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "2abfecf1-0422-43f1-8c60-be3df184e033",
@@ -1949,7 +2459,10 @@
       "relevantChunksIds": [
         "380102d4-a842-47e5-bf7c-9ad84b9abec0"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 835,
+      "content_plus_length": 6573,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "bfc5e4d0-4689-4049-b548-123eba7b81f2",
@@ -1959,9 +2472,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "380102d4-a842-47e5-bf7c-9ad84b9abec0"
+        "380102d4-a842-47e5-bf7c-9ad84b9abec0",
+        "d19c95a5-232c-4e07-bdeb-82e9573c93b7"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 531,
+      "content_plus_length": 6269,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "b4b86155-fc40-46f5-9b2a-ac5d4757f6c7",
@@ -1971,9 +2488,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "380102d4-a842-47e5-bf7c-9ad84b9abec0"
+        "380102d4-a842-47e5-bf7c-9ad84b9abec0",
+        "a0f47709-4421-452d-97d5-0574174d5051"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 783,
+      "content_plus_length": 6521,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "19735899-e0ba-48c7-afbf-e471627b27f3",
@@ -1983,9 +2504,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "380102d4-a842-47e5-bf7c-9ad84b9abec0"
+        "380102d4-a842-47e5-bf7c-9ad84b9abec0",
+        "a0f47709-4421-452d-97d5-0574174d5051"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1394,
+      "content_plus_length": 7132,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "f8125a9c-4333-44f4-9205-4a3ee93729ea",
@@ -1998,7 +2523,10 @@
         "99e43d12-a144-4e72-a971-657bf18472ca",
         "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1568,
+      "content_plus_length": 4574,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "d57b4a38-db8d-466c-9660-2d5f187cbaf5",
@@ -2009,9 +2537,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "99e43d12-a144-4e72-a971-657bf18472ca",
-        "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6"
+        "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6",
+        "04749c7a-c4d8-4e1b-8a8a-0a143f3b5156",
+        "1ce49b6e-93e3-4277-9480-f13fd7228566"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1332,
+      "content_plus_length": 4338,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "42f68706-2d68-4c41-964b-578c3a120c70",
@@ -2022,9 +2555,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "99e43d12-a144-4e72-a971-657bf18472ca",
-        "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6"
+        "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6",
+        "25ee9b47-4903-4704-8788-19df1866bfed"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1792,
+      "content_plus_length": 4798,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "76647c01-75e3-4856-a629-5c9e829fc69c",
@@ -2036,7 +2573,10 @@
       "relevantChunksIds": [
         "1fc0b631-1ab7-4dba-b5db-726cdb91e714"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1062,
+      "content_plus_length": 2137,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "8b280196-dcd2-49c9-8569-bf6467bd462a",
@@ -2048,7 +2588,10 @@
       "relevantChunksIds": [
         "1fc0b631-1ab7-4dba-b5db-726cdb91e714"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 996,
+      "content_plus_length": 2071,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "70672bc5-8abe-41e2-8fd6-fea478564112",
@@ -2060,7 +2603,10 @@
       "relevantChunksIds": [
         "1fc0b631-1ab7-4dba-b5db-726cdb91e714"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 614,
+      "content_plus_length": 1689,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "4877eb24-55db-40a3-9330-236f7351aeb7",
@@ -2071,9 +2617,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "99e43d12-a144-4e72-a971-657bf18472ca",
-        "7c898d4a-c8f2-4c59-be17-60fc5b82a4d2"
+        "7c898d4a-c8f2-4c59-be17-60fc5b82a4d2",
+        "bbcbf900-1005-4fec-a20a-a5e856585ed7",
+        "078ed5ff-9158-4d75-87ca-72ee2604827f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2527,
+      "content_plus_length": 9931,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "6a62ce09-454e-411c-809e-faff87a38a0d",
@@ -2087,9 +2638,13 @@
         "1fc0b631-1ab7-4dba-b5db-726cdb91e714",
         "7c898d4a-c8f2-4c59-be17-60fc5b82a4d2",
         "7bd92670-31fc-46f3-86a6-1b8a3cb0725a",
-        "c4aa0ae7-83a1-4194-b9c1-39f79f47fc50"
+        "c4aa0ae7-83a1-4194-b9c1-39f79f47fc50",
+        "ed9c8c36-2454-43e4-9f90-a9d9155cf64a"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1920,
+      "content_plus_length": 15965,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "967b9b96-89ab-40c2-9e4d-f8c02c1820a8",
@@ -2099,9 +2654,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "e030a30e-a5fb-4552-88ba-8c0430d345f7"
+        "e030a30e-a5fb-4552-88ba-8c0430d345f7",
+        "1ca09304-39cd-410c-bd11-5c32cba50768"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1891,
+      "content_plus_length": 4578,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "c2a00592-294e-4a26-ad51-5e69cb679ff1",
@@ -2113,9 +2672,13 @@
       "relevantChunksIds": [
         "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6",
         "7c898d4a-c8f2-4c59-be17-60fc5b82a4d2",
-        "e030a30e-a5fb-4552-88ba-8c0430d345f7"
+        "e030a30e-a5fb-4552-88ba-8c0430d345f7",
+        "40771382-6ec3-4d1b-bc74-f122c6e1fa8f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1161,
+      "content_plus_length": 12486,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "f475be36-ccc5-44e1-baab-1b9b39ba71fa",
@@ -2127,7 +2690,10 @@
       "relevantChunksIds": [
         "c4aa0ae7-83a1-4194-b9c1-39f79f47fc50"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 951,
+      "content_plus_length": 3872,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "f187c6ed-3c25-46e9-8544-9a2a71cfad6a",
@@ -2138,9 +2704,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "7c898d4a-c8f2-4c59-be17-60fc5b82a4d2",
-        "c4aa0ae7-83a1-4194-b9c1-39f79f47fc50"
+        "c4aa0ae7-83a1-4194-b9c1-39f79f47fc50",
+        "40771382-6ec3-4d1b-bc74-f122c6e1fa8f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1125,
+      "content_plus_length": 10564,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "fe90a4bf-b6dc-4187-8431-8b89970a1dd3",
@@ -2153,7 +2723,10 @@
         "c4aa0ae7-83a1-4194-b9c1-39f79f47fc50",
         "fb4509a6-2ece-4eb9-ae92-5f49ec8e6973"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2305,
+      "content_plus_length": 7389,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "157ef922-508b-47f4-bef8-8439dc2fd1ab",
@@ -2163,9 +2736,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "7bd92670-31fc-46f3-86a6-1b8a3cb0725a"
+        "7bd92670-31fc-46f3-86a6-1b8a3cb0725a",
+        "ed9c8c36-2454-43e4-9f90-a9d9155cf64a"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1473,
+      "content_plus_length": 4118,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "9644881c-f288-413d-9eb2-8ceed257e08a",
@@ -2175,9 +2752,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "bdeecfdc-d474-4a75-b08f-1bca1f82a579"
+        "bdeecfdc-d474-4a75-b08f-1bca1f82a579",
+        "6fd293de-6663-4167-84ac-35f7cf9d7b0b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1648,
+      "content_plus_length": 3708,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "dd02403d-29d9-4925-a141-26618891b608",
@@ -2187,9 +2768,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "172aa5fe-01bc-4f50-b209-b262b6a9bc59"
+        "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
+        "70a4b2e6-d19e-4e71-be95-0e9537d08bcb"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 854,
+      "content_plus_length": 2657,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "96e6c82a-b016-403b-b577-adf42b6cf7c7",
@@ -2201,7 +2786,10 @@
       "relevantChunksIds": [
         "172aa5fe-01bc-4f50-b209-b262b6a9bc59"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1219,
+      "content_plus_length": 3022,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "1cb7486d-cc88-4951-9c6a-e2ae73928e21",
@@ -2212,9 +2800,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
-        "9890e82e-f919-4e05-ab3b-3cb4c400d798"
+        "9890e82e-f919-4e05-ab3b-3cb4c400d798",
+        "9a170090-69df-4110-a26e-dcfe155409af"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2496,
+      "content_plus_length": 7809,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "76dd3e33-c018-463e-8a38-176af43c4961",
@@ -2225,9 +2817,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
-        "9890e82e-f919-4e05-ab3b-3cb4c400d798"
+        "9890e82e-f919-4e05-ab3b-3cb4c400d798",
+        "7f104853-f41e-4fcf-ad56-d803fc68a204",
+        "9a170090-69df-4110-a26e-dcfe155409af"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1984,
+      "content_plus_length": 7297,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "ed06ee81-6bf0-4ab2-ae4f-76343881492a",
@@ -2238,9 +2835,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "04ca002d-4327-4a86-a815-c621dd42a342",
-        "ad40e3d1-9a51-49be-aa21-6c3324e41dfb"
+        "ad40e3d1-9a51-49be-aa21-6c3324e41dfb",
+        "c981f560-213b-4cf5-8766-07cef9eaed19"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1766,
+      "content_plus_length": 8214,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "3439d97d-a297-4dea-82ef-3634a0aacc28",
@@ -2250,9 +2851,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "04ca002d-4327-4a86-a815-c621dd42a342"
+        "04ca002d-4327-4a86-a815-c621dd42a342",
+        "c981f560-213b-4cf5-8766-07cef9eaed19"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 816,
+      "content_plus_length": 6427,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "85536134-33d5-4c67-88c6-bd0e80c8e02f",
@@ -2265,7 +2870,10 @@
         "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
         "04ca002d-4327-4a86-a815-c621dd42a342"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 493,
+      "content_plus_length": 7907,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "adb33ff9-6293-4e40-ac32-4eae01def59c",
@@ -2280,7 +2888,10 @@
         "04ca002d-4327-4a86-a815-c621dd42a342",
         "4f42aedd-2e3c-43c1-ba7c-106e05a00889"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1911,
+      "content_plus_length": 9987,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "ed051cdf-a656-4493-b3fa-24ba6e270ba0",
@@ -2293,7 +2904,10 @@
         "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
         "9890e82e-f919-4e05-ab3b-3cb4c400d798"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 931,
+      "content_plus_length": 6244,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "9fee844d-a126-4019-bf23-90b16b39bb40",
@@ -2303,9 +2917,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "04ca002d-4327-4a86-a815-c621dd42a342"
+        "04ca002d-4327-4a86-a815-c621dd42a342",
+        "7dfa0e66-839a-4112-b482-ca247220f173"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1027,
+      "content_plus_length": 6638,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "c5ba8ebb-daca-45ac-ad16-fcedeade7c77",
@@ -2316,9 +2934,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "04ca002d-4327-4a86-a815-c621dd42a342",
-        "bddb8ab1-ea34-4e88-ad1e-49cfd52d2e96"
+        "bddb8ab1-ea34-4e88-ad1e-49cfd52d2e96",
+        "9afefa7a-1b30-4fea-8f63-1cb180353af9"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1412,
+      "content_plus_length": 9061,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "30b357f0-2a9e-43c4-8b14-a0e037050d91",
@@ -2330,7 +2952,10 @@
       "relevantChunksIds": [
         "bddb8ab1-ea34-4e88-ad1e-49cfd52d2e96"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2038,
+      "content_plus_length": 4076,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "db470830-2ef4-4432-b6cf-428226d382dd",
@@ -2342,7 +2967,10 @@
       "relevantChunksIds": [
         "9890e82e-f919-4e05-ab3b-3cb4c400d798"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 902,
+      "content_plus_length": 4412,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "db4b4082-f548-43ba-ba29-b501a8544b35",
@@ -2355,7 +2983,10 @@
         "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
         "9890e82e-f919-4e05-ab3b-3cb4c400d798"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 323,
+      "content_plus_length": 5636,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "cf2464ab-73b2-48b8-8d4f-e06bc865f17f",
@@ -2366,9 +2997,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "1c42a8cc-2dfa-44e6-afaf-bb7f0840ccf8",
-        "9890e82e-f919-4e05-ab3b-3cb4c400d798"
+        "9890e82e-f919-4e05-ab3b-3cb4c400d798",
+        "3d135924-2eb9-4520-bd96-fcbab99a82fa",
+        "7f104853-f41e-4fcf-ad56-d803fc68a204"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1562,
+      "content_plus_length": 5378,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "9b33781e-a371-4a90-8b82-f271c791e687",
@@ -2381,7 +3017,10 @@
         "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
         "9890e82e-f919-4e05-ab3b-3cb4c400d798"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 801,
+      "content_plus_length": 6114,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "d99e27d3-e897-46bf-bd4d-9520f3cb11e4",
@@ -2393,7 +3032,10 @@
       "relevantChunksIds": [
         "04ca002d-4327-4a86-a815-c621dd42a342"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1236,
+      "content_plus_length": 6847,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "fb02a4a0-a76c-420c-b3fe-7bef2d09e1d9",
@@ -2406,7 +3048,10 @@
         "04ca002d-4327-4a86-a815-c621dd42a342",
         "ad40e3d1-9a51-49be-aa21-6c3324e41dfb"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 799,
+      "content_plus_length": 7247,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "294e8aac-238b-4357-aa56-8e141957ce3a",
@@ -2418,9 +3063,13 @@
       "relevantChunksIds": [
         "04ca002d-4327-4a86-a815-c621dd42a342",
         "ad40e3d1-9a51-49be-aa21-6c3324e41dfb",
-        "b8fe84a1-bd79-4920-b108-ee9a4e9b58a2"
+        "b8fe84a1-bd79-4920-b108-ee9a4e9b58a2",
+        "7aa4ef9f-4985-4c11-97af-32780695a7f4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1215,
+      "content_plus_length": 8238,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "100510c1-501a-4a23-a044-8a522bab5817",
@@ -2432,7 +3081,10 @@
       "relevantChunksIds": [
         "4f42aedd-2e3c-43c1-ba7c-106e05a00889"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 496,
+      "content_plus_length": 852,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "cac24c47-039a-4178-bfe2-8c37d7c37335",
@@ -2442,9 +3094,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "4600aff7-ab10-455b-9ef6-8236a354e783"
+        "4600aff7-ab10-455b-9ef6-8236a354e783",
+        "9a170090-69df-4110-a26e-dcfe155409af"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1051,
+      "content_plus_length": 2143,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "3c6ffb3f-9b92-4b5b-af32-32471ee51c0d",
@@ -2456,7 +3112,10 @@
       "relevantChunksIds": [
         "c73e97fd-4072-4370-9032-ec6479d80fd2"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2158,
+      "content_plus_length": 2897,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "8a4b23fd-b3f8-4bd7-bcd4-848bf7e50939",
@@ -2466,9 +3125,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "b899fcf3-e2b5-427d-81b9-ad9ddac67185"
+        "b899fcf3-e2b5-427d-81b9-ad9ddac67185",
+        "5a5337d5-053c-4ac4-997a-b4ff2a42dd43",
+        "b255724a-39b3-4820-b9e7-da2b96b82228"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3378,
+      "content_plus_length": 7271,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "c5fb392f-e267-45e9-a288-41863894f903",
@@ -2479,9 +3143,15 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "bb879f68-5523-4a44-87b4-9f7b0a13d774",
-        "dce12b6f-e821-4384-a1e1-71a356a272ee"
+        "dce12b6f-e821-4384-a1e1-71a356a272ee",
+        "05873ac9-4237-4e1c-9298-3b19db480509",
+        "899312c4-2730-4255-a8d1-387a39a7a87f",
+        "4bcc9dee-d99b-4e11-aae5-f8fe749cc97c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2785,
+      "content_plus_length": 9221,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "af678179-31f8-4c90-b2ac-f33a8cf132c4",
@@ -2492,9 +3162,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "bb879f68-5523-4a44-87b4-9f7b0a13d774",
-        "dce12b6f-e821-4384-a1e1-71a356a272ee"
+        "dce12b6f-e821-4384-a1e1-71a356a272ee",
+        "8e5d9e36-dd80-4356-9763-e3c0b3311790",
+        "4bcc9dee-d99b-4e11-aae5-f8fe749cc97c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 991,
+      "content_plus_length": 7427,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "961b6446-b48c-4bd8-a5b1-250dd649a922",
@@ -2504,9 +3179,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "374e44f3-2592-48a0-9edd-bfc8db73f304"
+        "374e44f3-2592-48a0-9edd-bfc8db73f304",
+        "b255724a-39b3-4820-b9e7-da2b96b82228"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3635,
+      "content_plus_length": 11017,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "12c3e265-d4b3-4226-8fd3-55e69a40ab54",
@@ -2516,9 +3195,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "a6694e36-c56a-42a2-9e39-9b3ee4856d63"
+        "a6694e36-c56a-42a2-9e39-9b3ee4856d63",
+        "96623084-5a6e-4263-8c1f-12232ecf49bb"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1565,
+      "content_plus_length": 8799,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "7e2937b8-7ab2-4b5f-8499-eea9654d8cac",
@@ -2532,7 +3215,10 @@
         "374e44f3-2592-48a0-9edd-bfc8db73f304",
         "a6694e36-c56a-42a2-9e39-9b3ee4856d63"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1360,
+      "content_plus_length": 19869,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "f7ea3c51-ede4-497b-9d08-29601efe58ec",
@@ -2544,7 +3230,10 @@
       "relevantChunksIds": [
         "a6694e36-c56a-42a2-9e39-9b3ee4856d63"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 487,
+      "content_plus_length": 7721,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "23772255-986f-4d3a-8a2c-c6d43ecf4578",
@@ -2554,9 +3243,15 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "f40bd8ba-b1bc-4934-a855-aab5af0097dd"
+        "f40bd8ba-b1bc-4934-a855-aab5af0097dd",
+        "e80525cf-29e6-4262-a66f-f36ca0931deb",
+        "be3a5814-e971-4888-b2b9-332afb992796",
+        "1a777c62-e08b-4804-9fc5-d95544571894"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2833,
+      "content_plus_length": 12942,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "107ff269-5e42-4cb3-8c77-6025cac04725",
@@ -2567,9 +3262,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "e671c2c5-2a8a-48d9-8cde-1849ae39f0bf",
-        "8bd14b06-cc87-4b8c-9161-d28dcbd832e5"
+        "8bd14b06-cc87-4b8c-9161-d28dcbd832e5",
+        "be3a5814-e971-4888-b2b9-332afb992796",
+        "0b565f91-b7dd-4566-8670-2d00c3c4a947"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1484,
+      "content_plus_length": 3726,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "a894c803-25bf-49b2-9f13-8002826f079a",
@@ -2579,9 +3279,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "37c2c4dd-929f-4a0d-8f03-4a306334d50e"
+        "37c2c4dd-929f-4a0d-8f03-4a306334d50e",
+        "8e3e028d-64fe-4600-ba2a-77fbc415ae1c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1727,
+      "content_plus_length": 3801,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "8edea2d8-29ab-4819-ab11-16be222b731e",
@@ -2592,9 +3296,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "37c2c4dd-929f-4a0d-8f03-4a306334d50e",
-        "debfbf05-fb29-4713-a57a-9fe9fe932a54"
+        "debfbf05-fb29-4713-a57a-9fe9fe932a54",
+        "8e3e028d-64fe-4600-ba2a-77fbc415ae1c",
+        "078ed5ff-9158-4d75-87ca-72ee2604827f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2002,
+      "content_plus_length": 5624,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "60c4d0aa-cc0f-462c-8382-9b8ad3a6c389",
@@ -2604,9 +3313,16 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "b8fe84a1-bd79-4920-b108-ee9a4e9b58a2"
+        "b8fe84a1-bd79-4920-b108-ee9a4e9b58a2",
+        "49314c51-0b7d-4626-ab92-213321d7adeb",
+        "078ed5ff-9158-4d75-87ca-72ee2604827f",
+        "7aa4ef9f-4985-4c11-97af-32780695a7f4",
+        "8e7c62f8-6213-4ba5-b034-e8e2e8d8bd50"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 834,
+      "content_plus_length": 1409,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "8d2c4d23-e7e5-41ec-a1fb-fd4a2a32a1dd",
@@ -2619,7 +3335,10 @@
         "020e9258-2b22-4749-88c6-b2b01625f2b6",
         "0a678af7-b11e-43d6-a027-357a6773d522"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 908,
+      "content_plus_length": 9629,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "1291c1f2-ab02-4511-8ac7-eadeb22ddbda",
@@ -2632,7 +3351,10 @@
         "305d544b-35a8-4aec-88c6-e12987f9d96e",
         "bddb8ab1-ea34-4e88-ad1e-49cfd52d2e96"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1659,
+      "content_plus_length": 5588,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "62612115-60bd-45cb-a061-b6d8dc7dc781",
@@ -2645,7 +3367,10 @@
         "22ded589-0fc8-454c-be91-5aee80fb1c11",
         "a6694e36-c56a-42a2-9e39-9b3ee4856d63"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 990,
+      "content_plus_length": 8548,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "69beea6c-fa95-4324-b004-8776aa1a6c7c",
@@ -2655,9 +3380,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "6cccf0fb-fe5e-4cae-af92-5d269833d1ec"
+        "6cccf0fb-fe5e-4cae-af92-5d269833d1ec",
+        "c19383b5-f49d-4496-8948-0052f580ceef",
+        "66d4b900-c52a-414c-bdc8-5f2bc3effe5e"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1137,
+      "content_plus_length": 2405,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "81dbfd9c-d351-444a-8dff-4f5f6e70451c",
@@ -2669,7 +3399,10 @@
       "relevantChunksIds": [
         "6cccf0fb-fe5e-4cae-af92-5d269833d1ec"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 285,
+      "content_plus_length": 1553,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "d9eaf714-12b4-457f-a051-0dfbedcc9cab",
@@ -2679,9 +3412,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "2048f360-be6d-426f-a381-3e6e692927a7"
+        "2048f360-be6d-426f-a381-3e6e692927a7",
+        "bf896074-c31c-4172-b41a-b4a699a71804"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 277,
+      "content_plus_length": 1427,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "3289e530-8871-4930-895a-222d5d7a9c73",
@@ -2691,7 +3428,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 220,
+      "content_plus_length": 220,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "f1aed614-aef9-430f-ad4c-cea34986c9a4",
@@ -2703,11 +3443,17 @@
       "relevantChunksIds": [
         "6cccf0fb-fe5e-4cae-af92-5d269833d1ec"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 823,
+      "content_plus_length": 2091,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "cd3b1bc0-1dbf-4524-a297-a9f18df4ab73",
-      "content": "HABEN FOLGENDE VERORDNUNG ERLASSEN:"
+      "content": "HABEN FOLGENDE VERORDNUNG ERLASSEN:",
+      "content_length": 35,
+      "content_plus_length": 35,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "3a68e18c-0ceb-4482-a82a-bd4443ad5f91",
@@ -2729,9 +3475,22 @@
         "b07edbe0-7e44-4d34-98e2-885a6ef19c14",
         "e55c92a6-c074-4fc1-8972-eb1ac9c82fe5",
         "c463f587-20bb-4df9-8f1d-03f51d5c52d3",
-        "85ea99d6-dfb5-4573-9ae7-9f2ffc23ef7c"
+        "85ea99d6-dfb5-4573-9ae7-9f2ffc23ef7c",
+        "17b12266-4bea-4719-a6c6-ab5240ad57a8",
+        "3952b544-2c3a-49c5-b74e-0184c8054ea8",
+        "fa8232ae-13ea-44df-b637-9bfc71d17891",
+        "e3666ca3-e570-49c1-95b9-f93254172bb1",
+        "dc52a8aa-c545-49d2-b546-b0f202a46590",
+        "01e3441e-1825-41ef-be3a-bf1e92b1effc",
+        "a07c4b3e-91b7-457d-adc5-fae7cfdb4555",
+        "d078e6b8-7b36-4934-b1f6-257beb4a249f",
+        "1a777c62-e08b-4804-9fc5-d95544571894",
+        "0b565f91-b7dd-4566-8670-2d00c3c4a947"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 7353,
+      "content_plus_length": 25357,
+      "relevantChunksIdsNum": 13
     },
     {
       "id": "b1909c17-7990-4795-bb04-f3c5c3041dd9",
@@ -2741,7 +3500,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 310,
+      "content_plus_length": 310,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "f5a8e685-fac0-4139-9338-9ae907d69ed0",
@@ -2751,7 +3513,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 255,
+      "content_plus_length": 255,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "046e2ba7-b1b2-4488-b794-27d40c743f5e",
@@ -2763,7 +3528,10 @@
       "relevantChunksIds": [
         "aa0e82a8-2b89-45c2-9c4d-ee0ec397c669"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 212,
+      "content_plus_length": 4303,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "70545263-6754-4f91-be4c-4a217853e91a",
@@ -2775,7 +3543,10 @@
       "relevantChunksIds": [
         "aa0e82a8-2b89-45c2-9c4d-ee0ec397c669"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 179,
+      "content_plus_length": 4270,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "9b90d116-d792-49ef-9f21-88266767f202",
@@ -2785,9 +3556,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "e53094fa-4499-475b-84c3-d754c1ffad7d"
+        "e53094fa-4499-475b-84c3-d754c1ffad7d",
+        "f1d51ad9-51bf-460a-bc9e-6e07652ab2f0"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 503,
+      "content_plus_length": 1850,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "0f2ae91a-3ad6-49b9-af15-131604a6e970",
@@ -2798,9 +3573,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "f60ea608-3527-469c-a8ed-262527698dc5",
-        "2d38b2f1-0f66-420c-81a0-d64ca2146088"
+        "2d38b2f1-0f66-420c-81a0-d64ca2146088",
+        "bb58af36-2a43-4ab8-8e65-a3193487ff1c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 614,
+      "content_plus_length": 7934,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "e8f893de-1c4d-43fe-94b3-1a89a90fbc9f",
@@ -2812,7 +3591,10 @@
       "relevantChunksIds": [
         "aa0e82a8-2b89-45c2-9c4d-ee0ec397c669"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 595,
+      "content_plus_length": 4686,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "1fbcad2a-0a59-41aa-bf10-32dfb773c8eb",
@@ -2823,9 +3605,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "1cb7486d-cc88-4951-9c6a-e2ae73928e21",
-        "76dd3e33-c018-463e-8a38-176af43c4961"
+        "76dd3e33-c018-463e-8a38-176af43c4961",
+        "9a170090-69df-4110-a26e-dcfe155409af",
+        "7f104853-f41e-4fcf-ad56-d803fc68a204"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 565,
+      "content_plus_length": 5045,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "4bac7b13-8155-4a99-a2f7-9e0c7d4e8235",
@@ -2837,7 +3624,10 @@
       "relevantChunksIds": [
         "76dd3e33-c018-463e-8a38-176af43c4961"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 288,
+      "content_plus_length": 2272,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "fa7f2a6a-6c16-43bb-8c4e-6958ba0e096f",
@@ -2847,7 +3637,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 221,
+      "content_plus_length": 221,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "7d0c4731-4411-4e6b-a9d2-3598d06f2e1a",
@@ -2860,7 +3653,10 @@
         "e55c92a6-c074-4fc1-8972-eb1ac9c82fe5",
         "63a87d30-d9e8-4f71-a2ce-664c302679b8"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 200,
+      "content_plus_length": 3158,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "8338961c-6736-40f7-a813-a6785cdb8c20",
@@ -2870,9 +3666,16 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "0ab2f81e-6d8c-4de0-aef7-44a738a71756"
+        "0ab2f81e-6d8c-4de0-aef7-44a738a71756",
+        "1a2a699b-346b-4fd4-932a-35f3ed246b0f",
+        "af081cd3-1a0b-4e76-9d97-ef769b438503",
+        "5820dcef-71a1-4a6c-bf60-7404cc7593d5",
+        "647cd01b-5910-423b-b71c-be0f37dca981"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 333,
+      "content_plus_length": 1905,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "663fcc3b-2af5-4546-ba36-dfa77ca6dcc9",
@@ -2881,8 +3684,14 @@
       "keywords": [],
       "availableKeywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [],
-      "parameters": []
+      "relevantChunksIds": [
+        "647cd01b-5910-423b-b71c-be0f37dca981",
+        "5cfa9da1-6f8d-4982-a1d2-20eb26df49ee"
+      ],
+      "parameters": [],
+      "content_length": 524,
+      "content_plus_length": 524,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "64dd8b4f-1df2-43fa-8f57-fbca735ddbb0",
@@ -2891,8 +3700,13 @@
       "keywords": [],
       "availableKeywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [],
-      "parameters": []
+      "relevantChunksIds": [
+        "d078e6b8-7b36-4934-b1f6-257beb4a249f"
+      ],
+      "parameters": [],
+      "content_length": 663,
+      "content_plus_length": 663,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "68c58f6f-8a7e-4c7c-9a54-adc956d1dce3",
@@ -2902,9 +3716,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "f60ea608-3527-469c-a8ed-262527698dc5"
+        "f60ea608-3527-469c-a8ed-262527698dc5",
+        "a10ba605-f443-44ae-85f0-4d36dd31f545",
+        "3c01b3db-7b01-4b95-b454-0285065191fc"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 466,
+      "content_plus_length": 5358,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "2826669b-e7a6-493d-baae-eb4e0c6bbe12",
@@ -2914,9 +3733,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "f60ea608-3527-469c-a8ed-262527698dc5"
+        "f60ea608-3527-469c-a8ed-262527698dc5",
+        "a10ba605-f443-44ae-85f0-4d36dd31f545",
+        "3c01b3db-7b01-4b95-b454-0285065191fc"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 427,
+      "content_plus_length": 5319,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "5a36928e-fd32-487d-bae7-1a27f8cbffcd",
@@ -2926,9 +3750,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "2a836ef4-2f6a-4692-b73f-975793b0ce3b"
+        "2a836ef4-2f6a-4692-b73f-975793b0ce3b",
+        "3c01b3db-7b01-4b95-b454-0285065191fc",
+        "d081948c-9164-42d4-b776-edcc6acc7a77"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 377,
+      "content_plus_length": 4023,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "df1e5e49-8743-4da4-86f3-57d46437ae86",
@@ -2938,9 +3767,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "ca394ef9-e41e-4e50-ac15-0eaad829083e"
+        "ca394ef9-e41e-4e50-ac15-0eaad829083e",
+        "bf6e8230-0d8d-4693-b168-2d8d786670b1"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 208,
+      "content_plus_length": 5308,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "a5707a74-a5c5-44e9-9f33-23f375ff111c",
@@ -2952,7 +3785,10 @@
       "relevantChunksIds": [
         "ca394ef9-e41e-4e50-ac15-0eaad829083e"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 242,
+      "content_plus_length": 5342,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "9fbf2fb8-c8e6-445e-ae5c-8d84b1f9fb82",
@@ -2964,7 +3800,10 @@
       "relevantChunksIds": [
         "54c9b77d-70f8-4787-842d-561f635355f4"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 187,
+      "content_plus_length": 1199,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "de9dc8db-47fd-4290-98a4-52e44060ee56",
@@ -2973,8 +3812,14 @@
       "keywords": [],
       "availableKeywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [],
-      "parameters": []
+      "relevantChunksIds": [
+        "a07c4b3e-91b7-457d-adc5-fae7cfdb4555",
+        "82c9a4cb-7df9-42a2-bd08-442f045ec802"
+      ],
+      "parameters": [],
+      "content_length": 304,
+      "content_plus_length": 304,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "fdacb2d4-6aac-4032-9499-3b3b1835692b",
@@ -2983,8 +3828,14 @@
       "keywords": [],
       "availableKeywords": [],
       "negativeKeywords": [],
-      "relevantChunksIds": [],
-      "parameters": []
+      "relevantChunksIds": [
+        "a07c4b3e-91b7-457d-adc5-fae7cfdb4555",
+        "82c9a4cb-7df9-42a2-bd08-442f045ec802"
+      ],
+      "parameters": [],
+      "content_length": 198,
+      "content_plus_length": 198,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "fd6bcc7d-004f-4ee7-9d44-af11f900ac9f",
@@ -2994,7 +3845,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 264,
+      "content_plus_length": 264,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "12a37f08-f9c0-4b79-b01a-cdd19f05d228",
@@ -3004,7 +3858,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 352,
+      "content_plus_length": 352,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "03799db6-0561-48ff-b8ee-155a286e831b",
@@ -3014,7 +3871,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 215,
+      "content_plus_length": 215,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "44b7c990-2ea5-4efb-8533-8a91620012aa",
@@ -3024,7 +3884,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 219,
+      "content_plus_length": 219,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "e31d2a59-0357-4a89-a30d-a24d8347b4c2",
@@ -3034,7 +3897,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 379,
+      "content_plus_length": 379,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "a9bdcd15-9496-4ec8-ba20-48dbc88e5546",
@@ -3044,7 +3910,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 353,
+      "content_plus_length": 353,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "f4fd5d3e-dd64-4c79-94f8-25462d83ebc6",
@@ -3057,7 +3926,10 @@
         "f8125a9c-4333-44f4-9205-4a3ee93729ea",
         "d57b4a38-db8d-466c-9660-2d5f187cbaf5"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 914,
+      "content_plus_length": 3814,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "22e33332-be9e-45a6-b09a-f1d0f249f394",
@@ -3069,7 +3941,10 @@
       "relevantChunksIds": [
         "dd02403d-29d9-4925-a141-26618891b608"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 321,
+      "content_plus_length": 1175,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "195a85f2-e925-419c-bdb0-337753cf51db",
@@ -3081,7 +3956,10 @@
       "relevantChunksIds": [
         "76db3c36-1bec-4e53-9458-c7b68ebbedea"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 426,
+      "content_plus_length": 2088,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "78d67b36-3f14-4f41-b50e-cc7a6b55ac42",
@@ -3091,9 +3969,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "3439d97d-a297-4dea-82ef-3634a0aacc28"
+        "3439d97d-a297-4dea-82ef-3634a0aacc28",
+        "c981f560-213b-4cf5-8766-07cef9eaed19"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 329,
+      "content_plus_length": 1145,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "f5f88e19-0135-4606-88f9-b3231df29110",
@@ -3103,7 +3985,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 376,
+      "content_plus_length": 376,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "72a92ea0-39bf-4e5b-8f88-ce36a44a6391",
@@ -3116,7 +4001,10 @@
         "85536134-33d5-4c67-88c6-bd0e80c8e02f",
         "adb33ff9-6293-4e40-ac32-4eae01def59c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 755,
+      "content_plus_length": 3159,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "beb6dd44-4226-4e11-8b8e-6fdb0c8531a9",
@@ -3128,7 +4016,10 @@
       "relevantChunksIds": [
         "c5ba8ebb-daca-45ac-ad16-fcedeade7c77"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 412,
+      "content_plus_length": 1824,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "1da3a026-9d07-46e1-9c15-7ec0ae44fa5d",
@@ -3140,7 +4031,10 @@
       "relevantChunksIds": [
         "c5ba8ebb-daca-45ac-ad16-fcedeade7c77"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 491,
+      "content_plus_length": 1903,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "332ad868-f4b0-44e8-b303-0d46da35a439",
@@ -3152,7 +4046,10 @@
       "relevantChunksIds": [
         "ed051cdf-a656-4493-b3fa-24ba6e270ba0"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 583,
+      "content_plus_length": 1514,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "3f911561-aa85-4f6e-82ab-234dac084a62",
@@ -3162,9 +4059,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "ed06ee81-6bf0-4ab2-ae4f-76343881492a"
+        "ed06ee81-6bf0-4ab2-ae4f-76343881492a",
+        "c981f560-213b-4cf5-8766-07cef9eaed19"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 567,
+      "content_plus_length": 2333,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "cf370e7c-54f3-4d53-bcf0-ed803ac56b21",
@@ -3174,9 +4075,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "12c3e265-d4b3-4226-8fd3-55e69a40ab54"
+        "12c3e265-d4b3-4226-8fd3-55e69a40ab54",
+        "96623084-5a6e-4263-8c1f-12232ecf49bb"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 419,
+      "content_plus_length": 1984,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "a4d7927e-5392-4cd2-a8af-668301ac2db0",
@@ -3188,7 +4093,10 @@
       "relevantChunksIds": [
         "db470830-2ef4-4432-b6cf-428226d382dd"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 351,
+      "content_plus_length": 1253,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "258eea7f-7237-4e1c-afbc-9b05dd3e842a",
@@ -3200,7 +4108,10 @@
       "relevantChunksIds": [
         "8a4b23fd-b3f8-4bd7-bcd4-848bf7e50939"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 354,
+      "content_plus_length": 3732,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "3ba9df66-47f9-4cf0-9b84-47ea225cde1a",
@@ -3212,7 +4123,10 @@
       "relevantChunksIds": [
         "8a4b23fd-b3f8-4bd7-bcd4-848bf7e50939"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 353,
+      "content_plus_length": 3731,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "f4a1592e-7c08-4086-b503-69d94b706581",
@@ -3224,7 +4138,10 @@
       "relevantChunksIds": [
         "8a4b23fd-b3f8-4bd7-bcd4-848bf7e50939"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 227,
+      "content_plus_length": 3605,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "895b8651-1727-4246-8973-cd50c3c83b3b",
@@ -3243,9 +4160,22 @@
         "c23e9fe5-d3d4-418a-86f8-a60d63e90015",
         "af338277-3804-48aa-86d5-e19297d7f367",
         "76db3c36-1bec-4e53-9458-c7b68ebbedea",
-        "d9279b80-63b8-460d-b14f-03c000eec6e4"
+        "d9279b80-63b8-460d-b14f-03c000eec6e4",
+        "d081948c-9164-42d4-b776-edcc6acc7a77",
+        "3c01b3db-7b01-4b95-b454-0285065191fc",
+        "5cfa9da1-6f8d-4982-a1d2-20eb26df49ee",
+        "2180777f-4ec0-40a7-aed0-5a3c8da076e0",
+        "aa7fe423-a6f1-4989-8fd6-940d3059f56a",
+        "58e1131b-0357-4162-a77b-92dbfc4f3596",
+        "6eaeeec1-f771-4796-be82-d8682af9b91a",
+        "a773f5de-05f4-44b4-aaa2-f21228e3a941",
+        "d74a1031-ed7c-4c1f-9a76-69350259496b",
+        "49271460-fa8c-47de-964a-6c1c30e2f79b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 4019,
+      "content_plus_length": 27724,
+      "relevantChunksIdsNum": 10
     },
     {
       "id": "020e9258-2b22-4749-88c6-b2b01625f2b6",
@@ -3268,9 +4198,28 @@
         "63a87d30-d9e8-4f71-a2ce-664c302679b8",
         "3608eeca-c013-4647-a985-400335459f06",
         "d109d1b1-0832-4c83-a5aa-5e72e81f4713",
-        "8d2c4d23-e7e5-41ec-a1fb-fd4a2a32a1dd"
+        "8d2c4d23-e7e5-41ec-a1fb-fd4a2a32a1dd",
+        "bf6e8230-0d8d-4693-b168-2d8d786670b1",
+        "3c01b3db-7b01-4b95-b454-0285065191fc",
+        "f853e051-e1b4-4063-9bdb-1f63ff95d6e3",
+        "57633227-3bc3-4bbc-8578-4a36bec95d22",
+        "f129753e-efc6-4e81-9ab9-52d98692c140",
+        "7e2d8702-5668-4914-8045-fe5eb15e1b7f",
+        "284bb583-f90a-4eca-b411-cecfbea65979",
+        "973a635a-6bbe-4c21-99a5-a8e01fe24123",
+        "b53d9f65-98b6-4691-b3e3-6fdcf208a185",
+        "f6ae4c82-cab4-4119-9565-75dcbb8798ec",
+        "040e112b-f65d-4ba2-96b4-22c6e2a92608",
+        "fb0fb4f4-3da5-4901-b2f6-54bfc632a4f4",
+        "58e1131b-0357-4162-a77b-92dbfc4f3596",
+        "6eaeeec1-f771-4796-be82-d8682af9b91a",
+        "a773f5de-05f4-44b4-aaa2-f21228e3a941",
+        "d74a1031-ed7c-4c1f-9a76-69350259496b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 8341,
+      "content_plus_length": 44161,
+      "relevantChunksIdsNum": 14
     },
     {
       "id": "6760e95b-2d80-4ae3-b2bd-135514f1397b",
@@ -3290,9 +4239,22 @@
         "3608eeca-c013-4647-a985-400335459f06",
         "d109d1b1-0832-4c83-a5aa-5e72e81f4713",
         "54c9b77d-70f8-4787-842d-561f635355f4",
-        "8df1db2d-c730-42ad-b60d-67283b5caf9a"
+        "8df1db2d-c730-42ad-b60d-67283b5caf9a",
+        "bf6e8230-0d8d-4693-b168-2d8d786670b1",
+        "3c01b3db-7b01-4b95-b454-0285065191fc",
+        "603dc874-8cee-4272-b8fe-716f2e65dcf6",
+        "973a635a-6bbe-4c21-99a5-a8e01fe24123",
+        "b53d9f65-98b6-4691-b3e3-6fdcf208a185",
+        "f6ae4c82-cab4-4119-9565-75dcbb8798ec",
+        "fb0fb4f4-3da5-4901-b2f6-54bfc632a4f4",
+        "a773f5de-05f4-44b4-aaa2-f21228e3a941",
+        "d74a1031-ed7c-4c1f-9a76-69350259496b",
+        "49271460-fa8c-47de-964a-6c1c30e2f79b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 7327,
+      "content_plus_length": 36181,
+      "relevantChunksIdsNum": 11
     },
     {
       "id": "9654aa9e-28bb-4e44-a0e4-b43cea22ca28",
@@ -3308,9 +4270,16 @@
         "8e3f7af8-f90b-4b4b-b903-7823896e9e4d",
         "d109d1b1-0832-4c83-a5aa-5e72e81f4713",
         "54c9b77d-70f8-4787-842d-561f635355f4",
-        "8df1db2d-c730-42ad-b60d-67283b5caf9a"
+        "8df1db2d-c730-42ad-b60d-67283b5caf9a",
+        "603dc874-8cee-4272-b8fe-716f2e65dcf6",
+        "83036d85-10e3-4846-a2f7-dd06eea66741",
+        "040e112b-f65d-4ba2-96b4-22c6e2a92608",
+        "d74a1031-ed7c-4c1f-9a76-69350259496b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2918,
+      "content_plus_length": 16452,
+      "relevantChunksIdsNum": 7
     },
     {
       "id": "87679876-8960-4698-9c9b-3adf78cb2106",
@@ -3321,9 +4290,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "8df1db2d-c730-42ad-b60d-67283b5caf9a",
-        "44ff024e-7632-43a8-90b9-5cb099c3df5b"
+        "44ff024e-7632-43a8-90b9-5cb099c3df5b",
+        "d74a1031-ed7c-4c1f-9a76-69350259496b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1568,
+      "content_plus_length": 7178,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "03793326-09b1-4dd0-9dc8-e57c0be5d420",
@@ -3337,9 +4310,13 @@
         "7920e3ae-9851-4b54-a379-d456b8660a72",
         "8bfe1504-8db4-42f3-8f3d-78e2f76dcda6",
         "845da571-c338-4481-8655-4900bbd8b0fb",
-        "2ac954ed-9c9e-4e3c-bf0f-0d87c8275ee2"
+        "2ac954ed-9c9e-4e3c-bf0f-0d87c8275ee2",
+        "748faade-7670-4df9-8d3b-7831a00dce25"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2583,
+      "content_plus_length": 6871,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "47514aa9-da69-4ea2-9227-0f9d14afa896",
@@ -3354,9 +4331,14 @@
         "5dfead0c-cab6-462f-918b-18e6dcf49fa2",
         "37c04f17-c845-4fa0-816f-098d50d1b3f3",
         "4fee9872-cc75-466f-adc7-1c3c50e3bfd5",
-        "2ac954ed-9c9e-4e3c-bf0f-0d87c8275ee2"
+        "2ac954ed-9c9e-4e3c-bf0f-0d87c8275ee2",
+        "528202a2-4686-4688-a500-ebe6a764657b",
+        "02a6eda9-f634-461a-919d-f9a758f69c05"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1957,
+      "content_plus_length": 7854,
+      "relevantChunksIdsNum": 6
     },
     {
       "id": "709a408f-4bb5-456b-a3dd-68cca9cf3137",
@@ -3370,9 +4352,13 @@
         "671f7dcd-cd72-485a-a4f7-0a0f9a385e24",
         "53672aca-8d1b-4b89-8012-f96b4d271566",
         "887a6fb4-b5b6-4cc3-88af-4eb36ac889a4",
-        "303b9883-63ec-437e-88e8-11f77d812a92"
+        "303b9883-63ec-437e-88e8-11f77d812a92",
+        "f41213b8-f927-447d-bee2-6146df9e6818"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 4897,
+      "content_plus_length": 7588,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "e36e0e8d-1047-4ba3-8f78-5a60a9e217fd",
@@ -3384,7 +4370,10 @@
       "relevantChunksIds": [
         "233e2b2c-ff31-4556-9437-7392fe53b2f3"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3949,
+      "content_plus_length": 5314,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "9f293133-f245-475c-957c-2603e868fb2b",
@@ -3394,7 +4383,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 676,
+      "content_plus_length": 676,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "380102d4-a842-47e5-bf7c-9ad84b9abec0",
@@ -3408,9 +4400,16 @@
         "2abfecf1-0422-43f1-8c60-be3df184e033",
         "bfc5e4d0-4689-4049-b548-123eba7b81f2",
         "b4b86155-fc40-46f5-9b2a-ac5d4757f6c7",
-        "19735899-e0ba-48c7-afbf-e471627b27f3"
+        "19735899-e0ba-48c7-afbf-e471627b27f3",
+        "a0f47709-4421-452d-97d5-0574174d5051",
+        "d19c95a5-232c-4e07-bdeb-82e9573c93b7",
+        "bf896074-c31c-4172-b41a-b4a699a71804",
+        "8e7c62f8-6213-4ba5-b034-e8e2e8d8bd50"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 5738,
+      "content_plus_length": 10163,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "99e43d12-a144-4e72-a971-657bf18472ca",
@@ -3426,7 +4425,10 @@
         "4877eb24-55db-40a3-9330-236f7351aeb7",
         "6a62ce09-454e-411c-809e-faff87a38a0d"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 886,
+      "content_plus_length": 10025,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "3c3d6164-6e5e-4ca0-a9ae-461c9ec5b6f6",
@@ -3439,9 +4441,15 @@
         "f8125a9c-4333-44f4-9205-4a3ee93729ea",
         "d57b4a38-db8d-466c-9660-2d5f187cbaf5",
         "42f68706-2d68-4c41-964b-578c3a120c70",
-        "c2a00592-294e-4a26-ad51-5e69cb679ff1"
+        "c2a00592-294e-4a26-ad51-5e69cb679ff1",
+        "04749c7a-c4d8-4e1b-8a8a-0a143f3b5156",
+        "1ce49b6e-93e3-4277-9480-f13fd7228566",
+        "25ee9b47-4903-4704-8788-19df1866bfed"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2120,
+      "content_plus_length": 7973,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "1fc0b631-1ab7-4dba-b5db-726cdb91e714",
@@ -3457,7 +4465,10 @@
         "70672bc5-8abe-41e2-8fd6-fea478564112",
         "6a62ce09-454e-411c-809e-faff87a38a0d"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1075,
+      "content_plus_length": 9237,
+      "relevantChunksIdsNum": 5
     },
     {
       "id": "7c898d4a-c8f2-4c59-be17-60fc5b82a4d2",
@@ -3470,9 +4481,16 @@
         "4877eb24-55db-40a3-9330-236f7351aeb7",
         "6a62ce09-454e-411c-809e-faff87a38a0d",
         "c2a00592-294e-4a26-ad51-5e69cb679ff1",
-        "f187c6ed-3c25-46e9-8544-9a2a71cfad6a"
+        "f187c6ed-3c25-46e9-8544-9a2a71cfad6a",
+        "bbcbf900-1005-4fec-a20a-a5e856585ed7",
+        "40771382-6ec3-4d1b-bc74-f122c6e1fa8f",
+        "ed9c8c36-2454-43e4-9f90-a9d9155cf64a",
+        "6fd293de-6663-4167-84ac-35f7cf9d7b0b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 6518,
+      "content_plus_length": 13251,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "e030a30e-a5fb-4552-88ba-8c0430d345f7",
@@ -3483,9 +4501,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "967b9b96-89ab-40c2-9e4d-f8c02c1820a8",
-        "c2a00592-294e-4a26-ad51-5e69cb679ff1"
+        "c2a00592-294e-4a26-ad51-5e69cb679ff1",
+        "40771382-6ec3-4d1b-bc74-f122c6e1fa8f",
+        "1ca09304-39cd-410c-bd11-5c32cba50768"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2687,
+      "content_plus_length": 5739,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "c4aa0ae7-83a1-4194-b9c1-39f79f47fc50",
@@ -3498,9 +4521,15 @@
         "6a62ce09-454e-411c-809e-faff87a38a0d",
         "f475be36-ccc5-44e1-baab-1b9b39ba71fa",
         "f187c6ed-3c25-46e9-8544-9a2a71cfad6a",
-        "fe90a4bf-b6dc-4187-8431-8b89970a1dd3"
+        "fe90a4bf-b6dc-4187-8431-8b89970a1dd3",
+        "40771382-6ec3-4d1b-bc74-f122c6e1fa8f",
+        "ed9c8c36-2454-43e4-9f90-a9d9155cf64a",
+        "1ca09304-39cd-410c-bd11-5c32cba50768"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2921,
+      "content_plus_length": 9222,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "fb4509a6-2ece-4eb9-ae92-5f49ec8e6973",
@@ -3512,7 +4541,10 @@
       "relevantChunksIds": [
         "fe90a4bf-b6dc-4187-8431-8b89970a1dd3"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2163,
+      "content_plus_length": 4468,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "7bd92670-31fc-46f3-86a6-1b8a3cb0725a",
@@ -3523,9 +4555,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "6a62ce09-454e-411c-809e-faff87a38a0d",
-        "157ef922-508b-47f4-bef8-8439dc2fd1ab"
+        "157ef922-508b-47f4-bef8-8439dc2fd1ab",
+        "ed9c8c36-2454-43e4-9f90-a9d9155cf64a"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2645,
+      "content_plus_length": 6038,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "bdeecfdc-d474-4a75-b08f-1bca1f82a579",
@@ -3535,9 +4571,13 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "9644881c-f288-413d-9eb2-8ceed257e08a"
+        "9644881c-f288-413d-9eb2-8ceed257e08a",
+        "6fd293de-6663-4167-84ac-35f7cf9d7b0b"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2060,
+      "content_plus_length": 3708,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "172aa5fe-01bc-4f50-b209-b262b6a9bc59",
@@ -3555,9 +4595,14 @@
         "adb33ff9-6293-4e40-ac32-4eae01def59c",
         "ed051cdf-a656-4493-b3fa-24ba6e270ba0",
         "db4b4082-f548-43ba-ba29-b501a8544b35",
-        "9b33781e-a371-4a90-8b82-f271c791e687"
+        "9b33781e-a371-4a90-8b82-f271c791e687",
+        "9a170090-69df-4110-a26e-dcfe155409af",
+        "70a4b2e6-d19e-4e71-be95-0e9537d08bcb"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1803,
+      "content_plus_length": 12815,
+      "relevantChunksIdsNum": 9
     },
     {
       "id": "1c42a8cc-2dfa-44e6-afaf-bb7f0840ccf8",
@@ -3568,9 +4613,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "adb33ff9-6293-4e40-ac32-4eae01def59c",
-        "cf2464ab-73b2-48b8-8d4f-e06bc865f17f"
+        "cf2464ab-73b2-48b8-8d4f-e06bc865f17f",
+        "3d135924-2eb9-4520-bd96-fcbab99a82fa"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 306,
+      "content_plus_length": 3779,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "04ca002d-4327-4a86-a815-c621dd42a342",
@@ -3588,9 +4637,14 @@
         "c5ba8ebb-daca-45ac-ad16-fcedeade7c77",
         "d99e27d3-e897-46bf-bd4d-9520f3cb11e4",
         "fb02a4a0-a76c-420c-b3fe-7bef2d09e1d9",
-        "294e8aac-238b-4357-aa56-8e141957ce3a"
+        "294e8aac-238b-4357-aa56-8e141957ce3a",
+        "7f104853-f41e-4fcf-ad56-d803fc68a204",
+        "7dfa0e66-839a-4112-b482-ca247220f173"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 5611,
+      "content_plus_length": 16286,
+      "relevantChunksIdsNum": 9
     },
     {
       "id": "ad40e3d1-9a51-49be-aa21-6c3324e41dfb",
@@ -3604,7 +4658,10 @@
         "fb02a4a0-a76c-420c-b3fe-7bef2d09e1d9",
         "294e8aac-238b-4357-aa56-8e141957ce3a"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 837,
+      "content_plus_length": 4617,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "4f42aedd-2e3c-43c1-ba7c-106e05a00889",
@@ -3617,7 +4674,10 @@
         "adb33ff9-6293-4e40-ac32-4eae01def59c",
         "100510c1-501a-4a23-a044-8a522bab5817"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 356,
+      "content_plus_length": 2763,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "dce12b6f-e821-4384-a1e1-71a356a272ee",
@@ -3628,9 +4688,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "c5fb392f-e267-45e9-a288-41863894f903",
-        "af678179-31f8-4c90-b2ac-f33a8cf132c4"
+        "af678179-31f8-4c90-b2ac-f33a8cf132c4",
+        "4bcc9dee-d99b-4e11-aae5-f8fe749cc97c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1096,
+      "content_plus_length": 4872,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "bddb8ab1-ea34-4e88-ad1e-49cfd52d2e96",
@@ -3642,9 +4706,14 @@
       "relevantChunksIds": [
         "c5ba8ebb-daca-45ac-ad16-fcedeade7c77",
         "30b357f0-2a9e-43c4-8b14-a0e037050d91",
-        "1291c1f2-ab02-4511-8ac7-eadeb22ddbda"
+        "1291c1f2-ab02-4511-8ac7-eadeb22ddbda",
+        "7f104853-f41e-4fcf-ad56-d803fc68a204",
+        "9afefa7a-1b30-4fea-8f63-1cb180353af9"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2038,
+      "content_plus_length": 7147,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "9890e82e-f919-4e05-ab3b-3cb4c400d798",
@@ -3660,9 +4729,14 @@
         "db470830-2ef4-4432-b6cf-428226d382dd",
         "db4b4082-f548-43ba-ba29-b501a8544b35",
         "cf2464ab-73b2-48b8-8d4f-e06bc865f17f",
-        "9b33781e-a371-4a90-8b82-f271c791e687"
+        "9b33781e-a371-4a90-8b82-f271c791e687",
+        "7f104853-f41e-4fcf-ad56-d803fc68a204",
+        "3d135924-2eb9-4520-bd96-fcbab99a82fa"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3510,
+      "content_plus_length": 12509,
+      "relevantChunksIdsNum": 7
     },
     {
       "id": "4600aff7-ab10-455b-9ef6-8236a354e783",
@@ -3672,9 +4746,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "cac24c47-039a-4178-bfe2-8c37d7c37335"
+        "cac24c47-039a-4178-bfe2-8c37d7c37335",
+        "7f104853-f41e-4fcf-ad56-d803fc68a204",
+        "9a170090-69df-4110-a26e-dcfe155409af"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1092,
+      "content_plus_length": 2143,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "bb879f68-5523-4a44-87b4-9f7b0a13d774",
@@ -3685,9 +4764,17 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "c5fb392f-e267-45e9-a288-41863894f903",
-        "af678179-31f8-4c90-b2ac-f33a8cf132c4"
+        "af678179-31f8-4c90-b2ac-f33a8cf132c4",
+        "4bcc9dee-d99b-4e11-aae5-f8fe749cc97c",
+        "899312c4-2730-4255-a8d1-387a39a7a87f",
+        "05873ac9-4237-4e1c-9298-3b19db480509",
+        "8e5d9e36-dd80-4356-9763-e3c0b3311790",
+        "8099fd91-a372-4fdc-83e8-27df5cf982e2"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 5340,
+      "content_plus_length": 9116,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "374e44f3-2592-48a0-9edd-bfc8db73f304",
@@ -3698,9 +4785,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "961b6446-b48c-4bd8-a5b1-250dd649a922",
-        "7e2937b8-7ab2-4b5f-8499-eea9654d8cac"
+        "7e2937b8-7ab2-4b5f-8499-eea9654d8cac",
+        "257cbe59-f339-4ae6-abe0-e83336f5b5ab",
+        "b255724a-39b3-4820-b9e7-da2b96b82228"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 7382,
+      "content_plus_length": 12377,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "c73e97fd-4072-4370-9032-ec6479d80fd2",
@@ -3712,7 +4804,10 @@
       "relevantChunksIds": [
         "3c6ffb3f-9b92-4b5b-af32-32471ee51c0d"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 739,
+      "content_plus_length": 2897,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "b899fcf3-e2b5-427d-81b9-ad9ddac67185",
@@ -3723,9 +4818,14 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "8a4b23fd-b3f8-4bd7-bcd4-848bf7e50939",
-        "7e2937b8-7ab2-4b5f-8499-eea9654d8cac"
+        "7e2937b8-7ab2-4b5f-8499-eea9654d8cac",
+        "b255724a-39b3-4820-b9e7-da2b96b82228",
+        "5a5337d5-053c-4ac4-997a-b4ff2a42dd43"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 3893,
+      "content_plus_length": 8631,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "a6694e36-c56a-42a2-9e39-9b3ee4856d63",
@@ -3738,9 +4838,13 @@
         "12c3e265-d4b3-4226-8fd3-55e69a40ab54",
         "7e2937b8-7ab2-4b5f-8499-eea9654d8cac",
         "f7ea3c51-ede4-497b-9d08-29601efe58ec",
-        "62612115-60bd-45cb-a061-b6d8dc7dc781"
+        "62612115-60bd-45cb-a061-b6d8dc7dc781",
+        "96623084-5a6e-4263-8c1f-12232ecf49bb"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 7234,
+      "content_plus_length": 11636,
+      "relevantChunksIdsNum": 4
     },
     {
       "id": "f40bd8ba-b1bc-4934-a855-aab5af0097dd",
@@ -3750,9 +4854,18 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "23772255-986f-4d3a-8a2c-c6d43ecf4578"
+        "23772255-986f-4d3a-8a2c-c6d43ecf4578",
+        "0b565f91-b7dd-4566-8670-2d00c3c4a947",
+        "8099fd91-a372-4fdc-83e8-27df5cf982e2",
+        "e80525cf-29e6-4262-a66f-f36ca0931deb",
+        "9599f7bb-28d3-410c-92d4-6be02e8d0e30",
+        "be3a5814-e971-4888-b2b9-332afb992796",
+        "078ed5ff-9158-4d75-87ca-72ee2604827f"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 10109,
+      "content_plus_length": 12942,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "e671c2c5-2a8a-48d9-8cde-1849ae39f0bf",
@@ -3762,9 +4875,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "107ff269-5e42-4cb3-8c77-6025cac04725"
+        "107ff269-5e42-4cb3-8c77-6025cac04725",
+        "0b565f91-b7dd-4566-8670-2d00c3c4a947",
+        "be3a5814-e971-4888-b2b9-332afb992796"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1241,
+      "content_plus_length": 2725,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "8bd14b06-cc87-4b8c-9161-d28dcbd832e5",
@@ -3776,7 +4894,10 @@
       "relevantChunksIds": [
         "107ff269-5e42-4cb3-8c77-6025cac04725"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1001,
+      "content_plus_length": 2485,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "37c2c4dd-929f-4a0d-8f03-4a306334d50e",
@@ -3787,9 +4908,13 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "a894c803-25bf-49b2-9f13-8002826f079a",
-        "8edea2d8-29ab-4819-ab11-16be222b731e"
+        "8edea2d8-29ab-4819-ab11-16be222b731e",
+        "8e3e028d-64fe-4600-ba2a-77fbc415ae1c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 2074,
+      "content_plus_length": 5803,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "b8fe84a1-bd79-4920-b108-ee9a4e9b58a2",
@@ -3800,9 +4925,16 @@
       "negativeKeywords": [],
       "relevantChunksIds": [
         "294e8aac-238b-4357-aa56-8e141957ce3a",
-        "60c4d0aa-cc0f-462c-8382-9b8ad3a6c389"
+        "60c4d0aa-cc0f-462c-8382-9b8ad3a6c389",
+        "8e7c62f8-6213-4ba5-b034-e8e2e8d8bd50",
+        "078ed5ff-9158-4d75-87ca-72ee2604827f",
+        "7aa4ef9f-4985-4c11-97af-32780695a7f4",
+        "49314c51-0b7d-4626-ab92-213321d7adeb"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 575,
+      "content_plus_length": 2624,
+      "relevantChunksIdsNum": 2
     },
     {
       "id": "debfbf05-fb29-4713-a57a-9fe9fe932a54",
@@ -3812,9 +4944,14 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "8edea2d8-29ab-4819-ab11-16be222b731e"
+        "8edea2d8-29ab-4819-ab11-16be222b731e",
+        "078ed5ff-9158-4d75-87ca-72ee2604827f",
+        "8e3e028d-64fe-4600-ba2a-77fbc415ae1c"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1548,
+      "content_plus_length": 3550,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "0a678af7-b11e-43d6-a027-357a6773d522",
@@ -3826,7 +4963,10 @@
       "relevantChunksIds": [
         "8d2c4d23-e7e5-41ec-a1fb-fd4a2a32a1dd"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 380,
+      "content_plus_length": 1288,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "6cccf0fb-fe5e-4cae-af92-5d269833d1ec",
@@ -3838,9 +4978,14 @@
       "relevantChunksIds": [
         "69beea6c-fa95-4324-b004-8776aa1a6c7c",
         "81dbfd9c-d351-444a-8dff-4f5f6e70451c",
-        "f1aed614-aef9-430f-ad4c-cea34986c9a4"
+        "f1aed614-aef9-430f-ad4c-cea34986c9a4",
+        "66d4b900-c52a-414c-bdc8-5f2bc3effe5e",
+        "c19383b5-f49d-4496-8948-0052f580ceef"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1268,
+      "content_plus_length": 3513,
+      "relevantChunksIdsNum": 3
     },
     {
       "id": "305d544b-35a8-4aec-88c6-e12987f9d96e",
@@ -3852,7 +4997,10 @@
       "relevantChunksIds": [
         "1291c1f2-ab02-4511-8ac7-eadeb22ddbda"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1891,
+      "content_plus_length": 3550,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "22ded589-0fc8-454c-be91-5aee80fb1c11",
@@ -3864,7 +5012,10 @@
       "relevantChunksIds": [
         "62612115-60bd-45cb-a061-b6d8dc7dc781"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 324,
+      "content_plus_length": 1314,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "64d7f901-34ad-4bde-9087-35511a8984f5",
@@ -3874,7 +5025,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 493,
+      "content_plus_length": 493,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "04df9f76-50d9-4e79-b95e-4dafd5ed2028",
@@ -3884,7 +5038,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 495,
+      "content_plus_length": 495,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "0ff29804-2cdd-4b0d-8b63-713266def8db",
@@ -3894,7 +5051,10 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [],
-      "parameters": []
+      "parameters": [],
+      "content_length": 4585,
+      "content_plus_length": 4585,
+      "relevantChunksIdsNum": 0
     },
     {
       "id": "2048f360-be6d-426f-a381-3e6e692927a7",
@@ -3904,13 +5064,20 @@
       "availableKeywords": [],
       "negativeKeywords": [],
       "relevantChunksIds": [
-        "d9eaf714-12b4-457f-a051-0dfbedcc9cab"
+        "d9eaf714-12b4-457f-a051-0dfbedcc9cab",
+        "bf896074-c31c-4172-b41a-b4a699a71804"
       ],
-      "parameters": []
+      "parameters": [],
+      "content_length": 1150,
+      "content_plus_length": 1427,
+      "relevantChunksIdsNum": 1
     },
     {
       "id": "971a9d6d-1f65-4c15-a861-7cd163b9d834",
-      "content": "(1)   ABl. C 402 vom 19.10.2022, S. 5. (2)   ABl. C 365 vom 23.9.2022, S. 18. (3)   ABl. C 375 vom 30.9.2022, S. 112. (4)  Standpunkt des Europäischen Parlaments vom 9. November 2023 (noch nicht im Amtsblatt veröffentlicht) und Beschluss des Rates vom 27. November 2023. (5)  Empfehlung 2003/361/EG der Kommission vom 6. Mai 2003 betreffend die Definition der Kleinstunternehmen sowie der kleinen und mittleren Unternehmen (ABl. L 124 vom 20.5.2003, S. 36).\n(6)  Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates vom 27. April 2016 zum Schutz natürlicher Personen bei der Verarbeitung personenbezogener Daten, zum freien Datenverkehr und zur Aufhebung der Richtlinie 95/46/EG (Datenschutz-Grundverordnung) (ABl. L 119 vom 4.5.2016, S. 1).\n(7)  Verordnung (EU) 2018/1725 des Europäischen Parlaments und des Rates vom 23. Oktober 2018 zum Schutz natürlicher Personen bei der Verarbeitung personenbezogener Daten durch die Organe, Einrichtungen und sonstigen Stellen der Union, zum freien Datenverkehr und zur Aufhebung der Verordnung (EG) Nr. 45/2001 und des Beschlusses Nr. 1247/2002/EG (ABl. L 295 vom 21.11.2018, S. 39).\n(8)  Richtlinie 2002/58/EG des Europäischen Parlaments und des Rates vom 12. Juli 2002 über die Verarbeitung personenbezogener Daten und den Schutz der Privatsphäre in der elektronischen Kommunikation (Datenschutzrichtlinie für elektronische Kommunikation) (ABl. L 201 vom 31.7.2002, S. 37).\n(9)  Richtlinie 93/13/EWG des Rates vom 5. April 1993 über missbräuchliche Klauseln in Verbraucherverträgen (ABl. L 95 vom 21.4.1993, S. 29).\n(10)  Richtlinie 2005/29/EG des Europäischen Parlaments und des Rates vom 11. Mai 2005 über unlautere Geschäftspraktiken von Unternehmen gegenüber Verbrauchern im Binnenmarkt und zur Änderung der Richtlinie 84/450/EWG des Rates, der Richtlinien 97/7/EG, 98/27/EG und 2002/65/EG des Europäischen Parlaments und des Rates sowie der Verordnung (EG) Nr. 2006/2004 des Europäischen Parlaments und des Rates (Richtlinie über unlautere Geschäftspraktiken) (ABl. L 149 vom 11.6.2005, S. 22).\n(11)  Richtlinie 2011/83/EU des Europäischen Parlaments und des Rates vom 25. Oktober 2011 über die Rechte der Verbraucher, zur Abänderung der Richtlinie 93/13/EWG des Rates und der Richtlinie 1999/44/EG des Europäischen Parlaments und des Rates sowie zur Aufhebung der Richtlinie 85/577/EWG des Rates und der Richtlinie 97/7/EG des Europäischen Parlaments und des Rates (ABl. L 304 vom 22.11.2011, S. 64).\n(12)  Verordnung (EU) 2021/784 des Europäischen Parlaments und des Rates vom 29. April 2021 zur Bekämpfung der Verbreitung terroristischer Online-Inhalte (ABl. L 172 vom 17.5.2021, S. 79).\n(13)  Verordnung (EU) 2022/2065 des Europäischen Parlaments und des Rates vom 19. Oktober 2022 über einen Binnenmarkt für digitale Dienste und zur Änderung der Richtlinie 2000/31/EG (Gesetz über digitale Dienste) (ABl. L 277 vom 27.10.2022, S. 1).\n(14)  Verordnung (EU) 2023/1543 des Europäischen Parlaments und des Rates vom 12. Juli 2023 über Europäische Herausgabeanordnungen und Europäische Sicherungsanordnungen für elektronische Beweismittel in Strafverfahren und für die Vollstreckung von Freiheitsstrafen nach Strafverfahren (ABl. L 191 vom 28.7.2023, S. 118).\n(15)  Richtlinie (EU) 2023/1544 des Europäischen Parlaments und des Rates vom 12. Juli 2023 zur Festlegung einheitlicher Regeln für die Benennung von benannten Niederlassungen und die Bestellung von Vertretern zu Zwecken der Erhebung elektronischer Beweismittel in Strafverfahren (ABl. L 191 vom 28.7.2023, S. 181).\n(16)  Verordnung (EU) 2015/847 des Europäischen Parlaments und des Rates vom 20. Mai 2015 über die Übermittlung von Angaben bei Geldtransfers und zur Aufhebung der Verordnung (EG) Nr. 1781/2006 (ABl. L 141 vom 5.6.2015, S. 1).\n(17)  Richtlinie (EU) 2015/849 des Europäischen Parlaments und des Rates vom 20. Mai 2015 zur Verhinderung der Nutzung des Finanzsystems zum Zwecke der Geldwäsche und der Terrorismusfinanzierung, zur Änderung der Verordnung (EU) Nr. 648/2012 des Europäischen Parlaments und des Rates und zur Aufhebung der Richtlinie 2005/60/EG des Europäischen Parlaments und des Rates und der Richtlinie 2006/70/EG der Kommission (ABl. L 141 vom 5.6.2015, S. 73).\n(18)  Richtlinie (EU) 2019/882 des Europäischen Parlaments und des Rates vom 17. April 2019 über die Barrierefreiheitsanforderungen für Produkte und Dienstleistungen (ABl. L 151 vom 7.6.2019, S. 70).\n(19)  Richtlinie 2001/29/EG des Europäischen Parlaments und des Rates vom 22. Mai 2001 zur Harmonisierung bestimmter Aspekte des Urheberrechts und der verwandten Schutzrechte in der Informationsgesellschaft (ABl. L 167 vom 22.6.2001, S. 10).\n(20)  Richtlinie 2004/48/EG des Europäischen Parlaments und des Rates vom 29. April 2004 zur Durchsetzung der Rechte des geistigen Eigentums (ABl. L 157 vom 30.4.2004, S. 45).\n(21)  Richtlinie (EU) 2019/790 des Europäischen Parlaments und des Rates vom 17. April 2019 über das Urheberrecht und die verwandten Schutzrechte im digitalen Binnenmarkt und zur Änderung der Richtlinien 96/9/EG und 2001/29/EG (ABl. L 130 vom 17.5.2019, S. 92).\n(22)  Verordnung (EU) 2022/868 des Europäischen Parlaments und des Rates vom 30. Mai 2022 über europäische Daten-Governance und zur Änderung der Verordnung (EU) 2018/1724 (Daten-Governance-Rechtsakt) (ABl. L 152 vom 3.6.2022, S. 1).\n(23)  Richtlinie (EU) 2016/943 des Europäischen Parlaments und des Rates vom 8. Juni 2016 über den Schutz vertraulichen Know-hows und vertraulicher Geschäftsinformationen (Geschäftsgeheimnisse) vor rechtswidrigem Erwerb sowie rechtswidriger Nutzung und Offenlegung (ABl. L 157 vom 15.6.2016, S. 1).\n(24)  Richtlinie 98/6/EG des Europäischen Parlaments und des Rates vom 16. Februar 1998 über den Schutz der Verbraucher bei der Angabe der Preise der ihnen angebotenen Erzeugnisse (ABl. L 80 vom 18.3.1998, S. 27).\n(25)  Richtlinie 2000/31/EG des Europäischen Parlaments und des Rates vom 8. Juni 2000 über bestimmte rechtliche Aspekte der Dienste der Informationsgesellschaft, insbesondere des elektronischen Geschäftsverkehrs, im Binnenmarkt („Richtlinie über den elektronischen Geschäftsverkehr“) (ABl. L 178 vom 17.7.2000, S. 1).\n(26)  Verordnung (EU) 2022/1925 des Europäischen Parlaments und des Rates vom 14. September 2022 über bestreitbare und faire Märkte im digitalen Sektor und zur Änderung der Richtlinien (EU) 2019/1937 und (EU) 2020/1828 (Gesetz über digitale Märkte) (ABl. L 265 vom 12.10.2022, S. 1).\n(27)  Verordnung (EG) Nr. 223/2009 des Europäischen Parlaments und des Rates vom 11. März 2009 über europäische Statistiken und zur Aufhebung der Verordnung (EG, Euratom) Nr. 1101/2008 des Europäischen Parlaments und des Rates über die Übermittlung von unter die Geheimhaltungspflicht fallenden Informationen an das Statistische Amt der Europäischen Gemeinschaften, der Verordnung (EG) Nr. 322/97 des Rates über die Gemeinschaftsstatistiken und des Beschlusses 89/382/EWG, Euratom des Rates zur Einsetzung eines Ausschusses für das Statistische Programm der Europäischen Gemeinschaften (ABl. L 87 vom 31.3.2009, S. 164).\n(28)  Richtlinie (EU) 2019/1024 des Europäischen Parlaments und des Rates vom 20. Juni 2019 über offene Daten und die Weiterverwendung von Informationen des öffentlichen Sektors (ABl. L 172 vom 26.6.2019, S. 56).\n(29)  Richtlinie 96/9/EG des Europäischen Parlaments und des Rates vom 11. März 1996 über den rechtlichen Schutz von Datenbanken (ABl. L 77 vom 27.3.1996, S. 20).\n(30)  Verordnung (EU) 2018/1807 des Europäischen Parlaments und des Rates vom 14. November 2018 über einen Rahmen für den freien Verkehr nicht-personenbezogener Daten in der Europäischen Union (ABl. L 303 vom 28.11.2018, S. 59).\n(31)  Richtlinie (EU) 2019/770 des Europäischen Parlaments und des Rates vom 20. Mai 2019 über bestimmte vertragsrechtliche Aspekte der Bereitstellung digitaler Inhalte und digitaler Dienstleistungen (ABl. L 136 vom 22.5.2019, S. 1).\n(32)  Verordnung (EU) 2022/2554 des Europäischen Parlaments und des Rates vom 14. Dezember 2022 über die digitale operationale Resilienz im Finanzsektor und zur Änderung der Verordnungen (EG) Nr. 1060/2009, (EU) Nr. 648/2012, (EU) Nr. 600/2014, (EU) Nr. 909/2014 und (EU) 2016/1011 (ABl. L 333 vom 27.12.2022, S. 1).\n(33)  Verordnung (EU) Nr. 1025/2012 des Europäischen Parlaments und des Rates vom 25. Oktober 2012 zur europäischen Normung, zur Änderung der Richtlinien 89/686/EWG und 93/15/EWG des Rates sowie der Richtlinien 94/9/EG, 94/25/EG, 95/16/EG, 97/23/EG, 98/34/EG, 2004/22/EG, 2007/23/EG, 2009/23/EG und 2009/105/EG des Europäischen Parlaments und des Rates und zur Aufhebung des Beschlusses 87/95/EWG des Rates und des Beschlusses Nr. 1673/2006/EG des Europäischen Parlaments und des Rates (ABl. L 316 vom 14.11.2012, S. 12).\n(34)  Verordnung (EG) Nr. 765/2008 des Europäischen Parlaments und des Rates vom 9. Juli 2008 über die Vorschriften für die Akkreditierung und Marktüberwachung im Zusammenhang mit der Vermarktung von Produkten und zur Aufhebung der Verordnung (EWG) Nr. 339/93 des Rates (ABl. L 218 vom 13.8.2008, S. 30).\n(35)  Beschluss Nr. 768/2008/EG des Europäischen Parlaments und des Rates vom 9. Juli 2008 über einen gemeinsamen Rechtsrahmen für die Vermarktung von Produkten und zur Aufhebung des Beschlusses 93/465/EWG des Rates (ABl. L 218 vom 13.8.2008, S. 82).\n(36)  Verordnung (EU) 2017/2394 des Europäischen Parlaments und des Rates vom 12. Dezember 2017 über die Zusammenarbeit zwischen den für die Durchsetzung der Verbraucherschutzgesetze zuständigen nationalen Behörden und zur Aufhebung der Verordnung (EG) Nr. 2006/2004 (ABl. L 345 vom 27.12.2017, S. 1).\n(37)  Richtlinie (EU) 2020/1828 des Europäischen Parlaments und des Rates vom 25. November 2020 über Verbandsklagen zum Schutz der Kollektivinteressen der Verbraucher und zur Aufhebung der Richtlinie 2009/22/EG (ABl. L 409 vom 4.12.2020, S. 1).\n(38)   ABl. L 123 vom 12.5.2016, S. 1. (39)  Verordnung (EU) Nr. 182/2011 des Europäischen Parlaments und des Rates vom 16. Februar 2011 zur Festlegung der allgemeinen Regeln und Grundsätze, nach denen die Mitgliedstaaten die Wahrnehmung der Durchführungsbefugnisse durch die Kommission kontrollieren (ABl. L 55 vom 28.2.2011, S. 13)."
+      "content": "(1)   ABl. C 402 vom 19.10.2022, S. 5. (2)   ABl. C 365 vom 23.9.2022, S. 18. (3)   ABl. C 375 vom 30.9.2022, S. 112. (4)  Standpunkt des Europäischen Parlaments vom 9. November 2023 (noch nicht im Amtsblatt veröffentlicht) und Beschluss des Rates vom 27. November 2023. (5)  Empfehlung 2003/361/EG der Kommission vom 6. Mai 2003 betreffend die Definition der Kleinstunternehmen sowie der kleinen und mittleren Unternehmen (ABl. L 124 vom 20.5.2003, S. 36).\n(6)  Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates vom 27. April 2016 zum Schutz natürlicher Personen bei der Verarbeitung personenbezogener Daten, zum freien Datenverkehr und zur Aufhebung der Richtlinie 95/46/EG (Datenschutz-Grundverordnung) (ABl. L 119 vom 4.5.2016, S. 1).\n(7)  Verordnung (EU) 2018/1725 des Europäischen Parlaments und des Rates vom 23. Oktober 2018 zum Schutz natürlicher Personen bei der Verarbeitung personenbezogener Daten durch die Organe, Einrichtungen und sonstigen Stellen der Union, zum freien Datenverkehr und zur Aufhebung der Verordnung (EG) Nr. 45/2001 und des Beschlusses Nr. 1247/2002/EG (ABl. L 295 vom 21.11.2018, S. 39).\n(8)  Richtlinie 2002/58/EG des Europäischen Parlaments und des Rates vom 12. Juli 2002 über die Verarbeitung personenbezogener Daten und den Schutz der Privatsphäre in der elektronischen Kommunikation (Datenschutzrichtlinie für elektronische Kommunikation) (ABl. L 201 vom 31.7.2002, S. 37).\n(9)  Richtlinie 93/13/EWG des Rates vom 5. April 1993 über missbräuchliche Klauseln in Verbraucherverträgen (ABl. L 95 vom 21.4.1993, S. 29).\n(10)  Richtlinie 2005/29/EG des Europäischen Parlaments und des Rates vom 11. Mai 2005 über unlautere Geschäftspraktiken von Unternehmen gegenüber Verbrauchern im Binnenmarkt und zur Änderung der Richtlinie 84/450/EWG des Rates, der Richtlinien 97/7/EG, 98/27/EG und 2002/65/EG des Europäischen Parlaments und des Rates sowie der Verordnung (EG) Nr. 2006/2004 des Europäischen Parlaments und des Rates (Richtlinie über unlautere Geschäftspraktiken) (ABl. L 149 vom 11.6.2005, S. 22).\n(11)  Richtlinie 2011/83/EU des Europäischen Parlaments und des Rates vom 25. Oktober 2011 über die Rechte der Verbraucher, zur Abänderung der Richtlinie 93/13/EWG des Rates und der Richtlinie 1999/44/EG des Europäischen Parlaments und des Rates sowie zur Aufhebung der Richtlinie 85/577/EWG des Rates und der Richtlinie 97/7/EG des Europäischen Parlaments und des Rates (ABl. L 304 vom 22.11.2011, S. 64).\n(12)  Verordnung (EU) 2021/784 des Europäischen Parlaments und des Rates vom 29. April 2021 zur Bekämpfung der Verbreitung terroristischer Online-Inhalte (ABl. L 172 vom 17.5.2021, S. 79).\n(13)  Verordnung (EU) 2022/2065 des Europäischen Parlaments und des Rates vom 19. Oktober 2022 über einen Binnenmarkt für digitale Dienste und zur Änderung der Richtlinie 2000/31/EG (Gesetz über digitale Dienste) (ABl. L 277 vom 27.10.2022, S. 1).\n(14)  Verordnung (EU) 2023/1543 des Europäischen Parlaments und des Rates vom 12. Juli 2023 über Europäische Herausgabeanordnungen und Europäische Sicherungsanordnungen für elektronische Beweismittel in Strafverfahren und für die Vollstreckung von Freiheitsstrafen nach Strafverfahren (ABl. L 191 vom 28.7.2023, S. 118).\n(15)  Richtlinie (EU) 2023/1544 des Europäischen Parlaments und des Rates vom 12. Juli 2023 zur Festlegung einheitlicher Regeln für die Benennung von benannten Niederlassungen und die Bestellung von Vertretern zu Zwecken der Erhebung elektronischer Beweismittel in Strafverfahren (ABl. L 191 vom 28.7.2023, S. 181).\n(16)  Verordnung (EU) 2015/847 des Europäischen Parlaments und des Rates vom 20. Mai 2015 über die Übermittlung von Angaben bei Geldtransfers und zur Aufhebung der Verordnung (EG) Nr. 1781/2006 (ABl. L 141 vom 5.6.2015, S. 1).\n(17)  Richtlinie (EU) 2015/849 des Europäischen Parlaments und des Rates vom 20. Mai 2015 zur Verhinderung der Nutzung des Finanzsystems zum Zwecke der Geldwäsche und der Terrorismusfinanzierung, zur Änderung der Verordnung (EU) Nr. 648/2012 des Europäischen Parlaments und des Rates und zur Aufhebung der Richtlinie 2005/60/EG des Europäischen Parlaments und des Rates und der Richtlinie 2006/70/EG der Kommission (ABl. L 141 vom 5.6.2015, S. 73).\n(18)  Richtlinie (EU) 2019/882 des Europäischen Parlaments und des Rates vom 17. April 2019 über die Barrierefreiheitsanforderungen für Produkte und Dienstleistungen (ABl. L 151 vom 7.6.2019, S. 70).\n(19)  Richtlinie 2001/29/EG des Europäischen Parlaments und des Rates vom 22. Mai 2001 zur Harmonisierung bestimmter Aspekte des Urheberrechts und der verwandten Schutzrechte in der Informationsgesellschaft (ABl. L 167 vom 22.6.2001, S. 10).\n(20)  Richtlinie 2004/48/EG des Europäischen Parlaments und des Rates vom 29. April 2004 zur Durchsetzung der Rechte des geistigen Eigentums (ABl. L 157 vom 30.4.2004, S. 45).\n(21)  Richtlinie (EU) 2019/790 des Europäischen Parlaments und des Rates vom 17. April 2019 über das Urheberrecht und die verwandten Schutzrechte im digitalen Binnenmarkt und zur Änderung der Richtlinien 96/9/EG und 2001/29/EG (ABl. L 130 vom 17.5.2019, S. 92).\n(22)  Verordnung (EU) 2022/868 des Europäischen Parlaments und des Rates vom 30. Mai 2022 über europäische Daten-Governance und zur Änderung der Verordnung (EU) 2018/1724 (Daten-Governance-Rechtsakt) (ABl. L 152 vom 3.6.2022, S. 1).\n(23)  Richtlinie (EU) 2016/943 des Europäischen Parlaments und des Rates vom 8. Juni 2016 über den Schutz vertraulichen Know-hows und vertraulicher Geschäftsinformationen (Geschäftsgeheimnisse) vor rechtswidrigem Erwerb sowie rechtswidriger Nutzung und Offenlegung (ABl. L 157 vom 15.6.2016, S. 1).\n(24)  Richtlinie 98/6/EG des Europäischen Parlaments und des Rates vom 16. Februar 1998 über den Schutz der Verbraucher bei der Angabe der Preise der ihnen angebotenen Erzeugnisse (ABl. L 80 vom 18.3.1998, S. 27).\n(25)  Richtlinie 2000/31/EG des Europäischen Parlaments und des Rates vom 8. Juni 2000 über bestimmte rechtliche Aspekte der Dienste der Informationsgesellschaft, insbesondere des elektronischen Geschäftsverkehrs, im Binnenmarkt („Richtlinie über den elektronischen Geschäftsverkehr“) (ABl. L 178 vom 17.7.2000, S. 1).\n(26)  Verordnung (EU) 2022/1925 des Europäischen Parlaments und des Rates vom 14. September 2022 über bestreitbare und faire Märkte im digitalen Sektor und zur Änderung der Richtlinien (EU) 2019/1937 und (EU) 2020/1828 (Gesetz über digitale Märkte) (ABl. L 265 vom 12.10.2022, S. 1).\n(27)  Verordnung (EG) Nr. 223/2009 des Europäischen Parlaments und des Rates vom 11. März 2009 über europäische Statistiken und zur Aufhebung der Verordnung (EG, Euratom) Nr. 1101/2008 des Europäischen Parlaments und des Rates über die Übermittlung von unter die Geheimhaltungspflicht fallenden Informationen an das Statistische Amt der Europäischen Gemeinschaften, der Verordnung (EG) Nr. 322/97 des Rates über die Gemeinschaftsstatistiken und des Beschlusses 89/382/EWG, Euratom des Rates zur Einsetzung eines Ausschusses für das Statistische Programm der Europäischen Gemeinschaften (ABl. L 87 vom 31.3.2009, S. 164).\n(28)  Richtlinie (EU) 2019/1024 des Europäischen Parlaments und des Rates vom 20. Juni 2019 über offene Daten und die Weiterverwendung von Informationen des öffentlichen Sektors (ABl. L 172 vom 26.6.2019, S. 56).\n(29)  Richtlinie 96/9/EG des Europäischen Parlaments und des Rates vom 11. März 1996 über den rechtlichen Schutz von Datenbanken (ABl. L 77 vom 27.3.1996, S. 20).\n(30)  Verordnung (EU) 2018/1807 des Europäischen Parlaments und des Rates vom 14. November 2018 über einen Rahmen für den freien Verkehr nicht-personenbezogener Daten in der Europäischen Union (ABl. L 303 vom 28.11.2018, S. 59).\n(31)  Richtlinie (EU) 2019/770 des Europäischen Parlaments und des Rates vom 20. Mai 2019 über bestimmte vertragsrechtliche Aspekte der Bereitstellung digitaler Inhalte und digitaler Dienstleistungen (ABl. L 136 vom 22.5.2019, S. 1).\n(32)  Verordnung (EU) 2022/2554 des Europäischen Parlaments und des Rates vom 14. Dezember 2022 über die digitale operationale Resilienz im Finanzsektor und zur Änderung der Verordnungen (EG) Nr. 1060/2009, (EU) Nr. 648/2012, (EU) Nr. 600/2014, (EU) Nr. 909/2014 und (EU) 2016/1011 (ABl. L 333 vom 27.12.2022, S. 1).\n(33)  Verordnung (EU) Nr. 1025/2012 des Europäischen Parlaments und des Rates vom 25. Oktober 2012 zur europäischen Normung, zur Änderung der Richtlinien 89/686/EWG und 93/15/EWG des Rates sowie der Richtlinien 94/9/EG, 94/25/EG, 95/16/EG, 97/23/EG, 98/34/EG, 2004/22/EG, 2007/23/EG, 2009/23/EG und 2009/105/EG des Europäischen Parlaments und des Rates und zur Aufhebung des Beschlusses 87/95/EWG des Rates und des Beschlusses Nr. 1673/2006/EG des Europäischen Parlaments und des Rates (ABl. L 316 vom 14.11.2012, S. 12).\n(34)  Verordnung (EG) Nr. 765/2008 des Europäischen Parlaments und des Rates vom 9. Juli 2008 über die Vorschriften für die Akkreditierung und Marktüberwachung im Zusammenhang mit der Vermarktung von Produkten und zur Aufhebung der Verordnung (EWG) Nr. 339/93 des Rates (ABl. L 218 vom 13.8.2008, S. 30).\n(35)  Beschluss Nr. 768/2008/EG des Europäischen Parlaments und des Rates vom 9. Juli 2008 über einen gemeinsamen Rechtsrahmen für die Vermarktung von Produkten und zur Aufhebung des Beschlusses 93/465/EWG des Rates (ABl. L 218 vom 13.8.2008, S. 82).\n(36)  Verordnung (EU) 2017/2394 des Europäischen Parlaments und des Rates vom 12. Dezember 2017 über die Zusammenarbeit zwischen den für die Durchsetzung der Verbraucherschutzgesetze zuständigen nationalen Behörden und zur Aufhebung der Verordnung (EG) Nr. 2006/2004 (ABl. L 345 vom 27.12.2017, S. 1).\n(37)  Richtlinie (EU) 2020/1828 des Europäischen Parlaments und des Rates vom 25. November 2020 über Verbandsklagen zum Schutz der Kollektivinteressen der Verbraucher und zur Aufhebung der Richtlinie 2009/22/EG (ABl. L 409 vom 4.12.2020, S. 1).\n(38)   ABl. L 123 vom 12.5.2016, S. 1. (39)  Verordnung (EU) Nr. 182/2011 des Europäischen Parlaments und des Rates vom 16. Februar 2011 zur Festlegung der allgemeinen Regeln und Grundsätze, nach denen die Mitgliedstaaten die Wahrnehmung der Durchführungsbefugnisse durch die Kommission kontrollieren (ABl. L 55 vom 28.2.2011, S. 13).",
+      "content_length": 10179,
+      "content_plus_length": 10179,
+      "relevantChunksIdsNum": 0
     }
   ]
 }
