@@ -16,7 +16,7 @@ Ein kostenloser Cloud-Speicherdienstes fällt unter die Definition "Datenverarbe
 Quellen:
 [1] Art 2: Z8 Datenverarbeitungsdienst
 [2] Art 23
-[3] ErwGr 78
+[3] ErwG 78
 [4] FAQs EC: 55. What does ‘free-tier offering’ mean?
 
 
@@ -27,8 +27,8 @@ Betroffen sind alle „Datenverarbeitungsdienste“, die einen bedarfsgesteuerte
 
 Quellen:
 [1] Art 2: Z8 Datenverarbeitungsdienst
-[2] ErwGr 80
-[3] ErwGr 81
+[2] ErwG 80
+[3] ErwG 81
 [4] FAQs EC: 58a. Do the Data Act provisions on data processing services also apply to PaaS and SaaS?
 
 
@@ -40,7 +40,7 @@ Bei IaaS-Diensten muss der ursprüngliche Anbieter sicherstellen, dass der Kunde
 Quellen:
 [1] Art 2: Z37 Funktionsäquivalenz
 [2] Art 30
-[3] ErwGr 92
+[3] ErwG 92
 [4] FAQs EC: 58b. Is the source provider responsible for assisting the customer in rebuilding their service in the ecosystem of the destination provider?
 
 
@@ -60,8 +60,8 @@ Antwort:
 Neben den eigentlichen Eingabe- und Ausgabedaten müssen auch „digitale Vermögenswerte“ wie Anwendungen und Metadaten zur Konfiguration von Sicherheitseinstellungen oder Zugangsrechten übertragbar sein; der Anbieter muss im Vertrag erschöpfend auflisten, welche Kategorien von Daten und Vermögenswerten exportiert werden können [1], [2], [3], [4], [5].
 
 Quellen:
-[1] ErwGr 82
-[2] ErwGr 83
+[1] ErwG 82
+[2] ErwG 83
 [3] Art 2: Z32 digitale Vermögenswerte
 [4] Art 2: Z38 exportierbare Daten
 [5] Art 25
@@ -84,7 +84,7 @@ Wenn Sie Dienste parallel nutzen, ohne den ursprünglichen Vertrag zu kündigen,
 
 Quellen:
 [1] Art 34
-[2] ErwGr 99
+[2] ErwG 99
 [3] FAQs EC: 54. What is the deadline for providers to reduce switching charges so that they are limited to the costs they incur?
 
 
@@ -95,7 +95,7 @@ Ein Nutzer ist jede natürliche oder juristische Person, die Eigentümer eines v
 
 Quellen:
 [1] Art 2: Z12 Nutzer
-[2] ErwGr 18
+[2] ErwG 18
 [3] FAQs EC: 14. What are ‘users’?
 
 
@@ -106,7 +106,7 @@ Geschäftsgeheimnisse müssen gewahrt werden, dürfen aber die Datenbereitstellu
 
 Quellen:
 [1] Art 4
-[2] ErwGr 31
+[2] ErwG 31
 [3] FAQs EC: 23. Does the new data access right affect the protection of trade secrets?
 
 
@@ -118,7 +118,7 @@ Nein, es ist untersagt, die auf Basis des Data Act erlangten Daten für die Entw
 Quellen:
 [1] Art 4
 [2] Art 6
-[3] ErwGr 32
+[3] ErwG 32
 
 
 # 12. Welche Informationen muss ich erhalten, bevor ich ein vernetztes Produkt kaufe?
@@ -128,7 +128,7 @@ Verkäufer müssen Sie vorab klar über die Art und den geschätzten Umfang der 
 
 Quellen:
 [1] Art 3
-[2] ErwGr 24
+[2] ErwG 24
 [3] FAQs EC: 17. How can I, as a user, access my data?
 
 
@@ -139,7 +139,7 @@ Nein, öffentliche Stellen dürfen Daten nicht nach eigenem Ermessen abfragen, s
 
 Quellen:
 [1] Art 14
-[2] ErwGr 63
+[2] ErwG 63
 [3] Art 2: Z29 öffentlicher Notstand
 [4] Art 15
 
@@ -156,7 +156,7 @@ Quellen:
 [4] Art 37
 [5] Art 38
 [6] Art 39
-[7] ErwGr 97
+[7] ErwG 97
 [8] FAQs EC: 40. Who can rely on the dispute settlement mechanism established by the Data Act and under which conditions?
 [9] FAQs EC: 68. Which public authority can help me if I consider that my rights under the Data Act are not respected?
 
@@ -170,7 +170,7 @@ Quellen:
 [1] Art 1
 [2] Art 23
 [3] Art 29
-[4] ErwGr 88
+[4] ErwG 88
 [5] FAQs EC: 54. What is the deadline for providers to reduce switching charges so that they are limited to the costs they incur?
 
 
@@ -191,7 +191,7 @@ Nein. Als „Nutzer“ im Sinne des Data Act gilt nur eine natürliche oder juri
 
 Quellen:
 [1] Art 2: Z12 Nutzer
-[2] ErwGr 18
+[2] ErwG 18
 [3] FAQs EC: 14. What are ‘users’?
 
 
@@ -204,7 +204,7 @@ Quellen:
 [1] Art 1
 [2] Art 30
 [3] Art 34
-[4] ErwGr 99
+[4] ErwG 99
 
 
 # 19. Kostet es mich etwas, wenn ich als Nutzer vom Hersteller die Herausgabe meiner Smart-Home- oder Fahrzeugdaten verlange?
@@ -215,7 +215,7 @@ Nein, der Data Act verpflichtet Dateninhaber, dem Nutzer alle ohne Weiteres verf
 Quellen:
 [1] Art 3
 [2] Art 4
-[3] ErwGr 20
+[3] ErwG 20
 [4] FAQs EC: 17. How can I, as a user, access my data?
 
 
@@ -226,7 +226,7 @@ Ja, der Dateninhaber ist verpflichtet auf Verlangen des Nutzers, die verfügbare
 
 Quellen:
 [1] Art 5
-[2] ErwGr 30
+[2] ErwG 30
 
 
 # 21. Gelten die Datenzugangsrechte des Data Act auch für personenbezogene Daten anderer Personen (z. B. Beifahrer in einem Auto)?
@@ -238,8 +238,8 @@ Quellen:
 [1] Art 1
 [2] Art 4
 [3] Art 5
-[4] ErwGr 7
-[5] ErwGr 34
+[4] ErwG 7
+[5] ErwG 34
 [6] FAQs EC: 25a. What GDPR legal bases could the data holder rely on when replying to a request for data?
 
 
@@ -251,7 +251,7 @@ Antwort:
 Quellen:
 [1] Art 2: Z38 exportierbare Daten
 [2] Art 2: Z32 digitale Vermögenswerte
-[3] ErwGr 82
-[4] ErwGr 83
+[3] ErwG 82
+[4] ErwG 83
 [5] FAQs EC: 53. What is the difference between exportable data and digital assets? What do these concepts mean?
 
