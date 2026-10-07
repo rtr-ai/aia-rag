@@ -418,7 +418,7 @@
                                   </p>
                                 </form>
                               }
-                              @if (step == 'done') {
+                              @if (step == 'done' && totalProQuery !== null) {
                                 <span>
                                   <p i18n="@@labelEnergyConsumptionIntro">
           <strong>Energieverbrauch: </strong> Diese Fragenbeantwortung hat einen
@@ -482,80 +482,33 @@
                                             </tr>
                                           </thead>
                                           <tbody>
-                                            @for (row of powerData; track row) {
+                                            @for (row of powerData; track row.name) {
                                               <tr>
-                                                <td>{{ row.label }}</td>
-                                                <td class="uk-text-right">
-                                                  {{ row.cpu_kWh.toFixed(6).replace(".", ",") }}&nbsp;kWh
-                                                </td>
-                                                <td class="uk-text-right">
-                                                  {{ row.gpu_kWh.toFixed(6).replace(".", ",") }}&nbsp;kWh
-                                                </td>
-                                                <td class="uk-text-right">
-                                                  {{ row.ram_kWh.toFixed(6).replace(".", ",") }}&nbsp;kWh
-                                                </td>
-                                                <td class="uk-text-right">
-                                                  {{ row.total_kWh.toFixed(6).replace(".", ",") }}&nbsp;kWh
-                                                </td>
-                                                <td class="uk-text-right">
-                                                  {{ row.duration.toFixed(2).replace(".", ",") }}&nbsp;Sek.
-                                                </td>
+                                                <td>{{ row.label }} @if (powerStatus(row.status)) {<small><br>{{ powerStatus(row.status) }}</small>}</td>
+                                                <td class="uk-text-right">{{ formatPower(row.cpu_kWh) }}</td>
+                                                <td class="uk-text-right">{{ formatPower(row.gpu_kWh) }}</td>
+                                                <td class="uk-text-right">{{ formatPower(row.ram_kWh) }}</td>
+                                                <td class="uk-text-right">{{ formatPower(row.total_kWh) }}</td>
+                                                <td class="uk-text-right">{{ formatPower(row.duration, true) }}</td>
                                               </tr>
                                             }
                                             <tr>
-                                              <td><strong i18n="@@labelTotalStrong">Gesamt</strong></td>
-                                              <td class="uk-text-right">
-                                                <strong style="word-break: keep-all">
-                                                  {{
-                                                  totalConsumption.cpu_kWh.toFixed(6).replace(".", ",")
-                                                  }}&nbsp;kWh
-                                                </strong>
-                                              </td>
-                                              <td class="uk-text-right">
-                                                <strong style="word-break: keep-all">
-                                                  {{
-                                                  totalConsumption.gpu_kWh.toFixed(6).replace(".", ",")
-                                                  }}&nbsp;kWh
-                                                </strong>
-                                              </td>
-                                              <td class="uk-text-right">
-                                                <strong style="word-break: keep-all">
-                                                  {{
-                                                  totalConsumption.ram_kWh.toFixed(6).replace(".", ",")
-                                                  }}&nbsp;kWh
-                                                </strong>
-                                              </td>
-                                              <td class="uk-text-right">
-                                                <strong style="word-break: keep-all">
-                                                  {{
-                                                  totalConsumption.total_kWh
-                                                  .toFixed(6)
-                                                  .replace(".", ",")
-                                                  }}&nbsp;kWh
-                                                </strong>
-                                              </td>
-                                              <td class="uk-text-right">
-                                                <strong style="word-break: keep-all">
-                                                  {{
-                                                  totalConsumption.duration
-                                                  .toFixed(2)
-                                                  .replace(".", ",")
-                                                  }}&nbsp;Sek.
-                                                </strong>
-                                              </td>
+                                              <td><strong>{{ totalConsumption.label }}</strong></td>
+                                              <td class="uk-text-right"><strong>{{ formatPower(totalConsumption.cpu_kWh) }}</strong></td>
+                                              <td class="uk-text-right"><strong>{{ formatPower(totalConsumption.gpu_kWh) }}</strong></td>
+                                              <td class="uk-text-right"><strong>{{ formatPower(totalConsumption.ram_kWh) }}</strong></td>
+                                              <td class="uk-text-right"><strong>{{ formatPower(totalConsumption.total_kWh) }}</strong></td>
+                                              <td class="uk-text-right"><strong>{{ formatPower(totalConsumption.duration, true) }}</strong></td>
                                             </tr>
                                           </tbody>
                                         </table>
                                       </div>
-                                      <div i18n="@@labelEnergyMeasurementInfo">
-              Der Stromverbrauch wurde direkt auf Hardware-Ebene gemessen, die
-              angegebenen Zahlen entsprechen den dort vorliegenden Daten. Der
-              <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr>
-              beträgt zwischen 1,10 und 1,16. Seitens des Rechenzentrums wird
-              ein ausschließlich auf erneuerbare Energien abgestellter Strommix
-              verwendt. Der durchschnittliche CO<sub>2</sub>-Ausstoß im
-              Hosting-Land Deutschland lag zuletzt bei rund 425g CO<sub>2</sub>
-              pro kWh.
+                                      <div i18n="@@labelSeparatePhaseMeasurementInfo">
+              Anfrage gesamt = Retrieve/Augment + Re-Ranking + Generate, ohne einmalige Indexierung.
+              CPU und GPU werden mit Hardwarezaehlern erfasst; RAM wird aus der RAM-Nutzung geschaetzt.
+              Nicht verfuegbare Werte sind keine Nullwerte. Nicht ausgefuehrte Phasen haben keinen Aufwand.
+              Host-Messungen koennen parallele Auslastung enthalten.
+              Im Altformat ist Retrieve/Augment mit Re-Ranking kombiniert; eine separate Aufteilung ist nicht verfuegbar.
             </div>
                                     </div>
                                   </li>

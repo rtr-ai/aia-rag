@@ -5,6 +5,7 @@ matomo.env
 answers_auto_test/compare_answers_test.py
 data/chunks/
 models/
+da_data/
 reranker_embedding_report/
 *.gguf
 *.safetensors
@@ -15,3 +16,14 @@ how to publish model to ollama.md
 # Python-generated files
 __pycache__/
 *.py[cod]
+.agents/
+.claude/
+.cursor/
+.gemini/
+.github/skills/
+.github/copilot-instructions.md
+.kimi-code/
+.vscode/
+AGENTS.md
+CLAUDE.md
+GEMINI.md

@@ -12,6 +12,10 @@ import {
   LLMMessageParams,
   PowerDataDisplayed,
   PowerUsageData,
+  POWER_FIELDS,
+  missingPower,
+  requestPowerTotal,
+  validPowerValue,
   Source,
   Step,
 } from "./models";
@@ -58,7 +62,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   inputHeight: number = 70;
   tokensUsedFormatted: string = "";
   powerData: PowerDataDisplayed[] = [];
-  totalProQuery: number = 0;
+  totalProQuery: number | null = null;
   backendAvailable: boolean = true;
   firstTokenProgressPercent: number = 0;
   secondsToFirstToken = 40; //approx time until first token is expected
@@ -142,9 +146,11 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   private initializePowerDataLabels() {
     return {
       index: $localize`:@@powerLabelIndex:Indexierung von relevanten Daten (einmalig pro Serverstart)`,
-      prompt: $localize`:@@powerLabelPrompt:Erstellung des Prompts („Retrieve" und „Augment")`,
+      prompt: $localize`:@@powerLabelRetrievalSeparate:Retrieve/Augment (ohne Re-Ranking)`,
+      combined: $localize`:@@powerLabelRetrievalCombined:Altformat: Retrieve/Augment inklusive Re-Ranking (kombiniert)`,
+      rerank: $localize`:@@powerLabelRerankSeparate:Re-Ranking`,
       response: $localize`:@@powerLabelResponse:Generierung der Antwort („Generate")`,
-      total: $localize`:@@powerLabelTotal:Gesamter Energieverbrauch`,
+      total: $localize`:@@powerLabelRequestTotal:Anfrage gesamt (ohne Indexierung)`,
     };
   }
 
@@ -183,47 +189,34 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       this.queueMessage = this.getQueueMessage(queuePosition, estimatedTime);
     };
 
-    const updatePowerData = (data: PowerUsageData, eventType: string) => {
+    const updatePowerData = (input: PowerUsageData | string, eventType: string) => {
+      const data: PowerUsageData = typeof input === "string" ? JSON.parse(input) : input;
       const labels = this.initializePowerDataLabels();
-      let name = "";
-      switch (eventType) {
-        case "power_index":
-          name = labels.index;
-          break;
-        case "power_prompt":
-          name = labels.prompt;
-          break;
-        case "power_response":
-          name = labels.response;
-          break;
-      }
+      const label = eventType === "power_index" ? labels.index
+        : eventType === "power_prompt" ? (data.measurement_version === 2 ? labels.prompt : labels.combined)
+        : eventType === "power_rerank" ? labels.rerank : labels.response;
+      const normalized = { ...data };
+      for (const field of POWER_FIELDS) normalized[field] = validPowerValue(data[field]);
       this.zone.run(() => {
         this.powerData = [
-          ...this.powerData,
-          { label: name, name: eventType, ...data },
+          ...this.powerData.filter(row => row.name !== eventType),
+          { ...normalized, label, name: eventType },
         ];
       });
     };
     const calculateTotalPowerConsumption = () => {
-      this.totalProQuery = 0;
-      this.totalConsumption = {
-        name: "total",
-        label: "Gesamter Energieverbrauch",
-        cpu_kWh: 0,
-        gpu_kWh: 0,
-        ram_kWh: 0,
-        total_kWh: 0,
-        duration: 0,
-      };
-      this.powerData.forEach((item) => {
-        if (item.name !== "power_index") {
-          this.totalProQuery += item.total_kWh;
+      const labels = this.initializePowerDataLabels();
+      const total = requestPowerTotal(this.powerData);
+      this.zone.run(() => {
+        for (const [name, label] of [["power_prompt", labels.prompt], ["power_rerank", labels.rerank], ["power_response", labels.response]]) {
+          if (!this.powerData.some(row => row.name === name)) {
+            this.powerData.push({ ...missingPower(), name, label, status: "unavailable" });
+          }
         }
-        this.totalConsumption.cpu_kWh += item.cpu_kWh;
-        this.totalConsumption.gpu_kWh += item.gpu_kWh;
-        this.totalConsumption.ram_kWh += item.ram_kWh;
-        this.totalConsumption.total_kWh += item.total_kWh;
-        this.totalConsumption.duration += item.duration;
+        const order = ["power_index", "power_prompt", "power_rerank", "power_response"];
+        this.powerData.sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name));
+        this.totalConsumption = { ...total, name: "total", label: labels.total };
+        this.totalProQuery = total.total_kWh;
       });
     };
     const calculateTotalTokens = () => {
@@ -301,6 +294,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     };
     this.displayAnswer = "";
     this.powerData = [];
+    this.totalProQuery = null;
     this.submittedUserPrompt = this.userPrompt;
     this.totalConsumption = {
       name: "total",
@@ -370,6 +364,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
                 break;
               case "power_index":
               case "power_prompt":
+              case "power_rerank":
               case "power_response":
                 updatePowerData(data.content as any, data.type);
                 break;
@@ -417,6 +412,20 @@ export class AiabotComponent implements OnInit, AfterViewInit {
   answerQuery = async () => {
     await this.promptLLM();
   };
+  formatPower(value: number | null, seconds = false): string {
+    const number = validPowerValue(value);
+    if (number === null) return $localize`:@@powerNotAvailable:Nicht verfuegbar`;
+    return number.toFixed(seconds ? 2 : 6).replace(".", ",") + (seconds ? " Sek." : " kWh");
+  }
+
+  powerStatus(status?: string): string {
+    if (status === "not_run" || status === "skipped") return $localize`:@@powerNotRun:Nicht ausgefuehrt`;
+    if (status === "failed_fallback") return $localize`:@@powerFailedFallback:Fehlgeschlagen; normale Suche verwendet`;
+    if (status === "unavailable") return $localize`:@@powerNotAvailable:Nicht verfuegbar`;
+    if (status === "no_candidates") return $localize`:@@powerNoCandidates:Keine Kandidaten`;
+    return "";
+  }
+
   formatScore(score: number): string {
     return (score * 100).toFixed(1) + "%";
   }

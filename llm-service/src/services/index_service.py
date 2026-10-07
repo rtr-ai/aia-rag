@@ -293,69 +293,55 @@ class IndexService:
         request_id: str,
         use_rerank: bool,
         dataset_id: str,
+        phase_meter=None,
     ) -> Tuple[List[Source], float, dict]:
-        metadata = {"requested": use_rerank, "enabled": self.reranker_service.enabled, "applied": False, "backend": None, "model": None}
+        metadata = {"requested": use_rerank, "enabled": self.reranker_service.enabled,
+                    "applied": False, "backend": None, "model": None,
+                    "duration_seconds": 0.0, "status": "not_run"}
         if not use_rerank or not self.reranker_service.enabled:
             return normal_sources, 0.0, metadata
 
+        if phase_meter is not None:
+            phase_meter.switch("rerank")
         start = time.perf_counter()
+        sources = normal_sources
         try:
             candidates = self._build_rerank_candidates(normal_sources)
-            LOGGER.debug(
-                f"[{request_id}]   Reranker candidate count from non-skipped "
-                f"context chunks before deduplication: "
-                f"{sum(1 + sum(1 for chunk in source.relevantChunks if not chunk.skip) for source in normal_sources if not source.skip)}"
-            )
-            LOGGER.debug(
-                f"[{request_id}]   Reranker candidate count after deduplication: "
-                f"{len(candidates)}"
-            )
-
-            if not candidates:
-                return normal_sources, 0.0, metadata
-
-            documents = [self._format_rerank_document(chunk) for chunk in candidates]
-            instruction = self.reranker_service.get_instruction(dataset_id)
-            if instruction:
-                LOGGER.debug(
-                    "[%s]   Using reranker instruction for dataset %s"
-                    % (request_id, dataset_id)
+            LOGGER.debug(f"[{request_id}]   Reranker candidates after deduplication: {len(candidates)}")
+            if candidates:
+                documents = [self._format_rerank_document(chunk) for chunk in candidates]
+                instruction = self.reranker_service.get_instruction(dataset_id)
+                rerank_execution = self.reranker_service.rerank_with_metadata(
+                    query=query, documents=documents, top_n=RERANK_TOP_N, instruction=instruction
                 )
-            rerank_execution = self.reranker_service.rerank_with_metadata(
-                query=query, documents=documents, top_n=RERANK_TOP_N, instruction=instruction
-            )
-            reranked_results = rerank_execution.results
-            reranked_chunks = []
-            for rerank_position, result in enumerate(reranked_results, start=1):
-                chunk = dict(candidates[result.index])
-                chunk["rerank_score"] = result.relevance_score
-                chunk["rerank_position"] = rerank_position
-                chunk["score"] = result.relevance_score
-                chunk["relevantChunks"] = []
-                reranked_chunks.append(chunk)
-
-            duration = time.perf_counter() - start
-            LOGGER.debug(
-                f"[{request_id}]   Reranker selected {len(reranked_chunks)} "
-                f"of {len(candidates)} candidates in {duration:.2f}s"
-            )
-            metadata.update(
-                {
-                    "applied": True,
+                reranked_chunks = []
+                for rerank_position, result in enumerate(rerank_execution.results, start=1):
+                    chunk = dict(candidates[result.index])
+                    chunk["rerank_score"] = result.relevance_score
+                    chunk["rerank_position"] = rerank_position
+                    chunk["score"] = result.relevance_score
+                    chunk["relevantChunks"] = []
+                    reranked_chunks.append(chunk)
+                sources = self._build_sources_from_chunks(reranked_chunks, request_id)
+                metadata.update({
+                    "applied": True, "status": "completed",
                     "backend": rerank_execution.backend_name,
                     "model": rerank_execution.model_path,
                     "runtime": rerank_execution.runtime,
-                }
-            )
-            return self._build_sources_from_chunks(reranked_chunks, request_id), duration, metadata
+                })
+                LOGGER.debug(f"[{request_id}]   Reranker selected {len(reranked_chunks)} of {len(candidates)} candidates")
+            else:
+                metadata["status"] = "no_candidates"
         except Exception as e:
-            duration = time.perf_counter() - start
-            LOGGER.error(
-                f"[{request_id}]   Reranker failed after {duration:.2f}s, "
-                f"falling back to cosine retrieval: {e}"
-            )
-            metadata["fallback"] = "vector_similarity"
-            return normal_sources, duration, metadata
+            LOGGER.error(f"[{request_id}]   Reranker failed, falling back to cosine retrieval: {e}")
+            metadata.update({"fallback": "vector_similarity", "applied": False, "status": "failed_fallback"})
+        finally:
+            if phase_meter is not None:
+                phase_meter.switch("retrieval")
+                metadata["duration_seconds"] = phase_meter.payload("rerank")["duration"]
+            else:
+                metadata["duration_seconds"] = time.perf_counter() - start
+        return sources, metadata["duration_seconds"], metadata
 
     def _build_sources_from_chunks(self, chunks: List[dict], request_id: str) -> List[Source]:
         total_tokens = 0
@@ -459,8 +445,9 @@ class IndexService:
         return sources
 
     async def query_index(
-        self, dataset_id: str, query: str, request_id: str, use_rerank: bool = False
-    ) -> Tuple[List[Source], float]:
+        self, dataset_id: str, query: str, request_id: str, use_rerank: bool = False,
+        phase_meter=None,
+    ) -> Tuple[List[Source], float, dict]:
         """
         Query a specific dataset's index.
 
@@ -509,6 +496,7 @@ class IndexService:
             request_id=request_id,
             use_rerank=use_rerank,
             dataset_id=dataset_id,
+            phase_meter=phase_meter,
         )
         return sources, duration + rerank_duration, rerank_metadata
 

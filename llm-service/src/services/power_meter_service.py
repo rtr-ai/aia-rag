@@ -201,9 +201,105 @@ class PowerMeterService:
             duration_seconds=duration,
         )
 
+    def phase_snapshot(self):
+        """Read cumulative joules, RAM usage and a monotonic boundary clock.
+
+        Missing counters stay unavailable; CPU packages include core subdomains.
+        """
+        cpu_energy = None
+        try:
+            energies = []
+            socket = 0
+            while True:
+                try:
+                    with open(f"/sys/class/powercap/intel-rapl:{socket}/energy_uj") as handle:
+                        energies.append(int(handle.read()) / 1_000_000)
+                except FileNotFoundError:
+                    break
+                socket += 1
+            if energies:
+                cpu_energy = sum(energies)
+        except (OSError, ValueError):
+            pass
+        gpu_energy = None
+        if self.gpu_available:
+            try:
+                gpu_energy = nvml.nvmlDeviceGetTotalEnergyConsumption(self.handle) / 1000
+            except Exception:
+                pass
+        try:
+            ram_usage = self._get_ram_usage()
+        except Exception:
+            ram_usage = None
+        return time.perf_counter(), cpu_energy, gpu_energy, ram_usage
+
     def __del__(self):
         if getattr(self, "gpu_available", False):
             try:
                 nvml.nvmlShutdown()
             except Exception:
                 pass
+
+
+class PhasePowerMeter:
+    """Request-local, non-overlapping intervals; no shared start/stop state."""
+
+    def __init__(self, meter):
+        self.meter = meter
+        self.active_stage = None
+        self.boundary = None
+        self.stages = {}
+
+    def switch(self, stage):
+        if stage == self.active_stage:
+            return
+        boundary = self.meter.phase_snapshot()
+        self._finish_interval(boundary)
+        self.active_stage = stage
+        self.boundary = boundary if stage is not None else None
+
+    def stop(self):
+        if self.active_stage is not None:
+            self.switch(None)
+
+    def _finish_interval(self, end):
+        if self.active_stage is None:
+            return
+        start = self.boundary
+        duration = max(0.0, end[0] - start[0])
+        row = self.stages.setdefault(self.active_stage, {
+            "cpu_kWh": 0.0, "gpu_kWh": 0.0, "ram_kWh": 0.0, "duration": 0.0,
+        })
+        row["duration"] += duration
+        for field, index in (("cpu_kWh", 1), ("gpu_kWh", 2)):
+            delta = None
+            if start[index] is not None and end[index] is not None:
+                if end[index] >= start[index]:
+                    delta = (end[index] - start[index]) / 3_600_000
+            row[field] = None if row[field] is None or delta is None else row[field] + delta
+        ram = None
+        if start[3] is not None and end[3] is not None:
+            ram = (start[3] + end[3]) / 2 * self.meter.RAM_POWER_FACTOR * duration / 3_600_000
+        row["ram_kWh"] = None if row["ram_kWh"] is None or ram is None else row["ram_kWh"] + ram
+
+    def payload(self, stage, status="completed"):
+        empty_value = 0.0 if status in ("not_run", "skipped") else None
+        row = dict(self.stages.get(stage, {
+            "cpu_kWh": empty_value, "gpu_kWh": empty_value,
+            "ram_kWh": empty_value, "duration": empty_value,
+        }))
+        values = [row[field] for field in ("cpu_kWh", "gpu_kWh", "ram_kWh")]
+        row["total_kWh"] = sum(values) if all(value is not None for value in values) else None
+        row.update({
+            "measurement_version": 2,
+            "status": status,
+            "measurement_scope": "host_cpu_gpu0_ram; concurrent workloads may be included",
+            "measurement_methods": {
+                "cpu_kWh": "package_energy_counter" if row["cpu_kWh"] is not None else "unavailable",
+                "gpu_kWh": "gpu0_energy_counter" if row["gpu_kWh"] is not None else "unavailable",
+                "ram_kWh": "estimated_from_ram_usage" if row["ram_kWh"] is not None else "unavailable",
+            },
+        })
+        if status in ("not_run", "skipped"):
+            row["measurement_methods"] = {field: "not_run" for field in ("cpu_kWh", "gpu_kWh", "ram_kWh")}
+        return row

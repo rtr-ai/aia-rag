@@ -6,6 +6,7 @@ export interface LLMMessageParams {
     | "user"
     | "assistant"
     | "power_prompt"
+    | "power_rerank"
     | "power_index"
     | "power_response"
     | "queue_position"
@@ -44,21 +45,43 @@ export interface Source {
 }
 
 export interface PowerUsageData {
-  cpu_kWh: number;
-  gpu_kWh: number;
-  ram_kWh: number;
-  total_kWh: number;
-  duration: number;
+  cpu_kWh: number | null;
+  gpu_kWh: number | null;
+  ram_kWh: number | null;
+  total_kWh: number | null;
+  duration: number | null;
+  measurement_version?: number;
+  status?: string;
+  measurement_scope?: string;
+  measurement_methods?: Record<string, string>;
 }
 
-export interface PowerDataDisplayed {
-  cpu_kWh: number;
-  gpu_kWh: number;
-  ram_kWh: number;
-  total_kWh: number;
-  duration: number;
+export interface PowerDataDisplayed extends PowerUsageData {
   label: string;
   name: string;
+}
+
+export const POWER_FIELDS = ["cpu_kWh", "gpu_kWh", "ram_kWh", "total_kWh", "duration"] as const;
+
+export function missingPower(): PowerUsageData {
+  return { cpu_kWh: null, gpu_kWh: null, ram_kWh: null, total_kWh: null, duration: null };
+}
+
+export function validPowerValue(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+export function requestPowerTotal(rows: PowerDataDisplayed[]): PowerUsageData {
+  const byName = new Map(rows.map(row => [row.name, row]));
+  const separate = byName.get("power_prompt")?.measurement_version === 2;
+  const names = separate ? ["power_prompt", "power_rerank", "power_response"] : ["power_prompt", "power_response"];
+  const total = missingPower();
+  for (const field of POWER_FIELDS) {
+    const values = names.map(name => validPowerValue(byName.get(name)?.[field]));
+    total[field] = values.every(value => value !== null)
+      ? values.reduce<number>((sum, value) => sum + (value as number), 0) : null;
+  }
+  return total;
 }
 
 export type Step = "initial" | "research" | "prompt" | "output" | "done";

@@ -184,6 +184,27 @@ h3 i {
   font-size:18px;
 }
 
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .energy-table {
-  min-width: 750px;
+  min-width: 1000px;
+  width: 100%;
+  table-layout: auto;
+
+  th, td {
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  th:first-child, td:first-child {
+    min-width: 240px;
+    width: 30%;
+  }
+
+  td:not(:first-child) {
+    white-space: nowrap;
+  }
 }
