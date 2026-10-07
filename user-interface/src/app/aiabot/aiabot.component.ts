@@ -150,7 +150,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       combined: $localize`:@@powerLabelRetrievalCombined:Altformat: Retrieve/Augment inklusive Re-Ranking (kombiniert)`,
       rerank: $localize`:@@powerLabelRerankSeparate:Re-Ranking`,
       response: $localize`:@@powerLabelResponse:Generierung der Antwort („Generate")`,
-      total: $localize`:@@powerLabelRequestTotal:Anfrage gesamt (ohne Indexierung)`,
+      total: $localize`:@@powerLabelRequestTotal:Gesamt (inklusive Indexierung)`,
     };
   }
 
@@ -208,7 +208,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       const labels = this.initializePowerDataLabels();
       const total = requestPowerTotal(this.powerData);
       this.zone.run(() => {
-        for (const [name, label] of [["power_prompt", labels.prompt], ["power_rerank", labels.rerank], ["power_response", labels.response]]) {
+        for (const [name, label] of [["power_index", labels.index], ["power_prompt", labels.prompt], ["power_rerank", labels.rerank], ["power_response", labels.response]]) {
           if (!this.powerData.some(row => row.name === name)) {
             this.powerData.push({ ...missingPower(), name, label, status: "unavailable" });
           }

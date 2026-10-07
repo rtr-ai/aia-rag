@@ -8,7 +8,9 @@ Each new request reports three separate, non-overlapping stages:
 - Re-Ranking: candidate preparation, instruction/model preparation, ranking and result handling. Lazy model loading is included when it occurs.
 - Generate: answer generation.
 
-Request total = Retrieve/Augment + Re-Ranking + Generate. Startup indexing is displayed separately and is never added to each request total.
+The testbench request total = Retrieve/Augment + Re-Ranking + Generate, excluding startup indexing.
+
+The public chatbot Gesamt = startup indexing + Retrieve/Augment + Re-Ranking + Generate. Indexing remains a separate row labelled once per server startup. Its saved startup cost is included once in the displayed public total, not performed again for each question.
 
 Durations use elapsed wall-clock time. CPU and GPU energy use hardware-counter differences where available. RAM energy remains an estimate from RAM usage. Missing counters produce null / Not available, not zero. Zero means the stage was explicitly not run or skipped.
 
@@ -65,6 +67,20 @@ Testbench root:
 
 The backend test directory is currently ignored by Git. It does not need to be deployed for the application to work. The preview server and screenshot are verification aids, not production services.
 
+## Follow-up: different public and testbench totals
+
+If the separate stages are already deployed, this follow-up requires ONLY these five public chatbot frontend files:
+
+1. `user-interface/src/app/aiabot/models.ts`
+2. `user-interface/src/app/aiabot/aiabot.component.ts`
+3. `user-interface/src/app/aiabot/aiabot.component.html`
+4. `user-interface/src/locale/messages.en.xlf`
+5. `user-interface/src/locale/messages.da.xlf`
+
+Rebuild/deploy the chatbot frontend to activate the indexing-inclusive public Gesamt. No backend measurement, Docker Compose or testbench code change is needed for this follow-up. `models.spec.ts` contains the updated frontend regression tests.
+
+Follow-up verification: 7 frontend tests and 7 unchanged testbench summary tests passed; the localized production build passed. The public UI was verified with synthetic values (100 + 2 + 3 + 5 = 110 seconds). Proof: `llm-service/tests/public-total-including-indexing.jpg`. Gortex tests/guards queries completed, but final graph change detection/contract verification could not finish because graph refresh receipts timed out. No commit, push or deployment was performed.
+
 ## Who does what next
 
 1. You transfer the nine backend/frontend application files to the corresponding paths in your GitHub project, using your usual workflow.
@@ -91,9 +107,10 @@ No previously generated Excel, HTML or PDF report was changed. Fresh imports/exp
 - Backend controlled-clock/counter tests: 6 passed.
 - Chunk-comparison suite: 61 passed.
 - Answer-comparison suite: 69 run, 66 passed, 3 skipped.
-- Frontend totals tests: 5 passed in ChromeHeadless.
+- Frontend totals tests: 7 passed in ChromeHeadless, including public indexing-inclusive totals, older responses, missing measurements and repeated events.
+- Follow-up testbench summary regression tests: 7 passed; testbench indexing exclusion is unchanged.
 - Localized production Angular build: passed. Existing Sass, bundle-budget, CommonJS and unrelated locale warnings remain.
-- UI checked with a local synthetic stream at desktop and mobile widths. Synthetic durations 2 + 3 + 5 produce a 10-second request total; the separate 100-second indexing value is excluded.
+- UI checked with a local synthetic stream at desktop and mobile widths. The public total now includes indexing: synthetic durations 100 + 2 + 3 + 5 produce 110 seconds. The testbench request total remains 10 seconds, excluding indexing.
 - Missing-energy and failed-fallback UI behavior checked. Existing source/answer fixtures remain unchanged.
 - Gortex change detection and contract checks completed; no configured guards. Its graph does not include the ignored backend tests or the separate testbench checkout, so those were verified directly with their test suites.
 

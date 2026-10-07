@@ -74,7 +74,8 @@ export function validPowerValue(value: unknown): number | null {
 export function requestPowerTotal(rows: PowerDataDisplayed[]): PowerUsageData {
   const byName = new Map(rows.map(row => [row.name, row]));
   const separate = byName.get("power_prompt")?.measurement_version === 2;
-  const names = separate ? ["power_prompt", "power_rerank", "power_response"] : ["power_prompt", "power_response"];
+  // The public chatbot includes saved startup indexing; testbench totals are separate.
+  const names = separate ? ["power_index", "power_prompt", "power_rerank", "power_response"] : ["power_index", "power_prompt", "power_response"];
   const total = missingPower();
   for (const field of POWER_FIELDS) {
     const values = names.map(name => validPowerValue(byName.get(name)?.[field]));
