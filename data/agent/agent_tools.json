@@ -30,5 +30,21 @@
         "query": "The search query, e.g. \"Which practices does Art. 5 AI Act prohibit?\"."
       }
     }
+  },
+  "search_guidelines": {
+    "de": {
+      "display_name": "Leitlinien durchsuchen",
+      "description": "Durchsucht die Leitlinien der Europäischen Kommission zum AI Act und liefert die passendsten Abschnitte wörtlich (mit Randziffer und Fußnoten), ohne Zusammenfassung. Verfügbare Leitlinien: verbotene Praktiken (Art. 5), Definition eines KI-Systems (Art. 3 Nr. 1), Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck, Transparenzpflichten nach Art. 50 (nur auf Englisch). Die Leitlinien sind nicht verbindlich, zeigen aber die Auslegung der Kommission. Rufe dieses Werkzeug bei jeder Frage zu diesen Themen zusätzlich zu search_ai_act auf; die Leitlinien enthalten Auslegung, Abgrenzungen und Beispiele, die im AI Act selbst fehlen. Kombiniere Fachbegriffe und Umschreibungen in der Suchanfrage; für die Transparenzpflichten nach Art. 50 hilft eine englische Suchanfrage.",
+      "parameters": {
+        "query": "Die Suchanfrage, z. B. „Ausnutzung der Schutzbedürftigkeit von Kindern durch KI-Spielzeug“."
+      }
+    },
+    "en": {
+      "display_name": "Search the guidelines",
+      "description": "Searches the European Commission guidelines on the AI Act and returns the most relevant passages verbatim (with paragraph number and footnotes), without a summary. Available guidelines: prohibited AI practices (Art. 5), definition of an AI system (Art. 3 no. 1), obligations for providers of general-purpose AI models, transparency obligations under Art. 50. The guidelines are not binding, but show the Commission's interpretation. Call this tool for every question on these topics in addition to search_ai_act; the guidelines contain interpretation, delineations and examples that the AI Act itself does not. Combine technical terms and paraphrases in the search query.",
+      "parameters": {
+        "query": "The search query, e.g. \"exploitation of children's vulnerabilities by AI toys\"."
+      }
+    }
   }
 }

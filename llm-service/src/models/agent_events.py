@@ -44,6 +44,7 @@ class GuidelineSource(BaseModel):
     embedding_score: Optional[float] = None
     embedding_rank: Optional[int] = None
     fused_score: float
+    matched_by: Literal["query", "prompt"]
     skip: bool
     skip_reason: str = ""
 

@@ -57,6 +57,7 @@ class ToolContext:
     step_id: str
     dataset: str
     language: str
+    user_prompt: str
     new_step: Callable[[], str]
 
 

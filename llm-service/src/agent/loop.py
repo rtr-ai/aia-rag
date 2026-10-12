@@ -263,6 +263,7 @@ class AgentRun:
                 step_id=step_id,
                 dataset=self._dataset,
                 language=self._language,
+                user_prompt=self._prompt,
                 new_step=self._events.new_step,
             )
             try:

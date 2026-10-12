@@ -7,6 +7,11 @@ from agent.agent_prompts import load_agent_prompts
 from agent.registry import ToolRegistry, language_for_dataset
 from agent.tools.current_date import CurrentDateTool
 from agent.tools.search_ai_act import SearchAiActTool
+from agent.tools.search_guidelines import (
+    GUIDELINES,
+    SearchGuidelinesTool,
+    guideline_dataset_id,
+)
 from utils.logger import get_logger
 from contextlib import asynccontextmanager
 from api.router import router as api_router
@@ -66,6 +71,36 @@ async def create_vector_stores(
     )
 
 
+async def create_guideline_indices(index_service: IndexService):
+    """
+    Create vector store indices for all guideline datasets.
+    """
+    filenames = sorted({f for files in GUIDELINES.values() for f in files})
+    LOGGER.info(f"Creating vector stores for {len(filenames)} guideline files...")
+
+    for filename in filenames:
+        dataset_id = guideline_dataset_id(filename)
+        chunks_path = os.path.join(DATA_DIR, filename)
+        LOGGER.info(f"Indexing guideline dataset <{dataset_id}> from <{chunks_path}>")
+
+        try:
+            await index_service.create_index_for_dataset(
+                dataset_id=dataset_id,
+                chunks_path=chunks_path,
+                force_recreate=REINDEX_ON_STARTUP,
+            )
+        except FileNotFoundError as e:
+            LOGGER.error(f"Failed to index guideline dataset <{dataset_id}>: {e}")
+            raise RuntimeError(f"Guidelines file not found: {chunks_path}")
+        except Exception as e:
+            LOGGER.error(f"Failed to index guideline dataset <{dataset_id}>: {e}")
+            raise
+
+    LOGGER.info(
+        f"Successfully indexed {len(filenames)} guideline datasets: {filenames}"
+    )
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     ollama_embedding_host = os.getenv("OLLAMA_EMBEDDING_HOST")
@@ -113,6 +148,7 @@ async def lifespan(app: FastAPI):
                 },
             )
         )
+        tool_registry.register(SearchGuidelinesTool(index_service, languages))
         app.state.tool_registry = tool_registry
         app.state.agent_prompts = agent_prompts
     except Exception as e:
@@ -140,6 +176,7 @@ async def lifespan(app: FastAPI):
         LOGGER.debug("All models are ready.")
 
         await create_vector_stores(index_service, dataset_config)
+        await create_guideline_indices(index_service)
         yield
     finally:
         await embedding_client.aclose()

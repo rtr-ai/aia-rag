@@ -61,6 +61,13 @@ services:
       - ./data/agent/agent_max_turns_en.md:/app/data/agent_max_turns_en.md
       - ./data/agent/search_ai_act_prompt_de.md:/app/data/search_ai_act_prompt_de.md
       - ./data/agent/search_ai_act_prompt_en.md:/app/data/search_ai_act_prompt_en.md
+      - ./data/guidelines/prohibited_practices_de.json:/app/data/prohibited_practices_de.json
+      - ./data/guidelines/prohibited_practices_en.json:/app/data/prohibited_practices_en.json
+      - ./data/guidelines/ai_system_definition_de.json:/app/data/ai_system_definition_de.json
+      - ./data/guidelines/ai_system_definition_en.json:/app/data/ai_system_definition_en.json
+      - ./data/guidelines/gpai_obligations_de.json:/app/data/gpai_obligations_de.json
+      - ./data/guidelines/gpai_obligations_en.json:/app/data/gpai_obligations_en.json
+      - ./data/guidelines/transparency_art50_en.json:/app/data/transparency_art50_en.json
       - /sys/class/powercap:/sys/class/powercap:ro
       - /proc/stat:/proc/stat:ro
       - /proc/cpuinfo:/proc/cpuinfo:ro

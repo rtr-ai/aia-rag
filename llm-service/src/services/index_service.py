@@ -140,6 +140,9 @@ class IndexService:
     def chunk_count(self, dataset_id: str) -> int:
         return len(self.vector_store[dataset_id]["chunks"])
 
+    def chunks(self, dataset_id: str) -> List[dict]:
+        return self.vector_store[dataset_id]["chunks"]
+
     @staticmethod
     def cosine_similarity(query_vector, vectors):
         """
