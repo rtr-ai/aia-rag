@@ -67,11 +67,13 @@ class OllamaLlmClient:
         model: str,
         temperature: float,
         context_window: int,
+        max_tokens: int,
         timeout: float,
     ):
         self.model = model
         self._temperature = temperature
         self._context_window = context_window
+        self._max_tokens = max_tokens
         self._client = ollama.AsyncClient(
             host=host, timeout=httpx.Timeout(timeout, connect=10.0)
         )
@@ -97,6 +99,7 @@ class OllamaLlmClient:
                 options={
                     "temperature": self._temperature,
                     "num_ctx": self._context_window,
+                    "num_predict": self._max_tokens,
                 },
                 stream=True,
             )

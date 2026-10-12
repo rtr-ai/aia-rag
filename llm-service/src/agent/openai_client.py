@@ -131,11 +131,13 @@ class OpenAiLlmClient:
         base_url: str,
         model: str,
         temperature: float,
+        max_tokens: int,
         timeout: float,
         api_key: Optional[str],
     ):
         self.model = model
         self._temperature = temperature
+        self._max_tokens = max_tokens
         headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
         self._client = httpx.AsyncClient(
             base_url=base_url,
@@ -150,6 +152,7 @@ class OpenAiLlmClient:
             "model": self.model,
             "messages": [self._convert_message(message) for message in messages],
             "temperature": self._temperature,
+            "max_tokens": self._max_tokens,
             "stream": True,
             "stream_options": {"include_usage": True},
         }
