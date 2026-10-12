@@ -85,15 +85,21 @@ def _parse_usage(chunk: Dict[str, Any]) -> Optional[Usage]:
 
 
 def _merge_tool_call_fragments(
-    calls: Dict[int, Dict[str, Any]], fragments: List[Dict[str, Any]]
+    calls: List[Dict[str, Any]],
+    latest_for_index: Dict[int, int],
+    fragments: List[Dict[str, Any]],
 ) -> None:
     for fragment in fragments:
-        call = calls.setdefault(
-            fragment["index"],
-            {"id": None, "name": None, "arguments": ""},
-        )
-        if fragment.get("id"):
-            call["id"] = fragment["id"]
+        index = fragment["index"]
+        fragment_id = fragment.get("id")
+        call = calls[latest_for_index[index]] if index in latest_for_index else None
+        # LiteLLM (Ollama) streams parallel tool calls all with index 0.
+        if call is None or (fragment_id and fragment_id != call["id"]):
+            call = {"id": None, "name": None, "arguments": ""}
+            calls.append(call)
+        latest_for_index[index] = len(calls) - 1
+        if fragment_id:
+            call["id"] = fragment_id
         function = fragment.get("function") or {}
         if function.get("name"):
             call["name"] = function["name"]
@@ -101,13 +107,12 @@ def _merge_tool_call_fragments(
             call["arguments"] += function["arguments"]
 
 
-def _build_tool_calls(calls: Dict[int, Dict[str, Any]]) -> List[ToolCall]:
+def _build_tool_calls(calls: List[Dict[str, Any]]) -> List[ToolCall]:
     tool_calls: List[ToolCall] = []
-    for index in sorted(calls):
-        call = calls[index]
+    for position, call in enumerate(calls):
         if not call["name"]:
             raise LlmBadResponse(
-                f"OpenAI-compatible endpoint: tool call {index} has no function name"
+                f"OpenAI-compatible endpoint: tool call {position} has no function name"
             )
         tool_calls.append(
             ToolCall(
@@ -154,7 +159,8 @@ class OpenAiLlmClient:
             ]
         content_fragments: List[str] = []
         reasoning_fragments: List[str] = []
-        calls: Dict[int, Dict[str, Any]] = {}
+        calls: List[Dict[str, Any]] = []
+        latest_for_index: Dict[int, int] = {}
         usage = Usage()
         finish_reason: Optional[str] = None
         with _translate_errors("chunk"):
@@ -186,7 +192,9 @@ class OpenAiLlmClient:
                     if content:
                         content_fragments.append(content)
                         yield ContentChunk(text=content)
-                    _merge_tool_call_fragments(calls, delta.get("tool_calls") or [])
+                    _merge_tool_call_fragments(
+                        calls, latest_for_index, delta.get("tool_calls") or []
+                    )
                     finish_reason = choices[0].get("finish_reason") or finish_reason
         if finish_reason is None:
             raise LlmBadResponse(
