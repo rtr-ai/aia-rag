@@ -85,7 +85,7 @@ services:
       - /app/logs-develop:/app/logs/
       - ./data/combined.json:/app/data/combined.json
       - ./data/combined_en_new.json:/app/data/combined_en_new.json
-      - ./data/combined_da.json:/app/data/combined_da.json
+      - ./da_data/combined_da.json:/app/da_data/combined_da.json
       - ./data/system_prompts.json:/app/data/system_prompts.json
       - ./data/rerank_instructions.json:/app/data/rerank_instructions.json
       - /app/models/reranker:/app/models/reranker:ro
