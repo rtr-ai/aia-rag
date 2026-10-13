@@ -227,7 +227,7 @@
     },
     {
       "id": "054bdd2e-50ee-4142-a2e7-6cab4945afd9",
-      "title": "FAQs EC: 12. How do the obligations under Chapter II of the Data Act relate to mechanisms of conformity assessment or type approval?  ",
+      "title": "FAQs EC: 12. How do the obligations under Chapter II of the Data Act relate to mechanisms of conformity assessment or type approval?",
       "content": "The Data Act applies to all connected products, including those that are subject to specific type approval or conformity assessment regimes (e.g. motor vehicles, aircraft, and medical devices).  \nThe Data Act does not have specific provisions with respect to mechanisms of conformity assessment, but Data Act obligations apply. As a general rule, therefore, a connected product can only be placed on the market if it complies with all applicable Data Act provisions and if a conformity assessment has been carried out in accordance with applicable legislation. In other words, the specific need for a connected product to undergo a conformity assessment procedure is determined by requirements set in legislation other than the Data Act.",
       "keywords": [],
       "availableKeywords": [],
@@ -743,7 +743,7 @@
     },
     {
       "id": "d078e6b8-7b36-4934-b1f6-257beb4a249f",
-      "title": "FAQs EC: 37. Can someone established in a third country receive data on the basis of the data-sharing obligations under Chapter II?  ",
+      "title": "FAQs EC: 37. Can someone established in a third country receive data on the basis of the data-sharing obligations under Chapter II?",
       "content": "No. The scope of the Chapter II data-sharing obligation on data holders is limited to entities and persons, including consumers, in the Union (cf. Articles 1(3)(b), 1(3)(d) and 2(14) of the Data Act). Giving data access to operators that do not have a presence in the EU cannot be justified based on the Data Act.  \nIrrespective of its place of establishment, a data holder has a legal obligation to share data with an EUbased entity or person at the request of an EU user. A user may ask a data holder to share data with an entity or person that is not established in the EU, but the data holder is not obliged to grant that access.   \t ",
       "keywords": [],
       "availableKeywords": [],
@@ -917,7 +917,7 @@
     },
     {
       "id": "25ee9b47-4903-4704-8788-19df1866bfed",
-      "title": "FAQs EC: 45. Could the new rights under the Data Act endanger data holders’ existing business models because a public sector body could request the data instead of purchasing it?  ",
+      "title": "FAQs EC: 45. Could the new rights under the Data Act endanger data holders’ existing business models because a public sector body could request the data instead of purchasing it?",
       "content": "There is little risk of current business models being seriously affected. This is because - in all situations other than an exceptional need for data to directly respond to a public emergency, and where an option of purchasing non-personal data is available to the public body - the data will need to be purchased at the market price (note the exception in Article 15(3) of the Data Act). A public sector body can rely on the process outlined in Article 15(1)(b) only if it has been unable to obtain the non-personal data - either because the data cannot be purchased or because the public sector body made an unsuccessful attempt to buy it at the market rate (e.g. via procurement).",
       "keywords": [],
       "availableKeywords": [],
@@ -949,7 +949,7 @@
     },
     {
       "id": "6fd293de-6663-4167-84ac-35f7cf9d7b0b",
-      "title": "FAQs EC: 47. Can a public body in one country request data from a data holder in a different country? Are the rights of the data holder fully protected in such a case?  ",
+      "title": "FAQs EC: 47. Can a public body in one country request data from a data holder in a different country? Are the rights of the data holder fully protected in such a case?",
       "content": "Yes. The Data Act includes the right for a public sector body to request data from data holders (companies) located in a Member State that is not the Member State of the requesting public sector body. This right may be important in the case of cross-border emergencies (e.g. natural disasters).  \nAs always, the request needs to fulfil all the requirements under Article 17 of the Data Act. This means that it must be formulated in clear, concise, and plain language that the data holder can understand. \nArticle 22 of the Data Act contains a specific procedure for cross-border requests to ensure the data holder’s protection. Such requests are always notified to the competent authority of the data holder’s Member State for ex ante examination.",
       "keywords": [],
       "availableKeywords": [],
@@ -1038,7 +1038,7 @@
     },
     {
       "id": "9a170090-69df-4110-a26e-dcfe155409af",
-      "title": "FAQs EC: 52. Which services are excluded from the scope of Chapter VI?  ",
+      "title": "FAQs EC: 52. Which services are excluded from the scope of Chapter VI?",
       "content": "\nArticles 23-32 and 34-35 of the Data Act apply to providers of data processing services. The definition of a data processing service is laid down in Article 2(8) and mirrors common definitions of cloud computing services. The concept is designed to cover the popular delivery models - Infrastructure as a Service (IaaS), Platform as a service (PaaS) and Software as a Service (SaaS) - while also remaining open to technological innovation.  \nArticle 31 introduces a specific regime for (i) data processing services that are custom-built and not offered on a broad commercial scale and (ii) for data processing services that are provided as a testing/beta version. However, this does not mean that custom-built services are fully excluded from the scope of Chapter VI. The provisions not listed in Article 31(1) still apply. For example, providers of such services must make open interfaces available and ensure that data are exported in a structured, commonly used and machine-readable format.",
       "keywords": [],
       "availableKeywords": [],
