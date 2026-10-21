@@ -1,7 +1,9 @@
 name: Deploy-Agent
 
 on:
-  workflow_dispatch:
+  push:
+    branches: ['feature/agent']
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
