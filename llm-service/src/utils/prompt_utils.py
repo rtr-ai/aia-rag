@@ -1,8 +1,7 @@
 import os
-from typing import List
+from typing import List, Union
 from pydantic import TypeAdapter
-from services.dataset_configuration import DatasetConfiguration
-from models.sources import Source
+from models.sources import RelevantChunk, Source
 from utils.logger import get_logger
 
 
@@ -14,29 +13,27 @@ ORDER_CHUNKS_FROM_SOURCE = TypeAdapter(bool).validate_python(
 )
 
 
-def generate_prompt(
-    prompt: str, sources: List[Source], dataset_id: str, config: DatasetConfiguration
-) -> str:
-    combined_sources = []  # flatten
+def used_sources(sources: List[Source]) -> List[Union[Source, RelevantChunk]]:
+    combined = []  # flatten
 
-    chunks = ""
     for source in sources:
         if not source.skip:
-            combined_sources.append(source)
+            combined.append(source)
         for relevant_chunk in source.relevantChunks:
             if not relevant_chunk.skip:
-                combined_sources.append(relevant_chunk)
+                combined.append(relevant_chunk)
 
     # sort
     if ORDER_CHUNKS_FROM_SOURCE:
-        combined_sources.sort(key=lambda x: x.position)
+        combined.sort(key=lambda x: x.position)
 
-    # output
-    for source in combined_sources:
+    return combined
+
+
+def render_prompt(template: str, sources: List[Source], query: str) -> str:
+    chunks = ""
+    for source in used_sources(sources):
         chunks += f"Titel: {source.title} \n{source.content}\n"
         chunks += "\n"
 
-    system_prompt = config.get_prompt(dataset_id)
-
-    final_prompt = system_prompt.format(context_str=chunks.strip(), query_str=prompt)
-    return final_prompt
+    return template.format(context_str=chunks.strip(), query_str=query)

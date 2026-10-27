@@ -28,6 +28,7 @@ class ToolCall(BaseModel):
 class Message(BaseModel):
     role: Literal["system", "user", "assistant", "tool"]
     content: str = ""
+    reasoning: Optional[str] = None
     tool_calls: List[ToolCall] = []
     tool_call_id: Optional[str] = None
     tool_name: Optional[str] = None
@@ -60,6 +61,7 @@ class TurnResult(BaseModel):
     finish_reason: Literal["stop", "tool_calls", "length"]
     usage: Usage
     timings: Timings
+    time_to_first_token: Optional[float] = None
 
 
 TurnDelta = Union[ReasoningChunk, ContentChunk, TurnResult]

@@ -1,6 +1,7 @@
 import contextlib
 import json
 import secrets
+import time
 from typing import Any, AsyncIterator, Dict, Generator, List, Optional
 
 import httpx
@@ -66,11 +67,13 @@ class OllamaLlmClient:
         model: str,
         temperature: float,
         context_window: int,
+        max_tokens: int,
         timeout: float,
     ):
         self.model = model
         self._temperature = temperature
         self._context_window = context_window
+        self._max_tokens = max_tokens
         self._client = ollama.AsyncClient(
             host=host, timeout=httpx.Timeout(timeout, connect=10.0)
         )
@@ -87,6 +90,8 @@ class OllamaLlmClient:
         tool_calls: List[ToolCall] = []
         done: Optional[ChatResponse] = None
         with _translate_errors():
+            started = time.monotonic()
+            first_output: Optional[float] = None
             stream = await self._client.chat(
                 model=self.model,
                 messages=request_messages,
@@ -94,10 +99,18 @@ class OllamaLlmClient:
                 options={
                     "temperature": self._temperature,
                     "num_ctx": self._context_window,
+                    "num_predict": self._max_tokens,
                 },
                 stream=True,
             )
             async for part in stream:
+                if (
+                    part.message.thinking
+                    or part.message.content
+                    or part.message.tool_calls
+                ):
+                    if first_output is None:
+                        first_output = time.monotonic() - started
                 if part.message.thinking:
                     reasoning_fragments.append(part.message.thinking)
                     yield ReasoningChunk(text=part.message.thinking)
@@ -135,6 +148,7 @@ class OllamaLlmClient:
                 eval_duration=_to_seconds(done.eval_duration),
                 total_duration=_to_seconds(done.total_duration),
             ),
+            time_to_first_token=first_output,
         )
 
     async def _model_exists(self) -> bool:
@@ -159,6 +173,8 @@ class OllamaLlmClient:
     @staticmethod
     def _convert_message(message: Message) -> Dict[str, Any]:
         converted: Dict[str, Any] = {"role": message.role, "content": message.content}
+        if message.role == "assistant" and message.reasoning:
+            converted["thinking"] = message.reasoning
         if message.role == "assistant" and message.tool_calls:
             converted["tool_calls"] = [
                 {

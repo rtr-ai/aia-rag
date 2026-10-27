@@ -1,0 +1,708 @@
+<div class="uk-section-default uk-section">
+  <div class="uk-container">
+    <h2 i18n="@@agentPageHeading">KI-Servicestelle AI Act Chatbot</h2>
+
+    <!-- Eingabe – steht zu Beginn der Seite -->
+    <form class="uk-form uk-padding-remove uk-margin-top">
+      <div style="position: relative">
+        <textarea
+          class="uk-input user-input"
+          placeholder="Stellen Sie uns Ihre Frage zum AI Act"
+          i18n-placeholder="@@agentInputPlaceholder"
+          style="resize: none"
+          [(ngModel)]="userPrompt"
+          name="userPrompt"
+          id="userPrompt"
+          [maxlength]="maxLength"
+          [disabled]="running"
+        ></textarea>
+        <small style="position: absolute; bottom: 5px; right: 10px; color: #888">
+          {{ userPrompt.length }}/{{ maxLength }}
+        </small>
+        @if (userPrompt === "" && !running) {
+          <a
+            class="user-input-suggestion"
+            (click)="loadExample(); run()"
+            i18n="@@agentInputSuggestion"
+          >
+            z.&nbsp;B.: &ldquo;{{ exampleQuestion }}&rdquo;
+          </a>
+        }
+      </div>
+      <a
+        class="uk-button uk-button-large uk-grid-margin uk-button-primary"
+        [ngClass]="!running && userPrompt !== '' && backendAvailable ? '' : 'uk-disabled'"
+        (click)="run()"
+        i18n="@@agentAskButton"
+        >Frage stellen</a
+      >
+
+      @if (!backendAvailable) {
+        <div class="uk-alert-danger" uk-alert>
+          <p i18n="@@errorTryAgainLater">
+            Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es später erneut.
+          </p>
+        </div>
+      }
+    </form>
+  </div>
+
+  <!-- Nachrichten-Verlauf / Agentenlauf -->
+  @if (entries.length > 0) {
+    <div id="agentRun" class="uk-container uk-container-large uk-margin-top-50">
+      <h3>
+        @if (running) {
+          <div class="loader loader-small-offset"></div>
+        } @else {
+          <span>&check;</span>
+        }
+        <ng-container i18n="@@agentRunHeading">Nachrichten-Verlauf des Agenten</ng-container>
+      </h3>
+      <p class="text-muted" i18n="@@agentRunIntro">
+        Der Agent arbeitet, indem das LLM mehrfach aufgerufen wird. Bei
+        <strong>jedem</strong> Aufruf wird der <strong>gesamte bisherige
+        Nachrichten-Verlauf</strong> erneut übergeben: System-Prompt (inkl.
+        Tool-Definitionen), die Frage sowie alle bisherigen Tool-Aufrufe und
+        deren Roh-Ergebnisse. Das Modell entscheidet daraufhin, ob es ein
+        weiteres Werkzeug aufruft oder final antwortet.
+      </p>
+
+      <div class="agent-layout">
+        <!-- ===== Linke Spalte: Kreislauf-Diagramm (sticky) ===== -->
+        <aside class="agent-side">
+          <div class="side-title">
+            <span i18n="@@agentSideTitle">Agenten-Kreislauf</span>
+            @if (roundCount > 0) {
+              <span class="side-round" i18n="@@agentSideRound">Runde {{ roundCount }}</span>
+            }
+          </div>
+
+          <div class="loop-figure">
+            <svg
+              viewBox="0 0 330 372"
+              role="img"
+              aria-label="Kreislauf des Agenten: LLM liest den Verlauf, ruft ggf. ein Werkzeug auf, dessen Ergebnis an den Verlauf angehängt wird – bis keine Tool-Calls mehr folgen und die finale Antwort erzeugt wird."
+              i18n-aria-label="@@agentLoopAriaLabel"
+            >
+              <defs>
+                <marker id="loopArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path class="loop-arr" d="M0,0 L10,5 L0,10 z"></path>
+                </marker>
+              </defs>
+
+              <!-- LLM -->
+              <rect
+                class="loop-node"
+                [class.loop-active]="loopActive.node === 'llm'"
+                x="70" y="14" width="200" height="58" rx="8"
+              ></rect>
+              <text class="loop-label" x="170" y="38" text-anchor="middle" i18n="@@agentLoopLlmLine1">LLM liest den</text>
+              <text class="loop-label" x="170" y="58" text-anchor="middle" i18n="@@agentLoopLlmLine2">gesamten Verlauf</text>
+
+              <!-- LLM → Entscheidung -->
+              <path class="loop-edge" d="M170,72 V106" marker-end="url(#loopArr)"></path>
+              <rect class="loop-node loop-node-decision" x="105" y="110" width="130" height="42" rx="21"></rect>
+              <text class="loop-label" x="170" y="136" text-anchor="middle" i18n="@@agentLoopDecision">Tool-Call?</text>
+
+              <!-- ja → Werkzeug -->
+              <path
+                class="loop-edge"
+                [class.loop-edge-active]="loopActive.edge === 'ja'"
+                d="M170,152 V186"
+                marker-end="url(#loopArr)"
+              ></path>
+              <text class="loop-edge-label" x="182" y="174" i18n="@@agentLoopYes">ja</text>
+              <rect
+                class="loop-node"
+                [class.loop-active]="loopActive.node === 'tool'"
+                x="70" y="190" width="200" height="58" rx="8"
+              ></rect>
+              <text class="loop-label" x="170" y="224" text-anchor="middle" i18n="@@agentLoopToolRuns">Werkzeug läuft</text>
+
+              <!-- Rückführung: Ergebnis → Verlauf (linke Seite) -->
+              <path
+                class="loop-edge"
+                [class.loop-edge-active]="loopActive.edge === 'zurueck'"
+                d="M70,219 H28 V43 H64"
+                marker-end="url(#loopArr)"
+              ></path>
+              <text
+                class="loop-edge-label"
+                transform="rotate(-90 16 131)"
+                x="16" y="131" text-anchor="middle"
+                i18n="@@agentLoopResultToHistory"
+              >Ergebnis → an den Verlauf</text>
+
+              <!-- nein → finale Antwort (rechte Seite) -->
+              <path
+                class="loop-edge"
+                [class.loop-edge-active]="loopActive.edge === 'nein'"
+                d="M235,131 H302 V316 H276"
+                marker-end="url(#loopArr)"
+              ></path>
+              <text class="loop-edge-label" x="244" y="123" i18n="@@agentLoopNo">nein</text>
+              <rect
+                class="loop-node"
+                [class.loop-active]="loopActive.node === 'antwort'"
+                [class.loop-still]="done"
+                x="70" y="292" width="200" height="48" rx="8"
+              ></rect>
+              <text class="loop-label" x="170" y="321" text-anchor="middle" i18n="@@agentLoopFinalAnswer">✓ finale Antwort</text>
+            </svg>
+          </div>
+          <p class="info-link">
+            <a
+              href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20KI-Agent?"
+              target="_blank"
+              i18n="@@agentLoopInfoLink"
+              i18n-href="@@agentLoopInfoLink-href"
+              >Information: Wie funktioniert ein KI-Agent?</a
+            >
+          </p>
+        </aside>
+
+        <!-- ===== Rechte Spalte: Chat-Fenster ===== -->
+        <div class="agent-chat">
+          <!-- Verlaufs-Leiste: Chips je Schritt, Klick springt zum Eintrag -->
+          @if (running || chips.length > 0) {
+            <div class="loop-chips">
+              <div class="loop-chips-scroll">
+                @for (c of chips; track c.id; let first = $first) {
+                  @if (!first) { <span class="chip-sep">→</span> }
+                  <span class="chip" [ngClass]="chipClass(c)" (click)="jumpTo(c.id)">{{ chipLabel(c) }}</span>
+                }
+                @if (chips.length === 0) {
+                  <span class="chip chip-llm chip-running">LLM</span>
+                }
+                @if (running) { <span class="chip-sep">…</span> }
+              </div>
+            </div>
+          }
+
+          <div class="chat-window">
+            <div class="transcript">
+              @for (e of entries; track e.id) {
+                <div
+                  id="entry-{{ e.id }}"
+                  class="msg"
+                  [ngClass]="
+                    'msg-' + e.kind +
+                    (e.status === 'running' ? ' msg-running' : '') +
+                    (e.isError ? ' msg-error' : '')
+                  "
+                >
+                  <!-- SYSTEM -->
+                  @if (e.kind === "system") {
+                    <a class="msg-title msg-title-toggle" (click)="toggle('sys-' + e.id)">
+                      <i class="bi bi-sliders msg-icon"></i>
+                      <span class="msg-name" i18n="@@agentSystemTitle">System-Prompt &amp; Werkzeuge</span>
+                      @if (e.status === "running") {
+                        <div class="loader loader-small-offset msg-loader"></div>
+                      }
+                      <span class="msg-meta" i18n="@@agentSystemMeta">{{ tools.length }} Tools · anzeigen ▾</span>
+                    </a>
+                    <div id="sys-{{ e.id }}" class="msg-content uk-hidden">
+                      <pre class="raw-block">{{ e.systemText }}</pre>
+                      <p class="info-link">
+                        <a
+                          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20System-Prompt?"
+                          target="_blank"
+                          i18n="@@agentSystemPromptInfoLink"
+                          i18n-href="@@agentSystemPromptInfoLink-href"
+                          >Information: Was ist ein System-Prompt?</a
+                        >
+                      </p>
+                      <div class="msg-head" i18n="@@agentToolsHead">
+                        Mitgeschickte Tool-Definitionen ({{ tools.length }})
+                      </div>
+                      <table class="uk-table uk-table-divider uk-table-small tools-table">
+                        <tbody>
+                          @for (tool of tools; track tool.name) {
+                            <tr>
+                              <td><code>{{ toolSignature(tool) }}</code></td>
+                              <td>{{ tool.description }}</td>
+                              <td class="uk-text-right">
+                                <span class="call-budget">
+                                  {{ toolCallCount(tool.name) }}/{{ limits?.max_calls_per_tool?.[tool.name] }}
+                                </span>
+                              </td>
+                            </tr>
+                          }
+                        </tbody>
+                      </table>
+                      <p class="info-link">
+                        <a
+                          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Werkzeuge%20(Tools)%20und%20Tool-Calls"
+                          target="_blank"
+                          i18n="@@agentToolsInfoLink"
+                          i18n-href="@@agentToolsInfoLink-href"
+                          >Information: Was sind Werkzeuge (Tools) und Tool-Calls?</a
+                        >
+                      </p>
+                    </div>
+                  }
+
+                  <!-- USER -->
+                  @if (e.kind === "user") {
+                    <div class="msg-title msg-title-click" (click)="toggleCollapse(e)">
+                      <i class="bi bi-person msg-icon"></i>
+                      <span class="msg-name" i18n="@@agentUserTitle">Ihre Frage</span>
+                      @if (e.status === "running") {
+                        <div class="loader loader-small-offset msg-loader"></div>
+                      }
+                      <i class="bi msg-fold msg-fold-right" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
+                    </div>
+                    <div class="msg-collapsible" [class.msg-collapsed]="e.collapsed">
+                      <div class="msg-collapsible-inner">
+                        <div class="msg-content">
+                          <p class="user-text">{{ e.userText }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  }
+
+                  <!-- LLM-AUFRUF (Assistent) -->
+                  @if (e.kind === "llm") {
+                    <div class="msg-title" [class.msg-title-click]="!isFinal(e)" (click)="toggleCollapse(e)">
+                      <i class="bi bi-robot msg-icon"></i>
+                      <span class="msg-name" i18n="@@agentLlmTitle">Assistent</span>
+                      @if (e.status === "running") {
+                        <div class="loader loader-small-offset msg-loader"></div>
+                      }
+                      <span class="msg-meta"
+                        ><ng-container i18n="@@agentLlmMeta">liest {{ e.contextMessages }} Nachrichten · ~{{ formatTokens(e.contextTokens) }} Token</ng-container>@if (e.ttft != null) {
+                        <ng-container i18n="@@agentLlmTimings"> · TTFT {{ formatSeconds(e.ttft) }} s · Generierung {{ formatSeconds(e.generationDuration ?? 0) }} s</ng-container>
+                        } @else if (e.duration !== undefined) {
+                        <ng-container i18n="@@agentLlmDuration"> · {{ formatSeconds(e.duration) }} s</ng-container>
+                        }</span
+                      >
+                      @if (!isFinal(e)) {
+                        <i class="bi msg-fold" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
+                      }
+                    </div>
+                    <div class="msg-collapsible" [class.msg-collapsed]="e.collapsed && !isFinal(e)">
+                      <div class="msg-collapsible-inner">
+                        <div class="msg-content">
+                          <!-- Übergebener Prompt-Verlauf (eingeklappt) -->
+                          <a class="raw-toggle ctx-toggle" (click)="toggle('ctx-' + e.id)" i18n="@@agentCtxToggle">liest {{ e.contextMessages }} Nachrichten · ~{{ formatTokens(e.contextTokens) }} Token ▾</a>
+                          <div id="ctx-{{ e.id }}" class="ctx-detail uk-hidden">
+                            @for (m of e.messages ?? []; track $index; let i = $index) {
+                              <div class="ctx-msg">
+                                <a class="ctx-msg-head" (click)="toggle('ctxmsg-' + e.id + '-' + i)">
+                                  <span class="ctx-role ctx-role-{{ m.role }}">{{ m.role }}</span>
+                                  <span class="ctx-text">{{ messageSummary(m) }}</span>
+                                </a>
+                                <pre id="ctxmsg-{{ e.id }}-{{ i }}" class="ctx-full uk-hidden">{{ messageFullText(m) }}</pre>
+                              </div>
+                            }
+                            <p class="info-link">
+                              <a
+                                href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Der%20Nachrichten-Verlauf"
+                                target="_blank"
+                                i18n="@@agentCtxInfoLink"
+                                i18n-href="@@agentCtxInfoLink-href"
+                                >Information: Warum wird bei jedem Aufruf der gesamte Verlauf übergeben?</a
+                              >
+                            </p>
+                          </div>
+                          @if (e.reasoning) {
+                            <p class="reasoning">{{ e.reasoning }}</p>
+                            <p class="info-link">
+                              <a
+                                href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reasoning"
+                                target="_blank"
+                                i18n="@@agentReasoningInfoLink"
+                                i18n-href="@@agentReasoningInfoLink-href"
+                                >Information: Wie „denkt“ das Modell? (Reasoning)</a
+                              >
+                            </p>
+                          }
+                          @if (!isFinal(e)) {
+                            @if (e.content) {
+                              <p class="llm-content">{{ e.content }}</p>
+                            }
+                            @for (tc of e.toolCalls ?? []; track tc.tool_call_id) {
+                              <div class="llm-action" i18n="@@agentLlmAction">
+                                → ruft Tool
+                                <strong><i class="bi {{ toolIcon(tc.name) }}"></i> {{ toolDisplayName(tc.name) }}</strong>
+                                auf
+                              </div>
+                            }
+                          }
+                          @if (isFinal(e) && e.content) {
+                            <div class="result-head">
+                              <ng-container i18n="@@agentFinalAnswerHead">Finale Antwort</ng-container>
+                            </div>
+                            <div class="answer agent-answer">
+                              <div class="chat-answer" [innerHTML]="e.content"></div>
+                            </div>
+                          }
+                        </div>
+                      </div>
+                    </div>
+                  }
+
+                  <!-- TOOL-ERGEBNIS -->
+                  @if (e.kind === "tool") {
+                    <div class="msg-header">
+                      <div class="msg-title msg-title-click" (click)="toggleCollapse(e)">
+                        <i class="bi {{ toolIcon(e.toolName) }} msg-icon"></i>
+                        <span class="msg-name" i18n="@@agentToolName">Tool: {{ toolDisplayName(e.toolName) }}</span>
+                        @if (e.toolName === "search_ai_act") {
+                          <span class="rag-pill" i18n="@@agentRagPill">intern: erweitertes RAG</span>
+                        }
+                        @if (e.status === "running") {
+                          <div class="loader loader-small-offset msg-loader"></div>
+                        }
+                        <span class="msg-meta" i18n="@@agentToolMeta">
+                          <code>{{ e.toolName }}()</code> · Aufruf {{ e.callIndex }}/{{ limits?.max_calls_per_tool?.[e.toolName!] }}
+                        </span>
+                        <i class="bi msg-fold" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
+                      </div>
+
+                      <div class="msg-collapsible" [class.msg-collapsed]="e.collapsed">
+                        <div class="msg-collapsible-inner">
+                          <!-- Das zentrale Argument (Suchbegriff, Begriff, Artikel …) -->
+                          @if (toolArg(e)) {
+                            <div class="msg-arg">
+                              {{ toolArgLabel(e.toolName) }}:
+                              <strong i18n="@@agentToolArgQuoted">„{{ toolArg(e) }}“</strong>
+                            </div>
+                          }
+                          <div class="msg-content">
+                            <!-- Interne Teilschritte (z. B. Retrieve-Pipeline) -->
+                            @if (e.subSteps && e.subSteps.length > 0) {
+                              @if (e.status !== "done") {
+                                <div class="sub-timeline">
+                                  <span class="msg-subhead" i18n="@@agentSubstepsHead">Interne Teilschritte des Werkzeugs</span>
+                                  @for (sub of e.subSteps; track $index) {
+                                    <div class="sub-step">
+                                      <span class="sub-step-label">{{ sub.label }}</span>
+                                      <span class="sub-step-detail">{{ sub.detail }}</span>
+                                    </div>
+                                  }
+                                </div>
+                              } @else {
+                                <a class="raw-toggle" (click)="toggle('subs-' + e.id)" i18n="@@agentSubstepsToggle">{{ e.subSteps.length }} interne Teilschritte anzeigen/ausblenden</a>
+                                <div id="subs-{{ e.id }}" class="sub-timeline uk-hidden">
+                                  @for (sub of e.subSteps; track $index) {
+                                    <div class="sub-step">
+                                      <span class="sub-step-label">{{ sub.label }}</span>
+                                      <span class="sub-step-detail">{{ sub.detail }}</span>
+                                    </div>
+                                  }
+                                </div>
+                              }
+                            }
+                            <!-- search_ai_act: Retrieve (eingeklappt) -->
+                            @if (e.toolName === "search_ai_act" && e.sources) {
+                              <a class="raw-toggle" (click)="toggle('retr-' + e.id)" i18n="@@agentRagRetrieveToggle">Retrieve · erhobene Quellen (Kosinus-Ähnlichkeit) anzeigen/ausblenden</a>
+                              <span class="toggle-sep">·</span>
+                              <div id="retr-{{ e.id }}" class="rerank-box uk-hidden">
+                                <p class="rerank-note">
+                                  <span uk-icon="icon: info; ratio: 0.8"></span>
+                                  <ng-container i18n="@@agentRagNote">Ähnlichkeitswerte dienen der Nachvollziehbarkeit. In den Prompt fließt nur der Quellentext – nicht die Zahlen selbst.</ng-container>
+                                  @if (e.sourcesDuration != null) {
+                                    <ng-container i18n="@@agentRagRetrievalDuration"> Abruf: {{ formatSeconds(e.sourcesDuration) }} s</ng-container>
+                                  }
+                                </p>
+                                <div class="table-container">
+                                  <table class="uk-table uk-table-small uk-table-divider sources-table">
+                                    <thead>
+                                      <tr>
+                                        <th class="src-col-rank" i18n="@@agentSourcesColRank">Nr.</th>
+                                        <th i18n="@@agentSourcesColSource">Quelle</th>
+                                        <th class="uk-text-right" i18n="@@agentSourcesColScore">Kosinus</th>
+                                        <th class="uk-text-right" i18n="@@agentSourcesColTokens">Token</th>
+                                        <th class="uk-text-center" i18n="@@agentSourcesColUsed">Im Kontext</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      @for (src of e.sources; track $index; let i = $index) {
+                                        <tr [ngClass]="src.skip ? 'src-skipped' : ''">
+                                          <td class="src-rank">{{ i + 1 }}</td>
+                                          <td>
+                                            <a class="src-title" (click)="toggle('srcc-' + e.id + '-' + i)">{{ src.title }}</a>
+                                          </td>
+                                          <td class="uk-text-right">{{ formatScore(src.score) }}</td>
+                                          <td class="uk-text-right">{{ formatTokens(src.num_tokens) }}</td>
+                                          <td class="uk-text-center">
+                                            @if (!src.skip) {
+                                              <span class="used-yes">✓</span>
+                                            } @else {
+                                              <span class="used-no">✕ {{ skipReasonLabel(src.skip_reason) }}</span>
+                                            }
+                                          </td>
+                                        </tr>
+                                        <tr id="srcc-{{ e.id }}-{{ i }}" class="uk-hidden">
+                                          <td></td>
+                                          <td colspan="4"><pre class="raw-block">{{ src.content }}</pre></td>
+                                        </tr>
+                                        @for (chunk of src.relevantChunks; track $index) {
+                                          <tr [ngClass]="chunk.skip ? 'src-skipped' : ''">
+                                            <td></td>
+                                            <td><span class="src-chunk-title">{{ chunk.title }}</span></td>
+                                            <td class="uk-text-right"></td>
+                                            <td class="uk-text-right">{{ formatTokens(chunk.num_tokens) }}</td>
+                                            <td class="uk-text-center">
+                                              @if (!chunk.skip) {
+                                                <span class="used-yes">✓</span>
+                                              } @else {
+                                                <span class="used-no">✕ {{ skipReasonLabel(chunk.skip_reason) }}</span>
+                                              }
+                                            </td>
+                                          </tr>
+                                        }
+                                      }
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <p class="info-link">
+                                  <a
+                                    href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?"
+                                    target="_blank"
+                                    i18n="@@agentRagRetrieveInfoLink"
+                                    i18n-href="@@agentRagRetrieveInfoLink-href"
+                                    >Information: Wie werden relevante Quellen erhoben?</a
+                                  >
+                                </p>
+                              </div>
+                            }
+                            <!-- search_ai_act: Augment + Generate; sonst normales Ergebnis -->
+                            @if (ragNestedCall(e); as call) {
+                              <a class="raw-toggle" (click)="toggle('aug-' + e.id)" i18n="@@agentRagAugmentToggle">Augment · Prompt des RAG-Werkzeugs (System-Prompt + Quellen + Suchanfrage) anzeigen/ausblenden</a>
+                              <div id="aug-{{ e.id }}" class="uk-hidden">
+                                @for (m of call.messages ?? []; track $index) {
+                                  @if (m.role === "system") {
+                                    <div class="msg-head" i18n="@@agentRagSystemPromptHead">System-Prompt</div>
+                                  } @else {
+                                    <div class="msg-head" i18n="@@agentRagUserPromptHead">User-Prompt</div>
+                                  }
+                                  <pre class="raw-block">{{ m.content }}</pre>
+                                }
+                                <p class="info-link">
+                                  <a
+                                    href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?"
+                                    target="_blank"
+                                    i18n="@@agentRagAugmentInfoLink"
+                                    i18n-href="@@agentRagAugmentInfoLink-href"
+                                    >Information: Wie ist ein Prompt aufgebaut?</a
+                                  >
+                                </p>
+                              </div>
+                              <div class="result-head">
+                                <ng-container i18n="@@agentToolResultHead">Ergebnis</ng-container>
+                                <span class="result-hint" i18n="@@agentRagGenerateHint">Generate · LLM-Ausgabe – wird an den Verlauf angehängt</span>
+                                <span class="msg-meta"
+                                  >@if (call.ttft != null) {
+                                  <ng-container i18n="@@agentNestedTimings"> · TTFT {{ formatSeconds(call.ttft) }} s · Generierung {{ formatSeconds(call.generationDuration ?? 0) }} s</ng-container>
+                                  } @else if (call.duration !== undefined) {
+                                  <ng-container i18n="@@agentNestedDuration"> · {{ formatSeconds(call.duration) }} s</ng-container>
+                                  }</span
+                                >
+                              </div>
+                              @if (call.reasoning) {
+                                <p class="reasoning">{{ call.reasoning }}</p>
+                              }
+                              <pre class="raw-block result-block">{{ ragResultText(e) }}</pre>
+                            } @else if (e.resultText !== undefined) {
+                              <div class="result-head">
+                                <ng-container i18n="@@agentToolResultHead">Ergebnis</ng-container>
+                                <span class="result-hint" i18n="@@agentToolResultHint">wird unverändert an den Verlauf angehängt</span>
+                              </div>
+                              <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+            @if (maxTurnsReached) {
+              <div class="uk-alert-warning" uk-alert>
+                <p i18n="@@agentMaxTurnsReached">
+                  Die maximale Anzahl an Runden wurde erreicht. Das Modell wurde
+                  ohne Werkzeuge um eine abschließende Antwort gebeten.
+                </p>
+              </div>
+            }
+            @if (errorMessage) {
+              <div class="uk-alert-danger" uk-alert>
+                <p>{{ errorMessage }}</p>
+              </div>
+            }
+            @if (running) {
+              <div class="scroll-spacer"></div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Energie-Gesamtbilanz über alle LLM- und Tool-Aufrufe -->
+  @if (done) {
+    <div class="uk-container uk-margin-top-50">
+      <h3>
+        <span uk-icon="bolt"></span>
+        <ng-container i18n="@@agentEnergyHeading">Energieverbrauch dieser Anfrage</ng-container>
+      </h3>
+      <p>
+        <ng-container i18n="@@agentEnergyIntro">
+          Die Energietransparenz bleibt im agentischen Modus erhalten – jetzt
+          summiert über <strong>alle LLM- und Werkzeug-Aufrufe</strong> eines
+          Laufs.
+        </ng-container>
+        @if (totalEnergy) {
+          <ng-container i18n="@@agentEnergySentence">
+            Diese Anfrage hat insgesamt
+            <strong>{{ formatKWh(totalEnergy.total_kWh) }}&nbsp;kWh</strong> verbraucht. Damit
+            ließe sich ein
+            <abbr uk-tooltip="Modell mit 2,2 kW Leistung" i18n-uk-tooltip="@@agentHairdryerTooltip">Haarföhn</abbr>
+            rund
+            <i>{{ (((totalEnergy.total_kWh * 1000) / 2200) * 60 * 60).toFixed(1).replace(".", ",") }} Sekunden</i>
+            betreiben.
+          </ng-container>
+        }
+      </p>
+      <div class="table-container">
+        <table class="uk-table uk-table-hover uk-table-divider energy-table">
+          <thead>
+            <tr>
+              <th i18n="@@agentEnergyColCall">Aufruf</th>
+              <th class="uk-text-right">CPU</th>
+              <th class="uk-text-right">GPU</th>
+              <th class="uk-text-right">RAM</th>
+              <th class="uk-text-right" i18n="@@agentEnergyColTotal">Gesamt</th>
+              <th class="uk-text-right" i18n="@@agentEnergyColDuration">Dauer</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (e of entries; track e.id) {
+              @if (e.kind === "llm" || e.kind === "tool") {
+                <tr>
+                  <td>
+                    @if (e.kind === "llm") {
+                      <ng-container i18n="@@agentEnergyRowLlm">LLM-Aufruf</ng-container>
+                      @if (!isFinal(e)) {
+                        →
+                        @for (tc of e.toolCalls ?? []; track tc.tool_call_id; let last = $last) {
+                          <code>{{ tc.name }}()</code>@if (!last) {, }
+                        }
+                      } @else {
+                        → <ng-container i18n="@@agentEnergyRowFinal">finale Antwort</ng-container>
+                      }
+                    } @else {
+                      <ng-container i18n="@@agentEnergyRowTool">Werkzeug <code>{{ e.toolName }}()</code></ng-container>
+                    }
+                  </td>
+                  <td class="uk-text-right">
+                    @if (e.energy) {
+                      {{ formatKWh(e.energy.cpu_kWh) }}&nbsp;kWh
+                    } @else {
+                      –
+                    }
+                  </td>
+                  <td class="uk-text-right">
+                    @if (e.energy) {
+                      {{ formatKWh(e.energy.gpu_kWh) }}&nbsp;kWh
+                    } @else {
+                      –
+                    }
+                  </td>
+                  <td class="uk-text-right">
+                    @if (e.energy) {
+                      {{ formatKWh(e.energy.ram_kWh) }}&nbsp;kWh
+                    } @else {
+                      –
+                    }
+                  </td>
+                  <td class="uk-text-right">
+                    @if (e.energy) {
+                      {{ formatKWh(e.energy.total_kWh) }}&nbsp;kWh
+                    } @else {
+                      –
+                    }
+                  </td>
+                  <td class="uk-text-right">
+                    @let duration = e.energy?.duration ?? e.duration;
+                    @if (duration !== undefined) {
+                      {{ formatSeconds(duration) }}&nbsp;Sek.
+                    } @else {
+                      –
+                    }
+                  </td>
+                </tr>
+              }
+            }
+            <tr class="energy-total-row">
+              <td><strong i18n="@@agentEnergyTotal">Gesamt</strong></td>
+              <td class="uk-text-right">
+                @if (totalEnergy) {
+                  <strong>{{ formatKWh(totalEnergy.cpu_kWh) }}&nbsp;kWh</strong>
+                } @else {
+                  –
+                }
+              </td>
+              <td class="uk-text-right">
+                @if (totalEnergy) {
+                  <strong>{{ formatKWh(totalEnergy.gpu_kWh) }}&nbsp;kWh</strong>
+                } @else {
+                  –
+                }
+              </td>
+              <td class="uk-text-right">
+                @if (totalEnergy) {
+                  <strong>{{ formatKWh(totalEnergy.ram_kWh) }}&nbsp;kWh</strong>
+                } @else {
+                  –
+                }
+              </td>
+              <td class="uk-text-right">
+                @if (totalEnergy) {
+                  <strong>{{ formatKWh(totalEnergy.total_kWh) }}&nbsp;kWh</strong>
+                } @else {
+                  –
+                }
+              </td>
+              <td class="uk-text-right">
+                <strong>
+                  @if (totalEnergy) {
+                    {{ formatSeconds(totalEnergy.duration) }}&nbsp;Sek.
+                  } @else {
+                    –
+                  }
+                </strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted" i18n="@@agentEnergyNote">
+        Der Stromverbrauch wird direkt auf Hardware-Ebene (CPU/GPU/RAM) je Aufruf
+        gemessen. Das Rechenzentrum nutzt einen Strommix aus erneuerbaren
+        Energien; der <abbr uk-tooltip="Power Usage Effectiveness">PUE-Wert</abbr>
+        liegt zwischen 1,10 und 1,16.
+      </p>
+      <p class="info-link">
+        <a
+          href="https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch"
+          target="_blank"
+          i18n="@@agentEnergyInfoLink"
+          i18n-href="@@agentEnergyInfoLink-href"
+          >Information: Wie wird der Stromverbrauch berechnet?</a
+        >
+      </p>
+
+      <p class="uk-margin-top" i18n="@@agentDisclaimer">
+        <strong>Wichtiger Hinweis:</strong> Diese Antwort wurde von einem
+        KI-System erzeugt und kann Fehler enthalten. Für eine fachkundige,
+        rechtssichere Einschätzung wenden Sie sich bitte an das (menschliche)
+        Team der
+        <a href="https://ki.rtr.at" target="_blank">KI-Servicestelle</a>.
+      </p>
+    </div>
+  }
+</div>

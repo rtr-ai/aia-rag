@@ -14,6 +14,7 @@ LLM_TIMEOUT = float(os.getenv("LLM_TIMEOUT", "600"))
 LLM_MODEL = os.getenv("LLM_MODELS", "llama3.1:8b-instruct-fp16").split(",")[0]
 TEMPERATURE = float(os.getenv("TEMPERATURE", "0.1"))
 CONTEXT_WINDOW = int(os.getenv("CONTEXT_WINDOW", "8000"))
+LLM_MAX_TOKENS = int(os.getenv("LLM_MAX_TOKENS", "4096"))
 
 
 def create_llm_client() -> LlmClient:
@@ -23,6 +24,7 @@ def create_llm_client() -> LlmClient:
             model=LLM_MODEL,
             temperature=TEMPERATURE,
             context_window=CONTEXT_WINDOW,
+            max_tokens=LLM_MAX_TOKENS,
             timeout=LLM_TIMEOUT,
         )
     if LLM_PROVIDER == "openai":
@@ -30,6 +32,7 @@ def create_llm_client() -> LlmClient:
             base_url=LLM_BASE_URL,
             model=LLM_MODEL,
             temperature=TEMPERATURE,
+            max_tokens=LLM_MAX_TOKENS,
             timeout=LLM_TIMEOUT,
             api_key=LLM_API_KEY,
         )

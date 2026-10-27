@@ -3,10 +3,20 @@ import os
 from fastapi import FastAPI
 from httpx import AsyncClient
 from agent.llm_provider import LLM_BASE_URL, LLM_PROVIDER, create_llm_client
+from agent.agent_prompts import load_agent_prompts
+from agent.registry import ToolRegistry, language_for_dataset
+from agent.tools.current_date import CurrentDateTool
+from agent.tools.search_ai_act import SearchAiActTool
+from agent.tools.search_guidelines import (
+    GUIDELINES,
+    SearchGuidelinesTool,
+    guideline_dataset_id,
+)
 from utils.logger import get_logger
 from contextlib import asynccontextmanager
 from api.router import router as api_router
 from services.index_service import IndexService
+from services.rag_pipeline import RagPipeline
 from fastapi.middleware.cors import CORSMiddleware
 from services.dataset_configuration import DatasetConfiguration
 
@@ -16,6 +26,7 @@ EMBEDDING_MODELS = os.getenv("EMBEDDING_MODELS", "").split(",")
 LLM_MODELS = os.getenv("LLM_MODELS", "").split(",")
 ROOT_PATH = os.getenv("ROOT_PATH", "")
 DATA_DIR = "/app/data"
+REINDEX_ON_STARTUP = os.getenv("REINDEX_ON_STARTUP", "true").lower() == "true"
 
 
 async def is_model_available(client: AsyncClient, model_name: str) -> bool:
@@ -45,7 +56,7 @@ async def create_vector_stores(
             await index_service.create_index_for_dataset(
                 dataset_id=dataset_id,
                 chunks_path=chunks_path,
-                force_recreate=True,
+                force_recreate=REINDEX_ON_STARTUP,
             )
         except FileNotFoundError as e:
             LOGGER.error(f"Failed to index dataset <{dataset_id}>: {e}")
@@ -57,6 +68,36 @@ async def create_vector_stores(
     LOGGER.info(
         f"Successfully indexed {len(dataset_config.datasets)} datasets: "
         f"{list(dataset_config.datasets.keys())}"
+    )
+
+
+async def create_guideline_indices(index_service: IndexService):
+    """
+    Create vector store indices for all guideline datasets.
+    """
+    filenames = sorted({f for files in GUIDELINES.values() for f in files})
+    LOGGER.info(f"Creating vector stores for {len(filenames)} guideline files...")
+
+    for filename in filenames:
+        dataset_id = guideline_dataset_id(filename)
+        chunks_path = os.path.join(DATA_DIR, filename)
+        LOGGER.info(f"Indexing guideline dataset <{dataset_id}> from <{chunks_path}>")
+
+        try:
+            await index_service.create_index_for_dataset(
+                dataset_id=dataset_id,
+                chunks_path=chunks_path,
+                force_recreate=REINDEX_ON_STARTUP,
+            )
+        except FileNotFoundError as e:
+            LOGGER.error(f"Failed to index guideline dataset <{dataset_id}>: {e}")
+            raise RuntimeError(f"Guidelines file not found: {chunks_path}")
+        except Exception as e:
+            LOGGER.error(f"Failed to index guideline dataset <{dataset_id}>: {e}")
+            raise
+
+    LOGGER.info(
+        f"Successfully indexed {len(filenames)} guideline datasets: {filenames}"
     )
 
 
@@ -91,6 +132,29 @@ async def lifespan(app: FastAPI):
     app.state.index_service = index_service
 
     llm_client = create_llm_client()
+    app.state.llm_client = llm_client
+
+    try:
+        languages = sorted({language_for_dataset(d) for d in dataset_config.datasets})
+        tool_registry = ToolRegistry(languages)
+        agent_prompts = load_agent_prompts(languages)
+        tool_registry.register(CurrentDateTool())
+        tool_registry.register(
+            SearchAiActTool(
+                RagPipeline(index_service, llm_client),
+                {
+                    language: prompt.search_ai_act
+                    for language, prompt in agent_prompts.items()
+                },
+            )
+        )
+        tool_registry.register(SearchGuidelinesTool(index_service, languages))
+        app.state.tool_registry = tool_registry
+        app.state.agent_prompts = agent_prompts
+    except Exception as e:
+        LOGGER.error(f"Unable to load agent configuration: {e}")
+        raise RuntimeError(f"Unable to load agent configuration: {e}")
+
     embedding_client = AsyncClient(base_url=f"http://{ollama_embedding_host}:11434/api")
 
     if not EMBEDDING_MODELS or EMBEDDING_MODELS == [""]:
@@ -112,6 +176,7 @@ async def lifespan(app: FastAPI):
         LOGGER.debug("All models are ready.")
 
         await create_vector_stores(index_service, dataset_config)
+        await create_guideline_indices(index_service)
         yield
     finally:
         await embedding_client.aclose()

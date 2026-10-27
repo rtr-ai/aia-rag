@@ -1,6 +1,7 @@
 import contextlib
 import json
 import secrets
+import time
 from typing import Any, AsyncIterator, Dict, Generator, List, Optional
 
 import httpx
@@ -19,6 +20,9 @@ from agent.llm_client import (
     TurnResult,
     Usage,
 )
+from utils.logger import get_logger
+
+LOGGER = get_logger(__name__)
 
 
 def _parse_arguments(raw: str) -> Optional[Dict[str, Any]]:
@@ -81,15 +85,21 @@ def _parse_usage(chunk: Dict[str, Any]) -> Optional[Usage]:
 
 
 def _merge_tool_call_fragments(
-    calls: Dict[int, Dict[str, Any]], fragments: List[Dict[str, Any]]
+    calls: List[Dict[str, Any]],
+    latest_for_index: Dict[int, int],
+    fragments: List[Dict[str, Any]],
 ) -> None:
     for fragment in fragments:
-        call = calls.setdefault(
-            fragment["index"],
-            {"id": None, "name": None, "arguments": ""},
-        )
-        if fragment.get("id"):
-            call["id"] = fragment["id"]
+        index = fragment["index"]
+        fragment_id = fragment.get("id")
+        call = calls[latest_for_index[index]] if index in latest_for_index else None
+        # LiteLLM (Ollama) streams parallel tool calls all with index 0.
+        if call is None or (fragment_id and fragment_id != call["id"]):
+            call = {"id": None, "name": None, "arguments": ""}
+            calls.append(call)
+        latest_for_index[index] = len(calls) - 1
+        if fragment_id:
+            call["id"] = fragment_id
         function = fragment.get("function") or {}
         if function.get("name"):
             call["name"] = function["name"]
@@ -97,13 +107,12 @@ def _merge_tool_call_fragments(
             call["arguments"] += function["arguments"]
 
 
-def _build_tool_calls(calls: Dict[int, Dict[str, Any]]) -> List[ToolCall]:
+def _build_tool_calls(calls: List[Dict[str, Any]]) -> List[ToolCall]:
     tool_calls: List[ToolCall] = []
-    for index in sorted(calls):
-        call = calls[index]
+    for position, call in enumerate(calls):
         if not call["name"]:
             raise LlmBadResponse(
-                f"OpenAI-compatible endpoint: tool call {index} has no function name"
+                f"OpenAI-compatible endpoint: tool call {position} has no function name"
             )
         tool_calls.append(
             ToolCall(
@@ -122,11 +131,13 @@ class OpenAiLlmClient:
         base_url: str,
         model: str,
         temperature: float,
+        max_tokens: int,
         timeout: float,
         api_key: Optional[str],
     ):
         self.model = model
         self._temperature = temperature
+        self._max_tokens = max_tokens
         headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
         self._client = httpx.AsyncClient(
             base_url=base_url,
@@ -141,6 +152,7 @@ class OpenAiLlmClient:
             "model": self.model,
             "messages": [self._convert_message(message) for message in messages],
             "temperature": self._temperature,
+            "max_tokens": self._max_tokens,
             "stream": True,
             "stream_options": {"include_usage": True},
         }
@@ -150,10 +162,13 @@ class OpenAiLlmClient:
             ]
         content_fragments: List[str] = []
         reasoning_fragments: List[str] = []
-        calls: Dict[int, Dict[str, Any]] = {}
+        calls: List[Dict[str, Any]] = []
+        latest_for_index: Dict[int, int] = {}
         usage = Usage()
         finish_reason: Optional[str] = None
         with _translate_errors("chunk"):
+            started = time.monotonic()
+            first_output: Optional[float] = None
             async with self._client.stream(
                 "POST", "/chat/completions", json=body
             ) as response:
@@ -164,6 +179,14 @@ class OpenAiLlmClient:
                     if not choices:
                         continue
                     delta = choices[0].get("delta") or {}
+                    if (
+                        delta.get("reasoning_content")
+                        or delta.get("reasoning")
+                        or delta.get("content")
+                        or delta.get("tool_calls")
+                    ):
+                        if first_output is None:
+                            first_output = time.monotonic() - started
                     reasoning = delta.get("reasoning_content") or delta.get("reasoning")
                     if reasoning:
                         reasoning_fragments.append(reasoning)
@@ -172,7 +195,9 @@ class OpenAiLlmClient:
                     if content:
                         content_fragments.append(content)
                         yield ContentChunk(text=content)
-                    _merge_tool_call_fragments(calls, delta.get("tool_calls") or [])
+                    _merge_tool_call_fragments(
+                        calls, latest_for_index, delta.get("tool_calls") or []
+                    )
                     finish_reason = choices[0].get("finish_reason") or finish_reason
         if finish_reason is None:
             raise LlmBadResponse(
@@ -192,11 +217,19 @@ class OpenAiLlmClient:
             finish_reason=finish,
             usage=usage,
             timings=Timings(),
+            time_to_first_token=first_output,
         )
 
     async def ensure_model_available(self) -> None:
         with _translate_errors("model list"):
             response = await self._client.get("/models")
+            if response.status_code in (401, 403):
+                LOGGER.warning(
+                    f"OpenAI-compatible endpoint: listing models not permitted "
+                    f"(status {response.status_code}), skipping availability check "
+                    f"for {self.model}"
+                )
+                return
             await _raise_for_status(response)
             ids = [item["id"] for item in response.json()["data"]]
         if self.model not in ids:
@@ -211,6 +244,8 @@ class OpenAiLlmClient:
                 "role": "assistant",
                 "content": message.content,
             }
+            if message.reasoning:
+                converted["reasoning"] = message.reasoning
             if message.tool_calls:
                 converted["tool_calls"] = [
                     {

@@ -1,8 +1,10 @@
-from typing import List, Dict, Tuple
+from typing import List, Dict, Optional, Tuple
+import hashlib
 import json
 import os
 from fastapi import HTTPException
 import numpy as np
+from services.embedding_service import DEFAULT_MODEL as EMBEDDING_MODEL
 from services.embedding_service import EmbeddingService
 from services.tokenizer_service import TokenizerService
 from models.manual_index import ChunkNode, ManualIndex
@@ -60,22 +62,29 @@ class IndexService:
         """
         LOGGER.debug(f"Creating index for dataset <{dataset_id}> from <{chunks_path}>")
 
-        if dataset_id in self.vector_store and not force_recreate:
-            LOGGER.info(f"Index for dataset <{dataset_id}> already exists, skipping")
-            return
-
         if not os.path.exists(chunks_path):
             raise FileNotFoundError(f"Chunks file not found: {chunks_path}")
 
-        with open(chunks_path, "r", encoding="utf-8") as file:
-            manual_index_json = json.load(file)
-            manual_index = ManualIndex.model_validate(manual_index_json)
-            manual_index.id = dataset_id  # Use dataset_id as the index id
+        with open(chunks_path, "rb") as file:
+            raw = file.read()
+        source_hash = hashlib.sha256(raw).hexdigest()
 
-        await self._create_index(manual_index)
+        existing = self.vector_store.get(dataset_id, {})
+        if (
+            not force_recreate
+            and existing.get("source_hash") == source_hash
+            and existing.get("embedding_model") == EMBEDDING_MODEL
+        ):
+            LOGGER.info(f"Index for dataset <{dataset_id}> is up to date, skipping")
+            return
+
+        manual_index = ManualIndex.model_validate(json.loads(raw.decode("utf-8")))
+        manual_index.id = dataset_id  # Use dataset_id as the index id
+
+        await self._create_index(manual_index, source_hash)
         LOGGER.info(f"Successfully created index for dataset <{dataset_id}>")
 
-    async def _create_index(self, manual_index: ManualIndex):
+    async def _create_index(self, manual_index: ManualIndex, source_hash: str):
         """
         Internal method to create and save an index from a ManualIndex object.
         """
@@ -97,6 +106,8 @@ class IndexService:
             "id": manual_index.id,
             "creation_date": manual_index.creation_date,
             "last_updated": manual_index.last_updated,
+            "source_hash": source_hash,
+            "embedding_model": EMBEDDING_MODEL,
             "chunks": [
                 {
                     "id": chunk.id,
@@ -125,6 +136,12 @@ class IndexService:
     def has_dataset(self, dataset_id: str) -> bool:
         """Check if a dataset has been indexed."""
         return dataset_id in self.vector_store
+
+    def chunk_count(self, dataset_id: str) -> int:
+        return len(self.vector_store[dataset_id]["chunks"])
+
+    def chunks(self, dataset_id: str) -> List[dict]:
+        return self.vector_store[dataset_id]["chunks"]
 
     @staticmethod
     def cosine_similarity(query_vector, vectors):
@@ -198,7 +215,11 @@ class IndexService:
         ]
 
     async def query_index(
-        self, dataset_id: str, query: str, request_id: str
+        self,
+        dataset_id: str,
+        query: str,
+        request_id: str,
+        token_limit: Optional[int] = None,
     ) -> Tuple[List[Source], float]:
         """
         Query a specific dataset's index.
@@ -232,7 +253,8 @@ class IndexService:
         LOGGER.debug(
             f"[{request_id}]    Prompt approximate token length: {self.tokenizer_service.count_tokens(query)}"
         )
-        token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
+        if token_limit is None:
+            token_limit = CONTEXT_WINDOW - PROMPT_BUFFER
         sources: List[Source] = []
         added_chunks = set()
         context_window_reached = False

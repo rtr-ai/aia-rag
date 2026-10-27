@@ -1,0 +1,50 @@
+{
+  "current_date": {
+    "de": {
+      "display_name": "Aktuelles Datum",
+      "description": "Liefert das heutige Datum (ISO 8601) und den Wochentag. Verwende dieses Werkzeug, wenn sich eine Frage auf \"heute\" oder den aktuellen Zeitpunkt bezieht, etwa um zu beurteilen, ob der Geltungsbeginn einer Vorschrift bereits erreicht ist.",
+      "parameters": {
+        "timezone": "Optional: IANA-Zeitzone, z. B. „Europe/Vienna“. Ohne Angabe gilt die voreingestellte Zeitzone."
+      }
+    },
+    "en": {
+      "display_name": "Current date",
+      "description": "Returns today's date (ISO 8601) and the weekday. Use this tool when a question refers to \"today\" or the current point in time, e.g. to judge whether a date of application has already been reached.",
+      "parameters": {
+        "timezone": "Optional: IANA time zone, e.g. \"Europe/Vienna\". If omitted, the preset time zone is used."
+      }
+    }
+  },
+  "search_ai_act": {
+    "de": {
+      "display_name": "AI Act durchsuchen",
+      "description": "Durchsucht den AI Act (Artikel, Erwägungsgründe, Anhänge) und die Erläuterungen der KI-Servicestelle und liefert eine vorläufige Antwort, die ausschließlich auf den gefundenen Passagen beruht, samt den Titeln der verwendeten Passagen. Verwende dieses Werkzeug bei Fragen zum Inhalt des AI Act. Formuliere die Suchanfrage als präzise, eigenständige Frage oder Suchphrase in der Sprache des Nutzers.",
+      "parameters": {
+        "query": "Die Suchanfrage, z. B. „Welche Praktiken verbietet Art. 5 AI Act?“."
+      }
+    },
+    "en": {
+      "display_name": "Search the AI Act",
+      "description": "Searches the AI Act (articles, recitals, annexes) and the explanations of the AI Service Desk and returns a preliminary answer based only on the retrieved passages, together with the titles of the passages used. Use this tool for questions about the content of the AI Act. Formulate the query as a precise, standalone question or search phrase in the language of the user.",
+      "parameters": {
+        "query": "The search query, e.g. \"Which practices does Art. 5 AI Act prohibit?\"."
+      }
+    }
+  },
+  "search_guidelines": {
+    "de": {
+      "display_name": "Leitlinien durchsuchen",
+      "description": "Durchsucht die Leitlinien der Europäischen Kommission zum AI Act und liefert die passendsten Abschnitte wörtlich (mit Randziffer und Fußnoten), ohne Zusammenfassung. Verfügbare Leitlinien: verbotene Praktiken (Art. 5), Definition eines KI-Systems (Art. 3 Nr. 1), Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck, Transparenzpflichten nach Art. 50 (nur auf Englisch). Die Leitlinien sind nicht verbindlich, zeigen aber die Auslegung der Kommission. Rufe dieses Werkzeug bei jeder Frage zu diesen Themen zusätzlich zu search_ai_act auf; die Leitlinien enthalten Auslegung, Abgrenzungen und Beispiele, die im AI Act selbst fehlen. Kombiniere Fachbegriffe und Umschreibungen in der Suchanfrage; für die Transparenzpflichten nach Art. 50 hilft eine englische Suchanfrage.",
+      "parameters": {
+        "query": "Die Suchanfrage, z. B. „Ausnutzung der Schutzbedürftigkeit von Kindern durch KI-Spielzeug“."
+      }
+    },
+    "en": {
+      "display_name": "Search the guidelines",
+      "description": "Searches the European Commission guidelines on the AI Act and returns the most relevant passages verbatim (with paragraph number and footnotes), without a summary. Available guidelines: prohibited AI practices (Art. 5), definition of an AI system (Art. 3 no. 1), obligations for providers of general-purpose AI models, transparency obligations under Art. 50. The guidelines are not binding, but show the Commission's interpretation. Call this tool for every question on these topics in addition to search_ai_act; the guidelines contain interpretation, delineations and examples that the AI Act itself does not. Combine technical terms and paraphrases in the search query.",
+      "parameters": {
+        "query": "The search query, e.g. \"exploitation of children's vulnerabilities by AI toys\"."
+      }
+    }
+  }
+}

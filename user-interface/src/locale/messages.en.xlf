@@ -588,11 +588,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">493</context>
+          <context context-type="linenumber">494</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">508</context>
+          <context context-type="linenumber">509</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ourServices-href" datatype="html">
@@ -810,6 +810,10 @@
       <trans-unit id="errorTryAgainLater" datatype="html">
         <source> Der Service ist aktuell nicht verfügbar. Bitte versuchen Sie es später erneut. </source>
         <target state="translated"> The service is currently unavailable. Please try again later. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
           <context context-type="linenumber">76</context>
@@ -1277,6 +1281,734 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
           <context context-type="linenumber">118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentPageHeading" datatype="html">
+        <source>KI-Servicestelle AI Act Chatbot</source>
+        <target state="translated">AI Service Desk - AI Act Chatbot</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentInputPlaceholder" datatype="html">
+        <source>Stellen Sie uns Ihre Frage zum AI Act</source>
+        <target state="translated">Ask us your question about the AI Act</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentInputSuggestion" datatype="html">
+        <source> z. B.: “<x id="INTERPOLATION" equiv-text="{{ exampleQuestion }}"/>” </source>
+        <target state="translated"> e.g.: “<x id="INTERPOLATION" equiv-text="{{ exampleQuestion }}"/>” </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentAskButton" datatype="html">
+        <source>Frage stellen</source>
+        <target state="translated">Ask a question</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRunHeading" datatype="html">
+        <source>Nachrichten-Verlauf des Agenten</source>
+        <target state="translated">Message history of the agent</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRunIntro" datatype="html">
+        <source> Der Agent arbeitet, indem das LLM mehrfach aufgerufen wird. Bei <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>jedem<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Aufruf wird der <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>gesamte bisherige Nachrichten-Verlauf<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> erneut übergeben: System-Prompt (inkl. Tool-Definitionen), die Frage sowie alle bisherigen Tool-Aufrufe und deren Roh-Ergebnisse. Das Modell entscheidet daraufhin, ob es ein weiteres Werkzeug aufruft oder final antwortet. </source>
+        <target state="translated"> The agent works by calling the LLM repeatedly. On <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>every<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> call the <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>entire message history so far<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> is passed again: the system prompt (including the tool definitions), the question as well as all previous tool calls and their raw results. The model then decides whether to call another tool or to give its final answer. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSideTitle" datatype="html">
+        <source>Agenten-Kreislauf</source>
+        <target state="translated">Agent loop</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSideRound" datatype="html">
+        <source>Runde <x id="INTERPOLATION" equiv-text="{{ roundCount }}"/></source>
+        <target state="translated">Round <x id="INTERPOLATION" equiv-text="{{ roundCount }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopAriaLabel" datatype="html">
+        <source>Kreislauf des Agenten: LLM liest den Verlauf, ruft ggf. ein Werkzeug auf, dessen Ergebnis an den Verlauf angehängt wird – bis keine Tool-Calls mehr folgen und die finale Antwort erzeugt wird.</source>
+        <target state="translated">The agent loop: the LLM reads the history, optionally calls a tool whose result is appended to the history – until no further tool calls follow and the final answer is produced.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopLlmLine1" datatype="html">
+        <source>LLM liest den</source>
+        <target state="translated">LLM reads the</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopLlmLine2" datatype="html">
+        <source>gesamten Verlauf</source>
+        <target state="translated">entire history</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopDecision" datatype="html">
+        <source>Tool-Call?</source>
+        <target state="translated">Tool call?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopYes" datatype="html">
+        <source>ja</source>
+        <target state="translated">yes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopToolRuns" datatype="html">
+        <source>Werkzeug läuft</source>
+        <target state="translated">Tool runs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopResultToHistory" datatype="html">
+        <source>Ergebnis → an den Verlauf</source>
+        <target state="translated">Result → into the history</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopNo" datatype="html">
+        <source>nein</source>
+        <target state="translated">no</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopFinalAnswer" datatype="html">
+        <source>✓ finale Antwort</source>
+        <target state="translated">✓ final answer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">150</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopInfoLink-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20KI-Agent?</source>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technical-documentation.en.html#Was%20ist%20ein%20KI-Agent?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">155</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLoopInfoLink" datatype="html">
+        <source>Information: Wie funktioniert ein KI-Agent?</source>
+        <target state="translated">Information: How does an AI agent work?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSystemTitle" datatype="html">
+        <source>System-Prompt &amp; Werkzeuge</source>
+        <target state="translated">System prompt &amp; tools</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">198</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSystemMeta" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ tools.length }}"/> Tools · anzeigen ▾</source>
+        <target state="translated"><x id="INTERPOLATION" equiv-text="{{ tools.length }}"/> tools · show ▾</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSystemPromptInfoLink-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Was%20ist%20ein%20System-Prompt?</source>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technical-documentation.en.html#Was%20ist%20ein%20System-Prompt?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">208</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSystemPromptInfoLink" datatype="html">
+        <source>Information: Was ist ein System-Prompt?</source>
+        <target state="translated">Information: What is a system prompt?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">212</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolsHead" datatype="html">
+        <source> Mitgeschickte Tool-Definitionen (<x id="INTERPOLATION" equiv-text="{{ tools.length }}"/>) </source>
+        <target state="translated"> Tool definitions passed along (<x id="INTERPOLATION" equiv-text="{{ tools.length }}"/>) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">216</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolsInfoLink-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Werkzeuge%20(Tools)%20und%20Tool-Calls</source>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technical-documentation.en.html#Werkzeuge%20(Tools)%20und%20Tool-Calls</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">235</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolsInfoLink" datatype="html">
+        <source>Information: Was sind Werkzeuge (Tools) und Tool-Calls?</source>
+        <target state="translated">Information: What are tools and tool calls?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">239</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentUserTitle" datatype="html">
+        <source>Ihre Frage</source>
+        <target state="translated">Your question</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">249</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLlmTitle" datatype="html">
+        <source>Assistent</source>
+        <target state="translated">Assistant</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">268</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLlmMeta" datatype="html">
+        <source>liest <x id="INTERPOLATION" equiv-text="{{ e.contextMessages }}"/> Nachrichten · ~<x id="INTERPOLATION_1" equiv-text="{{ formatTokens(e.contextTokens) }}"/> Token</source>
+        <target state="translated">reads <x id="INTERPOLATION" equiv-text="{{ e.contextMessages }}"/> messages · ~<x id="INTERPOLATION_1" equiv-text="{{ formatTokens(e.contextTokens) }}"/> tokens</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">273</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentCtxInfoLink-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Der%20Nachrichten-Verlauf</source>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technical-documentation.en.html#Der%20Nachrichten-Verlauf</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">300</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentCtxInfoLink" datatype="html">
+        <source>Information: Warum wird bei jedem Aufruf der gesamte Verlauf übergeben?</source>
+        <target state="translated">Information: Why is the entire history passed on every call?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">304</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentReasoningInfoLink-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Reasoning</source>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technical-documentation.en.html#Reasoning</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">312</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentReasoningInfoLink" datatype="html">
+        <source>Information: Wie „denkt“ das Modell? (Reasoning)</source>
+        <target state="translated">Information: How does the model “think”? (Reasoning)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">316</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLlmAction" datatype="html">
+        <source> → ruft Tool <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;bi {{ toolIcon(tc.name) }}&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ toolDisplayName(tc.name) }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> auf </source>
+        <target state="translated"> → calls tool <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;bi {{ toolIcon(tc.name) }}&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> <x id="INTERPOLATION" equiv-text="{{ toolDisplayName(tc.name) }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">326</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentFinalAnswerHead" datatype="html">
+        <source>Finale Antwort</source>
+        <target state="translated">Final answer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">334</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolName" datatype="html">
+        <source>Tool: <x id="INTERPOLATION" equiv-text="{{ toolDisplayName(e.toolName) }}"/></source>
+        <target state="translated">Tool: <x id="INTERPOLATION" equiv-text="{{ toolDisplayName(e.toolName) }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">350</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolMeta" datatype="html">
+        <source><x id="START_TAG_CODE" ctype="x-code" equiv-text="&lt;code&gt;"/><x id="INTERPOLATION" equiv-text="{{ e.toolName }}"/>()<x id="CLOSE_TAG_CODE" ctype="x-code" equiv-text="&lt;/code&gt;"/> · Aufruf <x id="INTERPOLATION_1" equiv-text="{{ e.callIndex }}"/>/<x id="INTERPOLATION_2" equiv-text="{{ limits?.max_calls_per_tool?.[e.toolName!] }}"/> </source>
+        <target state="translated"><x id="START_TAG_CODE" ctype="x-code" equiv-text="&lt;code&gt;"/><x id="INTERPOLATION" equiv-text="{{ e.toolName }}"/>()<x id="CLOSE_TAG_CODE" ctype="x-code" equiv-text="&lt;/code&gt;"/> · call <x id="INTERPOLATION_1" equiv-text="{{ e.callIndex }}"/>/<x id="INTERPOLATION_2" equiv-text="{{ limits?.max_calls_per_tool?.[e.toolName!] }}"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">355</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolArgQuoted" datatype="html">
+        <source>„<x id="INTERPOLATION" equiv-text="{{ toolArg(e) }}"/>“</source>
+        <target state="translated">“<x id="INTERPOLATION" equiv-text="{{ toolArg(e) }}"/>”</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">366</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolResultHead" datatype="html">
+        <source>Ergebnis</source>
+        <target state="translated">Result</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">372</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolResultHint" datatype="html">
+        <source>wird unverändert an den Verlauf angehängt</source>
+        <target state="translated">is appended to the history unchanged</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">373</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentMaxTurnsReached" datatype="html">
+        <source> Die maximale Anzahl an Runden wurde erreicht. Das Modell wurde ohne Werkzeuge um eine abschließende Antwort gebeten. </source>
+        <target state="translated"> The maximum number of rounds has been reached. The model was asked to give a final answer without tools. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">388</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyHeading" datatype="html">
+        <source>Energieverbrauch dieser Anfrage</source>
+        <target state="translated">Energy consumption of this query</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">412</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyIntro" datatype="html">
+        <source> Die Energietransparenz bleibt im agentischen Modus erhalten – jetzt summiert über <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>alle LLM- und Werkzeug-Aufrufe<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> eines Laufs. </source>
+        <target state="translated"> Energy transparency is retained in agentic mode – now totalled across <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>all LLM and tool calls<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> of a single run. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">416</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergySentence" datatype="html">
+        <source> Diese Anfrage hat insgesamt <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ formatKWh(totalEnergy.total_kWh) }}"/> kWh<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> verbraucht. Damit ließe sich ein <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Modell mit 2,2 kW Leistung&quot; i18n-uk-tooltip=&quot;@@agentHairdryerTooltip&quot;&gt;"/>Haarföhn<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> rund <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="INTERPOLATION_1" equiv-text="{{ (((totalEnergy.total_kWh * 1000) / 2200) * 60 * 60).toFixed(1).replace(&quot;.&quot;, &quot;,&quot;) }}"/> Sekunden<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> betreiben. </source>
+        <target state="translated"> This query consumed a total of <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ formatKWh(totalEnergy.total_kWh) }}"/> kWh<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. That is enough to run a <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Modell mit 2,2 kW Leistung&quot; i18n-uk-tooltip=&quot;@@agentHairdryerTooltip&quot;&gt;"/>hair dryer<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> for roughly <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="INTERPOLATION_1" equiv-text="{{ (((totalEnergy.total_kWh * 1000) / 2200) * 60 * 60).toFixed(1).replace(&quot;.&quot;, &quot;,&quot;) }}"/> seconds<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">422</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentHairdryerTooltip" datatype="html">
+        <source>Modell mit 2,2 kW Leistung</source>
+        <target state="translated">Model rated at 2.2 kW</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">425</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyColCall" datatype="html">
+        <source>Aufruf</source>
+        <target state="translated">Call</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">436</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyColTotal" datatype="html">
+        <source>Gesamt</source>
+        <target state="translated">Total</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">440</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyColDuration" datatype="html">
+        <source>Dauer</source>
+        <target state="translated">Duration</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">441</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyRowLlm" datatype="html">
+        <source>LLM-Aufruf</source>
+        <target state="translated">LLM call</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">450</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyRowFinal" datatype="html">
+        <source>finale Antwort</source>
+        <target state="translated">final answer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">457</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyRowTool" datatype="html">
+        <source>Werkzeug <x id="START_TAG_CODE" ctype="x-code" equiv-text="&lt;code&gt;"/><x id="INTERPOLATION" equiv-text="{{ e.toolName }}"/>()<x id="CLOSE_TAG_CODE" ctype="x-code" equiv-text="&lt;/code&gt;"/></source>
+        <target state="translated">Tool <x id="START_TAG_CODE" ctype="x-code" equiv-text="&lt;code&gt;"/><x id="INTERPOLATION" equiv-text="{{ e.toolName }}"/>()<x id="CLOSE_TAG_CODE" ctype="x-code" equiv-text="&lt;/code&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">460</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyTotal" datatype="html">
+        <source>Gesamt</source>
+        <target state="translated">Total</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">503</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyNote" datatype="html">
+        <source> Der Stromverbrauch wird direkt auf Hardware-Ebene (CPU/GPU/RAM) je Aufruf gemessen. Das Rechenzentrum nutzt einen Strommix aus erneuerbaren Energien; der <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Power Usage Effectiveness&quot;&gt;"/>PUE-Wert<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> liegt zwischen 1,10 und 1,16. </source>
+        <target state="translated"> Power consumption is measured directly at hardware level (CPU/GPU/RAM) for each call. The data centre uses an electricity mix based on renewable energies; the <x id="START_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;abbr uk-tooltip=&quot;Power Usage Effectiveness&quot;&gt;"/>PUE value<x id="CLOSE_TAG_ABBR" ctype="x-abbr" equiv-text="&lt;/abbr&gt;"/> ranges between 1.10 and 1.16. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">546</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyInfoLink-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Energieverbrauch</source>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technical-documentation.en.html#Energieverbrauch</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">553</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentEnergyInfoLink" datatype="html">
+        <source>Information: Wie wird der Stromverbrauch berechnet?</source>
+        <target state="translated">Information: How is electricity consumption calculated?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">557</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentDisclaimer" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wichtiger Hinweis:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> Diese Antwort wurde von einem KI-System erzeugt und kann Fehler enthalten. Für eine fachkundige, rechtssichere Einschätzung wenden Sie sich bitte an das (menschliche) Team der <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://ki.rtr.at&quot; target=&quot;_blank&quot;&gt;"/>KI-Servicestelle<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Important note:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> This answer was generated by an AI system and may contain errors. For an expert, legally sound assessment please contact the (human) team of the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://ki.rtr.at&quot; target=&quot;_blank&quot;&gt;"/>AI Service Desk<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">562</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentExampleQuestion" datatype="html">
+        <source>Gilt das Verbot der Emotionserkennung am Arbeitsplatz (Art. 5 AI Act) heute schon?</source>
+        <target state="translated">Does the ban on emotion recognition in the workplace (Art. 5 AI Act) already apply today?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentErrorGeneric" datatype="html">
+        <source>Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten.</source>
+        <target state="translated">An error occurred while processing your request.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentErrorRecoverable" datatype="html">
+        <source>Das Sprachmodell ist derzeit ausgelastet. Bitte versuchen Sie es später erneut.</source>
+        <target state="translated">The language model is currently busy. Please try again later.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolArgQuery" datatype="html">
+        <source>Suchbegriff</source>
+        <target state="translated">Search query</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolArgTimezone" datatype="html">
+        <source>Zeitzone</source>
+        <target state="translated">Time zone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentToolArgDefault" datatype="html">
+        <source>Argument</source>
+        <target state="translated">Argument</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentCtxSummarySystem" datatype="html">
+        <source>System-Prompt (+ Tool-Definitionen)</source>
+        <target state="translated">System prompt (+ tool definitions)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">147</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentChipFinalAnswer" datatype="html">
+        <source>✓ Antwort</source>
+        <target state="translated">✓ Answer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">191</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentCtxToggle" datatype="html">
+        <source>liest <x id="INTERPOLATION" equiv-text="{{ e.contextMessages }}"/> Nachrichten · ~<x id="INTERPOLATION_1" equiv-text="{{ formatTokens(e.contextTokens) }}"/> Token ▾</source>
+        <target state="translated">reads <x id="INTERPOLATION" equiv-text="{{ e.contextMessages }}"/> messages · ~<x id="INTERPOLATION_1" equiv-text="{{ formatTokens(e.contextTokens) }}"/> tokens ▾</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">287</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLlmTimings" datatype="html">
+        <source> · TTFT <x id="INTERPOLATION" equiv-text="{{ formatSeconds(e.ttft) }}"/> s · Generierung <x id="INTERPOLATION_1" equiv-text="{{ formatSeconds(e.generationDuration ?? 0) }}"/> s</source>
+        <target state="translated"> · TTFT <x id="INTERPOLATION" equiv-text="{{ formatSeconds(e.ttft) }}"/> s · generation <x id="INTERPOLATION_1" equiv-text="{{ formatSeconds(e.generationDuration ?? 0) }}"/> s</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">274</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentLlmDuration" datatype="html">
+        <source> · <x id="INTERPOLATION" equiv-text="{{ formatSeconds(e.duration) }}"/> s</source>
+        <target state="translated"> · <x id="INTERPOLATION" equiv-text="{{ formatSeconds(e.duration) }}"/> s</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">276</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentNestedDuration" datatype="html">
+        <source> · <x id="INTERPOLATION" equiv-text="{{ formatSeconds(call.duration) }}"/> s</source>
+        <target state="translated"> · <x id="INTERPOLATION" equiv-text="{{ formatSeconds(call.duration) }}"/> s</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">500</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentNestedTimings" datatype="html">
+        <source> · TTFT <x id="INTERPOLATION" equiv-text="{{ formatSeconds(call.ttft) }}"/> s · Generierung <x id="INTERPOLATION_1" equiv-text="{{ formatSeconds(call.generationDuration ?? 0) }}"/> s</source>
+        <target state="translated"> · TTFT <x id="INTERPOLATION" equiv-text="{{ formatSeconds(call.ttft) }}"/> s · generation <x id="INTERPOLATION_1" equiv-text="{{ formatSeconds(call.generationDuration ?? 0) }}"/> s</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">498</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagAugmentInfoLink" datatype="html">
+        <source>Information: Wie ist ein Prompt aufgebaut?</source>
+        <target state="translated">Information: How is a prompt structured?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">487</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagAugmentInfoLink-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?</source>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technical-documentation.en.html#Augment%20%E2%80%93%20Wie%20ist%20ein%20RAG-Prompt%20aufgebaut?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">488</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagAugmentToggle" datatype="html">
+        <source>Augment · Prompt des RAG-Werkzeugs (System-Prompt + Quellen + Suchanfrage) anzeigen/ausblenden</source>
+        <target state="translated">Augment · prompt of the RAG tool (system prompt + sources + search query) show/hide</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">473</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagGenerateHint" datatype="html">
+        <source>Generate · LLM-Ausgabe – wird an den Verlauf angehängt</source>
+        <target state="translated">Generate · LLM output – appended to the history</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">495</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagNote" datatype="html">
+        <source>Ähnlichkeitswerte dienen der Nachvollziehbarkeit. In den Prompt fließt nur der Quellentext – nicht die Zahlen selbst.</source>
+        <target state="translated">Similarity values serve transparency. Only the source text flows into the prompt – not the numbers themselves.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">404</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagPill" datatype="html">
+        <source>intern: erweitertes RAG</source>
+        <target state="translated">internal: extended RAG</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">352</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagRetrievalDuration" datatype="html">
+        <source> Abruf: <x id="INTERPOLATION" equiv-text="{{ formatSeconds(e.sourcesDuration) }}"/> s</source>
+        <target state="translated"> retrieval: <x id="INTERPOLATION" equiv-text="{{ formatSeconds(e.sourcesDuration) }}"/> s</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">406</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagRetrieveInfoLink" datatype="html">
+        <source>Information: Wie werden relevante Quellen erhoben?</source>
+        <target state="translated">Information: How are relevant sources collected?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">464</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagRetrieveInfoLink-href" datatype="html">
+        <source>https://www.rtr.at/rtr/service/ki-servicestelle/chat/technik.de.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?</source>
+        <target state="translated">https://www.rtr.at/rtr/service/ki-servicestelle/chat/technical-documentation.en.html#Information:%20Wie%20werden%20relevante%20Quellen%20erhoben?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">465</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagRetrieveToggle" datatype="html">
+        <source>Retrieve · erhobene Quellen (Kosinus-Ähnlichkeit) anzeigen/ausblenden</source>
+        <target state="translated">Retrieve · retrieved sources (cosine similarity) show/hide</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">399</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagSystemPromptHead" datatype="html">
+        <source>System-Prompt</source>
+        <target state="translated">System prompt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">477</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentRagUserPromptHead" datatype="html">
+        <source>User-Prompt</source>
+        <target state="translated">User prompt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">479</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSourcesColRank" datatype="html">
+        <source>Nr.</source>
+        <target state="translated">No.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">381</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSourcesColScore" datatype="html">
+        <source>Kosinus</source>
+        <target state="translated">Cosine</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">383</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSourcesColSource" datatype="html">
+        <source>Quelle</source>
+        <target state="translated">Source</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">382</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSourcesColTokens" datatype="html">
+        <source>Token</source>
+        <target state="translated">Tokens</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">384</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSourcesColUsed" datatype="html">
+        <source>Im Kontext</source>
+        <target state="translated">In context</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">385</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSourcesSkipContextWindow" datatype="html">
+        <source>Kontextfenster voll</source>
+        <target state="translated">context window full</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSourcesSkipDuplicate" datatype="html">
+        <source>Dublette</source>
+        <target state="translated">duplicate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSourcesSkipGeneric" datatype="html">
+        <source>übersprungen</source>
+        <target state="translated">skipped</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.ts</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSubstepsHead" datatype="html">
+        <source>Interne Teilschritte des Werkzeugs</source>
+        <target state="translated">Internal sub-steps of the tool</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">377</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agentSubstepsToggle" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ e.subSteps.length }}"/> interne Teilschritte anzeigen/ausblenden</source>
+        <target state="translated">Show/hide <x id="INTERPOLATION" equiv-text="{{ e.subSteps.length }}"/> internal sub-steps</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/agent/agent.component.html</context>
+          <context context-type="linenumber">386</context>
         </context-group>
       </trans-unit>
     </body>
