@@ -119,7 +119,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
     }
   }
   updateMailtoLink() {
-    const recipient = "ki@rtr.at";
+    const recipient = $localize`:@@mailtoRecipient:ki@rtr.at`;
     const subject = $localize`:@@mailtoSubject:Feedback AI Act Chatbot`;
     const body = $localize`:@@mailtoBody:
     Mein Feedback betrifft folgende Anfrage:\n\n${this.userPrompt}\n\n

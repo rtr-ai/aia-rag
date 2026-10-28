@@ -88,7 +88,7 @@
         deutlich werden, dass eine Qualitätskontrolle der Ergebnissen von
         KI-Systemen dieser Art immer notwendig ist. Dazu können Sie sich für
         fachkundige Unterstützung gerne an das (menschliche) Team der
-        <a style="white-space: nowrap" href="https://ki.rtr.at"
+        <a style="white-space: nowrap" i18n-href="@@errorDisclaimer-href" href="https://ki.rtr.at"
           >KI-Servicestelle</a
         >
         wenden.
@@ -583,6 +583,7 @@
           </a>
                               </li>
 
+                              @if (locale !== "da") {
                               <li>
                                 <a
                                   i18n="@@privacyPolicyAIChatbot"
@@ -591,6 +592,7 @@
                                   >Datenschutzrechtliche Aspekte des AI Act Chatbots</a
                                   >
                                 </li>
+                              }
                                 <li>
                                   <a
                                     i18n="@@technicalBackground"
