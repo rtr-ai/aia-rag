@@ -1,4 +1,3 @@
-import os
 from datetime import datetime
 from typing import AsyncIterator
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -6,8 +5,6 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from agent.registry import AGENT_MAX_CALLS_PER_TOOL, ToolContext, ToolEvent
 from models.agent_events import ToolResult
 from pydantic import BaseModel, ConfigDict
-
-AGENT_TIMEZONE = os.getenv("AGENT_TIMEZONE", "Europe/Vienna")
 
 TEXTS = {
     "de": {
@@ -40,17 +37,14 @@ TEXTS = {
 class CurrentDateArgs(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    timezone: str = AGENT_TIMEZONE
+    # required: mistral-small3.2 emits calls without arguments that the server drops
+    timezone: str
 
 
 class CurrentDateTool:
     name = "current_date"
     args_model = CurrentDateArgs
     max_calls = AGENT_MAX_CALLS_PER_TOOL
-
-    def __init__(self):
-        # fail at startup, not on every call, if AGENT_TIMEZONE is invalid
-        ZoneInfo(AGENT_TIMEZONE)
 
     async def invoke(
         self, args: CurrentDateArgs, ctx: ToolContext
