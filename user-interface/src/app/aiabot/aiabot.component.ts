@@ -47,7 +47,7 @@ export class AiabotComponent implements OnInit, AfterViewInit {
       "How can I implement AI competency in my company?",
       "I develop AI systems for markets outside the EU. Does the AI Act apply to me?",
     ],
-    data: [
+    da: [
         "Ich bin Kunde eines Cloud-Speicherdienstes. Darf ich gratis zu einem anderen Anbieter wechseln?",
         "Wie lange darf ein Cloud-Wechsel in der Praxis dauern?",
         "Was mache ich, wenn mein Cloudanbieter mich beim Wechsel oder Multicloud nicht unterstützt?",
