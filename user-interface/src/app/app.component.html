@@ -421,6 +421,35 @@
 <div class="uk-section-default uk-section uk-section-xsmall">
     <div class="uk-container uk-container-large">
         <ul class="uk-breadcrumb">
+          @if (locale === "da") {
+            <li>
+                <a href="https://www.rtr.at/TKP/startseite.de.html" title="Telekommunikation und Post" aria-label="Telekommunikation und Post">Telekommunikation und Post</a>
+            </li>
+            <li>
+                <a href="https://www.rtr.at/TKP/was_wir_tun/telekommunikation/weitere-regulierungsthemen/weitere-regulierungsthemen.de.html" title="Weitere Regulierungsthemen"
+                   aria-label="Weitere Regulierungsthemen">Weitere Regulierungsthemen</a>
+            </li>
+            <li>
+                <a href="https://www.rtr.at/TKP/was_wir_tun/telekommunikation/weitere-regulierungsthemen/data-act/der-data-act.de.html" title="Der Data Act"
+                   aria-label="Der Data Act">Der Data Act</a>
+            </li>
+            <li>
+                <span>Data Act Chatbot</span>
+            </li>
+          } @else if (locale === "en") {
+            <li>
+                <a href="https://www.rtr.at/rtr/Startseite.en.html" title="About RTR" aria-label="About RTR">About RTR</a>
+            </li>
+            <li>
+                <a href="https://www.rtr.at/rtr/service/Startseite.en.html" title="Service" aria-label="Service">Service</a>
+            </li>
+            <li>
+                <a href="https://ai.rtr.at" title="AI Service Desk" aria-label="AI Service Desk">AI Service Desk</a>
+            </li>
+            <li>
+                <span>AI Act Chatbot</span>
+            </li>
+          } @else {
             <li>
                 <a href="https://www.rtr.at/rtr/startseite.de.html" title="Über uns" aria-label="Über uns">Über uns</a>
             </li>
@@ -434,6 +463,7 @@
             <li>
                 <span>AI Act Chatbot</span>
             </li>
+          }
         </ul>
     </div>
 </div>

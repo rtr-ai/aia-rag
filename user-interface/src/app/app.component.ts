@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {AiabotComponent} from "./aiabot/aiabot.component";
 
@@ -10,4 +10,6 @@ import {AiabotComponent} from "./aiabot/aiabot.component";
 })
 export class AppComponent {
   title = 'ki-servicestelle-aiabot';
+
+  constructor(@Inject(LOCALE_ID) public locale: string) {}
 }
