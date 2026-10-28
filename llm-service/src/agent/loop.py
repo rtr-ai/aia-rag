@@ -209,6 +209,12 @@ class AgentRun:
                 ),
                 step_id,
             )
+            if not tool_calls and not result.content:
+                # servers can silently drop malformed tool calls, see agent-issues.md #06
+                raise LlmBadResponse(
+                    f"LLM returned neither content nor tool calls "
+                    f"({result.usage.completion_tokens} completion tokens)"
+                )
             if not tool_calls:
                 break
 
