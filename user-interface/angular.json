@@ -16,7 +16,8 @@
         "i18n": {
         "sourceLocale": "de",
         "locales": {
-          "en": "src/locale/messages.en.xlf"
+          "en": "src/locale/messages.en.xlf",
+          "da": "src/locale/messages.da.xlf"
         }
       },
       "architect": {
@@ -96,7 +97,8 @@
             "includeContext": true,
             "outputPath": "src/locale",
             "targetFiles": [
-              "messages.en.xlf"
+              "messages.en.xlf",
+              "messages.da.xlf"
             ],
             "prettyNestedTags": true,
             "sort": "stableAppendNew"

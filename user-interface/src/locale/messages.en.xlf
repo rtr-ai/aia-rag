@@ -1279,6 +1279,30 @@
           <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="mailtoRecipient" datatype="html">
+        <source>ki@rtr.at</source>
+        <target state="translated">ki@rtr.at</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.ts</context>
+          <context context-type="linenumber">122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorDisclaimer-href" datatype="html">
+        <source>https://ki.rtr.at</source>
+        <target state="translated">https://ki.rtr.at</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/aiabot/aiabot.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pageTitle" datatype="html">
+        <source>AI Act Chatbot | KI-Servicestelle | RTR</source>
+        <target state="translated">AI Act Chatbot | KI-Servicestelle | RTR</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
