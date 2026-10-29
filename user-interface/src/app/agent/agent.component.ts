@@ -126,6 +126,8 @@ export class AgentComponent {
         return "bi-calendar3";
       case "search_ai_act":
         return "bi-search";
+      case "check_applicability":
+        return "bi-calendar-check";
       default:
         return "bi-gear";
     }
@@ -139,6 +141,8 @@ export class AgentComponent {
         return $localize`:@@agentToolArgTimezone:Zeitzone`;
       case "search_ai_act":
         return $localize`:@@agentToolArgQuery:Suchbegriff`;
+      case "check_applicability":
+        return $localize`:@@agentToolArgApplicability:Bestimmung · Stichtag`;
       default:
         return $localize`:@@agentToolArgDefault:Argument`;
     }

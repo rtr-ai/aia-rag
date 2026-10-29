@@ -5,6 +5,10 @@ from httpx import AsyncClient
 from agent.llm_provider import LLM_BASE_URL, LLM_PROVIDER, create_llm_client
 from agent.agent_prompts import load_agent_prompts
 from agent.registry import ToolRegistry, language_for_dataset
+from agent.tools.check_applicability import (
+    CheckApplicabilityTool,
+    load_applicability_table,
+)
 from agent.tools.current_date import CurrentDateTool
 from agent.tools.search_ai_act import SearchAiActTool
 from agent.tools.search_guidelines import (
@@ -149,6 +153,7 @@ async def lifespan(app: FastAPI):
             )
         )
         tool_registry.register(SearchGuidelinesTool(index_service, languages))
+        tool_registry.register(CheckApplicabilityTool(load_applicability_table()))
         app.state.tool_registry = tool_registry
         app.state.agent_prompts = agent_prompts
     except Exception as e:

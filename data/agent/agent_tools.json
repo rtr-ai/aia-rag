@@ -18,32 +18,54 @@
   "search_ai_act": {
     "de": {
       "display_name": "AI Act durchsuchen",
-      "description": "Durchsucht den AI Act (Artikel, Erwägungsgründe, Anhänge) und die Erläuterungen der KI-Servicestelle und liefert eine vorläufige Antwort, die ausschließlich auf den gefundenen Passagen beruht, samt den Titeln der verwendeten Passagen. Verwende dieses Werkzeug bei Fragen zum Inhalt des AI Act. Formuliere die Suchanfrage als präzise, eigenständige Frage oder Suchphrase in der Sprache des Nutzers.",
+      "description": "Durchsucht den AI Act (Artikel, Erwägungsgründe, Anhänge) und die Erläuterungen der KI-Servicestelle und liefert eine vorläufige Antwort, die ausschließlich auf den gefundenen Passagen beruht, samt den Titeln der verwendeten Passagen. Verwende dieses Werkzeug bei Fragen zum Inhalt des AI Act. Formuliere die Suchanfrage als präzise, eigenständige Frage oder Suchphrase in der Sprache des Nutzers. Beschreibe darin den Sachverhalt mit den Begriffen des Nutzers; nenne Artikelnummern, Artikelüberschriften oder Pflichten nur, wenn der Nutzer sie nennt oder ein früheres Werkzeugergebnis sie ergeben hat.",
       "parameters": {
-        "query": "Die Suchanfrage, z. B. „Welche Praktiken verbietet Art. 5 AI Act?“."
+        "query": "Die Suchanfrage, z. B. „Darf ein Arbeitgeber Bewerbungsgespräche mit KI auswerten lassen?“."
       }
     },
     "en": {
       "display_name": "Search the AI Act",
-      "description": "Searches the AI Act (articles, recitals, annexes) and the explanations of the AI Service Desk and returns a preliminary answer based only on the retrieved passages, together with the titles of the passages used. Use this tool for questions about the content of the AI Act. Formulate the query as a precise, standalone question or search phrase in the language of the user.",
+      "description": "Searches the AI Act (articles, recitals, annexes) and the explanations of the AI Service Desk and returns a preliminary answer based only on the retrieved passages, together with the titles of the passages used. Use this tool for questions about the content of the AI Act. Formulate the query as a precise, standalone question or search phrase in the language of the user. Describe the user's situation in the user's own terms; mention article numbers, article titles or obligations only if the user names them or an earlier tool result has established them.",
       "parameters": {
-        "query": "The search query, e.g. \"Which practices does Art. 5 AI Act prohibit?\"."
+        "query": "The search query, e.g. \"May an employer have job interviews analysed by AI?\"."
       }
     }
   },
   "search_guidelines": {
     "de": {
       "display_name": "Leitlinien durchsuchen",
-      "description": "Durchsucht die Leitlinien der Europäischen Kommission zum AI Act und liefert die passendsten Abschnitte wörtlich (mit Randziffer und Fußnoten), ohne Zusammenfassung. Verfügbare Leitlinien: verbotene Praktiken (Art. 5), Definition eines KI-Systems (Art. 3 Nr. 1), Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck, Transparenzpflichten nach Art. 50 (nur auf Englisch). Die Leitlinien sind nicht verbindlich, zeigen aber die Auslegung der Kommission. Rufe dieses Werkzeug bei jeder Frage zu diesen Themen zusätzlich zu search_ai_act auf; die Leitlinien enthalten Auslegung, Abgrenzungen und Beispiele, die im AI Act selbst fehlen. Kombiniere Fachbegriffe und Umschreibungen in der Suchanfrage; für die Transparenzpflichten nach Art. 50 hilft eine englische Suchanfrage.",
+      "description": "Durchsucht die Leitlinien der Europäischen Kommission zum AI Act und liefert die passendsten Abschnitte wörtlich (mit Randziffer und Fußnoten), ohne Zusammenfassung. Verfügbare Leitlinien: verbotene Praktiken (Art. 5), Definition eines KI-Systems (Art. 3 Nr. 1), Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck, Transparenzpflichten nach Art. 50 (nur auf Englisch). Die Leitlinien sind nicht verbindlich, zeigen aber die Auslegung der Kommission. Rufe dieses Werkzeug bei jeder inhaltlichen Frage zum AI Act im ersten Schritt zusammen mit search_ai_act auf, mit einer Suchanfrage aus dem Sachverhalt des Nutzers, und erneut gezielt, sobald ein Ergebnis eine dieser Bestimmungen nennt, zu der noch keine passenden Leitlinien-Abschnitte vorliegen; die Leitlinien enthalten Auslegung, Abgrenzungen und Beispiele, die im AI Act selbst fehlen. Kombiniere Fachbegriffe und Umschreibungen in der Suchanfrage; für die Transparenzpflichten nach Art. 50 hilft eine englische Suchanfrage.",
       "parameters": {
         "query": "Die Suchanfrage, z. B. „Ausnutzung der Schutzbedürftigkeit von Kindern durch KI-Spielzeug“."
       }
     },
     "en": {
       "display_name": "Search the guidelines",
-      "description": "Searches the European Commission guidelines on the AI Act and returns the most relevant passages verbatim (with paragraph number and footnotes), without a summary. Available guidelines: prohibited AI practices (Art. 5), definition of an AI system (Art. 3 no. 1), obligations for providers of general-purpose AI models, transparency obligations under Art. 50. The guidelines are not binding, but show the Commission's interpretation. Call this tool for every question on these topics in addition to search_ai_act; the guidelines contain interpretation, delineations and examples that the AI Act itself does not. Combine technical terms and paraphrases in the search query.",
+      "description": "Searches the European Commission guidelines on the AI Act and returns the most relevant passages verbatim (with paragraph number and footnotes), without a summary. Available guidelines: prohibited AI practices (Art. 5), definition of an AI system (Art. 3 no. 1), obligations for providers of general-purpose AI models, transparency obligations under Art. 50. The guidelines are not binding, but show the Commission's interpretation. Call this tool for every question about the content of the AI Act together with search_ai_act in the first step, with a query describing the user's situation, and again in a targeted way as soon as a result names one of these provisions for which no matching guideline passages are available yet; the guidelines contain interpretation, delineations and examples that the AI Act itself does not. Combine technical terms and paraphrases in the search query.",
       "parameters": {
         "query": "The search query, e.g. \"exploitation of children's vulnerabilities by AI toys\"."
+      }
+    }
+  },
+  "check_applicability": {
+    "de": {
+      "display_name": "Geltung prüfen",
+      "description": "Prüft anhand der Geltungstabelle (AI Act in der Fassung der Omnibus-Änderungsverordnung), ob eine Bestimmung des AI Act zu einem Stichtag gilt: Geltungsbeginn, Übergangsfristen für Bestandssysteme, Einzelfristen und Hinweise, jeweils mit Bedingung, Rechtsgrundlage und Anmerkung. Verwende dieses Werkzeug bei Fragen, ob oder ab wann eine Bestimmung gilt, aber erst, wenn die Bestimmung feststeht: aus der Frage des Nutzers oder aus den Quellen eines vorherigen search_ai_act-Aufrufs, nie aus deinem Vorwissen. Nennt der Nutzer keine Bestimmung, rufe zuerst search_ai_act auf und dieses Werkzeug erst im nächsten Schritt. Gib eine Bestimmung pro Aufruf an. Der Tabelleninhalt ist auf Deutsch. Bezieht sich die Frage auf „heute“, rufe zuerst current_date auf und verwende dieses Datum. Bedingungen werden nicht ausgewertet; ordne sie dem Fall des Nutzers zu oder frage nach.",
+      "parameters": {
+        "article": "Artikelnummer aus der Frage des Nutzers oder aus den Quellen von search_ai_act, z. B. „50“ oder „4a“.",
+        "paragraph": "Absatz, z. B. „2“ oder „1a“; weglassen für den ganzen Artikel.",
+        "letter": "Buchstabe (litera), z. B. „ba“; nur zusammen mit einem Absatz.",
+        "date": "Stichtag im ISO-Format JJJJ-MM-TT."
+      }
+    },
+    "en": {
+      "display_name": "Check applicability",
+      "description": "Checks, using the applicability table (AI Act as amended by the Omnibus amending regulation), whether a provision of the AI Act applies on a given date: date of application, transition periods for existing systems, individual deadlines and notes, each with condition, legal basis and remark. Use this tool for questions about whether or from when a provision applies, but only once the provision is established: from the user's question or from the sources of an earlier search_ai_act call, never from your own knowledge. If the user does not name a provision, call search_ai_act first and this tool only in the next step. Give one provision per call. The table content is in German. If the question refers to \"today\", call current_date first and use that date. Conditions are not evaluated; match them to the user's case or ask.",
+      "parameters": {
+        "article": "Article number from the user's question or from the sources of search_ai_act, e.g. \"50\" or \"4a\".",
+        "paragraph": "Paragraph, e.g. \"2\" or \"1a\"; omit for the whole article.",
+        "letter": "Letter (point), e.g. \"ba\"; only together with a paragraph.",
+        "date": "Reference date in ISO format YYYY-MM-DD."
       }
     }
   }

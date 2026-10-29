@@ -101,6 +101,7 @@ services:
       - ./data/combined_en_new.json:/app/data/combined_en_new.json
       - ./data/system_prompts.json:/app/data/system_prompts.json
       - ./data/agent/agent_tools.json:/app/data/agent_tools.json
+      - ./data/agent/ai_act_geltung.json:/app/data/ai_act_geltung.json
       - ./data/agent/agent_prompt_de.md:/app/data/agent_prompt_de.md
       - ./data/agent/agent_prompt_en.md:/app/data/agent_prompt_en.md
       - ./data/agent/agent_max_turns_de.md:/app/data/agent_max_turns_de.md
