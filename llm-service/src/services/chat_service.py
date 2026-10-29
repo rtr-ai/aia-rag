@@ -149,8 +149,8 @@ class ChatService:
             final_log += f"Dataset: {request.dataset}"
             final_log += f"LLM Response: {response}\n\n\n"
             LOGGER.debug(f"[{request_id}] {final_log}")
-            LOGGER_CHAT.info(f"[{request_id}] {request.prompt}\n\n")
-            LOGGER_CHAT.info(f"[{request_id}] {response}\n\n\n")
+            LOGGER_CHAT.info(f"[{request.dataset}] [{request_id}] {request.prompt}\n\n")
+            LOGGER_CHAT.info(f"[{request.dataset}] [{request_id}] {response}\n\n\n")
             LOGGER.debug(
                 f"[{request_id}]    Generating response: Median Power consumption over {final_duration:.2f} seconds:"
             )
