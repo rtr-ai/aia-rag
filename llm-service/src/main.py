@@ -1,10 +1,13 @@
 import asyncio
+import contextlib
 import os
 from fastapi import FastAPI
 from httpx import AsyncClient
 from agent.llm_provider import LLM_BASE_URL, LLM_PROVIDER, create_llm_client
 from agent.agent_prompts import load_agent_prompts
 from agent.registry import ToolRegistry, language_for_dataset
+from agent.run_store import InMemoryRunStore
+from agent.tools.ask_user import AskUserTool
 from agent.tools.check_applicability import (
     CheckApplicabilityTool,
     load_applicability_table,
@@ -154,11 +157,15 @@ async def lifespan(app: FastAPI):
         )
         tool_registry.register(SearchGuidelinesTool(index_service, languages))
         tool_registry.register(CheckApplicabilityTool(load_applicability_table()))
+        tool_registry.register(AskUserTool())
         app.state.tool_registry = tool_registry
         app.state.agent_prompts = agent_prompts
     except Exception as e:
         LOGGER.error(f"Unable to load agent configuration: {e}")
         raise RuntimeError(f"Unable to load agent configuration: {e}")
+
+    run_store = InMemoryRunStore()
+    app.state.run_store = run_store
 
     embedding_client = AsyncClient(base_url=f"http://{ollama_embedding_host}:11434/api")
 
@@ -167,6 +174,7 @@ async def lifespan(app: FastAPI):
     if not LLM_MODELS or LLM_MODELS == [""]:
         raise RuntimeError("At least one LLM model has to be configured")
 
+    cleanup_task = asyncio.create_task(run_store.run_cleanup())
     try:
         LOGGER.debug("Waiting 15 seconds to ensure all services are available...")
         await asyncio.sleep(15)
@@ -184,6 +192,9 @@ async def lifespan(app: FastAPI):
         await create_guideline_indices(index_service)
         yield
     finally:
+        cleanup_task.cancel()
+        with contextlib.suppress(asyncio.CancelledError):
+            await cleanup_task
         await embedding_client.aclose()
 
 

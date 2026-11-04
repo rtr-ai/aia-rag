@@ -2,7 +2,7 @@ import json
 import os
 import secrets
 import time
-from typing import AsyncIterator, Dict, List, Optional
+from typing import AsyncIterator, Dict, List, Optional, Tuple
 
 from agent import llm_calls
 from agent.agent_prompts import AgentPrompts
@@ -21,8 +21,17 @@ from agent.llm_client import (
     TurnResult,
 )
 from agent.llm_provider import CONTEXT_WINDOW, LLM_PROVIDER, TEMPERATURE
-from agent.registry import NestedEvent, ToolContext, ToolRegistry, language_for_dataset
+from agent.registry import (
+    NeedsUserInput,
+    NestedEvent,
+    ToolContext,
+    ToolRegistry,
+    language_for_dataset,
+)
+from agent.run_store import PausedRun, RunStore
+from agent.tools.ask_user import ASK_USER
 from models.agent_events import (
+    AwaitingUser,
     ContentDelta,
     LimitReached,
     Limits,
@@ -57,6 +66,7 @@ class AgentRun:
         llm_client: LlmClient,
         registry: ToolRegistry,
         prompts: Dict[str, AgentPrompts],
+        run_store: RunStore,
         dataset: str,
         prompt: str,
     ):
@@ -65,15 +75,54 @@ class AgentRun:
         self._dataset = dataset
         self._language = language_for_dataset(dataset)
         self._prompts = prompts[self._language]
+        self._run_store = run_store
         self._prompt = prompt
         self._run_id = secrets.token_hex(8)
         self._events = EventStream(self._run_id)
         self._messages: List[Message] = []
         self._call_counts: Dict[str, int] = {}
         self._turns = 0
+        self._turn_offset = 0
+        self._segment_counts: Dict[str, int] = {}
+        self._answer: Optional[str] = None
+        self._paused: Optional[PausedRun] = None
+        self._pending_ask: Optional[Tuple[str, ToolCall, float, NeedsUserInput]] = None
+
+    @classmethod
+    def from_paused(
+        cls,
+        llm_client: LlmClient,
+        registry: ToolRegistry,
+        prompts: Dict[str, AgentPrompts],
+        run_store: RunStore,
+        paused: PausedRun,
+        answer: str,
+    ) -> "AgentRun":
+        run = cls(
+            llm_client=llm_client,
+            registry=registry,
+            prompts=prompts,
+            run_store=run_store,
+            dataset=paused.dataset,
+            prompt=paused.prompt,
+        )
+        run._run_id = paused.run_id
+        run._events = EventStream(paused.run_id, paused.seq, paused.step_count)
+        run._messages = list(paused.messages)
+        run._call_counts = dict(paused.call_counts)
+        run._turns = paused.turns
+        run._turn_offset = paused.turns
+        run._answer = answer
+        run._paused = paused
+        return run
 
     async def run(self) -> AsyncIterator[str]:
-        LOGGER.info(f"[{self._run_id}] Agent run started, dataset <{self._dataset}>")
+        if self._answer is None:
+            LOGGER.info(
+                f"[{self._run_id}] Agent run started, dataset <{self._dataset}>"
+            )
+        else:
+            LOGGER.info(f"[{self._run_id}] Agent run resumed after user input")
         try:
             async for frame in self._run():
                 yield frame
@@ -94,6 +143,16 @@ class AgentRun:
             yield self._finish("error", "")
 
     async def _run(self) -> AsyncIterator[str]:
+        if self._answer is None:
+            async for frame in self._start():
+                yield frame
+        else:
+            async for frame in self._resume():
+                yield frame
+        async for frame in self._loop():
+            yield frame
+
+    async def _start(self) -> AsyncIterator[str]:
         tools = self._registry.specs(self._language)
         yield self._events.emit(
             RunStarted(
@@ -121,9 +180,35 @@ class AgentRun:
             Message(role="system", content=self._prompts.system),
             Message(role="user", content=self._prompt),
         ]
+
+    async def _resume(self) -> AsyncIterator[str]:
+        paused = self._paused
+        answer = self._answer
+        if paused is None or answer is None:
+            raise RuntimeError("Run is not resumable")
+        yield self._events.emit(ToolResult(text=answer), paused.ask_step_id)
+        yield self._events.emit(
+            ToolFinished(duration=time.monotonic() - paused.ask_started),
+            paused.ask_step_id,
+        )
+        self._messages.append(
+            Message(
+                role="tool",
+                content=answer,
+                tool_call_id=paused.ask_tool_call_id,
+                tool_name=paused.ask_tool_name,
+            )
+        )
+
+    async def _loop(self) -> AsyncIterator[str]:
         while True:
             self._turns += 1
-            last_turn = self._turns >= AGENT_MAX_TURNS
+            last_turn = self._turns - self._turn_offset >= AGENT_MAX_TURNS
+            tools = [
+                spec
+                for spec in self._registry.specs(self._language)
+                if spec.name != ASK_USER or self._call_counts.get(ASK_USER, 0) == 0
+            ]
             turn_tools = [] if last_turn else tools
             if last_turn:
                 yield self._events.emit(
@@ -179,10 +264,19 @@ class AgentRun:
                 raise LlmBadResponse("LLM stream ended without a turn result")
 
             tool_calls = result.tool_calls if turn_tools else []
-            call_indexes: List[int] = []
+            counted: List[Tuple[ToolCall, int, int]] = []
             for call in tool_calls:
                 self._call_counts[call.name] = self._call_counts.get(call.name, 0) + 1
-                call_indexes.append(self._call_counts[call.name])
+                self._segment_counts[call.name] = (
+                    self._segment_counts.get(call.name, 0) + 1
+                )
+                counted.append(
+                    (
+                        call,
+                        self._call_counts[call.name],
+                        self._segment_counts[call.name],
+                    )
+                )
                 yield self._events.emit(
                     ToolCallEvent(
                         tool_call_id=call.id,
@@ -226,12 +320,17 @@ class AgentRun:
                     tool_calls=tool_calls,
                 )
             )
-            for call, call_index in zip(tool_calls, call_indexes):
-                async for frame in self._run_tool(call, call_index):
+            for call, call_index, segment_index in self._execution_order(counted):
+                async for frame in self._run_tool(call, call_index, segment_index):
                     yield frame
+            if self._pending_ask is not None:
+                yield self._pause()
+                return
 
         finish_reason = "max_turns" if last_turn else "answer"
         LOGGER_CHAT.info(f"[{self._run_id}] {self._prompt}\n\n")
+        if self._answer is not None:
+            LOGGER_CHAT.info(f"[{self._run_id}] {self._answer}\n\n")
         LOGGER_CHAT.info(f"[{self._run_id}] {result.content}\n\n\n")
         LOGGER.info(
             f"[{self._run_id}] Agent run finished: {finish_reason} "
@@ -239,7 +338,17 @@ class AgentRun:
         )
         yield self._finish(finish_reason, result.content)
 
-    async def _run_tool(self, call: ToolCall, call_index: int) -> AsyncIterator[str]:
+    @staticmethod
+    def _execution_order(
+        counted: List[Tuple[ToolCall, int, int]],
+    ) -> List[Tuple[ToolCall, int, int]]:
+        others = [entry for entry in counted if entry[0].name != ASK_USER]
+        asks = [entry for entry in counted if entry[0].name == ASK_USER]
+        return others + asks[1:] + asks[:1]
+
+    async def _run_tool(
+        self, call: ToolCall, call_index: int, segment_index: int
+    ) -> AsyncIterator[str]:
         step_id = self._events.new_step()
         started = time.monotonic()
         yield self._events.emit(
@@ -253,10 +362,11 @@ class AgentRun:
         )
         max_calls = self._registry.max_calls().get(call.name)
         result: Optional[ToolResult] = None
-        if max_calls is not None and call_index > max_calls:
+        counted_index = call_index if call.name == ASK_USER else segment_index
+        if max_calls is not None and counted_index > max_calls:
             text = (
                 f"Call limit reached: tool '{call.name}' is limited to "
-                f"{max_calls} calls per run. Continue without it."
+                f"{max_calls} calls. Continue without it."
             )
             yield self._events.emit(
                 LimitReached(limit="max_calls_per_tool", tool=call.name, detail=text),
@@ -280,6 +390,9 @@ class AgentRun:
                         result = event
                     elif isinstance(event, NestedEvent):
                         yield self._events.emit(event.payload, event.step_id, step_id)
+                    elif isinstance(event, NeedsUserInput):
+                        self._pending_ask = (step_id, call, started, event)
+                        break
                     else:
                         yield self._events.emit(event, step_id)
             except Exception:
@@ -288,6 +401,8 @@ class AgentRun:
                     text=f"Tool '{call.name}' failed with an internal error.",
                     is_error=True,
                 )
+            if self._pending_ask is not None:
+                return
             if result is None:
                 result = ToolResult(
                     text=f"Tool '{call.name}' returned no result.", is_error=True
@@ -304,6 +419,43 @@ class AgentRun:
                 tool_name=call.name,
             )
         )
+
+    def _pause(self) -> str:
+        if self._pending_ask is None:
+            raise RuntimeError("No pending ask_user call")
+        step_id, call, started, ask = self._pending_ask
+        # the token must exist before awaiting_user can be emitted, so seq is patched
+        # after emit; there is no await in between, so no resume can interleave
+        paused = PausedRun(
+            run_id=self._run_id,
+            dataset=self._dataset,
+            language=self._language,
+            prompt=self._prompt,
+            messages=list(self._messages),
+            turns=self._turns,
+            call_counts=dict(self._call_counts),
+            seq=0,
+            step_count=self._events.step_count,
+            ask_step_id=step_id,
+            ask_tool_call_id=call.id,
+            ask_tool_name=call.name,
+            ask_started=started,
+        )
+        token = self._run_store.save(paused)
+        frame = self._events.emit(
+            AwaitingUser(
+                tool_call_id=call.id,
+                question=ask.question,
+                options=ask.options,
+                resume_token=token,
+            ),
+            step_id,
+        )
+        paused.seq = self._events.seq
+        LOGGER.info(
+            f"[{self._run_id}] Agent run paused for user input in turn {self._turns}"
+        )
+        return frame
 
     def _context_tokens(self, tools: List[ToolSpec]) -> int:
         serialized = json.dumps(

@@ -11,7 +11,8 @@ from agent.agent_prompts import AgentPrompts
 from agent.llm_client import LlmClient
 from agent.loop import AgentRun
 from agent.registry import ToolRegistry, language_for_dataset
-from models.agent_request import AgentRequest
+from agent.run_store import RunStore
+from models.agent_request import AgentRequest, ResumeRequest
 from typing import Dict, Protocol
 
 router = APIRouter()
@@ -47,6 +48,7 @@ class AppState(Protocol):
     llm_client: LlmClient
     tool_registry: ToolRegistry
     agent_prompts: Dict[str, AgentPrompts]
+    run_store: RunStore
 
 
 def get_dataset_config(request: Request) -> DatasetConfiguration:
@@ -127,7 +129,30 @@ async def agent(
         llm_client=state.llm_client,
         registry=state.tool_registry,
         prompts=state.agent_prompts,
+        run_store=state.run_store,
         dataset=dataset,
         prompt=req.prompt,
+    )
+    return StreamingResponse(run.run(), media_type="text/event-stream")
+
+
+@router.post("/agent/resume")
+async def agent_resume(req: ResumeRequest, request: Request):
+    state: AppState = request.app.state
+    paused = state.run_store.take(req.resume_token)
+    if paused is None:
+        LOGGER.info("Resume requested with unknown, expired or used token")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="The question has expired or was already answered.",
+        )
+
+    run = AgentRun.from_paused(
+        llm_client=state.llm_client,
+        registry=state.tool_registry,
+        prompts=state.agent_prompts,
+        run_store=state.run_store,
+        paused=paused,
+        answer=req.answer,
     )
     return StreamingResponse(run.run(), media_type="text/event-stream")

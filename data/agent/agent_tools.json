@@ -68,5 +68,23 @@
         "date": "Reference date in ISO format YYYY-MM-DD."
       }
     }
+  },
+  "ask_user": {
+    "de": {
+      "display_name": "Rückfrage stellen",
+      "description": "Stellt dem Nutzer eine einzige Rückfrage und wartet auf die Antwort; das Ergebnis ist der Antworttext. Dies ist der einzige Weg, dem Nutzer eine Frage zu stellen: Schreibe eine Rückfrage nie in deine Antwort, sondern rufe dieses Werkzeug auf. Verwende dieses Werkzeug nur, wenn eine Tatsache, die der Nutzer nicht genannt hat, zwischen unterschiedlichen Ergebnissen entscheidet und kein Fall eindeutig der typische ist. Recherchiere zuerst das entscheidende Kriterium und frage dann nach Tatsachen in Alltagssprache, nie nach einer rechtlichen Einordnung. Rufe dieses Werkzeug höchstens einmal pro Lauf auf: Nur ein Aufruf wird beantwortet, rufe es also nie ein zweites Mal auf, weder im selben Schritt noch später. Fehlen mehrere Angaben, frage nach der, die das Ergebnis am stärksten ändert, und beantworte den Rest mit ausdrücklich genannten Annahmen.",
+      "parameters": {
+        "question": "Eine Sachfrage in Alltagssprache und in der Sprache des Nutzers zu der Tatsache, die das Ergebnis entscheidet; sie darf die Bedingungen eines einzigen Kriteriums verbinden.",
+        "options": "Optionale kurze Antwortvorschläge, meist zwei, höchstens fünf. Der Nutzer kann auch frei antworten."
+      }
+    },
+    "en": {
+      "display_name": "Ask a clarifying question",
+      "description": "Asks the user one clarifying question and waits for the answer; the result is the answer text. This is the only way to ask the user anything: never write a clarifying question into your answer, call this tool instead. Use this tool only if a fact the user did not state decides between different results and no case is clearly the typical one. Research the deciding criterion first, then ask about facts in plain language, never for a legal classification. Call this tool at most once per run: only one call is answered, so never call it a second time, neither in the same step nor later. If several facts are missing, ask about the one that changes the result most and answer the rest with explicitly stated assumptions.",
+      "parameters": {
+        "question": "One plain-language factual question in the user's language about the fact that decides the result; it may combine the conditions of a single criterion.",
+        "options": "Optional short suggested answers, usually two, at most five. The user may also answer freely."
+      }
+    }
   }
 }
