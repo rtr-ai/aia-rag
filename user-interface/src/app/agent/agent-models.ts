@@ -71,7 +71,7 @@ export interface Entry {
   id: number;
   stepId: string | null;
   kind: "system" | "user" | "llm" | "tool";
-  status: "running" | "done";
+  status: "running" | "done" | "waiting";
   collapsed?: boolean;
   systemText?: string;
   userText?: string;
@@ -85,6 +85,10 @@ export interface Entry {
   argsJson?: string;
   args?: Record<string, unknown> | null;
   callIndex?: number;
+  budgetIndex?: number;
+  question?: string;
+  options?: string[];
+  resumeToken?: string;
   resultText?: string;
   isError?: boolean;
   duration?: number;

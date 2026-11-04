@@ -53,6 +53,8 @@
       <h3>
         @if (running) {
           <div class="loader loader-small-offset"></div>
+        } @else if (waiting) {
+          <i class="bi bi-chat-dots"></i>
         } @else {
           <span>&check;</span>
         }
@@ -355,7 +357,7 @@
                           <div class="loader loader-small-offset msg-loader"></div>
                         }
                         <span class="msg-meta" i18n="@@agentToolMeta">
-                          <code>{{ e.toolName }}()</code> · Aufruf {{ e.callIndex }}/{{ limits?.max_calls_per_tool?.[e.toolName!] }}
+                          <code>{{ e.toolName }}()</code> · Aufruf {{ e.budgetIndex ?? e.callIndex }}/{{ limits?.max_calls_per_tool?.[e.toolName!] }}
                         </span>
                         <i class="bi msg-fold" [ngClass]="e.collapsed ? 'bi-chevron-right' : 'bi-chevron-down'"></i>
                       </div>
@@ -511,6 +513,18 @@
                                 <span class="result-hint" i18n="@@agentToolResultHint">wird unverändert an den Verlauf angehängt</span>
                               </div>
                               <pre class="raw-block result-block">{{ e.resultText }}</pre>
+                            }
+                            <!-- Rückfrage an den Nutzer (ask_user) -->
+                            @if (e.status === "waiting" && e.resumeToken) {
+                              <div class="ask-user-box">
+                                <p class="ask-user-question">{{ e.question }}</p>
+                                <p class="ask-user-note" i18n="@@agentAskUserWaiting">Der Agent wartet auf Ihre Antwort.</p>
+                                @for (opt of e.options ?? []; track $index) {
+                                  <button type="button" class="uk-button uk-button-default uk-button-small ask-user-option" (click)="resume(e, opt)">{{ opt }}</button>
+                                }
+                                <textarea class="uk-textarea ask-user-input" [(ngModel)]="answerText" name="answerText" [maxlength]="maxLength" rows="2" placeholder="Eigene Antwort" i18n-placeholder="@@agentAskUserPlaceholder"></textarea>
+                                <button type="button" class="uk-button uk-button-primary uk-button-small" [disabled]="!answerText.trim()" (click)="resume(e, answerText)" i18n="@@agentAskUserSend">Antwort senden</button>
+                              </div>
                             }
                           </div>
                         </div>

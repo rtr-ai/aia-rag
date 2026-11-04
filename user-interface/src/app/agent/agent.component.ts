@@ -13,6 +13,8 @@ import {
   ToolSpec,
 } from "./agent-models";
 
+class ResumeExpiredError extends Error {}
+
 @Component({
   selector: "app-agent",
   imports: [NgClass, FormsModule],
@@ -25,6 +27,7 @@ export class AgentComponent {
   userPrompt = "";
   submittedPrompt = "";
   maxLength = 500;
+  answerText = "";
 
   running = false;
   done = false;
@@ -40,8 +43,10 @@ export class AgentComponent {
   private nextId = 0;
   private deltaCount = 0;
   private userScrolled = false;
+  private callOffsets: Record<string, number> = {};
   private readonly errorGeneric = $localize`:@@agentErrorGeneric:Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten.`;
   private readonly errorRecoverable = $localize`:@@agentErrorRecoverable:Das Sprachmodell ist derzeit ausgelastet. Bitte versuchen Sie es später erneut.`;
+  private readonly errorResumeExpired = $localize`:@@agentErrorResumeExpired:Die Rückfrage ist abgelaufen oder wurde bereits beantwortet. Bitte stellen Sie Ihre Frage erneut.`;
 
   constructor(
     private zone: NgZone,
@@ -72,8 +77,10 @@ export class AgentComponent {
   }
 
   toolCallCount(tool: string): number {
-    return this.entries.filter((e) => e.kind === "tool" && e.toolName === tool)
-      .length;
+    const count = this.entries.filter(
+      (e) => e.kind === "tool" && e.toolName === tool
+    ).length;
+    return Math.max(0, count - (this.callOffsets[tool] ?? 0));
   }
   formatTokens(n: number | undefined): string {
     return n === undefined ? "" : new Intl.NumberFormat("de-DE").format(n);
@@ -128,6 +135,8 @@ export class AgentComponent {
         return "bi-search";
       case "check_applicability":
         return "bi-calendar-check";
+      case "ask_user":
+        return "bi-chat-dots";
       default:
         return "bi-gear";
     }
@@ -143,11 +152,16 @@ export class AgentComponent {
         return $localize`:@@agentToolArgQuery:Suchbegriff`;
       case "check_applicability":
         return $localize`:@@agentToolArgApplicability:Bestimmung · Stichtag`;
+      case "ask_user":
+        return $localize`:@@agentToolArgQuestion:Rückfrage`;
       default:
         return $localize`:@@agentToolArgDefault:Argument`;
     }
   }
   toolArg(e: Entry): string {
+    if (e.toolName === "ask_user" && e.args) {
+      return String(e.args["question"] ?? "");
+    }
     if (e.args) {
       return Object.values(e.args)
         .filter((v) => v !== null && v !== undefined && v !== "")
@@ -202,6 +216,9 @@ export class AgentComponent {
 
   get roundCount(): number {
     return this.entries.filter((e) => e.kind === "llm").length;
+  }
+  get waiting(): boolean {
+    return this.entries.some((e) => e.status === "waiting");
   }
   get chips(): Entry[] {
     return this.entries.filter((e) => e.kind === "llm" || e.kind === "tool");
@@ -260,6 +277,8 @@ export class AgentComponent {
     this.userScrolled = false;
     this.errorMessage = "";
     this.maxTurnsReached = false;
+    this.answerText = "";
+    this.callOffsets = {};
     this.tools = [];
     this.toolDisplayNames = {};
     this.limits = null;
@@ -274,21 +293,51 @@ export class AgentComponent {
       150
     );
 
+    await this.streamEvents("agent", {
+      prompt: this.userPrompt,
+      language: this.locale === "en" ? "en" : "de",
+    });
+  }
+
+  async resume(entry: Entry, answer: string) {
+    const text = answer.trim();
+    if (this.running || !text || !entry.resumeToken) return;
+    const token = entry.resumeToken;
+    entry.resumeToken = undefined;
+    entry.status = "running";
+    this.answerText = "";
+    this.errorMessage = "";
+    this.running = true;
+    this.callOffsets = {};
+    for (const e of this.entries) {
+      if (e.toolName && e.toolName !== "ask_user") {
+        this.callOffsets[e.toolName] = Math.max(
+          this.callOffsets[e.toolName] ?? 0,
+          e.callIndex ?? 0
+        );
+      }
+    }
+    await this.streamEvents("agent/resume", {
+      resume_token: token,
+      answer: text,
+    });
+  }
+
+  private async streamEvents(path: string, body: object): Promise<void> {
     try {
-      await fetchEventSource(`${environment.LLM_ENDPOINT}/agent`, {
+      await fetchEventSource(`${environment.LLM_ENDPOINT}/${path}`, {
         method: "POST",
         openWhenHidden: true,
         headers: {
           "Content-Type": "application/json",
           Accept: "text/event-stream",
         },
-        body: JSON.stringify({
-          prompt: this.userPrompt,
-          language: this.locale === "en" ? "en" : "de",
-        }),
+        body: JSON.stringify(body),
         onopen: (response: Response): Promise<void> => {
           if (response.ok && response.status === 200) {
             return Promise.resolve();
+          } else if (response.status === 404 && path === "agent/resume") {
+            throw new ResumeExpiredError();
           } else if (
             response.status >= 400 &&
             response.status < 500 &&
@@ -298,7 +347,8 @@ export class AgentComponent {
           }
           throw new Error("Error opening LLM Stream");
         },
-        onerror: () => {
+        onerror: (err) => {
+          if (err instanceof ResumeExpiredError) throw err;
           this.onErrorHappened();
           throw new Error();
         },
@@ -324,9 +374,24 @@ export class AgentComponent {
           });
         },
       });
-    } catch {
-      this.onErrorHappened();
+    } catch (e) {
+      if (e instanceof ResumeExpiredError) {
+        this.zone.run(() => this.onResumeExpired());
+      } else {
+        this.onErrorHappened();
+      }
     }
+  }
+
+  private onResumeExpired() {
+    this.running = false;
+    for (const e of this.entries) {
+      if (e.status === "running") {
+        e.status = "done";
+      }
+    }
+    this.errorMessage = this.errorResumeExpired;
+    this.userPrompt = this.submittedPrompt;
   }
 
   private onErrorHappened() {
@@ -417,6 +482,8 @@ export class AgentComponent {
           toolName: ev.payload.name,
           args: ev.payload.arguments,
           callIndex: ev.payload.call_index,
+          budgetIndex:
+            ev.payload.call_index - (this.callOffsets[ev.payload.name] ?? 0),
           argsJson: tc?.arguments,
         });
         break;
@@ -451,6 +518,19 @@ export class AgentComponent {
         entry.status = "done";
         entry.duration = ev.payload.duration;
         entry.energy = ev.payload.energy;
+        break;
+      }
+      case "awaiting_user": {
+        const entry = this.entryFor(ev.step_id);
+        if (entry) {
+          entry.status = "waiting";
+          entry.question = ev.payload.question;
+          entry.options = ev.payload.options ?? [];
+          entry.resumeToken = ev.payload.resume_token;
+          entry.collapsed = false;
+          this.scrollToEntry(entry.id);
+        }
+        this.running = false;
         break;
       }
       case "limit_reached":

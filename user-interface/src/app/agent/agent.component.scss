@@ -687,3 +687,28 @@ a.msg-title-toggle:hover {
 .rerank-note [uk-icon] {
   vertical-align: middle;
 }
+
+// Rückfrage (ask_user) im Werkzeug-Eintrag
+.ask-user-box {
+  margin-top: 10px;
+  border: 1px dashed #c9d8b8;
+  border-radius: 4px;
+  padding: 10px 12px;
+  background: #fafdf6;
+}
+.ask-user-question {
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.ask-user-note {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0 0 8px;
+}
+.ask-user-option {
+  margin: 0 6px 6px 0;
+}
+.ask-user-input {
+  margin: 8px 0;
+  resize: vertical;
+}
