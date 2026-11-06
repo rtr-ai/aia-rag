@@ -69,6 +69,22 @@
       }
     }
   },
+  "read_source": {
+    "de": {
+      "display_name": "Fundstelle lesen",
+      "description": "Liefert den exakten Wortlaut bestimmter Bestimmungen des AI Act, ohne Zusammenfassung: Artikel, einzelne Absätze eines Artikels, einzelne Begriffsbestimmungen aus Art. 3 (Nr.), Erwägungsgründe, Anhänge und einzelne Anhangspunkte. Verwende dieses Werkzeug, sobald du die genaue Bestimmung kennst, weil der Nutzer sie nennt oder ein früheres Werkzeugergebnis sie ergeben hat und deine Antwort auf ihrem Wortlaut beruht; nimm Nummern nie aus deinem Vorwissen. Pro Aufruf sind bis zu 5 Fundstellen erlaubt. Buchstaben (lit.) und Unterpunkte sind nicht einzeln abrufbar: Fordere den ganzen Absatz bzw. Punkt an, der sie enthält. Sehr lange Einheiten (z. B. Art. 3 ohne sub) liefern nur eine Gliederung; fordere dann gezielt einzelne Absätze oder Punkte an. Eine ungültige Fundstelle liefert eine Fehlermeldung mit den gültigen Werten, die übrigen Fundstellen des Aufrufs werden trotzdem geliefert. Der Text kommt in der Sprache des Nutzers.",
+      "parameters": {
+        "references": "Liste von 1 bis 5 Fundstellen. Jede Fundstelle ist ein Objekt mit den Feldern unit, number und optional sub. unit: „article“ (Artikel), „recital“ (Erwägungsgrund) oder „annex“ (Anhang). number: Nummer als Text, z. B. „5“, „4a“ oder „III“ (Anhang). sub (optional): bei article der Absatz, z. B. „1“ oder „1a“, bei Art. 3 die Nummer der Begriffsbestimmung, z. B. „49“; bei annex der Punkt, z. B. „4“; bei recital weglassen; ohne sub wird die ganze Einheit gelesen. Gib nie einen Buchstaben an. Beispiele: {\"unit\": \"article\", \"number\": \"5\", \"sub\": \"1\"} liest Art. 5 Abs. 1 AI Act; {\"unit\": \"article\", \"number\": \"3\", \"sub\": \"49\"} liest Art. 3 Nr. 49; {\"unit\": \"annex\", \"number\": \"III\"} liest Anhang III; {\"unit\": \"recital\", \"number\": \"12\"} liest Erwägungsgrund 12."
+      }
+    },
+    "en": {
+      "display_name": "Read a provision",
+      "description": "Returns the exact wording of specific provisions of the AI Act, without a summary: articles, individual paragraphs of an article, individual definitions from Art. 3 (points), recitals, annexes and individual annex points. Use this tool as soon as you know the exact provision, because the user names it or an earlier tool result has established it and your answer relies on its wording; never take numbers from your own knowledge. Up to 5 references are allowed per call. Letters (points a, b, …) and sub-items cannot be requested individually: request the whole paragraph or point that contains them. Very long units (e.g. Art. 3 without sub) return only an outline; then request individual paragraphs or points. An invalid reference returns an error message with the valid values, and the other references of the call are still returned. The text is returned in the user's language.",
+      "parameters": {
+        "references": "List of 1 to 5 references. Each reference is an object with the fields unit, number and optionally sub. unit: \"article\", \"recital\" or \"annex\". number: the number as text, e.g. \"5\", \"4a\" or \"III\" (annex). sub (optional): for article the paragraph, e.g. \"1\" or \"1a\", for Art. 3 the number of the definition, e.g. \"49\"; for annex the point, e.g. \"4\"; omit for recital; without sub the whole unit is read. Never give a letter. Examples: {\"unit\": \"article\", \"number\": \"5\", \"sub\": \"1\"} reads Art. 5(1) AI Act; {\"unit\": \"article\", \"number\": \"3\", \"sub\": \"49\"} reads Art. 3(49); {\"unit\": \"annex\", \"number\": \"III\"} reads Annex III; {\"unit\": \"recital\", \"number\": \"12\"} reads Recital 12."
+      }
+    }
+  },
   "ask_user": {
     "de": {
       "display_name": "Rückfrage stellen",

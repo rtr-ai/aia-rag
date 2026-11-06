@@ -13,6 +13,7 @@ from agent.tools.check_applicability import (
     load_applicability_table,
 )
 from agent.tools.current_date import CurrentDateTool
+from agent.tools.read_source import ReadSourceTool
 from agent.tools.search_ai_act import SearchAiActTool
 from agent.tools.search_guidelines import (
     GUIDELINES,
@@ -157,6 +158,7 @@ async def lifespan(app: FastAPI):
         )
         tool_registry.register(SearchGuidelinesTool(index_service, languages))
         tool_registry.register(CheckApplicabilityTool(load_applicability_table()))
+        tool_registry.register(ReadSourceTool(languages))
         tool_registry.register(AskUserTool())
         app.state.tool_registry = tool_registry
         app.state.agent_prompts = agent_prompts

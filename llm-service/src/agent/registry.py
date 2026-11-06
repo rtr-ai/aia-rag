@@ -81,6 +81,26 @@ class Tool(Protocol):
     def invoke(self, args: BaseModel, ctx: ToolContext) -> AsyncIterator[ToolEvent]: ...
 
 
+def _inline_schema(node: Any, defs: Dict[str, Any]) -> Any:
+    if isinstance(node, list):
+        return [_inline_schema(item, defs) for item in node]
+    if not isinstance(node, dict):
+        return node
+    inlined = {
+        key: _inline_schema(value, defs)
+        for key, value in node.items()
+        if key != "$defs"
+        and key != "$ref"
+        and not (key == "title" and isinstance(value, str))
+    }
+    if "$ref" in node:
+        inlined = {
+            **_inline_schema(defs[node["$ref"].removeprefix("#/$defs/")], defs),
+            **inlined,
+        }
+    return inlined
+
+
 def language_for_dataset(dataset_id: str) -> str:
     return dataset_id.rsplit("_", 1)[-1]
 
@@ -132,10 +152,8 @@ class ToolRegistry:
                     f"missing {missing}, unexpected {unexpected}."
                 )
 
-        schema = tool.args_model.model_json_schema()
-        schema.pop("title", None)
-        for property_schema in schema.get("properties", {}).values():
-            property_schema.pop("title", None)
+        raw_schema = tool.args_model.model_json_schema()
+        schema = _inline_schema(raw_schema, raw_schema.get("$defs", {}))
 
         self._tools[tool.name] = tool
         self._specs[tool.name] = {}

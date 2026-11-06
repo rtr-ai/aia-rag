@@ -155,6 +155,8 @@ export class AgentComponent {
         return $localize`:@@agentToolArgApplicability:Bestimmung · Stichtag`;
       case "ask_user":
         return $localize`:@@agentToolArgQuestion:Rückfrage`;
+      case "read_source":
+        return $localize`:@@agentToolArgReferences:Fundstellen`;
       default:
         return $localize`:@@agentToolArgDefault:Argument`;
     }
@@ -162,6 +164,19 @@ export class AgentComponent {
   toolArg(e: Entry): string {
     if (e.toolName === "ask_user" && e.args) {
       return String(e.args["question"] ?? "");
+    }
+    if (e.toolName === "read_source" && e.args) {
+      const refs = Array.isArray(e.args["references"])
+        ? (e.args["references"] as Array<Record<string, unknown>>)
+        : [];
+      return refs
+        .map((r) => {
+          const unit =
+            r["unit"] === "recital" ? "ErwG" : r["unit"] === "annex" ? "Anhang" : "Art";
+          const sub = r["sub"] ? `(${r["sub"]})` : "";
+          return `${unit} ${r["number"]}${sub}`;
+        })
+        .join(" · ");
     }
     if (e.args) {
       return Object.values(e.args)
