@@ -1,8 +1,11 @@
 import asyncio
 import contextlib
 import os
+import time
+from typing import Any, Awaitable, Callable, Tuple, Type
 from fastapi import FastAPI
-from httpx import AsyncClient
+from httpx import AsyncClient, TransportError
+from agent.llm_client import LlmUnavailable
 from agent.llm_provider import LLM_BASE_URL, LLM_PROVIDER, create_llm_client
 from agent.agent_prompts import load_agent_prompts
 from agent.registry import ToolRegistry, language_for_dataset
@@ -35,6 +38,26 @@ LLM_MODELS = os.getenv("LLM_MODELS", "").split(",")
 ROOT_PATH = os.getenv("ROOT_PATH", "")
 DATA_DIR = "/app/data"
 REINDEX_ON_STARTUP = os.getenv("REINDEX_ON_STARTUP", "true").lower() == "true"
+STARTUP_WAIT_TIMEOUT = float(os.getenv("STARTUP_WAIT_TIMEOUT", "120"))
+STARTUP_WAIT_INTERVAL = float(os.getenv("STARTUP_WAIT_INTERVAL", "2"))
+
+
+async def wait_for_service(
+    name: str,
+    call: Callable[[], Awaitable[Any]],
+    retry_on: Tuple[Type[Exception], ...],
+) -> Any:
+    deadline = time.monotonic() + STARTUP_WAIT_TIMEOUT
+    while True:
+        try:
+            return await call()
+        except retry_on as e:
+            if time.monotonic() >= deadline:
+                raise RuntimeError(
+                    f"{name} not reachable after {STARTUP_WAIT_TIMEOUT:.0f}s: {e}"
+                ) from e
+            LOGGER.debug(f"{name} not reachable yet ({e}), retrying...")
+            await asyncio.sleep(STARTUP_WAIT_INTERVAL)
 
 
 async def is_model_available(client: AsyncClient, model_name: str) -> bool:
@@ -178,16 +201,21 @@ async def lifespan(app: FastAPI):
 
     cleanup_task = asyncio.create_task(run_store.run_cleanup())
     try:
-        LOGGER.debug("Waiting 15 seconds to ensure all services are available...")
-        await asyncio.sleep(15)
         LOGGER.debug("Checking embedding models...")
         for model in EMBEDDING_MODELS:
-            if not await is_model_available(embedding_client, model):
+            available = await wait_for_service(
+                "Embedding Ollama",
+                lambda: is_model_available(embedding_client, model),
+                (TransportError,),
+            )
+            if not available:
                 LOGGER.debug(f"Embedding Model {model} not found. Pulling...")
                 await pull_model(embedding_client, model)
                 LOGGER.debug(f"Embedding Model {model} pulled successfully.")
         LOGGER.debug(f"Checking LLM model {llm_client.model}...")
-        await llm_client.ensure_model_available()
+        await wait_for_service(
+            "LLM endpoint", llm_client.ensure_model_available, (LlmUnavailable,)
+        )
         LOGGER.debug("All models are ready.")
 
         await create_vector_stores(index_service, dataset_config)
