@@ -641,9 +641,8 @@
                     }
                   </td>
                   <td class="uk-text-right">
-                    @let duration = e.energy?.duration ?? e.duration;
-                    @if (duration !== undefined) {
-                      {{ formatSeconds(duration) }}&nbsp;Sek.
+                    @if (e.duration !== undefined) {
+                      {{ formatSeconds(e.duration) }}&nbsp;Sek.
                     } @else {
                       –
                     }
@@ -683,8 +682,8 @@
               </td>
               <td class="uk-text-right">
                 <strong>
-                  @if (totalEnergy) {
-                    {{ formatSeconds(totalEnergy.duration) }}&nbsp;Sek.
+                  @if (totalDuration !== null) {
+                    {{ formatSeconds(totalDuration) }}&nbsp;Sek.
                   } @else {
                     –
                   }

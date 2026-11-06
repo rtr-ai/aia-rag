@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional, Protocol, Tuple
 
 from agent.llm_client import Message
+from models.agent_events import Energy
 from utils.logger import get_logger
 
 AGENT_RESUME_TTL = int(os.getenv("AGENT_RESUME_TTL", "900"))
@@ -29,6 +30,8 @@ class PausedRun:
     ask_tool_call_id: str
     ask_tool_name: str
     ask_started: float
+    energy: Optional[Energy]
+    elapsed: float
 
 
 class RunStore(Protocol):

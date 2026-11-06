@@ -6,6 +6,7 @@ from typing import AsyncIterator, Dict, List, Optional, Tuple
 
 from agent import llm_calls
 from agent.agent_prompts import AgentPrompts
+from agent.energy import LLM_ENERGY_MEASURABLE, sum_energy, to_energy
 from agent.event_stream import EventStream
 from agent.llm_client import (
     ContentChunk,
@@ -33,11 +34,14 @@ from agent.tools.ask_user import ASK_USER
 from models.agent_events import (
     AwaitingUser,
     ContentDelta,
+    Energy,
+    GuidelineSources,
     LimitReached,
     Limits,
     LlmFinished,
     LlmRequest,
     QueueStatus,
+    RagSources,
     ReasoningDelta,
     RunError,
     RunFinished,
@@ -50,6 +54,8 @@ from models.agent_events import (
     TurnStarted,
     UserMessage,
 )
+from services.power_meter_service import PowerMeasurement, PowerMeterService
+from services.rag_pipeline import phase_energy, provider_duration
 from services.tokenizer_service import TokenizerService
 from utils.logger import get_logger
 
@@ -87,6 +93,9 @@ class AgentRun:
         self._answer: Optional[str] = None
         self._paused: Optional[PausedRun] = None
         self._pending_ask: Optional[Tuple[str, ToolCall, float, NeedsUserInput]] = None
+        self._energy: Optional[Energy] = None
+        self._elapsed = 0.0
+        self._segment_started = time.monotonic()
 
     @classmethod
     def from_paused(
@@ -114,9 +123,12 @@ class AgentRun:
         run._turn_offset = paused.turns
         run._answer = answer
         run._paused = paused
+        run._energy = paused.energy
+        run._elapsed = paused.elapsed
         return run
 
     async def run(self) -> AsyncIterator[str]:
+        self._segment_started = time.monotonic()
         if self._answer is None:
             LOGGER.info(
                 f"[{self._run_id}] Agent run started, dataset <{self._dataset}>"
@@ -246,11 +258,18 @@ class AgentRun:
             )
 
             result: Optional[TurnResult] = None
+            meter: Optional[PowerMeterService] = None
+            power_samples: List[PowerMeasurement] = []
+            if LLM_ENERGY_MEASURABLE:
+                meter = PowerMeterService()
+                meter.start()
             started = time.monotonic()
             with llm_calls.track():
                 async for delta in self._llm_client.stream_turn(
                     self._messages, turn_tools
                 ):
+                    if meter is not None:
+                        power_samples.append(meter.sample_power())
                     if isinstance(delta, ReasoningChunk):
                         yield self._events.emit(
                             ReasoningDelta(text=delta.text), step_id
@@ -262,6 +281,8 @@ class AgentRun:
             duration = time.monotonic() - started
             if result is None:
                 raise LlmBadResponse("LLM stream ended without a turn result")
+            energy = self._llm_energy(meter, power_samples, result)
+            self._energy = sum_energy([self._energy, energy])
 
             tool_calls = result.tool_calls if turn_tools else []
             counted: List[Tuple[ToolCall, int, int]] = []
@@ -300,6 +321,7 @@ class AgentRun:
                         if result.time_to_first_token is not None
                         else None
                     ),
+                    energy=energy,
                 ),
                 step_id,
             )
@@ -362,6 +384,7 @@ class AgentRun:
         )
         max_calls = self._registry.max_calls().get(call.name)
         result: Optional[ToolResult] = None
+        energy_parts: List[Optional[Energy]] = []
         counted_index = call_index if call.name == ASK_USER else segment_index
         if max_calls is not None and counted_index > max_calls:
             text = (
@@ -374,6 +397,12 @@ class AgentRun:
             )
             result = ToolResult(text=text, is_error=True)
         else:
+            meter: Optional[PowerMeterService] = None
+            if call.name != ASK_USER and not self._registry.measures_energy(
+                call.name
+            ):
+                meter = PowerMeterService()
+                meter.start()
             ctx = ToolContext(
                 run_id=self._run_id,
                 step_id=step_id,
@@ -389,11 +418,15 @@ class AgentRun:
                     if isinstance(event, ToolResult):
                         result = event
                     elif isinstance(event, NestedEvent):
+                        if isinstance(event.payload, LlmFinished):
+                            energy_parts.append(event.payload.energy)
                         yield self._events.emit(event.payload, event.step_id, step_id)
                     elif isinstance(event, NeedsUserInput):
                         self._pending_ask = (step_id, call, started, event)
                         break
                     else:
+                        if isinstance(event, (RagSources, GuidelineSources)):
+                            energy_parts.append(event.energy)
                         yield self._events.emit(event, step_id)
             except Exception:
                 LOGGER.exception(f"[{self._run_id}] Tool <{call.name}> failed")
@@ -401,15 +434,26 @@ class AgentRun:
                     text=f"Tool '{call.name}' failed with an internal error.",
                     is_error=True,
                 )
+            if meter is not None:
+                measurement = meter.stop()
+                energy_parts.append(
+                    to_energy(
+                        phase_energy(measurement, measurement.duration_seconds),
+                        "wall_clock",
+                        meter.contended,
+                    )
+                )
             if self._pending_ask is not None:
                 return
             if result is None:
                 result = ToolResult(
                     text=f"Tool '{call.name}' returned no result.", is_error=True
                 )
+        energy = sum_energy(energy_parts)
+        self._energy = sum_energy([self._energy, energy])
         yield self._events.emit(result, step_id)
         yield self._events.emit(
-            ToolFinished(duration=time.monotonic() - started), step_id
+            ToolFinished(duration=time.monotonic() - started, energy=energy), step_id
         )
         self._messages.append(
             Message(
@@ -440,6 +484,8 @@ class AgentRun:
             ask_tool_call_id=call.id,
             ask_tool_name=call.name,
             ask_started=started,
+            energy=self._energy,
+            elapsed=self._run_duration(),
         )
         token = self._run_store.save(paused)
         frame = self._events.emit(
@@ -472,7 +518,32 @@ class AgentRun:
                 answer=answer,
                 turns=self._turns,
                 tool_calls=self._call_counts,
+                duration=self._run_duration(),
+                energy=self._energy,
             )
+        )
+
+    def _run_duration(self) -> float:
+        # excludes the time a paused run waits for the user's answer
+        return self._elapsed + time.monotonic() - self._segment_started
+
+    @staticmethod
+    def _llm_energy(
+        meter: Optional[PowerMeterService],
+        power_samples: List[PowerMeasurement],
+        result: TurnResult,
+    ) -> Optional[Energy]:
+        if meter is None:
+            return None
+        measurement = meter.stop()
+        timed = provider_duration(result.timings)
+        return to_energy(
+            phase_energy(
+                meter.get_median_power(power_samples),
+                timed or measurement.duration_seconds,
+            ),
+            "provider" if timed else "wall_clock",
+            meter.contended,
         )
 
     @staticmethod

@@ -2,6 +2,7 @@ import os
 from typing import AsyncIterator, Dict, List, Optional, Tuple
 
 from agent import llm_calls
+from agent.energy import LLM_ENERGY_MEASURABLE, to_energy
 from agent.llm_client import ContentChunk, ReasoningChunk
 from agent.registry import NestedEvent, ToolContext, ToolEvent
 from models.agent_events import (
@@ -125,6 +126,7 @@ class SearchAiActTool:
     name = "search_ai_act"
     args_model = SearchAiActArgs
     max_calls = AGENT_SEARCH_AI_ACT_MAX_CALLS
+    measures_energy = True
 
     def __init__(self, pipeline: RagPipeline, system_prompts: Dict[str, str]):
         self._pipeline = pipeline
@@ -154,7 +156,13 @@ class SearchAiActTool:
         ):
             if isinstance(event, SourcesRetrieved):
                 retrieved = event.sources
-                yield RagSources(sources=event.sources, duration=event.energy.duration)
+                yield RagSources(
+                    sources=event.sources,
+                    duration=event.energy.duration,
+                    energy=to_energy(
+                        event.energy, event.timing_source, event.contended
+                    ),
+                )
 
                 used = used_sources(retrieved)
                 used_tokens = sum(source.num_tokens for source in used)
@@ -243,6 +251,13 @@ class SearchAiActTool:
                         generation_duration=(
                             duration - result.time_to_first_token
                             if result.time_to_first_token is not None
+                            else None
+                        ),
+                        energy=(
+                            to_energy(
+                                event.energy, event.timing_source, event.contended
+                            )
+                            if LLM_ENERGY_MEASURABLE
                             else None
                         ),
                     ),

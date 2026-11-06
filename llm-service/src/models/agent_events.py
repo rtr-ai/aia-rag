@@ -219,6 +219,7 @@ class RunFinished(BaseModel):
     answer: str
     turns: int
     tool_calls: Dict[str, int]
+    duration: float
     energy: Optional[Energy] = None
 
 

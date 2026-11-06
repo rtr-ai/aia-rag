@@ -45,6 +45,7 @@ class CurrentDateTool:
     name = "current_date"
     args_model = CurrentDateArgs
     max_calls = AGENT_MAX_CALLS_PER_TOOL
+    measures_energy = False
 
     async def invoke(
         self, args: CurrentDateArgs, ctx: ToolContext

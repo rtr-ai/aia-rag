@@ -13,6 +13,7 @@ from typing import (
     get_args,
 )
 
+from agent.energy import to_energy
 from agent.registry import AGENT_MAX_CALLS_PER_TOOL, ToolContext, ToolEvent
 from models.agent_events import (
     GuidelineSource,
@@ -24,6 +25,8 @@ from pydantic import BaseModel, ConfigDict, Field
 from services.dataset_configuration import ConfigError
 from services.embedding_service import DEFAULT_MODEL
 from services.index_service import IndexService
+from services.power_meter_service import PowerMeterService
+from services.rag_pipeline import phase_energy
 from services.tokenizer_service import TokenizerService
 from utils.logger import get_logger
 
@@ -517,6 +520,7 @@ class SearchGuidelinesTool:
     name = "search_guidelines"
     args_model = SearchGuidelinesArgs
     max_calls = AGENT_MAX_CALLS_PER_TOOL
+    measures_energy = True
 
     def __init__(self, index_service: IndexService, languages: List[str]):
         self._index_service = index_service
@@ -622,9 +626,17 @@ class SearchGuidelinesTool:
             label=texts["substep_embedding"][0],
             detail=texts["substep_embedding"][1].format(embedding_model=DEFAULT_MODEL),
         )
+        meter = PowerMeterService()
+        meter.start()
         query_ranking = await self._rank(args.query, candidates, language, ctx.run_id)
         prompt_ranking = await self._rank(
             ctx.user_prompt, candidates, language, ctx.run_id
+        )
+        measurement = meter.stop()
+        energy = to_energy(
+            phase_energy(measurement, measurement.duration_seconds),
+            "wall_clock",
+            meter.contended,
         )
 
         yield ToolSubstep(
@@ -707,6 +719,7 @@ class SearchGuidelinesTool:
         yield GuidelineSources(
             sources=sources,
             duration=query_ranking.duration + prompt_ranking.duration,
+            energy=energy,
         )
 
         if passages:

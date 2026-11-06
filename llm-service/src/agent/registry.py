@@ -76,6 +76,7 @@ class Tool(Protocol):
     name: str
     args_model: Type[BaseModel]
     max_calls: int
+    measures_energy: bool
 
     def invoke(self, args: BaseModel, ctx: ToolContext) -> AsyncIterator[ToolEvent]: ...
 
@@ -163,6 +164,10 @@ class ToolRegistry:
 
     def max_calls(self) -> Dict[str, int]:
         return {name: tool.max_calls for name, tool in self._tools.items()}
+
+    def measures_energy(self, name: str) -> bool:
+        tool = self._tools.get(name)
+        return tool is not None and tool.measures_energy
 
     async def invoke(
         self,

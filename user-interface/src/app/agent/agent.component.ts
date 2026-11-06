@@ -39,6 +39,7 @@ export class AgentComponent {
   toolDisplayNames: Record<string, string> = {};
   limits: Limits | null = null;
   totalEnergy: EnergyData | null = null;
+  totalDuration: number | null = null;
 
   private nextId = 0;
   private deltaCount = 0;
@@ -283,6 +284,7 @@ export class AgentComponent {
     this.toolDisplayNames = {};
     this.limits = null;
     this.totalEnergy = null;
+    this.totalDuration = null;
     this.submittedPrompt = this.userPrompt;
 
     setTimeout(
@@ -550,6 +552,7 @@ export class AgentComponent {
           }
         }
         this.totalEnergy = ev.payload.energy;
+        this.totalDuration = ev.payload.duration;
         this.running = false;
         this.done = true;
         break;

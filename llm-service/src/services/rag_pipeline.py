@@ -1,5 +1,5 @@
 import time
-from typing import AsyncIterator, List, Optional, Union
+from typing import AsyncIterator, List, Literal, Optional, Union
 
 from pydantic import BaseModel
 
@@ -10,6 +10,7 @@ from agent.llm_client import (
     LlmClient,
     Message,
     ReasoningChunk,
+    Timings,
     TurnResult,
 )
 from models.sources import Source
@@ -19,6 +20,9 @@ from utils.logger import get_logger
 from utils.prompt_utils import render_prompt
 
 LOGGER = get_logger(__name__)
+
+
+TimingSource = Literal["provider", "wall_clock"]
 
 
 class PhaseEnergy(BaseModel):
@@ -32,6 +36,8 @@ class PhaseEnergy(BaseModel):
 class SourcesRetrieved(BaseModel):
     sources: List[Source]
     energy: PhaseEnergy
+    timing_source: TimingSource
+    contended: bool
 
 
 class PromptBuilt(BaseModel):
@@ -42,6 +48,8 @@ class GenerationFinished(BaseModel):
     result: TurnResult
     duration: float
     energy: PhaseEnergy
+    timing_source: TimingSource
+    contended: bool
 
 
 RagEvent = Union[
@@ -49,7 +57,7 @@ RagEvent = Union[
 ]
 
 
-def _phase_energy(measurement: PowerMeasurement, duration: float) -> PhaseEnergy:
+def phase_energy(measurement: PowerMeasurement, duration: float) -> PhaseEnergy:
     return PhaseEnergy(
         cpu_kWh=(measurement.cpu_watts * duration / 3600 / 1000),
         gpu_kWh=(measurement.gpu_watts * duration / 3600 / 1000),
@@ -57,6 +65,16 @@ def _phase_energy(measurement: PowerMeasurement, duration: float) -> PhaseEnergy
         total_kWh=(measurement.total_watts * duration / 3600 / 1000),
         duration=duration,
     )
+
+
+def provider_duration(timings: Timings) -> float:
+    durations = [
+        timings.load_duration,
+        timings.prompt_eval_duration,
+        timings.eval_duration,
+    ]
+    known = [d for d in durations if d is not None]
+    return sum(known) if len(known) == len(durations) else 0.0
 
 
 class RagPipeline:
@@ -87,7 +105,9 @@ class RagPipeline:
         final_duration = duration if duration else measurement.duration_seconds
         yield SourcesRetrieved(
             sources=chunks,
-            energy=_phase_energy(measurement, final_duration),
+            energy=phase_energy(measurement, final_duration),
+            timing_source="provider" if duration else "wall_clock",
+            contended=meter.contended,
         )
 
         prompt = render_prompt(prompt_template, chunks, query)
@@ -115,18 +135,13 @@ class RagPipeline:
             raise LlmBadResponse("LLM stream ended without a turn result")
 
         measurement = meter.stop()
-        timings = turn_result.timings
-        provider_durations = [
-            timings.load_duration,
-            timings.prompt_eval_duration,
-            timings.eval_duration,
-        ]
-        known = [d for d in provider_durations if d is not None]
-        provider_duration = sum(known) if len(known) == len(provider_durations) else 0.0
-        final_duration = provider_duration or measurement.duration_seconds
+        timed = provider_duration(turn_result.timings)
+        final_duration = timed or measurement.duration_seconds
         median_measurement = meter.get_median_power(power_samples)
         yield GenerationFinished(
             result=turn_result,
             duration=wall_duration,
-            energy=_phase_energy(median_measurement, final_duration),
+            energy=phase_energy(median_measurement, final_duration),
+            timing_source="provider" if timed else "wall_clock",
+            contended=meter.contended,
         )

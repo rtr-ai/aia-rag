@@ -273,6 +273,7 @@ class CheckApplicabilityTool:
     name = "check_applicability"
     args_model = CheckApplicabilityArgs
     max_calls = AGENT_MAX_CALLS_PER_TOOL
+    measures_energy = False
 
     def __init__(self, table: ApplicabilityTable):
         self._table = table

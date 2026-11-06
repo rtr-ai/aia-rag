@@ -37,6 +37,7 @@ class AskUserTool:
     name = ASK_USER
     args_model = AskUserArgs
     max_calls = 1
+    measures_energy = False
 
     async def invoke(
         self, args: AskUserArgs, ctx: ToolContext

@@ -2,6 +2,7 @@ import json
 import os
 import statistics
 import time
+import weakref
 import psutil
 import pynvml as nvml
 from dataclasses import dataclass
@@ -25,6 +26,9 @@ class PowerMeasurement:
 
 STORAGE_PATH = os.path.join(path_utils.get_project_root(), "data", "power")
 
+# weak, so a meter abandoned by an exception between start() and stop() drops out
+_ACTIVE_METERS: "weakref.WeakSet[PowerMeterService]" = weakref.WeakSet()
+
 
 class PowerMeterService:
     def __init__(self):
@@ -45,6 +49,7 @@ class PowerMeterService:
         self._start_cpu_energy = None
         self._start_gpu_energy = None
         self._start_ram_usage = None
+        self.contended = False
 
         # RAM power constants (based on DDR4 average consumption)
         self.RAM_POWER_FACTOR = 0.375  # Watts per GB
@@ -166,6 +171,12 @@ class PowerMeterService:
         if self._start_time is not None:
             raise RuntimeError("Measurement already in progress")
 
+        # host-level counters cannot attribute power to overlapping measurements
+        self.contended = len(_ACTIVE_METERS) > 0
+        for other in _ACTIVE_METERS:
+            other.contended = True
+        _ACTIVE_METERS.add(self)
+
         self._start_time = time.time()
         self._start_cpu_energy = self._get_cpu_energy()
         self._start_gpu_energy = self._get_gpu_energy()
@@ -175,6 +186,7 @@ class PowerMeterService:
         """Stop measurement and return power consumption"""
         if self._start_time is None:
             raise RuntimeError("No measurement in progress")
+        _ACTIVE_METERS.discard(self)
 
         end_time = time.time()
         duration = end_time - self._start_time
