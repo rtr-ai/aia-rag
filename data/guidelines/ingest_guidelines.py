@@ -25,6 +25,9 @@ ANNEX_TOP_RE = re.compile(r"^\s*(Anhang|Annex):\s+(\S.*)$")
 LETTER_HEAD_RE = re.compile(r"^\s*([a-z])\)\s+(\S.*)$")
 PAREN_PARA_RE = re.compile(r"^\s*\((\d{1,4})\)(?:\s+(.*))?$")
 DOT_PARA_RE = re.compile(r"^(\d{1,4})\.(?:\s+(.*))?$")
+# indented markers, text may be glued to the dot ("100.In ..."), never "2.1."
+INDENTED_DOT_PARA_RE = re.compile(r"^\s*(\d{1,4})\.(?:(?:\s+|(?=[^\d\s.]))(.*))?$")
+PARA_RES = {"paren": PAREN_PARA_RE, "dot": DOT_PARA_RE, "indented_dot": INDENTED_DOT_PARA_RE}
 BARE_FOOT_RE = re.compile(r"^\s{0,5}(\d{1,4})\s{0,5}$")
 PAREN_FOOT_RE = re.compile(r"^\((\d{1,4})\)\s+(.*)$")
 TOC_LEADER_RE = re.compile(r"\.{5,}")
@@ -45,7 +48,7 @@ class DocCfg:
         display: Dict[str, str],
         label: Dict[str, str],
         para_style,
-        foot_style: str,
+        foot_style,
         file_stems: Dict[str, str],
         letter_headings: bool = False,
         roman_headings: bool = False,
@@ -67,6 +70,10 @@ class DocCfg:
         if isinstance(kind, dict):
             return kind[lang]
         return kind(lang) if callable(kind) else kind
+
+    def foot_kind(self, lang: str) -> str:
+        kind = self.foot_style
+        return kind[lang] if isinstance(kind, dict) else kind
 
 
 DOCS = [
@@ -111,12 +118,13 @@ DOCS = [
     ),
     DocCfg(
         "transparency_art50",
-        {"en": "Guidelines on Art 50 transparency"},
-        {"en": "para"},
-        "paren",
-        "paren",
+        {"en": "Guidelines on Art 50 transparency", "de": "LL Art 50"},
+        {"en": "para", "de": "Rz"},
+        {"en": "paren", "de": "indented_dot"},
+        {"en": "paren", "de": "bare"},
         {
-            "en": "Guidelines_on_the_implementation_of_the_transparency_obligations",
+            "en": "Article_50_AI_Act__EN_",
+            "de": "Article_50_AI_Act__DE_",
         },
     ),
 ]
@@ -347,6 +355,7 @@ def assemble(blocks: List[List[str]]) -> str:
 GLUED_FOOT_RE = re.compile(
     r"(?:(?<=[^\W\d_])|(?<=[^\w\s(]))\d{1,4}(?!\d)"
     r"|(?<=\d{4})\d{1,3}(?![\w\d./])"
+    r"|(?<=\d{3})\d{2}(?=\))"
     r"|(?<=[^\w\s(] )\d{1,4}(?![\w\d)])"
     r"|(?<=\w )\d{1,4}(?!\.?\d)"
 )
@@ -355,7 +364,7 @@ PAREN_MARK_RE = re.compile(r"(?<=\s)\((\d{1,4})\)")
 
 CITATION_PREFIX_RE = re.compile(
     r"(recital|erwägungsgrund|article|artikel|nummer|absatz|annex|anhang|abschnitt"
-    r"|section|paragraph|abl\.|[sb]\.\s)$",
+    r"|section|paragraph|abl\.|[sb]\.\s|\d,? (?:und|oder|bis)|\),? (?:and|or))$",
     re.IGNORECASE,
 )
 RESIDUAL_MARKER_RE = re.compile(r"([a-zäöüß’)])(\d{1,3})\b")
@@ -366,6 +375,7 @@ class Ingestor:
         self.cfg = cfg
         self.lang = lang
         self.para_kind = cfg.para_kind(lang)
+        self.foot_kind = cfg.foot_kind(lang)
         self.pages = run_pdftotext(pdf_path).split("\f")
         self.expected_para = 1
         self.next_foot = 1
@@ -403,7 +413,7 @@ class Ingestor:
         for p in range(first_body, len(self.pages)):
             lines = page_lines(self.pages[p])
             for i, line in enumerate(lines):
-                regex = PAREN_PARA_RE if self.para_kind == "paren" else DOT_PARA_RE
+                regex = PARA_RES[self.para_kind]
                 m = regex.match(line)
                 if m and int(m.group(1)) == 1:
                     start = self.backtrack(lines, i)
@@ -439,7 +449,7 @@ class Ingestor:
             lines = page_lines(self.pages[p])
             lines = strip_page_bottom(lines)
             lines = [ln for ln in lines if ln.strip() not in ("EN", "DE")]
-            units, cut = extract_footnotes(lines, self.cfg.foot_style, self.next_foot)
+            units, cut = extract_footnotes(lines, self.foot_kind, self.next_foot)
             body = lines if units is None else lines[:cut]
             if units is not None:
                 for num, text in units:
@@ -537,7 +547,7 @@ class Ingestor:
         self.feed(line)
 
     def para_scan_heading(self, line: str) -> bool:
-        regex = PAREN_PARA_RE if self.para_kind == "paren" else DOT_PARA_RE
+        regex = PARA_RES[self.para_kind]
         m = regex.match(line)
         if m is None:
             return False
@@ -558,7 +568,8 @@ class Ingestor:
                 m_num.group(1).rstrip("."), m_num.group(2), line
             )
             return True
-        if num > self.expected_para:
+        if num > self.expected_para and self.para_kind != "indented_dot":
+            # indented markers collide with wrapped lines like "13. Juni 2024"
             self.anomalies.append(
                 f"unexpected paragraph marker {num}: {line.strip()[:80]}"
             )
@@ -746,12 +757,12 @@ class Ingestor:
     ) -> str:
         if not content.strip():
             return ""
-        regex = PAREN_MARK_RE if self.cfg.foot_style == "paren" else GLUED_FOOT_RE
+        regex = PAREN_MARK_RE if self.foot_kind == "paren" else GLUED_FOOT_RE
         out: List[str] = []
         pos = 0
         prefix_gap = 16
         for m in regex.finditer(content):
-            num = int(m.group(0) if self.cfg.foot_style != "paren" else m.group(1))
+            num = int(m.group(0) if self.foot_kind != "paren" else m.group(1))
             if num != self.strip_counter:
                 continue
             foot_page = self.footnote_pages.get(num)

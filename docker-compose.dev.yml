@@ -66,6 +66,11 @@ services:
       - ./data/guidelines/gpai_obligations_de.json:/app/data/gpai_obligations_de.json
       - ./data/guidelines/gpai_obligations_en.json:/app/data/gpai_obligations_en.json
       - ./data/guidelines/transparency_art50_en.json:/app/data/transparency_art50_en.json
+      - ./data/guidelines/transparency_art50_de.json:/app/data/transparency_art50_de.json
+      - ./data/guidelines/cop_gpai_safety_security_en.json:/app/data/cop_gpai_safety_security_en.json
+      - ./data/guidelines/cop_gpai_transparency_en.json:/app/data/cop_gpai_transparency_en.json
+      - ./data/guidelines/cop_gpai_copyright_en.json:/app/data/cop_gpai_copyright_en.json
+      - ./data/guidelines/cop_ai_generated_content_en.json:/app/data/cop_ai_generated_content_en.json
       - ./data/ai_act_structure/ai_act_structured_de.json:/app/data/ai_act_structured_de.json
       - ./data/ai_act_structure/ai_act_structured_en.json:/app/data/ai_act_structured_en.json
       - /sys/class/powercap:/sys/class/powercap:ro

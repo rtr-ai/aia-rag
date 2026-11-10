@@ -39,13 +39,21 @@ DEFAULT_GUIDELINES: Dict[str, List[str]] = {
         "prohibited_practices_de.json",
         "ai_system_definition_de.json",
         "gpai_obligations_de.json",
-        "transparency_art50_en.json",
+        "transparency_art50_de.json",
+        "cop_gpai_safety_security_en.json",
+        "cop_gpai_transparency_en.json",
+        "cop_gpai_copyright_en.json",
+        "cop_ai_generated_content_en.json",
     ],
     "en": [
         "prohibited_practices_en.json",
         "ai_system_definition_en.json",
         "gpai_obligations_en.json",
         "transparency_art50_en.json",
+        "cop_gpai_safety_security_en.json",
+        "cop_gpai_transparency_en.json",
+        "cop_gpai_copyright_en.json",
+        "cop_ai_generated_content_en.json",
     ],
 }
 
@@ -72,6 +80,10 @@ DocumentId = Literal[
     "ai_system_definition",
     "gpai_obligations",
     "transparency_art50",
+    "cop_gpai_safety_security",
+    "cop_gpai_transparency",
+    "cop_gpai_copyright",
+    "cop_ai_generated_content",
 ]
 DOCUMENT_IDS = get_args(DocumentId)
 
@@ -336,7 +348,7 @@ STOPWORDS = frozenset(
 
 TEXTS = {
     "de": {
-        "header": "Auszüge aus den Leitlinien der Europäischen Kommission (nicht verbindlich):",
+        "header": "Auszüge aus den Leitlinien der Europäischen Kommission und den Verhaltenskodizes für KI-Modelle mit allgemeinem Verwendungszweck und für die Transparenz KI-generierter Inhalte (nicht verbindlich):",
         "no_matches": "Keine passenden Abschnitte in den Leitlinien gefunden.",
         "footnotes": "Fußnoten:",
         "substep_embedding": (
@@ -361,7 +373,7 @@ TEXTS = {
         ),
     },
     "en": {
-        "header": "Excerpts from the European Commission guidelines (non-binding):",
+        "header": "Excerpts from the European Commission guidelines, the General-Purpose AI Code of Practice and the Code of Practice on Transparency of AI-generated content (non-binding):",
         "no_matches": "No matching passages found in the guidelines.",
         "footnotes": "Footnotes:",
         "substep_embedding": (
